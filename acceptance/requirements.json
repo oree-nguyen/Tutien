@@ -1,0 +1,60 @@
+{
+  "goal": "GDD-V2.5-complete",
+  "required": [
+    {
+      "id": "rules",
+      "kind": "automated",
+      "command": "npm test"
+    },
+    {
+      "id": "browser",
+      "kind": "automated",
+      "command": "npm run test:ui"
+    },
+    {
+      "id": "artifacts",
+      "kind": "automated",
+      "command": "npm run test:artifacts"
+    },
+    {
+      "id": "server",
+      "kind": "automated",
+      "command": "npm run test:server"
+    },
+    {
+      "id": "online-browser",
+      "kind": "automated",
+      "command": "npm run test:online-ui"
+    },
+    {
+      "id": "server-performance",
+      "kind": "external",
+      "evidence": "acceptance/evidence/server-performance.json"
+    },
+    {
+      "id": "timeline",
+      "kind": "external",
+      "evidence": "acceptance/evidence/timeline.json"
+    },
+    {
+      "id": "apk",
+      "kind": "artifact",
+      "path": "release/Hon-Gioi-Sinh-Ton-debug.apk"
+    },
+    {
+      "id": "android-functional",
+      "kind": "external",
+      "evidence": "acceptance/evidence/android-functional.json"
+    },
+    {
+      "id": "android-performance",
+      "kind": "external",
+      "evidence": "acceptance/evidence/android-performance.json"
+    },
+    {
+      "id": "gdd-audit",
+      "kind": "external",
+      "evidence": "acceptance/evidence/gdd-audit.json"
+    }
+  ]
+}

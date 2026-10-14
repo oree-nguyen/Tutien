@@ -1,0 +1,44 @@
+{
+  "name": "hon-gioi-sinh-ton",
+  "version": "2.5.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0",
+    "build": "vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
+    "preview": "vite preview --host 0.0.0.0",
+    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js",
+    "android:add": "cap add android && node scripts/configure-android.mjs",
+    "android:sync": "npm run build && cap sync android && node scripts/configure-android.mjs",
+    "test:ui": "node tests/browser.mjs",
+    "test:artifacts": "node tests/artifacts.mjs",
+    "services": "node scripts/services.mjs",
+    "server": "node server/index.js",
+    "test:server": "node --test --test-concurrency=1 tests/server.test.js",
+    "test:online-ui": "node tests/online-browser.mjs",
+    "test:load": "node tests/load.mjs",
+    "goal": "node scripts/verify-goal.mjs",
+    "verify:reuse": "node scripts/verify-goal.mjs",
+    "verify:automated": "node scripts/verify-automated.mjs",
+    "android:apk": "node scripts/build-android.mjs",
+    "android:setup": "python3 scripts/setup-android.py",
+    "android:validate": "node scripts/android-evidence.mjs",
+    "test:timeline": "node tests/timeline.mjs",
+    "services:backup": "node scripts/backup-services.mjs"
+  },
+  "dependencies": {
+    "@capacitor/android": "7.6.9",
+    "@capacitor/core": "7.6.9",
+    "pg": "8.16.3",
+    "redis": "5.9.0",
+    "three": "0.160.1",
+    "ws": "8.22.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "7.6.9",
+    "@playwright/test": "1.56.1",
+    "esbuild": "0.25.12",
+    "prettier": "3.6.2",
+    "vite": "6.4.1"
+  }
+}
