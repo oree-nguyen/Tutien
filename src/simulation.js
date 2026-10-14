@@ -11,6 +11,7 @@ import {
   MAP_BUSHES,
   segmentTouchesCircle,
 } from "./systems.js";
+import { projectSkillCast } from "./skill-projection.js";
 const rnd = (a, b) => a + Math.random() * (b - a),
   pick = (a) => a[Math.floor(Math.random() * a.length)];
 export class Match {
@@ -761,6 +762,12 @@ export class Match {
       return false;
     if (k === 4) {
       if (a.groundedUntil > this.time) return false;
+      a.dir = projectSkillCast(
+        this,
+        a,
+        { range: 2.8, headingOnly: true },
+        aim,
+      ).direction;
       a.cooldowns[4] = 8 - (a.items.includes(14) ? 0.5 : 0);
       a.immuneUntil = this.time + 0.25;
       a.dodgeReady = this.time + 0.25;
@@ -784,21 +791,11 @@ export class Match {
     a.cooldowns[k] = sk.cd;
     a.empoweredUntil = this.time + 5;
     const castOrigin = { x: a.x, z: a.z };
-    const target = this.nearest(a, Math.max(sk.range, sk.radius) + 1);
-    const dir =
-      aim ??
-      (target
-        ? {
-            x: (target.x - a.x) / R.distance(a, target),
-            z: (target.z - a.z) / R.distance(a, target),
-          }
-        : a.dir);
+    const projection = projectSkillCast(this, a, sk, aim);
+    const target = projection.target;
+    const dir = projection.direction;
     a.dir = dir;
-    const d = target
-      ? Math.min(sk.range, R.distance(a, target))
-      : sk.range * 0.65;
-    let point = { x: a.x + dir.x * d, z: a.z + dir.z * d };
-    if (sk.range === 0) point = { x: a.x, z: a.z };
+    let point = projection.point;
     if (h === 3 && k === 2 && b === 1) {
       a.cooldowns[0] = Math.max(0, a.cooldowns[0] - 2);
       this.buff(a, { speed: s.speed * 0.15 }, 2);
@@ -1592,9 +1589,19 @@ export class Match {
     a.essence += ess;
     a.level = Math.min(10, 1 + Math.floor(a.essence / 100));
   }
-  pickup(a = this.player) {
+  pickupSelected(uid, a = this.player) {
+    if (typeof uid !== "string" || !uid.length) return false;
+    return this.pickup(a, [uid]);
+  }
+  pickup(a = this.player, selectedUIDs = null) {
+    const selected = selectedUIDs === null ? null : new Set(selectedUIDs);
     let d = this.drops
-      .filter((d) => realmOf(d) === realmOf(a) && R.distance(d, a) < 3)
+      .filter(
+        (d) =>
+          realmOf(d) === realmOf(a) &&
+          R.distance(d, a) < 3 &&
+          (!selected || d.items.some((i) => selected.has(i.uid))),
+      )
       .sort((x, y) => R.distance(x, a) - R.distance(y, a))[0];
     if (!d) return false;
     if (d.team !== null && d.team !== a.team && d.unlock > this.time) {
@@ -1607,8 +1614,14 @@ export class Match {
     }
     this.reward(a, d.tb, d.essence);
     d.tb = d.essence = 0;
-    d.items = d.items.filter((item) => !R.addLoot(a, item));
-    if (d.items.length && a === this.player)
+    let blocked = false;
+    d.items = d.items.filter((item) => {
+      if (selected && !selected.has(item.uid)) return true;
+      const added = R.addLoot(a, item);
+      if (!added) blocked = true;
+      return !added;
+    });
+    if (blocked && a === this.player)
       this.emit("message", "Túi đầy: tối đa 24 ô / 48 điểm tải.");
     if (!d.items.length) this.drops.splice(this.drops.indexOf(d), 1);
     if (

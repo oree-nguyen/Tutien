@@ -100,6 +100,7 @@ export class RemoteMatch {
         this.warnings = s.warnings ?? [];
         this.aliveCount = s.alive;
         this.seq = Math.max(this.seq, s.lastSeq ?? 0);
+        this.onAuthoritativeState?.();
         if (first) this.emit("connected", this);
         if (this.player.result && !this.result) {
           this.result = {
@@ -169,6 +170,10 @@ export class RemoteMatch {
   }
   pickup() {
     this.action("pickup");
+    return true;
+  }
+  pickupSelected(uid) {
+    this.action("pickup", { uid });
     return true;
   }
   shop(action, index) {

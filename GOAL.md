@@ -16,3 +16,5 @@ Mục tiêu: hoàn thiện “Hồn Giới: Sinh Tồn” theo GDD V2.5, WebGL/A
 Nguồn dữ liệu: `docs/GDD-V2.5-extracted.txt`. Danh mục và bằng chứng máy đọc được: `acceptance/requirements.json`, `acceptance/evidence/`. Báo cáo phải gắn fingerprint mã nguồn hiện tại; bằng chứng cũ không tự đạt cho mã mới.
 
 Nâng cấp Markdown được nghiệm thu theo [UPGRADE-GOAL.md](docs/UPGRADE-GOAL.md); gate `md-upgrade` là bắt buộc cùng các gate gốc.
+
+Master Prompt (2) mở rộng bắt buộc theo [MASTER-GOAL.md](docs/MASTER-GOAL.md); các gate `master-rules` và `master-prompt` phải đạt cùng toàn bộ gate cũ.

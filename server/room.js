@@ -310,7 +310,14 @@ export class Room {
       try {
         switch (packet.action) {
           case "pickup":
-            this.match.pickup(a);
+            if (
+              packet.uid !== undefined &&
+              (typeof packet.uid !== "string" || packet.uid.length > 100)
+            )
+              throw Error("UUID chiến lợi phẩm không hợp lệ");
+            if (packet.uid !== undefined)
+              this.match.pickupSelected(packet.uid, a);
+            else this.match.pickup(a);
             break;
           case "drop": {
             if (a.channel) throw Error("Đang Hồi Hoàn");

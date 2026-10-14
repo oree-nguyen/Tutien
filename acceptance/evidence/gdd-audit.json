@@ -1,5 +1,5 @@
 {
-  "sourceHash": "b2f4d6e07b4efdd0d76836b7e1429930dfce0590e7ab24686d81c147d76fbd97",
+  "sourceHash": "c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03",
   "passed": false,
   "reviewer": "Codex technical review",
   "approvedSections": [
@@ -16,7 +16,7 @@
     "Chưa có nghiệm thu đầy đủ mọi tổ hợp C3/D1/D2/D3 và mỹ thuật H trên thiết bị thật.",
     "Mỹ thuật procedural chưa phải nghiệm thu AAA theo mọi chi tiết/phân đoạn của Markdown; cần đối chiếu hình ảnh và kiểm tra trên thiết bị."
   ],
-  "recordedAt": "2026-10-14T10:54:41.552936+00:00",
+  "recordedAt": "2026-10-14T23:47:35.030Z",
   "additionalVerifiedBehaviors": [
     "Shield layers expire independently; HR07 follows recipient W shield, not every shield.",
     "Untargetability and stealth do not grant area damage immunity.",
@@ -24,7 +24,10 @@
     "Single Liên Hỏa burn, Phong Tích dodge, footprints disguise, Kim Thể cleanse and Liên Tiễn Q regression tests.",
     "HB02–HB07 activation, cooldown and realm regression tests.",
     "Squad4 25x4 in offline/online; server validates targeting preferences instead of trusting target IDs.",
-    "Floating multi-touch joystick, drag-cancel without mana/cooldown cost, quick transactions, and terrain-height aim/particle regressions."
+    "Floating multi-touch joystick, drag-cancel without mana/cooldown cost, quick transactions, and terrain-height aim/particle regressions.",
+    "Selected loot pickup preserves unselected items and team/realm/range/load rules; server validates item UID and pickup intent.",
+    "Linh Bo held/dragged guidance matches actual normalized server cast direction; cancellation preserves cooldown and location.",
+    "Signed persistent items verify account-bound HMAC before transaction; legacy migration, altered-item rejection and PvP recipient re-signing have PostgreSQL/Redis integration regressions."
   ],
   "userDecision": "Giữ đúng dữ liệu gốc và chờ đặc tả bổ sung cho Boss thứ4 và chỉ số/độ bền Tiên khí."
 }

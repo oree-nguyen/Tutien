@@ -38,16 +38,18 @@ try {
   await page.waitForFunction(() => window.__HON_GIOI__.match?.time > 0);
   await page.evaluate(() => {
     const g = window.__HON_GIOI__;
-    g.match.actors = g.match.actors.filter(
-      (a) => a === g.match.player || a.kind !== "hero" || a.team !== 0,
-    );
-    for (const a of g.match.actors)
-      if (a !== g.match.player) {
-        a.x = 85;
-        a.z = 85;
-      }
-    g.debug("money");
-    g.debug("shop");
+    g.sandbox(() => {
+      g.match.actors = g.match.actors.filter(
+        (a) => a === g.match.player || a.kind !== "hero" || a.team !== 0,
+      );
+      for (const a of g.match.actors)
+        if (a !== g.match.player) {
+          a.x = 85;
+          a.z = 85;
+        }
+      g.debug("money");
+      g.debug("shop");
+    });
   });
   await page.locator("#shop").click();
   await page.locator('[data-buy="1"]').click();
@@ -76,19 +78,21 @@ try {
   assert.ok(
     await page.evaluate(() => !!window.__HON_GIOI__.match.player.channel),
   );
-  const sent = await page.evaluate(() => {
-    const m = window.__HON_GIOI__.match,
-      c = m.player.channel;
-    c.elapsed = c.total - 0.02;
-    m.fixed(1 / 30, { x: 0, z: 0 });
-    return {
-      alive: m.player.alive,
-      bag: m.player.bag.length,
-      channel: m.player.channel,
-      used: m.support(m.player, 17).used,
-      stash: m.profile.stash.length,
-    };
-  });
+  const sent = await page.evaluate(() =>
+    window.__HON_GIOI__.sandbox(() => {
+      const m = window.__HON_GIOI__.match,
+        c = m.player.channel;
+      c.elapsed = c.total - 0.02;
+      m.fixed(1 / 30, { x: 0, z: 0 });
+      return {
+        alive: m.player.alive,
+        bag: m.player.bag.length,
+        channel: m.player.channel,
+        used: m.support(m.player, 17).used,
+        stash: m.profile.stash.length,
+      };
+    }),
+  );
   assert.ok(sent.alive);
   assert.equal(sent.bag, 0);
   assert.equal(sent.channel, null);
@@ -96,11 +100,13 @@ try {
   await page.screenshot({ path: "test-results/game-desktop.png" });
   await page.locator("#extract").click();
   await page.locator("#exitExtract").click();
-  await page.evaluate(() => {
-    let m = window.__HON_GIOI__.match;
-    m.player.channel.elapsed = m.player.channel.total;
-    m.fixed(1 / 30, { x: 0, z: 0 });
-  });
+  await page.evaluate(() =>
+    window.__HON_GIOI__.sandbox(() => {
+      let m = window.__HON_GIOI__.match;
+      m.player.channel.elapsed = m.player.channel.total;
+      m.fixed(1 / 30, { x: 0, z: 0 });
+    }),
+  );
   await page.waitForSelector("#backHub");
   await page.locator("#backHub").click();
   assert.equal(await page.locator(".hero-heading").textContent(), "Lâm Dật");

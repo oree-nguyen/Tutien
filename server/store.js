@@ -11,6 +11,7 @@ import {
 import { newProfile, loot, validateLoadout } from "../src/rules.js";
 import { RINGS, BONES, SUPPORTS } from "../src/data.js";
 import { promisify } from "node:util";
+import { createItemSigner } from "./security.js";
 const hashPassword = promisify(scrypt);
 const digest = (v) => createHash("sha256").update(v).digest("hex");
 export class Store {
@@ -18,6 +19,10 @@ export class Store {
     if (!config.databaseUrl || !config.redisUrl)
       throw Error("Database/Redis chưa được cấu hình; chạy npm run services");
     this.pool = new pg.Pool({ connectionString: config.databaseUrl, max: 15 });
+    this.itemSigner = createItemSigner({
+      key: config.itemSigningKey,
+      keyPath: config.itemSigningKeyPath,
+    });
     this.redis = createClient({ url: config.redisUrl });
     this.redis.on("error", () => {});
   }
@@ -46,11 +51,23 @@ export class Store {
     profile.stash = [
       ...RINGS.map((r) => loot("ring", r.id)),
       ...BONES.map((b) => loot("bone", b.id)),
-    ];
-    await this.pool.query(
-      "INSERT INTO accounts(id,username,password_hash,profile) VALUES($1,$2,$3,$4)",
-      [id, username, `${salt}:${hash}`, profile],
-    );
+    ].map((item) => this.itemSigner.signItem(id, item));
+    profile.itemSignatureVersion = 1;
+    const client = await this.pool.connect();
+    try {
+      await client.query("BEGIN");
+      await client.query(
+        "INSERT INTO accounts(id,username,password_hash,profile) VALUES($1,$2,$3,$4)",
+        [id, username, `${salt}:${hash}`, profile],
+      );
+      await this.writeInventory(client, id, profile.stash);
+      await client.query("COMMIT");
+    } catch (error) {
+      await client.query("ROLLBACK");
+      throw error;
+    } finally {
+      client.release();
+    }
     return id;
   }
   async login(username, password) {
@@ -93,12 +110,60 @@ export class Store {
       ]);
   }
   async profile(id) {
-    return (
-      await this.pool.query(
-        "SELECT username,profile,revision FROM accounts WHERE id=$1",
+    const client = await this.pool.connect();
+    try {
+      await client.query("BEGIN");
+      const {
+        rows: [account],
+      } = await client.query(
+        "SELECT username,profile,revision FROM accounts WHERE id=$1 FOR UPDATE",
         [id],
-      )
-    ).rows[0];
+      );
+      if (account && this.validateStoredItems(id, account.profile)) {
+        await this.writeInventory(client, id, account.profile.stash);
+        const {
+          rows: [updated],
+        } = await client.query(
+          "UPDATE accounts SET profile=$1,revision=revision+1 WHERE id=$2 RETURNING revision",
+          [account.profile, id],
+        );
+        account.revision = updated.revision;
+      }
+      await client.query("COMMIT");
+      return account;
+    } catch (error) {
+      await client.query("ROLLBACK");
+      throw error;
+    } finally {
+      client.release();
+    }
+  }
+  validateStoredItems(id, profile) {
+    if (!Array.isArray(profile.stash)) throw Error("Kho vật phẩm không hợp lệ");
+    const legacy = profile.itemSignatureVersion === undefined;
+    if (!legacy && profile.itemSignatureVersion !== 1)
+      throw Error("Phiên bản chữ ký vật phẩm không được hỗ trợ");
+    const ids = new Set();
+    profile.stash = profile.stash.map((item) => {
+      if (ids.has(item.uid)) throw Error("Phát hiện item trùng UUID");
+      ids.add(item.uid);
+      // Migration reads only the row locked by this server, never request JSON.
+      // Once marked v1, removing a signature is tampering and must fail closed.
+      if (legacy && item.signature === undefined)
+        return this.itemSigner.signItem(id, item);
+      return this.itemSigner.assertItem(id, item);
+    });
+    profile.itemSignatureVersion = 1;
+    return legacy;
+  }
+  async writeInventory(client, id, items) {
+    await client.query("DELETE FROM inventory WHERE account_id=$1", [id]);
+    for (const item of items)
+      await client.query("INSERT INTO inventory VALUES($1,$2,$3)", [
+        item.uid,
+        id,
+        item,
+      ]);
   }
   async transact(id, key, operation, change) {
     if (typeof key !== "string" || key.length < 8 || key.length > 120)
@@ -113,6 +178,9 @@ export class Store {
         [id],
       );
       if (!account) throw Error("Không có tài khoản");
+      const before = account.profile,
+        next = structuredClone(before);
+      this.validateStoredItems(id, next);
       const {
         rows: [prior],
       } = await client.query(
@@ -123,20 +191,16 @@ export class Store {
         await client.query("COMMIT");
         return prior.result;
       }
-      const before = account.profile,
-        next = structuredClone(before),
-        result = await change(next, client);
+      const result = await change(next, client);
       if (next.tb < 0 || next.nb < 0) throw Error("Số dư không đủ");
       const ids = next.stash.map((i) => i.uid);
       if (new Set(ids).size !== ids.length)
         throw Error("Phát hiện item trùng UUID");
-      await client.query("DELETE FROM inventory WHERE account_id=$1", [id]);
-      for (const item of next.stash)
-        await client.query("INSERT INTO inventory VALUES($1,$2,$3)", [
-          item.uid,
-          id,
-          item,
-        ]);
+      // change() is server-owned gameplay code, not a client profile patch.
+      // Re-sign legitimate quantity/value/ownership changes inside this SQL lock.
+      next.stash = next.stash.map((item) => this.itemSigner.signItem(id, item));
+      next.itemSignatureVersion = 1;
+      await this.writeInventory(client, id, next.stash);
       await client.query(
         "UPDATE accounts SET profile=$1,revision=revision+1 WHERE id=$2",
         [next, id],
@@ -187,7 +251,9 @@ export class Store {
               );
               if (!item) throw Error("Trang bị không thuộc tài khoản");
               profile.stash = profile.stash.filter((i) => i !== item);
-              gear.push({ ...item, brought: true });
+              gear.push(
+                this.itemSigner.signItem(id, { ...item, brought: true }),
+              );
             }
         if (
           loadout.skin &&
@@ -213,7 +279,12 @@ export class Store {
       "match-settlement",
       async (profile, client) => {
         profile.tb += result.tb;
-        profile.stash.push(...result.items);
+        // Results originate in authoritative Room/outbox, never a client route.
+        // PvP loot can carry its previous owner's signature; the server transfers
+        // ownership and signs for the recipient after validating their old stash.
+        profile.stash.push(
+          ...result.items.map((item) => this.itemSigner.signItem(id, item)),
+        );
         if (result.outcome !== "send") {
           profile.matches++;
           profile.activeMatch = null;

@@ -1,113 +1,1422 @@
 {
-  "sourceHash": "b2f4d6e07b4efdd0d76836b7e1429930dfce0590e7ab24686d81c147d76fbd97",
+  "sourceHash": "c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03",
+  "sourceHashStart": "c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03",
   "passed": true,
-  "scope": "Linux SwiftShader implementation screenshots; not Android evidence",
+  "scope": "Actual game showcase and offline DEV battlefield, plus explicitly isolated high-LOD creature art previews in the actual sanctuary scene; Linux Chromium SwiftShader, not Android device or FPS evidence.",
+  "fixtures": {
+    "battlefield": "Offline match started through #start. AI disabled, other actors moved to (90,90), player made immune, and the player placed at the seven original biome centers through the authorized DEV sandbox. Combat formulas, collision coordinates, and authoritative map bounds are unchanged.",
+    "creatures": "Art-only previews: buildCreatureVisual high LOD in the existing World sanctuary scene. The normal world render method and HUD visibility are restored afterward. These photos are not encounters or new gameplay/Boss definitions."
+  },
   "images": [
     {
       "path": "docs/visual-review/H01.png",
-      "sha256": "0e0d470bed4a9e7aa4ea081da99cc21d6df2643f1d0e582f0ed242e0e75a90e6"
+      "sha256": "9c1ce3e4cc6bb2d227aa89b7a4aaeafe8f332d30e2b935b1a02d5371907196b7",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H01",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H01-face.png",
+      "sha256": "0f2d381fc4e7f0a2d190d6bbb060227071d02be1a65862b9a3f6cb09ebc1d3bb",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H01",
+      "view": "face"
+    },
+    {
+      "path": "docs/visual-review/H01-back.png",
+      "sha256": "f758e5db0fcb7ba857d85d73c8d74fde49617928cb7b6a2b90865f264bcef7ae",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H01",
+      "view": "back"
     },
     {
       "path": "docs/visual-review/H02.png",
-      "sha256": "8de0f78b7cf1f3dcc86f841ec369cf14130d46e61f65e82c8ffb9e0be9044e56"
+      "sha256": "4161e406be1e3e4bebfa4c76a3ccf61b082df0e4a632b0b128e3c244cfdfb853",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H02",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H02-face.png",
+      "sha256": "9d86bd1733c0ef154dce8436be473f9099efc546d289d476b6d87b5b4d6cbefb",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H02",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H03.png",
-      "sha256": "ce3bbd4aca6ebc40fbf15a1e9532cf6900995971e692de9815d8edd0f1b38149"
+      "sha256": "e4d434a4612086a8071f7ab65d4096cecdaa156adcb057c9b7cbbbfb8b76feee",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H03",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H03-face.png",
+      "sha256": "8caaf2bc22d59ea9fa909176853a8b7a6fa30d129639ef65244266b6700db31e",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H03",
+      "view": "face"
+    },
+    {
+      "path": "docs/visual-review/H03-back.png",
+      "sha256": "483ca1b170c12fb1da488f323939d22945c0f30905c4a7ca7a9903c52351c0e9",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H03",
+      "view": "back"
     },
     {
       "path": "docs/visual-review/H04.png",
-      "sha256": "45ffd768bdf12d6de809c4a59a0210d9178915bedd8df98981e07e0e220c307b"
+      "sha256": "c1fee664c38593a1fef1a9657145a2e209cbcfdd52b19f36d310e504ba71c282",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H04",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H04-face.png",
+      "sha256": "684f01a3ed78f6d9a7716487699b19e36508de7df16ca75a2b05b979f17d664e",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H04",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H05.png",
-      "sha256": "395cbb80c0e2633d6f7efc4a768b811e85d2e43782a8ba0b20ee2f3614cb80e8"
+      "sha256": "0fabd589765355771cee73efd35dbd5a564ab0e3efdf84c2e37c49442f5e0de0",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H05",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H05-face.png",
+      "sha256": "c20c3ea1b0f7353a6e73b261fc8106a4a9b3ab6d67eacf598c2ee623e368b722",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H05",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H06.png",
-      "sha256": "695a2bf9de3e2d043585768a80394dcd19e61057eab36e269c7ddef8495d0414"
+      "sha256": "f71538fb24eaaa9d603dc7d4dd128f84af5179c282671da121226b2924e76922",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H06",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H06-face.png",
+      "sha256": "fd8dae75dc87db19d29e13785eecd310a708e8ac4b0e733556e96355aff09403",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H06",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H07.png",
-      "sha256": "f27d6ac629ddf727aab84962b36bc500f2fb5255bc44b8e2f2515ca0370a5715"
+      "sha256": "f2a13771823f289c781bdaa3c66f8146749ef15f4f4a47bd9fde5b7adaeacde4",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H07",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H07-face.png",
+      "sha256": "1c7a8d0816c3f21f832385d4be16876f004146590c501bed9a246cc987e40dc9",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H07",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H08.png",
-      "sha256": "88da91b44f554131642c1b71b8114c3c5e5a51a09be70ed30447c8ee8dc1c480"
+      "sha256": "cd757e96cf40569cbb54c98b0594b4106f33dad381e54dd1d68256398bd23bd6",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H08",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H08-face.png",
+      "sha256": "2759b6bb774fbf049b26734d613c9a2b71181558fb39b26fbdf1e5c47224dc74",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H08",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H09.png",
-      "sha256": "d1f35c3325024ab1f132c4063886fd839b693b796c00a17537facbf63240107d"
+      "sha256": "7ddb59d2ee279bfc180bf2e47520668bb1df0e546a7a463c2c7a0cc0c683abe4",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H09",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H09-face.png",
+      "sha256": "63d065862217d45ae53d0d3cc20147bbc9cedd97c6aa98054f2009bd1b2e8fbf",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H09",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H10.png",
-      "sha256": "f39f2c4fa17bfd4f9da7152743f02e0481c2cc8787363c386d1be18c9d236732"
+      "sha256": "1c9997a64bf8380f5313f001bed57f1347e24eceec4823df8e73408b5a9894b4",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H10",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H10-face.png",
+      "sha256": "a54d3ed8c4cc696bbb3a49d0b8070238ed44f0af2f5e63a9e9c5e83636797a54",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H10",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H11.png",
-      "sha256": "24d3c08716915584c736ab0ed7cbbde0d35e9e8a910e05ac6d53144eb935196b"
+      "sha256": "dce9e68e08f8e340428df6c81280bcd78c3ded466a3c625d4b0f25a55f32cf22",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H11",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H11-face.png",
+      "sha256": "5de7f597b3c77c7139477c926b61fbd5b2578d5ec5f2f3c78b109bd5c1b92794",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H11",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/H12.png",
-      "sha256": "52d7041f53b75fa7367a022c2baf882e3b33afbda90289b291cd0b7521727322"
+      "sha256": "dc52cd847d08e7fca055e1ae4b4fec765ef03d4895477ea4eebf1f3e124f179c",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H12",
+      "view": "full"
+    },
+    {
+      "path": "docs/visual-review/H12-face.png",
+      "sha256": "270e2f09775c63cbb0fd0355d4f1475834bd7fc151d4d284dcf717cb569b6e65",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H12",
+      "view": "face"
     },
     {
       "path": "docs/visual-review/skin-1.png",
-      "sha256": "49c01aa2bca71c20f763ff6de266275d864f714b573e72535836ad92dd6adbbb"
+      "sha256": "621199d18ae7f8a83c79da6d5aff2b2ccc18de849be43e24f8494aff65b6b871",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H01",
+      "skin": 1,
+      "view": "full"
     },
     {
       "path": "docs/visual-review/skin-2.png",
-      "sha256": "d0b1b7c496381a3c133703c03cb711100f8017281640e96e0cdacde3e2b159d7"
+      "sha256": "f293626c4a211530a3b6e5e94018bd316ef0b900bcd2975e1d1aa9c7e3be5bd5",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H01",
+      "skin": 2,
+      "view": "full"
     },
     {
       "path": "docs/visual-review/costume-1.png",
-      "sha256": "393bb1a47b6d7cbc5a28c67f6e7e4616378a9bb9bfd1aa7c5acc074bd1bed9fc"
+      "sha256": "60df5e1947af3bcfdd9f2b828c3557a3490e5d63c96138e4590c2b2c48780756",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H01",
+      "costume": 1,
+      "view": "full"
     },
     {
       "path": "docs/visual-review/costume-2.png",
-      "sha256": "604a235a78af50b98fbec62f9db328ee2c4229fba1fefb2a5410d03ff0477272"
+      "sha256": "82c7b1fce9855a619ca96cdd652a8ce6fde49ab142ce8481666c04ecf3520f6a",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H01",
+      "costume": 2,
+      "view": "full"
     },
     {
       "path": "docs/visual-review/costume-3.png",
-      "sha256": "018efabd5730e4aedcdcb51cc5aabf7f9df2d846536010918ef0ae8252c0c798"
+      "sha256": "7862296af78064f368c513670b347d1e325ea5610e9dd8ed00f4f08fbeabe081",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "hero": "H01",
+      "costume": 3,
+      "view": "full"
     },
     {
       "path": "docs/visual-review/ultra.png",
-      "sha256": "eb53686a60213812d218e3ed5340d43e03b121de14f96f649f5fd3af130047b0"
+      "sha256": "51ea3e974d6535791c35686b6aa271a8f0207e06fb049ff1c05f6df78bb49705",
+      "category": "showcase",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "quality": "ultra",
+      "view": "full"
     },
     {
       "path": "docs/visual-review/region-1.png",
-      "sha256": "bab68a49f0f0c65eb9dac46a55fadf395f6c44594b3dc4e8bc96b923b9a0e578"
+      "sha256": "ceca0c1be1018cb923d0711b4d83b54207561a64071a77f639c89452d30b2e4e",
+      "category": "offline-biome",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "region": 0,
+      "name": "Thanh Mộc Cổ Lâm",
+      "x": 52,
+      "z": -48,
+      "realm": 0
     },
     {
       "path": "docs/visual-review/region-2.png",
-      "sha256": "ca5b7981c322cf35147d31319d7ec8ca9723179d1bbd654d28459359025aaf73"
+      "sha256": "7cfeb19ad44eee0ba855912081f73a82536c12dcd36d73751d3897ef8f249f33",
+      "category": "offline-biome",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "region": 1,
+      "name": "Chấn Nhạc Sơn Mạch",
+      "x": -52,
+      "z": -44,
+      "realm": 0
     },
     {
       "path": "docs/visual-review/region-3.png",
-      "sha256": "86c3dd9bf00d16ad0e1001feea267a93c521dddbef8a62075b4cb50aff82be57"
+      "sha256": "550c23194dae86be047291d1c2ec7946ef72d4b0cb526cf95a705deea148f69a",
+      "category": "offline-biome",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "region": 2,
+      "name": "U Minh Độc Trạch",
+      "x": 53,
+      "z": 46,
+      "realm": 0
     },
     {
       "path": "docs/visual-review/region-4.png",
-      "sha256": "8552174be69c06a3ad11ccf0252f60814415dbab0bd26aac497097db14565200"
+      "sha256": "a3e03d2b786d5366d49fe8636a468d607d683fd983778a0441c432c906c9f999",
+      "category": "offline-biome",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "region": 3,
+      "name": "Hàn Tinh Tuyết Vực",
+      "x": 0,
+      "z": -72,
+      "realm": 0
     },
     {
       "path": "docs/visual-review/region-5.png",
-      "sha256": "9202cf12f5e5cec58c82b0061dffb654c868fdf557476acfb8f9fb7b470bb420"
+      "sha256": "5ea763195b2bac82c0b27cf12c0af6f40c89c6d2313070343e0134ab24415d43",
+      "category": "offline-biome",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "region": 4,
+      "name": "Xích Diệm Hoang Mạc",
+      "x": -53,
+      "z": 47,
+      "realm": 0
     },
     {
       "path": "docs/visual-review/region-6.png",
-      "sha256": "7eb976df89d0b65de4d6041509736196fa7bfbb7adeb771cea78453cc3ebaf7a"
+      "sha256": "84ae8c573ec32301815a8ae5cbd1f6e26192b65efeae0bdebbddc59551dad156",
+      "category": "offline-biome",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "region": 5,
+      "name": "Thiên Cơ Cổ Thành",
+      "x": 0,
+      "z": 0,
+      "realm": 0
     },
     {
       "path": "docs/visual-review/region-7.png",
-      "sha256": "7f59af8357f75777f33fe9fe209f8f9e94c7a60c15f75079cd1af59f2925fc83"
+      "sha256": "8b87cdfac01225f96b52873f94e9e14e218a1ea71ce77c5e9811cd0f5579cfee",
+      "category": "offline-biome",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "region": 6,
+      "name": "Hư Không Bí Cảnh",
+      "x": 82,
+      "z": 0,
+      "realm": 1
+    },
+    {
+      "path": "docs/visual-review/creature-wolf.png",
+      "sha256": "1dc736bcc0962c951b0f249bdc18e61667af303a1937a3857b19636dc8f4381f",
+      "category": "isolated-creature-art-preview",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "species": "wolf",
+      "detail": "high"
+    },
+    {
+      "path": "docs/visual-review/creature-rhino.png",
+      "sha256": "d564db3751793afbcbea858c7cecf329098416bbd22bce8b717c83825bf23b06",
+      "category": "isolated-creature-art-preview",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "species": "rhino",
+      "detail": "high"
+    },
+    {
+      "path": "docs/visual-review/creature-firebird.png",
+      "sha256": "cf05b466e35b27deaa9bd096f9b7b24c52af90a83f56e5706fe6be208193e86d",
+      "category": "isolated-creature-art-preview",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "species": "firebird",
+      "detail": "high"
+    },
+    {
+      "path": "docs/visual-review/creature-icebutterfly.png",
+      "sha256": "a38814c64d1632b577de2fdc2a32c79b159261cf17db109b399245c0155d1d07",
+      "category": "isolated-creature-art-preview",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "species": "icebutterfly",
+      "detail": "high"
+    },
+    {
+      "path": "docs/visual-review/creature-ape.png",
+      "sha256": "586fc5922d449c5b9b4355c7dd3cb3d0eea6a9424d2976e635dba3726d722e50",
+      "category": "isolated-creature-art-preview",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "species": "ape",
+      "detail": "high"
+    },
+    {
+      "path": "docs/visual-review/creature-kirin.png",
+      "sha256": "c998e28dcdd170cb2d4cfee58a4b3b8eb52cabfe7fe20bc4cb431a2dd8da514a",
+      "category": "isolated-creature-art-preview",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "species": "kirin",
+      "detail": "high"
+    },
+    {
+      "path": "docs/visual-review/creature-dragon.png",
+      "sha256": "3a5831a830f92277971eef80f92af70280727e69260d69b070b2619dd11b4380",
+      "category": "isolated-creature-art-preview",
+      "clip": {
+        "x": 380,
+        "y": 20,
+        "width": 520,
+        "height": 620
+      },
+      "species": "dragon",
+      "detail": "high"
+    }
+  ],
+  "checks": {
+    "portals": true,
+    "grass": true,
+    "terrain": true,
+    "waterReflection": true,
+    "showcase": true,
+    "biomes": true,
+    "creatures": true,
+    "sourceStable": true
+  },
+  "scenery": {
+    "renderer": "ANGLE (Google, Vulkan 1.3.0 (SwiftShader Device (Subzero) (0x0000C0DE)), SwiftShader driver)",
+    "reflection": {
+      "analyticWaveNormals": true,
+      "viewDependentSky": true,
+      "fresnel": true,
+      "proceduralMoon": true,
+      "sceneObjects": false,
+      "SSR": false,
+      "cameraPositions": [
+        [
+          0,
+          12,
+          0.1
+        ],
+        [
+          8,
+          5,
+          10
+        ]
+      ],
+      "sampledPixels": 4096,
+      "changedChannels": 11486,
+      "maximumSignal": 70,
+      "meanViewDependentSignal": 9.58056640625,
+      "shaderUsesCameraPosition": true,
+      "shaderReflectsRay": true,
+      "shaderUsesFresnel": true,
+      "shaderDifferentiatesWave": true
+    },
+    "terrain": {
+      "width": 600,
+      "height": 600,
+      "widthSegments": 256,
+      "heightSegments": 256,
+      "normals": true,
+      "samples": 400,
+      "maximumHeightDifference": 0,
+      "exteriorHeight": 22.217590886994568,
+      "originalExteriorHeight": -0.15823826531568846
+    },
+    "splatmap": {
+      "width": 2048,
+      "height": 2048,
+      "centers": [
+        {
+          "index": 0,
+          "name": "Thanh Mộc Cổ Lâm",
+          "biome": 0,
+          "color": [
+            34,
+            72,
+            43,
+            255
+          ]
+        },
+        {
+          "index": 1,
+          "name": "Chấn Nhạc Sơn Mạch",
+          "biome": 1,
+          "color": [
+            98,
+            89,
+            65,
+            255
+          ]
+        },
+        {
+          "index": 2,
+          "name": "U Minh Độc Trạch",
+          "biome": 2,
+          "color": [
+            51,
+            41,
+            69,
+            255
+          ]
+        },
+        {
+          "index": 3,
+          "name": "Hàn Tinh Tuyết Vực",
+          "biome": 3,
+          "color": [
+            168,
+            186,
+            192,
+            255
+          ]
+        },
+        {
+          "index": 4,
+          "name": "Xích Diệm Hoang Mạc",
+          "biome": 4,
+          "color": [
+            50,
+            31,
+            27,
+            255
+          ]
+        },
+        {
+          "index": 5,
+          "name": "Thiên Cơ Cổ Thành",
+          "biome": 5,
+          "color": [
+            85,
+            95,
+            92,
+            255
+          ]
+        },
+        {
+          "index": 6,
+          "name": "Hư Không Bí Cảnh",
+          "biome": 6,
+          "color": [
+            67,
+            39,
+            98,
+            255
+          ]
+        }
+      ],
+      "uniqueCenterColors": 7
+    },
+    "grass": {
+      "instances": 400,
+      "bladesPerCluster": 100,
+      "vertices": 16,
+      "minY": 0,
+      "maxY": 1.0499999523162842,
+      "windUniform": true,
+      "playerUniform": true,
+      "windSource": true,
+      "proximitySource": true
+    },
+    "sanctuary": {
+      "pedestalSteps": 3,
+      "flames": 4,
+      "clouds": 60,
+      "petals": 38,
+      "key": {
+        "type": "DirectionalLight",
+        "intensity": 2.2,
+        "shadow": 4096
+      },
+      "rim": {
+        "type": "SpotLight",
+        "intensity": 3
+      },
+      "fill": {
+        "type": "HemisphereLight",
+        "intensity": 1.1
+      },
+      "under": {
+        "type": "PointLight",
+        "intensity": 1.5
+      },
+      "visible": true,
+      "battlefieldVisible": false
+    },
+    "portals": {
+      "count": 8,
+      "ordinary": 5,
+      "central": 3,
+      "crystalColumns": 4,
+      "radius": 3.5,
+      "states": [
+        {
+          "state": "closed",
+          "color": 6585210,
+          "beam": false,
+          "opacity": 0.12
+        },
+        {
+          "state": "warning",
+          "color": 16761948,
+          "beam": false,
+          "opacity": 0.35
+        },
+        {
+          "state": "open",
+          "color": 6553557,
+          "beam": true,
+          "opacity": 0.8
+        }
+      ]
+    },
+    "shops": 6,
+    "altars": 3,
+    "glError": 0
+  },
+  "heroes": [
+    {
+      "hero": 0,
+      "expected": {
+        "gender": "male",
+        "height": 1.82
+      },
+      "anatomy": {
+        "gender": "male",
+        "height": 1.82,
+        "heightMeters": 1.82,
+        "headCount": 8,
+        "headHeightMeters": 0.2275,
+        "baseHeadHeight": 0.2275,
+        "legRatio": 0.52,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 4,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 1,
+      "expected": {
+        "gender": "male",
+        "height": 1.92
+      },
+      "anatomy": {
+        "gender": "male",
+        "height": 1.92,
+        "heightMeters": 1.92,
+        "headCount": 8,
+        "headHeightMeters": 0.24,
+        "baseHeadHeight": 0.2275,
+        "legRatio": 0.52,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 4,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 2,
+      "expected": {
+        "gender": "female",
+        "height": 1.68
+      },
+      "anatomy": {
+        "gender": "female",
+        "height": 1.68,
+        "heightMeters": 1.68,
+        "headCount": 8,
+        "headHeightMeters": 0.21,
+        "baseHeadHeight": 0.21,
+        "legRatio": 0.54,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 4,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 3,
+      "expected": {
+        "gender": "male",
+        "height": 1.83
+      },
+      "anatomy": {
+        "gender": "male",
+        "height": 1.83,
+        "heightMeters": 1.83,
+        "headCount": 8,
+        "headHeightMeters": 0.22875,
+        "baseHeadHeight": 0.2275,
+        "legRatio": 0.52,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 6,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 4,
+      "expected": {
+        "gender": "female",
+        "height": 1.69
+      },
+      "anatomy": {
+        "gender": "female",
+        "height": 1.69,
+        "heightMeters": 1.69,
+        "headCount": 8,
+        "headHeightMeters": 0.21125,
+        "baseHeadHeight": 0.21,
+        "legRatio": 0.54,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 9,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 5,
+      "expected": {
+        "gender": "male",
+        "height": 1.98
+      },
+      "anatomy": {
+        "gender": "male",
+        "height": 1.98,
+        "heightMeters": 1.98,
+        "headCount": 8,
+        "headHeightMeters": 0.2475,
+        "baseHeadHeight": 0.2275,
+        "legRatio": 0.52,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 4,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 6,
+      "expected": {
+        "gender": "male",
+        "height": 1.82
+      },
+      "anatomy": {
+        "gender": "male",
+        "height": 1.82,
+        "heightMeters": 1.82,
+        "headCount": 8,
+        "headHeightMeters": 0.2275,
+        "baseHeadHeight": 0.2275,
+        "legRatio": 0.52,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 4,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 7,
+      "expected": {
+        "gender": "female",
+        "height": 1.7
+      },
+      "anatomy": {
+        "gender": "female",
+        "height": 1.7,
+        "heightMeters": 1.7,
+        "headCount": 8,
+        "headHeightMeters": 0.2125,
+        "baseHeadHeight": 0.21,
+        "legRatio": 0.54,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 4,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 8,
+      "expected": {
+        "gender": "female",
+        "height": 1.7
+      },
+      "anatomy": {
+        "gender": "female",
+        "height": 1.7,
+        "heightMeters": 1.7,
+        "headCount": 8,
+        "headHeightMeters": 0.2125,
+        "baseHeadHeight": 0.21,
+        "legRatio": 0.54,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 5,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 9,
+      "expected": {
+        "gender": "male",
+        "height": 1.85
+      },
+      "anatomy": {
+        "gender": "male",
+        "height": 1.85,
+        "heightMeters": 1.85,
+        "headCount": 8,
+        "headHeightMeters": 0.23125,
+        "baseHeadHeight": 0.2275,
+        "legRatio": 0.52,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 4,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 10,
+      "expected": {
+        "gender": "female",
+        "height": 1.67
+      },
+      "anatomy": {
+        "gender": "female",
+        "height": 1.67,
+        "heightMeters": 1.67,
+        "headCount": 8,
+        "headHeightMeters": 0.20875,
+        "baseHeadHeight": 0.21,
+        "legRatio": 0.54,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 6,
+      "yaw": 3.141592653589793,
+      "glError": 0
+    },
+    {
+      "hero": 11,
+      "expected": {
+        "gender": "male",
+        "height": 1.84
+      },
+      "anatomy": {
+        "gender": "male",
+        "height": 1.84,
+        "heightMeters": 1.84,
+        "headCount": 8,
+        "headHeightMeters": 0.23,
+        "baseHeadHeight": 0.2275,
+        "legRatio": 0.52,
+        "faceTextureSize": 2048,
+        "torsoLoft": {
+          "longitudinal": 128,
+          "radial": 128
+        },
+        "garmentLayers": 4,
+        "clothPanels": 4,
+        "frontHairStrands": 10,
+        "backHairStrands": 20
+      },
+      "faceTexture": 2048,
+      "weapon": true,
+      "sphereBody": false,
+      "garmentPanels": 4,
+      "yaw": 3.141592653589793,
+      "glError": 0
     }
   ],
   "ultra": {
     "passes": 3,
     "shadow": 4096,
-    "error": 0
+    "error": 0,
+    "calls": 1
   },
-  "recordedAt": "2026-10-14T11:00:35.780Z"
+  "biomes": [
+    {
+      "region": 0,
+      "name": "Thanh Mộc Cổ Lâm",
+      "x": 52,
+      "z": -48,
+      "realm": 0,
+      "battlefieldVisible": true,
+      "sanctuaryVisible": false,
+      "hiddenRealmVisible": false,
+      "glError": 0
+    },
+    {
+      "region": 1,
+      "name": "Chấn Nhạc Sơn Mạch",
+      "x": -52,
+      "z": -44,
+      "realm": 0,
+      "battlefieldVisible": true,
+      "sanctuaryVisible": false,
+      "hiddenRealmVisible": false,
+      "glError": 0
+    },
+    {
+      "region": 2,
+      "name": "U Minh Độc Trạch",
+      "x": 53,
+      "z": 46,
+      "realm": 0,
+      "battlefieldVisible": true,
+      "sanctuaryVisible": false,
+      "hiddenRealmVisible": false,
+      "glError": 0
+    },
+    {
+      "region": 3,
+      "name": "Hàn Tinh Tuyết Vực",
+      "x": 0,
+      "z": -72,
+      "realm": 0,
+      "battlefieldVisible": true,
+      "sanctuaryVisible": false,
+      "hiddenRealmVisible": false,
+      "glError": 0
+    },
+    {
+      "region": 4,
+      "name": "Xích Diệm Hoang Mạc",
+      "x": -53,
+      "z": 47,
+      "realm": 0,
+      "battlefieldVisible": true,
+      "sanctuaryVisible": false,
+      "hiddenRealmVisible": false,
+      "glError": 0
+    },
+    {
+      "region": 5,
+      "name": "Thiên Cơ Cổ Thành",
+      "x": 0,
+      "z": 0,
+      "realm": 0,
+      "battlefieldVisible": true,
+      "sanctuaryVisible": false,
+      "hiddenRealmVisible": false,
+      "glError": 0
+    },
+    {
+      "region": 6,
+      "name": "Hư Không Bí Cảnh",
+      "x": 82,
+      "z": 0,
+      "realm": 1,
+      "battlefieldVisible": true,
+      "sanctuaryVisible": false,
+      "hiddenRealmVisible": true,
+      "glError": 0
+    }
+  ],
+  "creatures": [
+    {
+      "species": "wolf",
+      "kind": "beast",
+      "artPreview": true,
+      "detail": "high",
+      "dimensions": [
+        0.6763392269611359,
+        1.70841290473938,
+        2.4957746593952184
+      ],
+      "metadata": {
+        "species": "wolf",
+        "length": 2.8,
+        "stature": 1.98,
+        "tierVisualScale": 0.9
+      },
+      "triangles": 104804,
+      "meshCount": 22
+    },
+    {
+      "species": "rhino",
+      "kind": "beast",
+      "artPreview": true,
+      "detail": "high",
+      "dimensions": [
+        1.2316246211528779,
+        1.457859384876819,
+        2.844269505646958
+      ],
+      "metadata": {
+        "species": "rhino",
+        "length": 3.1,
+        "stature": 1.9,
+        "tierVisualScale": 0.9
+      },
+      "triangles": 81564,
+      "meshCount": 20
+    },
+    {
+      "species": "firebird",
+      "kind": "beast",
+      "artPreview": true,
+      "detail": "high",
+      "dimensions": [
+        2.387477683067322,
+        2.0260108709335327,
+        1.5483206269741059
+      ],
+      "metadata": {
+        "species": "firebird",
+        "wingSpan": 2.8,
+        "stature": 2.4,
+        "tierVisualScale": 0.9
+      },
+      "triangles": 104056,
+      "meshCount": 15
+    },
+    {
+      "species": "icebutterfly",
+      "kind": "beast",
+      "artPreview": true,
+      "detail": "high",
+      "dimensions": [
+        2.6229967462549673,
+        1.7590184093663899,
+        0.19767848253250125
+      ],
+      "metadata": {
+        "species": "icebutterfly",
+        "wingSpan": 2.6,
+        "stature": 2.1,
+        "tierVisualScale": 0.9
+      },
+      "triangles": 39428,
+      "meshCount": 8
+    },
+    {
+      "species": "ape",
+      "kind": "boss",
+      "artPreview": true,
+      "detail": "high",
+      "dimensions": [
+        3.0299557189533055,
+        4.5,
+        1.8376420455375588
+      ],
+      "metadata": {
+        "species": "ape",
+        "stature": 4.5,
+        "authoritativeBoss": true
+      },
+      "triangles": 133946,
+      "meshCount": 22
+    },
+    {
+      "species": "kirin",
+      "kind": "boss",
+      "artPreview": true,
+      "detail": "high",
+      "dimensions": [
+        1.2684960949166664,
+        4.000000008895212,
+        5.255285594211231
+      ],
+      "metadata": {
+        "species": "kirin",
+        "stature": 4,
+        "length": 4.9,
+        "authoritativeBoss": true
+      },
+      "triangles": 378232,
+      "meshCount": 22
+    },
+    {
+      "species": "dragon",
+      "kind": "boss",
+      "artPreview": true,
+      "detail": "high",
+      "dimensions": [
+        9.151033393157604,
+        4.591752584098645,
+        11.999999953505057
+      ],
+      "metadata": {
+        "species": "dragon",
+        "length": 12,
+        "spineSegments": 128,
+        "glowingEyes": 4,
+        "authoritativeBoss": true
+      },
+      "triangles": 211592,
+      "meshCount": 21
+    }
+  ],
+  "sourceHashEnd": "c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03",
+  "errors": [],
+  "shaderErrors": [],
+  "recordedAt": "2026-10-14T23:45:30.155Z"
 }

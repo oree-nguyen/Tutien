@@ -9,6 +9,7 @@ const result = await build({
   minify: true,
   define: {
     "import.meta.env.PROD": "false",
+    "import.meta.env.DEV": "false",
     "import.meta.env.VITE_API_ORIGIN": JSON.stringify(""),
   },
   plugins: [

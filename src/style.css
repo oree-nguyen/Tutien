@@ -1833,3 +1833,826 @@ strong {
   min-height: 36px;
   min-width: 44px;
 }
+
+/* Masterwork artwork is a cached 512px painting, sized here for each functional slot. */
+.item-art,
+.skill-art {
+  display: block;
+  width: 58px;
+  height: 58px;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+}
+.item-card > .item-art {
+  float: left;
+  width: 68px;
+  height: 68px;
+  margin: 0 11px 8px 0;
+  border-radius: 9px;
+}
+.item-card:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.bag-item > .item-art {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 6px;
+  border-radius: 6px;
+}
+.inventory-slot > .item-art {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 4px;
+}
+.recipe-row > .item-art {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  margin-right: 8px;
+}
+.empty-icon {
+  min-height: 34px;
+  border: 1px solid #d4b87838;
+  background: linear-gradient(135deg, #15374355, #08192380);
+  border-radius: 6px;
+}
+.ring-choice {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 5px;
+}
+.ring-choice > .item-art,
+.ring-choice > .empty-icon {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  border-radius: 5px;
+}
+.ring-choice select {
+  min-width: 0;
+  width: 100%;
+  font-size: 9px;
+  padding: 6px 3px;
+}
+.bone-grid .bone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 4px 1px;
+}
+.bone-grid .bone > .item-art {
+  width: 35px;
+  height: 35px;
+  border-radius: 5px;
+}
+.hero-card {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 4px;
+  text-align: left;
+  padding: 2px 4px;
+}
+.hero-card > .item-art {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  flex: none;
+}
+.support-slot {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+.support-slot > .item-art {
+  width: 29px;
+  height: 29px;
+  border-radius: 4px;
+}
+.support-slot > span {
+  flex: 1;
+}
+.hub {
+  background: linear-gradient(
+    90deg,
+    #071f35bd,
+    transparent 42%,
+    transparent 60%,
+    #071f357d
+  );
+}
+.stage-label {
+  position: relative;
+  align-self: stretch;
+  justify-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  align-items: center;
+  padding-bottom: 4px;
+}
+.stage-label .number {
+  font-size: 42px;
+  line-height: 1;
+  pointer-events: none;
+}
+.stage-label p {
+  position: relative;
+  z-index: 2;
+  margin: 5px 0;
+  letter-spacing: 2px;
+}
+.stage-label > small {
+  font-size: 8px;
+  pointer-events: none;
+}
+#showcaseDrag {
+  position: absolute;
+  inset: 0 0 85px;
+  pointer-events: auto;
+  cursor: grab;
+  touch-action: none;
+}
+#showcaseDrag:active {
+  cursor: grabbing;
+}
+.showcase-controls {
+  display: flex;
+  gap: 5px;
+  margin-top: 9px;
+  z-index: 3;
+}
+.showcase-controls button {
+  padding: 5px 8px;
+  font-size: 8px;
+  background: #123548a6;
+  border-color: #bd9a5966;
+  border-radius: 3px;
+}
+.security-status {
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 12px;
+  color: #c4eadb;
+  font: 11px/1.7 monospace;
+  background: #061c2d;
+  max-height: 55vh;
+  overflow: auto;
+}
+
+/* Centres Q/W/E/R sit exactly 145px from attack at 185/145/108/72 degrees.
+   Short landscapes scale the whole pad uniformly to leave the arena visible. */
+.hud .skills {
+  width: 350px;
+  height: 255px;
+  right: 8px;
+  bottom: 6px;
+  transform: none;
+  transform-origin: bottom right;
+}
+.hud .skill {
+  width: 68px;
+  height: 68px;
+  border: 3px solid #bda66c;
+  background: #123548;
+  box-shadow:
+    inset 0 0 0 2px #e5d4a7,
+    0 2px 8px #04131dbb,
+    0 0 9px color-mix(in srgb, var(--element, #68d8be) 50%, transparent);
+  overflow: visible;
+  font-family: inherit;
+}
+.hud .skill .item-art,
+.hud .skill .skill-art {
+  position: absolute;
+  inset: 2px;
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  object-fit: cover;
+  border-radius: 50%;
+}
+.hud .skill b {
+  position: absolute;
+  left: 3px;
+  top: 2px;
+  font: 700 10px/1 Arial;
+  background: #061c2dcc;
+  border: 1px solid #d9c89c77;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: grid;
+  place-items: center;
+  color: #fff0c9;
+  z-index: 2;
+}
+.hud .skill small {
+  position: absolute;
+  left: -8px;
+  bottom: -13px;
+  width: calc(100% + 16px);
+  font-size: 7px;
+  white-space: nowrap;
+  text-align: center;
+  color: #f4edcf;
+  text-shadow: 0 1px 4px #000;
+  letter-spacing: 0;
+  pointer-events: none;
+}
+.hud .skill .mp-cost {
+  position: absolute;
+  bottom: 0;
+  right: -1px;
+  background: #102b4feb;
+  color: #afe8ff;
+  border: 1px solid #86bbd299;
+  border-radius: 4px;
+  padding: 1px 3px;
+  font: 8px/1.2 Arial;
+  z-index: 2;
+  pointer-events: none;
+}
+.hud .skill[data-skill="0"] {
+  left: 81.55px;
+  bottom: 19.36px;
+}
+.hud .skill[data-skill="1"] {
+  left: 107.22px;
+  bottom: 115.17px;
+}
+.hud .skill[data-skill="2"] {
+  left: 181.19px;
+  bottom: 169.9px;
+}
+.hud .skill[data-skill="3"] {
+  left: 265.81px;
+  bottom: 164.9px;
+  width: 78px;
+  height: 78px;
+  border-color: #f5d488;
+}
+.hud .skill[data-skill="4"] {
+  left: 179px;
+  right: auto;
+  bottom: 90px;
+  width: 54px;
+  height: 54px;
+}
+.hud .skill.attack {
+  left: 214px;
+  right: auto;
+  bottom: 20px;
+  width: 92px;
+  height: 92px;
+  border-width: 4px;
+  border-color: #ddbd76;
+  box-shadow:
+    0 0 0 2px #6a472a,
+    0 0 0 4px #f0d7a24d,
+    inset 0 0 12px #fff2bb44,
+    0 3px 15px #061521;
+  transition: transform 0.08s;
+}
+.hud .skill.attack small {
+  bottom: 10px;
+  left: 0;
+  width: 100%;
+  font-weight: bold;
+  color: #ffeac0;
+}
+.hud .skill.attack.pressed {
+  transform: scale(0.9);
+}
+.hud .skill.attack.pressed:after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 3px solid #ffe0a7;
+  border-radius: 50%;
+  animation: attack-pulse 0.5s ease-out infinite;
+  pointer-events: none;
+}
+@keyframes attack-pulse {
+  from {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+.hud .skill .cd {
+  inset: -1px;
+  border-radius: 50%;
+  font: 700 20px/1 Arial;
+  z-index: 3;
+  text-shadow:
+    1px 1px 2px #000,
+    -1px -1px 2px #000;
+  pointer-events: none;
+}
+.hud .skill.no-energy:before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #092453b8;
+  border-radius: 50%;
+  z-index: 1;
+  pointer-events: none;
+}
+.energy-empty {
+  display: none;
+  position: absolute;
+  width: 10px;
+  height: 13px;
+  border: 2px solid #7bc0e7;
+  border-radius: 60% 40% 55% 45%;
+  transform: rotate(30deg);
+  right: 5px;
+  top: 5px;
+  z-index: 2;
+}
+.no-energy .energy-empty {
+  display: block;
+}
+.target-choice {
+  width: 42px;
+  min-width: 42px;
+  height: 42px;
+  min-height: 42px;
+  overflow: hidden;
+  border: 2px solid #cbb174;
+  box-shadow: 0 2px 7px #061521;
+}
+.target-choice .item-art {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+#targetBeast {
+  right: 0;
+  bottom: 24px;
+}
+#targetHero {
+  right: 0;
+  bottom: 73px;
+}
+.hud .supports-hud {
+  bottom: 270px;
+  right: 86px;
+  gap: 6px;
+  transform-origin: bottom right;
+}
+.hud .supports-hud button {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  padding: 2px;
+  border: 2px solid #bda66c;
+  border-radius: 10px;
+  background: #0a223b;
+  box-shadow: 0 2px 6px #061521;
+}
+.hud .supports-hud .item-art {
+  width: 100%;
+  height: 100%;
+  border-radius: 7px;
+}
+.hud .supports-hud .support-key {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  background: #0b2b44;
+  border: 1px solid #ceb98a;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  display: grid;
+  place-items: center;
+  font-size: 8px;
+}
+.hud .supports-hud .support-count {
+  position: absolute;
+  bottom: -3px;
+  right: -3px;
+  font-size: 8px;
+  background: #102b44f0;
+  border: 1px solid #ad986b;
+  border-radius: 4px;
+  min-width: 14px;
+  padding: 1px 3px;
+}
+.hud .context-actions {
+  right: 86px;
+  bottom: 333px;
+}
+.hud .cancel-skill {
+  right: 250px;
+  bottom: 290px;
+}
+.quick-offers button {
+  position: relative;
+  width: 114px;
+  min-height: 48px;
+  height: 48px;
+  padding: 4px 3px 4px 46px;
+}
+.quick-offers button .item-art {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+}
+.quick-offers button span {
+  max-width: 65px;
+  font-size: 8px;
+}
+.quick-offers button b,
+.quick-offers button small {
+  font-size: 8px;
+}
+.hud .joystick {
+  border: 2px solid #d0b27388;
+  box-shadow:
+    0 0 0 4px #bca77716,
+    inset 0 0 0 10px #12354855,
+    inset 0 0 0 12px #d9bf791f;
+  background: radial-gradient(circle, #8bbaaa25, #0e2b4255);
+}
+.hud .joystick .stick {
+  border: 2px solid #d6bd82;
+  background: radial-gradient(circle at 35% 25%, #90bcae, #153b4e);
+  box-shadow: 0 2px 8px #0008;
+}
+.hud .debug summary:after {
+  content: "DEV";
+  font: 10px Arial;
+  letter-spacing: 1px;
+}
+
+/* A real two-column inventory; appraisal hides precious loot for 800ms. */
+.loot-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.loot-split h3 {
+  margin: 0 0 8px;
+  font-size: 11px;
+  color: #eed9a4;
+  letter-spacing: 1px;
+}
+.loot-split h4 {
+  font-size: 9px;
+  color: #b8ceca;
+  margin: 12px 0 5px;
+}
+.loot-own {
+  border-right: 1px solid #c8aa6a40;
+  padding-right: 12px;
+}
+.loot-own-slots {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 4px;
+}
+.own-loot-slot {
+  position: relative;
+  border: 1px solid #c3ad743e;
+  border-radius: 5px;
+  aspect-ratio: 1;
+  min-width: 0;
+}
+.own-loot-slot .item-art {
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+.own-loot-slot span {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 8px;
+  padding: 1px 2px;
+  background: #061c2dce;
+}
+.loot-equipped {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+.loot-equipped > .item-art,
+.loot-equipped > div {
+  position: relative;
+  width: 31px;
+  height: 31px;
+}
+.loot-equipped .item-art {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+}
+.loot-equipped small {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 6px;
+  background: #123548;
+}
+.loot-found-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+}
+.loot-inspection {
+  position: relative;
+  padding: 7px 4px 6px;
+  min-width: 0;
+  border-radius: 6px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 15%, #89613a33, #0b263b);
+  border-color: #a88d55;
+}
+.loot-inspection:hover,
+.loot-inspection:focus {
+  transform: none;
+  border-color: #ffdf91;
+}
+.loot-inspection .item-art {
+  width: min(100%, 95px);
+  height: auto;
+  aspect-ratio: 1;
+  margin: 0 auto 5px;
+  border-radius: 5px;
+  transition: filter 0.15s;
+}
+.appraisal-info {
+  display: block;
+  line-height: 1.4;
+  transition: opacity 0.15s;
+}
+.appraisal-info strong {
+  display: block;
+  font-size: 9px;
+  color: #f5e2b4;
+}
+.appraisal-info > span {
+  display: block;
+  font-size: 7px;
+  color: #acc6c9;
+}
+.appraisal-info > b {
+  display: block;
+  font-size: 9px;
+  color: #f5c982;
+}
+.appraisal-state {
+  display: block;
+  margin-top: 4px;
+  font-size: 6px;
+  color: #e4d7ae;
+}
+.loot-inspection.appraising {
+  opacity: 1;
+}
+.appraising .item-art {
+  filter: blur(10px) brightness(0.4);
+}
+.appraising .appraisal-info {
+  opacity: 0;
+}
+.appraisal-lens {
+  display: none;
+  position: absolute;
+  width: 35px;
+  height: 35px;
+  left: calc(50% - 21px);
+  top: 30px;
+  border: 4px solid #f4d995;
+  border-radius: 50%;
+  box-shadow: 0 0 12px #e7be6d77;
+}
+.appraisal-lens:after {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 5px;
+  transform: rotate(45deg);
+  right: -18px;
+  bottom: -9px;
+  background: #d4b776;
+  border-radius: 3px;
+}
+.appraising .appraisal-lens {
+  display: block;
+  animation: appraisal-lens 0.8s ease-in-out;
+}
+.appraisal-beam {
+  display: none;
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  top: 5px;
+  height: 3px;
+  background: #ffe3a3;
+  box-shadow: 0 0 14px #ffe3a3;
+}
+.appraising .appraisal-beam {
+  display: block;
+  animation: appraisal-scan 0.8s linear;
+}
+.appraised {
+  animation: appraisal-flash 0.4s ease-out;
+}
+#lootQuick {
+  margin-top: 10px;
+  width: 100%;
+  font-size: 9px;
+  padding: 10px 3px;
+}
+@keyframes appraisal-lens {
+  0% {
+    transform: translate(-15px, -4px);
+  }
+  50% {
+    transform: translate(13px, 12px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+@keyframes appraisal-scan {
+  from {
+    top: 8%;
+  }
+  to {
+    top: 80%;
+  }
+}
+@keyframes appraisal-flash {
+  from {
+    box-shadow:
+      inset 0 0 30px #f5c575b0,
+      0 0 12px #f5c575;
+  }
+  to {
+    box-shadow: none;
+  }
+}
+@media (max-height: 500px), (max-width: 950px) {
+  .hud .skills {
+    transform: scale(0.76);
+  }
+  .hud .supports-hud {
+    bottom: 211px;
+    right: 65px;
+    transform: scale(0.76);
+  }
+  .hud .context-actions {
+    right: 66px;
+    bottom: 257px;
+  }
+  .hud .context-actions button {
+    font-size: 8px;
+    min-height: 30px;
+  }
+  .hud .cancel-skill {
+    right: 218px;
+    bottom: 248px;
+  }
+  .hero-card > .item-art {
+    width: 22px;
+    height: 22px;
+  }
+  .bone-grid .bone > .item-art {
+    width: 26px;
+    height: 26px;
+  }
+  .ring-choice {
+    gap: 3px;
+  }
+  .ring-choice > .item-art {
+    width: 25px;
+    height: 25px;
+  }
+  .ring-choice select {
+    font-size: 8px;
+    padding: 5px 1px;
+  }
+  .support-slot > .item-art {
+    width: 23px;
+    height: 23px;
+  }
+  .stage-label .number {
+    font-size: 30px;
+  }
+  .showcase-controls {
+    gap: 3px;
+    margin-top: 5px;
+  }
+  .showcase-controls button {
+    font-size: 7px;
+    padding: 4px;
+  }
+  .footer-links {
+    gap: 2px;
+    flex-wrap: wrap;
+  }
+  .footer-links button {
+    font-size: 7px;
+    padding: 4px;
+  }
+  .loot-split {
+    gap: 8px;
+  }
+  .loot-own {
+    padding-right: 7px;
+  }
+}
+@media (max-height: 370px) {
+  .hud .skills {
+    transform: scale(0.68);
+  }
+  .hud .supports-hud {
+    bottom: 186px;
+    right: 57px;
+    transform: scale(0.68);
+  }
+  .hud .context-actions {
+    bottom: 230px;
+  }
+}
+.weapon-previews {
+  display: flex;
+  gap: 5px;
+  margin-top: 8px;
+}
+.weapon-previews button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  flex: 1;
+  min-width: 0;
+  font-size: 7px;
+  border-radius: 5px;
+}
+.weapon-previews .item-art {
+  width: 25px;
+  height: 25px;
+  border-radius: 4px;
+}
+@media (max-height: 450px) {
+  .weapon-previews .item-art {
+    width: 21px;
+    height: 21px;
+  }
+  .weapon-previews {
+    margin-top: 5px;
+  }
+}
+.hero-card {
+  position: relative;
+  justify-content: center;
+  padding: 0;
+}
+.hero-card > .item-art {
+  position: absolute;
+  top: 1px;
+  left: calc(50% - 16px);
+  width: 32px;
+  height: 32px;
+  opacity: 0.9;
+}
+.hero-card-name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: 8px;
+  line-height: 12px;
+  background: #0b243dd9;
+  color: #eaf1df;
+  z-index: 1;
+}
+@media (max-height: 450px) {
+  .hero-card > .item-art {
+    top: 0;
+    left: calc(50% - 11px);
+    width: 22px;
+    height: 22px;
+  }
+  .hero-card-name {
+    font-size: 6px;
+    line-height: 8px;
+  }
+}

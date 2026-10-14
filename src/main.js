@@ -16,6 +16,9 @@ import {
 import * as R from "./rules.js";
 import { Match } from "./simulation.js";
 import { quickOffers, contextualActions } from "./hud.js";
+import { MAP_BUSHES } from "./systems.js";
+import { itemIcon, skillIcon, masterworkAssets } from "./item-art.js";
+import { ensureRuntimeSecurity, securityFacade } from "./runtime-security.js";
 import { World } from "./world.js";
 import { SoulAudio } from "./audio.js";
 const audio = new SoulAudio();
@@ -85,6 +88,9 @@ let match = null,
 const input = { x: 0, z: 0, attack: false, targetMode: "auto" },
   keys = new Set();
 let toastTimer;
+let appraisalTimer = null;
+const lootArt = (item, className = "item-art") =>
+  itemIcon(item.kind, item.id ?? 1, { className, label: item.name });
 function toast(s) {
   $("#toast").textContent = s;
   $("#toast").classList.add("show");
@@ -139,14 +145,14 @@ function renderHub() {
    .map(([k, v]) => `<div class="stat"><b>${v}</b><span>${k}</span></div>`)
    .join(
      "",
-   )}</div><div class="section-label">NHÁNH TIẾN HÓA <span>KHÓA KHI VÀO TRẬN</span></div><div class="branches">${h.branches.map((n, i) => `<button data-branch="${i}" class="${loadout.branch === i ? "active" : ""}">${n}</button>`).join("")}</div><div class="branch-description" id="branchText"></div><div class="hero-grid">${HEROES.map((h, i) => `<button class="hero-card ${loadout.hero === i ? "active" : ""}" data-hero="${i}" style="--hero:#${h.color.toString(16)}" title="${h.name}"><b>${["木", "山", "狐", "雷", "镜", "甲", "火", "冰", "弓", "虎", "琴", "蛇"][i]}</b>${h.name.split(" ").at(-1)}</button>`).join("")}</div></div>
- <div class="stage-label"><div class="number">${h.id}</div><p>${WEAPONS[loadout.hero].toUpperCase()}</p><small>MÔ HÌNH 3D · ${loadout.skin === 2 ? "VIP" : loadout.skin === 1 ? "CƠ BẢN" : "NGUYÊN BẢN"}</small></div>
+   )}</div><div class="section-label">NHÁNH TIẾN HÓA <span>KHÓA KHI VÀO TRẬN</span></div><div class="branches">${h.branches.map((n, i) => `<button data-branch="${i}" class="${loadout.branch === i ? "active" : ""}">${n}</button>`).join("")}</div><div class="branch-description" id="branchText"></div><div class="hero-grid">${HEROES.map((h, i) => `<button class="hero-card ${loadout.hero === i ? "active" : ""}" data-hero="${i}" style="--hero:#${h.color.toString(16)}" title="${h.name}">${itemIcon("weapon", i + 1, { label: WEAPONS[i] })}<span class="hero-card-name">${h.name.split(" ").at(-1)}</span></button>`).join("")}</div></div>
+ <div class="stage-label"><div class="number">${h.id}</div><p>${WEAPONS[loadout.hero].toUpperCase()}</p><small>MÔ HÌNH 3D · ${loadout.skin === 2 ? "VIP" : loadout.skin === 1 ? "CƠ BẢN" : "NGUYÊN BẢN"}</small><div class="showcase-controls"><button id="showcaseFull" aria-label="Xem toàn thân">TOÀN THÂN</button><button id="showcaseFace" aria-label="Xem khuôn mặt">CẬN CẢNH</button></div><div id="showcaseDrag" aria-label="Kéo xoay nhân vật"></div></div>
  <aside class="loadout-panel"><h2 class="panel-title">01 / HÀNH TRANG XUẤT CHIẾN</h2><div class="section-label">HỒN HOÀN <span>2 KHE</span></div><div class="ring-pair">${[
    1, 2,
  ]
    .map(
      (slot) =>
-       `<select aria-label="Hồn hoàn khe ${slot}" data-ring="${slot}"><option value="0">Khe ${slot} · Trống</option>${RINGS.filter(
+       `<div class="ring-choice">${loadout.rings[slot - 1] ? itemIcon("ring", loadout.rings[slot - 1], { label: RINGS[loadout.rings[slot - 1] - 1].name }) : '<div class="empty-icon"></div>'}<select aria-label="Hồn hoàn khe ${slot}" data-ring="${slot}"><option value="0">Khe ${slot} · Trống</option>${RINGS.filter(
          (r) =>
            R.ringCompatible(loadout.hero, r.id, slot) && ownsGear("ring", r.id),
        )
@@ -154,11 +160,11 @@ function renderHub() {
            (r) =>
              `<option value="${r.id}" ${loadout.rings[slot - 1] === r.id ? "selected" : ""}>${r.name}</option>`,
          )
-         .join("")}</select>`,
+         .join("")}</select></div>`,
    )
    .join(
      "",
-   )}</div><div class="section-label">HỒN CỐT <span>6 VỊ TRÍ + NGOẠI PHỤ</span></div><div class="bone-grid">${BONES.map((b) => `<button class="bone ${loadout.bones.includes(b.id) ? "active" : ""}" data-bone="${b.id}" ${!ownsGear("bone", b.id) ? "disabled" : ""} title="${b.name}"><span>${["◉", "♜", "⌁", "ϟ", "↗", "⌄", "✧"][b.id - 1]}</span>${b.slot}</button>`).join("")}</div><div class="section-label">HỒN KHÍ & TRANG PHỤC <span>THẨM MỸ</span></div><div class="ring-pair"><select id="skin" aria-label="Skin Hồn khí">${["Nguyên bản", "Cơ bản · 2.800 TB", "VIP · 399 NB"].map((s, i) => `<option value="${i}" ${loadout.skin === i ? "selected" : ""}>${s}</option>`).join("")}</select><select id="costume" aria-label="Trang phục">${COSTUMES[loadout.hero].map((s, i) => `<option value="${i}" ${loadout.costume === i ? "selected" : ""}>${s}${i === 1 ? " · 1.800 TB" : i === 2 ? " · 299 NB" : i === 3 ? " · 1 Vé" : ""}</option>`).join("")}</select></div><div class="section-label">PHẨM KHO <button id="openSupports" class="ghost small">THAY ĐỔI ↗</button></div><div class="stack">${loadout.supports.map((s, i) => `<div class="support-slot"><span>${i + 1} / ${SUPPORTS[s.id - 1].name}</span><small>Cấp ${s.tier}</small></div>`).join("")}${loadout.supports.length < 3 ? "<small>Chưa chọn đủ 3 khe — không bắt buộc</small>" : ""}</div><div class="section-label">VỐN MANG VÀO <span id="capitalValue">${loadout.brought} / 300 TB</span></div><input id="capital" type="range" min="0" max="${Math.min(300, profile.tb)}" step="10" value="${loadout.brought}" aria-label="Vốn Thanh bảo mang vào"><small>Tiêu trước thu nhập trận · Chết hoàn 50% phần dư</small></aside></section>
+   )}</div><div class="section-label">HỒN CỐT <span>6 VỊ TRÍ + NGOẠI PHỤ</span></div><div class="bone-grid">${BONES.map((b) => `<button class="bone ${loadout.bones.includes(b.id) ? "active" : ""}" data-bone="${b.id}" ${!ownsGear("bone", b.id) ? "disabled" : ""} title="${b.name}">${itemIcon("bone", b.id, { label: b.name })}${b.slot}</button>`).join("")}</div><div class="section-label">HỒN KHÍ & TRANG PHỤC <span>THẨM MỸ</span></div><div class="ring-pair"><select id="skin" aria-label="Skin Hồn khí">${["Nguyên bản", "Cơ bản · 2.800 TB", "VIP · 399 NB"].map((s, i) => `<option value="${i}" ${loadout.skin === i ? "selected" : ""}>${s}</option>`).join("")}</select><select id="costume" aria-label="Trang phục">${COSTUMES[loadout.hero].map((s, i) => `<option value="${i}" ${loadout.costume === i ? "selected" : ""}>${s}${i === 1 ? " · 1.800 TB" : i === 2 ? " · 299 NB" : i === 3 ? " · 1 Vé" : ""}</option>`).join("")}</select></div><div class="weapon-previews">${[0, 1, 2].map((skin) => `<button data-preview-skin="${skin}" class="${loadout.skin === skin ? "active" : ""}" aria-label="Xem ${["Nguyên bản", "Cơ bản", "VIP"][skin]}">${itemIcon("weapon", loadout.hero + 1, { skin, label: ["Nguyên bản", "Cơ bản", "VIP"][skin] })}<span>${["GỐC", "CƠ BẢN", "VIP"][skin]}</span></button>`).join("")}</div><div class="section-label">PHẨM KHO <button id="openSupports" class="ghost small">THAY ĐỔI ↗</button></div><div class="stack">${loadout.supports.map((s, i) => `<div class="support-slot">${itemIcon("support", s.id, { label: SUPPORTS[s.id - 1].name })}<span>${i + 1} / ${SUPPORTS[s.id - 1].name}</span><small>Cấp ${s.tier}</small></div>`).join("")}${loadout.supports.length < 3 ? "<small>Chưa chọn đủ 3 khe — không bắt buộc</small>" : ""}</div><div class="section-label">VỐN MANG VÀO <span id="capitalValue">${loadout.brought} / 300 TB</span></div><input id="capital" type="range" min="0" max="${Math.min(300, profile.tb)}" step="10" value="${loadout.brought}" aria-label="Vốn Thanh bảo mang vào"><small>Tiêu trước thu nhập trận · Chết hoàn 50% phần dư</small></aside></section>
  <footer class="hub-footer"><div><div class="mode-controls">${[
    ["solo", "SOLO · 100"],
    ["duo", "DUO · 50 × 2"],
@@ -200,7 +206,10 @@ function renderHub() {
   );
   $$("[data-ring]").forEach(
     (el) =>
-      (el.onchange = () => (loadout.rings[+el.dataset.ring - 1] = +el.value)),
+      (el.onchange = () => {
+        loadout.rings[+el.dataset.ring - 1] = +el.value;
+        renderHub();
+      }),
   );
   $$("[data-bone]").forEach(
     (el) =>
@@ -245,12 +254,43 @@ function renderHub() {
         "Simulation locale: VIP chuẩn hóa về Cơ Bản. Không phải ghép trận xếp hạng trực tuyến.",
       );
   };
+  $$("[data-preview-skin]").forEach(
+    (el) =>
+      (el.onclick = () => {
+        const select = $("#skin");
+        select.value = el.dataset.previewSkin;
+        select.dispatchEvent(new Event("change"));
+      }),
+  );
   $("#openSupports").onclick = () => showSupports();
   $("#stash").onclick = showStash;
   $("#help").onclick = showHelp;
   $("#history").onclick = showHistory;
   $("#start").onclick = () => guarded(startMatch);
   $("#fullscreen").onclick = fullscreen;
+  $("#showcaseFull").onclick = () => world.setShowcaseView("full");
+  $("#showcaseFace").onclick = () => world.setShowcaseView("face");
+  const drag = $("#showcaseDrag");
+  let dragX = null;
+  drag.onpointerdown = (event) => {
+    dragX = event.clientX;
+    drag.setPointerCapture(event.pointerId);
+  };
+  drag.onpointermove = (event) => {
+    if (dragX !== null) {
+      world.rotateShowcase((event.clientX - dragX) * 0.009);
+      dragX = event.clientX;
+    }
+  };
+  drag.onpointerup = drag.onpointercancel = () => {
+    dragX = null;
+  };
+  const safety = document.createElement("button");
+  safety.id = "securityShield";
+  safety.className = "ghost";
+  safety.textContent = "THIÊN ĐẠO HỘ GIỚI";
+  safety.onclick = showSecurity;
+  $(".footer-links").append(safety);
   const soundButton = document.createElement("button");
   soundButton.className = "ghost";
   soundButton.textContent = audio.enabled ? "ÂM THANH: BẬT" : "ÂM THANH: TẮT";
@@ -334,8 +374,39 @@ function showModal(title, content, bind = () => {}) {
 }
 function closeModal() {
   modal = null;
+  clearTimeout(appraisalTimer);
+  appraisalTimer = null;
   $("#modalRoot").innerHTML = "";
   input.attack = false;
+}
+function showSecurity() {
+  const security = window.__HON_GIOI__?.security;
+  showModal(
+    "Thiên Đạo Hộ Giới",
+    '<p class="intro">Trạng thái kiểm tra của bản dựng này. Máy chủ xác thực kết quả online; lớp kiểm tra JavaScript cục bộ có giới hạn khi thiết bị bị can thiệp.</p><pre id="securityStatus" class="security-status"></pre><button id="securitySimulate" class="primary">CHẠY KIỂM TRA GIẢ LẬP</button>',
+    () => {
+      const update = (result) => {
+        $("#securityStatus").textContent = JSON.stringify(
+          result ??
+            security?.status?.() ?? {
+              available: false,
+              reason: "Chưa có trận đang hoạt động",
+            },
+          null,
+          2,
+        );
+      };
+      update();
+      $("#securitySimulate").onclick = async () => {
+        try {
+          const result = await security?.simulate?.();
+          update(result);
+        } catch (error) {
+          update({ error: error.message });
+        }
+      };
+    },
+  );
 }
 function showSupports() {
   showModal(
@@ -346,7 +417,7 @@ function showSupports() {
           conflict =
             (s.id === 1 && loadout.supports.some((c) => c.id === 4)) ||
             (s.id === 4 && loadout.supports.some((c) => c.id === 1));
-        return `<div class="item-card support-choice ${chosen ? "selected" : ""}"><small>${s.code}</small><h3>${s.name}</h3><p>${s.text}</p><div class="row between"><select data-tier="${s.id}" aria-label="Cấp ${s.name}">${s.prices.map((p, i) => `<option value="${i + 1}" ${chosen?.tier === i + 1 ? "selected" : ""}>Cấp ${i + 1} · ${p} NB</option>`).join("")}</select>${s.tb ? `<select data-currency="${s.id}" aria-label="Loại tiền ${s.name}"><option value="nb">Ngân Bảo</option><option value="tb" ${chosen?.currency === "tb" ? "selected" : ""}>${s.tb}Thanh Bảo</option></select>` : ""}<button data-support="${s.id}" ${conflict ? "disabled" : ""}>${chosen ? "Bỏ chọn" : conflict ? "Xung đột" : "Chọn"}</button></div></div>`;
+        return `<div class="item-card support-choice ${chosen ? "selected" : ""}">${itemIcon("support", s.id, { label: s.name })}<small>${s.code}</small><h3>${s.name}</h3><p>${s.text}</p><div class="row between"><select data-tier="${s.id}" aria-label="Cấp ${s.name}">${s.prices.map((p, i) => `<option value="${i + 1}" ${chosen?.tier === i + 1 ? "selected" : ""}>Cấp ${i + 1} · ${p} NB</option>`).join("")}</select>${s.tb ? `<select data-currency="${s.id}" aria-label="Loại tiền ${s.name}"><option value="nb">Ngân Bảo</option><option value="tb" ${chosen?.currency === "tb" ? "selected" : ""}>${s.tb}Thanh Bảo</option></select>` : ""}<button data-support="${s.id}" ${conflict ? "disabled" : ""}>${chosen ? "Bỏ chọn" : conflict ? "Xung đột" : "Chọn"}</button></div></div>`;
       },
     ).join("")}</div>`,
     () => {
@@ -397,7 +468,7 @@ function showSupports() {
 function showStash() {
   showModal(
     "Kho Hồn Thành",
-    `<p class="intro">Trang bị trong kho được lấy ra khi xuất chiến và có thể mất khi tử vong. Mua bản mới tại đây nếu đã mất. Quà khởi tạo gồm 12 Hoàn và 7 Cốt, mỗi loại một bản.</p><div class="bag-grid">${profile.stash.map((i) => `<div class="bag-item"><small>${i.code}</small><p>${i.name} ${i.count > 1 ? "×" + i.count : ""}</p><button class="small" data-liquidate="${i.uid}">Thẩm định ${i.value * (i.count ?? 1)} TB</button></div>`).join("") || '<p class="empty">Kho trống</p>'}</div><h3 class="mini-header">Bổ sung trang bị Hồn Thành</h3><div class="catalog">${[...RINGS.map((r) => ({ kind: "ring", ...r, price: 120 })), ...BONES.map((r) => ({ kind: "bone", ...r, price: r.id === 7 ? 600 : 180 }))].map((i) => `<div class="item-card"><h3>${i.name}</h3><button class="small" data-gear="${i.kind}:${i.id}:${i.price}">Mua ${i.price} TB</button></div>`).join("")}</div>`,
+    `<p class="intro">Trang bị trong kho được lấy ra khi xuất chiến và có thể mất khi tử vong. Mua bản mới tại đây nếu đã mất. Quà khởi tạo gồm 12 Hoàn và 7 Cốt, mỗi loại một bản.</p><div class="bag-grid">${profile.stash.map((i) => `<div class="bag-item">${lootArt(i)}<small>${i.code}</small><p>${i.name} ${i.count > 1 ? "×" + i.count : ""}</p><button class="small" data-liquidate="${i.uid}">Thẩm định ${i.value * (i.count ?? 1)} TB</button></div>`).join("") || '<p class="empty">Kho trống</p>'}</div><h3 class="mini-header">Bổ sung trang bị Hồn Thành</h3><div class="catalog">${[...RINGS.map((r) => ({ kind: "ring", ...r, price: 120 })), ...BONES.map((r) => ({ kind: "bone", ...r, price: r.id === 7 ? 600 : 180 }))].map((i) => `<div class="item-card">${lootArt(i)}<h3>${i.name}</h3><button class="small" data-gear="${i.kind}:${i.id}:${i.price}">Mua ${i.price} TB</button></div>`).join("")}</div>`,
     () => {
       $$("[data-liquidate]").forEach(
         (el) =>
@@ -551,17 +622,13 @@ function renderHUD() {
   app.innerHTML = `<main class="hud"><div class="top-hud"><div class="minimap-wrap"><canvas id="minimap" width="280" height="280" aria-label="Minimap tương tác"></canvas><div class="map-title">THƯƠNG MANG CỔ VỰC</div></div><div class="match-status"><span>◷ <b id="matchTime">00:00</b></span><i class="divider"></i><span>CÒN SỐNG <b id="alive">100</b></span><i class="divider"></i><span>HẠ GỤC <b id="kills">0</b></span></div><details class="debug"><summary>DEV SANDBOX / THỬ NHANH</summary><div class="debug-body"><button data-debug="money">+500 TB / Tinh</button><button data-debug="loot">+ Chiến lợi phẩm</button><button data-debug="gate">Tới Cổng</button><button data-debug="shop">Tới Đài</button><button data-debug="shrine">Tới Tế Đàn</button><button data-debug="boss">Hang Boss</button><button data-debug="realm">Tới Bí Cảnh</button><button data-debug="open">Mở Cổng ngay</button><button data-debug="next" class="wide">Tua tới đợt Cổng kế tiếp</button><button data-debug="cc">Nhận CC 1s</button><button data-debug="hit">Nhận 150 ST</button><button data-debug="heal">Hồi HP / HL</button><button data-debug="death">Thử tử vong</button></div></details></div><div class="location" id="location"></div><div class="banner" id="gateBanner"></div><div class="quick-wallet">◈ Vốn <b id="brought"></b> TB<br>✦ Thu nhập <b id="earned"></b> TB<br><small id="bagBrief"></small></div><div id="joystickZone" aria-label="Vùng di chuyển"><div class="joystick" id="joystick"><div class="stick"></div><div class="joystick-label">DI CHUYỂN</div></div></div><div id="quickOffers" class="quick-offers"></div><div class="context-actions"><button id="pickup">◇ NHẶT / G</button><button id="shop">◈ CỬA HÀNG / B</button><button id="bag">▦ TÚI ĐỒ / I</button><button id="extract">⟡ HỒI HOÀN</button><button id="seal" class="hidden">✧ KÍCH HOẠT ẤN KHÓA</button></div><div class="player-bar"><div class="row"><span id="level">LV.1</span><span id="hpText"></span><span class="shield-value" id="shield"></span></div><div class="bar"><i id="hpFill"></i></div><div class="bar mp"><i id="mpFill"></i></div><div class="player-label" id="playerStatus">${HEROES[a.hero].name} · ${HEROES[a.hero].branches[a.branch]}</div></div><div id="cancelSkill" class="cancel-skill hidden">✕<small>HỦY CHIÊU</small></div><div class="supports-hud">${a.supports
     .map(
       (s, i) =>
-        `<button data-use="${i}" title="${SUPPORTS[s.id - 1].text}">${i + 1}<small>${SUPPORTS[
-          s.id - 1
-        ].name
-          .split(" ")
-          .map((w) => w[0])
-          .join("")}</small></button>`,
+        `<button data-use="${i}" title="${SUPPORTS[s.id - 1].text}" aria-label="${SUPPORTS[s.id - 1].name}">${itemIcon("support", s.id)}<span class="support-key">${i + 1}</span><small class="support-count"></small></button>`,
     )
     .join(
       "",
-    )}</div><div class="skills">${[0, 1, 2, 3, 4].map((k) => `<button class="skill" data-skill="${k}" aria-label="${k === 4 ? "F Linh Bộ" : SKILLS[a.hero][k].name}"><b>${["Q", "W", "E", "R", "F"][k]}</b><small>${k === 4 ? "LINH BỘ" : SKILLS[a.hero][k].name}</small><span class="cd hidden"></span></button>`).join("")}<button id="targetBeast" class="target-choice" aria-label="Đánh quái" aria-pressed="false">♧</button><button id="targetHero" class="target-choice" aria-label="Đánh tướng máu thấp" aria-pressed="false">◎</button><button id="attack" class="skill attack" aria-label="Đánh thường"><b>⚔</b><small>ĐÁNH THƯỜNG</small></button></div><div id="channelRoot"></div><details class="hud-options"><summary aria-label="Tùy chọn trận">⋯</summary><div class="hud-menu"><button id="menuHelp">?</button><button id="pause">Tạm dừng</button><button id="exitGame">Rời trận</button><button id="gameFullscreen">⛶</button><button id="quality" aria-label="Chất lượng đồ họa">◈</button></div></details><div class="performance" id="performance"></div><div id="modalRoot"></div></main>`;
+    )}</div><div class="skills">${[0, 1, 2, 3, 4].map((k) => `<button class="skill" data-skill="${k}" aria-label="${k === 4 ? "F Linh Bộ" : SKILLS[a.hero][k].name}" style="--element:#${HEROES[a.hero].color.toString(16).padStart(6, "0")}">${k === 4 ? itemIcon("action", 2) : `<img class="skill-art" src="${skillIcon(a.hero, k)}" alt="" draggable="false">`}<b>${["Q", "W", "E", "R", "F"][k]}</b><small>${k === 4 ? "LINH BỘ" : SKILLS[a.hero][k].name}</small><span class="mp-cost">${k === 4 ? "0" : R.skillFor(a, k).mp} HL</span><span class="energy-empty"></span><span class="cd hidden"></span></button>`).join("")}<button id="targetBeast" class="target-choice" aria-label="Đánh quái" aria-pressed="false">${itemIcon("action", 3)}</button><button id="targetHero" class="target-choice" aria-label="Đánh tướng máu thấp" aria-pressed="false">${itemIcon("action", 4)}</button><button id="attack" class="skill attack" aria-label="Đánh thường">${itemIcon("action", 1)}<small>ĐÁNH THƯỜNG</small></button></div><div id="channelRoot"></div><details class="hud-options"><summary aria-label="Tùy chọn trận">⋯</summary><div class="hud-menu"><button id="menuHelp">?</button><button id="pause">Tạm dừng</button><button id="exitGame">Rời trận</button><button id="gameFullscreen">⛶</button><button id="quality" aria-label="Chất lượng đồ họa">ĐỒ HỌA</button><button id="securityShield">HỘ GIỚI</button></div></details><div class="performance" id="performance"></div><div id="modalRoot"></div></main>`;
   $("#pickup").onclick = showAppraisal;
+  $("#securityShield").onclick = showSecurity;
   $("#quality").onclick = () =>
     showModal(
       "Chất lượng đồ họa",
@@ -754,6 +821,15 @@ function bindSkills() {
       start = { x: e.clientX, y: e.clientY };
       dir = null;
       $("#cancelSkill").classList.remove("hidden");
+      world.aim(
+        match.player,
+        k < 4
+          ? R.skillFor(match.player, k)
+          : { shape: "line", range: 2.8, radius: 0.6, headingOnly: true },
+        null,
+        false,
+        match,
+      );
     };
     el.onpointermove = (e) => {
       if (!start) return;
@@ -776,8 +852,12 @@ function bindSkills() {
         };
         world.aim(
           match.player,
-          k < 4 ? R.skillFor(match.player, k) : { range: 2.8, radius: 0.6 },
+          k < 4
+            ? R.skillFor(match.player, k)
+            : { shape: "line", range: 2.8, radius: 0.6, headingOnly: true },
           dir,
+          cancel.classList.contains("armed"),
+          match,
         );
       }
     };
@@ -812,9 +892,11 @@ function bindSkills() {
     input.attack = true;
     pushInputEdge();
     attack.setPointerCapture(e.pointerId);
+    attack.classList.add("pressed");
   };
   attack.onpointerup = attack.onpointercancel = () => {
     input.attack = false;
+    attack.classList.remove("pressed");
     pushInputEdge();
   };
 }
@@ -829,12 +911,12 @@ function showShop() {
     near.merchant
       ? "Thương Nhân Hồn Giới · Giảm 15%"
       : "Đài Giao Dịch Hồn Hoàn",
-    `<div class="row between"><p class="intro">Vốn: ${money(a.wallet.brought)} · Thu nhập: ${money(a.wallet.earned)} TB<br>7 ô đồng thời · Bán 60% giá gốc · Không giới hạn lượt giao dịch</p><small>${a.items.length}/7 Ô</small></div><div class="inventory-slots">${Array.from({ length: 7 }, (_, i) => (a.items[i] ? `<div class="inventory-slot">${ITEMS[a.items[i] - 1].name}<br><button data-sell="${i}">Bán ${money(ITEMS[a.items[i] - 1].price * 0.6)}</button>${ITEMS[a.items[i] - 1].tier === 3 ? `<button data-dismantle="${i}">Tháo</button>` : ""}</div>` : '<div class="inventory-slot muted">◇<br>Trống</div>')).join("")}</div><p class="warning ${R.backlash(a.hero, a.items) ? "red" : ""}">Phản Phệ hiện tại: −${Math.round(R.backlash(a.hero, a.items) * 100)}%. Món tương khắc có cảnh báo đỏ trước khi mua.</p><div class="catalog">${ITEMS.filter(
+    `<div class="row between"><p class="intro">Vốn: ${money(a.wallet.brought)} · Thu nhập: ${money(a.wallet.earned)} TB<br>7 ô đồng thời · Bán 60% giá gốc · Không giới hạn lượt giao dịch</p><small>${a.items.length}/7 Ô</small></div><div class="inventory-slots">${Array.from({ length: 7 }, (_, i) => (a.items[i] ? `<div class="inventory-slot">${itemIcon("item", a.items[i], { label: ITEMS[a.items[i] - 1].name })}${ITEMS[a.items[i] - 1].name}<br><button data-sell="${i}">Bán ${money(ITEMS[a.items[i] - 1].price * 0.6)}</button>${ITEMS[a.items[i] - 1].tier === 3 ? `<button data-dismantle="${i}">Tháo</button>` : ""}</div>` : '<div class="inventory-slot muted"><div class="empty-icon"></div>Trống</div>')).join("")}</div><p class="warning ${R.backlash(a.hero, a.items) ? "red" : ""}">Phản Phệ hiện tại: −${Math.round(R.backlash(a.hero, a.items) * 100)}%. Món tương khắc có cảnh báo đỏ trước khi mua.</p><div class="catalog">${ITEMS.filter(
       (i) => !near.merchant || i.tier === 3,
     )
       .map(
         (i) =>
-          `<div class="item-card"><small>${i.code} / ${["", "PHÀM", "LINH", "THIÊN"][i.tier]} · ${i.group}</small><h3>${i.name}</h3><p>${Object.entries(
+          `<div class="item-card">${itemIcon("item", i.id, { label: i.name })}<small>${i.code} / ${["", "PHÀM", "LINH", "THIÊN"][i.tier]} · ${i.group}</small><h3>${i.name}</h3><p>${Object.entries(
             i.stats,
           )
             .map(([k, v]) => `${k} +${v}`)
@@ -844,7 +926,7 @@ function showShop() {
       )
       .join(
         "",
-      )}</div><h3 class="mini-header">Cây ghép Bậc Thiên</h3>${RECIPES.map(([out, p, l, fee]) => `<div class="recipe-row"><span>${ITEMS[p - 1].name} + ${ITEMS[l - 1].name} + ${fee} TB → <b class="gold">${ITEMS[out - 1].name}</b></span><button class="small" data-craft="${out}">Ghép</button></div>`).join("")}`,
+      )}</div><h3 class="mini-header">Cây ghép Bậc Thiên</h3>${RECIPES.map(([out, p, l, fee]) => `<div class="recipe-row">${itemIcon("item", out, { label: ITEMS[out - 1].name })}<span>${ITEMS[p - 1].name} + ${ITEMS[l - 1].name} + ${fee} TB → <b class="gold">${ITEMS[out - 1].name}</b></span><button class="small" data-craft="${out}">Ghép</button></div>`).join("")}`,
     () => {
       for (const [action, attr] of [
         ["buy", "buy"],
@@ -863,29 +945,72 @@ function showShop() {
     },
   );
 }
+const appraisedLoot = new Set();
 function showAppraisal() {
+  clearTimeout(appraisalTimer);
   const drop = contextualActions(match).loot;
   if (!drop) {
-    toast("Không có chiến lợi phẩm hợp lệ trong3m.");
+    toast("Không có chiến lợi phẩm hợp lệ trong 3m.");
     return;
   }
+  const a = match.player;
+  const needsAppraisal = (i) =>
+    !appraisedLoot.has(i.uid) &&
+    (i.kind === "bone" ||
+      i.kind === "weapon" ||
+      (i.kind === "ring" && RINGS[i.id - 1]?.black));
+  const scanning = drop.items.some(needsAppraisal);
   showModal(
     "Lục soát · Thẩm định chiến lợi phẩm",
-    `<p class="intro">◈ ${money(drop.tb ?? 0)}TB · Hồn Tinh ${drop.essence ?? 0}. Túi ${match.player.bag.length}/24ô, ${R.weight(match.player.bag)}/48W.</p><div class="bag-grid">${drop.items.map((i) => `<article class="loot-inspection" tabindex="0"><div class="appraisal-lens">⌕</div><h3>${i.name}</h3><p>${i.code} · ${i.w}W</p><strong>${money(i.value ?? 0)} TB thẩm định</strong><small>${i.kind} · Số lượng ${i.count ?? 1}</small></article>`).join("")}</div><button id="lootQuick" class="primary">NHẶT NHANH</button>`,
+    `<div class="loot-split"><section class="loot-own"><h3>TRANG BỊ & TÚI CỦA BẠN</h3><p class="intro">${a.bag.length}/24 Ô · ĐIỂM TẢI ${R.weight(a.bag)}/48 W</p><div class="loot-own-slots">${Array.from({ length: 24 }, (_, slot) => (a.bag[slot] ? `<div class="own-loot-slot" title="${a.bag[slot].name}">${lootArt(a.bag[slot])}<span>${a.bag[slot].w}W</span></div>` : '<div class="own-loot-slot empty-icon"></div>')).join("")}</div><h4>ĐANG MẶC</h4><div class="loot-equipped">${a.gear.map((i) => `<div title="${i.name}">${lootArt(i)}<small>${i.w}W</small></div>`).join("")}</div><h4>BỔ PHẨM ${a.items.length}/7</h4><div class="loot-equipped">${a.items.map((id) => itemIcon("item", id, { label: ITEMS[id - 1].name })).join("")}</div></section><section class="loot-found"><h3>CHIẾN LỢI PHẨM TRONG HÒM</h3><p class="intro">${money(drop.tb ?? 0)} TB · ${drop.essence ?? 0} Hồn Tinh</p><div class="loot-found-grid">${drop.items.map((i) => `<button class="loot-inspection ${needsAppraisal(i) ? "appraising" : "appraised"}" data-loot-uid="${i.uid}" ${needsAppraisal(i) ? "disabled" : ""} aria-label="Nhặt ${i.name}">${lootArt(i)}<span class="appraisal-beam"></span><span class="appraisal-lens" aria-hidden="true"></span><span class="appraisal-info"><strong>${i.name}</strong><span>${i.code} · ${i.w}W · ×${i.count ?? 1}</span><b>${money(i.value ?? 0)} TB</b></span><span class="appraisal-state">${needsAppraisal(i) ? "ĐANG THẨM ĐỊNH · 0.8s" : "CHẠM ĐỂ NHẶT"}</span></button>`).join("") || '<p class="empty">Hòm chứa tiền và Hồn Tinh.</p>'}</div><button id="lootQuick" class="primary" ${scanning ? "disabled" : ""}>NHẶT NHANH ĐỒ QUÝ</button></section></div>`,
     () => {
+      const refresh = () => {
+        if (contextualActions(match).loot) showAppraisal();
+        else closeModal();
+      };
+      $$("[data-loot-uid]").forEach(
+        (button) =>
+          (button.onclick = () =>
+            guarded(() => {
+              const item = drop.items.find(
+                (i) => i.uid === button.dataset.lootUid,
+              );
+              if (!item || needsAppraisal(item)) return;
+              if (typeof match.pickupSelected !== "function")
+                throw Error("Máy chủ chưa hỗ trợ nhặt riêng vật phẩm");
+              match.pickupSelected(item.uid);
+              if (match.online) setTimeout(refresh, 150);
+              else refresh();
+            })),
+      );
       $("#lootQuick").onclick = () =>
         guarded(() => {
           match.pickup();
           closeModal();
         });
+      if (scanning)
+        appraisalTimer = setTimeout(() => {
+          if (modal !== "Lục soát · Thẩm định chiến lợi phẩm") return;
+          for (const i of drop.items) appraisedLoot.add(i.uid);
+          $$(".loot-inspection.appraising").forEach((el) => {
+            el.classList.remove("appraising");
+            el.classList.add("appraised");
+            el.disabled = false;
+            $(".appraisal-state", el).textContent = "CHẠM ĐỂ NHẶT";
+          });
+          $("#lootQuick").disabled = false;
+          audio.tone(1046.5, 0.12, "sine", 0.16);
+          audio.tone(1568, 0.18, "triangle", 0.08);
+        }, 800);
     },
   );
 }
+
 function showBag() {
   const a = match.player;
   showModal(
     "Túi chiến trường",
-    `<p class="intro">${a.bag.length}/24 ô · ${R.weight(a.bag)}/48 Điểm Tải · Tế Đàn: hấp thu Hoàn 8 giây, không di chuyển.</p><div class="bag-grid">${a.bag.map((i) => `<div class="bag-item"><small>${i.code} · ${i.w}W</small><p>${i.name}${i.count > 1 ? " ×" + i.count : ""}</p>${i.kind === "ring" && R.ringCompatible(a.hero, i.id, RINGS[i.id - 1].slot) ? `<button class="small" data-equip="${i.uid}">Hấp thu khe ${RINGS[i.id - 1].slot}</button>` : ""}<button class="small danger" data-drop="${i.uid}">Thả</button></div>`).join("") || '<p class="empty">Túi trống · Nhặt rương hoặc săn Hồn thú.</p>'}</div><h3 class="mini-header">Trang bị đang mặc · ${R.weight(a.gear)}W nếu mang về</h3><div class="bag-grid">${a.gear.map((i) => `<div class="bag-item"><small>${i.code} · ${i.brought ? "MANG VÀO" : "NHẶT TRẬN"}</small><p>${i.name}</p></div>`).join("")}</div><div class="row" style="margin-top:15px"><button id="boneActive" class="small">Bát Chu Mâu / CD60s</button><button id="itemActive" class="small">Thất Tinh Trận Bàn / CD60s</button></div>`,
+    `<p class="intro">${a.bag.length}/24 ô · ${R.weight(a.bag)}/48 Điểm Tải · Tế Đàn: hấp thu Hoàn 8 giây, không di chuyển.</p><div class="bag-grid">${a.bag.map((i) => `<div class="bag-item">${lootArt(i)}<small>${i.code} · ${i.w}W</small><p>${i.name}${i.count > 1 ? " ×" + i.count : ""}</p>${i.kind === "ring" && R.ringCompatible(a.hero, i.id, RINGS[i.id - 1].slot) ? `<button class="small" data-equip="${i.uid}">Hấp thu khe ${RINGS[i.id - 1].slot}</button>` : ""}<button class="small danger" data-drop="${i.uid}">Thả</button></div>`).join("") || '<p class="empty">Túi trống · Nhặt rương hoặc săn Hồn thú.</p>'}</div><h3 class="mini-header">Trang bị đang mặc · ${R.weight(a.gear)}W nếu mang về</h3><div class="bag-grid">${a.gear.map((i) => `<div class="bag-item">${lootArt(i)}<small>${i.code} · ${i.brought ? "MANG VÀO" : "NHẶT TRẬN"}</small><p>${i.name}</p></div>`).join("")}</div><div class="row" style="margin-top:15px"><button id="boneActive" class="small">Bát Chu Mâu / CD60s</button><button id="itemActive" class="small">Thất Tinh Trận Bàn / CD60s</button></div>`,
     () => {
       $$("[data-equip]").forEach(
         (el) =>
@@ -947,7 +1072,7 @@ function showSend() {
   const a = match.player;
   showModal(
     "Hoãn Nhân Hồi · Đăng ký gói đồ",
-    `<p class="intro">Chọn đồ trong túi và trang bị muốn tháo gửi. EARNED_THANH_BAO được chuyển toàn bộ; BROUGHT_THANH_BAO vẫn ở lại. Trang bị chọn sẽ tháo ngay vào ký quỹ khi bắt đầu.</p><div class="bag-grid">${[...a.bag, ...a.gear].map((i) => `<div class="bag-item"><label><input type="checkbox" data-send="${i.uid}" checked> ${i.name}<br><small>${i.w}W · ${a.gear.includes(i) ? "Đang mặc" : "Túi"}</small></label></div>`).join("") || '<p class="empty">Không có đồ; vẫn có thể gửi thu nhập.</p>'}</div><p id="sendWeight" class="intro" style="margin-top:14px"></p><button id="confirmSend" class="primary">BẮT ĐẦU GỬI ĐỒ</button>`,
+    `<p class="intro">Chọn đồ trong túi và trang bị muốn tháo gửi. EARNED_THANH_BAO được chuyển toàn bộ; BROUGHT_THANH_BAO vẫn ở lại. Trang bị chọn sẽ tháo ngay vào ký quỹ khi bắt đầu.</p><div class="bag-grid">${[...a.bag, ...a.gear].map((i) => `<div class="bag-item">${lootArt(i)}<label><input type="checkbox" data-send="${i.uid}" checked> ${i.name}<br><small>${i.w}W · ${a.gear.includes(i) ? "Đang mặc" : "Túi"}</small></label></div>`).join("") || '<p class="empty">Không có đồ; vẫn có thể gửi thu nhập.</p>'}</div><p id="sendWeight" class="intro" style="margin-top:14px"></p><button id="confirmSend" class="primary">BẮT ĐẦU GỬI ĐỒ</button>`,
     () => {
       const update = () => {
         const selected = $$("[data-send]:checked").map((e) => e.dataset.send),
@@ -994,6 +1119,10 @@ function backHub() {
   renderHub();
 }
 function debug(action) {
+  if (!match) return;
+  return ensureRuntimeSecurity(match).sandbox(() => debugAction(action));
+}
+function debugAction(action) {
   if (match.online) {
     toast("Sandbox chỉ dùng ngoại tuyến");
     return;
@@ -1039,6 +1168,22 @@ function debug(action) {
     match.kill(a, { team: -1, kind: "beast" });
   }
 }
+function updateSkillCooldowns() {
+  const a = match?.player;
+  if (!a || !$(".skills")) return;
+  $$("[data-skill]").forEach((el) => {
+    const k = +el.dataset.skill,
+      cd = a.cooldowns[k],
+      badge = $(".cd", el);
+    badge.classList.toggle("hidden", cd <= 0);
+    badge.textContent = cd.toFixed(1) + "s";
+    const cost = k === 4 ? 0 : R.skillFor(a, k).mp;
+    el.classList.toggle("no-energy", a.mp < cost);
+    $(".mp-cost", el).textContent = `${cost} HL`;
+    const total = k === 4 ? 8 : R.skillFor(a, k).cd;
+    badge.style.background = `conic-gradient(#061c2de8 ${Math.min(1, cd / Math.max(total, 0.01)) * 360}deg, #061c2d22 0deg)`;
+  });
+}
 function updateHUD() {
   if (!match || !match.player || !$("#matchTime")) return;
   const a = match.player,
@@ -1065,19 +1210,27 @@ function updateHUD() {
       ? "BÁ THỂ · MIỄN CC"
       : a.ccUntil > match.time
         ? "KHỐNG CHẾ CỨNG"
-        : `${HEROES[a.hero].name} · ${a.stacks} tầng nội tại`;
+        : (match.bushes ?? MAP_BUSHES).some((b) => R.distance(a, b) < b.r)
+          ? `ẨN THÂN · ${HEROES[a.hero].name}`
+          : `${HEROES[a.hero].name} · ${a.stacks} tầng nội tại`;
   $("#location").textContent = REGIONS[match.region(a)].name.toUpperCase();
-  $$("[data-skill]").forEach((el) => {
-    const k = +el.dataset.skill,
-      cd = a.cooldowns[k],
-      badge = $(".cd", el);
-    badge.classList.toggle("hidden", cd <= 0);
-    badge.textContent = cd > 9 ? Math.ceil(cd) : cd.toFixed(1);
-    const total = k === 4 ? 8 : R.skillFor(a, k).cd;
-    badge.style.background = `conic-gradient(#061c2de8 ${Math.min(1, cd / Math.max(total, 0.01)) * 360}deg, #061c2d22 0deg)`;
-  });
+  updateSkillCooldowns();
   $$("[data-use]").forEach((el) => {
     const c = a.supports[+el.dataset.use];
+    const maxUses = {
+      2: c.tier === 2 ? 3 : 2,
+      3: 1,
+      7: 3,
+      8: 1,
+      9: 2,
+      12: 1,
+      14: 1,
+      15: 2,
+      16: 1,
+      17: 1,
+    }[c.id];
+    $(".support-count", el).textContent =
+      maxUses === undefined ? "NỘI TẠI" : Math.max(0, maxUses - (c.used || 0));
     el.style.opacity =
       c.used && [1, 4, 5, 6, 10, 11, 13, 18].includes(c.id) === false
         ? ".6"
@@ -1093,7 +1246,7 @@ function updateHUD() {
     $("#quickOffers").innerHTML = offers
       .map(
         (o, i) =>
-          `<button data-quick="${i}" ${o.disabled ? "disabled" : ""} class="${o.warning ? "red" : ""}" title="${o.warning ? "Phản Phệ -4%/món, tối đa -8%. " : ""}${o.name}"><b>${o.action === "craft" ? "GHÉP" : "MUA"} ${o.warning ? "⚠" : ""}</b><span>${o.name}</span><small>${money(o.price)} TB</small></button>`,
+          `<button data-quick="${i}" ${o.disabled ? "disabled" : ""} class="${o.warning ? "red" : ""}" title="${o.warning ? "Phản Phệ -4%/món, tối đa -8%. " : ""}${o.name}">${itemIcon("item", o.id, { label: o.name })}<b>${o.action === "craft" ? "GHÉP" : "MUA"} ${o.warning ? "!" : ""}</b><span>${o.name}</span><small>${money(o.price)} TB</small></button>`,
       )
       .join("");
   }
@@ -1102,9 +1255,9 @@ function updateHUD() {
   $("#absorbDirect").classList.toggle("hidden", !actions.ring || !!a.absorb);
   $("#sendDirect").classList.toggle("hidden", !actions.canSend || !!a.channel);
   $("#extract").classList.toggle("hidden", !actions.gate && !a.channel);
-  $("#bag").textContent = `▦ ${a.bag.length}/24`;
+  $("#bag").textContent = `TÚI ${a.bag.length}/24`;
   $("#bag").title = `Túi ${a.bag.length}/24 ô | ${R.weight(a.bag)}/48W`;
-  $("#shop").textContent = `◈ ${a.items.length}/7`;
+  $("#shop").textContent = `ĐỒ ${a.items.length}/7`;
   $("#targetBeast").setAttribute(
     "aria-pressed",
     String(input.targetMode === "beast"),
@@ -1206,7 +1359,7 @@ function drawMap() {
   if (next && next - match.time <= 60)
     GATE_POS.forEach((g) => dot(g, "#a4ddae", 3));
   for (const t of match.actors)
-    if (t.alive && !t.extracted) {
+    if (t.alive && !t.extracted && (!match.visible || match.visible(a, t))) {
       if (
         t.kind === "hero" &&
         (t.team === 0 ||
@@ -1327,6 +1480,7 @@ function animate(now) {
   requestAnimationFrame(animate);
   if (match && match.player && !paused && !match.result) {
     if (!modal && mouseAim) match.player.dir = mouseAim;
+    ensureRuntimeSecurity(match);
     match.step(dt, controlInput());
   }
   saveAcc += dt;
@@ -1336,6 +1490,7 @@ function animate(now) {
   }
   if (!match || match.player) world.render(match, dt, loadout.hero, loadout);
   audio.update(match, now / 1000);
+  updateSkillCooldowns();
   uiAcc += dt;
   frames++;
   fpsTimer += dt;
@@ -1389,6 +1544,16 @@ window.__HON_GIOI__ = {
     return world;
   },
   debug,
+  assets: masterworkAssets,
+  security: securityFacade(() => match),
+  ...(import.meta.env.DEV
+    ? {
+        sandbox(fn) {
+          if (match?.online) throw Error("Sandbox chỉ dành cho offline DEV");
+          return ensureRuntimeSecurity(match).sandbox(fn);
+        },
+      }
+    : {}),
 };
 
 async function showOnline() {

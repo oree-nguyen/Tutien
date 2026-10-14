@@ -1,5 +1,19 @@
 import { spawn } from "node:child_process";
+import { createServer } from "node:net";
 const children = [];
+async function requireFreePort(port) {
+  await new Promise((resolve, reject) => {
+    const probe = createServer();
+    probe.once("error", () =>
+      reject(
+        Error(
+          `QA port ${port} is already in use; finish the previous QA run first.`,
+        ),
+      ),
+    );
+    probe.listen(port, "127.0.0.1", () => probe.close(resolve));
+  });
+}
 async function run(command, args = [], env = {}) {
   return new Promise((resolve, reject) => {
     const p = spawn(command, args, {
@@ -31,8 +45,10 @@ async function wait(url) {
   throw Error("Service readiness failed: " + url);
 }
 try {
+  await Promise.all([3101, 5175, 4175].map(requireFreePort));
   await run("npm", ["run", "services"]);
   await run("node", ["scripts/verify-goal.mjs", "--record", "rules"]);
+  await run("node", ["scripts/verify-goal.mjs", "--record", "master-rules"]);
   await run("npm", ["run", "build"]);
   await run("node", ["scripts/verify-goal.mjs", "--record", "server"]);
   service("node", ["server/index.js"], {
@@ -44,12 +60,14 @@ try {
   service(
     "node",
     [
-      "node_modules/vite/bin/vite.js",
-      "--host",
-      "127.0.0.1",
-      "--port",
-      "5175",
-      "--strictPort",
+      "--input-type=module",
+      "--eval",
+      `import { createServer } from 'vite';
+       const server = await createServer({ server: {
+         host: '127.0.0.1', port: 5175, strictPort: true, hmr: false,
+         watch: { ignored: ['**/android/**', '**/release/**', '**/docs/**', '**/acceptance/**', '**/test-results/**'] }
+       }});
+       await server.listen(); server.printUrls();`,
     ],
     { HG_API_TARGET: "http://127.0.0.1:3101" },
   );
@@ -61,6 +79,9 @@ try {
     GAME_URL: "http://127.0.0.1:5175",
   });
   await run("npm", ["run", "test:upgrade-ui"], {
+    GAME_URL: "http://127.0.0.1:5175",
+  });
+  await run("npm", ["run", "test:master-ui"], {
     GAME_URL: "http://127.0.0.1:5175",
   });
   service(

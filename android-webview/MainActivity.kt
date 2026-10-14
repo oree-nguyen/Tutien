@@ -1,11 +1,13 @@
 package vn.hongioi.sinhton
 
 import android.app.Activity
+import android.content.Context
 import android.content.pm.ActivityInfo
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import android.webkit.WebResourceRequest
+import android.webkit.JavascriptInterface
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
@@ -16,12 +18,15 @@ class MainActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        SecurityGuard.enforce(this, allowDebug = BuildConfig.DEBUG)
         requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         val loader = WebViewAssetLoader.Builder()
             .addPathHandler("/assets/", WebViewAssetLoader.AssetsPathHandler(this))
             .build()
         game = WebView(this)
+        game.addJavascriptInterface(NativeSecurityBridge(this), "HongioiNativeSecurity")
+        game.filterTouchesWhenObscured = true
         game.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true
@@ -40,6 +45,13 @@ class MainActivity : Activity() {
         setContentView(game)
         game.loadUrl("https://appassets.androidplatform.net/assets/index.html")
         immersive()
+    }
+
+    private class NativeSecurityBridge(context: Context) {
+        private val applicationContext = context.applicationContext
+
+        @JavascriptInterface
+        fun status(): String = SecurityGuard.statusJson(applicationContext)
     }
 
     @Suppress("DEPRECATION")

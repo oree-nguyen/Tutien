@@ -57,7 +57,7 @@ Các gate kỹ thuật về bộ phận/độ khác biệt/địa hình được
 Theo lựa chọn của người dùng, `ART04` và `GAME02` chờ đặc tả gốc. `ART10`, `HUD09`, `DEVICE01`, `DEVICE02` cần kiểm chứng/hoàn thiện trên Android thật và nghiệm thu mỹ thuật; hiện chưa có thiết bị kết nối. Tất cả các gate gốc về GDD và thiết bị tiếp tục bắt buộc. Khi các mục này chưa đạt, trạng thái đúng là bản đang phát triển có APK cài thử, không phải bản hoàn tất100%.
 
 
-## Kết quả hiện tại — 14/10/2026
+## Kết quả hiện tại — 15/10/2026
 
 `verify:upgrade`: **20/26 tiêu chí kỹ thuật có bằng chứng hiện hành**. Đây không phải80%chất lượng sản phẩm hoặc nghiệm thu100%Markdown/GDD. Các mục còn lại:
 
@@ -68,6 +68,18 @@ Theo lựa chọn của người dùng, `ART04` và `GAME02` chờ đặc tả g
 | HUD09 | Kiểm chứng công thái học, overlap và cảm giác nhiều ngón trên Android thật |
 | GAME02 | Giá trị rủi ro đã có; chưa có bảng gốc cho lắp/chỉ số/độ bền Tiên khí |
 | DEVICE01 | Chưa có trace Android vật lý về launch/ngang/cảm ứng/HồiHoàn/restore |
-| DEVICE02 | Chưa có trace60s đạt60FPS thường và30FPS với>=40actor trên Android tầm trung |
+| DEVICE02 | Chưa có trace đủ 60s mỗi cảnh, đạt 60 FPS thường và 30 FPS với ≥40 actor trên Android tầm trung |
 
-Review kỹ thuật chỉ duyệt sự hiện diện các bộ phận/biến thể/địa hình trong ART01/ART03/ART05; các giới hạn và công việc mỹ thuật còn lại được ghi rõ trong `acceptance/evidence/upgrade-art-review.json`. Không dùng review này để duyệt ART10 hoặc audit GDD. Goal tái sử dụng vẫnBLOCKED với bốn gate `android-functional`, `android-performance`, `gdd-audit`, `md-upgrade`.
+Review kỹ thuật chỉ duyệt sự hiện diện các bộ phận/biến thể/địa hình trong ART01/ART03/ART05; các giới hạn và công việc mỹ thuật còn lại được ghi rõ trong `acceptance/evidence/upgrade-art-review.json`. Không dùng review này để duyệt ART10 hoặc audit GDD. Goal tái sử dụng vẫn BLOCKED với các gate `android-functional`, `android-performance`, `gdd-audit`, `md-upgrade` và `master-prompt` từ prompt mới. Xem thêm [MASTER-GOAL.md](MASTER-GOAL.md).
+
+
+## Quy tắc bằng chứng sau khi siết bộ chấm
+
+`verify:upgrade` chỉ nhận review ảnh cho ART01/ART03/ART05; ảnh phải tồn tại, đúng định dạng và SHA-256, reviewer không rỗng, fingerprint hiện hành. Report ảnh không thể duyệt ART04/GAME02/ART10/HUD09 hoặc các mục thiết bị.
+
+- ART04/GAME02 nhận gate CR02/GP02 tương ứng của Master cùng nguồn, đồng thời đối chiếu lại tài liệu bổ sung có checksum, implementationChecks và bộ master/luật/server hiện hành. GAME02 vẫn cần kiểm tra UI giá trị rủi ro. Master có thể chưa đạt tổng thể; chỉ gate cụ thể đã đạt được chuyển tiếp để tránh phụ thuộc vòng.
+- ART10 cần AR01 và `master-full-art-review.json` đã nghiệm thu đủ ảnh/chi tiết/số lượng, kèm `checks.onAndroid: true`, thông tin thiết bị thật và trace riêng có checksum.
+- HUD09 cần `android-functional.json` đạt năm kiểm tra cơ bản và thêm `joystick`, `skills`, `skillCancel`, `shop`, `drawer`, `contextActions`, `noTouchOverlap`; các hồi quy cảm ứng trên trình duyệt cũng phải đạt.
+- DEVICE01 cần model không rỗng, trace tồn tại đúng SHA-256 và đủ launch/landscape/touchCombat/extraction/resume. DEVICE02 cần cùng điều kiện trace/model, FPS đạt 60/30, ít nhất 40 actor và `normalDurationSeconds`/`gateCombatDurationSeconds` đều ít nhất 60 giây; giữ `durationSeconds >= 60`.
+
+Fixture kiểm thử chỉ chạy trong thư mục tạm, không tạo bằng chứng đạt cho game hoặc thiết bị. Các gate chưa có bằng chứng thực tế tiếp tục BLOCKED.

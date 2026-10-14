@@ -63,3 +63,18 @@ Yêu cầu mới được lưu nguyên văn ở [AI-Studio-Android-V2.5.md](requ
 
 
 Phát trạng thái WebSocket được chia thành lô8kết nối, nhường event loop giữa các lô và không cho nhiều lượt phát chồng nhau. Việc này giữ việc nhận input/ACK xen kẽ với phát trạng thái; bộ đo ACK vẫn giữ ngưỡng60ms. Kiểm thử tải ghi báo cáo kể cả khi fail, để bằng chứng cũ không che lỗi của lần chạy mới.
+
+
+## Master Prompt (2)
+
+Nguồn mới giữ nguyên tại [MASTER-ENGINEERING-ART-V2.5.md](requests/MASTER-ENGINEERING-ART-V2.5.md); [MASTER-GOAL.md](MASTER-GOAL.md) có 37 tiêu chí và hai gate bắt buộc mới. Mục tiêu cũ vẫn giữ nguyên.
+
+- Nhân vật dùng loft bầu dục, chiều cao theo bảng từng người, tỷ lệ 8 đầu đo từ geometry, khung khớp và ngón tay, bốn lớp áo và mặt Canvas 2048 ở mức gần. Mức vừa/xa dùng mặt 256/64 và lưới giản lược. 12 vũ khí được dựng riêng theo mô tả mới; trượng Blender cũ vẫn là tài nguyên tùy chọn, không tự thay trượng sen 12 cánh.
+- Bộ Canvas tạo 149 minh họa 512: Cốt/Hoàn/Bổ phẩm/Trợ phẩm/vũ khí/skin/kỹ năng. Tên và luật vật phẩm vẫn theo GDD khi tên ví dụ mỹ thuật khác dữ liệu gốc.
+- Sảnh bạch ngọc tách bản đồ, bốn nguồn sáng và chế độ xoay/cận mặt. Địa hình hiển thị 600 m với splatmap 2048; tọa độ chiến đấu ±94 m giữ nguyên. Nước phản chiếu bầu trời/mặt trăng thủ tục theo hướng camera với pháp tuyến sóng và Fresnel; chưa có SSR hoặc phản chiếu vật thể trong cảnh. Bốn loài thú và ba Boss có hình riêng; không thêm Boss thứ tư.
+- Guide AOE và vùng kỹ năng dùng chung phép chiếu mục tiêu và độ cao địa hình; mục tiêu trùng vị trí không tạo NaN. F dùng hướng hiện tại khi giữ, hướng kéo khi ngắm và hướng đã chuẩn hóa ở máy chủ; không tự khóa sang địch gần.
+- Lục soát có hai cột, quét đồ quý 0,8 giây, nhặt từng UID và nhặt nhanh. Máy chủ kiểm tra phạm vi, realm, khóa ưu tiên và tải túi; không tin vật phẩm do client gửi.
+- Client có vault phát hiện/khôi phục sửa trạng thái và giới hạn bước thời gian theo đồng hồ monotonic. Vật phẩm online có UUID và HMAC gắn tài khoản; xác minh trước giao dịch, ký lại khi chuyển quyền hợp lệ. Khóa máy chủ không đưa vào web/APK và được backup riêng cùng SQL. Đây là SQL ACID + ledger/outbox, không nhận là distributed two-phase commit.
+- Kotlin Guard chạy trước WebView; R8 và kiểm tra DEX có bằng chứng biên dịch. Certificate pin, root/Frida heuristics và bridge chỉ đọc không thay kiểm thử tấn công trên Android thật. JavaScript trên thiết bị người chơi không thể là gốc tin cậy tuyệt đối; máy chủ giữ quyền kinh tế online.
+
+Báo cáo mới không tự duyệt mỹ thuật hoàn chỉnh, dữ liệu chưa có hoặc thiết bị thật. Các giới hạn vẫn chặn điều kiện tái sử dụng 100%.

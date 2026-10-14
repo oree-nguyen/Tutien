@@ -60,6 +60,16 @@
       "id": "md-upgrade",
       "kind": "external",
       "evidence": "acceptance/evidence/md-upgrade.json"
+    },
+    {
+      "id": "master-rules",
+      "kind": "automated",
+      "command": "npm run test:master"
+    },
+    {
+      "id": "master-prompt",
+      "kind": "external",
+      "evidence": "acceptance/evidence/master-prompt.json"
     }
   ]
 }

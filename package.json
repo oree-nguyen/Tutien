@@ -14,7 +14,7 @@
     "test:artifacts": "node tests/artifacts.mjs",
     "services": "node scripts/services.mjs",
     "server": "node server/index.js",
-    "test:server": "node --test --test-concurrency=1 tests/server.test.js",
+    "test:server": "node --test --test-concurrency=1 tests/server.test.js tests/server-security.test.js",
     "test:online-ui": "node tests/online-browser.mjs",
     "test:load": "node tests/load.mjs",
     "goal": "node scripts/verify-goal.mjs",
@@ -26,7 +26,11 @@
     "test:timeline": "node tests/timeline.mjs",
     "services:backup": "node scripts/backup-services.mjs",
     "test:upgrade-ui": "node tests/upgrade-browser.mjs",
-    "verify:upgrade": "node scripts/verify-upgrade.mjs"
+    "verify:upgrade": "node scripts/verify-upgrade.mjs",
+    "test:master": "node --test tests/master.test.js tests/anatomy-art.test.js tests/creature-art.test.js tests/security.test.js tests/skill-projection.test.js tests/portrait-equipment.test.js tests/upgrade-evidence.test.js",
+    "test:master-ui": "node tests/master-browser.mjs",
+    "verify:master": "node scripts/verify-master.mjs",
+    "android:hardening": "node scripts/native-hardening.mjs"
   },
   "dependencies": {
     "@capacitor/android": "7.6.9",

@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { HEROES, REGIONS, GATE_POS, SHRINES } from "./data.js";
+import { HEROES, REGIONS } from "./data.js";
 import {
   visualTemplate,
   animateVisual,
@@ -7,7 +7,6 @@ import {
   groundHeight,
   projectGround,
   roundedBlock,
-  treeTrunkGeometry,
   proceduralMaps,
 } from "./art.js";
 import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
@@ -16,7 +15,9 @@ import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import { staffAssets } from "./staff-asset.js";
-import { MAP_BUSHES, infected } from "./systems.js";
+import { MAP_BUSHES, NAV_OBSTACLES } from "./systems.js";
+import { createScenery, createPortal, updatePortal } from "./scenery.js";
+import { projectSkillCast } from "./skill-projection.js";
 export class World {
   constructor(canvas) {
     this.renderer = new THREE.WebGLRenderer({
@@ -37,7 +38,7 @@ export class World {
     this.scene = new THREE.Scene();
     this.scene.background = new THREE.Color(0x102b32);
     this.scene.fog = new THREE.FogExp2(0x1f3b40, 0.011);
-    this.camera = new THREE.PerspectiveCamera(40, 1, 0.1, 350);
+    this.camera = new THREE.PerspectiveCamera(40, 1, 0.1, 700);
     this.camera.position.set(17, 27, 23);
     this.focus = new THREE.Vector3();
     this.clock = 0;
@@ -56,7 +57,8 @@ export class World {
       ring: new THREE.TorusGeometry(0.65, 0.025, 4, 32),
       staff: new THREE.CylinderGeometry(0.035, 0.035, 1.5, 5),
     };
-    this.scene.add(new THREE.HemisphereLight(0xd6fcf1, 0x31444f, 2.4));
+    this.mapAmbient = new THREE.HemisphereLight(0xd6fcf1, 0x31444f, 2.4);
+    this.scene.add(this.mapAmbient);
     const sun = new THREE.DirectionalLight(0xffdfad, 3.3);
     sun.position.set(-20, 35, 10);
     sun.castShadow = true;
@@ -73,6 +75,7 @@ export class World {
     this.scene.add(sun, sun.target);
     const rim = new THREE.DirectionalLight(0x69f0e7, 1.4);
     rim.position.set(10, 10, -20);
+    this.mapRim = rim;
     this.scene.add(rim);
     this.environment();
     this.composer = new EffectComposer(this.renderer);
@@ -155,247 +158,39 @@ export class World {
     return m;
   }
   environment() {
-    const groundGeometry = new THREE.PlaneGeometry(210, 210, 256, 256);
-    const vertices = groundGeometry.attributes.position;
-    for (let i = 0; i < vertices.count; i++)
-      vertices.setZ(i, terrainHeight(vertices.getX(i), -vertices.getY(i)));
-    groundGeometry.computeVertexNormals();
-    const ground = this.mesh(groundGeometry, 0x3c6056);
-    ground.rotation.x = -Math.PI / 2;
-    ground.receiveShadow = true;
-    const colors = new Float32Array(vertices.count * 3);
-    for (let i = 0; i < vertices.count; i++) {
-      const x = vertices.getX(i),
-        z = -vertices.getY(i);
-      const r = REGIONS.filter(
-        (r, j) => j !== 6 || Math.hypot(x - 82, z) < 18,
-      ).reduce(
-        (best, r) =>
-          Math.hypot(r.x - x, r.z - z) < Math.hypot(best.x - x, best.z - z)
-            ? r
-            : best,
-        REGIONS[0],
-      );
-      const color = new THREE.Color(r.color).multiplyScalar(
-        0.8 + 0.1 * Math.sin(x * 0.17) * Math.cos(z * 0.13),
-      );
-      color.toArray(colors, i * 3);
-    }
-    groundGeometry.setAttribute("color", new THREE.BufferAttribute(colors, 3));
-    ground.material = new THREE.MeshPhysicalMaterial({
-      vertexColors: true,
-      roughness: 0.95,
-      metalness: 0.02,
-    });
-    let road = this.mesh(new THREE.PlaneGeometry(17, 190), 0x72786c);
-    road.rotation.x = -Math.PI / 2;
-    road.position.y = 0.025;
-    road.receiveShadow = true;
-    let road2 = this.mesh(new THREE.PlaneGeometry(190, 10), 0x737c6d);
-    road2.rotation.x = -Math.PI / 2;
-    road2.position.y = 0.03;
-    const platform = this.mesh(
-      new THREE.CylinderGeometry(14, 15, 0.7, 12),
-      0x8d9785,
-    );
-    platform.position.y = 0.3;
-    platform.receiveShadow = true;
-    const inset = this.mesh(
-      new THREE.CylinderGeometry(12, 12, 0.72, 12),
-      0x52685f,
-    );
-    inset.position.y = 0.33;
-    inset.receiveShadow = true;
-    this.scene.add(this.ring(0xc6c894, 11.6));
-    const tiles = [];
-    for (let x = -12; x <= 12; x += 3)
-      for (let z = -12; z <= 12; z += 3)
-        if (Math.hypot(x, z) < 12)
-          tiles.push({ x, y: 0.72, z, sx: 2.85, sy: 0.08, sz: 2.85 });
-    this.instances(this.geos.box, 0x7c8c7b, tiles);
-    this.obstacles = [];
-    for (const [x, z] of [
-      [-15, -15],
-      [15, -15],
-      [-15, 15],
-      [15, 15],
-      [-8, -22],
-      [8, -22],
-    ]) {
-      const col = this.mesh(
-        new THREE.CylinderGeometry(0.65, 0.9, 5, 7),
-        0x738b7b,
-      );
-      col.position.set(x, 2.5, z);
-      col.castShadow = true;
-      const cap = this.mesh(roundedBlock(2, 0.4, 2), 0xbaa779);
-      cap.position.set(x, 5, z);
-      this.obstacles.push({ x, z, r: 0.85, blocksSight: true });
-      const gem = this.mesh(new THREE.OctahedronGeometry(0.45), 0x83ffd5);
-      gem.material = this.mat(0x83ffd5, true);
-      gem.position.set(x, 5.7, z);
-    }
-    let trunks = [],
-      leaves = [],
-      rocks = [],
-      snow = [];
-    let seed = 2741;
-    const rand = () => {
-      seed = (seed * 1664525 + 1013904223) >>> 0;
-      return seed / 4294967296;
-    };
-    for (let i = 0; i < 430; i++) {
-      const x = rand() * 186 - 93,
-        z = rand() * 186 - 93;
-      if (
-        Math.abs(x) < 12 ||
-        Math.abs(z) < 8 ||
-        Math.hypot(x, z) < 20 ||
-        GATE_POS.some((p) => Math.hypot(p.x - x, p.z - z) < 7)
-      )
-        continue;
-      const h = 2 + rand() * 4;
-      if (z < -48 && Math.abs(x) < 30) {
-        snow.push({ x, y: h / 2 + 0.5, z, sx: 2, sy: h, sz: 2 });
-        trunks.push({ x, y: h / 3, z, sx: 0.2, sy: h / 2, sz: 0.2 });
-      } else if ((x > 15 && z < 15) || rand() < 0.4) {
-        trunks.push({ x, y: h / 2, z, sx: 0.35, sy: h, sz: 0.35 });
-        leaves.push({ x, y: h + 1, z, sx: 1.5 + rand(), sy: 2, sz: 1.8 });
-      } else
-        rocks.push({
-          x,
-          y: 0.5,
-          z,
-          sx: 1 + rand() * 2,
-          sy: 1 + rand() * 2,
-          sz: 1.5,
-          rot: rand() * 6,
-        });
-    }
-    this.instances(
-      this.geos.sphere,
-      0x36694b,
-      MAP_BUSHES.map((b) => ({
-        x: b.x,
-        z: b.z,
-        y: 0.6,
-        sx: b.r,
-        sy: 1.2,
-        sz: b.r,
-      })),
-    );
-    this.instances(treeTrunkGeometry(), 0x574b38, trunks);
-    const canopy = [];
-    leaves.forEach((e, index) => {
-      for (let j = 0; j < 24; j++) {
-        const a = j * 2.399,
-          r = 0.35 + 0.65 * Math.sqrt((j + 0.5) / 24);
-        canopy.push({
-          x: e.x + Math.cos(a) * e.sx * r,
-          y: e.y + Math.sin(j * 0.7) * 0.55,
-          z: e.z + Math.sin(a) * e.sz * r,
-          sx: 0.5,
-          sy: 0.35,
-          sz: 0.6,
-          rot: a,
-        });
+    this.scenery = createScenery();
+    this.scene.add(this.scenery.battlefield, this.scenery.sanctuary);
+    this.markerMeshes = this.scenery.markerMeshes;
+    this.obstacles = structuredClone(NAV_OBSTACLES);
+    this.showcaseView = "full";
+    this.showcaseYaw = Math.PI;
+  }
+  setShowcaseView(value) {
+    if (!["face", "full"].includes(value)) throw Error("Góc sảnh không hợp lệ");
+    this.showcaseView = value;
+    if (this.preview)
+      this.syncPortraitEquipment(this.preview, value === "face");
+  }
+  syncPortraitEquipment(group, faceView) {
+    this.portraitEquipmentVisibility ??= new WeakMap();
+    group.traverse((node) => {
+      const equipment =
+        node.name === "soulWeapon" ||
+        (node.userData.proceduralMasterwork === true &&
+          typeof node.userData.weaponType === "string");
+      if (!equipment) return;
+      if (faceView) {
+        if (!this.portraitEquipmentVisibility.has(node))
+          this.portraitEquipmentVisibility.set(node, node.visible);
+        node.visible = false;
+      } else if (this.portraitEquipmentVisibility.has(node)) {
+        node.visible = this.portraitEquipmentVisibility.get(node);
+        this.portraitEquipmentVisibility.delete(node);
       }
     });
-    this.instances(new THREE.SphereGeometry(1, 12, 8), 0x3e795d, canopy);
-
-    this.instances(this.geos.cone, 0xbad9d5, snow);
-    this.instances(new THREE.SphereGeometry(1, 24, 16), 0x68736c, rocks);
-    const waterGeometry = new THREE.PlaneGeometry(5, 56, 16, 128),
-      wv = waterGeometry.attributes.position;
-    for (let i = 0; i < wv.count; i++) {
-      const z = wv.getY(i) + 47,
-        x = wv.getX(i) + 49 + Math.sin(z * 0.13) * 3;
-      wv.setXYZ(i, x, terrainHeight(x, z) + 0.035, z);
-    }
-    waterGeometry.computeVertexNormals();
-    const water = new THREE.Mesh(
-      waterGeometry,
-      new THREE.MeshPhysicalMaterial({
-        color: 0x356b76,
-        roughness: 0.24,
-        metalness: 0.1,
-        clearcoat: 1,
-        transmission: 0.35,
-        thickness: 0.05,
-        transparent: true,
-        opacity: 0.78,
-        side: THREE.DoubleSide,
-      }),
-    );
-    this.scene.add(water);
-    const specs = [
-      ...[...GATE_POS, { x: -10, z: 0 }, { x: 10, z: 0 }, { x: 0, z: 14 }].map(
-        (p) => ({ ...p, type: "gate" }),
-      ),
-      ...REGIONS.slice(0, 6).map((r) => ({
-        x: r.x + 5,
-        z: r.z + 5,
-        type: "shop",
-      })),
-      ...SHRINES.map((p) => ({ ...p, type: "shrine" })),
-    ];
-    specs.forEach((p) => {
-      const g = new THREE.Group();
-      g.position.set(p.x, terrainHeight(p.x, p.z), p.z);
-      this.scene.add(g);
-      const color =
-        p.type === "gate" ? 0x72ffdb : p.type === "shop" ? 0xf1c878 : 0xb5a1ff;
-      const base = this.mesh(
-        new THREE.CylinderGeometry(2.4, 2.8, 0.5, 8),
-        0x7b8980,
-        g,
-      );
-      base.position.y = 0.25;
-      base.receiveShadow = true;
-      if (p.type === "gate") {
-        const arch = new THREE.Mesh(
-          new THREE.TorusGeometry(1.8, 0.19, 6, 36, Math.PI * 1.4),
-          this.mat(0xb4bba0),
-        );
-        arch.rotation.z = -0.2 * Math.PI;
-        arch.position.y = 1.8;
-        g.add(arch);
-        const core = new THREE.Mesh(
-          new THREE.CircleGeometry(1.55, 40),
-          new THREE.MeshBasicMaterial({
-            color,
-            transparent: true,
-            opacity: 0.17,
-            side: THREE.DoubleSide,
-          }),
-        );
-        core.position.y = 1.8;
-        g.add(core);
-      } else {
-        const col = this.mesh(
-          new THREE.CylinderGeometry(0.7, 1, 1.5, 6),
-          0xadb59a,
-          g,
-        );
-        col.position.y = 1;
-        const gem = this.mesh(new THREE.OctahedronGeometry(0.65), color, g);
-        gem.material = this.mat(color, true);
-        gem.position.y = 2.3;
-      }
-      const ring = this.ring(color, 3.5);
-      g.add(ring);
-      this.markerMeshes.push({ group: g, ring, p });
-    });
-    // Broken arches and floating islands mark the hidden realm.
-    for (let i = 0; i < 8; i++) {
-      let a = (i / 8) * Math.PI * 2;
-      const m = this.mesh(new THREE.OctahedronGeometry(2.3), 0x8e78b1);
-      m.position.set(
-        82 + Math.cos(a) * 12,
-        3 + Math.sin(i) * 2,
-        Math.sin(a) * 12,
-      );
-    }
+  }
+  rotateShowcase(delta) {
+    if (Number.isFinite(delta)) this.showcaseYaw += delta;
   }
   loadStaff(detail) {
     if (!this.staffCache.has(detail))
@@ -429,7 +224,7 @@ export class World {
       visual,
       detail === "high" ? 0 : detail === "medium" ? 28 : 48,
     );
-    if (a.kind === "hero" && a.hero === 0) {
+    if (a.kind === "hero" && a.hero === 0 && !visual.userData.anatomy) {
       this.loadStaff(detail)
         .then((source) => {
           const weapon = visual.getObjectByName("soulWeapon");
@@ -478,6 +273,9 @@ export class World {
       a.hero,
       a.skin ?? 0,
       a.costume ?? 0,
+      a.mutant ?? false,
+      a.tier ?? 0,
+      a.species ?? (typeof a.id === "number" ? a.id % 4 : 0),
       a.rings?.some((id) => [6, 8, 9, 12].includes(id)) ? "black" : "purple",
     ].join(":");
   }
@@ -517,6 +315,30 @@ export class World {
     this.models.set(a.id, model);
     this.addDetail(model, a, a.id === "preview" ? "high" : "low");
     return model;
+  }
+  setConcealment(model, active) {
+    if (
+      model.concealment === active &&
+      model.concealmentDetails === model.details.size
+    )
+      return;
+    model.concealment = active;
+    model.concealmentDetails = model.details.size;
+    model.lod.traverse((o) => {
+      if (!o.isMesh) return;
+      if (!o.userData.ownConcealmentMaterial) {
+        if (!active) return;
+        o.material = o.material.clone();
+        o.userData.ownConcealmentMaterial = true;
+        o.userData.baseOpacity = o.material.opacity;
+        o.userData.baseTransparent = o.material.transparent;
+      }
+      o.material.transparent = active || o.userData.baseTransparent;
+      o.material.opacity = active
+        ? o.userData.baseOpacity * 0.6
+        : o.userData.baseOpacity;
+      o.material.needsUpdate = true;
+    });
   }
   setQuality(value) {
     if (!["balanced", "ultra"].includes(value))
@@ -566,6 +388,11 @@ export class World {
   }
   render(match, dt, hubHero = 0, appearance = {}) {
     this.clock += dt;
+    this.scenery.update(this.clock, match);
+    this.sun.visible = this.mapRim.visible = this.mapAmbient.visible = !!match;
+    this.scene.background.setHex(match ? 0x142d36 : 0x6a8da1);
+    this.scene.fog.color.setHex(match ? 0x1f3b40 : 0x8baabb);
+    this.scene.fog.density = match ? 0.011 : 0.008;
     const player = match?.player ?? { x: 0, z: 0 };
     const target = new THREE.Vector3(
       player.x,
@@ -573,7 +400,7 @@ export class World {
       player.z,
     );
     this.focus.lerp(target, 1 - Math.exp(-dt * 8));
-    const dist = match ? (this.quality === "ultra" ? 25 : 31) : 22;
+    const dist = match ? (this.quality === "ultra" ? 16 : 18) : 10.5;
     const elevation = (48 * Math.PI) / 180;
     this.camera.position
       .copy(this.focus)
@@ -584,6 +411,7 @@ export class World {
           dist * Math.cos(elevation) * 0.879,
         ),
       );
+    if (match) this.camera.position.y += 0.9;
     this.camera.lookAt(
       this.focus.x,
       this.focus.y + (match ? 0.9 : 2.6),
@@ -620,9 +448,53 @@ export class World {
         return;
       }
       this.preview.visible = true;
-      this.preview.rotation.y = Math.PI + Math.sin(this.clock * 0.3) * 0.3;
-      this.preview.position.set(0, 0.7, 0);
+      this.preview.rotation.y = this.showcaseYaw;
+      this.preview.position.set(0, 0.74, 0);
+      const previewModel = this.models.get("preview"),
+        visual = previewModel.lod.levels[0]?.object;
+      const heroHeight =
+        (visual?.userData.height ??
+          visual?.userData.anatomy?.heightMeters ??
+          1.82) * 2.4;
+      for (const level of previewModel.lod.levels)
+        animateVisual(
+          level.object,
+          {
+            id: "preview",
+            kind: "hero",
+            hero: hubHero,
+            ...appearance,
+            x: 0,
+            z: 0,
+            dir: { x: 0, z: -1 },
+            cooldowns: [],
+          },
+          this.clock,
+          dt,
+        );
+      const faceView = this.showcaseView === "face",
+        aimY = 0.74 + heroHeight * (faceView ? 0.92 : 0.53);
+      this.syncPortraitEquipment(this.preview, faceView);
+      this.camera.position.set(
+        0,
+        aimY + (faceView ? 0.03 : 0.7),
+        faceView ? 2.6 : 10.5,
+      );
+      this.camera.lookAt(0, aimY, 0);
+      this.scenery.sanctuary.userData.sanctuary.rim.color.setHex(
+        HEROES[hubHero].color,
+      );
+      for (const [id, model] of this.models)
+        if (id !== "preview")
+          model.group.visible =
+            typeof id === "string" && id.startsWith("legend-");
+      for (const e of this.effectMeshes.values()) e.mesh.visible = false;
+      this.particleMesh.visible = false;
+      if (this.pet) this.pet.visible = false;
+      this.fogRegions?.forEach((m) => (m.visible = false));
+      this.realmMarkers?.forEach((m) => (m.visible = false));
     } else {
+      this.particleMesh.visible = true;
       if (this.preview) this.preview.visible = false;
       for (const a of match.actors) {
         let model = this.models.get(a.id);
@@ -643,6 +515,11 @@ export class World {
         if (!model) model = this.character(a);
         const g = model.group;
         g.visible = !(match.visible && !match.visible(player, a));
+        if (!g.visible) continue;
+        const inGrass = (match.bushes ?? MAP_BUSHES).some(
+          (b) => Math.hypot(a.x - b.x, a.z - b.z) < b.r,
+        );
+        this.setConcealment(model, a === player && inGrass);
         if (
           this.camera.position.distanceTo(
             new THREE.Vector3(a.x, groundHeight(a.x, a.z), a.z),
@@ -673,7 +550,11 @@ export class World {
         model.barBg.quaternion.copy(this.camera.quaternion);
       }
       for (const z of match.zones)
-        if (!z.delayed && !this.effectMeshes.has("z" + z.id)) {
+        if (
+          !z.delayed &&
+          (z.owner.realm ?? 0) === (player.realm ?? 0) &&
+          !this.effectMeshes.has("z" + z.id)
+        ) {
           let ring = this.ring(
             HEROES[z.owner.hero]?.color ?? 0xffaa77,
             z.sk.radius,
@@ -684,10 +565,17 @@ export class World {
             z.point.z,
           );
           this.scene.add(ring);
-          this.effectMeshes.set("z" + z.id, { mesh: ring, end: z.end });
+          this.effectMeshes.set("z" + z.id, {
+            mesh: ring,
+            end: z.end,
+            realm: z.owner.realm ?? 0,
+          });
         }
       for (const e of match.effects)
-        if (!this.effectMeshes.has(e.id)) {
+        if (
+          (e.realm ?? 0) === (player.realm ?? 0) &&
+          !this.effectMeshes.has(e.id)
+        ) {
           this.spawnParticles(e);
           let ring = this.ring(e.color, Math.max(0.4, e.radius));
           ring.position.set(e.x, groundHeight(e.x, e.z) + 0.05, e.z);
@@ -697,9 +585,11 @@ export class World {
             end: e.end,
             born: e.born,
             animated: true,
+            realm: e.realm ?? 0,
           });
         }
       for (const [key, e] of this.effectMeshes) {
+        e.mesh.visible = (e.realm ?? 0) === (player.realm ?? 0);
         if (e.end <= match.time) {
           this.scene.remove(e.mesh);
           e.mesh.geometry.dispose();
@@ -744,6 +634,9 @@ export class World {
               : 0.12
             : 0.5 + Math.sin(this.clock * 2) * 0.15;
       });
+      this.markerMeshes.forEach(
+        ({ group }) => (group.visible = (player.realm ?? 0) === 0),
+      );
       if (match.player.channel) {
         const c = match.player.channel;
         this.targetRing.visible = true;
@@ -756,6 +649,12 @@ export class World {
       } else if (!this.aiming) this.targetRing.visible = false;
     }
     this.animateParticles(dt);
+    if (this.aimContext?.match === match && match) {
+      const context = this.aimContext;
+      const actor =
+        context.actor.id === match.player.id ? match.player : context.actor;
+      this.aim(actor, context.skill, context.dir, context.canceled, match);
+    }
     const lit = match?.player ?? { x: 0, z: 0 };
     this.weaponLight.position.set(
       lit.x + 0.5,
@@ -785,13 +684,13 @@ export class World {
         return mesh;
       });
     }
-    this.fogRegions.forEach(
-      (m, i) =>
-        (m.material.opacity =
-          match.time > 480 + i * 100
-            ? 0.12 + Math.sin(this.clock * 0.8 + i) * 0.025
-            : 0),
-    );
+    this.fogRegions.forEach((m, i) => {
+      m.visible = match.player.realm !== 1;
+      m.material.opacity =
+        match.time > 480 + i * 100
+          ? 0.12 + Math.sin(this.clock * 0.8 + i) * 0.025
+          : 0;
+    });
     if (!this.realmMarkers) {
       this.realmMarkers = [
         { x: 58, z: 32 },
@@ -838,33 +737,64 @@ export class World {
   }
   renderDynamicGates(match) {
     if (!this.activeGateModels) this.activeGateModels = new Map();
-    const ids = new Set();
-    for (const gate of match.gates) {
-      if (gate.end <= match.time && !match.player.channel) continue;
-      const key = gate.x + "," + gate.z;
-      ids.add(key);
+    const channelGate = match.player.channel?.gate;
+    const grace = (gate) =>
+      channelGate &&
+      Math.hypot(channelGate.x - gate.x, channelGate.z - gate.z) < 0.1;
+    const liveGates = [...match.gates];
+    if (channelGate && !liveGates.some(grace)) liveGates.push(channelGate);
+    for (const marker of this.markerMeshes) {
+      if (marker.p.type !== "gate") continue;
+      const p = marker.p;
+      const active = liveGates.some(
+        (g) =>
+          Math.hypot(g.x - p.x, g.z - p.z) < 1 &&
+          (g.end > match.time || grace(g)),
+      );
+      const central = Math.hypot(p.x, p.z) < 20;
+      const starts = central ? [1200] : [300, 600, 900];
+      const warning = starts.some(
+        (t) => match.time >= t - 60 && match.time < t,
+      );
+      marker.group.visible = (match.player.realm ?? 0) === 0;
+      updatePortal(
+        marker.group,
+        active ? "open" : warning ? "warning" : "closed",
+        this.clock,
+      );
+    }
+    const keys = new Set();
+    for (const gate of liveGates) {
+      if (gate.end <= match.time && !grace(gate)) continue;
+      if (
+        this.markerMeshes.some(
+          (m) =>
+            m.p.type === "gate" &&
+            Math.hypot(m.p.x - gate.x, m.p.z - gate.z) < 1,
+        )
+      )
+        continue;
+      const key = `${gate.x},${gate.z}`;
+      keys.add(key);
       let model = this.activeGateModels.get(key);
       if (!model) {
-        model = new THREE.Group();
-        const ring = this.ring(0x9affda, 3.5);
-        model.add(ring);
-        const arch = new THREE.Mesh(
-          new THREE.TorusGeometry(1.8, 0.13, 5, 28),
-          this.mat(0xa1d9ba, true),
-        );
-        arch.position.y = 1.8;
-        model.add(arch);
-        this.scene.add(model);
+        model = createPortal();
+        this.scenery.battlefield.add(model);
         this.activeGateModels.set(key, model);
       }
       model.position.set(gate.x, groundHeight(gate.x, gate.z) + 0.05, gate.z);
+      model.visible = (match.player.realm ?? 0) === (gate.realm ?? 0);
+      updatePortal(model, "open", this.clock);
     }
-    for (const [key, m] of this.activeGateModels)
-      if (!ids.has(key)) {
-        this.scene.remove(m);
-        for (const c of m.children) {
-          c.geometry.dispose();
-        }
+    for (const [key, model] of this.activeGateModels)
+      if (!keys.has(key)) {
+        this.scenery.battlefield.remove(model);
+        model.traverse((o) => {
+          if (o.isMesh) {
+            o.geometry.dispose();
+            o.material.dispose();
+          }
+        });
         this.activeGateModels.delete(key);
       }
   }
@@ -883,7 +813,11 @@ export class World {
       this.pet.material = this.mat(0xacecff, true);
     }
     this.pet.visible = true;
-    this.pet.position.set(pet.x, 1.05 + Math.sin(this.clock * 4) * 0.15, pet.z);
+    this.pet.position.set(
+      pet.x,
+      groundHeight(pet.x, pet.z) + 1.05 + Math.sin(this.clock * 4) * 0.15,
+      pet.z,
+    );
     this.pet.rotation.y = this.clock;
   }
   renderProjectiles(match) {
@@ -903,6 +837,7 @@ export class World {
       }
       mesh.position.set(p.x, groundHeight(p.x, p.z) + 1, p.z);
       mesh.rotation.y = Math.atan2(p.dir.x, p.dir.z);
+      mesh.visible = (p.owner.realm ?? 0) === (match.player.realm ?? 0);
     }
     for (const [id, mesh] of this.boltModels)
       if (!ids.has(id)) {
@@ -932,7 +867,9 @@ export class World {
         d.z,
       );
       g.rotation.y = this.clock;
-      g.visible = Math.hypot(d.x - match.player.x, d.z - match.player.z) < 35;
+      g.visible =
+        (d.realm ?? 0) === (match.player.realm ?? 0) &&
+        Math.hypot(d.x - match.player.x, d.z - match.player.z) < 35;
     }
     for (const [id, g] of this.dropModels)
       if (!ids.has(id)) {
@@ -981,6 +918,7 @@ export class World {
   }
   clearAim() {
     this.aiming = false;
+    this.aimContext = null;
     this.targetRing.visible = false;
     if (this.aimGuide) {
       this.scene.remove(this.aimGuide);
@@ -991,55 +929,107 @@ export class World {
       this.aimGuide = null;
     }
   }
-  aim(a, skill, dir) {
-    this.clearAim();
-    this.aiming = true;
-    const group = new THREE.Group(),
-      color = 0x9fffe1;
-    group.position.set(a.x, groundHeight(a.x, a.z) + 0.1, a.z);
-    group.rotation.y = Math.atan2(dir.x, dir.z);
-    const material = () =>
-      new THREE.MeshBasicMaterial({
-        color,
+  aim(a, skill, dir = null, canceled = false, match = null) {
+    const projection = projectSkillCast(match, a, skill, dir);
+    const key = `${skill.shape}:${skill.range}:${skill.radius ?? 1}`;
+    if (!this.aimGuide || this.aimGuide.userData.skillKey !== key) {
+      this.clearAim();
+      const group = new THREE.Group();
+      group.name = "skillshot-guide";
+      group.userData.skillKey = key;
+      const mat = new THREE.MeshBasicMaterial({
+        color: 0x9fffe1,
         transparent: true,
-        opacity: 0.35,
+        opacity: 0.26,
         side: THREE.DoubleSide,
         depthWrite: false,
       });
-    if (skill.shape === "line" || skill.shape === "cone") {
+      const range = this.ring(0x9fffe1, Math.max(0.5, skill.range));
+      range.material.opacity = 0.42;
+      group.add(range);
       if (skill.shape === "line") {
-        let strip = new THREE.Mesh(
-          new THREE.PlaneGeometry(0.9, skill.range),
-          material(),
-        );
-        strip.rotation.x = -Math.PI / 2;
-        strip.position.z = skill.range / 2;
-        group.add(strip);
-        const arrow = new THREE.Mesh(
-          new THREE.ConeGeometry(0.45, 0.9, 3),
-          material(),
-        );
-        arrow.rotation.x = Math.PI / 2;
-        arrow.position.z = skill.range;
-        group.add(arrow);
-      } else {
-        const geometry = new THREE.CircleGeometry(
+        const vertices = new Float32Array([
+          -0.32,
+          0,
+          0,
+          0.32,
+          0,
+          0,
+          -0.32,
+          0,
+          skill.range - 0.7,
+          0.32,
+          0,
+          skill.range - 0.7,
+          -0.8,
+          0,
+          skill.range - 0.7,
+          0.8,
+          0,
+          skill.range - 0.7,
+          0,
+          0,
           skill.range,
-          40,
-          Math.PI / 6,
-          (Math.PI * 2) / 3,
+        ]);
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
+        geo.setIndex([0, 1, 2, 1, 3, 2, 4, 5, 6]);
+        geo.computeVertexNormals();
+        group.add(new THREE.Mesh(geo, mat));
+      } else if (skill.shape === "cone") {
+        const vertices = [0, 0, 0],
+          indices = [];
+        for (let i = 0; i <= 48; i++) {
+          const angle = -Math.PI / 3 + ((i / 48) * Math.PI * 2) / 3;
+          vertices.push(
+            Math.sin(angle) * skill.range,
+            0,
+            Math.cos(angle) * skill.range,
+          );
+          if (i < 48) indices.push(0, i + 1, i + 2);
+        }
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute(
+          "position",
+          new THREE.Float32BufferAttribute(vertices, 3),
         );
-        const cone = new THREE.Mesh(geometry, material());
-        cone.rotation.x = -Math.PI / 2;
-        group.add(cone);
+        geo.setIndex(indices);
+        geo.computeVertexNormals();
+        group.add(new THREE.Mesh(geo, mat));
+      } else {
+        const area = this.ring(0x9fffe1, skill.radius || 1);
+        area.name = "area-target";
+        area.material.opacity = 0.8;
+        group.add(area);
+        const center = new THREE.Mesh(new THREE.CircleGeometry(0.12, 24), mat);
+        center.rotation.x = -Math.PI / 2;
+        center.name = "area-center";
+        group.add(center);
       }
-    } else {
-      const ring = this.ring(color, skill.radius || 1);
-      ring.position.z = skill.range * 0.7;
-      group.add(ring);
+      this.aimGuide = group;
+      this.scene.add(group);
     }
-    this.aimGuide = group;
-    this.scene.add(group);
+    this.aiming = true;
+    this.aimContext = { actor: a, skill, dir, canceled, match };
+    this.targetRing.visible = false;
+    this.aimGuide.position.set(a.x, groundHeight(a.x, a.z) + 0.1, a.z);
+    this.aimGuide.rotation.y = Math.atan2(
+      projection.direction.x,
+      projection.direction.z,
+    );
+    this.aimGuide.children.forEach((c) => {
+      if (c.name === "area-target" || c.name === "area-center") {
+        c.position.z = projection.distance;
+        c.position.y =
+          groundHeight(projection.point.x, projection.point.z) -
+          groundHeight(a.x, a.z) +
+          (c.name === "area-target" ? 0.06 : 0);
+      }
+      c.material.color.setHex(canceled ? 0xff625b : 0x9fffe1);
+    });
+    this.aimGuide.userData.canceled = canceled;
+    this.aimGuide.userData.projectedPoint = projection.point;
+    this.aimGuide.userData.snapshotPrediction = projection.snapshotPrediction;
   }
 
   reset() {

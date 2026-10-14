@@ -27,9 +27,7 @@ try {
   console.log("Upgrade: hub and asset loading");
   await page.goto(process.env.GAME_URL ?? "http://127.0.0.1:5173");
   await page.waitForFunction(() => window.__HON_GIOI__);
-  await page.waitForFunction(() =>
-    window.__HON_GIOI__.world.staffCache.get("high"),
-  );
+  await page.evaluate(() => window.__HON_GIOI__.world.loadStaff("high"));
   const asset = await page.evaluate(async () => {
     const w = window.__HON_GIOI__.world,
       g = await w.staffCache.get("high");
@@ -43,6 +41,19 @@ try {
   });
   assert.equal(asset, 120068);
   checks.glb = true;
+  await page.waitForFunction(() => {
+    let found = false;
+    window.__HON_GIOI__.world.preview?.traverse((o) => {
+      if (
+        o.userData.proceduralMasterwork &&
+        o.userData.heroIndex === 0 &&
+        o.userData.detail === "high"
+      )
+        found = true;
+    });
+    return found;
+  });
+  checks.masterworkWeapon = true;
   const risk = await page.locator(".risk-value").textContent();
   await page.evaluate(() => {
     const p = window.__HON_GIOI__.profile,
@@ -67,13 +78,15 @@ try {
   // Freeze only opponent decision-making to keep UI assertions deterministic; real timers run.
   await page.evaluate(() => {
     const m = window.__HON_GIOI__.match;
-    m.ai = () => {};
-    for (const t of m.actors)
-      if (t !== m.player) {
-        t.x = 80;
-        t.z = 80;
-      }
-    m.player.immuneUntil = 10000;
+    window.__HON_GIOI__.sandbox(() => {
+      m.ai = () => {};
+      for (const t of m.actors)
+        if (t !== m.player) {
+          t.x = 80;
+          t.z = 80;
+        }
+      m.player.immuneUntil = 10000;
+    });
   });
   console.log("Upgrade: floating joystick and simultaneous skill cancellation");
   const start = { x: 80, y: 300 };
@@ -209,8 +222,10 @@ try {
   );
   await page.evaluate(() => {
     const m = window.__HON_GIOI__.match;
-    m.player.items = [1, 2];
-    m.player.wallet.earned = 1000;
+    window.__HON_GIOI__.sandbox(() => {
+      m.player.items = [1, 2];
+      m.player.wallet.earned = 1000;
+    });
   });
   await page.waitForFunction(() =>
     document.querySelector('[data-quick="0"]').textContent.includes("GHÉP"),
@@ -259,14 +274,16 @@ try {
     const g = window.__HON_GIOI__;
     g.debug("shrine");
     const m = g.match;
-    m.player.bag.push({
-      kind: "ring",
-      id: 1,
-      uid: crypto.randomUUID(),
-      code: "HR-01",
-      w: 2,
-      value: 120,
-      name: "Mộc Phược Hoàn",
+    window.__HON_GIOI__.sandbox(() => {
+      m.player.bag.push({
+        kind: "ring",
+        id: 1,
+        uid: crypto.randomUUID(),
+        code: "HR-01",
+        w: 2,
+        value: 120,
+        name: "Mộc Phược Hoàn",
+      });
     });
   });
   await page.waitForSelector("#absorbDirect:not(.hidden)");
@@ -275,7 +292,9 @@ try {
     await page.evaluate(() => !!window.__HON_GIOI__.match.player.absorb),
   );
   await page.evaluate(() => {
-    window.__HON_GIOI__.match.player.absorb = null;
+    window.__HON_GIOI__.sandbox(() => {
+      window.__HON_GIOI__.match.player.absorb = null;
+    });
   });
   checks.altar = true;
   await page.evaluate(() => {
@@ -291,12 +310,14 @@ try {
   // Default combat measurement: no open panel and no nearby interaction; include all painted HUD controls.
   await page.evaluate(() => {
     const m = window.__HON_GIOI__.match;
-    m.player.x = -35;
-    m.player.z = -15;
-    m.gates = [];
-    m.drops = [];
-    m.shopPoints = [];
-    m.merchants = [];
+    window.__HON_GIOI__.sandbox(() => {
+      m.player.x = -35;
+      m.player.z = -15;
+      m.gates = [];
+      m.drops = [];
+      m.shopPoints = [];
+      m.merchants = [];
+    });
   });
   await page.waitForSelector("#extract.hidden", { state: "attached" });
   await page.waitForSelector("#sendDirect.hidden", { state: "attached" });

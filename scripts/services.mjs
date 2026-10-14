@@ -1,5 +1,5 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { randomBytes } from "node:crypto";
+import { randomBytes, timingSafeEqual } from "node:crypto";
 import { execFileSync } from "node:child_process";
 await mkdir(".local", { recursive: true });
 let config;
@@ -26,6 +26,39 @@ function docker(args) {
     encoding: "utf8",
     stdio: ["ignore", "pipe", "pipe"],
   }).trim();
+}
+async function restoreSigningKey(sql) {
+  // An environment-managed key is restored by the deployment secret store.
+  if (process.env.HG_ITEM_HMAC_KEY) return;
+  let backup;
+  try {
+    backup = await readFile(".local/backups/item-signing.key");
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+    if (sql.includes(Buffer.from("itemSignatureVersion")))
+      throw Error(
+        "Bản sao SQL có vật phẩm đã ký nhưng thiếu khóa HMAC; từ chối khôi phục",
+      );
+    return;
+  }
+  if (backup.length < 32) throw Error("Khóa ký vật phẩm sao lưu không hợp lệ");
+  let active;
+  try {
+    active = await readFile(".local/item-signing.key");
+  } catch (error) {
+    if (error.code !== "ENOENT") throw error;
+  }
+  if (active) {
+    if (active.length !== backup.length || !timingSafeEqual(active, backup))
+      throw Error(
+        "Khóa HMAC hiện hành khác khóa bản sao; từ chối thay khóa hoặc khôi phục SQL",
+      );
+  } else {
+    await writeFile(".local/item-signing.key", backup, {
+      mode: 0o600,
+      flag: "wx",
+    });
+  }
 }
 for (const [name, image, args] of [
   [
@@ -64,6 +97,7 @@ for (const [name, image, args] of [
     }
     try {
       const sql = await readFile(".local/backups/hongioi.sql");
+      await restoreSigningKey(sql);
       execFileSync(
         "docker",
         [

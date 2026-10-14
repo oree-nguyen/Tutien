@@ -72,6 +72,7 @@ for (const gate of required) {
           passed &&
           e.device?.physical === true &&
           typeof e.device?.model === "string" &&
+          e.device.model.trim().length > 0 &&
           !!e.tracePath;
         const trace = await readFile(e.tracePath);
         passed =
@@ -80,10 +81,20 @@ for (const gate of required) {
         if (gate.id === "android-performance")
           passed =
             passed &&
+            [
+              "normalFps",
+              "gateCombatFps",
+              "combatants",
+              "durationSeconds",
+              "normalDurationSeconds",
+              "gateCombatDurationSeconds",
+            ].every((key) => Number.isFinite(e[key])) &&
             e.normalFps >= 60 &&
             e.gateCombatFps >= 30 &&
             e.combatants >= 40 &&
-            e.durationSeconds >= 60;
+            e.durationSeconds >= 60 &&
+            e.normalDurationSeconds >= 60 &&
+            e.gateCombatDurationSeconds >= 60;
         if (gate.id === "android-functional")
           passed =
             passed &&
@@ -106,6 +117,15 @@ for (const gate of required) {
         reason = passed
           ? "Đã nghiệm thu nâng cấp Markdown"
           : "Nâng cấp Markdown còn mục chưa đạt";
+      }
+      if (gate.id === "master-prompt") {
+        const ids = JSON.parse(
+          await readFile("acceptance/master-requirements.json", "utf8"),
+        ).required;
+        passed = passed && ids.every((id) => e.approvedSections?.includes(id));
+        reason = passed
+          ? "Master Prompt đã đủ bằng chứng"
+          : "Master Prompt còn mục chưa đạt";
       }
       if (gate.id === "gdd-audit") {
         passed =
