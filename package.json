@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js",
+    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js",
     "android:add": "cap add android && node scripts/configure-android.mjs",
     "android:sync": "npm run build && cap sync android && node scripts/configure-android.mjs",
     "test:ui": "node tests/browser.mjs",
@@ -24,7 +24,9 @@
     "android:setup": "python3 scripts/setup-android.py",
     "android:validate": "node scripts/android-evidence.mjs",
     "test:timeline": "node tests/timeline.mjs",
-    "services:backup": "node scripts/backup-services.mjs"
+    "services:backup": "node scripts/backup-services.mjs",
+    "test:upgrade-ui": "node tests/upgrade-browser.mjs",
+    "verify:upgrade": "node scripts/verify-upgrade.mjs"
   },
   "dependencies": {
     "@capacitor/android": "7.6.9",

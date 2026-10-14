@@ -195,7 +195,7 @@ export async function createServer(config) {
             status: existing.match ? "running" : "waiting",
           });
         const l = body.loadout;
-        if (!["solo", "duo", "squad3"].includes(l?.mode))
+        if (!["solo", "duo", "squad3", "squad4"].includes(l?.mode))
           throw Error("Chế độ không hợp lệ");
         let room = [...rooms.values()].find(
           (r) =>
@@ -321,15 +321,31 @@ export async function createServer(config) {
       // The periodic snapshot batches disconnect metadata instead of serializing for every closed socket.
     });
   });
-  let count = 0;
-  const timer = setInterval(() => {
-    for (const r of rooms.values()) r.tick();
-    if (count % 2 === 0)
-      for (const ws of wss.clients)
-        if (ws.readyState === 1 && ws.bufferedAmount < 65536)
+  let count = 0,
+    broadcasting = false;
+  async function broadcastState() {
+    if (broadcasting) return;
+    broadcasting = true;
+    try {
+      let batch = 0;
+      for (const ws of wss.clients) {
+        if (ws.readyState === 1 && ws.room && ws.bufferedAmount < 65536)
           ws.send(
             JSON.stringify({ type: "state", data: ws.room.view(ws.accountId) }),
           );
+        if (++batch % 8 === 0)
+          await new Promise((resolve) => setImmediate(resolve));
+      }
+    } finally {
+      broadcasting = false;
+    }
+  }
+  const timer = setInterval(() => {
+    for (const r of rooms.values()) r.tick();
+    if (count % 2 === 0)
+      broadcastState().catch((error) =>
+        console.error("State broadcast failed:", error.message),
+      );
     if (++count % 30 === 0)
       for (const r of rooms.values()) r.persist().catch(() => {});
   }, 1000 / 30);

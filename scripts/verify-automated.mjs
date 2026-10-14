@@ -60,6 +60,9 @@ try {
   await run("node", ["scripts/verify-goal.mjs", "--record", "online-browser"], {
     GAME_URL: "http://127.0.0.1:5175",
   });
+  await run("npm", ["run", "test:upgrade-ui"], {
+    GAME_URL: "http://127.0.0.1:5175",
+  });
   service(
     "node",
     [

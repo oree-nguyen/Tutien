@@ -98,6 +98,15 @@ for (const gate of required) {
           ? "Thiết bị thật và trace đạt"
           : "Thiếu thiết bị thật/trace/chỉ tiêu bắt buộc";
       }
+      if (gate.id === "md-upgrade") {
+        const ids = JSON.parse(
+          await readFile("acceptance/visual-requirements.json", "utf8"),
+        ).required;
+        passed = passed && ids.every((id) => e.approvedSections?.includes(id));
+        reason = passed
+          ? "Đã nghiệm thu nâng cấp Markdown"
+          : "Nâng cấp Markdown còn mục chưa đạt";
+      }
       if (gate.id === "gdd-audit") {
         passed =
           passed &&

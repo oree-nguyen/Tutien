@@ -195,7 +195,14 @@ export class Room {
       throw Error("Ranked cần ít nhất60 người thật");
     const load = { ...baseLoad, mode: this.mode, ranked: this.ranked };
     this.match = new AuthoritativeMatch(load, this);
-    const size = this.mode === "squad3" ? 3 : this.mode === "duo" ? 2 : 1;
+    const size =
+      this.mode === "squad4"
+        ? 4
+        : this.mode === "squad3"
+          ? 3
+          : this.mode === "duo"
+            ? 2
+            : 1;
     let index = 0;
     if (this.ranked)
       this.match.actors = this.match.actors.filter((a) => a.kind !== "hero");
@@ -261,6 +268,7 @@ export class Room {
       "x",
       "z",
       "attack",
+      "targetMode",
       "skill",
       "aim",
       "action",
@@ -276,7 +284,10 @@ export class Room {
         z = Number(packet.z);
       if (!Number.isFinite(x + z) || Math.abs(x) > 1 || Math.abs(z) > 1)
         throw Error("Vector input không hợp lệ");
-      p.input = { x, z, attack: packet.attack === true };
+      const targetMode = packet.targetMode ?? "auto";
+      if (!["auto", "beast", "hero-low"].includes(targetMode))
+        throw Error("Chọn mục tiêu không hợp lệ");
+      p.input = { x, z, attack: packet.attack === true, targetMode };
     } else if (packet.type === "skill") {
       if (
         !Number.isInteger(packet.skill) ||
@@ -410,6 +421,7 @@ export class Room {
         Date.now() - p.lastInput < 250
           ? p.input
           : { x: 0, z: 0, attack: false };
+      a.targetMode = input.targetMode ?? "auto";
       if (a !== this.match.player) {
         this.match.move(a, input.x, input.z, dt);
         if (input.attack) this.match.attack(a);

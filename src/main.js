@@ -15,6 +15,7 @@ import {
 } from "./data.js";
 import * as R from "./rules.js";
 import { Match } from "./simulation.js";
+import { quickOffers, contextualActions } from "./hud.js";
 import { World } from "./world.js";
 import { SoulAudio } from "./audio.js";
 const audio = new SoulAudio();
@@ -81,7 +82,7 @@ let match = null,
   modal = null,
   paused = false,
   world;
-const input = { x: 0, z: 0, attack: false },
+const input = { x: 0, z: 0, attack: false, targetMode: "auto" },
   keys = new Set();
 let toastTimer;
 function toast(s) {
@@ -111,8 +112,20 @@ function ownsGear(kind, id) {
 function renderHub() {
   const h = HEROES[loadout.hero];
   const stats = R.stats({ ...loadout, items: [] });
+  const selectedGear = [
+    ...loadout.rings
+      .filter(Boolean)
+      .map((id) => profile.stash.find((i) => i.kind === "ring" && i.id === id)),
+    ...loadout.bones.map((id) =>
+      profile.stash.find((i) => i.kind === "bone" && i.id === id),
+    ),
+  ];
+  const risk = selectedGear.reduce(
+    (sum, item) => sum + (item?.value ?? 0),
+    loadout.brought,
+  );
   app.innerHTML = `<main class="hub"><header class="row between"><div class="brand"><div class="sigil"><span>魂</span></div><div><div class="brand-title">HỒN GIỚI</div><div class="brand-sub">SINH TỒN · THƯƠNG MANG CỔ VỰC</div></div></div><div class="wallet"><span>✦ Ngân Bảo <b>${money(profile.nb)}</b></span><span>◈ Thanh Bảo <b>${money(profile.tb)}</b></span><button class="ghost" id="fullscreen" aria-label="Toàn màn hình">⛶</button></div></header>
- <section class="hub-main"><div class="left-info"><div class="eyebrow">HỒN THÀNH / CHUẨN BỊ XUẤT CHIẾN</div><h1 class="hero-heading">${h.name}</h1><div class="soul-name">${h.soul}</div><div class="row"><small>${h.id} · Hệ ${h.element}</small><small>◇ ${h.role === "mage" ? "Pháp công / Khống chế" : h.role === "fighter" ? "Cường công / Đấu sĩ" : h.role === "marksman" ? "Mẫn công / Xạ thủ" : "Phòng ngự / Phụ trợ"}</small></div>
+ <section class="hub-main"><div class="left-info"><div class="eyebrow">HỒN THÀNH / CHUẨN BỊ XUẤT CHIẾN</div><h1 class="hero-heading">${h.name}</h1><div class="soul-name">${h.soul}</div><small class="risk-value">Tài sản chịu rủi ro: ${money(risk)} TB</small><div class="row"><small>${h.id} · Hệ ${h.element}</small><small>◇ ${h.role === "mage" ? "Pháp công / Khống chế" : h.role === "fighter" ? "Cường công / Đấu sĩ" : h.role === "marksman" ? "Mẫn công / Xạ thủ" : "Phòng ngự / Phụ trợ"}</small></div>
  <div class="hero-stats">${[
    ["HP", h.hp],
    ["Công VL", h.atk],
@@ -150,6 +163,7 @@ function renderHub() {
    ["solo", "SOLO · 100"],
    ["duo", "DUO · 50 × 2"],
    ["squad3", "SQUAD · 32 × 3"],
+   ["squad4", "SQUAD · 25 × 4"],
  ]
    .map(
      ([id, n]) =>
@@ -312,6 +326,7 @@ function showModal(title, content, bind = () => {}) {
   input.x = input.z = 0;
   keys.clear();
   modal = title;
+  pushInputEdge();
   $("#modalRoot").innerHTML =
     `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-label="${title}"><header class="modal-header"><h2>${title}</h2><button id="closeModal" class="ghost" aria-label="Đóng">✕</button></header>${content}</section></div>`;
   $("#closeModal").onclick = closeModal;
@@ -486,7 +501,7 @@ async function showHistory() {
 function showHelp() {
   showModal(
     "Cẩm nang Hồn Giới",
-    `<div class="help"><p>Săn Hồn thú → nhặt chiến lợi phẩm → mua/ghép Bổ phẩm → rút qua Cổng để giữ tài sản. Đây là bản ngoại tuyến, 1 người chơi cùng bot; trận vẫn chạy khi mở túi/cửa hàng.</p><h3>Điều khiển</h3><p>Cảm ứng: cần trái di chuyển; giữ/kéo nút kỹ năng để ngắm, thả để tung. Nút kiếm đánh thường; ba lá bùa ở bên phải. PC: WASD di chuyển, chuột ngắm, Q/W/E/R kỹ năng, F Linh Bộ, Space đánh thường, 1/2/3 Trợ phẩm, G nhặt đồ, B cửa hàng, I túi đồ. Vì W trùng di chuyển, dùng Shift+W để thi triển W trên PC; nút W cảm ứng luôn dùng được.</p><h3>Tài sản & Hồi Hoàn</h3><p>Vốn mang vào tối đa 300 TB, tiêu trước tiền kiếm mới. Cửa hàng chỉ hoạt động gần Đài/Thương Nhân. Tối đa 7 Bổ phẩm, bán 60%, ghép đủ nguyên liệu + phí. Túi 24 ô/48W. Cổng mở 05:00, 10:00, 15:00 trong 120s; 20:00 có 3 Đại Cổng. Đứng 20+2×ceil(W/4)s. Hạ Gian có sàn 15s. Bị đánh không hủy, CC chỉ tạm dừng tổng 3s; ra khỏi vòng quá 0,8s thì hủy. Trang bị tháo gửi được ký quỹ và hoàn lại khi hủy.</p><h3>Thử nghiệm nhanh</h3><p>Mở “DEV SANDBOX” góc trên phải để nhận 500 TB/Hồn Tinh, dịch chuyển, gọi Cổng, tua lịch, thêm chiến lợi phẩm, nhận CC hoặc sát thương. Tới Bí Cảnh, kích hoạt hai Ấn Khóa để gọi Cổ Long. Minimap: xanh là bạn/đồng đội, đỏ là địch đã thấy, vàng là Đài, tím là Tế Đàn, vòng ngọc là Cổng. Chạm bản đồ để đặt dấu dẫn đường.</p><h3>Phạm vi bản dựng</h3><p>Tài khoản và kho dùng localStorage; không nạp tiền thật. Ranked là mô phỏng chuẩn hóa skin với bot. Chưa có dịch vụ ghép trận, máy chủ có thẩm quyền, đăng nhập và cơ sở dữ liệu trực tuyến. Chưa chứng nhận hiệu năng trên máy Android thật. Các giả định và phần chưa khớp hoàn toàn GDD được ghi trong docs/GDD-COVERAGE.md.</p><h3>Android / AI Studio</h3><p>Chạy npm install rồi npm run dev. Build npm run build. Dùng thư mục dist cho máy chủ web/AI Studio hỗ trợ dự án Vite. Capacitor: npm run android:add, npm run android:sync, npx cap open android. Xem docs/ANDROID.md cho SDK, Activity, chế độ ngang và APK.</p></div>`,
+    `<div class="help"><p>Săn Hồn thú → nhặt chiến lợi phẩm → mua/ghép Bổ phẩm → rút qua Cổng để giữ tài sản. Đây là bản ngoại tuyến, 1 người chơi cùng bot; trận vẫn chạy khi mở túi/cửa hàng.</p><h3>Điều khiển</h3><p>Cảm ứng: cần trái di chuyển; giữ/kéo nút kỹ năng để ngắm, thả để tung. Nút kiếm đánh thường; ba lá bùa ở bên phải. PC: WASD di chuyển, chuột ngắm, Q/W/E/R kỹ năng, F Linh Bộ, Space đánh thường, 1/2/3 Trợ phẩm, G nhặt đồ, B cửa hàng, I túi đồ. Vì W trùng di chuyển, dùng Shift+W để thi triển W trên PC; nút W cảm ứng luôn dùng được.</p><h3>Tài sản & Hồi Hoàn</h3><p>Vốn mang vào tối đa 300 TB, tiêu trước tiền kiếm mới. Cửa hàng chỉ hoạt động gần Đài/Thương Nhân. Tối đa 7 Bổ phẩm, bán 60%, ghép đủ nguyên liệu + phí. Túi 24 ô/48W. Cổng mở 05:00, 10:00, 15:00 trong 120s; 20:00 có 3 Đại Cổng. Đứng 20+2×ceil(W/4)s. Hạ Gian có sàn 15s. Bị đánh không hủy, CC chỉ tạm dừng tổng 3s; ra khỏi vòng quá 0,8s thì hủy. Trang bị tháo gửi được ký quỹ và hoàn lại khi hủy.</p><h3>Thử nghiệm nhanh</h3><p>Mở “DEV SANDBOX” góc trên phải để nhận 500 TB/Hồn Tinh, dịch chuyển, gọi Cổng, tua lịch, thêm chiến lợi phẩm, nhận CC hoặc sát thương. Tới Bí Cảnh, kích hoạt hai Ấn Khóa để gọi Cổ Long. Minimap: xanh là bạn/đồng đội, đỏ là địch đã thấy, vàng là Đài, tím là Tế Đàn, vòng ngọc là Cổng. Chạm bản đồ để đặt dấu dẫn đường.</p><h3>Phạm vi bản dựng</h3><p>Tài khoản và kho dùng localStorage; không nạp tiền thật. Ranked offline chỉ mô phỏng chuẩn hóa skin với bot; online dùng máy chủ. Chế độ online có máy chủ30Hz và PostgreSQL/Redis; Ranked chờ tối thiểu60 tài khoản thật. Chưa chứng nhận hiệu năng trên máy Android thật. Các giả định và phần chưa khớp hoàn toàn GDD được ghi trong docs/GDD-COVERAGE.md.</p><h3>Android / AI Studio</h3><p>Chạy npm install rồi npm run dev. Build npm run build. Dùng thư mục dist cho máy chủ web/AI Studio hỗ trợ dự án Vite. Capacitor: npm run android:add, npm run android:sync, npx cap open android. Xem docs/ANDROID.md cho SDK, Activity, chế độ ngang và APK.</p></div>`,
   );
 }
 function startMatch() {
@@ -533,9 +548,62 @@ function startMatch() {
 }
 function renderHUD() {
   const a = match.player;
-  app.innerHTML = `<main class="hud"><div class="top-hud"><div class="minimap-wrap"><canvas id="minimap" width="280" height="280" aria-label="Minimap tương tác"></canvas><div class="map-title">THƯƠNG MANG CỔ VỰC</div></div><div class="match-status"><span>◷ <b id="matchTime">00:00</b></span><i class="divider"></i><span>CÒN SỐNG <b id="alive">100</b></span><i class="divider"></i><span>HẠ GỤC <b id="kills">0</b></span></div><details class="debug"><summary>DEV SANDBOX / THỬ NHANH</summary><div class="debug-body"><button data-debug="money">+500 TB / Tinh</button><button data-debug="loot">+ Chiến lợi phẩm</button><button data-debug="gate">Tới Cổng</button><button data-debug="shop">Tới Đài</button><button data-debug="shrine">Tới Tế Đàn</button><button data-debug="boss">Hang Boss</button><button data-debug="realm">Tới Bí Cảnh</button><button data-debug="open">Mở Cổng ngay</button><button data-debug="next" class="wide">Tua tới đợt Cổng kế tiếp</button><button data-debug="cc">Nhận CC 1s</button><button data-debug="hit">Nhận 150 ST</button><button data-debug="heal">Hồi HP / HL</button><button data-debug="death">Thử tử vong</button></div></details></div><div class="location" id="location"></div><div class="banner" id="gateBanner"></div><div class="quick-wallet">◈ Vốn <b id="brought"></b> TB<br>✦ Thu nhập <b id="earned"></b> TB<br><small id="bagBrief"></small></div><div class="joystick" id="joystick"><div class="stick"></div><div class="joystick-label">DI CHUYỂN</div></div><div class="context-actions"><button id="pickup">◇ NHẶT / G</button><button id="shop">◈ CỬA HÀNG / B</button><button id="bag">▦ TÚI ĐỒ / I</button><button id="extract">⟡ HỒI HOÀN</button><button id="seal" class="hidden">✧ KÍCH HOẠT ẤN KHÓA</button></div><div class="player-bar"><div class="row"><span id="level">LV.1</span><span id="hpText"></span><span class="shield-value" id="shield"></span></div><div class="bar"><i id="hpFill"></i></div><div class="bar mp"><i id="mpFill"></i></div><div class="player-label" id="playerStatus">${HEROES[a.hero].name} · ${HEROES[a.hero].branches[a.branch]}</div></div><div class="supports-hud">${a.supports.map((s, i) => `<button data-use="${i}" title="${SUPPORTS[s.id - 1].text}">${i + 1} · ${SUPPORTS[s.id - 1].name}</button>`).join("")}</div><div class="skills">${[0, 1, 2, 3, 4].map((k) => `<button class="skill" data-skill="${k}" aria-label="${k === 4 ? "F Linh Bộ" : SKILLS[a.hero][k].name}"><b>${["Q", "W", "E", "R", "F"][k]}</b><small>${k === 4 ? "LINH BỘ" : SKILLS[a.hero][k].name}</small><span class="cd hidden"></span></button>`).join("")}<button id="attack" class="skill attack" aria-label="Đánh thường"><b>⚔</b><small>ĐÁNH THƯỜNG</small></button></div><div id="channelRoot"></div><div class="hud-menu"><button id="menuHelp">?</button><button id="pause">Tạm dừng</button><button id="exitGame">Rời trận</button><button id="gameFullscreen">⛶</button></div><div class="performance" id="performance"></div><div id="modalRoot"></div></main>`;
-  $("#pickup").onclick = () => {
-    if (!match.pickup()) toast("Không có chiến lợi phẩm trong 3m.");
+  app.innerHTML = `<main class="hud"><div class="top-hud"><div class="minimap-wrap"><canvas id="minimap" width="280" height="280" aria-label="Minimap tương tác"></canvas><div class="map-title">THƯƠNG MANG CỔ VỰC</div></div><div class="match-status"><span>◷ <b id="matchTime">00:00</b></span><i class="divider"></i><span>CÒN SỐNG <b id="alive">100</b></span><i class="divider"></i><span>HẠ GỤC <b id="kills">0</b></span></div><details class="debug"><summary>DEV SANDBOX / THỬ NHANH</summary><div class="debug-body"><button data-debug="money">+500 TB / Tinh</button><button data-debug="loot">+ Chiến lợi phẩm</button><button data-debug="gate">Tới Cổng</button><button data-debug="shop">Tới Đài</button><button data-debug="shrine">Tới Tế Đàn</button><button data-debug="boss">Hang Boss</button><button data-debug="realm">Tới Bí Cảnh</button><button data-debug="open">Mở Cổng ngay</button><button data-debug="next" class="wide">Tua tới đợt Cổng kế tiếp</button><button data-debug="cc">Nhận CC 1s</button><button data-debug="hit">Nhận 150 ST</button><button data-debug="heal">Hồi HP / HL</button><button data-debug="death">Thử tử vong</button></div></details></div><div class="location" id="location"></div><div class="banner" id="gateBanner"></div><div class="quick-wallet">◈ Vốn <b id="brought"></b> TB<br>✦ Thu nhập <b id="earned"></b> TB<br><small id="bagBrief"></small></div><div id="joystickZone" aria-label="Vùng di chuyển"><div class="joystick" id="joystick"><div class="stick"></div><div class="joystick-label">DI CHUYỂN</div></div></div><div id="quickOffers" class="quick-offers"></div><div class="context-actions"><button id="pickup">◇ NHẶT / G</button><button id="shop">◈ CỬA HÀNG / B</button><button id="bag">▦ TÚI ĐỒ / I</button><button id="extract">⟡ HỒI HOÀN</button><button id="seal" class="hidden">✧ KÍCH HOẠT ẤN KHÓA</button></div><div class="player-bar"><div class="row"><span id="level">LV.1</span><span id="hpText"></span><span class="shield-value" id="shield"></span></div><div class="bar"><i id="hpFill"></i></div><div class="bar mp"><i id="mpFill"></i></div><div class="player-label" id="playerStatus">${HEROES[a.hero].name} · ${HEROES[a.hero].branches[a.branch]}</div></div><div id="cancelSkill" class="cancel-skill hidden">✕<small>HỦY CHIÊU</small></div><div class="supports-hud">${a.supports
+    .map(
+      (s, i) =>
+        `<button data-use="${i}" title="${SUPPORTS[s.id - 1].text}">${i + 1}<small>${SUPPORTS[
+          s.id - 1
+        ].name
+          .split(" ")
+          .map((w) => w[0])
+          .join("")}</small></button>`,
+    )
+    .join(
+      "",
+    )}</div><div class="skills">${[0, 1, 2, 3, 4].map((k) => `<button class="skill" data-skill="${k}" aria-label="${k === 4 ? "F Linh Bộ" : SKILLS[a.hero][k].name}"><b>${["Q", "W", "E", "R", "F"][k]}</b><small>${k === 4 ? "LINH BỘ" : SKILLS[a.hero][k].name}</small><span class="cd hidden"></span></button>`).join("")}<button id="targetBeast" class="target-choice" aria-label="Đánh quái" aria-pressed="false">♧</button><button id="targetHero" class="target-choice" aria-label="Đánh tướng máu thấp" aria-pressed="false">◎</button><button id="attack" class="skill attack" aria-label="Đánh thường"><b>⚔</b><small>ĐÁNH THƯỜNG</small></button></div><div id="channelRoot"></div><details class="hud-options"><summary aria-label="Tùy chọn trận">⋯</summary><div class="hud-menu"><button id="menuHelp">?</button><button id="pause">Tạm dừng</button><button id="exitGame">Rời trận</button><button id="gameFullscreen">⛶</button><button id="quality" aria-label="Chất lượng đồ họa">◈</button></div></details><div class="performance" id="performance"></div><div id="modalRoot"></div></main>`;
+  $("#pickup").onclick = showAppraisal;
+  $("#quality").onclick = () =>
+    showModal(
+      "Chất lượng đồ họa",
+      '<p class="intro">Mức Chi tiết bật bloom, ánh sáng vũ khí và bóng4096. Mức Cân bằng dùng bóng1024 và giảm tải hậu kỳ cho giao tranh đông. Cả hai đều dùng LOD.</p><div class="row"><button id="qualityBalanced">CÂN BẰNG</button><button id="qualityUltra">CHI TIẾT</button></div>',
+      () => {
+        $("#qualityBalanced").onclick = () => {
+          world.setQuality("balanced");
+          closeModal();
+        };
+        $("#qualityUltra").onclick = () => {
+          world.setQuality("ultra");
+          closeModal();
+        };
+      },
+    );
+  for (const [id, targetMode] of [
+    ["targetBeast", "beast"],
+    ["targetHero", "hero-low"],
+  ]) {
+    const el = $("#" + id);
+    el.onclick = () => {
+      input.targetMode = input.targetMode === targetMode ? "auto" : targetMode;
+      updateHUD();
+    };
+  }
+  const context = $(".context-actions");
+  context.insertAdjacentHTML(
+    "beforeend",
+    '<button id="absorbDirect">HẤP THU HOÀN · 8s</button><button id="sendDirect">GỬI ĐỒ · HOÃN NHÂN HỒI</button>',
+  );
+  $("#sendDirect").onclick = showSend;
+  $("#absorbDirect").onclick = () =>
+    guarded(() => {
+      const ring = contextualActions(match).ring;
+      if (ring) match.equipRing(ring.uid, RINGS[ring.id - 1].slot);
+    });
+  $("#quickOffers").onclick = (e) => {
+    const button = e.target.closest("[data-quick]");
+    if (!button) return;
+    const offer = quickOffers(match)[+button.dataset.quick];
+    if (offer && !offer.disabled)
+      guarded(() => match.shop(offer.action, offer.id));
   };
   $("#shop").onclick = showShop;
   $("#bag").onclick = showBag;
@@ -579,12 +647,18 @@ function renderHUD() {
     (el) => (el.onclick = () => guarded(() => debug(el.dataset.debug))),
   );
   $("#minimap").onpointerdown = (e) => {
+    const wrap = $(".minimap-wrap");
+    if (!wrap.classList.contains("map-expanded")) {
+      wrap.classList.add("map-expanded");
+      return;
+    }
     const r = e.currentTarget.getBoundingClientRect();
     match.player.goalMarker = {
       x: ((e.clientX - r.left) / r.width) * 200 - 100,
       z: ((e.clientY - r.top) / r.height) * 200 - 100,
     };
-    toast("Đã đánh dấu đường đi trên bản đồ.");
+    wrap.classList.remove("map-expanded");
+    toast("Đã đánh dấu trên bản đồ.");
   };
   const portal = document.createElement("button");
   portal.id = "realmPortal";
@@ -602,37 +676,72 @@ function renderHUD() {
   bindJoystick();
   bindSkills();
 }
+function controlInput() {
+  let x = input.x,
+    z = input.z;
+  const horizontal = (keys.has("KeyD") ? 1 : 0) - (keys.has("KeyA") ? 1 : 0),
+    vertical = (keys.has("KeyS") ? 1 : 0) - (keys.has("KeyW") ? 1 : 0);
+  if (horizontal || vertical) {
+    x = horizontal * 0.879 + vertical * 0.477;
+    z = -horizontal * 0.477 + vertical * 0.879;
+  }
+  return {
+    x: modal ? 0 : x,
+    z: modal ? 0 : z,
+    attack: !modal && (input.attack || keys.has("Space")),
+    targetMode: input.targetMode,
+  };
+}
+function pushInputEdge(force = true) {
+  if (match?.online && match.player) match.step(0, controlInput(), force);
+}
 function bindJoystick() {
-  const joy = $("#joystick"),
+  const zone = $("#joystickZone"),
+    joy = $("#joystick"),
     stick = $(".stick");
-  let pid = null;
-  function update(e) {
-    const r = joy.getBoundingClientRect(),
-      dx = e.clientX - r.left - r.width / 2,
-      dy = e.clientY - r.top - r.height / 2,
+  let pid = null,
+    origin = null;
+  const reset = () => {
+    pid = null;
+    origin = null;
+    input.x = input.z = 0;
+    stick.style.transform = "";
+    joy.classList.remove("active");
+    pushInputEdge();
+  };
+  zone.onpointerdown = (e) => {
+    if (pid !== null || modal) return;
+    e.preventDefault();
+    pid = e.pointerId;
+    origin = { x: e.clientX, y: e.clientY };
+    const r = zone.getBoundingClientRect();
+    joy.style.left = e.clientX - r.left - 48 + "px";
+    joy.style.top = e.clientY - r.top - 48 + "px";
+    joy.style.bottom = "auto";
+    joy.classList.add("active");
+    zone.setPointerCapture(pid);
+    input.x = input.z = 0;
+    pushInputEdge();
+  };
+  zone.onpointermove = (e) => {
+    if (e.pointerId !== pid || !origin) return;
+    const dx = e.clientX - origin.x,
+      dy = e.clientY - origin.y,
       n = Math.hypot(dx, dy),
-      limit = r.width * 0.35;
-    const x = dx / Math.max(limit, n),
+      limit = 34,
+      x = dx / Math.max(limit, n),
       y = dy / Math.max(limit, n);
     stick.style.transform = `translate(${x * limit}px,${y * limit}px)`;
     input.x = x * 0.879 + y * 0.477;
     input.z = -x * 0.477 + y * 0.879;
-  }
-  joy.onpointerdown = (e) => {
-    pid = e.pointerId;
-    joy.setPointerCapture(pid);
-    update(e);
+    pushInputEdge(false);
   };
-  joy.onpointermove = (e) => {
-    if (e.pointerId === pid) update(e);
-  };
-  joy.onpointerup = joy.onpointercancel = (e) => {
-    if (e.pointerId === pid) {
-      pid = null;
-      input.x = input.z = 0;
-      stick.style.transform = "";
-    }
-  };
+  zone.onpointerup =
+    zone.onpointercancel =
+    zone.onlostpointercapture =
+      (e) => {
+        if (e.pointerId === pid) reset();
+      };
 }
 function bindSkills() {
   $$("[data-skill]").forEach((el) => {
@@ -644,12 +753,22 @@ function bindSkills() {
       el.setPointerCapture(e.pointerId);
       start = { x: e.clientX, y: e.clientY };
       dir = null;
+      $("#cancelSkill").classList.remove("hidden");
     };
     el.onpointermove = (e) => {
       if (!start) return;
       let dx = e.clientX - start.x,
         dy = e.clientY - start.y,
         n = Math.hypot(dx, dy);
+      const cancel = $("#cancelSkill"),
+        r = cancel.getBoundingClientRect();
+      cancel.classList.toggle(
+        "armed",
+        e.clientX >= r.left &&
+          e.clientX <= r.right &&
+          e.clientY >= r.top &&
+          e.clientY <= r.bottom,
+      );
       if (n > 9) {
         dir = {
           x: (dx * 0.879 + dy * 0.477) / n,
@@ -664,14 +783,26 @@ function bindSkills() {
     };
     el.onpointerup = (e) => {
       if (start) {
-        if (k === 4 && dir) match.player.dir = dir;
-        match.cast(match.player, k, dir);
+        const cancel = $("#cancelSkill"),
+          r = cancel.getBoundingClientRect();
+        const cancelled =
+          e.clientX >= r.left &&
+          e.clientX <= r.right &&
+          e.clientY >= r.top &&
+          e.clientY <= r.bottom;
+        if (!cancelled) {
+          if (k === 4 && dir) match.player.dir = dir;
+          match.cast(match.player, k, dir);
+        }
+        cancel.classList.add("hidden");
+        cancel.classList.remove("armed");
         start = null;
         world.clearAim();
       }
     };
     el.onpointercancel = () => {
       start = null;
+      $("#cancelSkill").classList.add("hidden");
       world.clearAim();
     };
   });
@@ -679,9 +810,13 @@ function bindSkills() {
   attack.onpointerdown = (e) => {
     e.preventDefault();
     input.attack = true;
+    pushInputEdge();
     attack.setPointerCapture(e.pointerId);
   };
-  attack.onpointerup = attack.onpointercancel = () => (input.attack = false);
+  attack.onpointerup = attack.onpointercancel = () => {
+    input.attack = false;
+    pushInputEdge();
+  };
 }
 function showShop() {
   const near = match.nearShop();
@@ -725,6 +860,24 @@ function showShop() {
                 showShop();
               })),
         );
+    },
+  );
+}
+function showAppraisal() {
+  const drop = contextualActions(match).loot;
+  if (!drop) {
+    toast("Không có chiến lợi phẩm hợp lệ trong3m.");
+    return;
+  }
+  showModal(
+    "Lục soát · Thẩm định chiến lợi phẩm",
+    `<p class="intro">◈ ${money(drop.tb ?? 0)}TB · Hồn Tinh ${drop.essence ?? 0}. Túi ${match.player.bag.length}/24ô, ${R.weight(match.player.bag)}/48W.</p><div class="bag-grid">${drop.items.map((i) => `<article class="loot-inspection" tabindex="0"><div class="appraisal-lens">⌕</div><h3>${i.name}</h3><p>${i.code} · ${i.w}W</p><strong>${money(i.value ?? 0)} TB thẩm định</strong><small>${i.kind} · Số lượng ${i.count ?? 1}</small></article>`).join("")}</div><button id="lootQuick" class="primary">NHẶT NHANH</button>`,
+    () => {
+      $("#lootQuick").onclick = () =>
+        guarded(() => {
+          match.pickup();
+          closeModal();
+        });
     },
   );
 }
@@ -920,6 +1073,8 @@ function updateHUD() {
       badge = $(".cd", el);
     badge.classList.toggle("hidden", cd <= 0);
     badge.textContent = cd > 9 ? Math.ceil(cd) : cd.toFixed(1);
+    const total = k === 4 ? 8 : R.skillFor(a, k).cd;
+    badge.style.background = `conic-gradient(#061c2de8 ${Math.min(1, cd / Math.max(total, 0.01)) * 360}deg, #061c2d22 0deg)`;
   });
   $$("[data-use]").forEach((el) => {
     const c = a.supports[+el.dataset.use];
@@ -928,6 +1083,36 @@ function updateHUD() {
         ? ".6"
         : "1";
   });
+  $("#quickOffers").classList.toggle("hidden", !match.nearShop());
+  const offers = quickOffers(match),
+    key = JSON.stringify(
+      offers.map((o) => [o.id, o.action, o.price, o.disabled, o.warning]),
+    );
+  if ($("#quickOffers").dataset.key !== key) {
+    $("#quickOffers").dataset.key = key;
+    $("#quickOffers").innerHTML = offers
+      .map(
+        (o, i) =>
+          `<button data-quick="${i}" ${o.disabled ? "disabled" : ""} class="${o.warning ? "red" : ""}" title="${o.warning ? "Phản Phệ -4%/món, tối đa -8%. " : ""}${o.name}"><b>${o.action === "craft" ? "GHÉP" : "MUA"} ${o.warning ? "⚠" : ""}</b><span>${o.name}</span><small>${money(o.price)} TB</small></button>`,
+      )
+      .join("");
+  }
+  const actions = contextualActions(match);
+  $("#pickup").classList.toggle("hidden", !actions.loot);
+  $("#absorbDirect").classList.toggle("hidden", !actions.ring || !!a.absorb);
+  $("#sendDirect").classList.toggle("hidden", !actions.canSend || !!a.channel);
+  $("#extract").classList.toggle("hidden", !actions.gate && !a.channel);
+  $("#bag").textContent = `▦ ${a.bag.length}/24`;
+  $("#bag").title = `Túi ${a.bag.length}/24 ô | ${R.weight(a.bag)}/48W`;
+  $("#shop").textContent = `◈ ${a.items.length}/7`;
+  $("#targetBeast").setAttribute(
+    "aria-pressed",
+    String(input.targetMode === "beast"),
+  );
+  $("#targetHero").setAttribute(
+    "aria-pressed",
+    String(input.targetMode === "hero-low"),
+  );
   const c = a.channel;
   $("#channelRoot").innerHTML = c
     ? `<div class="channel"><h3>${c.mode === "send" ? "HOÃN NHÂN HỒI" : "CỔNG HỒI HOÀN"}</h3><p>${c.elapsed.toFixed(1)} / ${c.total.toFixed(1)} giây · ${R.weight(c.items)}W</p><div class="bar"><i style="width:${Math.min(100, (c.elapsed / c.total) * 100)}%"></i></div><small>${a.ccUntil > match.time && c.paused < 3 ? "TẠM DỪNG DO CC" : c.gate.end < match.time ? "OVERTIME GRACE · KẾT GIỚI DUY TRÌ" : "HỘ CỔNG ĐANG HIỆU LỰC"}</small></div>`
@@ -1109,12 +1294,17 @@ window.addEventListener("keydown", (e) => {
   if (e.code === "KeyG") match.pickup();
   if (e.code === "KeyB") showShop();
   if (e.code === "KeyI") showBag();
+  pushInputEdge();
 });
-window.addEventListener("keyup", (e) => keys.delete(e.code));
+window.addEventListener("keyup", (e) => {
+  keys.delete(e.code);
+  pushInputEdge();
+});
 window.addEventListener("blur", () => {
   keys.clear();
   input.attack = false;
   input.x = input.z = 0;
+  pushInputEdge();
 });
 let mouseAim = null;
 window.addEventListener("pointermove", (e) => {
@@ -1136,22 +1326,8 @@ function animate(now) {
   last = now;
   requestAnimationFrame(animate);
   if (match && match.player && !paused && !match.result) {
-    let ix = input.x,
-      iz = input.z;
-    if (!modal) {
-      const x = (keys.has("KeyD") ? 1 : 0) - (keys.has("KeyA") ? 1 : 0),
-        y = (keys.has("KeyS") ? 1 : 0) - (keys.has("KeyW") ? 1 : 0);
-      if (x || y) {
-        ix = x * 0.879 + y * 0.477;
-        iz = -x * 0.477 + y * 0.879;
-      }
-      if (mouseAim) match.player.dir = mouseAim;
-    }
-    match.step(dt, {
-      x: modal ? 0 : ix,
-      z: modal ? 0 : iz,
-      attack: !modal && (input.attack || keys.has("Space")),
-    });
+    if (!modal && mouseAim) match.player.dir = mouseAim;
+    match.step(dt, controlInput());
   }
   saveAcc += dt;
   if (saveAcc >= 1) {

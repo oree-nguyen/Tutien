@@ -130,6 +130,7 @@ try {
   await mobile.screenshot({ path: "test-results/hub-mobile.png" });
   await mobile.locator("#start").tap();
   await mobile.waitForFunction(() => window.__HON_GIOI__.match?.time > 0);
+  await mobile.locator(".hud-options summary").tap();
   await mobile.locator("#pause").tap();
   const before = await mobile.evaluate(() => ({
     x: window.__HON_GIOI__.match.player.x,
@@ -140,6 +141,10 @@ try {
   const box = await joy.boundingBox();
   await mobile.mouse.move(box.x + box.width * 0.8, box.y + box.height * 0.5);
   await mobile.mouse.down();
+  await mobile.mouse.move(
+    box.x + box.width * 0.8 + 30,
+    box.y + box.height * 0.5,
+  );
   await mobile.waitForFunction(
     ({ x, z }) =>
       Math.hypot(

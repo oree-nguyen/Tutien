@@ -16,6 +16,7 @@ export async function fingerprint() {
     "scripts",
     "public",
     "android-webview",
+    "tools",
   ])
     await walk(dir);
   for (const p of [
@@ -25,6 +26,8 @@ export async function fingerprint() {
     "index.html",
     "vite.config.js",
     "acceptance/requirements.json",
+    "acceptance/visual-requirements.json",
+    "docs/requests/AI-Studio-Android-V2.5.md",
   ])
     files.push(p);
   const h = createHash("sha256");

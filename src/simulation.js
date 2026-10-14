@@ -46,7 +46,13 @@ export class Match {
     this.bushes = structuredClone(MAP_BUSHES);
     this.debugGateEnd = 0;
     this.teamSize =
-      loadout.mode === "duo" ? 2 : loadout.mode === "squad3" ? 3 : 1;
+      loadout.mode === "squad4"
+        ? 4
+        : loadout.mode === "duo"
+          ? 2
+          : loadout.mode === "squad3"
+            ? 3
+            : 1;
     this.player = this.createHero(loadout.hero, 0, 8, 8, loadout);
     this.player.immuneUntil = 5;
     const count = this.teamSize === 3 ? 96 : 100;
@@ -633,6 +639,27 @@ export class Match {
       kind,
     });
   }
+  attackTarget(a, range) {
+    if (!a.targetMode || a.targetMode === "auto") return this.nearest(a, range);
+    const candidates = this.actors.filter(
+      (t) =>
+        this.enemies(a, t) &&
+        !t.downedUntil &&
+        !(t.untargetableUntil > this.time) &&
+        canSee(this, a, t) &&
+        R.distance(a, t) <= range &&
+        (a.targetMode === "beast"
+          ? ["beast", "boss"].includes(t.kind)
+          : t.kind === "hero"),
+    );
+    candidates.sort((x, y) =>
+      a.targetMode === "hero-low"
+        ? x.hp / this.getStats(x).hp - y.hp / this.getStats(y).hp ||
+          R.distance(a, x) - R.distance(a, y)
+        : R.distance(a, x) - R.distance(a, y),
+    );
+    return candidates[0] ?? null;
+  }
   attack(a) {
     if (
       !a.alive ||
@@ -642,7 +669,7 @@ export class Match {
     )
       return false;
     const s = this.getStats(a),
-      t = this.nearest(a, s.range + 0.6 + (a.ringDashReady ? 2.5 : 0));
+      t = this.attackTarget(a, s.range + 0.6 + (a.ringDashReady ? 2.5 : 0));
     if (!t) return false;
     a.dir = {
       x: (t.x - a.x) / R.distance(a, t),
@@ -918,6 +945,10 @@ export class Match {
       for (let i = 0; i < (b === 2 ? 2 : 1); i++) {
         const c = this.spawnBeast(0, a.x + i, a.z);
         c.kind = "clone";
+        c.hero = a.hero;
+        c.skin = a.skin;
+        c.costume = a.costume;
+        c.rings = [...a.rings];
         c.team = a.team;
         c.owner = a;
         c.maxHp = c.hp = s.hp;
@@ -1920,6 +1951,7 @@ export class Match {
     this.tick++;
     this.updateGates();
     this.advanceWorld(dt);
+    this.player.targetMode = input.targetMode ?? "auto";
     this.move(this.player, input.x, input.z, dt);
     if (input.attack) this.attack(this.player);
     this.merchants.forEach((m, i) => {

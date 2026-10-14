@@ -171,6 +171,35 @@ test("server rejects forged damage, wallets and teleport vectors", async () => {
   assert.ok(a.x > x);
   assert.ok(a.x - x < 2);
 });
+test("server accepts Squad4 teams and validates target-selection input", async () => {
+  const r = new Room(app.store, "squad4", false),
+    id = randomUUID();
+  await r.join(id, { ...load, mode: "squad4" }, []);
+  r.start();
+  assert.equal(r.match.teamSize, 4);
+  await assert.rejects(
+    () =>
+      r.input(id, {
+        seq: 1,
+        type: "input",
+        x: 0,
+        z: 0,
+        targetMode: "all-players",
+      }),
+    /mục tiêu/,
+  );
+  await r.input(id, {
+    seq: 2,
+    type: "input",
+    x: 0,
+    z: 0,
+    attack: true,
+    targetMode: "hero-low",
+  });
+  assert.equal(r.players.get(id).input.targetMode, "hero-low");
+  r.tick();
+  assert.equal(r.actor(id).targetMode, "hero-low");
+});
 test("AOI snapshot excludes hidden actors, private account data and off-realm objects", () => {
   const a = room.actor(account),
     hidden = room.match.createHero(1, 222, 90, -90);

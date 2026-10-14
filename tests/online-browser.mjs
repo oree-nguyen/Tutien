@@ -44,12 +44,15 @@ try {
   );
   const before = await page.evaluate(() => window.__HON_GIOI__.match.player.x);
   await page.keyboard.down("KeyD");
-  await page.waitForTimeout(900);
-  await page.keyboard.up("KeyD");
-  await page.waitForFunction(
-    (x) => window.__HON_GIOI__.match.player.x > x + 0.1,
-    before,
-  );
+  try {
+    await page.waitForFunction(
+      (x) => window.__HON_GIOI__.match.player.x > x + 0.1,
+      before,
+      { timeout: 10000 },
+    );
+  } finally {
+    await page.keyboard.up("KeyD");
+  }
   const player = await page.evaluate(() => window.__HON_GIOI__.match.player);
   assert.ok(player.wallet);
   assert.ok(

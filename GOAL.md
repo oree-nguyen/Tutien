@@ -14,3 +14,5 @@ Mục tiêu: hoàn thiện “Hồn Giới: Sinh Tồn” theo GDD V2.5, WebGL/A
 6. Nghiệm thu mỹ thuật và dữ liệu bổ sung: 12 silhouette,24skin,48trang phục có khác biệt hiển thị; các dữ liệu chưa có trong PDF phải tách phiên bản bổ sung, không gán nhãn là số liệu gốc.
 
 Nguồn dữ liệu: `docs/GDD-V2.5-extracted.txt`. Danh mục và bằng chứng máy đọc được: `acceptance/requirements.json`, `acceptance/evidence/`. Báo cáo phải gắn fingerprint mã nguồn hiện tại; bằng chứng cũ không tự đạt cho mã mới.
+
+Nâng cấp Markdown được nghiệm thu theo [UPGRADE-GOAL.md](docs/UPGRADE-GOAL.md); gate `md-upgrade` là bắt buộc cùng các gate gốc.

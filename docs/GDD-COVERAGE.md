@@ -33,7 +33,7 @@ Nguồn là PDF V2.5 đã được đọc toàn bộ, bản trích xuất nằm 
 
 1. **Thiết bị thật:** chưa có Android vật lý được kết nối để cài, kiểm tra cảm ứng/restore/Hồi Hoàn và đo60FPS thông thường/30FPS với>=40nhân vật. SwiftShader, APK tồn tại hay test trình duyệt không thay thế phép đo này. Công cụ thu bằng chứng không tự đánh dấu các mục chưa kiểm tra.
 2. **Nghiệm thu GDD cuối:** cần đối chiếu mọi hiệu ứng và thứ tự tương tác của36nhánh/Hoàn/Cốt/Bổ phẩm với bản đặc tả đã thống nhất. Kiểm thử hiện có nhiều ca độc lập nhưng chưa chứng minh mọi hoán vị hoặc một sản phẩm vận hành thương mại hoàn chỉnh.
-3. **Dữ liệu nguồn chưa định lượng/không thống nhất:** PDF có tiêu đề18Hoàn nhưng bảng và phụ lục chỉ có12; gọi4Đại Boss nhưng chỉ định nghĩa3; không cho đường tăng trưởng Lv2–10, bảng chỉ số/độ bền Tiên khí; JSON phụ lục kết thúc giữa chừng. Không gán những con số tự đặt thành dữ liệu gốc. Câu hỏi về phụ lục cân bằng đã được gửi; chưa có câu trả lời trong lần cập nhật này.
+3. **Dữ liệu nguồn chưa định lượng/không thống nhất:** PDF có tiêu đề18Hoàn nhưng bảng và phụ lục chỉ có12; gọi4Đại Boss nhưng chỉ định nghĩa3; không cho đường tăng trưởng Lv2–10, bảng chỉ số/độ bền Tiên khí; JSON phụ lục kết thúc giữa chừng. Không gán những con số tự đặt thành dữ liệu gốc. Người dùng đã chọn giữ dữ liệu gốc và chờ đặc tả bổ sung; không tự tạo Boss thứ tư hay bảng Tiên khí/độ bền.
 4. **Vận hành:** backend được kiểm thử cục bộ với PostgreSQL/Redis; chưa có triển khai Internet/TLS, pentest, người dùng thật hoặc nghiệm thu mỹ thuật trên thiết bị. Mô hình và trang phục là asset thủ tục, không phải bộ asset do họa sĩ sản xuất. Anti-collusion gần nhau60s là heuristic, không được coi là giải pháp chống gian lận thương mại đầy đủ.
 
 ## Các giá trị triển khai bổ sung, không phải thông số chính thức từ PDF
@@ -47,3 +47,19 @@ Nguồn là PDF V2.5 đã được đọc toàn bộ, bản trích xuất nằm 
 - Bội: giảm50% phần thưởng gia tăng của giá trị vượt1.500TB, không giảm giá trị cơ sở. Nhóm “Cường công chí mạng” chưa có tag con đầy đủ, dùng nhóm Cường công cho ma trận phòng ngự/phụ trợ.
 
 Các mục chưa đạt phải tiếp tục xuất hiện là BLOCKED trong goal. Không xóa gate, hạ ngưỡng, tạo bằng chứng vật lý giả hoặc viết “100%” để thay việc nghiệm thu.
+
+
+## Đợt nâng cấp theo Markdown
+
+Yêu cầu mới được lưu nguyên văn ở [AI-Studio-Android-V2.5.md](requests/AI-Studio-Android-V2.5.md); [UPGRADE-GOAL.md](UPGRADE-GOAL.md) định nghĩa26mục và bổ sung gate bắt buộc `md-upgrade` vào goal gốc.
+
+- Thêm Squad4=25đội×4, cả ngoại tuyến và ghép trận thường trực tuyến. Server xác thực chế độ và ưu tiên mục tiêu quái/tướngHPthấp; không nhận targetID/sát thương do client quyết định.
+- Thay renderer nhân vật bằng rig nhóm khớp,5ngón tay, mặt/tóc/giáp/vạt áo,12Hồnkhí,3mứcTHREE.LOD; PBR/maps1024, bloom/bóng4096 tùy chọn. Có vòng Hồn Hoàn sau lưng và hạt sáng quay quanh vòng. Trượng Blender có GLB3LOD và checksum; asset nhúng dùng được trong HTML/PWA/APK.
+- Mặt đất256×256 có địa hình, cây instanced nhiều nhánh và sông; camera, ray ngắm, actor và hạt hiệu ứng dùng độ cao bản đồ. Tránh coi một ảnh chụp trên đường bằng là phép chứng minh toàn bộ địa hình.
+- HUD ngăn kéo, joystick nổi/đa điểm chạm, kéo-hủy chiêu, cooldown vòng,2gợi ý mua/ghép, chọn mục tiêu, thẩm định, nút tương tác TếĐàn/Cổng. Giá trị đồ rủi ro đếm số bản thực sự mang vào, không cộng lặp mọi bản trong kho.
+- Input trực tuyến gửi ngay các cạnh bắt đầu/dừng di chuyển/đánh, ngoài refresh định kỳ; không chờ frame đồ họa tiếp theo mới gửi cạnh điều khiển.
+
+Đây là xác nhận triển khai kỹ thuật có phạm vi cụ thể, không phải chứng nhận mỹ thuật AAA hoặc hiệu năng Android. Nguồn asset là procedural/Blender CPU trên Linux, không phải Sinnon/AI. Các hiệu ứng/chất lượng hình học cận cảnh, mỹ thuật cuối, Tiênkhí và thiết bị vẫn phải theo báo cáo từng gate. Không dùng số đa giác hay tính khác biệt của checksum để thay nghiệm thu hình ảnh.
+
+
+Phát trạng thái WebSocket được chia thành lô8kết nối, nhường event loop giữa các lô và không cho nhiều lượt phát chồng nhau. Việc này giữ việc nhận input/ACK xen kẽ với phát trạng thái; bộ đo ACK vẫn giữ ngưỡng60ms. Kiểm thử tải ghi báo cáo kể cả khi fail, để bằng chứng cũ không che lỗi của lần chạy mới.

@@ -24,6 +24,12 @@ Thông tin kết nối phát triển được tạo ngẫu nhiên trong `.local/
 
 Chưa có triển khai Internet/TLS production được thực hiện. Khi tự triển khai, phục vụ frontend qua HTTPS và reverse proxy `/api`/`/socket` đến backend; đặt `APP_ORIGINS` thành danh sách origin frontend được phép. Backend đọc `DATABASE_URL`, `REDIS_URL`, `PORT`, `BIND_HOST`; không đưa thông tin xác thực thật vào Git. Android có trường nhập địa chỉ máy chủ HTTPS trong màn hình đăng nhập. Token native chỉ giữ trong bộ nhớ; WebSocket chuyển xác thực qua subprotocol, không gắn token vào URL.
 
+## Nâng cấp theo Markdown
+
+Đã thêm mô hình thủ tục nhiều chi tiết, MeshPhysicalMaterial/maps1024, THREE.LOD và trượngGLB dựng bằng Blender; chế độ Chi tiết có bloom/bóng4096. HUD có joystick nổi, kéo-hủy chiêu, chọn mục tiêu, mua/ghép nhanh, drawer, thẩm định và hành động ngữ cảnh. Có Squad4=25×4 ở offline và chế độ online thường. Xem [pipeline đồ họa](docs/GRAPHICS-PIPELINE.md) và [goal chi tiết](docs/UPGRADE-GOAL.md).
+
+`npm run verify:upgrade` tổng hợp bằng chứng Markdown; không thay thế `verify:reuse`. Còn chờ đặc tả Boss thứ4/Tiênkhí theo quyết định người dùng và nghiệm thu mỹ thuật/Android thật; chưa gọi đây là bản hoàn tất100%.
+
 ## Chơi
 
 - Cần trái / WASD di chuyển; Space hoặc giữ kiếm để đánh. Q/E/R/F thi triển; **Shift+W** dùng kỹ năng W vì W cũng là phím di chuyển. Kéo nút kỹ năng để ngắm. G nhặt, B cửa hàng, I túi,1/2/3 Trợ phẩm.
@@ -56,4 +62,4 @@ npm run verify:reuse     # chỉ exit0 khi TẤT CẢ gate bắt buộc đạt v
 
 ## Mã nguồn
 
-`src/data.js`: bảng GDD; `rules.js`: công thức; `simulation.js`: mô phỏng; `systems.js`: snapshot/AOI/đường đi/sự kiện/dung hợp; `world.js`/`cosmetics.js`/`audio.js`: đồ họa, trang trí và âm thanh thủ tục; `network.js`: client mạng; `main.js`/`style.css`: UI. `server/`: HTTP/WebSocket, phòng đấu, PostgreSQL ledger, Redis snapshot và worker serialization. `scripts/`: setup/build/backup/goal. `tests/`: các suite kiểm tra.
+`src/data.js`: bảng GDD; `rules.js`: công thức; `simulation.js`: mô phỏng; `systems.js`: snapshot/AOI/đường đi/sự kiện/dung hợp; `art.js`/`world.js`/`cosmetics.js`/`audio.js`: mô hình, LOD, đồ họa và âm thanh thủ tục; `hud.js`: gợi ý và ngữ cảnh; `network.js`: client mạng; `main.js`/`style.css`: UI. `server/`: HTTP/WebSocket, phòng đấu, PostgreSQL ledger, Redis snapshot và worker serialization. `scripts/`: setup/build/backup/goal. `tests/`: các suite kiểm tra.

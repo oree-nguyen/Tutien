@@ -136,15 +136,16 @@ export class RemoteMatch {
       throw Error("Đang kết nối lại");
     this.socket.send(JSON.stringify({ ...packet, seq: ++this.seq }));
   }
-  step(dt, input) {
+  step(dt, input, force = false) {
     if (this.socket.readyState !== WebSocket.OPEN) return;
-    if (performance.now() - this.lastSend < 50) return;
+    if (!force && performance.now() - this.lastSend < 50) return;
     this.lastSend = performance.now();
     this.send({
       type: "input",
       x: Math.max(-1, Math.min(1, input.x)),
       z: Math.max(-1, Math.min(1, input.z)),
       attack: input.attack,
+      targetMode: input.targetMode ?? "auto",
     });
   }
   getStats(a) {

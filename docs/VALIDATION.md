@@ -1,43 +1,49 @@
 # Xác thực hiện tại — 14/10/2026
 
-Source fingerprint: `51828b587ee7bab928e87bedf675953089f086a101dfc3eed1721dd09fd937b4`.
+Source fingerprint: `b2f4d6e07b4efdd0d76836b7e1429930dfce0590e7ab24686d81c147d76fbd97`.
 
 ## Kết quả đã thực thi
 
 | Kiểm tra | Kết quả |
 |---|---|
-| `npm ci --cache /workspace/.npm-cache --no-audit --no-fund` | Thành công với lockfile hiện tại |
-| `npm test` |105passed/0failed/0skipped; gồm36nhánh, công thức/kinh tế, timer, snapshot, realm, dung hợp, Hoàn/Cốt và các hồi quy |
-| `npm run test:server` |9passed/0failed/0skipped; dùng PostgreSQL/Redis thực |
-| Trình duyệt offline | Chọn tướng, xung đột bùa, mua/ghép/tháo, gửi/rút, lưu tài khoản, joystick+F trên844×390; không pageerror |
-| Trình duyệt online | Đăng ký/đăng nhập thật vào backend cục bộ, vào trận, di chuyển do server quyết định, túi đồ, ẩn Sandbox, reconnect cùng actor; không pageerror |
-| PWA/HTML | PWA reload/vào trận khi ngắt mạng; HTML độc lập không gọi tài sản ngoài và không pageerror |
-|22phút mô phỏng |39.600tick/1.320s; ape/dragon/kirin và Thú Triều; hoàn tất theo deadline; thời gian chạy khoảng24.5s ở lần cuối |
-|100WebSocket giả lập |800mẫu ACK,40nhân vật đặt vùng giao tranh; p95tick6.56ms; p95ACK32.73ms;0protocol errors. Đây không phải100người thật |
-| `npm run android:apk` | Thành công: buildweb/sync/assembleDebug/apksignerverify/provenance |
-| `npm audit --omit=dev --audit-level=high` |0vulnerabilities; đã cập nhật ws8.22.0 |
+| `npm run verify:automated` | Lượt cuối exit0; toàn bộ suite bên dưới đã chạy trên cùng fingerprint |
+| Luật và hồi quy | **128 passed / 0 failed / 0 skipped**; gồm36nhánh, kinh tế/Cổng, Squad4, mục tiêu, ngữ cảnh, ray ngắm và hạt hiệu ứng theo địa hình |
+| Máy chủ | **10 passed / 0 failed / 0 skipped**; PostgreSQL/Redis thực, giao dịch/quyền, Squad4 và kiểm tra input mục tiêu |
+| Trình duyệt offline | Chọn tướng, cấm bùa, mua/ghép/tháo, gửi/rút, persistence, joystick+F trên844×390; không pageerror |
+| Trình duyệt online | Đăng ký/đăng nhập backend cục bộ, vào trận, di chuyển do server quyết định, túi đồ, Sandbox ẩn và reconnect cùng actor |
+| HUD nâng cấp | Joystick nổi, nhiều ngón cùng lúc, kéo-hủy không trừMP/CD, cooldown vòng, chọn mục tiêu, mua/ghép nhanh, drawerX44px, thẩm định, TếĐàn/Cổng, minimap, giá trị rủi ro và chất lượng đồ họa |
+| Diện tích cảnh3D mặc định | 844×390: 82.63%; 915×412: 84.84%; 1280×720: 93.71% |
+| GLB/LOD | Trượng Blender high120.068tamgiác tải thật;3LOD;24skin và48trang phục có khác biệt geometry/material trong thống kê |
+| PWA/HTML | PWA reload và vào trận khi ngắt mạng; HTML độc lập khởi chạy không gọi asset ngoài, không pageerror |
+|22phút mô phỏng | 39,600tick/1320s;3Boss và ThúTriều; chạy khoảng18.56s trong lượt cuối |
+|100WebSocket giả lập | 800mẫu ACK,40actor đặt vùng giao tranh; p95tick6.83ms; p95ACK31.82ms;0lỗi giao thức |
+| APK | Buildweb/sync/assembleDebug/apksignerverify/provenance thành công |
+| `npm audit --omit=dev --audit-level=high` |0vulnerabilities |
 
-Node24.19/npm11.9; Three0.160.1; Capacitor7.6.9; Gradle8.11.1/AGP8.7.2; SDK35/BuildTools34–35; JDK21cójavac. Chromium dùng SwiftShader trên Linux; không dùng FPS đó thay cho Android.
+Phép đo HUD dùng union hình chữ nhật bao của phần UI hiển thị trong chiến đấu mặc định, không mở drawer, không kéo ngắm hoặc đứng cạnh tương tác ngữ cảnh. Góc trong suốt của nút tròn vẫn bị tính là che nên số đo bảo thủ. Không suy rộng sang mọi trạng thái giao diện.
 
-APK debug: `release/Hon-Gioi-Sinh-Ton-debug.apk`,4,271,682bytes. SHA-256:
+Lượt thử tải trước sửa phát trạng thái có p95ACK62,51ms và64,81ms, vượt ngưỡng60ms. Đã chia việc phát trạng thái thành lô8kết nối, nhường event loop giữa các lô, tránh các lượt phát chồng nhau và bỏ qua socket chưa gắn phòng. Sau sửa, lượt đo riêng đạt33,72ms; lượt kiểm tra đầy đủ cuối đạt31.82ms. [Lịch sử đo](../acceptance/evidence/server-performance-history.json) giữ cả fail/pass theo fingerprint; ngưỡng không đổi. Đây là tải cục bộ giả lập, không phải100người thật hoặc bằng chứng latency qua Internet. Tick đo phần mô phỏng; ACK đo đường đi gói tin trong phép thử.
 
-`199b6c699bb0d0279e4837262d40c1dca2f6975287b6291c9cdfb9900cd4ca6d`
+## Artifact cài thử
 
-`build-provenance.json` khớp source fingerprint. Kiểm chữ ký APK thành công (v2/v3); không phải gói release ký thương mại. Mẫu Kotlin WebView là đường thay thế được cung cấp, chưa có một phép build riêng của mẫu đó.
+APK debug: [Hon-Gioi-Sinh-Ton-debug.apk](../release/Hon-Gioi-Sinh-Ton-debug.apk), **7,947,232bytes**. SHA-256:
 
-## Goal tái sử dụng
+`fe1a533b456b99c9924c37cb4f2669ee71f11d7c01410c2057af9a0b4981e6e6`
 
-Lần chạy `npm run verify:reuse` hiện trả mã1 có chủ đích:
+Provenance khớp source fingerprint và checksum; apksigner xác nhận chữ kýv2/v3. Đây là gói debug cài thử. Mẫu Kotlin WebView là đường đóng gói thay thế được cung cấp, chưa có phép build riêng của mẫu đó.
 
-- PASS: rules, browser, artifacts, server, online-browser, server-performance, timeline, apk.
-- BLOCKED: android-functional, android-performance, gdd-audit.
+Node24.19/npm11.9, Three0.160.1, Capacitor7.6.9, Gradle8.11.1/AGP8.7.2, SDK35/BuildTools34–35, JDK21 cójavac, Blender4.3.2CPU. Chromium dùng SwiftShader trên Linux; không dùng FPS đó thay Android.
 
-Bằng chứng JSON trong `acceptance/evidence/`; sửa src/server/tests/scripts/public/cấu hình sẽ làm fingerprint cũ không còn đạt. Cấu hình môi trường đã lưu `install_script` và `start_skill`, bắt buộc kiểm goal trước khi dùng như baseline hoàn tất. Lưu draft không đồng nghĩa Publish hoặc đã thử khôi phục trong task mới.
+Trình duyệt được quản lý chặn `file://` với `ERR_BLOCKED_BY_ADMINISTRATOR`; standalone được kiểm tra bằng chính nội dung HTML làm phản hồi document qua route nội bộ, không tải tệp phụ/CDN. Không tuyên bố mở file trực tiếp thành công trên trình duyệt đó.
 
-Người dùng xác nhận chưa có thiết bị Android kết nối. Chưa có trace chức năng/FPS vật lý hợp lệ. ADB trên cloud còn bị filesystem chặn tạo `/home/agent/.android`; không đổiHOME hay chế tạo serial/báo cáo để vượt gate. Không có `/dev/kvm` hay thiết bị USB Android hiển thị. Cần xác thực trên thiết bị thật; code/đóng gói đã sẵn để cài thử.
+## Điều kiện chưa đạt
 
-Nghiệm thu GDD vẫn chưa đủ để tuyên bố100%: các bảng chưa định lượng/không thống nhất trong PDF và mọi tổ hợp trạng thái phải được xử lý theo `GDD-COVERAGE.md`. Báo cáo audit hiện cố ý `passed:false`, không coi test số lượng lớn là chứng minh đầy đủ.
+Báo cáo Markdown hiện đạt20/26tiêu chí kỹ thuật; còn ART04, ART10, HUD09, GAME02, DEVICE01, DEVICE02. Chi tiết và phạm vi review nằm trong [UPGRADE-GOAL.md](UPGRADE-GOAL.md).
 
-Trình duyệt cloud chặn `file://` bằng `ERR_BLOCKED_BY_ADMINISTRATOR`; kiểm thử standalone dùng chính nội dung HTML làm phản hồi document qua route nội bộ, không tải CDN/tệp phụ. Không tuyên bố đã mở file trực tiếp thành công trên trình duyệt được quản lý đó.
+`npm run verify:reuse` chỉ được exit0 khi đủ tất cả gate. Các gate đang chặn: `android-functional`, `android-performance`, `gdd-audit`, `md-upgrade`. Báo cáo máy đọc được nằm trong `acceptance/evidence/goal-status.json`; mọi thay đổi nguồn/cấu hình bắt buộc kiểm chứng lại theo fingerprint.
 
-Chưa có triển khai Internet/TLS production, trận người thật, kiểm thử thiết bị vật lý, nghiệm thu mỹ thuật thương mại, pentest hoặc chứng nhận chống gian lận vận hành.
+Người dùng xác nhận chưa có Android thật kết nối; chưa cài/chơi hoặc đo60FPS thường/30FPS với>=40nhân vật trên thiết bị. Không có trace vật lý hợp lệ. Người dùng chọn giữ dữ liệu gốc và chờ đặc tả Boss thứ4/Tiênkhí, không tự đặt bảng cân bằng.
+
+Bộ ảnh và review kỹ thuật trong [visual-review](visual-review/README.md) xác nhận các bộ phận/biến thể/địa hình hiện có; chưa chứng minh mỹ thuật AAA hoặc mọi chi tiết cực đại trong Markdown. [Pipeline đồ họa](GRAPHICS-PIPELINE.md) nêu rõ cấu trúc dùng chung, mật độ từng phần và các giới hạn. Audit mọi tương tác GDD, mỹ thuật cuối và nghiệm thu cảm ứng/FPS vẫn chưa đủ. Không gọi bản này là hoàn tất100%.
+
+Cấu hình cloud đã lưu dạng draft; lưu draft không áp dụng/Publish hoặc chứng minh khôi phục trong task mới. Không dùng như baseline hoàn tất khi goal vẫnBLOCKED. Backend được thử cục bộ; chưa triển khai Internet/TLS, trận người thật hoặc kiểm chứng vận hành thương mại.

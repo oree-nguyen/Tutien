@@ -1,0 +1,70 @@
+{
+  "observations": [
+    {
+      "sourceHash": "3be38ad02a4317b8a84c9fa967c7ade11c4b5b7979f673d0dd1db919d6476a27",
+      "passed": false,
+      "kind": "synthetic-websocket-load",
+      "participants": 100,
+      "realHumans": false,
+      "gateCombatActors": 40,
+      "samples": 800,
+      "tickP95Ms": 6.975648000000092,
+      "ackP95Ms": 62.50500199999988,
+      "errors": 0,
+      "recordedAt": "2026-10-14T10:23:42.261Z"
+    },
+    {
+      "sourceHash": "3be38ad02a4317b8a84c9fa967c7ade11c4b5b7979f673d0dd1db919d6476a27",
+      "passed": true,
+      "kind": "synthetic-websocket-load",
+      "participants": 100,
+      "realHumans": false,
+      "gateCombatActors": 40,
+      "samples": 800,
+      "tickP95Ms": 7.801199999999881,
+      "ackP95Ms": 30.41195800000014,
+      "errors": 0,
+      "recordedAt": "2026-10-14T10:27:49.444Z"
+    },
+    {
+      "sourceHash": "4194f43e5806cafaf73abcdb2dcb705b232acc14e7aab7849ce563d1657ca8c7",
+      "passed": false,
+      "kind": "synthetic-websocket-load",
+      "participants": 100,
+      "realHumans": false,
+      "gateCombatActors": 40,
+      "samples": 800,
+      "tickP95Ms": 6.2381390000000465,
+      "ackP95Ms": 64.81183900000042,
+      "errors": 0,
+      "recordedAt": "2026-10-14T10:47:11.275Z"
+    },
+    {
+      "sourceHash": "eb3d01b829fe1ec5249a40930defca97155865fdfe261c2d556082dc2028022a",
+      "passed": true,
+      "kind": "synthetic-websocket-load",
+      "participants": 100,
+      "realHumans": false,
+      "gateCombatActors": 40,
+      "samples": 800,
+      "tickP95Ms": 7.518333999999868,
+      "ackP95Ms": 33.72291499999983,
+      "errors": 0,
+      "recordedAt": "2026-10-14T10:48:49.519Z"
+    },
+    {
+      "sourceHash": "b2f4d6e07b4efdd0d76836b7e1429930dfce0590e7ab24686d81c147d76fbd97",
+      "passed": true,
+      "kind": "synthetic-websocket-load",
+      "participants": 100,
+      "realHumans": false,
+      "gateCombatActors": 40,
+      "samples": 800,
+      "tickP95Ms": 6.8345160000001215,
+      "ackP95Ms": 31.81875200000013,
+      "errors": 0,
+      "recordedAt": "2026-10-14T10:54:19.557Z"
+    }
+  ],
+  "note": "Retains failed and passed observations at their exact source hashes; the ACK threshold remains60ms. Earlier debug processes were stopped only after the first two observations. The final-upgrade full run also exceeded ACK60ms before broadcast batching was introduced. A targeted run after batching passedACK33.72ms; a subsequent socket-readiness guard requires fresh full validation. The final complete automated run passed with ACK31.82ms at sourceb2f4d6e07b4e; all prior observations remain."
+}

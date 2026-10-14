@@ -118,15 +118,15 @@ try {
     report.tickP95Ms < 1000 / 30 &&
     report.ackP95Ms < 60;
   console.log(JSON.stringify(report, null, 2));
-  assert.equal(errors, 0);
-  assert.ok(latencies.length >= 700);
-  assert.ok(report.tickP95Ms < 1000 / 30);
-  assert.ok(report.ackP95Ms < 60);
   await mkdir("acceptance/evidence", { recursive: true });
   await writeFile(
     "acceptance/evidence/server-performance.json",
     JSON.stringify(report, null, 2),
   );
+  assert.equal(errors, 0);
+  assert.ok(latencies.length >= 700);
+  assert.ok(report.tickP95Ms < 1000 / 30);
+  assert.ok(report.ackP95Ms < 60);
   console.log(
     JSON.stringify(
       { ...report, sourceHash: report.sourceHash.slice(0, 12) },
