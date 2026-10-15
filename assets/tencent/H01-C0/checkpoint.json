@@ -1,0 +1,49 @@
+{
+  "asset": "H01-C0",
+  "stages": {
+    "concept": {
+      "path": "assets/tencent/H01-C0/concept.webp",
+      "sha256": "05758703fc958b6a9b15c6319c612914fb8de0c1e3819b639f36cfc90bde32ad"
+    }
+  },
+  "attempts": [
+    {
+      "stage": "mesh",
+      "attempt": 1,
+      "startedAt": "2026-10-15T23:36:06.704627+00:00",
+      "finishedAt": "2026-10-15T23:36:23.025955+00:00",
+      "passed": false,
+      "errorType": "AppError",
+      "error": "'NameError'",
+      "retryAfterSeconds": 10
+    },
+    {
+      "stage": "shape-connect",
+      "attempt": 1,
+      "startedAt": "2026-10-15T23:36:06.704926+00:00",
+      "finishedAt": "2026-10-15T23:36:08.322327+00:00",
+      "passed": true
+    },
+    {
+      "stage": "mesh",
+      "attempt": 2,
+      "startedAt": "2026-10-15T23:36:33.026698+00:00",
+      "finishedAt": "2026-10-15T23:36:34.359949+00:00",
+      "passed": false,
+      "errorType": "AppError",
+      "error": "'You have exceeded your ZeroGPU quota (135s requested vs. 122s left). Try again in 12:25:13. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens'",
+      "retryAfterSeconds": 44713
+    }
+  ],
+  "runtimeInstalled": false,
+  "status": "deferred",
+  "error": "Shared ZeroGPU quota backoff: no new GPU job submitted",
+  "providerBackoff": {
+    "provider": "Hugging Face ZeroGPU",
+    "nextRetryAt": "2026-10-16T12:01:47.362724+00:00",
+    "authEnvironmentPresent": false,
+    "reason": "'You have exceeded your ZeroGPU quota (135s requested vs. 122s left). Try again in 12:25:13. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens'",
+    "scope": "Provider-reported quota; pause new GPU jobs across the worker until retry time or meaningful auth change"
+  },
+  "nextRetryAt": "2026-10-16T12:01:47.362724+00:00"
+}

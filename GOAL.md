@@ -20,3 +20,5 @@ Nâng cấp Markdown được nghiệm thu theo [UPGRADE-GOAL.md](docs/UPGRADE-G
 Master Prompt (2) mở rộng bắt buộc theo [MASTER-GOAL.md](docs/MASTER-GOAL.md); các gate `master-rules` và `master-prompt` phải đạt cùng toàn bộ gate cũ.
 
 Đợt PBR, điều khiển kỹ năng và Auto Farm có 24 tiêu chí trong [OVERHAUL-GOAL.md](docs/OVERHAUL-GOAL.md). Gate `overhaul-prompt` bắt buộc cùng các goal trước; thuật toán ở bước thời gian 60/120 Hz không thay bằng chứng FPS trên Android thật.
+
+Yêu cầu thay toàn bộ model bằng Tencent có [goal riêng bắt buộc](docs/tencent-3d/GOAL.md) và danh mục 167 mục. Goal cũ đạt không tự duyệt yêu cầu này: cần model thật, UV/ảnh giữ nguyên, tất cả target được tích hợp, audit primitive được xử lý và kiểm tra runtime/Android tương ứng. Hiện mới có concept H01, chưa có GLB nên không nhận hoàn tất.

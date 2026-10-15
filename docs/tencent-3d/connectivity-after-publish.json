@@ -1,0 +1,40 @@
+{
+  "recordedAt": "2026-10-15T23:27:38Z",
+  "spaces": {
+    "concept": {
+      "space": "black-forest-labs/FLUX.1-schnell",
+      "connected": true,
+      "endpoints": [
+        "/infer"
+      ]
+    },
+    "shape": {
+      "space": "tencent/Hunyuan3D-2",
+      "connected": true,
+      "endpoints": [
+        "/lambda",
+        "/lambda_1",
+        "/shape_generation",
+        "/lambda_2",
+        "/lambda_3",
+        "/generation_all",
+        "/lambda_4",
+        "/lambda_5",
+        "/on_gen_mode_change",
+        "/on_decode_mode_change",
+        "/lambda_6",
+        "/on_export_click"
+      ]
+    },
+    "parts": {
+      "space": "tencent/Hunyuan3D-Part",
+      "connected": true,
+      "endpoints": [
+        "/segment",
+        "/generate"
+      ]
+    }
+  },
+  "passed": true,
+  "scope": "Official live API connectivity/schema discovery only; does not prove GPU inference success"
+}

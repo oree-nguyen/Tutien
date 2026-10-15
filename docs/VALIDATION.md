@@ -1,6 +1,6 @@
 # Xác thực hiện tại — 15/10/2026
 
-> Báo cáo dưới đây thuộc mã nguồn trước đợt tooling Tencent (commit `a94717b`). Đợt ngày 16/10/2026 làm fingerprint toàn repository thay đổi; không chuyển bằng chứng hoặc APK cũ thành kết quả của pipeline mới. Xem [trạng thái Tencent hiện hành](tencent-3d/README.md): chưa sinh/tích hợp GLB do proxy 403. Các phép thử game trong báo cáo này chưa được chạy lại cho đợt tooling đó.
+> Báo cáo dưới đây thuộc mã nguồn trước đợt tooling Tencent (commit `a94717b`). Đợt ngày 16/10/2026 làm fingerprint toàn repository thay đổi; không chuyển bằng chứng hoặc APK cũ thành kết quả của pipeline mới. Xem [trạng thái Tencent hiện hành](tencent-3d/README.md): sau Publish API đã thông, đã có concept FLUX thật nhưng chưa sinh/tích hợp GLB vì quota ZeroGPU. Các phép thử game trong báo cáo này chưa được chạy lại cho đợt tooling đó.
 
 Source fingerprint: `81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0`. Báo cáo ngày theo Asia/Saigon; timestamp trong JSON dùng UTC. Các lượt kiểm tra, gallery, APK và native chạy tuần tự. Các gate cũ được chạy lại sau sửa đổi vòng đời; mọi bằng chứng bàn giao đều khớp cùng fingerprint.
 

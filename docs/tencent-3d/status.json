@@ -1,65 +1,121 @@
 {
-  "status": "BLOCKED",
-  "recordedAt": "2026-10-15T23:15:35.061255+00:00",
-  "localTests": {
-    "passed": true,
-    "count": 11,
-    "seconds": 2.333,
-    "scope": "Abstract temporary triangle fixtures, actual Blender import and MCP stdio; not Tencent generation or in-game acceptance"
+  "status": "DEFERRED_ZEROGPU_QUOTA",
+  "recordedAt": "2026-10-15T23:48:31.298174+00:00",
+  "restoration": {
+    "checkoutStartedAt": "6bc40411a11e82ae0d927f56942c57a5461eb410",
+    "workspaceVenvBlenderAndMCPChecked": true,
+    "scope": "Selected filesystem/runtime capabilities after user-reported Publish; not full backend/device restoration certification"
   },
-  "setup": {
-    "repeatedSetupExitCode": 0,
-    "pipCheck": "No broken requirements found",
-    "draftSaved": true,
-    "requiresPublish": true,
-    "fields": [
-      "install_script",
-      "start_skill"
-    ],
-    "networkAllowlistReplaced": false
-  },
-  "actualProbe": {
-    "recordedAt": "2026-10-15T23:09:09Z",
+  "connectivity": {
+    "recordedAt": "2026-10-15T23:27:38Z",
     "spaces": {
       "concept": {
         "space": "black-forest-labs/FLUX.1-schnell",
-        "connected": false,
-        "errorType": "ProxyError",
-        "error": "403 Forbidden"
+        "connected": true,
+        "endpoints": [
+          "/infer"
+        ]
       },
       "shape": {
         "space": "tencent/Hunyuan3D-2",
-        "connected": false,
-        "errorType": "ProxyError",
-        "error": "403 Forbidden"
+        "connected": true,
+        "endpoints": [
+          "/lambda",
+          "/lambda_1",
+          "/shape_generation",
+          "/lambda_2",
+          "/lambda_3",
+          "/generation_all",
+          "/lambda_4",
+          "/lambda_5",
+          "/on_gen_mode_change",
+          "/on_decode_mode_change",
+          "/lambda_6",
+          "/on_export_click"
+        ]
       },
       "parts": {
         "space": "tencent/Hunyuan3D-Part",
-        "connected": false,
-        "errorType": "ProxyError",
-        "error": "403 Forbidden"
+        "connected": true,
+        "endpoints": [
+          "/segment",
+          "/generate"
+        ]
       }
     },
-    "passed": false
+    "passed": true,
+    "scope": "Official live API connectivity/schema discovery only; does not prove GPU inference success"
   },
-  "actualH01Attempt": {
-    "hero": "H01",
-    "status": "blocked",
-    "assets": {},
-    "runtimeInstalled": false,
-    "spaces": {
-      "concept": "black-forest-labs/FLUX.1-schnell",
-      "shape": "tencent/Hunyuan3D-2",
-      "parts": "tencent/Hunyuan3D-Part"
+  "inventory": {
+    "targets": 167,
+    "counts": {
+      "hero": 48,
+      "weapon": 36,
+      "soul-ring": 12,
+      "bone": 6,
+      "external-bone": 1,
+      "beast": 4,
+      "mutant-beast": 4,
+      "boss": 3,
+      "environment-prop": 29,
+      "terrain": 7,
+      "world-prop": 2,
+      "effect-carrier": 12,
+      "shader-surface": 3
     },
-    "seed": 42,
-    "recordedAt": "2026-10-15T23:09:21Z",
-    "errorType": "ProxyError",
-    "error": "403 Forbidden"
+    "geometrySites": 118,
+    "legacyGLBs": 3,
+    "catalogSha256": "5ab02d6bc82f56ada0d65529c3be58a6a0c3bbe441cb2ce21dbe4c7aa2a82616"
   },
-  "H05": {
-    "inferenceSubmitted": false,
-    "reason": "Shared proxy 403 prerequisite remains blocked"
+  "concepts": {
+    "approvedForMeshPrototype": 1,
+    "rejected": 1,
+    "H01": {
+      "path": "assets/tencent/H01-C0/concept.webp",
+      "sha256": "05758703fc958b6a9b15c6319c612914fb8de0c1e3819b639f36cfc90bde32ad",
+      "finalArtAccepted": false
+    }
+  },
+  "providerBackoff": {
+    "provider": "Hugging Face ZeroGPU",
+    "nextRetryAt": "2026-10-16T12:01:47.362724+00:00",
+    "authEnvironmentPresent": false,
+    "reason": "'You have exceeded your ZeroGPU quota (135s requested vs. 122s left). Try again in 12:25:13. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens'",
+    "scope": "Provider-reported quota; pause new GPU jobs across the worker until retry time or meaningful auth change"
+  },
+  "localTests": {
+    "pipeline": {
+      "count": 13,
+      "seconds": 4.644
+    },
+    "batch": {
+      "count": 11,
+      "seconds": 0.118
+    },
+    "total": 24,
+    "scope": "Temporary abstract fixtures, actual Blender import and MCP protocol; no fake Tencent meshes"
+  },
+  "mcpSmoke": {
+    "transport": "real stdio MCP",
+    "tools": [
+      "tencent_probe",
+      "tencent_generate",
+      "tencent_inspect_glb",
+      "tencent_asset_catalog",
+      "tencent_generate_asset",
+      "tencent_normalize"
+    ],
+    "catalogTotal": 167,
+    "resumeStatus": "deferred",
+    "gpuRequestSubmittedByThisResume": false,
+    "scope": "Actual local MCP catalog/resume call; saved provider quota prevented remote GPU submission"
+  },
+  "auth": {
+    "present": false,
+    "secretRequirement": "HF_TOKEN",
+    "newDraftSaved": true,
+    "requiresPublishForNewDraft": true,
+    "valueStoredInRepository": false
   },
   "generatedTencentGLBs": 0,
   "runtimeInstalled": false,
@@ -67,15 +123,27 @@
   "sourceFiles": [
     {
       "path": "tools/tencent_3d_pipeline.py",
-      "sha256": "a85b483c5018a8cbdad1b2e51a6902f7a7455363f0272059a27354139b955e41"
+      "sha256": "6dc73af69975727bdd76a84f663eb0d7507f52cdcd00542491c06dc977309df7"
+    },
+    {
+      "path": "tools/tencent/batch.py",
+      "sha256": "39467c14976d0d08ba289a0737a0e09e92562af86a1da7ebe95d6edf8f735bee"
+    },
+    {
+      "path": "tools/tencent/catalog.mjs",
+      "sha256": "7a5d1e276db66c60e403f50504bdf46359d88782d24d59c48b60eb018dd540cf"
     },
     {
       "path": "tools/tencent/blender_validate.py",
-      "sha256": "12c51486208ebd8e954f90cbb15c49e29d901974665efb8c5e2b326a2c3b5cc0"
+      "sha256": "bc036df51bd2bec0cff0aefdfc822e54233f6163f1d0ce0fc104a9e1eb49015a"
     },
     {
       "path": "tools/tencent/test_pipeline.py",
-      "sha256": "b821bba237a9be9606044e2859d6e6891136c50df3bc049ec9c4eee5b95fb406"
+      "sha256": "8494dab7bfa27bae58b6f101e8fb060de705b8f3f89de87c3a6cd9672f1e9be3"
+    },
+    {
+      "path": "tools/tencent/test_batch.py",
+      "sha256": "33a0910d9a24571554fdd3237f748fe8a2fdecf4abbfb074a70ca58cc1e4a670"
     },
     {
       "path": "tools/tencent/requirements.lock",
@@ -83,7 +151,7 @@
     },
     {
       "path": ".codex/config.toml",
-      "sha256": "49505150a7a516a66984b62e851e12e141a953d594db53e175cd79b00e017d82"
+      "sha256": "27d0db9847ef6a5ae9502a75648dd7cc0bbfbd7c7c283699d0f56e0fca150b55"
     }
   ]
 }
