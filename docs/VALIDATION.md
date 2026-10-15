@@ -1,5 +1,7 @@
 # Xác thực hiện tại — 15/10/2026
 
+> Báo cáo dưới đây thuộc mã nguồn trước đợt tooling Tencent (commit `a94717b`). Đợt ngày 16/10/2026 làm fingerprint toàn repository thay đổi; không chuyển bằng chứng hoặc APK cũ thành kết quả của pipeline mới. Xem [trạng thái Tencent hiện hành](tencent-3d/README.md): chưa sinh/tích hợp GLB do proxy 403. Các phép thử game trong báo cáo này chưa được chạy lại cho đợt tooling đó.
+
 Source fingerprint: `81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0`. Báo cáo ngày theo Asia/Saigon; timestamp trong JSON dùng UTC. Các lượt kiểm tra, gallery, APK và native chạy tuần tự. Các gate cũ được chạy lại sau sửa đổi vòng đời; mọi bằng chứng bàn giao đều khớp cùng fingerprint.
 
 Lượt kiểm tra tự động liên tục đã dừng tại một lần reconnect hết thời gian chờ. Lượt nối tiếp trên cùng mã nguồn chạy lại reconnect rồi hoàn tất các gate còn lại; trước khi ngắt socket, chẩn đoán chỉ đọc xác nhận nhân vật còn sống. Lần thất bại chưa ghi trạng thái sống/chết trước khi ngắt nên chưa xác định được nguyên nhân. [overhaul-attempt-history.json](../acceptance/evidence/overhaul-attempt-history.json) giữ cả lần thất bại và lần chạy lại; báo cáo này không tuyên bố lệnh `verify:automated` liên tục đã thành công hoặc reconnect đã được kiểm chứng ổn định trong mọi tình huống.

@@ -1,0 +1,89 @@
+{
+  "status": "BLOCKED",
+  "recordedAt": "2026-10-15T23:15:35.061255+00:00",
+  "localTests": {
+    "passed": true,
+    "count": 11,
+    "seconds": 2.333,
+    "scope": "Abstract temporary triangle fixtures, actual Blender import and MCP stdio; not Tencent generation or in-game acceptance"
+  },
+  "setup": {
+    "repeatedSetupExitCode": 0,
+    "pipCheck": "No broken requirements found",
+    "draftSaved": true,
+    "requiresPublish": true,
+    "fields": [
+      "install_script",
+      "start_skill"
+    ],
+    "networkAllowlistReplaced": false
+  },
+  "actualProbe": {
+    "recordedAt": "2026-10-15T23:09:09Z",
+    "spaces": {
+      "concept": {
+        "space": "black-forest-labs/FLUX.1-schnell",
+        "connected": false,
+        "errorType": "ProxyError",
+        "error": "403 Forbidden"
+      },
+      "shape": {
+        "space": "tencent/Hunyuan3D-2",
+        "connected": false,
+        "errorType": "ProxyError",
+        "error": "403 Forbidden"
+      },
+      "parts": {
+        "space": "tencent/Hunyuan3D-Part",
+        "connected": false,
+        "errorType": "ProxyError",
+        "error": "403 Forbidden"
+      }
+    },
+    "passed": false
+  },
+  "actualH01Attempt": {
+    "hero": "H01",
+    "status": "blocked",
+    "assets": {},
+    "runtimeInstalled": false,
+    "spaces": {
+      "concept": "black-forest-labs/FLUX.1-schnell",
+      "shape": "tencent/Hunyuan3D-2",
+      "parts": "tencent/Hunyuan3D-Part"
+    },
+    "seed": 42,
+    "recordedAt": "2026-10-15T23:09:21Z",
+    "errorType": "ProxyError",
+    "error": "403 Forbidden"
+  },
+  "H05": {
+    "inferenceSubmitted": false,
+    "reason": "Shared proxy 403 prerequisite remains blocked"
+  },
+  "generatedTencentGLBs": 0,
+  "runtimeInstalled": false,
+  "newAPKBuilt": false,
+  "sourceFiles": [
+    {
+      "path": "tools/tencent_3d_pipeline.py",
+      "sha256": "a85b483c5018a8cbdad1b2e51a6902f7a7455363f0272059a27354139b955e41"
+    },
+    {
+      "path": "tools/tencent/blender_validate.py",
+      "sha256": "12c51486208ebd8e954f90cbb15c49e29d901974665efb8c5e2b326a2c3b5cc0"
+    },
+    {
+      "path": "tools/tencent/test_pipeline.py",
+      "sha256": "b821bba237a9be9606044e2859d6e6891136c50df3bc049ec9c4eee5b95fb406"
+    },
+    {
+      "path": "tools/tencent/requirements.lock",
+      "sha256": "420f454760afea6db2b529faad4e5640bfec4bee4a9148d59b9d24cccc922799"
+    },
+    {
+      "path": ".codex/config.toml",
+      "sha256": "49505150a7a516a66984b62e851e12e141a953d594db53e175cd79b00e017d82"
+    }
+  ]
+}

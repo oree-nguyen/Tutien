@@ -2,6 +2,8 @@
 
 Game Three.js r160, giao diện cảm ứng ngang tiếng Việt, có chế độ ngoại tuyến với bot và chế độ online dùng máy chủ có thẩm quyền. **Điều kiện gọi bản chuẩn hoàn tất nằm trong [GOAL.md](GOAL.md); số kiểm thử đạt không thay nghiệm thu 100% GDD hoặc FPS trên điện thoại thật.**
 
+Yêu cầu thay model bằng Tencent ngày 16/10/2026 có [pipeline/MCP và trạng thái riêng](docs/tencent-3d/README.md). Đã cài Blender/Python client, kiểm tra MCP và đường bảo toàn UV/ảnh; API của ba Space đang bị proxy 403. Chưa có model Tencent mới trong game/APK; tài nguyên legacy chưa bị thay bằng placeholder.
+
 ## Chạy
 
 ```sh
