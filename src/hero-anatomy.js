@@ -1,6 +1,8 @@
 import * as THREE from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import { buildSoulWeapon, animateSoulWeapons } from "./weapons.js";
+import { characterPBR } from "./character-pbr.js";
+import { syncSoulRingVisuals } from "./soul-ring-vfx.js";
 
 const faceCache = new Map(),
   materialCache = new Map(),
@@ -240,7 +242,10 @@ function mesh(
   rot = [0, 0, 0],
   name = "",
 ) {
-  const m = new THREE.Mesh(geo, mat);
+  const m = new THREE.Mesh(
+    mat.userData.characterEngraving ? characterPBR.engravingGeometry(geo) : geo,
+    mat,
+  );
   m.name = name;
   m.position.set(...pos);
   m.scale.set(...scale);
@@ -474,13 +479,16 @@ export function generateHighResCharacterFaceTexture(
     canvas.width = canvas.height = size;
     const c = canvas.getContext("2d");
     c.scale(size / 2048, size / 2048);
-    c.fillStyle = skinTone;
+    const skinGradient = c.createLinearGradient(0, 0, 0, 2048);
+    skinGradient.addColorStop(0, "#FFE4E6");
+    skinGradient.addColorStop(1, "#FDEAD7");
+    c.fillStyle = skinGradient;
     c.fillRect(0, 0, 2048, 2048);
     soft(c, 820, 1040, 230, 260, "rgba(238,131,137,.23)");
     soft(c, 1228, 1040, 230, 260, "rgba(238,131,137,.23)");
     soft(c, 1024, 700, 100, 410, "rgba(255,245,220,.4)");
     for (const side of [-1, 1]) {
-      const x = 1024 + side * 176,
+      const x = 1024 + side * 368,
         y = 850;
       const eye = c.createLinearGradient(0, y - 40, 0, y + 48);
       eye.addColorStop(0, "#a59c9b");
@@ -505,8 +513,8 @@ export function generateHighResCharacterFaceTexture(
       c.fillRect(x - 70, y - 70, 140, 140);
       c.strokeStyle = "rgba(245,255,255,.32)";
       c.lineWidth = 2;
-      for (let j = 0; j < 48; j++) {
-        const a = (j / 48) * Math.PI * 2;
+      for (let j = 0; j < 36; j++) {
+        const a = (j / 36) * Math.PI * 2;
         c.beginPath();
         c.moveTo(x + Math.cos(a) * 24, y + Math.sin(a) * 24);
         c.lineTo(x + Math.cos(a) * 53, y + Math.sin(a) * 53);
@@ -604,12 +612,12 @@ export function generateHighResCharacterFaceTexture(
     }
     tex = new THREE.CanvasTexture(canvas);
   } else {
-    const a = new Uint8Array(size * size * 4),
-      base = new THREE.Color(skinTone);
+    const a = new Uint8Array(size * size * 4);
     for (let i = 0; i < a.length; i += 4) {
-      a[i] = base.r * 255;
-      a[i + 1] = base.g * 255;
-      a[i + 2] = base.b * 255;
+      const v = Math.floor(i / 4 / size) / Math.max(1, size - 1);
+      a[i] = 255 - v * 2;
+      a[i + 1] = 228 + v * 6;
+      a[i + 2] = 230 - v * 15;
       a[i + 3] = 255;
     }
     tex = new THREE.DataTexture(a, size, size);
@@ -617,7 +625,13 @@ export function generateHighResCharacterFaceTexture(
     tex.userData.nodeFallback = true;
   }
   tex.colorSpace = THREE.SRGBColorSpace;
+  tex.wrapS = tex.wrapT = THREE.ClampToEdgeWrapping;
+  tex.flipY = true;
   tex.anisotropy = 4;
+  tex.userData.eyeLayers = 6;
+  tex.userData.irisRays = 36;
+  tex.userData.catchlights = 3;
+  tex.userData.hairPaintedOnFace = false;
   tex.userData.faceTexture = true;
   tex.userData.heroId = heroId;
   faceCache.set(key, tex);
@@ -629,7 +643,7 @@ export function generateHighResCharacterFaceTexture(
     faceCache.delete(sameResolution.shift()[0]);
   return tex;
 }
-function headGeometry(female, d) {
+function headGeometry(female, d, front = true) {
   const hh = female ? 0.21 : 1.82 / 8,
     slices = [
       { y: 0, rx: female ? 0.016 : 0.02, rz: 0.038, z: -0.023 },
@@ -640,21 +654,69 @@ function headGeometry(female, d) {
       { y: hh * 0.91, rx: 0.065, rz: 0.081 },
       { y: hh, rx: 0.015, rz: 0.024 },
     ];
-  return cached("vface" + female + d, () => {
-    const g = createEllipticalLoftedMesh(
-      slices,
-      d === "high" ? 128 : d === "medium" ? 16 : 8,
-      d === "high" ? 128 : d === "medium" ? 16 : 6,
-    );
+  return cached((front ? "facefront" : "headback") + female + d, () => {
+    const rows = d === "high" ? 128 : d === "medium" ? 16 : 6;
+    const columns =
+      d === "high"
+        ? front
+          ? 46
+          : 82
+        : d === "medium"
+          ? front
+            ? 6
+            : 10
+          : front
+            ? 3
+            : 5;
+    const arc = (65 * Math.PI) / 180;
+    const points = [],
+      uvs = [],
+      indices = [];
+    for (let j = 0; j <= rows; j++) {
+      const v = j / rows,
+        y = v * hh,
+        shape = interpolate(slices, y);
+      for (let i = 0; i <= columns; i++) {
+        const u = i / columns,
+          angle = front
+            ? -arc + u * arc * 2
+            : arc + u * (Math.PI * 2 - arc * 2);
+        points.push(
+          Math.sin(angle) * shape.rx,
+          y,
+          -Math.cos(angle) * shape.rz + shape.z,
+        );
+        uvs.push(u, v);
+        if (i < columns && j < rows) {
+          const k = j * (columns + 1) + i;
+          indices.push(
+            k,
+            k + columns + 1,
+            k + 1,
+            k + 1,
+            k + columns + 1,
+            k + columns + 2,
+          );
+        }
+      }
+    }
+    const g = new THREE.BufferGeometry();
+    g.setAttribute("position", new THREE.Float32BufferAttribute(points, 3));
+    g.setAttribute("uv", new THREE.Float32BufferAttribute(uvs, 2));
+    g.setIndex(indices);
+    g.userData.faceFrontMesh = front;
+    g.userData.frontArcDegrees = front ? 130 : 0;
     const p = g.attributes.position;
     for (let i = 0; i < p.count; i++) {
       const x = p.getX(i),
         y = p.getY(i),
         z = p.getZ(i);
-      if (z >= 0) continue;
-      const bridge = 0.004 * Math.exp(-(((y - hh * 0.48) / (hh * 0.19)) ** 2));
-      const tip = 0.006 * Math.exp(-(((y - hh * 0.325) / (hh * 0.055)) ** 2));
-      p.setZ(i, z - (bridge + tip) * Math.exp(-((x / 0.014) ** 2)));
+      if (!front || z >= 0) continue;
+      // A broad, shallow nose joins the facial plane without the tight bulb
+      // whose lower normals picked up an isolated dark green studio reflection.
+      const bridge = 0.0027 * Math.exp(-(((y - hh * 0.47) / (hh * 0.22)) ** 2));
+      const tip = 0.002 * Math.exp(-(((y - hh * 0.335) / (hh * 0.105)) ** 2));
+      p.setZ(i, z - (bridge + tip) * Math.exp(-((x / 0.019) ** 2)));
     }
     g.computeVertexNormals();
     return g;
@@ -788,11 +850,11 @@ function hairSystem(parent, h, c, d, mats) {
       head,
       [
         [x * 0.55, hh * 1.025, 0.006],
-        [x, hh * 0.87, -0.107],
+        [temple ? side * 0.1 : x, hh * 0.87, temple ? -0.02 : -0.107],
         [
-          x + side * 0.013,
+          temple ? side * 0.105 : x + side * 0.013,
           temple ? hh * 0.24 : hh * 0.72,
-          temple ? -0.089 : -0.111,
+          temple ? 0.025 : -0.111,
         ],
       ],
       0.018,
@@ -1304,14 +1366,22 @@ function buildAnatomy(actor, d, female) {
     )
     .getHex();
   const mats = {
-    cloth: material(outerColor, "cloth", skin),
+    cloth: characterPBR.createSilkMaterial(h, d, {
+      primary: outerColor,
+      secondary: new THREE.Color(outerColor)
+        .lerp(new THREE.Color(c.inner), 0.3)
+        .getHex(),
+      gold: c.gold,
+      skin,
+    }),
     inner: material(c.inner, "cloth"),
     gold: material(c.gold, "metal", skin),
     flesh: material(0xefd3bd, "skin"),
-    hair: material(c.hair, "cloth"),
-    jade: material(new THREE.Color(c.eye).getHex(), "glow", skin),
+    hair: characterPBR.hairMaterial(c.hair, d),
+    jade: characterPBR.jadeMaterial(new THREE.Color(c.eye).getHex()),
     dark: material(0x171b24, "cloth"),
   };
+  mats.gold = characterPBR.engravedMaterial(mats.gold, mats.cloth, "metal");
   mats.veil = mats.cloth.clone();
   mats.veil.side = THREE.DoubleSide;
   mats.veil.transparent = true;
@@ -1412,15 +1482,34 @@ function buildAnatomy(actor, d, female) {
     c.style,
     d === "high" ? 2048 : d === "medium" ? 256 : 64,
   );
+  faceMat.metalness = 0;
+  faceMat.roughness = 0.58;
+  faceMat.clearcoat = 0;
+  faceMat.sheen = 0.15;
+  faceMat.emissive.set(0xffeadb);
+  faceMat.emissiveIntensity = 0.025;
   faceMat.userData.sharedArt = true;
-  mesh(
-    head,
-    headGeometry(female, d),
+  const front = group(head, "FaceFrontMesh");
+  const face = mesh(
+    front,
+    headGeometry(female, d, true),
     faceMat,
     [0, 0, 0],
     [1, 1, 1],
     [0, 0, 0],
     "VLineHeadFaceUV",
+  );
+  face.userData.faceFrontMesh = true;
+  face.receiveShadow = false;
+  const rearSkin = material(0xffe5dc, "skin");
+  mesh(
+    head,
+    headGeometry(female, d, false),
+    rearSkin,
+    [0, 0, 0],
+    [1, 1, 1],
+    [0, 0, 0],
+    "RearCraniumSkin",
   );
   for (const side of [-1, 1]) {
     simpleLoft(
@@ -1628,6 +1717,7 @@ function buildAnatomy(actor, d, female) {
         color: new THREE.Color(c.eye).getHex(),
         skin,
         side: side < 0 ? "left" : "right",
+        engravingAtlas: mats.cloth,
       });
       weapon.position.set(side * 0.045, -0.055, -0.06);
       if (h === 1) weapon.rotation.z = -0.28;
@@ -1671,13 +1761,13 @@ function buildAnatomy(actor, d, female) {
     [0, 0, 0.16],
     "JadePendant",
   );
-  for (let i = 0; i < 5; i++)
+  for (let i = 0; i < 2; i++)
     line(
       pelvis,
       [
-        [(i - 2) * 0.005, 0.09, -0.123],
-        [(i - 2) * 0.008, 0.02, -0.125],
-        [(i - 2) * 0.009, -0.045, -0.12],
+        [(i ? 1 : -1) * 0.018, 0.09, -0.135],
+        [(i ? 1 : -1) * 0.024, 0.01, -0.145],
+        [(i ? 1 : -1) * 0.03, -0.075, -0.15],
       ],
       0.0025,
       mats.gold,
@@ -1758,6 +1848,7 @@ function buildAnatomy(actor, d, female) {
     const w = buildSoulWeapon(h, d, {
       color: new THREE.Color(c.eye).getHex(),
       skin,
+      engravingAtlas: mats.cloth,
     });
     w.position.set(
       h === 10 || h === 6 ? 0 : 0.32,
@@ -1765,6 +1856,10 @@ function buildAnatomy(actor, d, female) {
       h === 6 ? 0.24 : -0.31,
     );
     if (h === 10) w.rotation.x = -Math.PI / 2 - 0.52;
+    if (h === 4) {
+      w.position.set(0.43, 1.4, 0.21);
+      w.rotation.y = Math.PI - 0.15;
+    }
     root.add(w);
   }
   if (costume === 1)
@@ -1793,23 +1888,9 @@ function buildAnatomy(actor, d, female) {
         [1, 2, 1],
       );
     }
-  for (let i = 0; i < 3; i++) {
-    const halo = group(root, "halo" + i, [0, 0.025 + i * 0.008, 0]);
-    ornament(
-      halo,
-      0.43 + i * 0.055,
-      material(
-        actor.rings?.some((id) => [6, 8, 9, 12].includes(id))
-          ? 0x7755c8
-          : 0xa85fe6,
-        "glow",
-      ),
-      d,
-      [0, 0, 0],
-    );
-  }
   root.scale.setScalar(scale);
   if (d === "low") batchGeometrySubtree(root);
+  syncSoulRingVisuals(root, actor, d, 0);
   return root;
 }
 function batchGeometrySubtree(root) {
@@ -1852,6 +1933,9 @@ export function buildHeroAnatomy(actor, detail = "high") {
 }
 export function animateHeroAnatomy(root, actor, time, speed) {
   silkTime.value = time;
+  syncSoulRingVisuals(root, actor, root.userData.detail ?? "low", time);
+  if (root.userData.detail === "high" && actor.id === "preview")
+    characterPBR.prepare(root, "high");
   root.traverse((o) => {
     const role = o.userData.rigRole,
       side = o.name.endsWith("L") ? 1 : -1;
@@ -1910,6 +1994,7 @@ export function anatomyCacheStats() {
     geometry: meshCache.size,
     materials: materialCache.size,
     textureSize: textileMaps?.normal.image.width ?? 0,
+    characterPBR: characterPBR.stats(),
     faceResolutions: [...faceCache.values()].reduce((a, t) => {
       a[t.image.width] = (a[t.image.width] ?? 0) + 1;
       return a;

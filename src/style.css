@@ -864,7 +864,7 @@ strong {
 #toast {
   position: fixed;
   left: 50%;
-  top: 18%;
+  top: 14px;
   transform: translate(-50%, -10px);
   padding: 11px 20px;
   color: #f5e3bc;
@@ -875,7 +875,7 @@ strong {
     opacity 0.2s,
     transform 0.2s;
   pointer-events: none;
-  z-index: 99;
+  z-index: 9999;
   max-width: 80%;
   text-align: center;
   font-size: 12px;
@@ -2655,4 +2655,184 @@ strong {
     font-size: 6px;
     line-height: 8px;
   }
+}
+
+/* Touch ownership and aim feedback share the same frame-driven controller. */
+.hud,
+.hud button,
+#joystickZone {
+  touch-action: none;
+}
+.skill-thumb-knob {
+  display: none;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: calc(50% - 15px);
+  top: calc(50% - 15px);
+  border: 2px solid #d3f5ff;
+  border-radius: 50%;
+  background: #38bdf877;
+  box-shadow: 0 0 12px #38bdf8;
+  pointer-events: none;
+  z-index: 12;
+}
+.skill.aim-held .skill-thumb-knob {
+  display: block;
+}
+.hud .cancel-skill {
+  top: 76px;
+  right: 20px;
+  bottom: auto;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: #123548b0;
+  color: #cceaff;
+  border: 2px solid #38bdf8;
+  pointer-events: none;
+  z-index: 35;
+  font-size: 28px;
+}
+.hud .cancel-skill small {
+  font-size: 11px;
+  line-height: 1.4;
+  letter-spacing: 0;
+}
+.hud .cancel-skill.armed {
+  transform: scale(1.15);
+  background: #7f1d1de8;
+  color: white;
+  border-color: #ef4444;
+}
+.autofarm-dock {
+  position: fixed;
+  left: calc(45% - 145px);
+  bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  z-index: 20;
+}
+#autoFarmToggle {
+  width: 48px;
+  height: 44px;
+  min-height: 44px;
+  border: 1px solid #b5a477;
+  border-radius: 9px;
+  color: #e8e2c7;
+  background: #123548e8;
+  padding: 1px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  font-size: 12px;
+  line-height: 12px;
+}
+#autoFarmToggle small {
+  font-size: 7px;
+  line-height: 9px;
+}
+#autoFarmToggle b {
+  font-size: 8px;
+  line-height: 10px;
+}
+#autoFarmSettings {
+  display: none;
+  width: 44px;
+  height: 44px;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 20px;
+}
+#autoFarmStatus {
+  display: none;
+  max-width: 118px;
+  color: #b7f8df;
+  font-size: 9px;
+}
+.autofarm-dock:not([data-mode="off"]) {
+  left: calc(45% - 100px);
+  bottom: 58px;
+  padding: 4px;
+  border-radius: 12px;
+  background: #0b2637e8;
+}
+.autofarm-dock:not([data-mode="off"]) #autoFarmToggle {
+  width: 116px;
+  border-color: #6ef2c7;
+  animation: auto-farm-aura 2.5s linear infinite;
+}
+.autofarm-dock:not([data-mode="off"]) #autoFarmToggle small {
+  font-size: 9px;
+}
+.autofarm-dock:not([data-mode="off"]) #autoFarmToggle b {
+  font-size: 11px;
+}
+.autofarm-dock:not([data-mode="off"]) #autoFarmSettings,
+.autofarm-dock:not([data-mode="off"]) #autoFarmStatus {
+  display: block;
+}
+.auto-hint {
+  position: fixed;
+  transform: translate(-50%, -100%);
+  color: #d0ffe9;
+  background: #102d3cbb;
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 9px;
+  max-width: 280px;
+  text-align: center;
+  z-index: 15;
+  pointer-events: none;
+}
+.auto-settings {
+  display: grid;
+  gap: 8px;
+}
+.auto-settings label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  padding: 7px 10px;
+  background: #123548;
+  border: 1px solid #416464;
+  border-radius: 8px;
+}
+.auto-settings input {
+  width: 22px;
+  height: 22px;
+  accent-color: #65e7be;
+}
+@keyframes auto-farm-aura {
+  0%,
+  100% {
+    box-shadow: 0 0 4px #38bdf8;
+  }
+  50% {
+    box-shadow: 0 0 16px #65e7be;
+  }
+}
+@media (max-width: 700px) {
+  .autofarm-dock {
+    left: calc(45% - 135px);
+  }
+  .autofarm-dock:not([data-mode="off"]) {
+    left: 8px;
+  }
+  #autoFarmStatus {
+    max-width: 130px;
+  }
+}
+.hud .modal {
+  touch-action: pan-y;
+  overscroll-behavior: contain;
+}
+.hud .modal input,
+.hud .modal select {
+  touch-action: manipulation;
 }

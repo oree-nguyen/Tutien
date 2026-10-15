@@ -334,6 +334,10 @@ try {
     ".context-actions>button",
     "#joystick",
     "#gateBanner",
+    "#autoFarmToggle",
+    "#autoFarmSettings",
+    "#autoFarmStatus",
+    "#autoFarmHint",
   ];
   for (const [width, height] of [
     [844, 390],

@@ -1,12 +1,14 @@
 import * as T from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+import { getCreaturePBR } from "./creature-pbr.js";
 
 // Each species has its own silhouette and articulated mesh. These are visual
 // descriptions; authoritative combat names, health and rewards remain unchanged.
 const geometryCache = new Map();
 const materialCache = new Map();
 const templateCache = new Map();
-let surfaceMaps;
+const emberMatrix = new T.Matrix4();
+let activeProfile = "hide";
 const lod = {
   high: { radial: 64, rows: 48, tube: 64, tubeRadial: 16, decoration: 1 },
   medium: { radial: 16, rows: 12, tube: 16, tubeRadial: 6, decoration: 0.5 },
@@ -14,34 +16,6 @@ const lod = {
 };
 const species = ["wolf", "rhino", "firebird", "icebutterfly"];
 const vec = (p) => new T.Vector3(...p);
-
-function sculptSurfaceMaps() {
-  if (surfaceMaps) return surfaceMaps;
-  const size = 256,
-    normal = new Uint8Array(size * size * 4),
-    roughness = new Uint8Array(size * size * 4);
-  for (let y = 0; y < size; y++)
-    for (let x = 0; x < size; x++) {
-      const k = (y * size + x) * 4,
-        grain = Math.sin(x * 0.71 + Math.sin(y * 0.63)) * Math.cos(y * 0.85),
-        ridge = Math.sin(x * 0.17 + y * 0.21);
-      normal.set([128 + grain * 14, 128 + ridge * 12, 253, 255], k);
-      const rough = 165 + grain * 22 + ridge * 10;
-      roughness.set([rough, rough, rough, 255], k);
-    }
-  const texture = (pixels) => {
-    const t = new T.DataTexture(pixels, size, size, T.RGBAFormat);
-    t.wrapS = t.wrapT = T.RepeatWrapping;
-    t.repeat.set(3, 3);
-    t.generateMipmaps = true;
-    t.minFilter = T.LinearMipmapLinearFilter;
-    t.needsUpdate = true;
-    t.userData.sharedArt = true;
-    return t;
-  };
-  surfaceMaps = { normal: texture(normal), roughness: texture(roughness) };
-  return surfaceMaps;
-}
 
 function geometry(key, create) {
   if (!geometryCache.has(key)) {
@@ -54,38 +28,54 @@ function geometry(key, create) {
 }
 
 function material(color, kind = "hide", detail = "medium") {
-  const key = `${color}:${kind}:${detail}`;
+  const key = `${activeProfile}:${color}:${kind}:${detail}`;
   if (!materialCache.has(key)) {
     const glass = kind === "ice" || kind === "smoke";
     const m = new T.MeshPhysicalMaterial({
       color,
-      roughness: kind === "metal" ? 0.32 : glass ? 0.16 : 0.65,
+      roughness:
+        kind === "metal" ? 0.32 : kind === "stone" ? 0.9 : glass ? 0.16 : 0.65,
       metalness: kind === "metal" ? 0.76 : 0.07,
-      clearcoat: detail === "high" ? 0.85 : 0.15,
+      clearcoat: kind === "stone" ? 0.12 : detail === "high" ? 0.85 : 0.15,
       sheen: kind === "fur" ? 0.7 : 0,
       sheenColor: new T.Color(color),
       emissive: kind === "glow" || kind === "smoke" ? color : 0,
       emissiveIntensity: kind === "glow" ? 1.8 : kind === "smoke" ? 0.4 : 0,
-      transmission: kind === "ice" && detail === "high" ? 0.65 : 0,
+      transmission:
+        kind === "ice"
+          ? detail === "high"
+            ? 0.42
+            : detail === "medium"
+              ? 0.18
+              : 0
+          : 0,
       iridescence: kind === "ice" && detail === "high" ? 0.7 : 0,
       thickness: glass ? 0.06 : 0,
-      transparent: kind === "smoke",
-      opacity: kind === "smoke" ? 0.32 : 1,
-      depthWrite: kind !== "smoke",
+      transparent: glass,
+      opacity: kind === "smoke" ? 0.32 : kind === "ice" ? 0.88 : 1,
+      depthWrite: !glass,
       side:
-        kind === "wing" || kind === "smoke" || kind === "ice"
+        kind === "wing" ||
+        kind === "smoke" ||
+        kind === "ice" ||
+        activeProfile === "firebird"
           ? T.DoubleSide
           : T.FrontSide,
     });
-    if (detail === "high" && ["hide", "fur", "metal"].includes(kind)) {
-      const maps = sculptSurfaceMaps();
-      m.normalMap = maps.normal;
+    if (["hide", "fur", "metal", "stone", "ice", "wing"].includes(kind)) {
+      const maps = getCreaturePBR(activeProfile, detail, color);
+      Object.assign(m, maps);
       m.normalScale.set(
-        kind === "fur" ? 0.5 : 0.25,
-        kind === "fur" ? 0.5 : 0.25,
+        kind === "fur" ? 0.5 : kind === "stone" ? 0.7 : 0.25,
+        kind === "fur" ? 0.5 : kind === "stone" ? 0.7 : 0.25,
       );
-      m.roughnessMap = maps.roughness;
+      if (maps.emissiveMap) {
+        m.emissive.setHex(0xffffff);
+        m.emissiveIntensity =
+          activeProfile === "firebird" ? 0.55 : kind === "ice" ? 0.24 : 0.16;
+      }
     }
+    m.userData.creatureProfile = activeProfile;
     m.userData.sharedArt = true;
     materialCache.set(key, m);
   }
@@ -269,7 +259,7 @@ function eye(parent, detail, color, position, scale = [0.05, 0.025, 0.018]) {
     mesh(
       parent,
       g,
-      material(0x100d1e, "hide", detail),
+      material(0x100d1e, "eye", detail),
       pupilPosition,
       [scale[0] * 0.2, scale[1] * 0.8, scale[2]],
       [0, Math.PI, Math.PI / 2],
@@ -307,6 +297,7 @@ function quadrupedLeg(
   phase = 0,
 ) {
   const upper = joint(parent, `creatureLeg:${name}:${phase}`, position);
+  upper.userData.gaitPhase = phase * Math.PI;
   form(
     upper,
     "quadruped-upper",
@@ -321,6 +312,7 @@ function quadrupedLeg(
     [size, size, size],
   );
   const lower = joint(upper, `creatureKnee:${name}`, [0, -0.35 * size, 0]);
+  lower.userData.gaitPhase = phase * Math.PI;
   form(
     lower,
     "quadruped-lower",
@@ -334,8 +326,10 @@ function quadrupedLeg(
     [0, 0, 0],
     [size, size, size],
   );
+  const ankle = joint(lower, `creatureAnkle:${name}`, [0, -0.36 * size, 0]);
+  ankle.userData.gaitPhase = phase * Math.PI;
   form(
-    lower,
+    ankle,
     "quadruped-paw",
     [
       [0, 0.065, 0.12, 0, -0.05],
@@ -344,7 +338,7 @@ function quadrupedLeg(
     ],
     hoof,
     detail,
-    [0, -0.36 * size, 0],
+    [0, 0, 0],
     [size, size, size],
     [0, 0, 0],
     0.4,
@@ -371,11 +365,119 @@ function feather(parent, detail, m, key, position, length, width, rotation) {
   );
 }
 
-function membrane(parent, key, outline, m, detail) {
-  const g = geometry(`membrane:${key}:${detail}`, () => {
+function flightFeather(
+  parent,
+  detail,
+  m,
+  position,
+  length,
+  width,
+  rotation,
+  descriptor,
+) {
+  const rows = detail === "high" ? 24 : detail === "medium" ? 8 : 3;
+  const spans = detail === "high" ? 8 : detail === "medium" ? 4 : 2;
+  const g = geometry(`flight-feather:${detail}`, () => {
+    const p = [],
+      uv = [],
+      index = [];
+    for (let y = 0; y <= rows; y++) {
+      const t = y / rows,
+        halfWidth = 0.12 * (Math.sin(Math.PI * t) ** 0.65 + (1 - t) * 0.08);
+      for (let x = 0; x <= spans; x++) {
+        const side = (x / spans) * 2 - 1;
+        p.push(
+          side * halfWidth,
+          t,
+          Math.sin(Math.PI * t) * 0.045 +
+            side * side * 0.02 * Math.sin(Math.PI * t),
+        );
+        // Select one feather from the shared plumage atlas. The torso keeps
+        // the complete atlas while each wing quill receives its own barbs.
+        uv.push(x / spans / 8, t / 7);
+        if (y < rows && x < spans) {
+          const k = y * (spans + 1) + x;
+          index.push(
+            k,
+            k + 1,
+            k + spans + 1,
+            k + 1,
+            k + spans + 2,
+            k + spans + 1,
+          );
+        }
+      }
+    }
+    const shape = new T.BufferGeometry();
+    shape.setAttribute("position", new T.Float32BufferAttribute(p, 3));
+    shape.setAttribute("uv", new T.Float32BufferAttribute(uv, 2));
+    shape.setIndex(index);
+    return shape;
+  });
+  const plume = mesh(parent, g, m, position, [width, length, width], rotation);
+  plume.userData.creaturePart = descriptor;
+  return plume;
+}
+
+function firebirdEmbers(root, detail) {
+  const count = detail === "high" ? 18 : detail === "medium" ? 10 : 6;
+  const emberMaterialKey = "ember-basic";
+  if (!materialCache.has(emberMaterialKey)) {
+    const m = new T.MeshBasicMaterial({
+      color: 0xffd57b,
+      transparent: true,
+      opacity: 0.82,
+      blending: T.AdditiveBlending,
+      depthWrite: false,
+      toneMapped: false,
+    });
+    m.userData.sharedArt = true;
+    materialCache.set(emberMaterialKey, m);
+  }
+  const particles = new T.InstancedMesh(
+    geometry("ember-octahedron", () => new T.OctahedronGeometry(0.018, 0)),
+    materialCache.get(emberMaterialKey),
+    count,
+  );
+  particles.name = "creatureEmbers";
+  particles.instanceMatrix.setUsage(T.DynamicDrawUsage);
+  particles.userData.preserveCreatureVFX = true;
+  const matrix = new T.Matrix4(),
+    color = new T.Color();
+  for (let i = 0; i < count; i++) {
+    matrix.makeTranslation(
+      Math.sin(i * 2.4) * 0.6,
+      1.2 + (i / count) * 0.75,
+      0.2 + (i / count) * 0.4,
+    );
+    particles.setMatrixAt(i, matrix);
+    particles.setColorAt(i, color.setHSL(0.065 + (i / count) * 0.075, 1, 0.6));
+  }
+  particles.computeBoundingBox();
+  particles.computeBoundingSphere();
+  root.add(particles);
+}
+
+function membrane(parent, key, outline, m, detail, soften = false) {
+  const g = geometry(`membrane:${key}:${detail}:${soften}`, () => {
     const shape = new T.Shape();
-    shape.moveTo(...outline[0]);
-    for (let i = 1; i < outline.length; i++) shape.lineTo(...outline[i]);
+    if (soften) {
+      shape.moveTo(
+        (outline.at(-1)[0] + outline[0][0]) / 2,
+        (outline.at(-1)[1] + outline[0][1]) / 2,
+      );
+      for (let i = 0; i < outline.length; i++) {
+        const next = outline[(i + 1) % outline.length];
+        shape.quadraticCurveTo(
+          ...outline[i],
+          (outline[i][0] + next[0]) / 2,
+          (outline[i][1] + next[1]) / 2,
+        );
+      }
+    } else {
+      shape.moveTo(...outline[0]);
+      for (let i = 1; i < outline.length; i++) shape.lineTo(...outline[i]);
+    }
     shape.closePath();
     const g = new T.ShapeGeometry(shape, detail === "high" ? 24 : 6);
     return g;
@@ -530,7 +632,7 @@ function buildWolf(root, a, detail) {
 
 function buildRhino(root, a, detail) {
   const hide = material(a.tier ? 0x606555 : 0x747a69, "hide", detail),
-    rock = material(0x9b9c84, "metal", detail),
+    rock = material(0x9b9c84, "stone", detail),
     dark = material(0x3e4847, "hide", detail),
     glow = material(0xe8b94f, "glow", detail);
   form(
@@ -655,8 +757,7 @@ function buildRhino(root, a, detail) {
 
 function buildFirebird(root, a, detail) {
   const red = material(0xae3022, "hide", detail),
-    flame = material(a.tier ? 0xffbd47 : 0xff6d31, "glow", detail),
-    dark = material(0x622e32, "hide", detail),
+    flame = material(a.tier ? 0xffbd47 : 0xff8b51, "wing", detail),
     gold = material(0xe7b95f, "metal", detail);
   form(
     root,
@@ -718,44 +819,60 @@ function buildFirebird(root, a, detail) {
     const paw = joint(root, `birdFoot:${side}`, [side * 0.14, 0.05, -0.05]);
     talons(paw, detail, gold, 0.21, 0.23);
     const wing = joint(root, `creatureWing:${side}`, [side * 0.18, 1.55, 0]);
-    const n = detail === "low" ? 4 : detail === "medium" ? 7 : 12;
-    for (let i = 0; i < n; i++) {
-      const t = i / (n - 1);
-      feather(
+    for (let i = 0; i < 12; i++) {
+      const primary = i < 7,
+        t = primary ? i / 6 : (i - 7) / 4;
+      flightFeather(
         wing,
         detail,
-        i % 3 ? flame : red,
-        `bird:${side}:${i}:${n}`,
-        [side * (0.05 + t * 0.5), t * 0.05, t * 0.22],
-        0.8 - t * 0.18,
-        0.7,
-        [0.5 + t * 0.2, 0, side * (-0.95 - t * 0.9)],
+        primary ? flame : red,
+        [
+          side * (0.06 + t * 0.58),
+          t * 0.045 + (primary ? 0 : 0.11),
+          t * 0.2 - (primary ? 0 : 0.06),
+        ],
+        primary ? 1.02 - t * 0.15 : 0.66 - t * 0.12,
+        primary ? 1.05 : 1.13,
+        [0.42 + t * 0.25, 0, side * (-0.93 - t * 0.85)],
+        {
+          kind: "flightFeather",
+          side,
+          index: i,
+          layer: primary ? "primary" : "covert",
+        },
       );
     }
   }
-  for (let i = 0; i < (detail === "low" ? 3 : 7); i++)
-    feather(
+  for (let i = 0; i < 5; i++)
+    flightFeather(
       root,
       detail,
-      flame,
-      `bird-crest:${i}`,
-      [(i - 3) * 0.02, 1.99, 0.02],
-      0.34 - Math.abs(i - 3) * 0.025,
-      0.5,
-      [0.3, 0, (i - 3) * 0.12],
+      gold,
+      [(i - 2) * 0.022, 1.99, 0.02],
+      0.38 - Math.abs(i - 2) * 0.045,
+      0.45,
+      [0.3, 0, (i - 2) * 0.17],
+      { kind: "goldenCrest", index: i },
     );
   const tail = joint(root, "creatureTail", [0, 1.05, 0.23]);
-  for (let i = 0; i < (detail === "low" ? 3 : 7); i++)
-    feather(
-      tail,
+  for (let i = 0; i < 3; i++) {
+    const ribbon = joint(tail, `creatureFireTail:${i}`, [
+      (i - 1) * 0.085,
+      0,
+      0,
+    ]);
+    flightFeather(
+      ribbon,
       detail,
-      i % 2 ? dark : flame,
-      `bird-tail:${i}`,
-      [(i - 3) * 0.04, 0, 0],
-      1.05 - Math.abs(i - 3) * 0.04,
-      0.7,
-      [1.85, 0, (i - 3) * 0.13],
+      flame,
+      [0, 0, 0],
+      i === 1 ? 1.55 : 1.35,
+      1.25,
+      [1.83, 0, (i - 1) * 0.22],
+      { kind: "fireTailPlume", index: i },
     );
+  }
+  firebirdEmbers(root, detail);
   root.userData.creatureArt = {
     species: "firebird",
     wingSpan: 2.8,
@@ -766,7 +883,8 @@ function buildFirebird(root, a, detail) {
 function buildButterfly(root, a, detail) {
   const shell = material(0x344e83, "metal", detail),
     ice = material(a.tier ? 0x82d8ff : 0xb8f3f2, "ice", detail),
-    vein = material(0x4ed6f1, "glow", detail);
+    vein = material(0x4ed6f1, "glow", detail),
+    goldVein = material(0xffd98e, "glow", detail);
   form(
     root,
     "butterfly-body",
@@ -807,6 +925,7 @@ function buildButterfly(root, a, detail) {
       ],
       ice,
       detail,
+      true,
     );
     for (let i = 0; i < (detail === "low" ? 3 : 7); i++) {
       const a = -1.1 + i * 0.34,
@@ -821,7 +940,7 @@ function buildButterfly(root, a, detail) {
           [x, y, -0.01],
         ],
         0.015,
-        vein,
+        i % 3 === 0 ? goldVein : vein,
         detail,
         0.65,
       );
@@ -1570,7 +1689,7 @@ function mergePerJoint(parent) {
     if (child.isGroup) mergePerJoint(child);
   const sets = new Map();
   for (const child of [...parent.children]) {
-    if (!child.isMesh) continue;
+    if (!child.isMesh || child.userData.preserveCreatureVFX) continue;
     child.updateMatrix();
     const g = child.geometry.clone().applyMatrix4(child.matrix);
     // Normalize attribute layouts across lofts, extrusions, tubes and crystals.
@@ -1593,14 +1712,29 @@ function mergePerJoint(parent) {
     }
     const key = child.material.uuid;
     if (!sets.has(key))
-      sets.set(key, { material: child.material, geometries: [] });
-    sets.get(key).geometries.push(g);
+      sets.set(key, {
+        material: child.material,
+        geometries: [],
+        parts: [],
+        triangles: 0,
+      });
+    const set = sets.get(key),
+      triangleCount = g.index.count / 3;
+    if (child.userData.creaturePart)
+      set.parts.push({
+        ...child.userData.creaturePart,
+        triangleStart: set.triangles,
+        triangleCount,
+      });
+    set.geometries.push(g);
+    set.triangles += triangleCount;
     parent.remove(child);
   }
   for (const set of sets.values()) {
     const g = mergeGeometries(set.geometries, false);
     if (!g) throw new Error("Creature joint geometry merge failed");
     g.userData.sharedArt = true;
+    if (set.parts.length) g.userData.creatureParts = set.parts;
     mesh(parent, g, set.material);
     for (const intermediate of set.geometries) intermediate.dispose();
   }
@@ -1622,15 +1756,21 @@ export function buildCreatureVisual(actor, detail = "low") {
   if (!templateCache.has(key)) {
     const root = new T.Group();
     root.name = `creature:${kind}:${detail}`;
-    ({
-      wolf: buildWolf,
-      rhino: buildRhino,
-      firebird: buildFirebird,
-      icebutterfly: buildButterfly,
-      ape: buildApe,
-      kirin: buildKirin,
-      dragon: buildDragon,
-    })[kind](root, actor, detail);
+    const previousProfile = activeProfile;
+    activeProfile = kind;
+    try {
+      ({
+        wolf: buildWolf,
+        rhino: buildRhino,
+        firebird: buildFirebird,
+        icebutterfly: buildButterfly,
+        ape: buildApe,
+        kirin: buildKirin,
+        dragon: buildDragon,
+      })[kind](root, actor, detail);
+    } finally {
+      activeProfile = previousProfile;
+    }
     root.updateMatrixWorld(true);
     const box = new T.Box3().setFromObject(root),
       size = box.getSize(new T.Vector3());
@@ -1674,12 +1814,35 @@ export function animateCreatureVisual(root, actor, time, dt = 1 / 60) {
   );
   const pulse = Math.sin(time * 4);
   root.traverse((node) => {
+    if (node.isInstancedMesh && node.name === "creatureEmbers") {
+      for (let i = 0; i < node.count; i++) {
+        const progress = (time * 0.65 + i / node.count) % 1;
+        const scale = 1.2 - progress * 0.9;
+        emberMatrix.makeScale(scale, scale, scale);
+        emberMatrix.setPosition(
+          Math.sin(i * 2.4 + progress * 2) * (0.35 + progress * 0.35),
+          1.1 + progress * 0.95,
+          0.15 + progress * 0.8,
+        );
+        node.setMatrixAt(i, emberMatrix);
+      }
+      node.instanceMatrix.needsUpdate = true;
+      return;
+    }
     const rest = node.userData.restRotation;
     if (!rest) return;
     if (node.name.startsWith("creatureLeg:")) {
       const phase = Number(node.name.split(":").at(-1)) || 0;
       node.rotation.x =
         rest[0] + Math.sin(time * 9 + phase * Math.PI) * speed * 0.35;
+    } else if (node.name.startsWith("creatureKnee:")) {
+      const swing = Math.sin(time * 9 + node.userData.gaitPhase);
+      node.rotation.x = rest[0] + Math.max(0, swing) * speed * 0.65;
+    } else if (node.name.startsWith("creatureAnkle:")) {
+      const phase = time * 9 + node.userData.gaitPhase;
+      node.rotation.x =
+        rest[0] -
+        (Math.max(0, Math.sin(phase)) * 0.5 + Math.sin(phase) * 0.1) * speed;
     } else if (node.name.startsWith("creatureWing:")) {
       const side = Number(node.name.split(":")[1]);
       const kind = root.userData.creatureArt.species;
@@ -1704,6 +1867,9 @@ export function animateCreatureVisual(root, actor, time, dt = 1 / 60) {
         Math.sin(time * 9 + side) * speed * 0.25;
     } else if (node.name === "creatureTail") {
       node.rotation.y = rest[1] + Math.sin(time * 3.2) * (0.15 + speed * 0.2);
+    } else if (node.name.startsWith("creatureFireTail:")) {
+      const index = Number(node.name.split(":")[1]);
+      node.rotation.z = rest[2] + Math.sin(time * 3.5 + index * 0.9) * 0.12;
     } else if (node.name === "creatureHead") {
       node.rotation.y = rest[1] + Math.sin(time * 1.2) * 0.045;
     } else if (node.name === "creatureMane") {

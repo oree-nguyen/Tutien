@@ -21,6 +21,11 @@ import { itemIcon, skillIcon, masterworkAssets } from "./item-art.js";
 import { ensureRuntimeSecurity, securityFacade } from "./runtime-security.js";
 import { World } from "./world.js";
 import { SoulAudio } from "./audio.js";
+import {
+  SmoothSkillshotController,
+  screenVectorToWorld,
+} from "./smooth-skillshot.js";
+import { AutoFarmAIController } from "./auto-farm.js";
 const audio = new SoulAudio();
 window.addEventListener("pointerdown", () => audio.unlock(), { once: true });
 window.addEventListener("keydown", () => audio.unlock(), { once: true });
@@ -89,13 +94,14 @@ const input = { x: 0, z: 0, attack: false, targetMode: "auto" },
   keys = new Set();
 let toastTimer;
 let appraisalTimer = null;
+let releaseJoystick = () => {};
 const lootArt = (item, className = "item-art") =>
   itemIcon(item.kind, item.id ?? 1, { className, label: item.name });
 function toast(s) {
   $("#toast").textContent = s;
   $("#toast").classList.add("show");
   clearTimeout(toastTimer);
-  toastTimer = setTimeout(() => $("#toast").classList.remove("show"), 3200);
+  toastTimer = setTimeout(() => $("#toast").classList.remove("show"), 2200);
 }
 function guarded(fn) {
   try {
@@ -111,6 +117,129 @@ try {
   app.innerHTML =
     '<div class="modal-backdrop"><div class="modal"><h2>WebGL không khả dụng</h2><p>Hãy bật tăng tốc đồ họa trong trình duyệt rồi tải lại.</p></div></div>';
   throw e;
+}
+const autoInput = { x: 0, z: 0, attack: false, targetMode: "auto" };
+const autoFarm = new AutoFarmAIController({
+  getMatch: () => match,
+  now: () => performance.now() / 1000,
+  notify: (message) => toast(message),
+  actions: {
+    move: (value) => Object.assign(autoInput, value),
+    cast: (slot, aim) => guarded(() => match?.cast(match.player, slot, aim)),
+    pickup: () => guarded(() => match?.pickup()),
+    pickupSelected: (uid) => guarded(() => match?.pickupSelected(uid)),
+    shop: (action, id) => guarded(() => match?.shop(action, id)),
+    equipRing: (uid, slot) => guarded(() => match?.equipRing(uid, slot)),
+    extract: (mode, selected) =>
+      guarded(() => match?.beginExtraction(mode, selected)),
+    portal: () => guarded(() => match?.usePortal()),
+  },
+});
+try {
+  autoFarm.setConfig(
+    JSON.parse(localStorage.getItem("hon-gioi-auto-config-v25") || "{}"),
+  );
+} catch {}
+const skillshot = new SmoothSkillshotController({
+  getMatch: () => match,
+  getSkill: (k) =>
+    k === 4
+      ? { shape: "line", range: 2.8, radius: 0.6, mp: 0, headingOnly: true }
+      : R.skillFor(match.player, k),
+  cast: (slot, aim) => guarded(() => match.cast(match.player, slot, aim)),
+  getAzimuth: () =>
+    Math.atan2(
+      world.camera.position.x - world.focus.x,
+      world.camera.position.z - world.focus.z,
+    ),
+  getMovement: () => controlInput(),
+  getTargetMode: () => input.targetMode,
+  getCancelCenter: () => {
+    const r = $("#cancelSkill")?.getBoundingClientRect();
+    return r ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null;
+  },
+  onAim: (...args) => world.aim(...args),
+  onClear: () => world.clearAim(),
+  onManualStart: (id) => {
+    autoFarm.manualStart(id);
+    Object.assign(autoInput, { x: 0, z: 0, attack: false });
+    pushInputEdge();
+  },
+  onManualEnd: (id) => autoFarm.manualEnd(id),
+  onUI: ({ slot, held, knob, canceled }) => {
+    const button = $(`[data-skill="${slot}"]`),
+      cancel = $("#cancelSkill");
+    if (!button || !cancel) return;
+    button.classList.toggle("aim-held", held);
+    const thumb = $(".skill-thumb-knob", button);
+    if (thumb) thumb.style.transform = `translate(${knob.x}px,${knob.y}px)`;
+    cancel.classList.toggle("hidden", !held);
+    cancel.classList.toggle("armed", canceled);
+  },
+});
+function showAutoSettings() {
+  const labels = {
+    useSkills: "Tự dùng Q / W / E · giữ 25% Hồn lực",
+    allowUltimate: "Cho dùng R lên Boss / Tinh anh (chỉ Toàn diện)",
+    autoLoot: "Nhặt & thẩm định chiến lợi phẩm",
+    autoBuild: "Mua & ghép preset 7 Bổ phẩm",
+    kiting: "Thả diều và giữ tầm đánh",
+    avoidDanger: "Né Hồn Chướng và vùng kỹ năng nguy hiểm",
+  };
+  const status = autoFarm.status();
+  showModal(
+    "Ủy Thác Chiến Trường",
+    `<p class="intro">Chạm joystick hoặc ngắm chiêu để giành quyền ngay; AI chờ 1,2 giây sau khi nhả tay. PvE luôn giữ R / F. Mua/ghép và Hồi Hoàn vẫn tuân luật trận.</p><div class="auto-settings">${Object.entries(
+      labels,
+    )
+      .map(
+        ([key, label]) =>
+          `<label><input type="checkbox" data-auto-setting="${key}" ${status.config[key] ? "checked" : ""}><span>${label}</span></label>`,
+      )
+      .join(
+        "",
+      )}</div><p class="intro">${status.blockedPresetIds.length ? "Bỏ qua món gây Phản Phệ: " + status.blockedPresetIds.map((i) => ITEMS[i - 1].code).join(", ") : "Preset hiện tại không có món gây Phản Phệ."}</p>`,
+    () => {
+      $$("[data-auto-setting]").forEach(
+        (el) =>
+          (el.onchange = () => {
+            autoFarm.setConfig({ [el.dataset.autoSetting]: el.checked });
+            localStorage.setItem(
+              "hon-gioi-auto-config-v25",
+              JSON.stringify(autoFarm.status().config),
+            );
+          }),
+      );
+    },
+  );
+}
+function updateAutoHUD() {
+  const status = autoFarm.status(),
+    dock = $("#autoFarmDock"),
+    button = $("#autoFarmToggle"),
+    label = $("#autoFarmStatus"),
+    hint = $("#autoFarmHint");
+  if (!dock || !button) return;
+  dock.dataset.mode = status.mode;
+  const names = { off: "TẮT", pve: "SĂN QUÁI", full: "TOÀN DIỆN" };
+  if ($("b", button).textContent !== names[status.mode])
+    $("b", button).textContent = names[status.mode];
+  button.setAttribute("aria-pressed", String(status.mode !== "off"));
+  button.setAttribute("aria-label", "AUTO FARM: " + names[status.mode]);
+  const message = status.manualPaused
+    ? `Ưu tiên thao tác tay${status.resumeIn ? " · " + status.resumeIn.toFixed(1) + "s" : ""}`
+    : status.text;
+  if (label.textContent !== message) label.textContent = message;
+  if (hint) {
+    hint.classList.toggle("hidden", status.mode === "off");
+    if (hint.textContent !== status.manualHint)
+      hint.textContent = status.manualHint;
+    if (status.mode !== "off" && match?.player) {
+      const point = world.actorScreenPosition(match.player, 2.0);
+      hint.style.left = point.x + "px";
+      hint.style.top = point.y + "px";
+    }
+  }
 }
 function ownsGear(kind, id) {
   return profile.stash.some((i) => i.kind === kind && i.id === id);
@@ -146,7 +275,7 @@ function renderHub() {
    .join(
      "",
    )}</div><div class="section-label">NHÁNH TIẾN HÓA <span>KHÓA KHI VÀO TRẬN</span></div><div class="branches">${h.branches.map((n, i) => `<button data-branch="${i}" class="${loadout.branch === i ? "active" : ""}">${n}</button>`).join("")}</div><div class="branch-description" id="branchText"></div><div class="hero-grid">${HEROES.map((h, i) => `<button class="hero-card ${loadout.hero === i ? "active" : ""}" data-hero="${i}" style="--hero:#${h.color.toString(16)}" title="${h.name}">${itemIcon("weapon", i + 1, { label: WEAPONS[i] })}<span class="hero-card-name">${h.name.split(" ").at(-1)}</span></button>`).join("")}</div></div>
- <div class="stage-label"><div class="number">${h.id}</div><p>${WEAPONS[loadout.hero].toUpperCase()}</p><small>MÔ HÌNH 3D · ${loadout.skin === 2 ? "VIP" : loadout.skin === 1 ? "CƠ BẢN" : "NGUYÊN BẢN"}</small><div class="showcase-controls"><button id="showcaseFull" aria-label="Xem toàn thân">TOÀN THÂN</button><button id="showcaseFace" aria-label="Xem khuôn mặt">CẬN CẢNH</button></div><div id="showcaseDrag" aria-label="Kéo xoay nhân vật"></div></div>
+ <div class="stage-label"><p>${WEAPONS[loadout.hero].toUpperCase()}</p><small>MÔ HÌNH 3D · ${loadout.skin === 2 ? "VIP" : loadout.skin === 1 ? "CƠ BẢN" : "NGUYÊN BẢN"}</small><div class="showcase-controls"><button id="showcaseFull" aria-label="Xem toàn thân">TOÀN THÂN</button><button id="showcaseFace" aria-label="Xem khuôn mặt">CẬN CẢNH</button></div><div id="showcaseDrag" aria-label="Kéo xoay nhân vật"></div></div>
  <aside class="loadout-panel"><h2 class="panel-title">01 / HÀNH TRANG XUẤT CHIẾN</h2><div class="section-label">HỒN HOÀN <span>2 KHE</span></div><div class="ring-pair">${[
    1, 2,
  ]
@@ -362,6 +491,9 @@ function purchaseCosmetic(kind, id) {
   save();
 }
 function showModal(title, content, bind = () => {}) {
+  releaseJoystick();
+  skillshot.reset();
+  autoFarm.manualStart("modal");
   input.attack = false;
   input.x = input.z = 0;
   keys.clear();
@@ -373,6 +505,7 @@ function showModal(title, content, bind = () => {}) {
   bind();
 }
 function closeModal() {
+  autoFarm.manualEnd("modal");
   modal = null;
   clearTimeout(appraisalTimer);
   appraisalTimer = null;
@@ -618,15 +751,27 @@ function startMatch() {
   fullscreen();
 }
 function renderHUD() {
+  skillshot.reset();
+  autoFarm.reset();
   const a = match.player;
-  app.innerHTML = `<main class="hud"><div class="top-hud"><div class="minimap-wrap"><canvas id="minimap" width="280" height="280" aria-label="Minimap tương tác"></canvas><div class="map-title">THƯƠNG MANG CỔ VỰC</div></div><div class="match-status"><span>◷ <b id="matchTime">00:00</b></span><i class="divider"></i><span>CÒN SỐNG <b id="alive">100</b></span><i class="divider"></i><span>HẠ GỤC <b id="kills">0</b></span></div><details class="debug"><summary>DEV SANDBOX / THỬ NHANH</summary><div class="debug-body"><button data-debug="money">+500 TB / Tinh</button><button data-debug="loot">+ Chiến lợi phẩm</button><button data-debug="gate">Tới Cổng</button><button data-debug="shop">Tới Đài</button><button data-debug="shrine">Tới Tế Đàn</button><button data-debug="boss">Hang Boss</button><button data-debug="realm">Tới Bí Cảnh</button><button data-debug="open">Mở Cổng ngay</button><button data-debug="next" class="wide">Tua tới đợt Cổng kế tiếp</button><button data-debug="cc">Nhận CC 1s</button><button data-debug="hit">Nhận 150 ST</button><button data-debug="heal">Hồi HP / HL</button><button data-debug="death">Thử tử vong</button></div></details></div><div class="location" id="location"></div><div class="banner" id="gateBanner"></div><div class="quick-wallet">◈ Vốn <b id="brought"></b> TB<br>✦ Thu nhập <b id="earned"></b> TB<br><small id="bagBrief"></small></div><div id="joystickZone" aria-label="Vùng di chuyển"><div class="joystick" id="joystick"><div class="stick"></div><div class="joystick-label">DI CHUYỂN</div></div></div><div id="quickOffers" class="quick-offers"></div><div class="context-actions"><button id="pickup">◇ NHẶT / G</button><button id="shop">◈ CỬA HÀNG / B</button><button id="bag">▦ TÚI ĐỒ / I</button><button id="extract">⟡ HỒI HOÀN</button><button id="seal" class="hidden">✧ KÍCH HOẠT ẤN KHÓA</button></div><div class="player-bar"><div class="row"><span id="level">LV.1</span><span id="hpText"></span><span class="shield-value" id="shield"></span></div><div class="bar"><i id="hpFill"></i></div><div class="bar mp"><i id="mpFill"></i></div><div class="player-label" id="playerStatus">${HEROES[a.hero].name} · ${HEROES[a.hero].branches[a.branch]}</div></div><div id="cancelSkill" class="cancel-skill hidden">✕<small>HỦY CHIÊU</small></div><div class="supports-hud">${a.supports
+  app.innerHTML = `<main class="hud"><div class="top-hud"><div class="minimap-wrap"><canvas id="minimap" width="280" height="280" aria-label="Minimap tương tác"></canvas><div class="map-title">THƯƠNG MANG CỔ VỰC</div></div><div class="match-status"><span>◷ <b id="matchTime">00:00</b></span><i class="divider"></i><span>CÒN SỐNG <b id="alive">100</b></span><i class="divider"></i><span>HẠ GỤC <b id="kills">0</b></span></div><details class="debug"><summary>DEV SANDBOX / THỬ NHANH</summary><div class="debug-body"><button data-debug="money">+500 TB / Tinh</button><button data-debug="loot">+ Chiến lợi phẩm</button><button data-debug="gate">Tới Cổng</button><button data-debug="shop">Tới Đài</button><button data-debug="shrine">Tới Tế Đàn</button><button data-debug="boss">Hang Boss</button><button data-debug="realm">Tới Bí Cảnh</button><button data-debug="open">Mở Cổng ngay</button><button data-debug="next" class="wide">Tua tới đợt Cổng kế tiếp</button><button data-debug="cc">Nhận CC 1s</button><button data-debug="hit">Nhận 150 ST</button><button data-debug="heal">Hồi HP / HL</button><button data-debug="death">Thử tử vong</button></div></details></div><div class="location" id="location"></div><div class="banner" id="gateBanner"></div><div class="quick-wallet">◈ Vốn <b id="brought"></b> TB<br>✦ Thu nhập <b id="earned"></b> TB<br><small id="bagBrief"></small></div><div id="joystickZone" aria-label="Vùng di chuyển"><div class="joystick" id="joystick"><div class="stick"></div><div class="joystick-label">DI CHUYỂN</div></div></div><div id="quickOffers" class="quick-offers"></div><div class="context-actions"><button id="pickup">◇ NHẶT / G</button><button id="shop">◈ CỬA HÀNG / B</button><button id="bag">▦ TÚI ĐỒ / I</button><button id="extract">⟡ HỒI HOÀN</button><button id="seal" class="hidden">✧ KÍCH HOẠT ẤN KHÓA</button></div><div class="player-bar"><div class="row"><span id="level">LV.1</span><span id="hpText"></span><span class="shield-value" id="shield"></span></div><div class="bar"><i id="hpFill"></i></div><div class="bar mp"><i id="mpFill"></i></div><div class="player-label" id="playerStatus">${HEROES[a.hero].name} · ${HEROES[a.hero].branches[a.branch]}</div></div><div id="autoFarmDock" class="autofarm-dock" data-mode="off"><button id="autoFarmToggle" title="AUTO FARM: TẮT · Giữ chuột phải để tùy chỉnh">🤖<small>AUTO FARM</small><b>TẮT</b></button><button id="autoFarmSettings" aria-label="Tùy chỉnh Auto">⚙</button><span id="autoFarmStatus"></span></div><div id="autoFarmHint" class="auto-hint hidden"></div><div id="cancelSkill" class="cancel-skill hidden">✕<small>KÉO VÀO ĐÂY<br>ĐỂ HỦY CHIÊU</small></div><div class="supports-hud">${a.supports
     .map(
       (s, i) =>
         `<button data-use="${i}" title="${SUPPORTS[s.id - 1].text}" aria-label="${SUPPORTS[s.id - 1].name}">${itemIcon("support", s.id)}<span class="support-key">${i + 1}</span><small class="support-count"></small></button>`,
     )
     .join(
       "",
-    )}</div><div class="skills">${[0, 1, 2, 3, 4].map((k) => `<button class="skill" data-skill="${k}" aria-label="${k === 4 ? "F Linh Bộ" : SKILLS[a.hero][k].name}" style="--element:#${HEROES[a.hero].color.toString(16).padStart(6, "0")}">${k === 4 ? itemIcon("action", 2) : `<img class="skill-art" src="${skillIcon(a.hero, k)}" alt="" draggable="false">`}<b>${["Q", "W", "E", "R", "F"][k]}</b><small>${k === 4 ? "LINH BỘ" : SKILLS[a.hero][k].name}</small><span class="mp-cost">${k === 4 ? "0" : R.skillFor(a, k).mp} HL</span><span class="energy-empty"></span><span class="cd hidden"></span></button>`).join("")}<button id="targetBeast" class="target-choice" aria-label="Đánh quái" aria-pressed="false">${itemIcon("action", 3)}</button><button id="targetHero" class="target-choice" aria-label="Đánh tướng máu thấp" aria-pressed="false">${itemIcon("action", 4)}</button><button id="attack" class="skill attack" aria-label="Đánh thường">${itemIcon("action", 1)}<small>ĐÁNH THƯỜNG</small></button></div><div id="channelRoot"></div><details class="hud-options"><summary aria-label="Tùy chọn trận">⋯</summary><div class="hud-menu"><button id="menuHelp">?</button><button id="pause">Tạm dừng</button><button id="exitGame">Rời trận</button><button id="gameFullscreen">⛶</button><button id="quality" aria-label="Chất lượng đồ họa">ĐỒ HỌA</button><button id="securityShield">HỘ GIỚI</button></div></details><div class="performance" id="performance"></div><div id="modalRoot"></div></main>`;
+    )}</div><div class="skills">${[0, 1, 2, 3, 4].map((k) => `<button class="skill" data-skill="${k}" aria-label="${k === 4 ? "F Linh Bộ" : SKILLS[a.hero][k].name}" style="--element:#${HEROES[a.hero].color.toString(16).padStart(6, "0")}">${k === 4 ? itemIcon("action", 2) : `<img class="skill-art" src="${skillIcon(a.hero, k)}" alt="" draggable="false">`}<b>${["Q", "W", "E", "R", "F"][k]}</b><small>${k === 4 ? "LINH BỘ" : SKILLS[a.hero][k].name}</small><span class="mp-cost">${k === 4 ? "0" : R.skillFor(a, k).mp} HL</span><span class="energy-empty"></span><span class="skill-thumb-knob"></span><span class="cd hidden"></span></button>`).join("")}<button id="targetBeast" class="target-choice" aria-label="Đánh quái" aria-pressed="false">${itemIcon("action", 3)}</button><button id="targetHero" class="target-choice" aria-label="Đánh tướng máu thấp" aria-pressed="false">${itemIcon("action", 4)}</button><button id="attack" class="skill attack" aria-label="Đánh thường">${itemIcon("action", 1)}<small>ĐÁNH THƯỜNG</small></button></div><div id="channelRoot"></div><details class="hud-options"><summary aria-label="Tùy chọn trận">⋯</summary><div class="hud-menu"><button id="menuHelp">?</button><button id="pause">Tạm dừng</button><button id="exitGame">Rời trận</button><button id="gameFullscreen">⛶</button><button id="quality" aria-label="Chất lượng đồ họa">ĐỒ HỌA</button><button id="securityShield">HỘ GIỚI</button></div></details><div class="performance" id="performance"></div><div id="modalRoot"></div></main>`;
+  $("#autoFarmToggle").onclick = () => {
+    const modes = ["off", "pve", "full"];
+    autoFarm.setMode(modes[(modes.indexOf(autoFarm.mode) + 1) % 3]);
+    updateAutoHUD();
+  };
+  $("#autoFarmToggle").oncontextmenu = (e) => {
+    e.preventDefault();
+    showAutoSettings();
+  };
+  $("#autoFarmSettings").onclick = showAutoSettings;
   $("#pickup").onclick = showAppraisal;
   $("#securityShield").onclick = showSecurity;
   $("#quality").onclick = () =>
@@ -740,23 +885,39 @@ function renderHUD() {
     toast(audio.toggle() ? "Âm thanh bật" : "Âm thanh tắt");
   };
   $(".hud-menu").append(sound);
+  const autoSettings = document.createElement("button");
+  autoSettings.textContent = "⚙ TÙY CHỈNH AUTO";
+  autoSettings.onclick = showAutoSettings;
+  $(".hud-menu").append(autoSettings);
   bindJoystick();
   bindSkills();
 }
 function controlInput() {
-  let x = input.x,
-    z = input.z;
+  const status = autoFarm.status(),
+    automated = status.mode !== "off" && !status.manualPaused;
+  let x = automated ? autoInput.x : input.x,
+    z = automated ? autoInput.z : input.z;
   const horizontal = (keys.has("KeyD") ? 1 : 0) - (keys.has("KeyA") ? 1 : 0),
     vertical = (keys.has("KeyS") ? 1 : 0) - (keys.has("KeyW") ? 1 : 0);
   if (horizontal || vertical) {
-    x = horizontal * 0.879 + vertical * 0.477;
-    z = -horizontal * 0.477 + vertical * 0.879;
+    const direction = screenVectorToWorld(
+      horizontal,
+      vertical,
+      Math.atan2(
+        world.camera.position.x - world.focus.x,
+        world.camera.position.z - world.focus.z,
+      ),
+    );
+    x = direction.x;
+    z = direction.z;
   }
   return {
     x: modal ? 0 : x,
     z: modal ? 0 : z,
-    attack: !modal && (input.attack || keys.has("Space")),
-    targetMode: input.targetMode,
+    attack:
+      !modal &&
+      (input.attack || keys.has("Space") || (automated && autoInput.attack)),
+    targetMode: automated ? autoInput.targetMode : input.targetMode,
   };
 }
 function pushInputEdge(force = true) {
@@ -769,6 +930,7 @@ function bindJoystick() {
   let pid = null,
     origin = null;
   const reset = () => {
+    if (pid !== null) skillshot.endMovement(pid);
     pid = null;
     origin = null;
     input.x = input.z = 0;
@@ -776,8 +938,9 @@ function bindJoystick() {
     joy.classList.remove("active");
     pushInputEdge();
   };
+  releaseJoystick = reset;
   zone.onpointerdown = (e) => {
-    if (pid !== null || modal) return;
+    if (pid !== null || modal || !skillshot.beginMovement(e.pointerId)) return;
     e.preventDefault();
     pid = e.pointerId;
     origin = { x: e.clientX, y: e.clientY };
@@ -799,8 +962,16 @@ function bindJoystick() {
       x = dx / Math.max(limit, n),
       y = dy / Math.max(limit, n);
     stick.style.transform = `translate(${x * limit}px,${y * limit}px)`;
-    input.x = x * 0.879 + y * 0.477;
-    input.z = -x * 0.477 + y * 0.879;
+    const direction = screenVectorToWorld(
+      x,
+      y,
+      Math.atan2(
+        world.camera.position.x - world.focus.x,
+        world.camera.position.z - world.focus.z,
+      ),
+    );
+    input.x = direction.x;
+    input.z = direction.z;
     pushInputEdge(false);
   };
   zone.onpointerup =
@@ -812,94 +983,51 @@ function bindJoystick() {
 }
 function bindSkills() {
   $$("[data-skill]").forEach((el) => {
-    let start = null,
-      dir = null;
-    const k = +el.dataset.skill;
+    const slot = +el.dataset.skill;
     el.onpointerdown = (e) => {
       e.preventDefault();
-      el.setPointerCapture(e.pointerId);
-      start = { x: e.clientX, y: e.clientY };
-      dir = null;
-      $("#cancelSkill").classList.remove("hidden");
-      world.aim(
-        match.player,
-        k < 4
-          ? R.skillFor(match.player, k)
-          : { shape: "line", range: 2.8, radius: 0.6, headingOnly: true },
-        null,
-        false,
-        match,
-      );
+      if (modal) return;
+      if (
+        skillshot.begin(
+          e.pointerId,
+          slot,
+          el.getBoundingClientRect(),
+          e.clientX,
+          e.clientY,
+        )
+      )
+        el.setPointerCapture(e.pointerId);
     };
-    el.onpointermove = (e) => {
-      if (!start) return;
-      let dx = e.clientX - start.x,
-        dy = e.clientY - start.y,
-        n = Math.hypot(dx, dy);
-      const cancel = $("#cancelSkill"),
-        r = cancel.getBoundingClientRect();
-      cancel.classList.toggle(
-        "armed",
-        e.clientX >= r.left &&
-          e.clientX <= r.right &&
-          e.clientY >= r.top &&
-          e.clientY <= r.bottom,
-      );
-      if (n > 9) {
-        dir = {
-          x: (dx * 0.879 + dy * 0.477) / n,
-          z: (-dx * 0.477 + dy * 0.879) / n,
-        };
-        world.aim(
-          match.player,
-          k < 4
-            ? R.skillFor(match.player, k)
-            : { shape: "line", range: 2.8, radius: 0.6, headingOnly: true },
-          dir,
-          cancel.classList.contains("armed"),
-          match,
-        );
-      }
-    };
-    el.onpointerup = (e) => {
-      if (start) {
-        const cancel = $("#cancelSkill"),
-          r = cancel.getBoundingClientRect();
-        const cancelled =
-          e.clientX >= r.left &&
-          e.clientX <= r.right &&
-          e.clientY >= r.top &&
-          e.clientY <= r.bottom;
-        if (!cancelled) {
-          if (k === 4 && dir) match.player.dir = dir;
-          match.cast(match.player, k, dir);
-        }
-        cancel.classList.add("hidden");
-        cancel.classList.remove("armed");
-        start = null;
-        world.clearAim();
-      }
-    };
-    el.onpointercancel = () => {
-      start = null;
-      $("#cancelSkill").classList.add("hidden");
-      world.clearAim();
-    };
+    el.onpointermove = (e) => skillshot.move(e.pointerId, e.clientX, e.clientY);
+    el.onpointerup = (e) => skillshot.finish(e.pointerId, e.clientX, e.clientY);
+    el.onpointercancel = el.onlostpointercapture = (e) =>
+      skillshot.cancel(e.pointerId);
   });
   const attack = $("#attack");
+  let pointer = null;
   attack.onpointerdown = (e) => {
+    if (pointer !== null) return;
     e.preventDefault();
+    pointer = e.pointerId;
+    autoFarm.manualStart(pointer);
     input.attack = true;
     pushInputEdge();
-    attack.setPointerCapture(e.pointerId);
+    attack.setPointerCapture(pointer);
     attack.classList.add("pressed");
   };
-  attack.onpointerup = attack.onpointercancel = () => {
-    input.attack = false;
-    attack.classList.remove("pressed");
-    pushInputEdge();
-  };
+  attack.onpointerup =
+    attack.onpointercancel =
+    attack.onlostpointercapture =
+      (e) => {
+        if (e.pointerId !== pointer) return;
+        autoFarm.manualEnd(pointer);
+        pointer = null;
+        input.attack = false;
+        attack.classList.remove("pressed");
+        pushInputEdge();
+      };
 }
+
 function showShop() {
   const near = match.nearShop();
   if (!near) {
@@ -1108,6 +1236,8 @@ function showResult() {
   );
 }
 function backHub() {
+  skillshot.reset();
+  autoFarm.reset();
   if (match?.online) match.close();
   match = null;
   modal = null;
@@ -1434,14 +1564,23 @@ window.addEventListener("keydown", (e) => {
   }
   if (modal || e.repeat) return;
   keys.add(e.code);
-  if (e.code === "KeyQ") match.cast(match.player, 0, mouseAim);
+  if (["KeyW", "KeyA", "KeyS", "KeyD", "Space"].includes(e.code))
+    autoFarm.manualStart("key:" + e.code);
+  if (
+    ["KeyQ", "KeyE", "KeyR", "KeyF"].includes(e.code) ||
+    (e.code === "KeyW" && e.shiftKey)
+  ) {
+    autoFarm.manualStart("keyboard-skill");
+    autoFarm.manualEnd("keyboard-skill");
+  }
+  if (e.code === "KeyQ") skillshot.requestCast(0, mouseAim ?? undefined);
   if (e.code === "KeyW" && e.shiftKey) {
     keys.delete("KeyW");
-    match.cast(match.player, 1, mouseAim);
+    skillshot.requestCast(1, mouseAim ?? undefined);
   }
-  if (e.code === "KeyE") match.cast(match.player, 2, mouseAim);
-  if (e.code === "KeyR") match.cast(match.player, 3, mouseAim);
-  if (e.code === "KeyF") match.cast(match.player, 4);
+  if (e.code === "KeyE") skillshot.requestCast(2, mouseAim ?? undefined);
+  if (e.code === "KeyR") skillshot.requestCast(3, mouseAim ?? undefined);
+  if (e.code === "KeyF") skillshot.requestCast(4, null);
   if (["Digit1", "Digit2", "Digit3"].includes(e.code))
     guarded(() => match.useSupport(+e.code.at(-1) - 1));
   if (e.code === "KeyG") match.pickup();
@@ -1451,9 +1590,13 @@ window.addEventListener("keydown", (e) => {
 });
 window.addEventListener("keyup", (e) => {
   keys.delete(e.code);
+  autoFarm.manualEnd("key:" + e.code);
   pushInputEdge();
 });
 window.addEventListener("blur", () => {
+  releaseJoystick();
+  skillshot.reset();
+  for (const id of [...autoFarm.pointers]) autoFarm.manualEnd(id);
   keys.clear();
   input.attack = false;
   input.x = input.z = 0;
@@ -1479,8 +1622,18 @@ function animate(now) {
   last = now;
   requestAnimationFrame(animate);
   if (match && match.player && !paused && !match.result) {
-    if (!modal && mouseAim) match.player.dir = mouseAim;
+    if (
+      !modal &&
+      mouseAim &&
+      !skillshot.active &&
+      (autoFarm.mode === "off" || autoFarm.status().manualPaused)
+    )
+      match.player.dir = mouseAim;
     ensureRuntimeSecurity(match);
+    if (!modal) {
+      autoFarm.update(dt);
+      skillshot.update(dt);
+    }
     match.step(dt, controlInput());
   }
   saveAcc += dt;
@@ -1489,6 +1642,7 @@ function animate(now) {
     if (match && !match.result && !match.online) save();
   }
   if (!match || match.player) world.render(match, dt, loadout.hero, loadout);
+  updateAutoHUD();
   audio.update(match, now / 1000);
   updateSkillCooldowns();
   uiAcc += dt;
@@ -1543,6 +1697,15 @@ window.__HON_GIOI__ = {
   get world() {
     return world;
   },
+  get controls() {
+    return {
+      leftJoystickPointerId: skillshot.leftJoystickPointerId,
+      rightSkillPointerId: skillshot.rightSkillPointerId,
+      queued: skillshot.skillBufferQueue.length,
+      aiming: !!skillshot.active,
+    };
+  },
+  autoFarm: Object.freeze({ status: () => autoFarm.status() }),
   debug,
   assets: masterworkAssets,
   security: securityFacade(() => match),

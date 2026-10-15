@@ -27,10 +27,12 @@
     "services:backup": "node scripts/backup-services.mjs",
     "test:upgrade-ui": "node tests/upgrade-browser.mjs",
     "verify:upgrade": "node scripts/verify-upgrade.mjs",
-    "test:master": "node --test tests/master.test.js tests/anatomy-art.test.js tests/creature-art.test.js tests/security.test.js tests/skill-projection.test.js tests/portrait-equipment.test.js tests/upgrade-evidence.test.js",
+    "test:master": "node --test tests/master.test.js tests/anatomy-art.test.js tests/creature-art.test.js tests/security.test.js tests/skill-projection.test.js tests/portrait-equipment.test.js tests/upgrade-evidence.test.js tests/character-pbr.test.js tests/creature-pbr.test.js tests/environment-pbr.test.js tests/environment-pbr-async.test.js tests/environment-architecture.test.js tests/environment-vfx.test.js tests/auto-farm.test.js tests/skillshot-authority.test.js tests/smooth-skillshot.test.js tests/soul-ring-vfx.test.js tests/overhaul-evidence.test.js",
     "test:master-ui": "node tests/master-browser.mjs",
     "verify:master": "node scripts/verify-master.mjs",
-    "android:hardening": "node scripts/native-hardening.mjs"
+    "android:hardening": "node scripts/native-hardening.mjs",
+    "test:overhaul-ui": "node tests/overhaul-browser.mjs",
+    "verify:overhaul": "node scripts/verify-overhaul.mjs"
   },
   "dependencies": {
     "@capacitor/android": "7.6.9",

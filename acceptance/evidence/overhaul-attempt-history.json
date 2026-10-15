@@ -1,0 +1,106 @@
+{
+  "scope": "Mixed-source combined attempt rejected. On the final frozen source, unit/offline-browser gates passed, but a later reconnect case timed out; that failure is retained here. Resumed current-source run repeated the failed network case with read-only state diagnostics, then completed all remaining browser/PWA/timeline/load checks. The successful reconnect diagnostic observed an alive actor before closure. This is functional evidence, not a claim that intermittent timing has been exhaustively characterized.",
+  "rejectedMixedSourceAttempt": {
+    "sourceHash": "ed4005c463f4b3eb95960882b0a6afc5323e7c1b152f17c4be2b1e785b083503",
+    "sourceHashEnd": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+    "passed": false,
+    "results": [
+      {
+        "name": "suite",
+        "path": "/tmp/overhaul-final-suite.log",
+        "code": 0
+      },
+      {
+        "name": "gallery",
+        "path": "/tmp/overhaul-final-gallery.log",
+        "code": 0
+      },
+      {
+        "name": "apk",
+        "path": "/tmp/overhaul-final-apk.log",
+        "code": 0
+      },
+      {
+        "name": "native",
+        "path": "/tmp/overhaul-final-native.log",
+        "code": 0
+      }
+    ],
+    "failure": "Source changed during final sequence",
+    "recordedAt": "2026-10-15T16:28:50.540Z"
+  },
+  "intermittentReconnect": {
+    "error": "No authoritative state after WebSocket reconnect",
+    "logPath": "/tmp/overhaul-current-online-failure.log",
+    "scope": "Uncontrolled ordinary bot match under Linux SwiftShader; the failed attempt did not capture whether the actor had ended before reconnect."
+  },
+  "successfulDiagnostic": "Reconnect before close {\"destroyed\":false,\"alive\":true,\"hp\":1005.1960784313724,\"time\":23.600000000000332,\"socket\":1}",
+  "currentEvidence": [
+    {
+      "name": "rules",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:29:22.541Z"
+    },
+    {
+      "name": "master-rules",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:29:54.805Z"
+    },
+    {
+      "name": "server",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:30:00.276Z"
+    },
+    {
+      "name": "browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:34:48.719Z"
+    },
+    {
+      "name": "online-browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:39:58.644Z"
+    },
+    {
+      "name": "upgrade-browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:42:45.777Z"
+    },
+    {
+      "name": "master-browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:47:50.315Z"
+    },
+    {
+      "name": "overhaul-browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:54:33.740Z"
+    },
+    {
+      "name": "artifacts",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:55:50.202Z"
+    },
+    {
+      "name": "timeline",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:56:21.730Z"
+    },
+    {
+      "name": "server-performance",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:56:26.342Z"
+    },
+    {
+      "name": "native-hardening",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:28:50.511Z"
+    },
+    {
+      "name": "art-gallery",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:28:27.256Z"
+    }
+  ],
+  "recordedAt": "2026-10-15T16:56:33.931Z"
+}

@@ -1,38 +1,98 @@
 {
-  "sourceHash": "c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03",
+  "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
   "passed": true,
-  "scope": "Unmodified copies of screenshots from the passing master-browser and upgrade-browser runs on Chromium Linux SwiftShader; no Android certification.",
+  "scope": "Unedited current-source Chromium UI screenshots; overhaul functional battlefield shots use512x288drawing buffer at1280x720CSS, while lobby and fixed-size art probes retain their own resolution. Not Android traces or FPS.",
   "images": [
     {
-      "sourcePath": "test-results/master/icons.png",
       "path": "docs/visual-review/icons-149.png",
-      "sha256": "7fa4f33f469e0ecbe50d315c75737a3324f8ee4ac04d2d7f27591902ca9d6c6f"
+      "sha256": "fc890dcb90a01908ec40352c68a887990f4244669b72f2b7e3be3c48d8f74262",
+      "copiedFrom": "test-results/master/icons.png",
+      "suite": "master-browser"
     },
     {
-      "sourcePath": "test-results/master/loot-appraisal.png",
       "path": "docs/visual-review/loot-appraisal.png",
-      "sha256": "89594d5ceaf80144536d52e1c32326bc572e542bdf0884e3cfd719056d42f5e1"
+      "sha256": "2f6c5b71c37daf9cfee758f07d83fdc9cb730f031854c7c35e95a00b6d332e90",
+      "copiedFrom": "test-results/master/loot-appraisal.png",
+      "suite": "master-browser"
     },
     {
-      "sourcePath": "test-results/master/hud-large.png",
       "path": "docs/visual-review/hud-master.png",
-      "sha256": "c946cc47222c39be60ded250c6f5b58649319f6620d520fb07454321c4436ee6"
+      "sha256": "7a0a7387e9c8e7cad0d5fc485c273f255ae966423578916b9d33d24e0d5066f0",
+      "copiedFrom": "test-results/master/hud-large.png",
+      "suite": "master-browser"
     },
     {
-      "sourcePath": "test-results/upgrade/hud-844.png",
       "path": "docs/visual-review/hud-844.png",
-      "sha256": "d17ad55103f19ef9b26e40ad99753ca5540630d5adeb86d6841ab9ba39c472c3"
+      "sha256": "b570149607515bb2913ec5b2aee63baaff2b34dce5265cf4ac86b4ab2fa434e4",
+      "copiedFrom": "test-results/upgrade/hud-844.png",
+      "suite": "upgrade-browser"
     },
     {
-      "sourcePath": "test-results/upgrade/hud-915.png",
       "path": "docs/visual-review/hud-915.png",
-      "sha256": "fd07aa0447be4a7f94c4afcd202ba53a4a96c71348367a476c8a886b3085e276"
+      "sha256": "d888be85f93ac8aa345427b51764aea7f1606d08f44aaae9ed9f83a520614db6",
+      "copiedFrom": "test-results/upgrade/hud-915.png",
+      "suite": "upgrade-browser"
     },
     {
-      "sourcePath": "test-results/upgrade/hud-1280.png",
       "path": "docs/visual-review/hud-1280.png",
-      "sha256": "7757f39a4d678c3203f9ba84379b85015fd9f3b0991234a668178f03e3710018"
+      "sha256": "c7e4e419c8227340942c5d38f7b88eee578d171bcb576105e1dd94ed4bca9a97",
+      "copiedFrom": "test-results/upgrade/hud-1280.png",
+      "suite": "upgrade-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-H01-pbr-full.png",
+      "sha256": "24dd302fbbd3fab188f477542014cb2d06d2b99355bc109c3df34b1a1f2d7cf2",
+      "copiedFrom": "test-results/overhaul/H01-pbr-full.png",
+      "suite": "overhaul-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-H01-face-front.png",
+      "sha256": "8456e50948f52cc397e19b2dc8d55054ca2392276eaa0909195e69fa0e2cee00",
+      "copiedFrom": "test-results/overhaul/H01-face-front.png",
+      "suite": "overhaul-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-H05-pbr-full.png",
+      "sha256": "1d8b86a9230aad57e57aa7f1e548ca7cfa59cc2b1c394ba5879307fa021218ce",
+      "copiedFrom": "test-results/overhaul/H05-pbr-full.png",
+      "suite": "overhaul-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-H05-face-front.png",
+      "sha256": "def58d7ea311f47f112ed388fb0209dff8756b0275da899bb6907ee7f6830fbd",
+      "copiedFrom": "test-results/overhaul/H05-face-front.png",
+      "suite": "overhaul-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-simultaneous-movement-aoe.png",
+      "sha256": "0e4b1a0496ad64e56574f4ee7869a655a6812cc8ccd4fb2f4140be7d0454eba1",
+      "copiedFrom": "test-results/overhaul/simultaneous-movement-aoe.png",
+      "suite": "overhaul-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-cancel-warning-red.png",
+      "sha256": "69e60f92693d608fa400c72db0e1b2174cb2e900beb6a90030f611a740017155",
+      "copiedFrom": "test-results/overhaul/cancel-warning-red.png",
+      "suite": "overhaul-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-auto-loot-appraisal.png",
+      "sha256": "1176c84190dda756ea23c4f27d0870958abcf89fa4f33b1b2b06a87e61db6dff",
+      "copiedFrom": "test-results/overhaul/auto-loot-appraisal.png",
+      "suite": "overhaul-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-auto-built-seven.png",
+      "sha256": "f3ead830d40e278049050f58bcca4016a3acb15e91a40e7748e93225890cdec2",
+      "copiedFrom": "test-results/overhaul/auto-built-seven.png",
+      "suite": "overhaul-browser"
+    },
+    {
+      "path": "docs/visual-review/overhaul-auto-extraction-channel.png",
+      "sha256": "21120e470ea3c1b87fc51dd300a5a24fa76e5949dc57f92f6b62c05c608fc136",
+      "copiedFrom": "test-results/overhaul/auto-extraction-channel.png",
+      "suite": "overhaul-browser"
     }
   ],
-  "recordedAt": "2026-10-14T23:47:35.030Z"
+  "recordedAt": "2026-10-15T16:56:38.936Z"
 }

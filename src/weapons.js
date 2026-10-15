@@ -1,5 +1,6 @@
 import * as T from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+import { characterPBR, HERO_BROCADE_PATTERNS } from "./character-pbr.js";
 
 // All dimensions are metres. Geometry and materials are shared between clones;
 // animation changes articulated groups rather than their shared buffers.
@@ -51,7 +52,9 @@ export const SOUL_WEAPON_SPEC = [
     weaponType: "floating-moon-mirror",
     metricLength: 0.65,
     handedness: "floating",
-    iridescence: 0.9,
+    intrinsicDiameter: 0.65,
+    transmission: 0.85,
+    iridescence: 1,
   },
   {
     name: "Huyền Quy Thuẫn",
@@ -119,30 +122,68 @@ function material(color, role, detail, skin) {
   const key = `${color}:${role}:${detail}:${skin}`;
   if (!materials.has(key)) {
     const glow = role === "energy",
-      glass = role === "jade" || role === "mirror";
+      moonMirror = role === "mirror",
+      glass = role === "jade" || moonMirror || role === "void";
     const m = new T.MeshPhysicalMaterial({
       color,
-      metalness: role === "metal" ? 0.84 : role === "stone" ? 0.18 : 0.12,
-      roughness: role === "wood" ? 0.62 : role === "stone" ? 0.52 : 0.24,
-      clearcoat: detail === "high" ? 0.95 : 0.3,
-      clearcoatRoughness: 0.2,
+      metalness: moonMirror
+        ? 0.04
+        : role === "metal"
+          ? 0.84
+          : role === "stone"
+            ? 0.18
+            : 0.12,
+      roughness: moonMirror
+        ? 0.07
+        : role === "wood"
+          ? 0.62
+          : role === "stone"
+            ? 0.52
+            : 0.24,
+      clearcoat: moonMirror ? 1 : detail === "high" ? 0.95 : 0.3,
+      clearcoatRoughness: moonMirror ? 0.06 : 0.2,
       emissive: glow
         ? color
-        : glass
+        : glass && !moonMirror
           ? new T.Color(color).multiplyScalar(0.12)
           : 0,
       emissiveIntensity: glow ? 1.6 : 0.25,
-      transmission:
-        glass && detail === "high" ? (role === "mirror" ? 0.25 : 0.45) : 0,
-      thickness: glass ? 0.08 : 0,
-      iridescence: role === "mirror" ? 0.9 : skin === 2 ? 0.7 : glass ? 0.3 : 0,
+      transmission: moonMirror
+        ? 0.85
+        : glass && detail === "high"
+          ? role === "void"
+            ? 0.25
+            : 0.45
+          : 0,
+      thickness: moonMirror ? 0.045 : glass ? 0.08 : 0,
+      iridescence: moonMirror
+        ? 1
+        : role === "void"
+          ? 0.9
+          : skin === 2
+            ? 0.7
+            : glass
+              ? 0.3
+              : 0,
       iridescenceIOR: 1.35,
+      iridescenceThicknessRange: moonMirror ? [120, 420] : [100, 400],
+      ior: moonMirror ? 1.52 : 1.5,
+      attenuationColor: moonMirror ? 0xdcefff : 0xffffff,
+      attenuationDistance: moonMirror ? 0.8 : Infinity,
+      envMapIntensity: moonMirror ? 1.25 : 1,
       side: T.DoubleSide,
     });
     m.userData.sharedArt = true;
+    m.userData.weaponRole = role;
+    if (moonMirror) {
+      m.name = "MoonMirrorTransmissiveSurface";
+      m.userData.soulOpticalSurface = true;
+    }
     materials.set(key, m);
   }
-  return materials.get(key);
+  const result = materials.get(key);
+  result.userData.weaponRole = role;
+  return result;
 }
 
 function group(parent, name, position = [0, 0, 0]) {
@@ -617,23 +658,35 @@ function lightningFan(g, c) {
 }
 
 function moonMirror(g, c) {
+  const frameDetail = c.d === "low" ? "medium" : c.d;
   const circle = cachedGeometry(
     `mirror:${c.d}`,
-    () => new T.CircleGeometry(1, LEVELS[c.d].tube * 2),
+    () => new T.CircleGeometry(1, Math.max(12, LEVELS[c.d].tube * 2)),
   );
-  mesh(g, circle, c.mirror, [0, 0, 0], [0.292, 0.292, 1]);
-  ring(g, c.gold, 0.306, 0.018, [0, 0, 0], c.d);
-  ring(g, c.energy, 0.276, 0.006, [0, 0, 0.005], c.d);
-  ring(
-    g,
-    c.gold,
-    0.17,
-    0.025,
-    [-0.05, 0.015, 0.008],
-    c.d,
-    [0, 0, -0.9],
-    Math.PI * 1.4,
-  );
+  const surface = mesh(g, circle, c.mirror, [0, 0, 0], [0.292, 0.292, 1]);
+  surface.name = "paleReflectiveMirrorSurface";
+  surface.castShadow = false;
+  surface.receiveShadow = false;
+  ring(g, c.gold, 0.306, 0.018, [0, 0, 0], frameDetail);
+  ring(g, c.gold, 0.286, 0.005, [0, 0, 0.012], frameDetail);
+  // The moon relief follows the left rim, leaving the optical field open.
+  const crescent = new T.Shape();
+  crescent.moveTo(0, 0.3);
+  crescent.bezierCurveTo(-0.18, 0.3, -0.31, 0.16, -0.31, 0);
+  crescent.bezierCurveTo(-0.31, -0.16, -0.18, -0.3, 0, -0.3);
+  crescent.bezierCurveTo(-0.16, -0.23, -0.265, -0.13, -0.265, 0);
+  crescent.bezierCurveTo(-0.265, 0.13, -0.16, 0.23, 0, 0.3);
+  const relief = new T.ExtrudeGeometry(crescent, {
+    depth: 0.012,
+    bevelEnabled: LEVELS[c.d].bevel > 0,
+    bevelThickness: 0.003,
+    bevelSize: 0.003,
+    bevelSegments: LEVELS[c.d].bevel,
+    curveSegments: LEVELS[c.d].curved,
+    steps: 1,
+  });
+  relief.userData.sharedArt = true;
+  mesh(g, relief, c.gold, [0, 0, 0.012]).name = "whiteGoldRimCrescent";
   engrave(g, c.gold, 0.3, LEVELS[c.d].ornaments, c.d, 0.025);
   for (const side of [-1, 1])
     for (let i = 0; i < 3; i++)
@@ -641,14 +694,29 @@ function moonMirror(g, c) {
         g,
         c.gold,
         [
-          [side * (0.2 + i * 0.025), -0.08 + i * 0.05, 0.03],
-          [side * (0.25 + i * 0.02), -0.11 + i * 0.05, 0.03],
-          [side * (0.3 + i * 0.01), -0.06 + i * 0.05, 0.03],
+          [side * (0.247 + i * 0.013), -0.08 + i * 0.07, 0.03],
+          [side * (0.277 + i * 0.008), -0.1 + i * 0.07, 0.03],
+          [side * (0.302 - i * 0.003), -0.055 + i * 0.07, 0.03],
         ],
         0.006,
         c.d,
         "auspiciousCloudCarving",
       );
+  if (c.skin) {
+    const count = c.skin === 2 ? 6 : 3;
+    for (let i = 0; i < count; i++) {
+      const a = (i * Math.PI * 2) / count + Math.PI / 6;
+      gem(
+        g,
+        c.skin === 2 ? c.jade : c.gold,
+        0.011,
+        [Math.sin(a) * 0.302, Math.cos(a) * 0.302, 0.025],
+        c.d,
+      );
+    }
+    if (c.skin === 2)
+      ring(g, c.energy, 0.298, 0.003, [0, 0, 0.025], frameDetail);
+  }
   g.userData.soulMotion = "floating";
 }
 
@@ -1137,6 +1205,11 @@ function batchStatic(group) {
     merged.userData.sharedArt = true;
     const m = mesh(group, merged, mat);
     m.name = "batchedWeaponCarving";
+    if (mat.userData.soulOpticalSurface) {
+      m.name = "paleReflectiveMirrorSurface";
+      m.castShadow = false;
+      m.receiveShadow = false;
+    }
   }
 }
 
@@ -1145,13 +1218,19 @@ function makeTemplate(hero, detail, color, skin, side) {
   root.name = "soulWeapon";
   const sculpt = group(root, "weaponSculpt");
   const goldColor =
-    skin === 2
-      ? 0xffd36b
-      : skin === 1
-        ? 0xf4e7c4
-        : [2, 3, 4, 7, 8].includes(hero)
-          ? 0xc4d6e3
-          : 0xc6a04e;
+    hero === 4
+      ? skin === 2
+        ? 0xfff1be
+        : skin === 1
+          ? 0xe0ebff
+          : 0xeee7d4
+      : skin === 2
+        ? 0xffd36b
+        : skin === 1
+          ? 0xf4e7c4
+          : [2, 3, 4, 7, 8].includes(hero)
+            ? 0xc4d6e3
+            : 0xc6a04e;
   const c = {
     d: detail,
     skin,
@@ -1160,8 +1239,8 @@ function makeTemplate(hero, detail, color, skin, side) {
     jade: material(color, "jade", detail, skin),
     wood: material(hero === 0 ? 0x4b3924 : 0x302625, "wood", detail, skin),
     stone: material(hero === 5 ? 0x103d43 : 0x303340, "stone", detail, skin),
-    mirror: material(0xbaddec, "mirror", detail, skin),
-    voidMat: material(0x130b28, "mirror", detail, skin),
+    mirror: material(0xe9f6ff, "mirror", detail, skin),
+    voidMat: material(0x130b28, "void", detail, skin),
   };
   const builders = [
     woodDragonLotus,
@@ -1186,7 +1265,7 @@ function makeTemplate(hero, detail, color, skin, side) {
       build(sculpt, c, 0.2);
     }
   } else builders[hero](sculpt, c);
-  skinOrnaments(sculpt, c, hero);
+  if (hero !== 4) skinOrnaments(sculpt, c, hero);
   root.updateMatrixWorld(true);
   const bounds = new T.Box3().setFromObject(root, true),
     size = bounds.getSize(new T.Vector3());
@@ -1234,7 +1313,7 @@ function makeTemplate(hero, detail, color, skin, side) {
 export function buildSoulWeapon(
   heroIndex,
   detail = "high",
-  { color, skin = 0, side } = {},
+  { color, skin = 0, side, engravingAtlas } = {},
 ) {
   const hero = Number.isInteger(heroIndex)
     ? heroIndex
@@ -1251,7 +1330,17 @@ export function buildSoulWeapon(
   const key = `${hero}:${detail}:${tint}:${skin}:${side ?? "display"}`;
   if (!templates.has(key))
     templates.set(key, makeTemplate(hero, detail, tint, skin, side));
-  return templates.get(key).clone(true);
+  const clone = templates.get(key).clone(true);
+  const atlas =
+    engravingAtlas ??
+    characterPBR.generateSilkBrocadeTexture(
+      "#999999",
+      "#555555",
+      "#D4AF37",
+      HERO_BROCADE_PATTERNS[hero],
+      { detail },
+    );
+  return characterPBR.applyEngraving(clone, atlas);
 }
 
 export function animateSoulWeapons(root, time) {

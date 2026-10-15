@@ -29,7 +29,9 @@ export async function fingerprint() {
     "acceptance/visual-requirements.json",
     "docs/requests/AI-Studio-Android-V2.5.md",
     "docs/requests/MASTER-ENGINEERING-ART-V2.5.md",
+    "docs/requests/PBR-SKILLSHOT-AUTOFARM-V2.5.md",
     "acceptance/master-requirements.json",
+    "acceptance/overhaul-requirements.json",
   ])
     files.push(p);
   const h = createHash("sha256");

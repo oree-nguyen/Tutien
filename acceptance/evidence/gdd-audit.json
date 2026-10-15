@@ -1,5 +1,5 @@
 {
-  "sourceHash": "c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03",
+  "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
   "passed": false,
   "reviewer": "Codex technical review",
   "approvedSections": [
@@ -16,7 +16,7 @@
     "Chưa có nghiệm thu đầy đủ mọi tổ hợp C3/D1/D2/D3 và mỹ thuật H trên thiết bị thật.",
     "Mỹ thuật procedural chưa phải nghiệm thu AAA theo mọi chi tiết/phân đoạn của Markdown; cần đối chiếu hình ảnh và kiểm tra trên thiết bị."
   ],
-  "recordedAt": "2026-10-14T23:47:35.030Z",
+  "recordedAt": "2026-10-15T16:56:38.936Z",
   "additionalVerifiedBehaviors": [
     "Shield layers expire independently; HR07 follows recipient W shield, not every shield.",
     "Untargetability and stealth do not grant area damage immunity.",
@@ -27,7 +27,14 @@
     "Floating multi-touch joystick, drag-cancel without mana/cooldown cost, quick transactions, and terrain-height aim/particle regressions.",
     "Selected loot pickup preserves unselected items and team/realm/range/load rules; server validates item UID and pickup intent.",
     "Linh Bo held/dragged guidance matches actual normalized server cast direction; cancellation preserves cooldown and location.",
-    "Signed persistent items verify account-bound HMAC before transaction; legacy migration, altered-item rejection and PvP recipient re-signing have PostgreSQL/Redis integration regressions."
+    "Signed persistent items verify account-bound HMAC before transaction; legacy migration, altered-item rejection and PvP recipient re-signing have PostgreSQL/Redis integration regressions.",
+    "Selected loot UUID pickup enforces realm, range, priority lock and48W while retaining unselected items and transferring currency once.",
+    "AOE guide/cast coordinates share target projection, including terrain height and overlapping-enemy finite heading.",
+    "Authoritative F normalizes supplied aim and preserves2.8m/CD8/.25s immunity/collision; held/dragged/cancelled F guide is browser-tested.",
+    "One-Euro/EMA manual aim, independent pointers, realAOEpoint, cancellation and cooldown queue preserve original costs; offline queue follows simulation cooldown time and online stale intents retain wall-clockTTL.",
+    "AutoFarm has12combos/12safe-presets, actual command-path looting/crafting/8saltar/extraction and monotonic1.2s manual override. Shop transaction waits keep the actor in range; no GDD role mismatch is overridden.",
+    "Effects/zones/projectiles carry fixed cast realm, realm transfer cancels outstanding attacks, and AOI-removed models are hidden immediately.",
+    "Account-bound item HMAC validation, one-time trusted legacy migration, atomic rejection of tampering and PvP recipient re-signing have live PostgreSQL regression coverage."
   ],
   "userDecision": "Giữ đúng dữ liệu gốc và chờ đặc tả bổ sung cho Boss thứ4 và chỉ số/độ bền Tiên khí."
 }

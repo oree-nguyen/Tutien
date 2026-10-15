@@ -557,6 +557,13 @@ try {
         realm: region === 6 ? 1 : 0,
       };
     }, region);
+    await page.waitForFunction((biome) => {
+      const manager = window.__HON_GIOI__.world.scenery.pbr;
+      return (
+        manager.cache.get(biome)?.size === 2048 &&
+        manager.stats().pendingJobs === 0
+      );
+    }, region);
     await settle();
     const rendered = await page.evaluate(() => {
       const g = window.__HON_GIOI__;
@@ -564,6 +571,7 @@ try {
         battlefieldVisible: g.world.scenery.battlefield.visible,
         sanctuaryVisible: g.world.scenery.sanctuary.visible,
         hiddenRealmVisible: g.world.scenery.hidden.visible,
+        pbr: g.world.scenery.pbr.stats(),
         glError: g.world.renderer.getContext().getError(),
       };
     });

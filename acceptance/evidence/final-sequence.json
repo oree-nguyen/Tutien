@@ -1,35 +1,107 @@
 {
-  "sourceHash": "c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03",
-  "sourceHashEnd": "c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03",
+  "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+  "sourceHashEnd": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
   "passed": true,
   "results": [
     {
-      "name": "suite",
-      "path": "/tmp/hg-final-frozen-suite.log",
-      "code": 0
-    },
-    {
       "name": "gallery",
-      "path": "/tmp/hg-final-frozen-gallery.log",
+      "path": "/tmp/overhaul-final-gallery.log",
       "code": 0
     },
     {
       "name": "apk",
-      "path": "/tmp/hg-final-frozen-apk.log",
+      "path": "/tmp/overhaul-final-apk.log",
       "code": 0
     },
     {
       "name": "native",
-      "path": "/tmp/hg-final-frozen-native.log",
+      "path": "/tmp/overhaul-final-native.log",
+      "code": 0
+    },
+    {
+      "name": "current-unit-and-offline-browser-gates",
+      "path": "/tmp/overhaul-current-online-failure.log",
+      "scope": "Only the already-passed registered unit/offline gates from this interrupted run are retained; online failure rejected."
+    },
+    {
+      "name": "resumed-online-and-remaining-gates",
+      "path": "/tmp/overhaul-resumed-suite.log",
       "code": 0
     }
   ],
-  "recordedAt": "2026-10-14T23:45:51.895Z",
+  "evidence": [
+    {
+      "name": "rules",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:29:22.541Z"
+    },
+    {
+      "name": "master-rules",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:29:54.805Z"
+    },
+    {
+      "name": "server",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:30:00.276Z"
+    },
+    {
+      "name": "browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:34:48.719Z"
+    },
+    {
+      "name": "online-browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:39:58.644Z"
+    },
+    {
+      "name": "upgrade-browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:42:45.777Z"
+    },
+    {
+      "name": "master-browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:47:50.315Z"
+    },
+    {
+      "name": "overhaul-browser",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:54:33.740Z"
+    },
+    {
+      "name": "artifacts",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:55:50.202Z"
+    },
+    {
+      "name": "timeline",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:56:21.730Z"
+    },
+    {
+      "name": "server-performance",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:56:26.342Z"
+    },
+    {
+      "name": "native-hardening",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:28:50.511Z"
+    },
+    {
+      "name": "art-gallery",
+      "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+      "recordedAt": "2026-10-15T16:28:27.256Z"
+    }
+  ],
   "nodeTests": {
     "rules": 128,
-    "master": 83,
+    "master": 214,
     "server": 16,
-    "total": 227
+    "total": 358
   },
-  "scope": "Actual sequential suite/gallery/APK/native runs on frozen source; log paths are temporary cloud-local files. Individual tracked reports carry detailed checks. No physical Android or final-art certification."
+  "scope": "Individual current-source registered gates, gallery, APK and native checks passed sequentially with verified source hashes. The series resumed after a recorded intermittent reconnect timeout; the original uninterrupted verify:automated command did not pass. Failed and stale attempts remain in overhaul-attempt-history. No physical Android, final art or 120FPS certification.",
+  "recordedAt": "2026-10-15T16:56:33.960Z"
 }

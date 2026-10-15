@@ -1,0 +1,192 @@
+{
+  "goal": "PBR-Skillshot-AutoFarm-V2.5",
+  "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+  "passed": false,
+  "approvedSections": [
+    "AV01",
+    "AV02",
+    "AV03",
+    "AV04",
+    "AV05",
+    "EV01",
+    "EV02",
+    "EV03",
+    "EV04",
+    "SC01",
+    "SC02",
+    "SC03",
+    "SC04",
+    "SC05",
+    "AI01",
+    "AI02",
+    "AI03",
+    "AI04",
+    "AI05",
+    "AI06",
+    "AI07",
+    "AI08",
+    "PK01"
+  ],
+  "gates": [
+    {
+      "id": "AV01",
+      "passed": true,
+      "requirement": "Mặt 2048 dùng UV mặt trước ±65°, clamp/flipY/SRGB đúng, không sọc tóc giữa mặt; đủ chi tiết mắt/môi/mũi theo nguồn",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AV02",
+      "passed": true,
+      "requirement": "Sảnh không mã H01–H12; toast top14/z9999/không chặn chạm/2.2s; H05 mirror bay phải/sau với transmission.85, iridescence1 và viền trăng/mây",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AV03",
+      "passed": true,
+      "requirement": "Silk có năm map2048 đăng ký đồng bộ, bốn motif đúng12tướng, micro-weave/ombre/thêu relief kim loại, sheen.85/.25, cổ Y/đai/jade/hai tua",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AV04",
+      "passed": true,
+      "requirement": "Giáp và12vũ khí có nội dung PBR thật trên material đang hiển thị; normal/roughness/metalness/emissive phù hợp chất liệu, không chỉ đổi metadata",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AV05",
+      "passed": true,
+      "requirement": "Tóc có fibre normal/bump/anisotropy/sheen; cache/LOD chia sẻ và hạ atlas ngoài cận cảnh, không nhân bản2048cho100actor",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "EV01",
+      "passed": true,
+      "requirement": "Bảy biome có nội dung PBR riêng,2048 ở production/repeat24/anisotropy theo GPU, packed roughness-height và residency1–2biome; giữ mặt đất/collision/realm gốc",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "EV02",
+      "passed": true,
+      "requirement": "Cổng ba bậc/8đèn/4trụ/links/vortex/beam đổi trạng thái; đình mái cong/ngói/cột/đèn/lòkhói và TếĐàn9rãnh hoạt động trên scene thật",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "EV03",
+      "passed": true,
+      "requirement": "Bốn loài thú và ba Boss gốc có texture/giải phẫu/khớp riêng: firebird12lông mỗi cánh/3đuôi/embers, butterflypha lê, wolf/rhino4chân có hoạt ảnh",
+      "reason": "master-rules + current WebGL + scoped gallery/image review"
+    },
+    {
+      "id": "EV04",
+      "passed": true,
+      "requirement": "12VFX nguyên tố phân biệt dùng shader, vòng Hồn Hoàn tím/đen theo trang bị, aura/văn tự dưới chân/sau lưng đúng state thật",
+      "reason": "master-rules + current WebGL + scoped gallery/image review"
+    },
+    {
+      "id": "SC01",
+      "passed": true,
+      "requirement": "Pointer capture/touch-action và hai pointer trái/phải độc lập, ngón thứba không chiếm điều khiển; vừa di chuyển vừa ngắm không giật tâm",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "SC02",
+      "passed": true,
+      "requirement": "One-Euro và smoothing direction/ground-offset theo dt, drag75px/deadzone10px và đổi azimuth; số học hữu hạn hội tụ tương đương ở bước1/60 và1/120s",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "SC03",
+      "passed": true,
+      "requirement": "Range-ring/line/cone/AOE/target-self decal và hit-preview dùng shape/range/hitbox gốc; cao mặt đất+.06, reticle/arc/tether và điểm thi triển thực khớp nhau",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "SC04",
+      "passed": true,
+      "requirement": "Quick-cast160ms/10px chọn mục tiêu hợp lệ trong AOI/realm, ưu tiên theo chế độ, có lead velocity*(distance/projectileSpeed*.65) và fallback hướng di chuyển",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "SC05",
+      "passed": true,
+      "requirement": "Cancel đỏ/radius75/vibrate và lostcapture không tốnMP/CD; queueTTL.25s đón cooldown≤.20 hoặc backswing≤.25, cast frame đủ điều kiện mà không đổi luật server",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AI01",
+      "passed": true,
+      "requirement": "AutoOFF/PVE/FULL và sáu settings có HUD/actions thật; mặc định tắt R Boss/elite, PvE giữ R/F và cảnh báo hero18m",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AI02",
+      "passed": true,
+      "requirement": "Utility mỗi.25s đúng điểm/khoảng cách/HP/Lv; chỉ quan sát mục tiêu nhìn thấy/cùngrealm, không dựng lại tọa độ địch bị server giấu",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AI03",
+      "passed": true,
+      "requirement": "12combo dùng skillFor/Match.cast thật, giữ25%mana vàMP/CD/CC gốc; H11 heal đúng ngưỡng vàfull chỉ dùngRkhi được cho phép",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AI04",
+      "passed": true,
+      "requirement": "Kite tầmxa*.82/lùi<2.6, cậnchiến1.6–2m/orbit; đường đi tránh collision/HồnChướng/telegraph và full biết trả đòn/rút lui",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AI05",
+      "passed": true,
+      "requirement": "Lootbone>legendary>blackring>purplering>currency, đồquý thẩmđịnh.8s và nhặtUUID qua action thật; giữ24ô/48W/realm/khóađội",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AI06",
+      "passed": true,
+      "requirement": "12preset đi qua shop/merchant/7recipe/7slot thật, trừBROUGHT trướcEARNED; kiểm tra mismatch cảđích/nguyênliệu, báo món preset bị chặn thay vì sửa cân bằng",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AI07",
+      "passed": true,
+      "requirement": "Full dùngTếĐàn hấp thu8s hợp lệ và rút khiW≥40/phút15–20; giữCổng/overtime/tải, dùngHoãn hoặc báo quá tải qua hành động gốc",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "AI08",
+      "passed": true,
+      "requirement": "Giữjoystick/skill dừngmọilệnhAI ngay, chỉ tiếp tục1.2s sau nhảpointercuối; không dùng sandbox để AI tự sửa tài nguyên/vị trí",
+      "reason": "master-rules + overhaul-browser"
+    },
+    {
+      "id": "PK01",
+      "passed": true,
+      "requirement": "ArtifactsWeb/PWA/HTMLoffline đạt cùng fingerprint vàAPKđãký cóbytes/SHA-256/sourceHash trùng provenance; đây là gói cài thử, không nghiệm thu thiết bị thật",
+      "reason": "current logic/WebGL + artifacts + APK provenance/SHA-256"
+    },
+    {
+      "id": "VF01",
+      "passed": false,
+      "requirement": "Review mỹthuật đầyđủ cho tấtcả nhânvật/vũkhí/24skin/48trangphục/creature/7biome vàđợtPBR-Skillshotmới, córeviewer/fullArtFidelity/overhaulVisualFidelity vàảnhSHA; không suyra từmaps/đa giác",
+      "reason": "Chưa có nghiệm thu mỹ thuật đầy đủ cho đợt nâng cấp"
+    }
+  ],
+  "missingBrowserChecks": {},
+  "evidence": {
+    "unitCurrent": true,
+    "browserCurrent": true,
+    "browserStable": true,
+    "gpuVerified": true,
+    "apkCurrent": true,
+    "visualFidelity": false
+  },
+  "limitations": [
+    "Kiểm thử ở bước dt1/60 vàdt1/120 chứng minh logic smoothing, không chứng minh Android chạy60/120FPS.",
+    "Ảnh và map/geometry chỉ chứng minh phạm vi kiểm tra; VF01 cần review toàn bộ chi tiết/biến thể, không tự nhận AAA.",
+    "Các gate GDD/Markdown/Master và Android DV01/DV02/SE07 vẫn giữ nguyên; APK debug không thay bằng chứng thiết bị thật.",
+    "Boss thứ4 và bảng chỉ số/độ bền Tiên khí vẫn chờ dữ liệu gốc theo quyết định người dùng."
+  ],
+  "recordedAt": "2026-10-15T16:57:07.108Z"
+}

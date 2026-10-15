@@ -281,6 +281,7 @@ export const AdvancedMethods = {
       source: source.id,
       team: source.team,
       hero: source.hero,
+      realm: realmOf(source),
       end: this.time + duration,
     });
     target.revealUntil = Math.max(
@@ -324,6 +325,13 @@ export const AdvancedMethods = {
       actor.x = 58;
       actor.z = 32;
     }
+    this.zones = this.zones.filter(
+      (zone) => zone.owner !== actor || realmOf(zone) === realmOf(actor),
+    );
+    this.projectiles = this.projectiles.filter(
+      (projectile) =>
+        projectile.owner !== actor || realmOf(projectile) === realmOf(actor),
+    );
     actor.immuneUntil = this.time + 1;
   },
   advanceWorld(dt) {
@@ -409,7 +417,7 @@ export const AdvancedMethods = {
 };
 
 AdvancedMethods.resonance = function (a, t, k, point) {
-  if (a.kind !== "hero" || !t.alive) return;
+  if (a.kind !== "hero" || !t.alive || realmOf(a) !== realmOf(t)) return;
   const cooldowns = (this.comboCooldowns ??= {}),
     trigger = (name, seconds = 12) => {
       const key = a.team + ":" + name;
@@ -422,7 +430,8 @@ AdvancedMethods.resonance = function (a, t, k, point) {
     (z) =>
       z.owner !== a &&
       z.owner.team === a.team &&
-      realmOf(z.owner) === realmOf(a) &&
+      realmOf(z) === realmOf(a) &&
+      realmOf(z.owner) === realmOf(z) &&
       z.end > this.time,
   );
   if (a.hero === 3 && [0, 1, 3].includes(k)) {
@@ -441,7 +450,15 @@ AdvancedMethods.resonance = function (a, t, k, point) {
           this.damage(a, enemy, 95, "magic");
           this.cc(enemy, 0.5);
         }
-      this.effect(vine.point.x, vine.point.z, 0xddff75, vine.sk.radius);
+      this.effect(
+        vine.point.x,
+        vine.point.z,
+        0xddff75,
+        vine.sk.radius,
+        "burst",
+        0.6,
+        realmOf(vine),
+      );
     }
   }
   if (
@@ -449,6 +466,7 @@ AdvancedMethods.resonance = function (a, t, k, point) {
     [2, 3].includes(k) &&
     t.controlSource?.hero === 0 &&
     t.controlSource.team === a.team &&
+    realmOf(t.controlSource) === realmOf(a) &&
     t.controlSource.end > this.time &&
     trigger("Địa Mộc Bạo Phá")
   ) {
@@ -460,7 +478,11 @@ AdvancedMethods.resonance = function (a, t, k, point) {
   if (
     a.hero === 2 &&
     (t.reveals ?? []).some(
-      (r) => r.team === a.team && r.hero === 4 && r.end > this.time,
+      (r) =>
+        r.team === a.team &&
+        r.hero === 4 &&
+        realmOf(r) === realmOf(a) &&
+        r.end > this.time,
     ) &&
     trigger("Nguyệt Ảnh Truy Sát")
   ) {

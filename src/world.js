@@ -17,7 +17,14 @@ import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import { staffAssets } from "./staff-asset.js";
 import { MAP_BUSHES, NAV_OBSTACLES } from "./systems.js";
 import { createScenery, createPortal, updatePortal } from "./scenery.js";
-import { projectSkillCast } from "./skill-projection.js";
+import { SkillIndicatorRenderer } from "./skill-indicators.js";
+import { characterPBR } from "./character-pbr.js";
+import { disposeSoulRingVisuals } from "./soul-ring-vfx.js";
+import {
+  createElementalEffect,
+  updateElementalEffect,
+  disposeElementalEffect,
+} from "./environment-vfx.js";
 export class World {
   constructor(canvas) {
     this.renderer = new THREE.WebGLRenderer({
@@ -158,7 +165,10 @@ export class World {
     return m;
   }
   environment() {
-    this.scenery = createScenery();
+    this.scenery = createScenery({
+      renderer: this.renderer,
+      quality: this.quality,
+    });
     this.scene.add(this.scenery.battlefield, this.scenery.sanctuary);
     this.markerMeshes = this.scenery.markerMeshes;
     this.obstacles = structuredClone(NAV_OBSTACLES);
@@ -328,7 +338,7 @@ export class World {
       if (!o.isMesh) return;
       if (!o.userData.ownConcealmentMaterial) {
         if (!active) return;
-        o.material = o.material.clone();
+        if (!o.userData.soulRing) o.material = o.material.clone();
         o.userData.ownConcealmentMaterial = true;
         o.userData.baseOpacity = o.material.opacity;
         o.userData.baseTransparent = o.material.transparent;
@@ -340,9 +350,13 @@ export class World {
       o.material.needsUpdate = true;
     });
   }
+  releaseModelRings(model) {
+    for (const level of model.lod.levels) disposeSoulRingVisuals(level.object);
+  }
   setQuality(value) {
     if (!["balanced", "ultra"].includes(value))
       throw Error("Chất lượng không hợp lệ");
+    this.scenery?.setQuality(value);
     this.quality = value;
     const textures = value === "ultra" ? proceduralMaps() : null;
     for (const m of this.materials.values()) {
@@ -440,6 +454,7 @@ export class World {
         this.previewHero !==
         `${hubHero}:${appearance.skin ?? 0}:${appearance.costume ?? 0}:${appearance.rings?.some((id) => [6, 8, 9, 12].includes(id)) ? "black" : "purple"}`
       ) {
+        this.releaseModelRings(this.models.get("preview"));
         this.dynamic.remove(this.preview);
         this.models.delete("preview");
         this.preview = null;
@@ -496,6 +511,12 @@ export class World {
     } else {
       this.particleMesh.visible = true;
       if (this.preview) this.preview.visible = false;
+      const actorIds = new Set(match.actors.map((a) => a.id));
+      // An authoritative snapshot can remove an actor immediately when it
+      // leaves visibility; retain its cached geometry, never its last image.
+      for (const [id, model] of this.models)
+        if (typeof id === "number" && !actorIds.has(id))
+          model.group.visible = false;
       for (const a of match.actors) {
         let model = this.models.get(a.id);
         if (
@@ -508,6 +529,7 @@ export class World {
           continue;
         }
         if (model && model.appearanceKey !== this.appearanceKey(a)) {
+          this.releaseModelRings(model);
           this.dynamic.remove(model.group);
           this.models.delete(a.id);
           model = null;
@@ -552,7 +574,7 @@ export class World {
       for (const z of match.zones)
         if (
           !z.delayed &&
-          (z.owner.realm ?? 0) === (player.realm ?? 0) &&
+          (z.realm ?? z.owner.realm ?? 0) === (player.realm ?? 0) &&
           !this.effectMeshes.has("z" + z.id)
         ) {
           let ring = this.ring(
@@ -568,7 +590,7 @@ export class World {
           this.effectMeshes.set("z" + z.id, {
             mesh: ring,
             end: z.end,
-            realm: z.owner.realm ?? 0,
+            realm: z.realm ?? z.owner.realm ?? 0,
           });
         }
       for (const e of match.effects)
@@ -576,12 +598,21 @@ export class World {
           (e.realm ?? 0) === (player.realm ?? 0) &&
           !this.effectMeshes.has(e.id)
         ) {
-          this.spawnParticles(e);
-          let ring = this.ring(e.color, Math.max(0.4, e.radius));
-          ring.position.set(e.x, groundHeight(e.x, e.z) + 0.05, e.z);
-          this.scene.add(ring);
+          const effect = createElementalEffect({
+            color: e.color,
+            radius: Math.max(0.4, e.radius),
+            duration: e.end - e.born,
+            quality: this.quality,
+            x: e.x,
+            y: groundHeight(e.x, e.z) + 0.06,
+            z: e.z,
+            seed: e.id,
+          });
+          if (!effect) continue;
+          this.scene.add(effect);
           this.effectMeshes.set(e.id, {
-            mesh: ring,
+            mesh: effect,
+            elemental: true,
             end: e.end,
             born: e.born,
             animated: true,
@@ -592,9 +623,15 @@ export class World {
         e.mesh.visible = (e.realm ?? 0) === (player.realm ?? 0);
         if (e.end <= match.time) {
           this.scene.remove(e.mesh);
-          e.mesh.geometry.dispose();
-          e.mesh.material.dispose();
+          if (e.elemental) disposeElementalEffect(e.mesh);
+          else {
+            e.mesh.geometry?.dispose();
+            e.mesh.material?.dispose();
+          }
           this.effectMeshes.delete(key);
+        } else if (e.elemental) {
+          updateElementalEffect(e.mesh, match.time - e.born);
+          e.mesh.visible = (e.realm ?? 0) === (player.realm ?? 0);
         } else if (e.animated) {
           const scale = 0.45 + (match.time - e.born) * 1.8;
           e.mesh.scale.setScalar(scale);
@@ -602,9 +639,9 @@ export class World {
         }
       }
       if (Math.floor(this.clock) % 2 === 0) {
-        const ids = new Set(match.actors.map((a) => a.id));
         for (const [id, model] of this.models)
-          if (typeof id === "number" && !ids.has(id)) {
+          if (typeof id === "number" && !actorIds.has(id)) {
+            this.releaseModelRings(model);
             this.dynamic.remove(model.group);
             const shared = new Set(Object.values(this.geos));
             model.group.traverse((child) => {
@@ -647,6 +684,10 @@ export class World {
           c.gate.z,
         );
       } else if (!this.aiming) this.targetRing.visible = false;
+    }
+    if (match?.player) {
+      const local = this.models.get(match.player.id)?.group;
+      if (local) characterPBR.prepare(local, "high");
     }
     this.animateParticles(dt);
     if (this.aimContext?.match === match && match) {
@@ -715,6 +756,7 @@ export class World {
       const key = "legend-" + i,
         old = this.models.get(key);
       if (old) {
+        this.releaseModelRings(old);
         this.dynamic.remove(old.group);
         this.models.delete(key);
       }
@@ -837,7 +879,8 @@ export class World {
       }
       mesh.position.set(p.x, groundHeight(p.x, p.z) + 1, p.z);
       mesh.rotation.y = Math.atan2(p.dir.x, p.dir.z);
-      mesh.visible = (p.owner.realm ?? 0) === (match.player.realm ?? 0);
+      mesh.visible =
+        (p.realm ?? p.owner.realm ?? 0) === (match.player.realm ?? 0);
     }
     for (const [id, mesh] of this.boltModels)
       if (!ids.has(id)) {
@@ -919,117 +962,47 @@ export class World {
   clearAim() {
     this.aiming = false;
     this.aimContext = null;
-    this.targetRing.visible = false;
-    if (this.aimGuide) {
+    if (this.guidePainter) {
+      this.guidePainter.dispose();
+      this.guidePainter = null;
+    } else if (this.aimGuide) {
       this.scene.remove(this.aimGuide);
-      for (const child of [...this.aimGuide.children]) {
-        child.geometry.dispose();
-        child.material.dispose();
-      }
-      this.aimGuide = null;
-    }
-  }
-  aim(a, skill, dir = null, canceled = false, match = null) {
-    const projection = projectSkillCast(match, a, skill, dir);
-    const key = `${skill.shape}:${skill.range}:${skill.radius ?? 1}`;
-    if (!this.aimGuide || this.aimGuide.userData.skillKey !== key) {
-      this.clearAim();
-      const group = new THREE.Group();
-      group.name = "skillshot-guide";
-      group.userData.skillKey = key;
-      const mat = new THREE.MeshBasicMaterial({
-        color: 0x9fffe1,
-        transparent: true,
-        opacity: 0.26,
-        side: THREE.DoubleSide,
-        depthWrite: false,
+      this.aimGuide.traverse((o) => {
+        o.geometry?.dispose();
+        o.material?.dispose();
       });
-      const range = this.ring(0x9fffe1, Math.max(0.5, skill.range));
-      range.material.opacity = 0.42;
-      group.add(range);
-      if (skill.shape === "line") {
-        const vertices = new Float32Array([
-          -0.32,
-          0,
-          0,
-          0.32,
-          0,
-          0,
-          -0.32,
-          0,
-          skill.range - 0.7,
-          0.32,
-          0,
-          skill.range - 0.7,
-          -0.8,
-          0,
-          skill.range - 0.7,
-          0.8,
-          0,
-          skill.range - 0.7,
-          0,
-          0,
-          skill.range,
-        ]);
-        const geo = new THREE.BufferGeometry();
-        geo.setAttribute("position", new THREE.BufferAttribute(vertices, 3));
-        geo.setIndex([0, 1, 2, 1, 3, 2, 4, 5, 6]);
-        geo.computeVertexNormals();
-        group.add(new THREE.Mesh(geo, mat));
-      } else if (skill.shape === "cone") {
-        const vertices = [0, 0, 0],
-          indices = [];
-        for (let i = 0; i <= 48; i++) {
-          const angle = -Math.PI / 3 + ((i / 48) * Math.PI * 2) / 3;
-          vertices.push(
-            Math.sin(angle) * skill.range,
-            0,
-            Math.cos(angle) * skill.range,
-          );
-          if (i < 48) indices.push(0, i + 1, i + 2);
-        }
-        const geo = new THREE.BufferGeometry();
-        geo.setAttribute(
-          "position",
-          new THREE.Float32BufferAttribute(vertices, 3),
-        );
-        geo.setIndex(indices);
-        geo.computeVertexNormals();
-        group.add(new THREE.Mesh(geo, mat));
-      } else {
-        const area = this.ring(0x9fffe1, skill.radius || 1);
-        area.name = "area-target";
-        area.material.opacity = 0.8;
-        group.add(area);
-        const center = new THREE.Mesh(new THREE.CircleGeometry(0.12, 24), mat);
-        center.rotation.x = -Math.PI / 2;
-        center.name = "area-center";
-        group.add(center);
-      }
-      this.aimGuide = group;
-      this.scene.add(group);
+    }
+    this.aimGuide = null;
+  }
+  aim(actor, skill, dir = null, canceled = false, match = null) {
+    const key = `${skill.shape}:${skill.range}:${skill.radius ?? 1}`;
+    if (!this.guidePainter || this.aimGuide?.userData.skillKey !== key) {
+      this.clearAim();
+      this.guidePainter = new SkillIndicatorRenderer(this.scene, skill);
+      this.aimGuide = this.guidePainter.group;
     }
     this.aiming = true;
-    this.aimContext = { actor: a, skill, dir, canceled, match };
+    this.aimContext = { actor, skill, dir, canceled, match };
     this.targetRing.visible = false;
-    this.aimGuide.position.set(a.x, groundHeight(a.x, a.z) + 0.1, a.z);
-    this.aimGuide.rotation.y = Math.atan2(
-      projection.direction.x,
-      projection.direction.z,
+    this.guidePainter.update(
+      actor,
+      skill,
+      dir,
+      canceled,
+      match,
+      this.clock ?? 0,
     );
-    this.aimGuide.children.forEach((c) => {
-      if (c.name === "area-target" || c.name === "area-center") {
-        c.position.z = projection.distance;
-        c.position.y =
-          groundHeight(projection.point.x, projection.point.z) -
-          groundHeight(a.x, a.z) +
-          (c.name === "area-target" ? 0.06 : 0);
-      }
-      c.material.color.setHex(canceled ? 0xff625b : 0x9fffe1);
-    });
-    this.aimGuide.userData.canceled = canceled;
-    this.aimGuide.userData.projectedPoint = projection.point;
-    this.aimGuide.userData.snapshotPrediction = projection.snapshotPrediction;
+  }
+  actorScreenPosition(actor, offset = 2) {
+    const point = new THREE.Vector3(
+      actor.x,
+      groundHeight(actor.x, actor.z) + offset,
+      actor.z,
+    ).project(this.camera);
+    return {
+      x: (point.x * 0.5 + 0.5) * innerWidth,
+      y: (-point.y * 0.5 + 0.5) * innerHeight,
+    };
   }
 
   reset() {
@@ -1042,13 +1015,19 @@ export class World {
       }
       this.boltModels.clear();
     }
-    for (const { group } of this.models.values()) this.dynamic.remove(group);
+    for (const model of this.models.values()) {
+      this.releaseModelRings(model);
+      this.dynamic.remove(model.group);
+    }
     this.models.clear();
     this.preview = null;
     for (const e of this.effectMeshes.values()) {
       this.scene.remove(e.mesh);
-      e.mesh.geometry.dispose();
-      e.mesh.material.dispose();
+      if (e.elemental) disposeElementalEffect(e.mesh);
+      else {
+        e.mesh.geometry?.dispose();
+        e.mesh.material?.dispose();
+      }
     }
     this.effectMeshes.clear();
     if (this.dropModels) {

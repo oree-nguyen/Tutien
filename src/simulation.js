@@ -232,9 +232,18 @@ export class Match {
   buff(a, stats, seconds, type = "") {
     a.buffs.push({ stats, end: this.time + seconds, type });
   }
-  effect(x, z, color = 0x65efda, radius = 2, type = "burst", duration = 0.6) {
+  effect(
+    x,
+    z,
+    color = 0x65efda,
+    radius = 2,
+    type = "burst",
+    duration = 0.6,
+    realm = 0,
+  ) {
     this.effects.push({
       id: this.nextId++,
+      realm,
       x,
       z,
       color,
@@ -302,7 +311,13 @@ export class Match {
     }
     a.dir = { x: x / length, z: z / length };
     for (const wall of this.zones)
-      if (wall.wall && wall.owner.branch === 0 && wall.owner.team !== a.team) {
+      if (
+        wall.wall &&
+        realmOf(wall) === realmOf(a) &&
+        realmOf(wall.owner) === realmOf(wall) &&
+        wall.owner.branch === 0 &&
+        wall.owner.team !== a.team
+      ) {
         const before = R.distance(prior, wall.point) - wall.sk.radius,
           after = R.distance(a, wall.point) - wall.sk.radius;
         if (before * after < 0) {
@@ -330,6 +345,8 @@ export class Match {
     for (const field of this.zones)
       if (
         field.end > this.time &&
+        realmOf(field) === realmOf(a) &&
+        realmOf(field.owner) === realmOf(field) &&
         field.owner.team !== a.team &&
         field.owner.rings?.includes(9) &&
         field.k === 1 &&
@@ -346,7 +363,13 @@ export class Match {
     for (const o of this.obstacles ?? [])
       if (segmentTouchesCircle(a, target, o, o.r + 0.5)) return false;
     for (const wall of this.zones)
-      if (wall.wall && wall.end > this.time && wall.owner.team !== a.team) {
+      if (
+        wall.wall &&
+        wall.end > this.time &&
+        realmOf(wall) === realmOf(a) &&
+        realmOf(wall.owner) === realmOf(wall) &&
+        wall.owner.team !== a.team
+      ) {
         const before = R.distance(a, wall.point) <= wall.sk.radius,
           after = R.distance(target, wall.point) <= wall.sk.radius;
         if (
@@ -607,7 +630,7 @@ export class Match {
                   "burn",
                 );
             }
-          this.effect(t.x, t.z, HEROES[h].color, 2);
+          this.effect(t.x, t.z, HEROES[h].color, 2, "burst", 0.6, realmOf(t));
         } else if (raw > 0) this.damage(a, t, raw, "magic", -1);
         if (h === 0) this.heal(a, 35);
         if (h === 7 && a.branch !== 1) this.slow(t, 0.15, 1.5);
@@ -738,6 +761,7 @@ export class Match {
       0.8,
       "slash",
       0.25,
+      realmOf(t),
     );
     return true;
   }
@@ -747,6 +771,9 @@ export class Match {
         t.alive &&
         t.kind === "hero" &&
         t.team === a.team &&
+        !t.extracted &&
+        !t.downedUntil &&
+        realmOf(t) === realmOf(a) &&
         R.distance(t, point) <= radius,
     );
   }
@@ -776,7 +803,7 @@ export class Match {
         a.stacks = Math.min(3, a.stacks + 1);
         a.stackEnd = this.time + 4;
       }
-      this.effect(a.x, a.z, 0xc9fafa, 1.5, "burst", 0.4);
+      this.effect(a.x, a.z, 0xc9fafa, 1.5, "burst", 0.4, realmOf(a));
       return true;
     }
     let sk = R.skillFor(a, k),
@@ -793,6 +820,12 @@ export class Match {
     const castOrigin = { x: a.x, z: a.z };
     const projection = projectSkillCast(this, a, sk, aim);
     const target = projection.target;
+    if (
+      target &&
+      ["target", "chain"].includes(sk.shape) &&
+      aim?.targetId === target.id
+    )
+      sk = { ...sk, lockTarget: target.id };
     const dir = projection.direction;
     a.dir = dir;
     let point = projection.point;
@@ -855,6 +888,7 @@ export class Match {
           id: this.nextId++,
           delayed: true,
           owner: a,
+          realm: realmOf(a),
           point: old,
           sk: {
             ...sk,
@@ -889,9 +923,13 @@ export class Match {
       if (h === 9)
         value = (90 + 0.06 * s.hp) * (b === 1 ? 1.4 : b === 0 ? 0.7 : 1);
       const friend =
+        (aim?.targetId === target?.id && target?.team === a.team
+          ? target
+          : null) ??
         this.allies(a, a, sk.range).sort(
           (x, y) => x.hp / this.getStats(x).hp - y.hp / this.getStats(y).hp,
-        )[0] ?? a;
+        )[0] ??
+        a;
       if (a.harmony) {
         value *= 1.08;
         a.harmony = false;
@@ -913,9 +951,13 @@ export class Match {
       }
     } else if (sk.shape === "heal") {
       let friend =
+        (aim?.targetId === target?.id && target?.team === a.team
+          ? target
+          : null) ??
         this.allies(a, a, sk.range).sort(
           (x, y) => x.hp / this.getStats(x).hp - y.hp / this.getStats(y).hp,
-        )[0] ?? a;
+        )[0] ??
+        a;
       this.heal(
         friend,
         (sk.base + sk.scale * s.power) * (a.harmony ? 1.08 : 1),
@@ -991,13 +1033,14 @@ export class Match {
       }
       this.zone(a, point, sk, k);
     } else if (sk.shape === "dash") {
-      this.effect(a.x, a.z, HEROES[h].color, 2, "burst");
+      this.effect(a.x, a.z, HEROES[h].color, 2, "burst", 0.6, realmOf(a));
     } else {
       const fire = () => {
         if (sk.shape === "line" && !sk.dash && h !== 4) {
           this.projectiles.push({
             id: this.nextId++,
             owner: a,
+            realm: realmOf(a),
             k,
             sk: { ...sk, origin: castOrigin },
             x: castOrigin.x,
@@ -1015,6 +1058,7 @@ export class Match {
               id: this.nextId++,
               delayed: true,
               owner: a,
+              realm: realmOf(a),
               point,
               sk: {
                 ...sk,
@@ -1032,6 +1076,7 @@ export class Match {
           this.zones.push({
             id: this.nextId++,
             owner: a,
+            realm: realmOf(a),
             point: { ...point },
             sk: { ...sk, base: 0, scale: 0 },
             k,
@@ -1059,6 +1104,7 @@ export class Match {
           id: this.nextId++,
           delayed: true,
           owner: a,
+          realm: realmOf(a),
           point,
           sk,
           k,
@@ -1073,6 +1119,7 @@ export class Match {
           sk.radius,
           "warning",
           delay,
+          realmOf(a),
         );
       } else fire();
     }
@@ -1090,6 +1137,7 @@ export class Match {
       sk.radius || 1,
       sk.shape === "line" ? "slash" : "burst",
       0.45,
+      realmOf(a),
     );
     return true;
   }
@@ -1193,6 +1241,7 @@ export class Match {
             source: a.id,
             hero: a.hero,
             team: a.team,
+            realm: realmOf(a),
             end: t.ccUntil,
           };
         }
@@ -1295,6 +1344,7 @@ export class Match {
         id: this.nextId++,
         delayed: true,
         owner: a,
+        realm: realmOf(a),
         point: { x: victims[0].x, z: victims[0].z },
         sk: {
           shape: "circle",
@@ -1328,6 +1378,7 @@ export class Match {
     const z = {
       id: this.nextId++,
       owner: a,
+      realm: realmOf(a),
       point: { ...point },
       sk: { ...sk },
       k,
@@ -1367,6 +1418,8 @@ export class Match {
       if (
         z.owner === a ||
         z.owner.team !== a.team ||
+        realmOf(z) !== realmOf(a) ||
+        realmOf(z.owner) !== realmOf(z) ||
         R.distance(t, z.point) > z.sk.radius ||
         z.comboCd > this.time
       )
@@ -1375,7 +1428,7 @@ export class Match {
         this.damage(a, t, 95, "magic");
         this.cc(t, 0.5);
         z.comboCd = this.time + 12;
-        this.effect(t.x, t.z, 0xd6ff63, 4);
+        this.effect(t.x, t.z, 0xd6ff63, 4, "burst", 0.6, realmOf(t));
         this.emit("message", "Mộc Lôi Cộng Hưởng!");
       }
       if (
@@ -1402,7 +1455,11 @@ export class Match {
     }
     if (a.hero === 2 && t.revealUntil > this.time) {
       const f = this.actors.find(
-        (b) => b.team === a.team && b.hero === 4 && b.alive,
+        (b) =>
+          b.team === a.team &&
+          b.hero === 4 &&
+          b.alive &&
+          realmOf(b) === realmOf(a),
       );
       if (f) {
         this.buff(a, { speed: this.getStats(a).speed * 0.2 }, 2);
@@ -1566,7 +1623,7 @@ export class Match {
         if (source.items?.includes(2))
           this.heal(source, this.getStats(source).hp * 0.02);
       }
-      this.effect(t.x, t.z, 0xffd794, 2, "burst", 0.7);
+      this.effect(t.x, t.z, 0xffd794, 2, "burst", 0.7, realmOf(t));
     } finally {
       this.currentLootRealm = previousRealm;
     }
@@ -1710,7 +1767,7 @@ export class Match {
         .sort((x, y) => R.distance(a, x) - R.distance(a, y))[0];
       if (!t) throw Error("Cần tinh anh hoặc Boss trong 10m");
       t.mark = { owner: a, end: this.time + 90, hidden: c.tier === 2 };
-      this.effect(t.x, t.z, 0xdebaff, 2, "ring", 2);
+      this.effect(t.x, t.z, 0xdebaff, 2, "ring", 2, realmOf(t));
     }
     if (id === 2) {
       for (const t of this.actors)
@@ -1756,7 +1813,7 @@ export class Match {
         let n = this.damage(a, t, t.hp * 0.1, "magic");
         this.heal(a, n);
       }
-    this.effect(a.x, a.z, 0xd999ff, 4);
+    this.effect(a.x, a.z, 0xd999ff, 4, "burst", 0.6, realmOf(a));
   }
   activateItem() {
     const a = this.player;
@@ -1768,7 +1825,7 @@ export class Match {
       this.buff(t, { armor: s.armor * 0.1, resist: s.resist * 0.1 }, 8);
       t.extractSpeedUntil = this.time + 8;
     }
-    this.effect(a.x, a.z, 0xe8bf70, 4, "ring", 8);
+    this.effect(a.x, a.z, 0xe8bf70, 4, "ring", 8, realmOf(a));
   }
   equipRing(uid, slot) {
     const a = this.player,
@@ -1948,6 +2005,13 @@ export class Match {
     a.x = p.x;
     a.z = p.z;
     a.realm = place === "realm" ? 1 : 0;
+    this.zones = this.zones.filter(
+      (zone) => zone.owner !== a || realmOf(zone) === realmOf(a),
+    );
+    this.projectiles = this.projectiles.filter(
+      (projectile) =>
+        projectile.owner !== a || realmOf(projectile) === realmOf(a),
+    );
     if (place === "realm" && this.time < 600) this.setTime(600);
     a.immuneUntil = this.time + 3;
   }
@@ -1962,6 +2026,13 @@ export class Match {
   fixed(dt, input) {
     this.time += dt;
     this.tick++;
+    // A persistent cast belongs to its creation realm, never its owner's new one.
+    this.zones = this.zones.filter(
+      (zone) => realmOf(zone) === realmOf(zone.owner),
+    );
+    this.projectiles = this.projectiles.filter(
+      (projectile) => realmOf(projectile) === realmOf(projectile.owner),
+    );
     this.updateGates();
     this.advanceWorld(dt);
     this.player.targetMode = input.targetMode ?? "auto";
@@ -2273,7 +2344,7 @@ export class Match {
           for (const v of this.actors)
             if (this.enemies(a, v) && R.distance(a, v) < 4)
               this.damage(a, v, a.atk * 1.4, "magic");
-          this.effect(a.x, a.z, 0xff877e, 4, "warning", 1);
+          this.effect(a.x, a.z, 0xff877e, 4, "warning", 1, realmOf(a));
         }
       } else if (R.distance(a, a.home) > 1)
         this.move(a, a.home.x - a.x, a.home.z - a.z, dt);

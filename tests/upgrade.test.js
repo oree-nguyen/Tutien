@@ -47,7 +47,30 @@ for (let hero = 0; hero < 12; hero++)
         assert.equal(o.material.flatShading, false);
         assert.ok(o.geometry.attributes.normal);
         if (o.material.normalMap) {
-          assert.equal(o.material.normalMap.image.width, 1024);
+          if (o.material.userData.characterEngraving) {
+            assert.equal(o.material.normalMap.image.width, 2048);
+            assert.equal(o.material.roughnessMap?.image.width, 2048);
+            if (o.material.userData.engravingRole === "metal") {
+              assert.equal(o.material.emissiveMap?.image.width, 2048);
+              assert.ok(o.material.metalness >= 0.9);
+            }
+          } else if (o.material.normalMap.userData.generatedCharacterPBR) {
+            assert.equal(o.material.normalMap.image.width, 2048);
+            for (const channel of [
+              "map",
+              "normalMap",
+              "roughnessMap",
+              "metalnessMap",
+              "emissiveMap",
+            ])
+              assert.ok(
+                o.material[channel],
+                `${channel} must share the new five-channel character atlas`,
+              );
+          } else if (o.material.userData.hairPBR) {
+            assert.equal(o.material.normalMap.image.width, 512);
+            assert.ok(o.material.bumpMap);
+          } else assert.equal(o.material.normalMap.image.width, 1024);
           map = true;
         }
       }

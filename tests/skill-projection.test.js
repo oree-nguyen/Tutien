@@ -48,7 +48,7 @@ function assertCastCenter(match, world, aim) {
   const point = match.zones.find((z) => z.k === 2).point;
   near(before.x, point.x);
   near(before.z, point.z);
-  near(before.y, groundHeight(point.x, point.z) + 0.1);
+  near(before.y, groundHeight(point.x, point.z) + 0.06);
   return point;
 }
 

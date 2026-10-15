@@ -93,7 +93,6 @@ Không đánh dấu các ô này bằng kết quả đếm đa giác, một ản
 
 Review ảnh hiện hành còn ghi nhận khung preview sói/Kỳ Lân cắt bàn chân, hình khối/vật liệu còn đơn giản và lặp kiến trúc giữa vùng; Bí Cảnh chưa có sân khấu tinh cầu/hư không đầy đủ theo định hướng cuối. Các điểm này thuộc công việc AR01 còn mở, không được suy ra đã hoàn tất từ test kỹ thuật.
 
-
 ## Kết quả hiện hành — 15/10/2026
 
-Nguồn `c5d7faa6514fc22f4317106ea640a81c9786e6752c3c0b5b2fc5eb1528605d03`: **31/37** tiêu chí có bằng chứng, **chưa đạt 100%**. Các mục còn mở: CR02, SE07, GP02, DV01, DV02, AR01. Xem [VALIDATION.md](VALIDATION.md) và báo cáo máy đọc được; số gate không phải phần trăm chất lượng mỹ thuật hoặc tiến độ sản phẩm.
+Nguồn `81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0`: **31/37** tiêu chí có bằng chứng; **chưa đạt100%**. Các mục còn mở: CR02, SE07, GP02, DV01, DV02, AR01. Xem [VALIDATION.md](VALIDATION.md) và báo cáo JSON. Số gate không phải phần trăm chất lượng hoặc tiến độ sản phẩm.

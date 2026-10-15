@@ -2,9 +2,16 @@ import * as THREE from "three";
 import { REGIONS, GATE_POS, SHRINES } from "./data.js";
 import { MAP_BUSHES, NAV_OBSTACLES } from "./systems.js";
 import { terrainHeight, groundHeight, treeTrunkGeometry } from "./art.js";
+import {
+  BiomePBRManager,
+  assignTerrainBiomeGroups,
+  marbleCloudMaps,
+  architecturalMaps,
+  configureEnvironmentAnisotropy,
+} from "./environment-pbr.js";
 
 const TAU = Math.PI * 2;
-let sharedSigilTexture;
+let sharedSigilTexture, sharedSigilBump;
 const material = (color, options = {}) =>
   new THREE.MeshPhysicalMaterial({
     color,
@@ -19,6 +26,33 @@ const glow = (color, strength = 1) =>
     roughness: 0.25,
     metalness: 0.35,
   });
+function marble(color, options = {}) {
+  const maps = marbleCloudMaps();
+  return material(color, {
+    map: maps.albedo,
+    normalMap: maps.normal,
+    roughnessMap: maps.roughnessHeight,
+    bumpMap: maps.roughnessHeight,
+    bumpScale: 0.035,
+    roughness: 0.17,
+    clearcoat: 0.92,
+    metalness: 0.1,
+    ...options,
+  });
+}
+function architecture(color, style, options = {}) {
+  const maps = architecturalMaps(style);
+  return material(color, {
+    map: maps.albedo,
+    normalMap: maps.normal,
+    roughnessMap: maps.roughnessHeight,
+    bumpMap: maps.roughnessHeight,
+    bumpScale: style === "roof" ? 0.085 : 0.025,
+    roughness: style === "gilt" ? 0.24 : 0.5,
+    metalness: style === "gilt" ? 0.76 : 0.12,
+    ...options,
+  });
+}
 function mesh(parent, geometry, mat, x = 0, y = 0, z = 0) {
   const m = new THREE.Mesh(geometry, mat);
   m.position.set(x, y, z);
@@ -138,6 +172,37 @@ export function generateTerrainSplatmap(size = 2048) {
 }
 function sigilTexture() {
   if (sharedSigilTexture) return sharedSigilTexture;
+  if (typeof document === "undefined") {
+    const size = 1024,
+      pixels = new Uint8Array(size * size * 4);
+    for (let y = 0; y < size; y++)
+      for (let x = 0; x < size; x++) {
+        const dx = x - 512,
+          dy = y - 512,
+          r = Math.hypot(dx, dy),
+          a = (Math.atan2(dy, dx) + TAU) % TAU;
+        const circle = [115, 245, 305, 365, 405, 456, 485].some(
+          (radius) => Math.abs(r - radius) < 2,
+        );
+        const trigram =
+          r > 268 &&
+          r < 332 &&
+          Math.abs((r - 272) % 26) < 5 &&
+          Math.abs(Math.sin(a * 4)) < 0.4;
+        if (circle || trigram) {
+          const k = (y * size + x) * 4;
+          pixels[k] = 210;
+          pixels[k + 1] = 221;
+          pixels[k + 2] = 162;
+          pixels[k + 3] = 255;
+        }
+      }
+    sharedSigilTexture = new THREE.DataTexture(pixels, size, size);
+    sharedSigilTexture.colorSpace = THREE.SRGBColorSpace;
+    sharedSigilTexture.needsUpdate = true;
+    sharedSigilTexture.userData.nodeFallback = true;
+    return sharedSigilTexture;
+  }
   const canvas = document.createElement("canvas");
   canvas.width = canvas.height = 1024;
   const c = canvas.getContext("2d"),
@@ -203,6 +268,107 @@ function sigilTexture() {
   texture.userData.sharedScenery = true;
   sharedSigilTexture = texture;
   return sharedSigilTexture;
+}
+function etchedSigil(color = 0xb6edda, time = { value: 0 }) {
+  const map = sigilTexture();
+  if (!sharedSigilBump) {
+    const source = map.image.getContext
+        ? map.image.getContext("2d").getImageData(0, 0, 1024, 1024).data
+        : map.image.data,
+      packed = new Uint8Array(source.length);
+    for (let i = 0; i < source.length; i += 4) {
+      const value = Math.round(170 - (source[i + 3] / 255) * 96);
+      packed[i] = packed[i + 1] = packed[i + 2] = value;
+      packed[i + 3] = 255;
+    }
+    sharedSigilBump = new THREE.DataTexture(packed, 1024, 1024);
+    sharedSigilBump.needsUpdate = true;
+    sharedSigilBump.userData.sharedEnvironment = true;
+  }
+  const result = material(color, {
+    map,
+    emissiveMap: map,
+    emissive: color,
+    emissiveIntensity: 1.5,
+    bumpMap: sharedSigilBump,
+    bumpScale: 0.15,
+    roughness: 0.22,
+    metalness: 0.64,
+    clearcoat: 0.9,
+    transparent: true,
+    opacity: 0.82,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+  });
+  result.userData.trigrams = { sectorCount: 8, clock: time };
+  result.onBeforeCompile = (shader) => {
+    shader.uniforms.uTrigramTime = time;
+    shader.fragmentShader =
+      "uniform float uTrigramTime;\n" +
+      shader.fragmentShader.replace(
+        "#include <emissivemap_fragment>",
+        `#include <emissivemap_fragment>
+       vec2 trigramUv = vEmissiveMapUv - .5;
+       float trigramRadius = length(trigramUv);
+       float trigramSector = floor((atan(trigramUv.y, trigramUv.x) + 3.14159265) / .78539816);
+       float trigramMask = smoothstep(.245, .265, trigramRadius) * (1. - smoothstep(.33, .345, trigramRadius));
+       totalEmissiveRadiance *= 1. + trigramMask * (.35 + .4 * sin(uTrigramTime * 2.2 + trigramSector * .78539816));`,
+      );
+  };
+  result.customProgramCacheKey = () => "eight-trigram-pulse-v1";
+  return result;
+}
+function soulFlameMaterial(color, time = { value: 0 }) {
+  return new THREE.ShaderMaterial({
+    transparent: true,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+    blending: THREE.AdditiveBlending,
+    uniforms: {
+      uTime: time,
+      uColor: { value: new THREE.Color(color) },
+      uStrength: { value: 1 },
+    },
+    vertexShader: `uniform float uTime;varying vec2 vUv;void main(){vUv=uv;vec3 p=position;float phase=uTime*3.+modelMatrix[3].x*.7+modelMatrix[3].z*.4;p.x+=sin(phase+p.y*8.)*p.y*.1;p.z+=cos(phase*1.3+p.y*6.)*p.y*.06;gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
+    fragmentShader: `
+      uniform vec3 uColor;
+      uniform float uStrength;
+      varying vec2 vUv;
+      void main() {
+        float core = pow(max(0., 1. - abs(vUv.x - .5) * 2.), .6);
+        float alpha = core * (1. - vUv.y * .6) * uStrength;
+        vec3 c = mix(uColor, vec3(1., .96, .71), core * .7);
+        gl_FragColor = vec4(c * 1.7, alpha * .7);
+        #include <tonemapping_fragment>
+        #include <colorspace_fragment>
+      }`,
+  });
+}
+function smokePlume(parent, time = { value: 0 }) {
+  const geometry = new THREE.PlaneGeometry(1, 1),
+    mat = new THREE.ShaderMaterial({
+      transparent: true,
+      depthWrite: false,
+      side: THREE.DoubleSide,
+      uniforms: { uTime: time },
+      vertexShader: `uniform float uTime;attribute float phase;varying vec2 vUv;varying float vLife;void main(){vUv=uv;float life=fract(uTime*.21+phase);vLife=life;vec3 center=vec3(sin(life*6.+phase*9.)*.22,1.55+life*1.45,cos(life*5.+phase*8.)*.17);vec4 mv=modelViewMatrix*vec4(center,1.);mv.xy+=position.xy*(.18+life*.75);gl_Position=projectionMatrix*mv;}`,
+      fragmentShader: `varying vec2 vUv;varying float vLife;void main(){float r=length(vUv-.5)*2.;float a=exp(-r*r*4.)*sin(vLife*3.14159)*.19;gl_FragColor=vec4(.72,.88,.81,a);}`,
+    });
+  geometry.setAttribute(
+    "phase",
+    new THREE.InstancedBufferAttribute(
+      Float32Array.from({ length: 10 }, (_, i) => i / 10),
+      1,
+    ),
+  );
+  const smoke = new THREE.InstancedMesh(geometry, mat, 10),
+    dummy = new THREE.Object3D();
+  dummy.updateMatrix();
+  for (let i = 0; i < 10; i++) smoke.setMatrixAt(i, dummy.matrix);
+  smoke.frustumCulled = false;
+  smoke.name = "ten-billboard-alchemy-smoke";
+  parent.add(smoke);
+  return smoke;
 }
 function cloudTexture() {
   const canvas = document.createElement("canvas");
@@ -353,104 +519,191 @@ function ribbonSurface(parent, x, z, width, length, mat, offset = 0.08) {
   return mesh(parent, g, mat);
 }
 function lantern(parent, x, y, z, gold) {
-  const amber = glow(0xffbd52, 1.7);
-  mesh(parent, new THREE.CylinderGeometry(0.14, 0.14, 0.32, 8), amber, x, y, z);
-  mesh(
-    parent,
-    new THREE.CylinderGeometry(0.2, 0.2, 0.04, 8),
-    gold,
-    x,
-    y + 0.18,
-    z,
-  );
-  mesh(
-    parent,
-    new THREE.CylinderGeometry(0.18, 0.18, 0.04, 8),
-    gold,
-    x,
-    y - 0.18,
-    z,
-  );
+  const amber = glow(0xffbd52, 1.7),
+    group = new THREE.Group();
+  group.name = "swinging-red-gold-lantern";
+  group.position.set(x, y + 0.18, z);
+  parent.add(group);
+  mesh(group, new THREE.CylinderGeometry(0.14, 0.14, 0.32, 8), amber, 0, -0.18);
+  mesh(group, new THREE.CylinderGeometry(0.2, 0.2, 0.04, 8), gold, 0, 0);
+  mesh(group, new THREE.CylinderGeometry(0.18, 0.18, 0.04, 8), gold, 0, -0.36);
+  return group;
 }
 export function createPortal() {
   const group = new THREE.Group(),
-    stone = material(0x586963),
-    gold = material(0xc6a36b, { metalness: 0.75, roughness: 0.3 }),
+    stone = marble(0x758a80),
+    gold = architecture(0xffefbf, "gilt"),
     energy = glow(0x5fffcf, 1.5);
   group.name = "seven-meter-extraction-portal";
-  mesh(group, new THREE.CylinderGeometry(3.5, 3.7, 0.28, 8), stone, 0, 0.12);
-  ring(group, 3.3, 0.07, gold, 0.28);
+  const tiers = [];
+  for (let i = 0; i < 3; i++) {
+    const radius = 3.5 + i * 0.14;
+    const step = mesh(
+      group,
+      new THREE.CylinderGeometry(radius, radius + 0.06, 0.08, 8),
+      stone,
+      0,
+      0.2 - i * 0.08,
+    );
+    step.name = "octagonal-gate-step-" + i;
+    tiers.push(step);
+    ring(group, radius - 0.03, 0.025, gold, 0.242 - i * 0.08, 8);
+  }
   const sigil = mesh(
     group,
-    new THREE.CircleGeometry(3.2, 64),
-    new THREE.MeshBasicMaterial({
-      map: sigilTexture(),
-      transparent: true,
-      opacity: 0.7,
-      depthWrite: false,
-      color: 0x8ffff0,
-    }),
+    new THREE.CircleGeometry(3.2, 96),
+    etchedSigil(0x8ffff0),
     0,
-    0.29,
+    0.25,
   );
   sigil.rotation.x = -Math.PI / 2;
-  const crystals = [];
+  const crystals = [],
+    pillars = [],
+    energyBeams = [];
   for (let i = 0; i < 4; i++) {
     const a = (i * TAU) / 4 + Math.PI / 4,
-      crystal = mesh(
-        group,
-        new THREE.OctahedronGeometry(0.42),
-        energy,
-        Math.cos(a) * 2.7,
-        2.2,
-        Math.sin(a) * 2.7,
-      );
-    crystal.scale.y = 3;
-    crystal.rotation.z = Math.cos(a) * 0.2;
-    crystal.rotation.x = Math.sin(a) * 0.2;
+      cs = Math.cos(a),
+      sn = Math.sin(a);
+    const points = [
+      [cs * 2.75, 0.28, sn * 2.75],
+      [cs * 2.85, 1.05, sn * 2.85],
+      [cs * 2.6, 2.05, sn * 2.6],
+      [cs * 2.25, 3.15, sn * 2.25],
+    ];
+    const pillar = curve(group, points, 0.14, stone, 40);
+    pillar.name = "curved-carved-gate-pillar-" + i;
+    pillars.push(pillar);
+    const spiral = [];
+    for (let j = 0; j <= 54; j++) {
+      const t = j / 54,
+        angle = t * TAU * 3 + i;
+      spiral.push([
+        cs * (2.75 - t * 0.5) + Math.cos(angle) * 0.17,
+        0.3 + t * 2.85,
+        sn * (2.75 - t * 0.5) + Math.sin(angle) * 0.17,
+      ]);
+    }
+    curve(group, spiral, 0.027, gold, 72);
+    const crystal = mesh(
+      group,
+      new THREE.OctahedronGeometry(0.27),
+      energy,
+      cs * 2.25,
+      3.25,
+      sn * 2.25,
+    );
+    crystal.scale.y = 2.5;
+    crystal.rotation.z = cs * 0.22;
+    crystal.rotation.x = sn * 0.22;
     crystals.push(crystal);
+    const beam = curve(
+      group,
+      [
+        [cs * 2.25, 3.1, sn * 2.25],
+        [cs * 1.45, 3.4, sn * 1.45],
+        [0, 2.1, 0],
+      ],
+      0.022,
+      new THREE.MeshBasicMaterial({
+        color: 0x79ffdc,
+        transparent: true,
+        opacity: 0.35,
+        blending: THREE.AdditiveBlending,
+        depthWrite: false,
+      }),
+      32,
+    );
+    energyBeams.push(beam);
     mesh(
       group,
-      new THREE.CylinderGeometry(0.42, 0.6, 0.45, 6),
+      new THREE.CylinderGeometry(0.34, 0.48, 0.28, 8),
       gold,
-      Math.cos(a) * 2.7,
-      0.45,
-      Math.sin(a) * 2.7,
+      cs * 2.75,
+      0.38,
+      sn * 2.75,
     );
   }
   const halo = mesh(
     group,
-    new THREE.TorusGeometry(1.7, 0.07, 8, 72),
+    new THREE.TorusGeometry(1.7, 0.075, 12, 96),
     energy,
     0,
     2.15,
   );
+  const goldRing = mesh(
+    group,
+    new THREE.TorusGeometry(1.91, 0.035, 8, 96),
+    gold,
+    0,
+    2.15,
+  );
+  for (let i = 0; i < 12; i++) {
+    const a = (i * TAU) / 12;
+    const knot = mesh(
+      group,
+      new THREE.OctahedronGeometry(0.075),
+      gold,
+      Math.cos(a) * 1.91,
+      2.15 + Math.sin(a) * 1.91,
+      0,
+    );
+    knot.name = "rotating-ring-glyph";
+    goldRing.attach(knot);
+  }
   const swirl = new THREE.ShaderMaterial({
     transparent: true,
     side: THREE.DoubleSide,
     depthWrite: false,
+    blending: THREE.AdditiveBlending,
     uniforms: {
       uTime: { value: 0 },
       uColor: { value: new THREE.Color(0x5fffd4) },
       uOpacity: { value: 0.5 },
     },
     vertexShader: `varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
-    fragmentShader: `varying vec2 vUv;uniform float uTime;uniform vec3 uColor;uniform float uOpacity;void main(){vec2 p=vUv-.5;float r=length(p)*2.;float a=atan(p.y,p.x);float spiral=pow(.5+.5*sin(a*5.+r*18.-uTime*2.),3.);float edge=1.-smoothstep(.7,1.,r);gl_FragColor=vec4(uColor*(.5+spiral),edge*uOpacity*(.35+spiral*.6));}`,
+    fragmentShader: `varying vec2 vUv;uniform float uTime;uniform vec3 uColor;uniform float uOpacity;void main(){vec2 p=vUv-.5;float r=length(p)*2.;float a=atan(p.y,p.x);float spiral=pow(.5+.5*sin(a*6.+r*22.-uTime*2.8),4.);float edge=1.-smoothstep(.75,1.,r);float core=exp(-r*7.);vec3 c=mix(uColor,vec3(.9,1.,.9),core);gl_FragColor=vec4(c*(.45+spiral+core),edge*uOpacity*(.35+spiral*.6));}`,
   });
-  const core = mesh(group, new THREE.CircleGeometry(1.62, 64), swirl, 0, 2.15);
+  const core = mesh(group, new THREE.CircleGeometry(1.62, 96), swirl, 0, 2.15);
   const beam = mesh(
     group,
-    new THREE.CylinderGeometry(0.3, 1.2, 15, 32, 1, true),
+    new THREE.CylinderGeometry(0.32, 1.2, 15, 32, 1, true),
     new THREE.MeshBasicMaterial({
       color: 0x60ffcb,
       transparent: true,
-      opacity: 0.08,
+      opacity: 0.1,
       depthWrite: false,
       side: THREE.DoubleSide,
+      blending: THREE.AdditiveBlending,
     }),
     0,
     7.5,
   );
+  const flameTime = { value: 0 },
+    flameMaterial = soulFlameMaterial(0x69ffda, flameTime),
+    lamps = [];
+  for (let i = 0; i < 8; i++) {
+    const a = (i * TAU) / 8,
+      x = Math.cos(a) * 3.22,
+      z = Math.sin(a) * 3.22;
+    mesh(
+      group,
+      new THREE.CylinderGeometry(0.13, 0.19, 0.22, 8),
+      gold,
+      x,
+      0.35,
+      z,
+    );
+    const flame = mesh(
+      group,
+      new THREE.ConeGeometry(0.09, 0.36, 12, 8, true),
+      flameMaterial,
+      x,
+      0.61,
+      z,
+    );
+    flame.castShadow = false;
+    lamps.push(flame);
+  }
   group.userData.portal = {
     energy,
     sigil,
@@ -458,8 +711,17 @@ export function createPortal() {
     halo,
     core,
     beam,
+    goldRing,
+    pillars,
+    energyBeams,
+    tiers,
+    lamps,
+    flameMaterial,
+    flameTime,
     state: "closed",
+    diameter: 7,
   };
+  updatePortal(group, "closed", 0);
   return group;
 }
 export function updatePortal(group, state, time) {
@@ -467,61 +729,93 @@ export function updatePortal(group, state, time) {
   if (!p) return;
   const color =
     state === "open" ? 0x63ffd5 : state === "warning" ? 0xffc45c : 0x647b7a;
+  const pulse =
+    state === "warning"
+      ? 0.8 + Math.sin(time * 4) * 0.35
+      : state === "open"
+        ? 1.7
+        : 0.1;
   p.energy.color.setHex(color);
   p.energy.emissive.setHex(color);
-  p.energy.emissiveIntensity =
-    state === "open"
-      ? 1.7
-      : state === "warning"
-        ? 0.8 + Math.sin(time * 4) * 0.5
-        : 0.1;
+  p.energy.emissiveIntensity = pulse;
   p.core.material.uniforms.uTime.value = time;
   p.core.material.uniforms.uColor.value.setHex(color);
   p.core.material.uniforms.uOpacity.value =
-    state === "closed" ? 0.12 : state === "warning" ? 0.35 : 0.8;
+    state === "closed" ? 0.12 : state === "warning" ? 0.45 : 0.85;
   p.sigil.material.color.setHex(color);
+  p.sigil.material.emissive.setHex(color);
+  p.sigil.material.emissiveIntensity = pulse;
+  p.sigil.material.userData.trigrams.clock.value = time;
   p.sigil.rotation.z = time * 0.12;
   p.crystals.forEach((m, i) => {
-    m.position.y = 2.2 + Math.sin(time * 1.6 + i) * 0.12;
+    m.position.y = 3.25 + Math.sin(time * 1.6 + i) * 0.12;
   });
+  p.energyBeams.forEach((m, i) => {
+    m.material.color.setHex(color);
+    m.material.opacity =
+      state === "closed"
+        ? 0.035
+        : state === "warning"
+          ? 0.25 + Math.sin(time * 4 + i) * 0.08
+          : 0.65;
+  });
+  p.goldRing.rotation.z = -time * 0.2;
+  p.flameTime.value = time;
+  p.flameMaterial.uniforms.uColor.value.setHex(color);
+  p.flameMaterial.uniforms.uStrength.value =
+    state === "closed" ? 0.12 : state === "warning" ? 0.65 : 1;
   p.beam.visible = state === "open";
   p.state = state;
 }
-function createShop() {
+export function createShop(time = { value: 0 }) {
   const g = new THREE.Group(),
-    wood = material(0x553f30),
-    gold = material(0xd0a962, { metalness: 0.7, roughness: 0.28 }),
-    jade = material(0x205b54, { clearcoat: 0.8, roughness: 0.25 });
+    wood = architecture(0xffd8c1, "wood"),
+    gold = architecture(0xffecc2, "gilt"),
+    jade = marble(0x47766b);
   g.name = "eight-corner-alchemy-pavilion";
-  mesh(
-    g,
-    new THREE.CylinderGeometry(2.5, 2.7, 0.28, 8),
-    material(0x89998d),
-    0,
-    0.14,
-  );
+  for (let i = 0; i < 2; i++)
+    mesh(
+      g,
+      new THREE.CylinderGeometry(2.5 + i * 0.15, 2.65 + i * 0.15, 0.12, 8),
+      jade,
+      0,
+      0.18 - i * 0.12,
+    );
   const roofPoints = [
     new THREE.Vector2(0.05, 4.4),
-    new THREE.Vector2(0.45, 4.15),
-    new THREE.Vector2(0.8, 3.7),
-    new THREE.Vector2(1.5, 3.35),
-    new THREE.Vector2(2.4, 3.1),
-    new THREE.Vector2(2.7, 3.34),
+    new THREE.Vector2(0.3, 4.27),
+    new THREE.Vector2(0.6, 3.92),
+    new THREE.Vector2(1.1, 3.6),
+    new THREE.Vector2(1.7, 3.37),
+    new THREE.Vector2(2.3, 3.2),
+    new THREE.Vector2(2.7, 3.42),
   ];
-  mesh(
+  const roof = mesh(
     g,
     new THREE.LatheGeometry(roofPoints, 8),
-    material(0x205b54, {
-      clearcoat: 0.8,
-      roughness: 0.25,
+    architecture(0xd8ebe0, "roof", {
       side: THREE.DoubleSide,
+      clearcoat: 0.8,
+      transparent: true,
+      opacity: 1,
     }),
   );
+  roof.name = "curved-ceramic-tiled-roof";
+  const lanterns = [];
   for (let i = 0; i < 8; i++) {
     const a = (i * TAU) / 8,
       x = Math.cos(a) * 2.25,
       z = Math.sin(a) * 2.25;
-    mesh(g, new THREE.CylinderGeometry(0.09, 0.12, 2.9, 12), wood, x, 1.7, z);
+    mesh(g, new THREE.CylinderGeometry(0.085, 0.13, 2.9, 16), wood, x, 1.7, z);
+    for (let j = 0; j < 3; j++)
+      mesh(
+        g,
+        new THREE.TorusGeometry(0.13, 0.016, 6, 20),
+        gold,
+        x,
+        0.5 + j * 1.05,
+        z,
+      ).rotation.x = Math.PI / 2;
     curve(
       g,
       [
@@ -532,83 +826,179 @@ function createShop() {
       ],
       0.035,
       gold,
-      16,
+      24,
     );
-    lantern(g, x, 2.85, z, gold);
+    lanterns.push(lantern(g, x, 2.85, z, gold));
+    const bracket = mesh(
+      g,
+      new THREE.ConeGeometry(0.18, 0.35, 4),
+      gold,
+      x,
+      2.97,
+      z,
+    );
+    bracket.rotation.z = Math.PI;
   }
-  mesh(g, new THREE.CylinderGeometry(0.85, 0.6, 1.15, 12), jade, 0, 0.9);
-  ring(g, 0.8, 0.05, glow(0x9ceacb), 1.5);
-  mesh(g, new THREE.TorusGeometry(0.5, 0.05, 8, 32), gold, 0, 1.55).rotation.x =
-    -Math.PI / 2;
-  const canvas = document.createElement("canvas");
-  canvas.width = 256;
-  canvas.height = 160;
-  const c = canvas.getContext("2d");
-  c.fillStyle = "#173e38";
-  c.fillRect(0, 0, 256, 160);
-  c.strokeStyle = "#d4b270";
-  c.lineWidth = 8;
-  c.strokeRect(8, 8, 240, 144);
-  c.font = "bold 105px serif";
-  c.textAlign = "center";
-  c.textBaseline = "middle";
-  c.fillStyle = "#f5d68c";
-  c.fillText("Bảo", 128, 85);
+  const cauldron = mesh(
+    g,
+    new THREE.LatheGeometry(
+      [
+        new THREE.Vector2(0.48, 0.36),
+        new THREE.Vector2(0.72, 0.5),
+        new THREE.Vector2(0.84, 0.95),
+        new THREE.Vector2(0.7, 1.38),
+        new THREE.Vector2(0.59, 1.5),
+      ],
+      24,
+    ),
+    architecture(0x91b9a4, "gilt"),
+  );
+  cauldron.name = "carved-alchemy-cauldron";
+  for (let i = 0; i < 3; i++) {
+    const a = (i * TAU) / 3;
+    mesh(
+      g,
+      new THREE.CylinderGeometry(0.09, 0.13, 0.38, 8),
+      gold,
+      Math.cos(a) * 0.48,
+      0.3,
+      Math.sin(a) * 0.48,
+    );
+  }
   mesh(
     g,
-    new THREE.PlaneGeometry(1.2, 0.75),
-    new THREE.MeshBasicMaterial({
-      map: new THREE.CanvasTexture(canvas),
-      side: THREE.DoubleSide,
-    }),
+    new THREE.TorusGeometry(0.6, 0.055, 10, 48),
+    gold,
     0,
-    2.65,
-    2.3,
+    1.49,
+  ).rotation.x = Math.PI / 2;
+  const liquid = mesh(
+    g,
+    new THREE.CircleGeometry(0.55, 48),
+    glow(0x64e9aa, 1.2),
+    0,
+    1.5,
   );
-  return g;
-}
-function createAltar() {
-  const g = new THREE.Group(),
-    stone = material(0x675b72),
-    glowMat = glow(0xba88ef, 1.1);
-  g.name = "eight-second-soul-ring-altar";
-  mesh(g, new THREE.CylinderGeometry(2.3, 2.6, 0.32, 8), stone, 0, 0.16);
-  for (let i = 0; i < 3; i++)
-    ring(g, 2.05 - i * 0.36, 0.025, glowMat, 0.33 + i * 0.005);
-  for (let i = 0; i < 8; i++) {
-    const a = (i * TAU) / 8;
-    curve(
+  liquid.rotation.x = -Math.PI / 2;
+  const orb = mesh(
+    g,
+    new THREE.OctahedronGeometry(0.13, 1),
+    glow(0xb3ffd5, 1.6),
+    0,
+    1.73,
+  );
+  const smoke = smokePlume(g, time);
+  if (typeof document !== "undefined") {
+    const canvas = document.createElement("canvas");
+    canvas.width = 256;
+    canvas.height = 160;
+    const c = canvas.getContext("2d");
+    c.fillStyle = "#531c19";
+    c.fillRect(0, 0, 256, 160);
+    c.strokeStyle = "#e9c77b";
+    c.lineWidth = 8;
+    c.strokeRect(8, 8, 240, 144);
+    c.font = "bold 105px serif";
+    c.textAlign = "center";
+    c.textBaseline = "middle";
+    c.fillStyle = "#ffe6a2";
+    c.fillText("Bảo", 128, 85);
+    mesh(
       g,
-      [
-        [Math.cos(a) * 0.7, 0.35, Math.sin(a) * 0.7],
-        [Math.cos(a + 0.1) * 1.25, 0.35, Math.sin(a + 0.1) * 1.25],
-        [Math.cos(a) * 2.1, 0.35, Math.sin(a) * 2.1],
-      ],
-      0.022,
-      glowMat,
-      12,
+      new THREE.PlaneGeometry(1.2, 0.75),
+      new THREE.MeshBasicMaterial({
+        map: new THREE.CanvasTexture(canvas),
+        side: THREE.DoubleSide,
+      }),
+      0,
+      2.65,
+      2.3,
     );
   }
-  const floating = mesh(
-    g,
-    new THREE.TorusGeometry(0.68, 0.05, 10, 64),
-    glowMat,
-    0,
-    1.65,
-  );
-  floating.rotation.x = Math.PI / 3;
-  mesh(g, new THREE.CylinderGeometry(0.5, 0.8, 0.65, 8), stone, 0, 0.62);
+  g.userData.shop = {
+    roof,
+    cauldron,
+    orb,
+    smoke,
+    lanterns,
+    roofCorners: 8,
+    clock: time,
+  };
   return g;
 }
-function createSanctuary() {
+export function createAltar() {
+  const g = new THREE.Group(),
+    stone = marble(0x72637e),
+    gold = architecture(0xffdca2, "gilt"),
+    blood = glow(0x8e273f, 0.45),
+    crystalMat = material(0xd286ef, {
+      emissive: 0xa561d9,
+      emissiveIntensity: 0.8,
+      transmission: 0.55,
+      roughness: 0.16,
+      clearcoat: 1,
+      thickness: 0.3,
+    });
+  g.name = "eight-second-soul-ring-altar";
+  mesh(g, new THREE.CylinderGeometry(2.3, 2.6, 0.32, 9), stone, 0, 0.16);
+  ring(g, 2.12, 0.025, gold, 0.33, 9);
+  const channels = [];
+  for (let i = 0; i < 9; i++) {
+    const a = (i * TAU) / 9,
+      points = [
+        [Math.cos(a) * 0.54, 0.335, Math.sin(a) * 0.54],
+        [Math.cos(a + 0.08) * 1.2, 0.335, Math.sin(a + 0.08) * 1.2],
+        [Math.cos(a) * 2.04, 0.335, Math.sin(a) * 2.04],
+      ];
+    const channel = curve(g, points, 0.027, blood, 20);
+    channel.name = "carved-blood-channel-" + i;
+    channels.push(channel);
+    mesh(
+      g,
+      new THREE.OctahedronGeometry(0.09),
+      crystalMat,
+      Math.cos(a) * 1.9,
+      0.45,
+      Math.sin(a) * 1.9,
+    );
+  }
+  const sigil = mesh(
+    g,
+    new THREE.CircleGeometry(1.8, 72),
+    etchedSigil(0xc6a2ee),
+    0,
+    0.34,
+  );
+  sigil.rotation.x = -Math.PI / 2;
+  mesh(g, new THREE.CylinderGeometry(0.46, 0.7, 0.38, 9), stone, 0, 0.52);
+  const crystal = mesh(
+    g,
+    new THREE.OctahedronGeometry(0.4, 1),
+    crystalMat,
+    0,
+    1.2,
+  );
+  crystal.scale.y = 1.8;
+  const halo = mesh(
+    g,
+    new THREE.TorusGeometry(0.7, 0.032, 10, 64),
+    glow(0xb78ce8, 1.15),
+    0,
+    1.25,
+  );
+  halo.rotation.x = Math.PI / 3;
+  g.userData.altar = { channels, crystal, halo, sigil, bloodChannelCount: 9 };
+  return g;
+}
+function createSanctuary(time = { value: 0 }) {
   const group = new THREE.Group();
   group.name = "celestial-sanctuary";
-  const jade = material(0xd1e4d9, {
+  const jade = marble(0xd1e4d9, {
       roughness: 0.15,
       metalness: 0.1,
       clearcoat: 0.9,
     }),
-    gold = material(0xd6b968, { roughness: 0.28, metalness: 0.75 }),
+    gold = architecture(0xffe9ad, "gilt", { roughness: 0.28, metalness: 0.75 }),
     emerald = glow(0x70ddca, 1.5);
   for (let i = 0; i < 3; i++)
     mesh(
@@ -623,18 +1013,14 @@ function createSanctuary() {
   const sigil = mesh(
     group,
     new THREE.CircleGeometry(2.55, 96),
-    new THREE.MeshBasicMaterial({
-      map: sigilTexture(),
-      transparent: true,
-      color: 0x99ffe4,
-      opacity: 0.85,
-      depthWrite: false,
-    }),
+    etchedSigil(0x99ffe4, time),
     0,
     0.735,
   );
   sigil.rotation.x = -Math.PI / 2;
-  const flames = [];
+  const flames = [],
+    dragonHeads = [],
+    flameMaterial = soulFlameMaterial(0x70ddca, time);
   for (let i = 0; i < 4; i++) {
     const a = (i * TAU) / 4 + Math.PI / 4,
       x = Math.cos(a) * 4.3,
@@ -666,15 +1052,62 @@ function createSanctuary() {
       ]);
     }
     curve(group, points, 0.07, gold, 90);
-    const head = mesh(
-      group,
-      new THREE.ConeGeometry(0.18, 0.4, 6),
+    const head = new THREE.Group();
+    head.name = "carved-gold-dragon-head-" + i;
+    head.position.set(x, 3.48, z);
+    head.rotation.y = Math.atan2(-x, -z);
+    group.add(head);
+    dragonHeads.push(head);
+    mesh(
+      head,
+      new THREE.DodecahedronGeometry(0.18, 1),
       gold,
-      x + 0.28,
-      3.56,
-      z,
+      0,
+      0.07,
+      0.04,
+    ).scale.set(1, 0.72, 1.15);
+    const snout = mesh(
+      head,
+      new THREE.CylinderGeometry(0.07, 0.11, 0.24, 10),
+      gold,
+      0,
+      0.035,
+      0.23,
     );
-    head.rotation.z = -0.7;
+    snout.rotation.x = Math.PI / 2;
+    for (const side of [-1, 1]) {
+      curve(
+        head,
+        [
+          [side * 0.09, 0.15, 0.02],
+          [side * 0.17, 0.29, -0.04],
+          [side * 0.15, 0.4, -0.13],
+        ],
+        0.024,
+        gold,
+        20,
+      );
+      curve(
+        head,
+        [
+          [side * 0.06, 0.04, 0.34],
+          [side * 0.19, 0.035, 0.39],
+          [side * 0.29, 0.12, 0.31],
+        ],
+        0.009,
+        gold,
+        20,
+      );
+      const eye = mesh(
+        head,
+        new THREE.PlaneGeometry(0.04, 0.022),
+        emerald,
+        side * 0.11,
+        0.12,
+        0.16,
+      );
+      eye.rotation.y = side * 0.65;
+    }
     mesh(
       group,
       new THREE.TorusGeometry(0.25, 0.04, 6, 24),
@@ -686,12 +1119,13 @@ function createSanctuary() {
     const flame = mesh(
       group,
       new THREE.ConeGeometry(0.17, 0.65, 12),
-      emerald,
+      flameMaterial,
       x,
       3.95,
       z,
     );
     flames.push(flame);
+    flame.castShadow = false;
     pillar.userData.carvedDragon = true;
   }
   const gate = new THREE.Group();
@@ -809,10 +1243,17 @@ function createSanctuary() {
     rim,
     fill,
     under,
+    dragonHeads,
+    flameMaterial,
   };
   return group;
 }
-export function createScenery() {
+export function createScenery({
+  renderer = null,
+  quality = "balanced",
+  textureSize = 2048,
+} = {}) {
+  const anisotropy = configureEnvironmentAnisotropy(renderer);
   const battlefield = new THREE.Group();
   battlefield.name = "thuong-mang-seven-biome-battlefield";
   const time = { value: 0 },
@@ -823,11 +1264,10 @@ export function createScenery() {
   for (let i = 0; i < vertices.count; i++)
     vertices.setZ(i, sceneryTerrainHeight(vertices.getX(i), -vertices.getY(i)));
   terrainGeometry.computeVertexNormals();
-  const terrain = mesh(
-    battlefield,
-    terrainGeometry,
-    material(0xffffff, { map: splatmap, roughness: 0.93, metalness: 0.04 }),
-  );
+  splatmap.anisotropy = anisotropy;
+  assignTerrainBiomeGroups(terrainGeometry, biomeAt);
+  const pbr = new BiomePBRManager({ splatmap, renderer, quality, textureSize });
+  const terrain = mesh(battlefield, terrainGeometry, pbr.materials);
   terrain.rotation.x = -Math.PI / 2;
   terrain.name = "600-meter-art-terrain-gameplay-bounds-94";
   // The original central collision floor stays at groundHeight=.83; the outer
@@ -835,20 +1275,14 @@ export function createScenery() {
   mesh(
     battlefield,
     new THREE.CylinderGeometry(14, 14.3, 0.8, 64),
-    material(0x75857a),
+    marble(0xb3c5b6),
     0,
     0.39,
   );
   const plazaSigil = mesh(
     battlefield,
     new THREE.CircleGeometry(13.4, 96),
-    new THREE.MeshBasicMaterial({
-      map: sigilTexture(),
-      transparent: true,
-      opacity: 0.32,
-      color: 0xd5be7c,
-      depthWrite: false,
-    }),
+    etchedSigil(0xd5be7c, time),
     0,
     0.802,
   );
@@ -1160,7 +1594,7 @@ export function createScenery() {
       p.type === "gate"
         ? createPortal()
         : p.type === "shop"
-          ? createShop()
+          ? createShop(time)
           : createAltar();
     g.position.set(p.x, groundHeight(p.x, p.z), p.z);
     battlefield.add(g);
@@ -1200,7 +1634,7 @@ export function createScenery() {
       );
     m.scale.y = 1.8;
   }
-  const sanctuary = createSanctuary();
+  const sanctuary = createSanctuary(time);
   return {
     battlefield,
     sanctuary,
@@ -1212,8 +1646,23 @@ export function createScenery() {
     playerPosition,
     hidden,
     liquids: { water, lava },
+    pbr,
+    setQuality(value) {
+      pbr.setQuality(value);
+    },
+    configureRenderer(value) {
+      pbr.configureRenderer(value);
+      const anisotropy = configureEnvironmentAnisotropy(value);
+      splatmap.anisotropy = anisotropy;
+      splatmap.needsUpdate = true;
+      if (sharedSigilTexture) {
+        sharedSigilTexture.anisotropy = anisotropy;
+        sharedSigilTexture.needsUpdate = true;
+      }
+    },
     update(clock, match) {
       time.value = clock;
+      pbr.update(match?.player, biomeAt, !!match);
       playerPosition.value.set(
         match?.player.x ?? 10000,
         0,
@@ -1224,6 +1673,7 @@ export function createScenery() {
       hidden.visible = !!match && match.player.realm === 1;
       const s = sanctuary.userData.sanctuary;
       if (!match) {
+        s.sigil.material.emissiveIntensity = 1.2 + Math.sin(clock * 1.7) * 0.3;
         s.flames.forEach((m, i) => {
           m.scale.y = 0.85 + Math.sin(clock * 5 + i) * 0.15;
         });
@@ -1239,6 +1689,28 @@ export function createScenery() {
           p.mesh.rotation.set(clock * 0.3 + i, clock * 0.2, clock * 0.4 + i);
         });
       } else {
+        markerMeshes.forEach(({ group, p }) => {
+          if (p.type === "shop") {
+            const shop = group.userData.shop;
+            shop.orb.position.y = 1.73 + Math.sin(clock * 2 + p.x) * 0.07;
+            shop.roof.material.opacity =
+              Math.hypot(match.player.x - p.x, match.player.z - p.z) < 2.9
+                ? 0.38
+                : 1;
+            shop.lanterns.forEach((lamp, i) => {
+              lamp.rotation.z = Math.sin(clock * 1.1 + i * 0.6 + p.x) * 0.07;
+              lamp.rotation.x = Math.cos(clock * 0.9 + i * 0.4) * 0.035;
+            });
+          } else if (p.type === "shrine") {
+            const altar = group.userData.altar;
+            altar.crystal.rotation.y = clock * 0.4;
+            altar.crystal.position.y = 1.2 + Math.sin(clock * 1.8) * 0.06;
+            altar.halo.rotation.z = clock * 0.16;
+            altar.sigil.material.emissiveIntensity =
+              1.1 + Math.sin(clock * 2) * 0.25;
+            altar.sigil.material.userData.trigrams.clock.value = clock;
+          }
+        });
         poisonBubbles.forEach((p) => {
           p.mesh.position.y = p.base + 0.15 + ((clock * 0.28 + p.phase) % 1.2);
           const scale = 0.5 + 0.5 * Math.sin(clock + p.phase);

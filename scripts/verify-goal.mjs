@@ -127,6 +127,15 @@ for (const gate of required) {
           ? "Master Prompt đã đủ bằng chứng"
           : "Master Prompt còn mục chưa đạt";
       }
+      if (gate.id === "overhaul-prompt") {
+        const ids = JSON.parse(
+          await readFile("acceptance/overhaul-requirements.json", "utf8"),
+        ).required;
+        passed = passed && ids.every((id) => e.approvedSections?.includes(id));
+        reason = passed
+          ? "Nâng cấp PBR, điều khiển và Auto Farm đã đủ bằng chứng"
+          : "Nâng cấp PBR, điều khiển và Auto Farm còn mục chưa đạt";
+      }
       if (gate.id === "gdd-audit") {
         passed =
           passed &&

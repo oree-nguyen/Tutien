@@ -70,7 +70,7 @@ Theo lựa chọn của người dùng, `ART04` và `GAME02` chờ đặc tả g
 | DEVICE01 | Chưa có trace Android vật lý về launch/ngang/cảm ứng/HồiHoàn/restore |
 | DEVICE02 | Chưa có trace đủ 60s mỗi cảnh, đạt 60 FPS thường và 30 FPS với ≥40 actor trên Android tầm trung |
 
-Review kỹ thuật chỉ duyệt sự hiện diện các bộ phận/biến thể/địa hình trong ART01/ART03/ART05; các giới hạn và công việc mỹ thuật còn lại được ghi rõ trong `acceptance/evidence/upgrade-art-review.json`. Không dùng review này để duyệt ART10 hoặc audit GDD. Goal tái sử dụng vẫn BLOCKED với các gate `android-functional`, `android-performance`, `gdd-audit`, `md-upgrade` và `master-prompt` từ prompt mới. Xem thêm [MASTER-GOAL.md](MASTER-GOAL.md).
+Review kỹ thuật chỉ duyệt sự hiện diện các bộ phận/biến thể/địa hình trong ART01/ART03/ART05; các giới hạn và công việc mỹ thuật còn lại được ghi rõ trong `acceptance/evidence/upgrade-art-review.json`. Không dùng review này để duyệt ART10 hoặc audit GDD. Goal tái sử dụng vẫn BLOCKED với các gate `android-functional`, `android-performance`, `gdd-audit`, `md-upgrade`, `master-prompt` và `overhaul-prompt`. Xem [MASTER-GOAL.md](MASTER-GOAL.md), [OVERHAUL-GOAL.md](OVERHAUL-GOAL.md) và [VALIDATION.md](VALIDATION.md) cho bằng chứng hiện hành.
 
 
 ## Quy tắc bằng chứng sau khi siết bộ chấm

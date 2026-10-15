@@ -84,6 +84,9 @@ try {
   await run("npm", ["run", "test:master-ui"], {
     GAME_URL: "http://127.0.0.1:5175",
   });
+  await run("npm", ["run", "test:overhaul-ui"], {
+    GAME_URL: "http://127.0.0.1:5175",
+  });
   service(
     "node",
     [

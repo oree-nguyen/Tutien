@@ -18,3 +18,5 @@ Nguồn dữ liệu: `docs/GDD-V2.5-extracted.txt`. Danh mục và bằng chứn
 Nâng cấp Markdown được nghiệm thu theo [UPGRADE-GOAL.md](docs/UPGRADE-GOAL.md); gate `md-upgrade` là bắt buộc cùng các gate gốc.
 
 Master Prompt (2) mở rộng bắt buộc theo [MASTER-GOAL.md](docs/MASTER-GOAL.md); các gate `master-rules` và `master-prompt` phải đạt cùng toàn bộ gate cũ.
+
+Đợt PBR, điều khiển kỹ năng và Auto Farm có 24 tiêu chí trong [OVERHAUL-GOAL.md](docs/OVERHAUL-GOAL.md). Gate `overhaul-prompt` bắt buộc cùng các goal trước; thuật toán ở bước thời gian 60/120 Hz không thay bằng chứng FPS trên Android thật.

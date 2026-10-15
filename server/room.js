@@ -302,6 +302,20 @@ export class Room {
         if (!Number.isFinite(n) || n < 0.01 || n > 1.01)
           throw Error("Hướng ngắm không hợp lệ");
         dir = { x: x / n, z: z / n };
+        if (packet.aim.distance !== undefined) {
+          if (
+            !Number.isFinite(packet.aim.distance) ||
+            packet.aim.distance < 0 ||
+            packet.aim.distance > 50
+          )
+            throw Error("Khoảng cách ngắm không hợp lệ");
+          dir.distance = packet.aim.distance;
+        }
+        if (packet.aim.targetId !== undefined) {
+          if (!Number.isInteger(packet.aim.targetId) || packet.aim.targetId < 0)
+            throw Error("Mục tiêu ngắm không hợp lệ");
+          dir.targetId = packet.aim.targetId;
+        }
       }
       this.match.cast(a, packet.skill, dir);
     } else if (packet.type === "action") {
@@ -548,6 +562,8 @@ export class Room {
       pathUntil: a.pathUntil,
       companion: a.companion,
       cooldowns: a.cooldowns,
+      absorb: a.absorb ?? null,
+      merchantBuys: a.merchantBuys ?? 0,
       immuneUntil: a.immuneUntil,
       channel: a.channel
         ? {
@@ -577,15 +593,38 @@ export class Room {
         (d) => realmOf(d) === realmOf(a) && distance(a, d) < 24,
       ),
       zones: m.zones
-        .filter((z) => distance(a, z.point) < 35)
+        .filter(
+          (z) =>
+            (z.realm ?? realmOf(z.owner)) === realmOf(a) &&
+            distance(a, z.point) < 35,
+        )
         .map((z) => ({
           ...z,
-          owner: { hero: z.owner.hero, team: z.owner.team, id: z.owner.id },
+          owner: {
+            hero: z.owner.hero,
+            team: z.owner.team,
+            id: z.owner.id,
+            realm: z.realm ?? realmOf(z.owner),
+          },
         })),
-      effects: m.effects.filter((e) => distance(a, e) < 30),
+      effects: m.effects.filter(
+        (e) => realmOf(e) === realmOf(a) && distance(a, e) < 30,
+      ),
       projectiles: m.projectiles
-        .filter((p) => distance(a, p) < 30)
-        .map((p) => ({ ...p, owner: { hero: p.owner.hero }, hit: undefined })),
+        .filter(
+          (p) =>
+            (p.realm ?? realmOf(p.owner)) === realmOf(a) && distance(a, p) < 30,
+        )
+        .map((p) => ({
+          ...p,
+          owner: {
+            hero: p.owner.hero,
+            id: p.owner.id,
+            team: p.owner.team,
+            realm: p.realm ?? realmOf(p.owner),
+          },
+          hit: undefined,
+        })),
       warnings: m.actors
         .filter(
           (t) => t.wantedUntil > m.time && (t.wantedUntil - m.time) % 15 < 1,

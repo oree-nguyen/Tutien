@@ -6,6 +6,10 @@ import {
   anatomyCacheStats,
 } from "./hero-anatomy.js";
 import { buildCreatureVisual, animateCreatureVisual } from "./creature-art.js";
+import {
+  syncSoulRingVisuals,
+  disposeSoulRingVisuals,
+} from "./soul-ring-vfx.js";
 export {
   buildHeroAnatomy,
   buildMaleHeroAnatomy,
@@ -141,6 +145,7 @@ export function visualTemplate(a, d = "low") {
         .map(([k]) => k);
       if (highKeys.length > 8) {
         const oldest = highKeys[0];
+        disposeSoulRingVisuals(templates.get(oldest));
         templates.get(oldest).traverse((o) => {
           if (o.isMesh && !o.geometry.userData.sharedArt) o.geometry.dispose();
         });
@@ -148,7 +153,9 @@ export function visualTemplate(a, d = "low") {
       }
     }
   }
-  return templates.get(key).clone(true);
+  const copy = templates.get(key).clone(true);
+  if (copy.userData.anatomy) syncSoulRingVisuals(copy, a, d, 0);
+  return copy;
 }
 export function triangleCount(root) {
   let n = 0;

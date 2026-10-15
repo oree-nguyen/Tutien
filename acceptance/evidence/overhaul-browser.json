@@ -1,0 +1,2792 @@
+{
+  "sourceHash": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+  "sourceHashStart": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+  "passed": true,
+  "diagnosticOnly": false,
+  "scope": "Actual offline DEV game in Linux Chromium SwiftShader. CDP dispatches independent touch contacts through the real HUD. Functional, texture-content and GPU compilation checks only; no Android device, measured mobile FPS, photorealism, or 120 FPS certification.",
+  "fixtures": "The authorized offline DEV sandbox disables opponent decision-making, moves unrelated actors away, restores legitimate player resources between independent scenarios, and creates ordinary loot/encounters. Real movement, cast projection, cooldowns, currency ordering, pickup, shop/craft, manual override, and extraction channel initiation remain enabled.",
+  "checks": {
+    "highPBR2048FiveChannels": true,
+    "armorWeaponPBRContent": true,
+    "characterPBRCacheLODLive": true,
+    "faceFrontUVAndNoCentralStripe": true,
+    "hairNormalBump": true,
+    "noStageHeroCodes": true,
+    "floatingTransparentH05Mirror": true,
+    "topToast2200ms": true,
+    "threePointerIsolation": true,
+    "simultaneousMovementAndAim": true,
+    "cancelRedNoCost": true,
+    "manualAOEActualZone": true,
+    "lostCaptureSafeCancel": true,
+    "quickCastRealLead": true,
+    "cooldownBufferActualCast": true,
+    "autoThreeModes": true,
+    "autoSettingsPersist": true,
+    "pveActualSkillsAndDamage": true,
+    "pveReservesUltimateDashAndMana": true,
+    "autoActualMovementAndPreciousLoot": true,
+    "manualHoldAnd1200msResume": true,
+    "autoActualCraftAndBroughtFirst": true,
+    "autoSevenSlotsNoBacklash": true,
+    "autoFullExtractionInitiatesRealChannel": true,
+    "sevenBiomeContentsAndTwo2048Bakes": true,
+    "threeTierPortalLiveShaders": true,
+    "fourDecalKindsAndHitPreview": true,
+    "creaturePBRAndArticulationLive": true,
+    "allTwelveElementVFXAndRingTiers": true,
+    "shopAndAltarDetailedLiveMeshes": true,
+    "actualGPUNoGLError": true
+  },
+  "images": [
+    {
+      "path": "test-results/overhaul/H01-pbr-full.png",
+      "sha256": "24dd302fbbd3fab188f477542014cb2d06d2b99355bc109c3df34b1a1f2d7cf2"
+    },
+    {
+      "path": "test-results/overhaul/H01-face-front.png",
+      "sha256": "8456e50948f52cc397e19b2dc8d55054ca2392276eaa0909195e69fa0e2cee00"
+    },
+    {
+      "path": "test-results/overhaul/H05-pbr-full.png",
+      "sha256": "1d8b86a9230aad57e57aa7f1e548ca7cfa59cc2b1c394ba5879307fa021218ce"
+    },
+    {
+      "path": "test-results/overhaul/H05-face-front.png",
+      "sha256": "def58d7ea311f47f112ed388fb0209dff8756b0275da899bb6907ee7f6830fbd"
+    },
+    {
+      "path": "test-results/overhaul/simultaneous-movement-aoe.png",
+      "sha256": "0e4b1a0496ad64e56574f4ee7869a655a6812cc8ccd4fb2f4140be7d0454eba1"
+    },
+    {
+      "path": "test-results/overhaul/cancel-warning-red.png",
+      "sha256": "69e60f92693d608fa400c72db0e1b2174cb2e900beb6a90030f611a740017155"
+    },
+    {
+      "path": "test-results/overhaul/auto-loot-appraisal.png",
+      "sha256": "1176c84190dda756ea23c4f27d0870958abcf89fa4f33b1b2b06a87e61db6dff"
+    },
+    {
+      "path": "test-results/overhaul/auto-built-seven.png",
+      "sha256": "f3ead830d40e278049050f58bcca4016a3acb15e91a40e7748e93225890cdec2"
+    },
+    {
+      "path": "test-results/overhaul/auto-extraction-channel.png",
+      "sha256": "21120e470ea3c1b87fc51dd300a5a24fa76e5949dc57f92f6b62c05c608fc136"
+    }
+  ],
+  "traces": {
+    "hero1": {
+      "fabrics": [
+        {
+          "uuid": "cbc13654-4fa7-467a-ab61-0b0d230884ca",
+          "sheen": 0.85,
+          "sheenRoughness": 0.25,
+          "pattern": "SPIRIT_VINE_LOTUS",
+          "maps": {
+            "map": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 162
+            },
+            "normalMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 17
+            },
+            "roughnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 8
+            },
+            "metalnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 4
+            },
+            "emissiveMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 4
+            }
+          }
+        },
+        {
+          "uuid": "a947c4c2-bd45-4519-8d4c-87739348dab8",
+          "sheen": 0.85,
+          "sheenRoughness": 0.25,
+          "pattern": "SPIRIT_VINE_LOTUS",
+          "maps": {
+            "map": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 162
+            },
+            "normalMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 17
+            },
+            "roughnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 8
+            },
+            "metalnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 4
+            },
+            "emissiveMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 4
+            }
+          }
+        }
+      ],
+      "faces": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "colors": 76,
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true,
+          "colorSpace": "srgb",
+          "frontPatch": true,
+          "arc": 130,
+          "longestDarkRun": 0,
+          "frontRatio": 1,
+          "uvCount": 6063
+        }
+      ],
+      "hair": [
+        {
+          "uuid": "637cfba9-2a8c-4d0e-afe7-552edd2d5e87",
+          "normal": {
+            "width": 512,
+            "height": 512,
+            "colors": 10
+          },
+          "bump": {
+            "width": 512,
+            "height": 512,
+            "colors": 29
+          },
+          "anisotropy": 0.78
+        }
+      ],
+      "labels": [],
+      "engraved": [
+        {
+          "uuid": "51cc9b81-a9da-48c5-ae58-f11c0d0f318e",
+          "role": "armor",
+          "normal": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 17
+          },
+          "roughness": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 8
+          },
+          "normalTextureId": "00faa051-6b6e-4e83-9cc7-6030ec894076",
+          "roughnessTextureId": "3c2b71be-b7ca-422c-933f-f84d58c76865"
+        },
+        {
+          "uuid": "c7c691be-a5a4-40d4-a293-c97969c6485a",
+          "role": "wood",
+          "normal": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 17
+          },
+          "roughness": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 8
+          },
+          "normalTextureId": "00faa051-6b6e-4e83-9cc7-6030ec894076",
+          "roughnessTextureId": "3c2b71be-b7ca-422c-933f-f84d58c76865"
+        },
+        {
+          "uuid": "50223fea-951d-433d-b113-002bb9b638b4",
+          "role": "metal",
+          "normal": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 17
+          },
+          "roughness": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 8
+          },
+          "normalTextureId": "00faa051-6b6e-4e83-9cc7-6030ec894076",
+          "roughnessTextureId": "3c2b71be-b7ca-422c-933f-f84d58c76865"
+        }
+      ],
+      "atlas": {
+        "normal": "00faa051-6b6e-4e83-9cc7-6030ec894076",
+        "roughness": "3c2b71be-b7ca-422c-933f-f84d58c76865"
+      },
+      "cache": {
+        "limits": {
+          "high": 1,
+          "medium": 6,
+          "low": 12
+        },
+        "sets": {
+          "high": 1,
+          "medium": 0,
+          "low": 0
+        },
+        "allocatedCachedBytes": 83886080,
+        "registry": 1,
+        "hairMaterials": 1,
+        "engravedMaterials": 3
+      },
+      "firstAtlasWidth": 2048,
+      "stageText": "MỘC TINH TRƯỢNGMÔ HÌNH 3D · NGUYÊN BẢNTOÀN THÂNCẬN CẢNH",
+      "mirror": null,
+      "glError": 0
+    },
+    "hero5": {
+      "fabrics": [
+        {
+          "uuid": "e7ee0944-5317-40ac-83c0-05eddd0368fa",
+          "sheen": 0.85,
+          "sheenRoughness": 0.25,
+          "pattern": "CLOUD_CRANE",
+          "maps": {
+            "map": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 84
+            },
+            "normalMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 17
+            },
+            "roughnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 8
+            },
+            "metalnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 3
+            },
+            "emissiveMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 3
+            }
+          }
+        },
+        {
+          "uuid": "b7ede3c3-062b-49f7-a5f4-b587905d190c",
+          "sheen": 0.85,
+          "sheenRoughness": 0.25,
+          "pattern": "CLOUD_CRANE",
+          "maps": {
+            "map": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 84
+            },
+            "normalMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 17
+            },
+            "roughnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 8
+            },
+            "metalnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 3
+            },
+            "emissiveMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 3
+            }
+          }
+        },
+        {
+          "uuid": "b8d810af-d70a-4eee-8492-3baaf7b20d3f",
+          "sheen": 0.85,
+          "sheenRoughness": 0.25,
+          "pattern": "CLOUD_CRANE",
+          "maps": {
+            "map": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 84
+            },
+            "normalMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 17
+            },
+            "roughnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 8
+            },
+            "metalnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 3
+            },
+            "emissiveMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 3
+            }
+          }
+        },
+        {
+          "uuid": "17ee3051-2d0e-4b87-82e5-821ab0cfa587",
+          "sheen": 0.85,
+          "sheenRoughness": 0.25,
+          "pattern": "CLOUD_CRANE",
+          "maps": {
+            "map": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 84
+            },
+            "normalMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 17
+            },
+            "roughnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 8
+            },
+            "metalnessMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 3
+            },
+            "emissiveMap": {
+              "width": 2048,
+              "height": 2048,
+              "colors": 3
+            }
+          }
+        }
+      ],
+      "faces": [
+        {
+          "width": 2048,
+          "height": 2048,
+          "colors": 76,
+          "wrapS": 1001,
+          "wrapT": 1001,
+          "flipY": true,
+          "colorSpace": "srgb",
+          "frontPatch": true,
+          "arc": 130,
+          "longestDarkRun": 0,
+          "frontRatio": 1,
+          "uvCount": 6063
+        }
+      ],
+      "hair": [
+        {
+          "uuid": "87ecdee5-bb2c-4c91-8829-aceffca6a19f",
+          "normal": {
+            "width": 512,
+            "height": 512,
+            "colors": 10
+          },
+          "bump": {
+            "width": 512,
+            "height": 512,
+            "colors": 29
+          },
+          "anisotropy": 0.78
+        }
+      ],
+      "labels": [],
+      "engraved": [
+        {
+          "uuid": "85eb1eb9-640a-4fab-b666-56a53cb1a82d",
+          "role": "armor",
+          "normal": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 17
+          },
+          "roughness": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 8
+          },
+          "normalTextureId": "60d4e59a-1de7-4563-a4f5-c2585ff92c78",
+          "roughnessTextureId": "753f5822-0b80-4149-bced-32e24f5f3093"
+        },
+        {
+          "uuid": "59ecec0a-2756-4247-a469-432928d61bce",
+          "role": "metal",
+          "normal": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 17
+          },
+          "roughness": {
+            "width": 2048,
+            "height": 2048,
+            "colors": 8
+          },
+          "normalTextureId": "60d4e59a-1de7-4563-a4f5-c2585ff92c78",
+          "roughnessTextureId": "753f5822-0b80-4149-bced-32e24f5f3093"
+        }
+      ],
+      "atlas": {
+        "normal": "60d4e59a-1de7-4563-a4f5-c2585ff92c78",
+        "roughness": "753f5822-0b80-4149-bced-32e24f5f3093"
+      },
+      "cache": {
+        "limits": {
+          "high": 1,
+          "medium": 6,
+          "low": 12
+        },
+        "sets": {
+          "high": 1,
+          "medium": 0,
+          "low": 0
+        },
+        "allocatedCachedBytes": 83886080,
+        "registry": 2,
+        "hairMaterials": 2,
+        "engravedMaterials": 5
+      },
+      "firstAtlasWidth": 64,
+      "stageText": "NGUYỆT LINH KÍNHMÔ HÌNH 3D · NGUYÊN BẢNTOÀN THÂNCẬN CẢNH",
+      "mirror": {
+        "transmission": 0.85,
+        "iridescence": 1,
+        "x": 0.43,
+        "y": 1.4,
+        "z": 0.21,
+        "floating": true,
+        "crescent": true,
+        "surfaceVertices": 192
+      },
+      "glError": 0
+    },
+    "toast": {
+      "top": "14px",
+      "z": "9999",
+      "pointer": "none",
+      "start": 113860.5,
+      "elapsedMs": 3576.300000011921
+    },
+    "functionalRenderer": {
+      "pixelRatio": 0.4,
+      "width": 512,
+      "height": 288,
+      "cssWidth": 1280,
+      "cssHeight": 720
+    },
+    "multiTouch": {
+      "initialLeft": {
+        "controls": {
+          "leftJoystickPointerId": 2,
+          "rightSkillPointerId": null,
+          "queued": 0,
+          "aiming": false
+        },
+        "auto": {
+          "mode": "off",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": true,
+            "autoBuild": true,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "off",
+          "text": "Thủ công 100%",
+          "targetId": null,
+          "manualPaused": false,
+          "resumeIn": null,
+          "manualHint": "",
+          "blockedPresetIds": [],
+          "appraisal": null,
+          "lastError": ""
+        },
+        "x": 8,
+        "z": 8,
+        "mp": 100,
+        "cooldowns": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "both": {
+        "controls": {
+          "leftJoystickPointerId": 2,
+          "rightSkillPointerId": 3,
+          "queued": 0,
+          "aiming": true
+        },
+        "auto": {
+          "mode": "off",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": true,
+            "autoBuild": true,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "off",
+          "text": "Thủ công 100%",
+          "targetId": null,
+          "manualPaused": false,
+          "resumeIn": null,
+          "manualHint": "",
+          "blockedPresetIds": [],
+          "appraisal": null,
+          "lastError": ""
+        },
+        "x": 8,
+        "z": 8,
+        "mp": 100,
+        "cooldowns": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "three": {
+        "controls": {
+          "leftJoystickPointerId": 2,
+          "rightSkillPointerId": 3,
+          "queued": 0,
+          "aiming": true
+        },
+        "auto": {
+          "mode": "off",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": true,
+            "autoBuild": true,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "off",
+          "text": "Thủ công 100%",
+          "targetId": null,
+          "manualPaused": false,
+          "resumeIn": null,
+          "manualHint": "",
+          "blockedPresetIds": [],
+          "appraisal": null,
+          "lastError": ""
+        },
+        "x": 8,
+        "z": 8,
+        "mp": 100,
+        "cooldowns": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      },
+      "half": {
+        "distance": 1.9897611608898642,
+        "range": 5,
+        "x": 8.439462647262408,
+        "z": 7.761520269915622
+      },
+      "cancellation": {
+        "colors": [
+          "ef4444",
+          "ef4444",
+          "ef4444",
+          "ef4444",
+          "ef4444",
+          "ef4444",
+          "ef4444",
+          "ef4444"
+        ],
+        "mp": 100,
+        "cooldown": 0
+      },
+      "canceled": {
+        "controls": {
+          "leftJoystickPointerId": null,
+          "rightSkillPointerId": null,
+          "queued": 0,
+          "aiming": false
+        },
+        "auto": {
+          "mode": "off",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": true,
+            "autoBuild": true,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "off",
+          "text": "Thủ công 100%",
+          "targetId": null,
+          "manualPaused": false,
+          "resumeIn": 1.1935000000000002,
+          "manualHint": "",
+          "blockedPresetIds": [],
+          "appraisal": null,
+          "lastError": ""
+        },
+        "x": 13.420039316236364,
+        "z": 5.058749995626008,
+        "mp": 100,
+        "cooldowns": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
+      }
+    },
+    "manualAOE": {
+      "guide": {
+        "point": {
+          "x": 17.814406871025984,
+          "z": 2.6740931996821535
+        },
+        "player": {
+          "x": 13.420039316236364,
+          "z": 5.058749995626008
+        },
+        "mp": 100
+      },
+      "cast": {
+        "point": {
+          "x": 17.814647305332393,
+          "z": 2.6739627250926685
+        },
+        "mp": 76,
+        "cooldown": 16,
+        "radius": 3.2
+      }
+    },
+    "quickCast": {
+      "targetId": 2,
+      "closerId": 3,
+      "target": {
+        "x": 17.420039316236362,
+        "z": 7.758749995626
+      },
+      "player": {
+        "x": 13.420039316236364,
+        "z": 5.058749995626008
+      },
+      "direction": {
+        "x": 0.8185964469625086,
+        "z": 0.5743690947642963
+      },
+      "naive": {
+        "x": 0.8288486740756488,
+        "z": 0.5594728550010616
+      },
+      "velocity": {
+        "x": 0,
+        "z": 2
+      },
+      "cooldown": 5.9
+    },
+    "inputBuffer": {
+      "queued": {
+        "controls": {
+          "leftJoystickPointerId": null,
+          "rightSkillPointerId": null,
+          "queued": 1,
+          "aiming": false
+        },
+        "cooldown": 0.19,
+        "time": 6.099999999999988,
+        "mp": 100
+      },
+      "fired": {
+        "time": 6.43333333333332,
+        "cooldown": 5.9,
+        "mp": 88.19999999999999,
+        "queued": 0
+      }
+    },
+    "farmCombat": {
+      "cooldowns": [
+        0,
+        0,
+        15.966666666666667,
+        0,
+        0,
+        0.9666666666666667
+      ],
+      "mp": 76.08333333333333,
+      "maxMp": 100,
+      "beastHP": 2887.5765404630124,
+      "status": {
+        "mode": "pve",
+        "config": {
+          "useSkills": true,
+          "allowUltimate": false,
+          "autoLoot": true,
+          "autoBuild": false,
+          "kiting": true,
+          "avoidDanger": true
+        },
+        "phase": "combat",
+        "text": "Săn Bách Niên Thanh Lang",
+        "targetId": 102,
+        "manualPaused": false,
+        "resumeIn": 0,
+        "manualHint": "🤖 Đang Auto Săn Hồn Thú — Chạm Joystick để tự điều khiển",
+        "blockedPresetIds": [],
+        "appraisal": null,
+        "lastError": ""
+      }
+    },
+    "autoLoot": {
+      "fixture": {
+        "preciousUid": "cb47c009-3316-4023-bbce-ebe97094f3e7",
+        "materialUid": "a5dcb5fd-394b-4824-a7b0-87bcbac2f79b",
+        "x": 8,
+        "z": 8,
+        "time": 14.699999999999958
+      },
+      "appraisal": {
+        "status": {
+          "mode": "pve",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": true,
+            "autoBuild": false,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "appraise",
+          "text": "Thẩm định Linh Nhãn Đầu Cốt · 0,8 giây",
+          "targetId": 446,
+          "manualPaused": false,
+          "resumeIn": 0,
+          "manualHint": "🤖 Đang Auto Săn Hồn Thú — Chạm Joystick để tự điều khiển",
+          "blockedPresetIds": [],
+          "appraisal": {
+            "uid": "cb47c009-3316-4023-bbce-ebe97094f3e7",
+            "name": "Linh Nhãn Đầu Cốt",
+            "progress": 0
+          },
+          "lastError": ""
+        },
+        "time": 15.666666666666622,
+        "bag": []
+      },
+      "looted": {
+        "time": 16.49999999999998,
+        "bag": [
+          "cb47c009-3316-4023-bbce-ebe97094f3e7"
+        ],
+        "status": {
+          "mode": "pve",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": true,
+            "autoBuild": false,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "loot",
+          "text": "Đang nhặt Linh Nhãn Đầu Cốt",
+          "targetId": 446,
+          "manualPaused": false,
+          "resumeIn": 0,
+          "manualHint": "🤖 Đang Auto Săn Hồn Thú — Chạm Joystick để tự điều khiển",
+          "blockedPresetIds": [],
+          "appraisal": null,
+          "lastError": ""
+        }
+      }
+    },
+    "manualOverride": {
+      "released": {
+        "auto": {
+          "mode": "pve",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": true,
+            "autoBuild": false,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "manual",
+          "text": "Ưu tiên thao tác tay",
+          "targetId": 446,
+          "manualPaused": true,
+          "resumeIn": 1.1998999999910893,
+          "manualHint": "🤖 Đang Auto Săn Hồn Thú — Chạm Joystick để tự điều khiển",
+          "blockedPresetIds": [],
+          "appraisal": null,
+          "lastError": ""
+        },
+        "x": 9.136020097021282,
+        "z": 9.192398650421875
+      },
+      "elapsedWallMilliseconds": 1669.2000000029802
+    },
+    "autoBuild": {
+      "fixture": {
+        "wallet": {
+          "brought": 300,
+          "earned": 3000
+        },
+        "point": {
+          "x": 5,
+          "z": 5
+        }
+      },
+      "crafted": {
+        "items": [
+          20
+        ],
+        "wallet": {
+          "brought": 245,
+          "earned": 3000
+        },
+        "status": {
+          "mode": "pve",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": false,
+            "autoBuild": true,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "build",
+          "text": "Ghép Bậc Thiên · 7 ô chuẩn",
+          "targetId": null,
+          "manualPaused": false,
+          "resumeIn": 0,
+          "manualHint": "🤖 Đang Auto Săn Hồn Thú — Chạm Joystick để tự điều khiển",
+          "blockedPresetIds": [],
+          "appraisal": null,
+          "lastError": ""
+        }
+      },
+      "built": {
+        "items": [
+          20,
+          5,
+          17,
+          11,
+          18,
+          19,
+          21
+        ],
+        "desired": [
+          5,
+          17,
+          11,
+          18,
+          19,
+          21,
+          20
+        ],
+        "mismatch": false,
+        "wallet": {
+          "brought": 0,
+          "earned": 2405
+        },
+        "status": {
+          "mode": "pve",
+          "config": {
+            "useSkills": true,
+            "allowUltimate": false,
+            "autoLoot": false,
+            "autoBuild": true,
+            "kiting": true,
+            "avoidDanger": true
+          },
+          "phase": "build",
+          "text": "Mua Bổ phẩm · 7 ô chuẩn",
+          "targetId": null,
+          "manualPaused": false,
+          "resumeIn": 0,
+          "manualHint": "🤖 Đang Auto Săn Hồn Thú — Chạm Joystick để tự điều khiển",
+          "blockedPresetIds": [],
+          "appraisal": null,
+          "lastError": ""
+        }
+      }
+    },
+    "extraction": {
+      "channel": {
+        "mode": "exit",
+        "gate": {
+          "x": 52,
+          "z": -48,
+          "id": 0,
+          "end": 147.06666666666717
+        },
+        "items": [
+          {
+            "uid": "cff8ceaa-4005-43df-a579-08170c2a1c47",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-0",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "63911a2c-bee4-4b20-b8a6-af94821efddd",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-1",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "97ea32ec-37ac-494c-b5fe-3d18154fde17",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-2",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "c922b6c1-5d36-4045-a42d-df338efe6dbe",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-3",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "4c332a3f-4689-4868-99b8-6311b20c294d",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-4",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "4c7f325d-196f-4e5f-8000-df7da75e710d",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-5",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "7f40bbb0-21bc-4546-a1aa-4736b6f27d7c",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-6",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "c50c4290-7993-4a92-ab98-1f14f0222b3b",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-7",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "3f2c6fc9-1b9b-4d93-b9c6-ed50f496b0e2",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-8",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          },
+          {
+            "uid": "3a250ec4-1ab1-4291-a379-f852e155acfc",
+            "kind": "bone",
+            "id": 1,
+            "code": "HB-01-9",
+            "name": "Linh Nhãn Đầu Cốt",
+            "w": 4,
+            "value": 180,
+            "count": 1
+          }
+        ],
+        "escrow": [],
+        "total": 24,
+        "elapsed": 0.1,
+        "paused": 0,
+        "outside": 0,
+        "started": 27.46666666666719
+      },
+      "status": {
+        "mode": "full",
+        "config": {
+          "useSkills": true,
+          "allowUltimate": false,
+          "autoLoot": false,
+          "autoBuild": true,
+          "kiting": true,
+          "avoidDanger": true
+        },
+        "phase": "extract-route",
+        "text": "Túi đạt 40/48W · đến Cổng Hồi Hoàn",
+        "targetId": null,
+        "manualPaused": false,
+        "resumeIn": 0,
+        "manualHint": "🤖 Đang Auto Săn Hồn Thú — Chạm Joystick để tự điều khiển",
+        "blockedPresetIds": [],
+        "appraisal": null,
+        "lastError": ""
+      }
+    },
+    "environment": {
+      "biomes": [
+        {
+          "biome": 0,
+          "maps": {
+            "albedo": {
+              "width": 2048,
+              "height": 2048,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "c81fcd2"
+            },
+            "normal": {
+              "width": 2048,
+              "height": 2048,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "6c2e0e40"
+            },
+            "roughnessHeight": {
+              "width": 2048,
+              "height": 2048,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "e498aece"
+            },
+            "emissive": {
+              "width": 2048,
+              "height": 2048,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "906584a6"
+            }
+          }
+        },
+        {
+          "biome": 1,
+          "maps": {
+            "albedo": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "214eadc4"
+            },
+            "normal": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "4e162160"
+            },
+            "roughnessHeight": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "bd7b1acf"
+            },
+            "emissive": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "4a290600"
+            }
+          }
+        },
+        {
+          "biome": 2,
+          "maps": {
+            "albedo": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "74bcdb73"
+            },
+            "normal": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "1e5f99da"
+            },
+            "roughnessHeight": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "acf0d68c"
+            },
+            "emissive": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "5b2f0e88"
+            }
+          }
+        },
+        {
+          "biome": 3,
+          "maps": {
+            "albedo": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "455905d4"
+            },
+            "normal": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "e5b1cde5"
+            },
+            "roughnessHeight": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "19b98f1d"
+            },
+            "emissive": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "4a290600"
+            }
+          }
+        },
+        {
+          "biome": 4,
+          "maps": {
+            "albedo": {
+              "width": 2048,
+              "height": 2048,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "f1b2479f"
+            },
+            "normal": {
+              "width": 2048,
+              "height": 2048,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "5c0f0fdb"
+            },
+            "roughnessHeight": {
+              "width": 2048,
+              "height": 2048,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "b905c128"
+            },
+            "emissive": {
+              "width": 2048,
+              "height": 2048,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "856ab6fa"
+            }
+          }
+        },
+        {
+          "biome": 5,
+          "maps": {
+            "albedo": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "641c764b"
+            },
+            "normal": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "1e5a2b6"
+            },
+            "roughnessHeight": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "811ed8a6"
+            },
+            "emissive": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "b84dc456"
+            }
+          }
+        },
+        {
+          "biome": 6,
+          "maps": {
+            "albedo": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "54be5406"
+            },
+            "normal": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "5855100b"
+            },
+            "roughnessHeight": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "1c221584"
+            },
+            "emissive": {
+              "width": 256,
+              "height": 256,
+              "repeat": [
+                24,
+                24
+              ],
+              "anisotropy": 16,
+              "hash": "be03d0db"
+            }
+          }
+        }
+      ],
+      "portals": [
+        {
+          "tiers": 3,
+          "pillars": 4,
+          "lamps": 8,
+          "beams": 4,
+          "swirl": true,
+          "time": 33.71650000000015,
+          "state": "open"
+        },
+        {
+          "tiers": 3,
+          "pillars": 4,
+          "lamps": 8,
+          "beams": 4,
+          "swirl": true,
+          "time": 33.71650000000015,
+          "state": "open"
+        },
+        {
+          "tiers": 3,
+          "pillars": 4,
+          "lamps": 8,
+          "beams": 4,
+          "swirl": true,
+          "time": 33.71650000000015,
+          "state": "open"
+        },
+        {
+          "tiers": 3,
+          "pillars": 4,
+          "lamps": 8,
+          "beams": 4,
+          "swirl": true,
+          "time": 33.71650000000015,
+          "state": "open"
+        },
+        {
+          "tiers": 3,
+          "pillars": 4,
+          "lamps": 8,
+          "beams": 4,
+          "swirl": true,
+          "time": 33.71650000000015,
+          "state": "open"
+        },
+        {
+          "tiers": 3,
+          "pillars": 4,
+          "lamps": 8,
+          "beams": 4,
+          "swirl": true,
+          "time": 33.71650000000015,
+          "state": "closed"
+        },
+        {
+          "tiers": 3,
+          "pillars": 4,
+          "lamps": 8,
+          "beams": 4,
+          "swirl": true,
+          "time": 33.71650000000015,
+          "state": "closed"
+        },
+        {
+          "tiers": 3,
+          "pillars": 4,
+          "lamps": 8,
+          "beams": 4,
+          "swirl": true,
+          "time": 33.71650000000015,
+          "state": "closed"
+        }
+      ],
+      "residency": {
+        "generated": 2,
+        "evicted": 1,
+        "activeBiomes": [
+          0
+        ],
+        "residentBiomes": 1,
+        "maximumResidentBiomes": 1,
+        "residentMaps": 4,
+        "bytesWithoutMipmaps": 67108864,
+        "highBudgetBytes": 67108864,
+        "lowFallbackBiomes": 7,
+        "lowFallbackMaps": 28,
+        "lowFallbackBytes": 1835008,
+        "lowFallbackResolution": 128,
+        "totalBytesWithoutMipmaps": 68943872,
+        "asyncGeneration": true,
+        "pending": null,
+        "pendingJobs": 0,
+        "queuedBiomes": [],
+        "staleResults": 0,
+        "workerErrors": 0,
+        "workerError": "",
+        "textureSize": 2048,
+        "anisotropy": 16
+      },
+      "activeMaps": [
+        {
+          "biome": 0,
+          "width": 2048,
+          "normalWidth": 2048,
+          "roughnessWidth": 2048,
+          "emissiveWidth": 2048
+        }
+      ],
+      "terrainMaterialCount": 7,
+      "maxAnisotropy": 16,
+      "glError": 0
+    },
+    "skillIndicatorGPU": {
+      "scope": "Real World.aim and SkillIndicatorRenderer on the actual scene; isolated-layer offscreen WebGL draws. Independent Match fixtures only, no live casts or device/FPS claim.",
+      "allFourKinds": true,
+      "targetAndSelfAndFriendly": true,
+      "liveCombatUnchanged": true,
+      "cases": [
+        {
+          "label": "H01-Q-line",
+          "hero": 0,
+          "slot": 0,
+          "shape": "line",
+          "kind": "line",
+          "originalStats": {
+            "range": 7,
+            "radius": 1,
+            "hitboxWidth": 1.8,
+            "coneAngle": 120
+          },
+          "realWorldScene": true,
+          "realIndicatorRenderer": true,
+          "actualIds": [
+            196
+          ],
+          "expectedIds": [
+            196
+          ],
+          "visibleHitRings": 1,
+          "range": {
+            "minimum": 6.964999708676418,
+            "maximum": 7.035000224783793
+          },
+          "grounded": {
+            "vertices": 281,
+            "maximum": 5.909739142495596e-8
+          },
+          "geometryChecks": {
+            "line": {
+              "width": 1.8,
+              "maximumX": 0.8999999761581421,
+              "maximumZ": 7
+            }
+          },
+          "redMaterials": 8,
+          "offscreen": {
+            "width": 192,
+            "height": 192,
+            "drawnPixels": 275,
+            "redPixels": 275,
+            "drawCalls": 13,
+            "glError": 0
+          }
+        },
+        {
+          "label": "H01-W-circle",
+          "hero": 0,
+          "slot": 1,
+          "shape": "circle",
+          "kind": "aoe",
+          "originalStats": {
+            "range": 6,
+            "radius": 1.8,
+            "hitboxWidth": 1.8,
+            "coneAngle": 120
+          },
+          "realWorldScene": true,
+          "realIndicatorRenderer": true,
+          "actualIds": [
+            196,
+            197
+          ],
+          "expectedIds": [
+            196,
+            197
+          ],
+          "visibleHitRings": 2,
+          "range": {
+            "minimum": 5.9649997984835235,
+            "maximum": 6.035000244187572
+          },
+          "grounded": {
+            "vertices": 540,
+            "maximum": 5.590631646512634e-8
+          },
+          "geometryChecks": {
+            "target": {
+              "center": [
+                -46,
+                1.5980453563252506,
+                -39.6
+              ],
+              "radius": {
+                "minimum": 1.7449999534761111,
+                "maximum": 1.8550000438284502
+              },
+              "self": false,
+              "linkName": "parabolic-cast-arc",
+              "linkVisible": true
+            }
+          },
+          "redMaterials": 10,
+          "offscreen": {
+            "width": 192,
+            "height": 192,
+            "drawnPixels": 102,
+            "redPixels": 102,
+            "drawCalls": 19,
+            "glError": 0
+          }
+        },
+        {
+          "label": "H01-E-zone",
+          "hero": 0,
+          "slot": 2,
+          "shape": "zone",
+          "kind": "aoe",
+          "originalStats": {
+            "range": 5,
+            "radius": 3.2,
+            "hitboxWidth": 1.8,
+            "coneAngle": 120
+          },
+          "realWorldScene": true,
+          "realIndicatorRenderer": true,
+          "actualIds": [
+            196,
+            197
+          ],
+          "expectedIds": [
+            196,
+            197
+          ],
+          "visibleHitRings": 2,
+          "range": {
+            "minimum": 4.964999761607785,
+            "maximum": 5.035000152902169
+          },
+          "grounded": {
+            "vertices": 540,
+            "maximum": 5.940612535226819e-8
+          },
+          "geometryChecks": {
+            "target": {
+              "center": [
+                -46,
+                1.5980453563252506,
+                -39.6
+              ],
+              "radius": {
+                "minimum": 3.1449998589316412,
+                "maximum": 3.255000114440918
+              },
+              "self": false,
+              "linkName": "parabolic-cast-arc",
+              "linkVisible": true
+            }
+          },
+          "redMaterials": 10,
+          "offscreen": {
+            "width": 192,
+            "height": 192,
+            "drawnPixels": 112,
+            "redPixels": 112,
+            "drawCalls": 19,
+            "glError": 0
+          }
+        },
+        {
+          "label": "H02-Q-cone",
+          "hero": 1,
+          "slot": 0,
+          "shape": "cone",
+          "kind": "cone",
+          "originalStats": {
+            "range": 3,
+            "radius": 3,
+            "hitboxWidth": 1.8,
+            "coneAngle": 120
+          },
+          "realWorldScene": true,
+          "realIndicatorRenderer": true,
+          "actualIds": [
+            196,
+            197
+          ],
+          "expectedIds": [
+            196,
+            197
+          ],
+          "visibleHitRings": 2,
+          "range": {
+            "minimum": 2.9649999037870307,
+            "maximum": 3.035000118684201
+          },
+          "grounded": {
+            "vertices": 538,
+            "maximum": 2.974063972871477e-8
+          },
+          "geometryChecks": {
+            "cone": {
+              "maximumAngle": 59.99999898552551,
+              "maximumRadius": 3.0000001103161154,
+              "vertices": 66
+            }
+          },
+          "redMaterials": 10,
+          "offscreen": {
+            "width": 192,
+            "height": 192,
+            "drawnPixels": 248,
+            "redPixels": 248,
+            "drawCalls": 17,
+            "glError": 0
+          }
+        },
+        {
+          "label": "H03-R-target",
+          "hero": 2,
+          "slot": 3,
+          "shape": "target",
+          "kind": "lock",
+          "originalStats": {
+            "range": 5,
+            "radius": 1,
+            "hitboxWidth": 1.8,
+            "coneAngle": 120
+          },
+          "realWorldScene": true,
+          "realIndicatorRenderer": true,
+          "actualIds": [
+            196
+          ],
+          "expectedIds": [
+            196
+          ],
+          "visibleHitRings": 1,
+          "range": {
+            "minimum": 4.964999761607785,
+            "maximum": 5.035000152902169
+          },
+          "grounded": {
+            "vertices": 474,
+            "maximum": 5.940612535226819e-8
+          },
+          "geometryChecks": {
+            "target": {
+              "center": [
+                -45.85,
+                1.6285743802396455,
+                -39.9
+              ],
+              "radius": {
+                "minimum": 0.5949999774037106,
+                "maximum": 0.705000027822485
+              },
+              "self": false,
+              "linkName": "target-lock-tether",
+              "linkVisible": true
+            }
+          },
+          "redMaterials": 9,
+          "offscreen": {
+            "width": 192,
+            "height": 192,
+            "drawnPixels": 75,
+            "redPixels": 75,
+            "drawCalls": 17,
+            "glError": 0
+          }
+        },
+        {
+          "label": "H03-W-self",
+          "hero": 2,
+          "slot": 1,
+          "shape": "clone",
+          "kind": "lock",
+          "originalStats": {
+            "range": 0,
+            "radius": 0,
+            "hitboxWidth": 1.8,
+            "coneAngle": 120
+          },
+          "realWorldScene": true,
+          "realIndicatorRenderer": true,
+          "actualIds": [],
+          "expectedIds": [],
+          "visibleHitRings": 0,
+          "range": {
+            "minimum": 0.06499999761581421,
+            "maximum": 0.13500000536441803
+          },
+          "grounded": {
+            "vertices": 408,
+            "maximum": 7.419184377965848e-9
+          },
+          "geometryChecks": {
+            "target": {
+              "center": [
+                -46,
+                1.891062277729345,
+                -42
+              ],
+              "radius": {
+                "minimum": 0.5949999774037106,
+                "maximum": 0.705000027822485
+              },
+              "self": true,
+              "linkName": "target-lock-tether",
+              "linkVisible": false
+            }
+          },
+          "redMaterials": 8,
+          "offscreen": {
+            "width": 192,
+            "height": 192,
+            "drawnPixels": 8,
+            "redPixels": 8,
+            "drawCalls": 14,
+            "glError": 0
+          }
+        },
+        {
+          "label": "H05-W-shield",
+          "hero": 4,
+          "slot": 1,
+          "shape": "shield",
+          "kind": "lock",
+          "originalStats": {
+            "range": 6,
+            "radius": 0,
+            "hitboxWidth": 1.8,
+            "coneAngle": 120
+          },
+          "realWorldScene": true,
+          "realIndicatorRenderer": true,
+          "actualIds": [
+            198
+          ],
+          "expectedIds": [
+            198
+          ],
+          "visibleHitRings": 1,
+          "range": {
+            "minimum": 5.9649997984835235,
+            "maximum": 6.035000244187572
+          },
+          "grounded": {
+            "vertices": 474,
+            "maximum": 5.590631646512634e-8
+          },
+          "geometryChecks": {
+            "target": {
+              "center": [
+                -45.8,
+                1.640525472626468,
+                -40
+              ],
+              "radius": {
+                "minimum": 0.5949999774037106,
+                "maximum": 0.705000027822485
+              },
+              "self": false,
+              "linkName": "target-lock-tether",
+              "linkVisible": true
+            }
+          },
+          "redMaterials": 9,
+          "offscreen": {
+            "width": 192,
+            "height": 192,
+            "drawnPixels": 89,
+            "redPixels": 89,
+            "drawCalls": 17,
+            "glError": 0
+          }
+        }
+      ]
+    },
+    "scope": "Offscreen 512×512 functional fixtures rendered by the actual game WebGLRenderer. Pixel content, material textures, articulation and shader compilation only; no art-quality, physical Android or FPS claim.",
+    "creatures": [
+      {
+        "species": "wolf",
+        "maps": {
+          "map": {
+            "width": 512,
+            "height": 512,
+            "minimum": 163,
+            "maximum": 248,
+            "hash": "1d689145",
+            "canvas": true,
+            "colorSpace": "srgb"
+          },
+          "normalMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 10,
+            "maximum": 244,
+            "hash": "97b78b30",
+            "canvas": true,
+            "colorSpace": ""
+          },
+          "roughnessMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 166,
+            "maximum": 215,
+            "hash": "a6978f0c",
+            "canvas": true,
+            "colorSpace": ""
+          }
+        },
+        "boundPaintedMeshes": 20,
+        "geometryTriangles": 104804,
+        "poseA": {
+          "nonBackground": 3934,
+          "maximum": 255,
+          "hash": "4ab89e78",
+          "glError": 0,
+          "triangles": 104804,
+          "calls": 22
+        },
+        "poseB": {
+          "nonBackground": 3823,
+          "maximum": 255,
+          "hash": "fb0e86ad",
+          "glError": 0,
+          "triangles": 104804,
+          "calls": 22
+        },
+        "articulation": {
+          "thighs": 4,
+          "shins": 4,
+          "ankles": 4,
+          "shinAngles": [
+            0,
+            0.6330009600708268,
+            0.6330009600708268,
+            0
+          ]
+        }
+      },
+      {
+        "species": "rhino",
+        "maps": {
+          "map": {
+            "width": 512,
+            "height": 512,
+            "minimum": 171,
+            "maximum": 247,
+            "hash": "36856aa9",
+            "canvas": true,
+            "colorSpace": "srgb"
+          },
+          "normalMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 70,
+            "maximum": 183,
+            "hash": "ed434802",
+            "canvas": true,
+            "colorSpace": ""
+          },
+          "roughnessMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 124,
+            "maximum": 228,
+            "hash": "d54bdb36",
+            "canvas": true,
+            "colorSpace": ""
+          }
+        },
+        "boundPaintedMeshes": 18,
+        "geometryTriangles": 81852,
+        "poseA": {
+          "nonBackground": 4623,
+          "maximum": 255,
+          "hash": "10a0f58",
+          "glError": 0,
+          "triangles": 81852,
+          "calls": 21
+        },
+        "poseB": {
+          "nonBackground": 4601,
+          "maximum": 255,
+          "hash": "92b1967a",
+          "glError": 0,
+          "triangles": 81852,
+          "calls": 21
+        },
+        "articulation": {
+          "thighs": 4,
+          "shins": 4,
+          "ankles": 4,
+          "shinAngles": [
+            0,
+            0.6330009600708268,
+            0.6330009600708268,
+            0
+          ]
+        }
+      },
+      {
+        "species": "firebird",
+        "maps": {
+          "map": {
+            "width": 512,
+            "height": 512,
+            "minimum": 184,
+            "maximum": 255,
+            "hash": "9c1d7ccd",
+            "canvas": true,
+            "colorSpace": "srgb"
+          },
+          "normalMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 9,
+            "maximum": 246,
+            "hash": "12ec00d5",
+            "canvas": true,
+            "colorSpace": ""
+          },
+          "roughnessMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 111,
+            "maximum": 166,
+            "hash": "f79ce755",
+            "canvas": true,
+            "colorSpace": ""
+          }
+        },
+        "boundPaintedMeshes": 13,
+        "geometryTriangles": 43528,
+        "poseA": {
+          "nonBackground": 3810,
+          "maximum": 255,
+          "hash": "32ae9adb",
+          "glError": 0,
+          "triangles": 43528,
+          "calls": 16
+        },
+        "poseB": {
+          "nonBackground": 3836,
+          "maximum": 255,
+          "hash": "1053bfe2",
+          "glError": 0,
+          "triangles": 43528,
+          "calls": 16
+        },
+        "articulation": {
+          "feathersPerWing": [
+            12,
+            12
+          ],
+          "flameTails": 3,
+          "goldenCrest": 5,
+          "emberInstances": 18
+        }
+      },
+      {
+        "species": "icebutterfly",
+        "maps": {
+          "map": {
+            "width": 512,
+            "height": 512,
+            "minimum": 207,
+            "maximum": 246,
+            "hash": "45617bc4",
+            "canvas": true,
+            "colorSpace": "srgb"
+          },
+          "normalMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 8,
+            "maximum": 247,
+            "hash": "728440d5",
+            "canvas": true,
+            "colorSpace": ""
+          },
+          "roughnessMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 39,
+            "maximum": 152,
+            "hash": "cd3b4452",
+            "canvas": true,
+            "colorSpace": ""
+          }
+        },
+        "boundPaintedMeshes": 3,
+        "geometryTriangles": 39888,
+        "poseA": {
+          "nonBackground": 42245,
+          "maximum": 255,
+          "hash": "c2a38f1",
+          "glError": 0,
+          "triangles": 80252,
+          "calls": 22
+        },
+        "poseB": {
+          "nonBackground": 43701,
+          "maximum": 255,
+          "hash": "a8d242bc",
+          "glError": 0,
+          "triangles": 80252,
+          "calls": 22
+        },
+        "articulation": {
+          "hinges": 2,
+          "alpha": {
+            "width": 512,
+            "height": 512,
+            "minimum": 161,
+            "maximum": 245,
+            "hash": "bb589b9d",
+            "canvas": true,
+            "colorSpace": ""
+          }
+        }
+      },
+      {
+        "species": "ape",
+        "maps": {
+          "map": {
+            "width": 512,
+            "height": 512,
+            "minimum": 205,
+            "maximum": 251,
+            "hash": "9c4d806f",
+            "canvas": true,
+            "colorSpace": "srgb"
+          },
+          "normalMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 26,
+            "maximum": 228,
+            "hash": "43d7e4d1",
+            "canvas": true,
+            "colorSpace": ""
+          },
+          "roughnessMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 175,
+            "maximum": 226,
+            "hash": "d1b48b6e",
+            "canvas": true,
+            "colorSpace": ""
+          }
+        },
+        "boundPaintedMeshes": 17,
+        "geometryTriangles": 133946,
+        "poseA": {
+          "nonBackground": 54239,
+          "maximum": 255,
+          "hash": "a940fc55",
+          "glError": 0,
+          "triangles": 133946,
+          "calls": 22
+        },
+        "poseB": null,
+        "articulation": {}
+      },
+      {
+        "species": "kirin",
+        "maps": {
+          "map": {
+            "width": 512,
+            "height": 512,
+            "minimum": 205,
+            "maximum": 245,
+            "hash": "717a3038",
+            "canvas": true,
+            "colorSpace": "srgb"
+          },
+          "normalMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 33,
+            "maximum": 221,
+            "hash": "3aa9dac1",
+            "canvas": true,
+            "colorSpace": ""
+          },
+          "roughnessMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 112,
+            "maximum": 165,
+            "hash": "e0a828e1",
+            "canvas": true,
+            "colorSpace": ""
+          }
+        },
+        "boundPaintedMeshes": 17,
+        "geometryTriangles": 378232,
+        "poseA": {
+          "nonBackground": 25875,
+          "maximum": 255,
+          "hash": "83b22e59",
+          "glError": 0,
+          "triangles": 378232,
+          "calls": 22
+        },
+        "poseB": null,
+        "articulation": {}
+      },
+      {
+        "species": "dragon",
+        "maps": {
+          "map": {
+            "width": 512,
+            "height": 512,
+            "minimum": 188,
+            "maximum": 247,
+            "hash": "eec018fa",
+            "canvas": true,
+            "colorSpace": "srgb"
+          },
+          "normalMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 33,
+            "maximum": 222,
+            "hash": "ac1ced27",
+            "canvas": true,
+            "colorSpace": ""
+          },
+          "roughnessMap": {
+            "width": 512,
+            "height": 512,
+            "minimum": 109,
+            "maximum": 159,
+            "hash": "46a301c3",
+            "canvas": true,
+            "colorSpace": ""
+          }
+        },
+        "boundPaintedMeshes": 12,
+        "geometryTriangles": 211592,
+        "poseA": {
+          "nonBackground": 16205,
+          "maximum": 255,
+          "hash": "529e8b5c",
+          "glError": 0,
+          "triangles": 227976,
+          "calls": 22
+        },
+        "poseB": null,
+        "articulation": {}
+      }
+    ],
+    "elemental": [
+      {
+        "element": "wood",
+        "pattern": "leaf-veined-vines",
+        "parts": 15,
+        "segments": 32,
+        "image": {
+          "nonBackground": 10446,
+          "maximum": 255,
+          "hash": "506b3963",
+          "glError": 0,
+          "triangles": 960,
+          "calls": 1
+        }
+      },
+      {
+        "element": "earth",
+        "pattern": "erupting-stone-facets",
+        "parts": 20,
+        "segments": 32,
+        "image": {
+          "nonBackground": 21522,
+          "maximum": 255,
+          "hash": "67e210ea",
+          "glError": 0,
+          "triangles": 1280,
+          "calls": 1
+        }
+      },
+      {
+        "element": "wind",
+        "pattern": "ascending-helical-gusts",
+        "parts": 9,
+        "segments": 32,
+        "image": {
+          "nonBackground": 14771,
+          "maximum": 255,
+          "hash": "cfdd54e7",
+          "glError": 0,
+          "triangles": 576,
+          "calls": 1
+        }
+      },
+      {
+        "element": "lightning",
+        "pattern": "branched-stepped-lightning",
+        "parts": 15,
+        "segments": 32,
+        "image": {
+          "nonBackground": 7593,
+          "maximum": 255,
+          "hash": "ab4f7e11",
+          "glError": 0,
+          "triangles": 960,
+          "calls": 1
+        }
+      },
+      {
+        "element": "light",
+        "pattern": "radiant-sunburst",
+        "parts": 25,
+        "segments": 32,
+        "image": {
+          "nonBackground": 5981,
+          "maximum": 255,
+          "hash": "23355607",
+          "glError": 0,
+          "triangles": 1600,
+          "calls": 1
+        }
+      },
+      {
+        "element": "water",
+        "pattern": "expanding-caustic-ripples",
+        "parts": 8,
+        "segments": 32,
+        "image": {
+          "nonBackground": 12223,
+          "maximum": 255,
+          "hash": "d6ae8f7b",
+          "glError": 0,
+          "triangles": 512,
+          "calls": 1
+        }
+      },
+      {
+        "element": "fire",
+        "pattern": "rising-turbulent-flames",
+        "parts": 18,
+        "segments": 32,
+        "image": {
+          "nonBackground": 21947,
+          "maximum": 255,
+          "hash": "badaca8a",
+          "glError": 0,
+          "triangles": 1152,
+          "calls": 1
+        }
+      },
+      {
+        "element": "ice",
+        "pattern": "prismatic-frost-spires",
+        "parts": 18,
+        "segments": 32,
+        "image": {
+          "nonBackground": 24052,
+          "maximum": 255,
+          "hash": "fb4805a3",
+          "glError": 0,
+          "triangles": 1152,
+          "calls": 1
+        }
+      },
+      {
+        "element": "dark",
+        "pattern": "inward-void-spirals",
+        "parts": 10,
+        "segments": 32,
+        "image": {
+          "nonBackground": 20608,
+          "maximum": 255,
+          "hash": "6fb4b28",
+          "glError": 0,
+          "triangles": 640,
+          "calls": 1
+        }
+      },
+      {
+        "element": "metal",
+        "pattern": "orbiting-metal-crescents",
+        "parts": 15,
+        "segments": 32,
+        "image": {
+          "nonBackground": 10325,
+          "maximum": 255,
+          "hash": "b08c2abb",
+          "glError": 0,
+          "triangles": 960,
+          "calls": 1
+        }
+      },
+      {
+        "element": "music",
+        "pattern": "harmonic-standing-waves",
+        "parts": 10,
+        "segments": 32,
+        "image": {
+          "nonBackground": 10457,
+          "maximum": 255,
+          "hash": "5576501b",
+          "glError": 0,
+          "triangles": 640,
+          "calls": 1
+        }
+      },
+      {
+        "element": "poison",
+        "pattern": "rising-toxic-bubbles",
+        "parts": 18,
+        "segments": 32,
+        "image": {
+          "nonBackground": 1596,
+          "maximum": 255,
+          "hash": "17fd9636",
+          "glError": 0,
+          "triangles": 1152,
+          "calls": 1
+        }
+      }
+    ],
+    "ringTiers": [
+      {
+        "id": 1,
+        "tier": "purple",
+        "placements": [
+          "foot",
+          "back"
+        ],
+        "metadata": {
+          "signature": "1,0@512",
+          "ringIds": [
+            1,
+            0
+          ],
+          "resolution": 512,
+          "revision": 1
+        },
+        "texture": {
+          "width": 512,
+          "height": 512,
+          "minimum": 0,
+          "maximum": 0,
+          "hash": "52965dc5",
+          "canvas": true,
+          "colorSpace": "srgb"
+        },
+        "triangles": 4,
+        "poseA": {
+          "nonBackground": 30446,
+          "maximum": 237,
+          "hash": "4ce72ccf",
+          "glError": 0,
+          "triangles": 8,
+          "calls": 4
+        },
+        "poseB": {
+          "nonBackground": 30230,
+          "maximum": 236,
+          "hash": "f7d6a6a2",
+          "glError": 0,
+          "triangles": 8,
+          "calls": 4
+        }
+      },
+      {
+        "id": 8,
+        "tier": "black",
+        "placements": [
+          "foot",
+          "back"
+        ],
+        "metadata": {
+          "signature": "0,8@512",
+          "ringIds": [
+            0,
+            8
+          ],
+          "resolution": 512,
+          "revision": 1
+        },
+        "texture": {
+          "width": 512,
+          "height": 512,
+          "minimum": 0,
+          "maximum": 0,
+          "hash": "52965dc5",
+          "canvas": true,
+          "colorSpace": "srgb"
+        },
+        "triangles": 4,
+        "poseA": {
+          "nonBackground": 32420,
+          "maximum": 226,
+          "hash": "c03cdce0",
+          "glError": 0,
+          "triangles": 8,
+          "calls": 4
+        },
+        "poseB": {
+          "nonBackground": 32774,
+          "maximum": 228,
+          "hash": "8cce1820",
+          "glError": 0,
+          "triangles": 8,
+          "calls": 4
+        }
+      }
+    ],
+    "architecture": [
+      {
+        "type": "shop",
+        "countInWorld": 6,
+        "before": {
+          "lantern": 0.031303873744780976,
+          "smoke": 34.28310000000013
+        },
+        "after": {
+          "lantern": 0.06963020647211099,
+          "smoke": 35.383100000000134
+        },
+        "roofCorners": 8,
+        "lanterns": 8,
+        "smokeInstances": 10,
+        "geometryTriangles": 11910,
+        "poseA": {
+          "nonBackground": 55113,
+          "maximum": 255,
+          "hash": "99f024a9",
+          "glError": 0,
+          "triangles": 12198,
+          "calls": 87
+        },
+        "poseB": {
+          "nonBackground": 55132,
+          "maximum": 255,
+          "hash": "33a088c1",
+          "glError": 0,
+          "triangles": 12198,
+          "calls": 87
+        }
+      },
+      {
+        "type": "shrine",
+        "countInWorld": 3,
+        "before": {
+          "rotation": 13.713240000000054,
+          "height": 1.1459346927923546
+        },
+        "after": {
+          "rotation": 14.153240000000054,
+          "height": 1.2453814541480681
+        },
+        "bloodChannels": 9,
+        "crystalTransmission": 0.55,
+        "geometryTriangles": 4618,
+        "poseA": {
+          "nonBackground": 24404,
+          "maximum": 255,
+          "hash": "92f88140",
+          "glError": 0,
+          "triangles": 9132,
+          "calls": 40
+        },
+        "poseB": {
+          "nonBackground": 24480,
+          "maximum": 255,
+          "hash": "322bfbfe",
+          "glError": 0,
+          "triangles": 9132,
+          "calls": 40
+        }
+      }
+    ],
+    "gpu": {
+      "renderer": "WebKit WebGL",
+      "vendor": "WebKit",
+      "webgl2": true,
+      "target": [
+        512,
+        512
+      ],
+      "initialError": 0,
+      "programCountBefore": 139,
+      "finalError": 0,
+      "programCountAfter": 176,
+      "failedPrograms": []
+    },
+    "creatureCache": {
+      "entries": [
+        {
+          "profile": "firebird",
+          "detail": "low",
+          "resolution": 32,
+          "textureCount": 4,
+          "bytes": 16384
+        },
+        {
+          "profile": "icebutterfly",
+          "detail": "low",
+          "resolution": 32,
+          "textureCount": 5,
+          "bytes": 20480
+        },
+        {
+          "profile": "rhino",
+          "detail": "low",
+          "resolution": 32,
+          "textureCount": 4,
+          "bytes": 16384
+        },
+        {
+          "profile": "rhino",
+          "detail": "medium",
+          "resolution": 128,
+          "textureCount": 4,
+          "bytes": 262144
+        },
+        {
+          "profile": "firebird",
+          "detail": "medium",
+          "resolution": 128,
+          "textureCount": 4,
+          "bytes": 262144
+        },
+        {
+          "profile": "wolf",
+          "detail": "low",
+          "resolution": 32,
+          "textureCount": 4,
+          "bytes": 16384
+        },
+        {
+          "profile": "wolf",
+          "detail": "medium",
+          "resolution": 128,
+          "textureCount": 4,
+          "bytes": 262144
+        },
+        {
+          "profile": "icebutterfly",
+          "detail": "medium",
+          "resolution": 128,
+          "textureCount": 5,
+          "bytes": 327680
+        },
+        {
+          "profile": "wolf",
+          "detail": "high",
+          "resolution": 512,
+          "textureCount": 4,
+          "bytes": 4194304
+        },
+        {
+          "profile": "rhino",
+          "detail": "high",
+          "resolution": 512,
+          "textureCount": 4,
+          "bytes": 4194304
+        },
+        {
+          "profile": "firebird",
+          "detail": "high",
+          "resolution": 512,
+          "textureCount": 4,
+          "bytes": 4194304
+        },
+        {
+          "profile": "icebutterfly",
+          "detail": "high",
+          "resolution": 512,
+          "textureCount": 5,
+          "bytes": 5242880
+        },
+        {
+          "profile": "ape",
+          "detail": "high",
+          "resolution": 512,
+          "textureCount": 3,
+          "bytes": 3145728
+        },
+        {
+          "profile": "kirin",
+          "detail": "high",
+          "resolution": 512,
+          "textureCount": 4,
+          "bytes": 4194304
+        },
+        {
+          "profile": "dragon",
+          "detail": "high",
+          "resolution": 512,
+          "textureCount": 4,
+          "bytes": 4194304
+        }
+      ],
+      "profileCount": 9,
+      "levelCount": 3,
+      "maxEntries": 27,
+      "entryCount": 15,
+      "textureCount": 62,
+      "bytes": 30543872,
+      "estimatedGPUMipBytes": 40725163
+    },
+    "ringCache": {
+      "profileCount": 4,
+      "textureCount": 6,
+      "bytes": 4718592,
+      "estimatedGPUMipBytes": 6291456,
+      "maxProfiles": 12,
+      "maxTextures": 24,
+      "entries": [
+        {
+          "key": "1:512",
+          "ringId": 1,
+          "resolution": 512,
+          "bytes": 1048576
+        },
+        {
+          "key": "3:512",
+          "ringId": 3,
+          "resolution": 512,
+          "bytes": 1048576
+        },
+        {
+          "key": "7:512",
+          "ringId": 7,
+          "resolution": 512,
+          "bytes": 1048576
+        },
+        {
+          "key": "1:256",
+          "ringId": 1,
+          "resolution": 256,
+          "bytes": 262144
+        },
+        {
+          "key": "3:256",
+          "ringId": 3,
+          "resolution": 256,
+          "bytes": 262144
+        },
+        {
+          "key": "8:512",
+          "ringId": 8,
+          "resolution": 512,
+          "bytes": 1048576
+        }
+      ]
+    },
+    "browserErrors": [],
+    "shaderErrors": []
+  },
+  "errors": [],
+  "shaderErrors": [],
+  "sourceHashEnd": "81d3ba9e18907ceb62fa6c4cd29bc019fe2a3bfbf9a92f24cabead5e0d0a11d0",
+  "sourceStable": true,
+  "recordedAt": "2026-10-15T16:54:33.740Z"
+}
