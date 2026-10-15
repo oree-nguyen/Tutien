@@ -121,6 +121,25 @@ class LocalPipelineTests(unittest.TestCase):
             with self.assertRaises(pipeline.PipelineError):
                 pipeline.normalize(*self.paths,self.directory/"rejected.glb")
 
+    def test_static_prop_keeps_real_nodes_without_fake_anatomy(self):
+        path=self.paths[3]
+        mapping=json.loads(path.read_text())
+        mapping.update(category='environment-prop',nodes=['ArtifactRoot'],requiredSlots=['ArtifactRoot'],
+            labels={str(i):'ArtifactRoot' for i in range(8)},pivots={'ArtifactRoot':[0,0,0]})
+        path.write_text(json.dumps(mapping))
+        report=pipeline.normalize(*self.paths,self.directory/'prop.glb')
+        self.assertTrue(report['blender']['passed'])
+        self.assertEqual(report['blender']['requiredNodes'],['ArtifactRoot'])
+        self.assertNotIn('HonCot_Dau',report['after']['nodes'])
+        self.assertEqual(report['after']['triangles'],8)
+
+    def test_hero_cannot_omit_a_required_anatomical_region(self):
+        path=self.paths[3]
+        mapping=json.loads(path.read_text());mapping['requiredSlots']=['HonCot_Dau']
+        path.write_text(json.dumps(mapping))
+        with self.assertRaisesRegex(pipeline.PipelineError,'all six'):
+            pipeline.normalize(*self.paths,self.directory/'rejected.glb')
+
     def test_refuse_topology_change_instead_of_guessed_uv_transfer(self):
         mesh=trimesh.load(self.paths[1],force="mesh",process=False)
         mesh.vertices[0] += [0,0,.2]
@@ -166,7 +185,7 @@ class LocalPipelineTests(unittest.TestCase):
                 async with ClientSession(*streams) as client:
                     await client.initialize()
                     tools=await client.list_tools()
-                    self.assertEqual({t.name for t in tools.tools},{"tencent_probe","tencent_generate","tencent_inspect_glb","tencent_normalize"})
+                    self.assertEqual({t.name for t in tools.tools},{"tencent_probe","tencent_generate","tencent_inspect_glb","tencent_normalize","tencent_asset_catalog","tencent_generate_asset"})
                     result=await client.call_tool("tencent_inspect_glb",{"path":str(self.paths[0])})
                     self.assertFalse(result.is_error)
                     self.assertIn('"triangles"',result.content[0].text)

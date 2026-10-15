@@ -3,6 +3,7 @@ command = "/workspace/tencent-3d-venv/bin/python"
 args = ["/workspace/Tutien/tools/tencent_3d_pipeline.py", "serve"]
 startup_timeout_sec = 30
 tool_timeout_sec = 3600
+env_vars = ["HF_TOKEN", "HUGGING_FACE_HUB_TOKEN"]
 
 [mcp_servers.tencent_3d.env]
 PYTHONDONTWRITEBYTECODE = "1"

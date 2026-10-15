@@ -12,6 +12,7 @@ import hashlib
 import inspect
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import struct
@@ -219,6 +220,18 @@ def call(client, endpoint: str, values: dict, timeout: int = 900):
                 if not p.get("parameter_has_default", False) and p["parameter_name"] not in values]
     if required:
         raise PipelineError(f"Live {endpoint} requires additional parameters: {required}")
+    # Legacy entry points also respect the shared quota breaker. Probe/list API
+    # remain usable; signing in may revalidate quota, signing out cannot evade it.
+    queue_path = ROOT / "assets/tencent/queue.json"
+    if queue_path.is_file():
+        from datetime import datetime, timezone
+        from huggingface_hub import get_token
+        provider = json.loads(queue_path.read_text()).get("providerBackoff", {})
+        if provider.get("nextRetryAt") and datetime.fromisoformat(provider["nextRetryAt"]) > datetime.now(timezone.utc):
+            auth = bool(os.environ.get("HF_TOKEN") or os.environ.get("HUGGING_FACE_HUB_TOKEN") or get_token())
+            recorded_auth = provider.get("authPresent", provider.get("authEnvironmentPresent", False))
+            if not (auth and not recorded_auth):
+                raise PipelineError("ZeroGPU quota deferred until " + provider["nextRetryAt"] + "; no job submitted")
     with redirect_stdout(sys.stderr):
         job = client.submit(api_name=endpoint, **values)
         try:
@@ -360,9 +373,18 @@ def normalize(source: Path, segmented: Path, label_file: Path, mapping_file: Pat
     mapping = json.loads(mapping_file.read_text())
     if mapping.get("sourceSha256") != before["sha256"] or mapping.get("reviewed") is not True:
         raise PipelineError("Semantic map requires explicit review and exact source SHA")
+    category = mapping.get("category", "hero")
+    if category not in {"hero", "weapon", "bone", "external-bone", "soul-ring", "beast", "mutant-beast", "boss", "environment-prop", "terrain", "world-prop", "effect-carrier", "shader-surface"}:
+        raise PipelineError("Unknown catalog asset category")
+    node_names = mapping.get("nodes", list(SLOTS))
+    if (not isinstance(node_names, list) or not node_names or len(set(node_names)) != len(node_names)
+        or any(not isinstance(n, str) or not re.fullmatch(r"[A-Za-z][A-Za-z0-9_]{0,79}", n) for n in node_names)):
+        raise PipelineError("Semantic node names must be unique nonempty identifiers")
+    if category == "hero" and node_names != list(SLOTS):
+        raise PipelineError("Hero normalization must retain all eight equipment nodes")
     assignments = mapping["labels"]
     pivots = mapping["pivots"]
-    if set(assignments.values()) - set(SLOTS):
+    if set(assignments.values()) - set(node_names):
         raise PipelineError("Unknown equipment slot")
     if set(map(str, np.unique(labels))) - set(assignments):
         raise PipelineError("Every segmentation label, including -1, needs an explicit assignment")
@@ -374,7 +396,7 @@ def normalize(source: Path, segmented: Path, label_file: Path, mapping_file: Pat
         if key in label_by_triangle and label_by_triangle[key] != int(label):
             raise PipelineError("Ambiguous duplicate segmented triangle")
         label_by_triangle[key] = int(label)
-    grouped = {name: [] for name in SLOTS}
+    grouped = {name: [] for name in node_names}
     original_faces = 0
     for primitive in document["meshes"][0]["primitives"]:
         points = accessor_array(document, binary, primitive["attributes"]["POSITION"])
@@ -403,11 +425,13 @@ def normalize(source: Path, segmented: Path, label_file: Path, mapping_file: Pat
             grouped[name].append(p)
     if original_faces != len(labels):
         raise PipelineError("P3-SAM changed face count; refusing guessed UV transfer")
-    required = mapping.get("requiredSlots", list(SLOTS[:6]))
-    if set(required) - set(SLOTS) or any(not grouped[n] for n in required):
+    required = mapping.get("requiredSlots", list(SLOTS[:6]) if category == "hero" else node_names)
+    if category == "hero" and not set(SLOTS[:6]).issubset(required):
+        raise PipelineError("Hero requires all six nonempty anatomical regions")
+    if not required or set(required) - set(node_names) or any(not grouped[n] for n in required):
         raise PipelineError("Required semantic body/weapon part has no original faces")
     document["meshes"], document["nodes"] = [], [{"name": "HonGioi_Tencent_Asset", "children": []}]
-    for name in SLOTS:
+    for name in node_names:
         pivot = pivots.get(name)
         if pivot is None or len(pivot) != 3 or not np.isfinite(pivot).all():
             raise PipelineError("A finite source-space joint origin is required for every slot")
@@ -425,10 +449,11 @@ def normalize(source: Path, segmented: Path, label_file: Path, mapping_file: Pat
     document.setdefault("asset", {})["extras"] = {"sourceSha256": before["sha256"],
         "processing": "Original mesh faces; segmentation labels; reviewed semantic map",
         "provenance": "Source origin must be verified separately against the actual remote generation run",
-        "uvTransfer": "None: original attribute accessors and image buffers retained byte-for-byte"}
+        "uvTransfer": "None: original attribute accessors and image buffers retained byte-for-byte",
+        "assetCategory": category, "validationRequiredNodes": node_names}
     candidate = output.with_suffix(".candidate.glb")
     write_glb(candidate, document, binary)
-    after = inspect_glb(str(candidate), list(SLOTS))
+    after = inspect_glb(str(candidate), node_names)
     if ([i["sha256"] for i in before["images"]] != [i["sha256"] for i in after["images"]]
         or set(before["uvHashes"]) != set(after["uvHashes"]) or after["triangles"] != original_faces):
         raise PipelineError("UV/image/face preservation verification failed")
@@ -442,7 +467,7 @@ def normalize(source: Path, segmented: Path, label_file: Path, mapping_file: Pat
     if not imported.get("passed"):
         raise PipelineError("Blender did not retain all required nodes/UV/image materials")
     candidate.replace(output)
-    report = {"passed": True, "before": before, "after": inspect_glb(str(output), list(SLOTS)),
+    report = {"passed": True, "before": before, "after": inspect_glb(str(output), node_names),
               "blender": imported, "runtimeInstalled": False, "visualReviewRequired": True}
     save_json(output.with_suffix(".validation.json"), report)
     return report
@@ -466,6 +491,34 @@ def serve() -> None:
     def tencent_inspect_glb(path: str) -> dict:
         """Verify a local GLB's actual UV data, PBR image references, image bytes and nodes."""
         return inspect_glb(path)
+
+    @server.tool()
+    def tencent_asset_catalog(offset: int = 0, limit: int = 50) -> dict:
+        """Read source-derived asset IDs and current queue states; does not start GPU jobs."""
+        catalog = json.loads((ROOT / "assets/tencent/catalog.json").read_text())
+        queue_path = ROOT / "assets/tencent/queue.json"
+        queue = json.loads(queue_path.read_text()).get("assets", {}) if queue_path.exists() else {}
+        rows = catalog["assets"][max(0, offset):max(0, offset) + max(1, min(limit, 100))]
+        return {"total": catalog["total"], "counts": catalog["counts"], "assets": [
+            {"id": a["id"], "name": a["name"], "category": a["category"],
+             "status": queue.get(a["id"], {}).get("status", "pending")} for a in rows]}
+
+    @server.tool()
+    def tencent_generate_asset(asset_id: str, until: str = "parts", seed: int = 42) -> dict:
+        """Resume one catalog asset with checkpoints/backoff; stop for actual concept/part review before installation."""
+        if until not in ("concept", "mesh", "parts"):
+            raise PipelineError("until must be concept, mesh or parts")
+        import importlib.util
+        module_spec = importlib.util.spec_from_file_location("tencent_batch", ROOT / "tools/tencent/batch.py")
+        module = importlib.util.module_from_spec(module_spec)
+        module_spec.loader.exec_module(module)
+        catalog = json.loads((ROOT / "assets/tencent/catalog.json").read_text())
+        asset = next((a for a in catalog["assets"] if a["id"] == asset_id), None)
+        if asset is None:
+            raise PipelineError("Unknown catalog asset")
+        result = module.run_asset(asset, until, seed)
+        result.pop("_path", None)
+        return result
 
     @server.tool()
     def tencent_normalize(source: str, segmented: str, labels: str, mapping: str, output: str) -> dict:

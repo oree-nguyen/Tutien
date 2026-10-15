@@ -1,0 +1,4052 @@
+{
+  "version": 1,
+  "scope": "All declared visual archetypes/variants plus textual source Geometry constructor audit and legacy GLB files. Repeated bots/scene instances reuse these assets; not one generation per instance. Actual replacement remains unverified until runtime/visual checks.",
+  "sourceHashes": [
+    {
+      "path": "src/data.js",
+      "sha256": "84bf2526aa5b73312febe628c00bc3aa58db8c06e431059b8de95a5dca0f6c48"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "sha256": "fc50c10cc36e3aa876732ee27d6c7799a72c7890fa9d22cd6d9933db712c8779"
+    },
+    {
+      "path": "src/weapons.js",
+      "sha256": "0f140eff4445b8954014ae3068f9a99fdd96b3bfee6d04f0b71f8b62b6d84dc6"
+    },
+    {
+      "path": "src/creature-art.js",
+      "sha256": "c885eb75fdce2ddeaf9eb6e56da59c9e2fd34f27551c89bda7af774c9679fc91"
+    },
+    {
+      "path": "src/scenery.js",
+      "sha256": "dd51e84a7979e4739f0fd407e0f07d9af6e2adf7de6d9c31f2e1072df1d2f479"
+    },
+    {
+      "path": "src/world.js",
+      "sha256": "3b72d2ded5e01d63cede982b3a67bfeb4209c466f84c510a1bd2447defe7c257"
+    },
+    {
+      "path": "src/soul-ring-vfx.js",
+      "sha256": "1cfb6698f737e80b15a0378b305bbf86665d729986e1e96048561961ed9540b1"
+    }
+  ],
+  "counts": {
+    "hero": 48,
+    "weapon": 36,
+    "soul-ring": 12,
+    "bone": 6,
+    "external-bone": 1,
+    "beast": 4,
+    "mutant-beast": 4,
+    "boss": 3,
+    "environment-prop": 29,
+    "terrain": 7,
+    "world-prop": 2,
+    "effect-carrier": 12,
+    "shader-surface": 3
+  },
+  "total": 167,
+  "assets": [
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H01-C0",
+      "category": "hero",
+      "hero": 0,
+      "costume": 0,
+      "name": "Lâm Dật — Thanh Mộc Y",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Thanh Mạch Đằng",
+      "element": "Mộc",
+      "heightMeters": 1.82,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. elegant scholar robes with embroidered spirit vines and lotus, base original outfit, outer clothing #065f46, inner clothing #ecfdf5, embroidered trim #d4af37, hair #132f27, eyes #10B981. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H01-C1",
+      "category": "hero",
+      "hero": 0,
+      "costume": 1,
+      "name": "Lâm Dật — Lữ Khách Sơn Lâm",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Thanh Mạch Đằng",
+      "element": "Mộc",
+      "heightMeters": 1.82,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. elegant scholar robes with embroidered spirit vines and lotus, travel mantle and layered shoulder drape, outer clothing #065f46, inner clothing #ecfdf5, embroidered trim #d4af37, hair #132f27, eyes #10B981. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H01-C2",
+      "category": "hero",
+      "hero": 0,
+      "costume": 2,
+      "name": "Lâm Dật — Mộc Linh Tôn Giả",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Thanh Mạch Đằng",
+      "element": "Mộc",
+      "heightMeters": 1.82,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. elegant scholar robes with embroidered spirit vines and lotus, ceremonial layered chest/shoulder armor and crown details, outer clothing #065f46, inner clothing #ecfdf5, embroidered trim #d4af37, hair #132f27, eyes #10B981. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H01-C3",
+      "category": "hero",
+      "hero": 0,
+      "costume": 3,
+      "name": "Lâm Dật — Xuân Mộc Khai Hoa",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Thanh Mạch Đằng",
+      "element": "Mộc",
+      "heightMeters": 1.82,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. elegant scholar robes with embroidered spirit vines and lotus, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #065f46, inner clothing #ecfdf5, embroidered trim #d4af37, hair #132f27, eyes #10B981. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H01-W0",
+      "category": "weapon",
+      "hero": 0,
+      "skin": 0,
+      "name": "Mộc Tinh Trượng — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Mộc Tinh Trượng",
+        "weaponType": "wood-dragon-lotus-staff",
+        "metricLength": 1.95,
+        "handedness": "right",
+        "woodStrands": 3,
+        "petalCount": 12
+      },
+      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":1.95,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H01-W1",
+      "category": "weapon",
+      "hero": 0,
+      "skin": 1,
+      "name": "Mộc Tinh Trượng — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Mộc Tinh Trượng",
+        "weaponType": "wood-dragon-lotus-staff",
+        "metricLength": 1.95,
+        "handedness": "right",
+        "woodStrands": 3,
+        "petalCount": 12
+      },
+      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":1.95,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H01-W2",
+      "category": "weapon",
+      "hero": 0,
+      "skin": 2,
+      "name": "Mộc Tinh Trượng — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Mộc Tinh Trượng",
+        "weaponType": "wood-dragon-lotus-staff",
+        "metricLength": 1.95,
+        "handedness": "right",
+        "woodStrands": 3,
+        "petalCount": 12
+      },
+      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":1.95,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H02-C0",
+      "category": "hero",
+      "hero": 1,
+      "costume": 0,
+      "name": "Hàn Trạch — Sơn Thiết Giáp",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Chấn Sơn Chùy",
+      "element": "Thổ",
+      "heightMeters": 1.92,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. powerful mountain warrior with layered angular stone armor, base original outfit, outer clothing #1e293b, inner clothing #473324, embroidered trim #b45309, hair #181d25, eyes #F59E0B. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H02-C1",
+      "category": "hero",
+      "hero": 1,
+      "costume": 1,
+      "name": "Hàn Trạch — Chiến Binh Nham Thành",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Chấn Sơn Chùy",
+      "element": "Thổ",
+      "heightMeters": 1.92,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. powerful mountain warrior with layered angular stone armor, travel mantle and layered shoulder drape, outer clothing #1e293b, inner clothing #473324, embroidered trim #b45309, hair #181d25, eyes #F59E0B. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H02-C2",
+      "category": "hero",
+      "hero": 1,
+      "costume": 2,
+      "name": "Hàn Trạch — Chấn Nhạc Chiến Thần",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Chấn Sơn Chùy",
+      "element": "Thổ",
+      "heightMeters": 1.92,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. powerful mountain warrior with layered angular stone armor, ceremonial layered chest/shoulder armor and crown details, outer clothing #1e293b, inner clothing #473324, embroidered trim #b45309, hair #181d25, eyes #F59E0B. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H02-C3",
+      "category": "hero",
+      "hero": 1,
+      "costume": 3,
+      "name": "Hàn Trạch — Lôi Đình Đại Hội",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Chấn Sơn Chùy",
+      "element": "Thổ",
+      "heightMeters": 1.92,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. powerful mountain warrior with layered angular stone armor, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #1e293b, inner clothing #473324, embroidered trim #b45309, hair #181d25, eyes #F59E0B. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H02-W0",
+      "category": "weapon",
+      "hero": 1,
+      "skin": 0,
+      "name": "Chấn Nhạc Chùy — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Chấn Nhạc Chùy",
+        "weaponType": "octagonal-stone-hammer",
+        "metricLength": 1.85,
+        "handedness": "both",
+        "headSides": 8
+      },
+      "prompt": "Chấn Nhạc Chùy, octagonal stone hammer, one isolated artifact, {\"name\":\"Chấn Nhạc Chùy\",\"weaponType\":\"octagonal-stone-hammer\",\"metricLength\":1.85,\"handedness\":\"both\",\"headSides\":8}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H02-W1",
+      "category": "weapon",
+      "hero": 1,
+      "skin": 1,
+      "name": "Chấn Nhạc Chùy — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Chấn Nhạc Chùy",
+        "weaponType": "octagonal-stone-hammer",
+        "metricLength": 1.85,
+        "handedness": "both",
+        "headSides": 8
+      },
+      "prompt": "Chấn Nhạc Chùy, octagonal stone hammer, one isolated artifact, {\"name\":\"Chấn Nhạc Chùy\",\"weaponType\":\"octagonal-stone-hammer\",\"metricLength\":1.85,\"handedness\":\"both\",\"headSides\":8}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H02-W2",
+      "category": "weapon",
+      "hero": 1,
+      "skin": 2,
+      "name": "Chấn Nhạc Chùy — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Chấn Nhạc Chùy",
+        "weaponType": "octagonal-stone-hammer",
+        "metricLength": 1.85,
+        "handedness": "both",
+        "headSides": 8
+      },
+      "prompt": "Chấn Nhạc Chùy, octagonal stone hammer, one isolated artifact, {\"name\":\"Chấn Nhạc Chùy\",\"weaponType\":\"octagonal-stone-hammer\",\"metricLength\":1.85,\"handedness\":\"both\",\"headSides\":8}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H03-C0",
+      "category": "hero",
+      "hero": 2,
+      "costume": 0,
+      "name": "Ly Sa — Phong Ảnh Y",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Phong Ảnh Hồ",
+      "element": "Phong",
+      "heightMeters": 1.68,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. agile female fox assassin with crescent details and fox-tail accessories, base original outfit, outer clothing #3b0764, inner clothing #0f172a, embroidered trim #e2e8f0, hair #d9d3ed, eyes #C084FC. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H03-C1",
+      "category": "hero",
+      "hero": 2,
+      "costume": 1,
+      "name": "Ly Sa — Dạ Hành Hồ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Phong Ảnh Hồ",
+      "element": "Phong",
+      "heightMeters": 1.68,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. agile female fox assassin with crescent details and fox-tail accessories, travel mantle and layered shoulder drape, outer clothing #3b0764, inner clothing #0f172a, embroidered trim #e2e8f0, hair #d9d3ed, eyes #C084FC. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H03-C2",
+      "category": "hero",
+      "hero": 2,
+      "costume": 2,
+      "name": "Ly Sa — Thiên Hồ Huyễn Vũ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Phong Ảnh Hồ",
+      "element": "Phong",
+      "heightMeters": 1.68,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. agile female fox assassin with crescent details and fox-tail accessories, ceremonial layered chest/shoulder armor and crown details, outer clothing #3b0764, inner clothing #0f172a, embroidered trim #e2e8f0, hair #d9d3ed, eyes #C084FC. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H03-C3",
+      "category": "hero",
+      "hero": 2,
+      "costume": 3,
+      "name": "Ly Sa — Dạ Hội Ngân Nguyệt",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Phong Ảnh Hồ",
+      "element": "Phong",
+      "heightMeters": 1.68,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. agile female fox assassin with crescent details and fox-tail accessories, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #3b0764, inner clothing #0f172a, embroidered trim #e2e8f0, hair #d9d3ed, eyes #C084FC. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H03-W0",
+      "category": "weapon",
+      "hero": 2,
+      "skin": 0,
+      "name": "Song Ảnh Nhận — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Song Ảnh Nhận",
+        "weaponType": "reverse-crescent-blades",
+        "metricLength": 0.65,
+        "handedness": "paired",
+        "bladeCount": 2
+      },
+      "prompt": "Song Ảnh Nhận, reverse crescent blades, matching pair displayed separately with clear gap, {\"name\":\"Song Ảnh Nhận\",\"weaponType\":\"reverse-crescent-blades\",\"metricLength\":0.65,\"handedness\":\"paired\",\"bladeCount\":2}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H03-W1",
+      "category": "weapon",
+      "hero": 2,
+      "skin": 1,
+      "name": "Song Ảnh Nhận — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Song Ảnh Nhận",
+        "weaponType": "reverse-crescent-blades",
+        "metricLength": 0.65,
+        "handedness": "paired",
+        "bladeCount": 2
+      },
+      "prompt": "Song Ảnh Nhận, reverse crescent blades, matching pair displayed separately with clear gap, {\"name\":\"Song Ảnh Nhận\",\"weaponType\":\"reverse-crescent-blades\",\"metricLength\":0.65,\"handedness\":\"paired\",\"bladeCount\":2}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H03-W2",
+      "category": "weapon",
+      "hero": 2,
+      "skin": 2,
+      "name": "Song Ảnh Nhận — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Song Ảnh Nhận",
+        "weaponType": "reverse-crescent-blades",
+        "metricLength": 0.65,
+        "handedness": "paired",
+        "bladeCount": 2
+      },
+      "prompt": "Song Ảnh Nhận, reverse crescent blades, matching pair displayed separately with clear gap, {\"name\":\"Song Ảnh Nhận\",\"weaponType\":\"reverse-crescent-blades\",\"metricLength\":0.65,\"handedness\":\"paired\",\"bladeCount\":2}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H04-C0",
+      "category": "hero",
+      "hero": 3,
+      "costume": 0,
+      "name": "Kỳ Vân — Lôi Vũ Phục",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Lôi Vũ Điểu",
+      "element": "Lôi",
+      "heightMeters": 1.83,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male lightning cultivator with embroidered cranes and layered feather robes, base original outfit, outer clothing #f8fafc, inner clothing #0284c7, embroidered trim #e4bf69, hair #d2e8f2, eyes #38BDF8. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H04-C1",
+      "category": "hero",
+      "hero": 3,
+      "costume": 1,
+      "name": "Kỳ Vân — Lam Vũ Đạo Nhân",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Lôi Vũ Điểu",
+      "element": "Lôi",
+      "heightMeters": 1.83,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male lightning cultivator with embroidered cranes and layered feather robes, travel mantle and layered shoulder drape, outer clothing #f8fafc, inner clothing #0284c7, embroidered trim #e4bf69, hair #d2e8f2, eyes #38BDF8. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H04-C2",
+      "category": "hero",
+      "hero": 3,
+      "costume": 2,
+      "name": "Kỳ Vân — Cửu Thiên Lôi Quân",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Lôi Vũ Điểu",
+      "element": "Lôi",
+      "heightMeters": 1.83,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male lightning cultivator with embroidered cranes and layered feather robes, ceremonial layered chest/shoulder armor and crown details, outer clothing #f8fafc, inner clothing #0284c7, embroidered trim #e4bf69, hair #d2e8f2, eyes #38BDF8. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H04-C3",
+      "category": "hero",
+      "hero": 3,
+      "costume": 3,
+      "name": "Kỳ Vân — Lôi Vân Tết Hội",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Lôi Vũ Điểu",
+      "element": "Lôi",
+      "heightMeters": 1.83,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male lightning cultivator with embroidered cranes and layered feather robes, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #f8fafc, inner clothing #0284c7, embroidered trim #e4bf69, hair #d2e8f2, eyes #38BDF8. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H04-W0",
+      "category": "weapon",
+      "hero": 3,
+      "skin": 0,
+      "name": "Lôi Vũ Phiến — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Lôi Vũ Phiến",
+        "weaponType": "nine-feather-lightning-fan",
+        "metricLength": 0.9,
+        "handedness": "right",
+        "featherCount": 9,
+        "fanAngleDegrees": 120
+      },
+      "prompt": "Lôi Vũ Phiến, nine feather lightning fan, one isolated artifact, {\"name\":\"Lôi Vũ Phiến\",\"weaponType\":\"nine-feather-lightning-fan\",\"metricLength\":0.9,\"handedness\":\"right\",\"featherCount\":9,\"fanAngleDegrees\":120}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H04-W1",
+      "category": "weapon",
+      "hero": 3,
+      "skin": 1,
+      "name": "Lôi Vũ Phiến — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Lôi Vũ Phiến",
+        "weaponType": "nine-feather-lightning-fan",
+        "metricLength": 0.9,
+        "handedness": "right",
+        "featherCount": 9,
+        "fanAngleDegrees": 120
+      },
+      "prompt": "Lôi Vũ Phiến, nine feather lightning fan, one isolated artifact, {\"name\":\"Lôi Vũ Phiến\",\"weaponType\":\"nine-feather-lightning-fan\",\"metricLength\":0.9,\"handedness\":\"right\",\"featherCount\":9,\"fanAngleDegrees\":120}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H04-W2",
+      "category": "weapon",
+      "hero": 3,
+      "skin": 2,
+      "name": "Lôi Vũ Phiến — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Lôi Vũ Phiến",
+        "weaponType": "nine-feather-lightning-fan",
+        "metricLength": 0.9,
+        "handedness": "right",
+        "featherCount": 9,
+        "fanAngleDegrees": 120
+      },
+      "prompt": "Lôi Vũ Phiến, nine feather lightning fan, one isolated artifact, {\"name\":\"Lôi Vũ Phiến\",\"weaponType\":\"nine-feather-lightning-fan\",\"metricLength\":0.9,\"handedness\":\"right\",\"featherCount\":9,\"fanAngleDegrees\":120}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H05-C0",
+      "category": "hero",
+      "hero": 4,
+      "costume": 0,
+      "name": "Tịch Dao — Linh Kính Y",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Linh Kính",
+      "element": "Quang",
+      "heightMeters": 1.69,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. serene female moon cultivator with cloud and crane silk embroidery, base original outfit, outer clothing #eff6ff, inner clothing #bae6fd, embroidered trim #facc15, hair #131929, eyes #FDE047. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H05-C1",
+      "category": "hero",
+      "hero": 4,
+      "costume": 1,
+      "name": "Tịch Dao — Nguyệt Bạch Phục",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Linh Kính",
+      "element": "Quang",
+      "heightMeters": 1.69,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. serene female moon cultivator with cloud and crane silk embroidery, travel mantle and layered shoulder drape, outer clothing #eff6ff, inner clothing #bae6fd, embroidered trim #facc15, hair #131929, eyes #FDE047. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H05-C2",
+      "category": "hero",
+      "hero": 4,
+      "costume": 2,
+      "name": "Tịch Dao — Thiên Quang Thánh Nữ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Linh Kính",
+      "element": "Quang",
+      "heightMeters": 1.69,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. serene female moon cultivator with cloud and crane silk embroidery, ceremonial layered chest/shoulder armor and crown details, outer clothing #eff6ff, inner clothing #bae6fd, embroidered trim #facc15, hair #131929, eyes #FDE047. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H05-C3",
+      "category": "hero",
+      "hero": 4,
+      "costume": 3,
+      "name": "Tịch Dao — Hoa Đăng Nguyệt Dạ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Linh Kính",
+      "element": "Quang",
+      "heightMeters": 1.69,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. serene female moon cultivator with cloud and crane silk embroidery, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #eff6ff, inner clothing #bae6fd, embroidered trim #facc15, hair #131929, eyes #FDE047. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H05-W0",
+      "category": "weapon",
+      "hero": 4,
+      "skin": 0,
+      "name": "Nguyệt Linh Kính — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Nguyệt Linh Kính",
+        "weaponType": "floating-moon-mirror",
+        "metricLength": 0.65,
+        "handedness": "floating",
+        "intrinsicDiameter": 0.65,
+        "transmission": 0.85,
+        "iridescence": 1
+      },
+      "prompt": "Nguyệt Linh Kính, floating moon mirror, one isolated artifact, {\"name\":\"Nguyệt Linh Kính\",\"weaponType\":\"floating-moon-mirror\",\"metricLength\":0.65,\"handedness\":\"floating\",\"intrinsicDiameter\":0.65,\"transmission\":0.85,\"iridescence\":1}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H05-W1",
+      "category": "weapon",
+      "hero": 4,
+      "skin": 1,
+      "name": "Nguyệt Linh Kính — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Nguyệt Linh Kính",
+        "weaponType": "floating-moon-mirror",
+        "metricLength": 0.65,
+        "handedness": "floating",
+        "intrinsicDiameter": 0.65,
+        "transmission": 0.85,
+        "iridescence": 1
+      },
+      "prompt": "Nguyệt Linh Kính, floating moon mirror, one isolated artifact, {\"name\":\"Nguyệt Linh Kính\",\"weaponType\":\"floating-moon-mirror\",\"metricLength\":0.65,\"handedness\":\"floating\",\"intrinsicDiameter\":0.65,\"transmission\":0.85,\"iridescence\":1}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H05-W2",
+      "category": "weapon",
+      "hero": 4,
+      "skin": 2,
+      "name": "Nguyệt Linh Kính — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Nguyệt Linh Kính",
+        "weaponType": "floating-moon-mirror",
+        "metricLength": 0.65,
+        "handedness": "floating",
+        "intrinsicDiameter": 0.65,
+        "transmission": 0.85,
+        "iridescence": 1
+      },
+      "prompt": "Nguyệt Linh Kính, floating moon mirror, one isolated artifact, {\"name\":\"Nguyệt Linh Kính\",\"weaponType\":\"floating-moon-mirror\",\"metricLength\":0.65,\"handedness\":\"floating\",\"intrinsicDiameter\":0.65,\"transmission\":0.85,\"iridescence\":1}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H06-C0",
+      "category": "hero",
+      "hero": 5,
+      "costume": 0,
+      "name": "Đỗ Kình — Huyền Giáp Phục",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Huyền Giáp Quy",
+      "element": "Thủy",
+      "heightMeters": 1.98,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. massive male guardian with hexagonal turtle-shell armor, base original outfit, outer clothing #0f3d3e, inner clothing #164e50, embroidered trim #ca8a04, hair #142125, eyes #0EA5E9. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H06-C1",
+      "category": "hero",
+      "hero": 5,
+      "costume": 1,
+      "name": "Đỗ Kình — Sơn Thành Thủ Vệ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Huyền Giáp Quy",
+      "element": "Thủy",
+      "heightMeters": 1.98,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. massive male guardian with hexagonal turtle-shell armor, travel mantle and layered shoulder drape, outer clothing #0f3d3e, inner clothing #164e50, embroidered trim #ca8a04, hair #142125, eyes #0EA5E9. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H06-C2",
+      "category": "hero",
+      "hero": 5,
+      "costume": 2,
+      "name": "Đỗ Kình — Bất Động Thiên Vương",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Huyền Giáp Quy",
+      "element": "Thủy",
+      "heightMeters": 1.98,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. massive male guardian with hexagonal turtle-shell armor, ceremonial layered chest/shoulder armor and crown details, outer clothing #0f3d3e, inner clothing #164e50, embroidered trim #ca8a04, hair #142125, eyes #0EA5E9. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H06-C3",
+      "category": "hero",
+      "hero": 5,
+      "costume": 3,
+      "name": "Đỗ Kình — Hộ Thành Đại Lễ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Huyền Giáp Quy",
+      "element": "Thủy",
+      "heightMeters": 1.98,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. massive male guardian with hexagonal turtle-shell armor, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #0f3d3e, inner clothing #164e50, embroidered trim #ca8a04, hair #142125, eyes #0EA5E9. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H06-W0",
+      "category": "weapon",
+      "hero": 5,
+      "skin": 0,
+      "name": "Huyền Quy Thuẫn — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Huyền Quy Thuẫn",
+        "weaponType": "hexagonal-turtle-shield",
+        "metricLength": 1.35,
+        "handedness": "left",
+        "shieldSides": 6
+      },
+      "prompt": "Huyền Quy Thuẫn, hexagonal turtle shield, one isolated artifact, {\"name\":\"Huyền Quy Thuẫn\",\"weaponType\":\"hexagonal-turtle-shield\",\"metricLength\":1.35,\"handedness\":\"left\",\"shieldSides\":6}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H06-W1",
+      "category": "weapon",
+      "hero": 5,
+      "skin": 1,
+      "name": "Huyền Quy Thuẫn — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Huyền Quy Thuẫn",
+        "weaponType": "hexagonal-turtle-shield",
+        "metricLength": 1.35,
+        "handedness": "left",
+        "shieldSides": 6
+      },
+      "prompt": "Huyền Quy Thuẫn, hexagonal turtle shield, one isolated artifact, {\"name\":\"Huyền Quy Thuẫn\",\"weaponType\":\"hexagonal-turtle-shield\",\"metricLength\":1.35,\"handedness\":\"left\",\"shieldSides\":6}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H06-W2",
+      "category": "weapon",
+      "hero": 5,
+      "skin": 2,
+      "name": "Huyền Quy Thuẫn — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Huyền Quy Thuẫn",
+        "weaponType": "hexagonal-turtle-shield",
+        "metricLength": 1.35,
+        "handedness": "left",
+        "shieldSides": 6
+      },
+      "prompt": "Huyền Quy Thuẫn, hexagonal turtle shield, one isolated artifact, {\"name\":\"Huyền Quy Thuẫn\",\"weaponType\":\"hexagonal-turtle-shield\",\"metricLength\":1.35,\"handedness\":\"left\",\"shieldSides\":6}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H07-C0",
+      "category": "hero",
+      "hero": 6,
+      "costume": 0,
+      "name": "Vân Chước — Hỏa Liên Y",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Xích Diệm Liên",
+      "element": "Hỏa",
+      "heightMeters": 1.82,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male flame cultivator with red lotus petal layered robes, base original outfit, outer clothing #7f1d1d, inner clothing #25171d, embroidered trim #f59e0b, hair #b82f20, eyes #EF4444. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H07-C1",
+      "category": "hero",
+      "hero": 6,
+      "costume": 1,
+      "name": "Vân Chước — Diệm Hoa Chiến Bào",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Xích Diệm Liên",
+      "element": "Hỏa",
+      "heightMeters": 1.82,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male flame cultivator with red lotus petal layered robes, travel mantle and layered shoulder drape, outer clothing #7f1d1d, inner clothing #25171d, embroidered trim #f59e0b, hair #b82f20, eyes #EF4444. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H07-C2",
+      "category": "hero",
+      "hero": 6,
+      "costume": 2,
+      "name": "Vân Chước — Xích Liên Đế Quân",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Xích Diệm Liên",
+      "element": "Hỏa",
+      "heightMeters": 1.82,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male flame cultivator with red lotus petal layered robes, ceremonial layered chest/shoulder armor and crown details, outer clothing #7f1d1d, inner clothing #25171d, embroidered trim #f59e0b, hair #b82f20, eyes #EF4444. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H07-C3",
+      "category": "hero",
+      "hero": 6,
+      "costume": 3,
+      "name": "Vân Chước — Hồng Liên Dạ Hội",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Xích Diệm Liên",
+      "element": "Hỏa",
+      "heightMeters": 1.82,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male flame cultivator with red lotus petal layered robes, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #7f1d1d, inner clothing #25171d, embroidered trim #f59e0b, hair #b82f20, eyes #EF4444. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H07-W0",
+      "category": "weapon",
+      "hero": 6,
+      "skin": 0,
+      "name": "Diệm Liên Luân — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Diệm Liên Luân",
+        "weaponType": "eight-petal-fire-wheel",
+        "metricLength": 0.86,
+        "handedness": "floating",
+        "petalCount": 8
+      },
+      "prompt": "Diệm Liên Luân, eight petal fire wheel, one isolated artifact, {\"name\":\"Diệm Liên Luân\",\"weaponType\":\"eight-petal-fire-wheel\",\"metricLength\":0.86,\"handedness\":\"floating\",\"petalCount\":8}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H07-W1",
+      "category": "weapon",
+      "hero": 6,
+      "skin": 1,
+      "name": "Diệm Liên Luân — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Diệm Liên Luân",
+        "weaponType": "eight-petal-fire-wheel",
+        "metricLength": 0.86,
+        "handedness": "floating",
+        "petalCount": 8
+      },
+      "prompt": "Diệm Liên Luân, eight petal fire wheel, one isolated artifact, {\"name\":\"Diệm Liên Luân\",\"weaponType\":\"eight-petal-fire-wheel\",\"metricLength\":0.86,\"handedness\":\"floating\",\"petalCount\":8}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H07-W2",
+      "category": "weapon",
+      "hero": 6,
+      "skin": 2,
+      "name": "Diệm Liên Luân — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Diệm Liên Luân",
+        "weaponType": "eight-petal-fire-wheel",
+        "metricLength": 0.86,
+        "handedness": "floating",
+        "petalCount": 8
+      },
+      "prompt": "Diệm Liên Luân, eight petal fire wheel, one isolated artifact, {\"name\":\"Diệm Liên Luân\",\"weaponType\":\"eight-petal-fire-wheel\",\"metricLength\":0.86,\"handedness\":\"floating\",\"petalCount\":8}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H08-C0",
+      "category": "hero",
+      "hero": 7,
+      "costume": 0,
+      "name": "Sở Băng Nghi — Tuyết Điệp Y",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Sương Linh Điệp",
+      "element": "Băng",
+      "heightMeters": 1.7,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female ice cultivator with crystal butterfly details and long silver-white hair, base original outfit, outer clothing #ecfeff, inner clothing #1e3a8a, embroidered trim #a5e9f6, hair #e0f5fb, eyes #67E8F9. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H08-C1",
+      "category": "hero",
+      "hero": 7,
+      "costume": 1,
+      "name": "Sở Băng Nghi — Băng Tinh Vũ Phục",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Sương Linh Điệp",
+      "element": "Băng",
+      "heightMeters": 1.7,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female ice cultivator with crystal butterfly details and long silver-white hair, travel mantle and layered shoulder drape, outer clothing #ecfeff, inner clothing #1e3a8a, embroidered trim #a5e9f6, hair #e0f5fb, eyes #67E8F9. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H08-C2",
+      "category": "hero",
+      "hero": 7,
+      "costume": 2,
+      "name": "Sở Băng Nghi — Tuyết Giới Nữ Hoàng",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Sương Linh Điệp",
+      "element": "Băng",
+      "heightMeters": 1.7,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female ice cultivator with crystal butterfly details and long silver-white hair, ceremonial layered chest/shoulder armor and crown details, outer clothing #ecfeff, inner clothing #1e3a8a, embroidered trim #a5e9f6, hair #e0f5fb, eyes #67E8F9. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H08-C3",
+      "category": "hero",
+      "hero": 7,
+      "costume": 3,
+      "name": "Sở Băng Nghi — Đông Chí Tuyết Hoa",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Sương Linh Điệp",
+      "element": "Băng",
+      "heightMeters": 1.7,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female ice cultivator with crystal butterfly details and long silver-white hair, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #ecfeff, inner clothing #1e3a8a, embroidered trim #a5e9f6, hair #e0f5fb, eyes #67E8F9. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H08-W0",
+      "category": "weapon",
+      "hero": 7,
+      "skin": 0,
+      "name": "Pháp Trượng Băng Điệp — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": "Băng Điệp Trâm",
+      "weapon": {
+        "name": "Pháp Trượng Băng Điệp",
+        "weaponType": "articulated-butterfly-staff",
+        "metricLength": 1.65,
+        "handedness": "right",
+        "wingCount": 4
+      },
+      "prompt": "Pháp Trượng Băng Điệp, articulated butterfly staff, one isolated artifact, {\"name\":\"Pháp Trượng Băng Điệp\",\"weaponType\":\"articulated-butterfly-staff\",\"metricLength\":1.65,\"handedness\":\"right\",\"wingCount\":4}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H08-W1",
+      "category": "weapon",
+      "hero": 7,
+      "skin": 1,
+      "name": "Pháp Trượng Băng Điệp — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": "Băng Điệp Trâm",
+      "weapon": {
+        "name": "Pháp Trượng Băng Điệp",
+        "weaponType": "articulated-butterfly-staff",
+        "metricLength": 1.65,
+        "handedness": "right",
+        "wingCount": 4
+      },
+      "prompt": "Pháp Trượng Băng Điệp, articulated butterfly staff, one isolated artifact, {\"name\":\"Pháp Trượng Băng Điệp\",\"weaponType\":\"articulated-butterfly-staff\",\"metricLength\":1.65,\"handedness\":\"right\",\"wingCount\":4}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H08-W2",
+      "category": "weapon",
+      "hero": 7,
+      "skin": 2,
+      "name": "Pháp Trượng Băng Điệp — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": "Băng Điệp Trâm",
+      "weapon": {
+        "name": "Pháp Trượng Băng Điệp",
+        "weaponType": "articulated-butterfly-staff",
+        "metricLength": 1.65,
+        "handedness": "right",
+        "wingCount": 4
+      },
+      "prompt": "Pháp Trượng Băng Điệp, articulated butterfly staff, one isolated artifact, {\"name\":\"Pháp Trượng Băng Điệp\",\"weaponType\":\"articulated-butterfly-staff\",\"metricLength\":1.65,\"handedness\":\"right\",\"wingCount\":4}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H09-C0",
+      "category": "hero",
+      "hero": 8,
+      "costume": 0,
+      "name": "Mặc Tinh — Nguyệt Ảnh Phục",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Ảnh Nguyệt Cung",
+      "element": "Ám",
+      "heightMeters": 1.7,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female moon archer with a short layered mantle and star embroidery, base original outfit, outer clothing #1e1b4b, inner clothing #3b82f6, embroidered trim #cbd5e1, hair #122139, eyes #818CF8. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H09-C1",
+      "category": "hero",
+      "hero": 8,
+      "costume": 1,
+      "name": "Mặc Tinh — Dạ Nguyệt Xạ Thủ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Ảnh Nguyệt Cung",
+      "element": "Ám",
+      "heightMeters": 1.7,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female moon archer with a short layered mantle and star embroidery, travel mantle and layered shoulder drape, outer clothing #1e1b4b, inner clothing #3b82f6, embroidered trim #cbd5e1, hair #122139, eyes #818CF8. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H09-C2",
+      "category": "hero",
+      "hero": 8,
+      "costume": 2,
+      "name": "Mặc Tinh — Cửu Tinh Thiên Xạ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Ảnh Nguyệt Cung",
+      "element": "Ám",
+      "heightMeters": 1.7,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female moon archer with a short layered mantle and star embroidery, ceremonial layered chest/shoulder armor and crown details, outer clothing #1e1b4b, inner clothing #3b82f6, embroidered trim #cbd5e1, hair #122139, eyes #818CF8. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H09-C3",
+      "category": "hero",
+      "hero": 8,
+      "costume": 3,
+      "name": "Mặc Tinh — Tinh Hà Lễ Hội",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Ảnh Nguyệt Cung",
+      "element": "Ám",
+      "heightMeters": 1.7,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female moon archer with a short layered mantle and star embroidery, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #1e1b4b, inner clothing #3b82f6, embroidered trim #cbd5e1, hair #122139, eyes #818CF8. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H09-W0",
+      "category": "weapon",
+      "hero": 8,
+      "skin": 0,
+      "name": "Huyền Nguyệt Cung — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Huyền Nguyệt Cung",
+        "weaponType": "hawk-crescent-energy-bow",
+        "metricLength": 1.55,
+        "handedness": "left",
+        "stringCount": 1
+      },
+      "prompt": "Huyền Nguyệt Cung, hawk crescent energy bow, one isolated artifact, {\"name\":\"Huyền Nguyệt Cung\",\"weaponType\":\"hawk-crescent-energy-bow\",\"metricLength\":1.55,\"handedness\":\"left\",\"stringCount\":1}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H09-W1",
+      "category": "weapon",
+      "hero": 8,
+      "skin": 1,
+      "name": "Huyền Nguyệt Cung — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Huyền Nguyệt Cung",
+        "weaponType": "hawk-crescent-energy-bow",
+        "metricLength": 1.55,
+        "handedness": "left",
+        "stringCount": 1
+      },
+      "prompt": "Huyền Nguyệt Cung, hawk crescent energy bow, one isolated artifact, {\"name\":\"Huyền Nguyệt Cung\",\"weaponType\":\"hawk-crescent-energy-bow\",\"metricLength\":1.55,\"handedness\":\"left\",\"stringCount\":1}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H09-W2",
+      "category": "weapon",
+      "hero": 8,
+      "skin": 2,
+      "name": "Huyền Nguyệt Cung — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Huyền Nguyệt Cung",
+        "weaponType": "hawk-crescent-energy-bow",
+        "metricLength": 1.55,
+        "handedness": "left",
+        "stringCount": 1
+      },
+      "prompt": "Huyền Nguyệt Cung, hawk crescent energy bow, one isolated artifact, {\"name\":\"Huyền Nguyệt Cung\",\"weaponType\":\"hawk-crescent-energy-bow\",\"metricLength\":1.55,\"handedness\":\"left\",\"stringCount\":1}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H10-C0",
+      "category": "hero",
+      "hero": 9,
+      "costume": 0,
+      "name": "Thiên Lạc — Kim Hổ Chiến Phục",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Kim Giáp Hổ",
+      "element": "Kim",
+      "heightMeters": 1.85,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male armored tiger warrior with tiger-head relief armor, base original outfit, outer clothing #f1f5f9, inner clothing #756039, embroidered trim #eab308, hair #9b732d, eyes #FBBF24. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H10-C1",
+      "category": "hero",
+      "hero": 9,
+      "costume": 1,
+      "name": "Thiên Lạc — Sơn Lâm Chiến Giáp",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Kim Giáp Hổ",
+      "element": "Kim",
+      "heightMeters": 1.85,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male armored tiger warrior with tiger-head relief armor, travel mantle and layered shoulder drape, outer clothing #f1f5f9, inner clothing #756039, embroidered trim #eab308, hair #9b732d, eyes #FBBF24. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H10-C2",
+      "category": "hero",
+      "hero": 9,
+      "costume": 2,
+      "name": "Thiên Lạc — Kim Hổ Võ Vương",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Kim Giáp Hổ",
+      "element": "Kim",
+      "heightMeters": 1.85,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male armored tiger warrior with tiger-head relief armor, ceremonial layered chest/shoulder armor and crown details, outer clothing #f1f5f9, inner clothing #756039, embroidered trim #eab308, hair #9b732d, eyes #FBBF24. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H10-C3",
+      "category": "hero",
+      "hero": 9,
+      "costume": 3,
+      "name": "Thiên Lạc — Mãnh Hổ Xuân Hội",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Kim Giáp Hổ",
+      "element": "Kim",
+      "heightMeters": 1.85,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male armored tiger warrior with tiger-head relief armor, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #f1f5f9, inner clothing #756039, embroidered trim #eab308, hair #9b732d, eyes #FBBF24. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H10-W0",
+      "category": "weapon",
+      "hero": 9,
+      "skin": 0,
+      "name": "Kim Hổ Trảo — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Kim Hổ Trảo",
+        "weaponType": "four-claw-tiger-gauntlets",
+        "metricLength": 0.69,
+        "handedness": "paired",
+        "clawsPerHand": 4,
+        "clawLength": 0.45
+      },
+      "prompt": "Kim Hổ Trảo, four claw tiger gauntlets, matching pair displayed separately with clear gap, {\"name\":\"Kim Hổ Trảo\",\"weaponType\":\"four-claw-tiger-gauntlets\",\"metricLength\":0.69,\"handedness\":\"paired\",\"clawsPerHand\":4,\"clawLength\":0.45}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H10-W1",
+      "category": "weapon",
+      "hero": 9,
+      "skin": 1,
+      "name": "Kim Hổ Trảo — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Kim Hổ Trảo",
+        "weaponType": "four-claw-tiger-gauntlets",
+        "metricLength": 0.69,
+        "handedness": "paired",
+        "clawsPerHand": 4,
+        "clawLength": 0.45
+      },
+      "prompt": "Kim Hổ Trảo, four claw tiger gauntlets, matching pair displayed separately with clear gap, {\"name\":\"Kim Hổ Trảo\",\"weaponType\":\"four-claw-tiger-gauntlets\",\"metricLength\":0.69,\"handedness\":\"paired\",\"clawsPerHand\":4,\"clawLength\":0.45}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H10-W2",
+      "category": "weapon",
+      "hero": 9,
+      "skin": 2,
+      "name": "Kim Hổ Trảo — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Kim Hổ Trảo",
+        "weaponType": "four-claw-tiger-gauntlets",
+        "metricLength": 0.69,
+        "handedness": "paired",
+        "clawsPerHand": 4,
+        "clawLength": 0.45
+      },
+      "prompt": "Kim Hổ Trảo, four claw tiger gauntlets, matching pair displayed separately with clear gap, {\"name\":\"Kim Hổ Trảo\",\"weaponType\":\"four-claw-tiger-gauntlets\",\"metricLength\":0.69,\"handedness\":\"paired\",\"clawsPerHand\":4,\"clawLength\":0.45}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H11-C0",
+      "category": "hero",
+      "hero": 10,
+      "costume": 0,
+      "name": "Ninh Từ — Thanh Âm Y",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Ngọc Đàn Cầm",
+      "element": "Âm Luật",
+      "heightMeters": 1.67,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female celestial musician with orchid and cloud-embroidered silk robes, base original outfit, outer clothing #d1fae5, inner clothing #f8fffd, embroidered trim #fdba74, hair #172b2a, eyes #34D399. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H11-C1",
+      "category": "hero",
+      "hero": 10,
+      "costume": 1,
+      "name": "Ninh Từ — Ngọc Cầm Nhã Phục",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Ngọc Đàn Cầm",
+      "element": "Âm Luật",
+      "heightMeters": 1.67,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female celestial musician with orchid and cloud-embroidered silk robes, travel mantle and layered shoulder drape, outer clothing #d1fae5, inner clothing #f8fffd, embroidered trim #fdba74, hair #172b2a, eyes #34D399. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H11-C2",
+      "category": "hero",
+      "hero": 10,
+      "costume": 2,
+      "name": "Ninh Từ — Cửu Âm Thiên Nữ",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Ngọc Đàn Cầm",
+      "element": "Âm Luật",
+      "heightMeters": 1.67,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female celestial musician with orchid and cloud-embroidered silk robes, ceremonial layered chest/shoulder armor and crown details, outer clothing #d1fae5, inner clothing #f8fffd, embroidered trim #fdba74, hair #172b2a, eyes #34D399. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H11-C3",
+      "category": "hero",
+      "hero": 10,
+      "costume": 3,
+      "name": "Ninh Từ — Nguyệt Cầm Hoa Hội",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Ngọc Đàn Cầm",
+      "element": "Âm Luật",
+      "heightMeters": 1.67,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult female character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. female celestial musician with orchid and cloud-embroidered silk robes, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #d1fae5, inner clothing #f8fffd, embroidered trim #fdba74, hair #172b2a, eyes #34D399. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H11-W0",
+      "category": "weapon",
+      "hero": 10,
+      "skin": 0,
+      "name": "Thanh Ngọc Cầm — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Thanh Ngọc Cầm",
+        "weaponType": "seven-string-phoenix-guqin",
+        "metricLength": 1.3,
+        "handedness": "floating",
+        "stringCount": 7
+      },
+      "prompt": "Thanh Ngọc Cầm, seven string phoenix guqin, one isolated artifact, {\"name\":\"Thanh Ngọc Cầm\",\"weaponType\":\"seven-string-phoenix-guqin\",\"metricLength\":1.3,\"handedness\":\"floating\",\"stringCount\":7}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H11-W1",
+      "category": "weapon",
+      "hero": 10,
+      "skin": 1,
+      "name": "Thanh Ngọc Cầm — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Thanh Ngọc Cầm",
+        "weaponType": "seven-string-phoenix-guqin",
+        "metricLength": 1.3,
+        "handedness": "floating",
+        "stringCount": 7
+      },
+      "prompt": "Thanh Ngọc Cầm, seven string phoenix guqin, one isolated artifact, {\"name\":\"Thanh Ngọc Cầm\",\"weaponType\":\"seven-string-phoenix-guqin\",\"metricLength\":1.3,\"handedness\":\"floating\",\"stringCount\":7}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H11-W2",
+      "category": "weapon",
+      "hero": 10,
+      "skin": 2,
+      "name": "Thanh Ngọc Cầm — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Thanh Ngọc Cầm",
+        "weaponType": "seven-string-phoenix-guqin",
+        "metricLength": 1.3,
+        "handedness": "floating",
+        "stringCount": 7
+      },
+      "prompt": "Thanh Ngọc Cầm, seven string phoenix guqin, one isolated artifact, {\"name\":\"Thanh Ngọc Cầm\",\"weaponType\":\"seven-string-phoenix-guqin\",\"metricLength\":1.3,\"handedness\":\"floating\",\"stringCount\":7}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H12-C0",
+      "category": "hero",
+      "hero": 11,
+      "costume": 0,
+      "name": "Tạ Uyên — Hư Ảnh Hắc Y",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Hư Không Xà",
+      "element": "Độc",
+      "heightMeters": 1.84,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male void-serpent cultivator with purple snake-scale collar and long robes, base original outfit, outer clothing #2e1065, inner clothing #10141d, embroidered trim #a88ab8, hair #b9a9d4, eyes #A855F7. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H12-C1",
+      "category": "hero",
+      "hero": 11,
+      "costume": 1,
+      "name": "Tạ Uyên — U Minh Lữ Khách",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Hư Không Xà",
+      "element": "Độc",
+      "heightMeters": 1.84,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male void-serpent cultivator with purple snake-scale collar and long robes, travel mantle and layered shoulder drape, outer clothing #2e1065, inner clothing #10141d, embroidered trim #a88ab8, hair #b9a9d4, eyes #A855F7. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H12-C2",
+      "category": "hero",
+      "hero": 11,
+      "costume": 2,
+      "name": "Tạ Uyên — Hư Không Ma Quân",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Hư Không Xà",
+      "element": "Độc",
+      "heightMeters": 1.84,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male void-serpent cultivator with purple snake-scale collar and long robes, ceremonial layered chest/shoulder armor and crown details, outer clothing #2e1065, inner clothing #10141d, embroidered trim #a88ab8, hair #b9a9d4, eyes #A855F7. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H12-C3",
+      "category": "hero",
+      "hero": 11,
+      "costume": 3,
+      "name": "Tạ Uyên — Bóng Đêm Huyền Hội",
+      "source": [
+        "src/data.js:COSTUMES",
+        "src/hero-anatomy.js:HERO_APPEARANCE/buildAnatomy"
+      ],
+      "soul": "Hư Không Xà",
+      "element": "Độc",
+      "heightMeters": 1.84,
+      "assembly": {
+        "body": true,
+        "weaponSeparate": true,
+        "boneSockets": 7,
+        "botReuse": true
+      },
+      "prompt": "Orthographic front view, complete full body adult male character reference, strict A-pose with both empty hands and arms straight diagonally down 35 degrees away from torso, feet apart, both shoes fully visible, no cropping, figure occupies 70 percent of image. male void-serpent cultivator with purple snake-scale collar and long robes, festival outfit with embroidered flowers and small jewel ornaments, outer clothing #2e1065, inner clothing #10141d, embroidered trim #a88ab8, hair #b9a9d4, eyes #A855F7. No weapon, no held prop, no mirror, no gesture, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H12-W0",
+      "category": "weapon",
+      "hero": 11,
+      "skin": 0,
+      "name": "Hư Ảnh Xà Trượng — nguyên bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Hư Ảnh Xà Trượng",
+        "weaponType": "dual-serpent-void-staff",
+        "metricLength": 1.9,
+        "handedness": "right",
+        "serpentCount": 2
+      },
+      "prompt": "Hư Ảnh Xà Trượng, dual serpent void staff, one isolated artifact, {\"name\":\"Hư Ảnh Xà Trượng\",\"weaponType\":\"dual-serpent-void-staff\",\"metricLength\":1.9,\"handedness\":\"right\",\"serpentCount\":2}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H12-W1",
+      "category": "weapon",
+      "hero": 11,
+      "skin": 1,
+      "name": "Hư Ảnh Xà Trượng — Cơ bản",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Hư Ảnh Xà Trượng",
+        "weaponType": "dual-serpent-void-staff",
+        "metricLength": 1.9,
+        "handedness": "right",
+        "serpentCount": 2
+      },
+      "prompt": "Hư Ảnh Xà Trượng, dual serpent void staff, one isolated artifact, {\"name\":\"Hư Ảnh Xà Trượng\",\"weaponType\":\"dual-serpent-void-staff\",\"metricLength\":1.9,\"handedness\":\"right\",\"serpentCount\":2}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "H12-W2",
+      "category": "weapon",
+      "hero": 11,
+      "skin": 2,
+      "name": "Hư Ảnh Xà Trượng — VIP",
+      "source": [
+        "src/weapons.js:SOUL_WEAPON_SPEC/makeTemplate/skinOrnaments",
+        "src/data.js:WEAPONS"
+      ],
+      "sourceNameDifference": null,
+      "weapon": {
+        "name": "Hư Ảnh Xà Trượng",
+        "weaponType": "dual-serpent-void-staff",
+        "metricLength": 1.9,
+        "handedness": "right",
+        "serpentCount": 2
+      },
+      "prompt": "Hư Ảnh Xà Trượng, dual serpent void staff, one isolated artifact, {\"name\":\"Hư Ảnh Xà Trượng\",\"weaponType\":\"dual-serpent-void-staff\",\"metricLength\":1.9,\"handedness\":\"right\",\"serpentCount\":2}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-01",
+      "category": "soul-ring",
+      "name": "Mộc Phược Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 1,
+        "code": "HR-01",
+        "name": "Mộc Phược Hoàn",
+        "slot": 1,
+        "heroes": [
+          0
+        ],
+        "black": false
+      },
+      "prompt": "One complete flat circular soul ring artifact Mộc Phược Hoàn, translucent purple jade with silver luminous ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-02",
+      "category": "soul-ring",
+      "name": "Viêm Đằng Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 2,
+        "code": "HR-02",
+        "name": "Viêm Đằng Hoàn",
+        "slot": 1,
+        "heroes": [
+          0,
+          6
+        ],
+        "black": false
+      },
+      "prompt": "One complete flat circular soul ring artifact Viêm Đằng Hoàn, translucent purple jade with silver luminous ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-03",
+      "category": "soul-ring",
+      "name": "Sinh Mệnh Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 3,
+        "code": "HR-03",
+        "name": "Sinh Mệnh Hoàn",
+        "slot": 2,
+        "heroes": [
+          0,
+          4,
+          10
+        ],
+        "black": false
+      },
+      "prompt": "One complete flat circular soul ring artifact Sinh Mệnh Hoàn, translucent purple jade with silver luminous ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-04",
+      "category": "soul-ring",
+      "name": "Chấn Nhạc Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 4,
+        "code": "HR-04",
+        "name": "Chấn Nhạc Hoàn",
+        "slot": 1,
+        "heroes": [
+          1,
+          9
+        ],
+        "black": false
+      },
+      "prompt": "One complete flat circular soul ring artifact Chấn Nhạc Hoàn, translucent purple jade with silver luminous ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-05",
+      "category": "soul-ring",
+      "name": "Tật Phong Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 5,
+        "code": "HR-05",
+        "name": "Tật Phong Hoàn",
+        "slot": 2,
+        "heroes": [
+          2,
+          8
+        ],
+        "black": false
+      },
+      "prompt": "One complete flat circular soul ring artifact Tật Phong Hoàn, translucent purple jade with silver luminous ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-06",
+      "category": "soul-ring",
+      "name": "Cuồng Lôi Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 6,
+        "code": "HR-06",
+        "name": "Cuồng Lôi Hoàn",
+        "slot": 1,
+        "heroes": [
+          3,
+          6,
+          7,
+          11
+        ],
+        "black": true
+      },
+      "prompt": "One complete flat circular soul ring artifact Cuồng Lôi Hoàn, obsidian black with violet luminous inlaid ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-07",
+      "category": "soul-ring",
+      "name": "Minh Kính Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 7,
+        "code": "HR-07",
+        "name": "Minh Kính Hoàn",
+        "slot": 1,
+        "heroes": [
+          4,
+          10
+        ],
+        "black": false
+      },
+      "prompt": "One complete flat circular soul ring artifact Minh Kính Hoàn, translucent purple jade with silver luminous ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-08",
+      "category": "soul-ring",
+      "name": "Huyền Quy Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 8,
+        "code": "HR-08",
+        "name": "Huyền Quy Hoàn",
+        "slot": 2,
+        "heroes": [
+          5
+        ],
+        "black": true
+      },
+      "prompt": "One complete flat circular soul ring artifact Huyền Quy Hoàn, obsidian black with violet luminous inlaid ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-09",
+      "category": "soul-ring",
+      "name": "Hàn Tuyết Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 9,
+        "code": "HR-09",
+        "name": "Hàn Tuyết Hoàn",
+        "slot": 1,
+        "heroes": [
+          0,
+          7,
+          11
+        ],
+        "black": true
+      },
+      "prompt": "One complete flat circular soul ring artifact Hàn Tuyết Hoàn, obsidian black with violet luminous inlaid ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-10",
+      "category": "soul-ring",
+      "name": "Truy Tinh Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 10,
+        "code": "HR-10",
+        "name": "Truy Tinh Hoàn",
+        "slot": 1,
+        "heroes": [
+          8
+        ],
+        "black": false
+      },
+      "prompt": "One complete flat circular soul ring artifact Truy Tinh Hoàn, translucent purple jade with silver luminous ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-11",
+      "category": "soul-ring",
+      "name": "Hổ Phách Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 11,
+        "code": "HR-11",
+        "name": "Hổ Phách Hoàn",
+        "slot": 2,
+        "heroes": [
+          1,
+          9
+        ],
+        "black": false
+      },
+      "prompt": "One complete flat circular soul ring artifact Hổ Phách Hoàn, translucent purple jade with silver luminous ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HR-12",
+      "category": "soul-ring",
+      "name": "Hư Ảnh Hoàn",
+      "source": [
+        "src/data.js:RINGS",
+        "src/soul-ring-vfx.js:buildSlot"
+      ],
+      "ring": {
+        "id": 12,
+        "code": "HR-12",
+        "name": "Hư Ảnh Hoàn",
+        "slot": 2,
+        "heroes": [
+          8,
+          11
+        ],
+        "black": true
+      },
+      "prompt": "One complete flat circular soul ring artifact Hư Ảnh Hoàn, obsidian black with violet luminous inlaid ancient runes, fine engraved outer and inner bands, open center, intrinsic glow, no person, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HB-01",
+      "category": "bone",
+      "name": "Linh Nhãn Đầu Cốt",
+      "source": [
+        "src/data.js:BONES",
+        "src/simulation.js:createHero/bones"
+      ],
+      "slot": "Đầu",
+      "prompt": "Linh Nhãn Đầu Cốt, jade and gold forehead circlet with spirit-eye gem, separate wearable soul-bone artifact, no person, no mannequin, no body inside, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HB-02",
+      "category": "bone",
+      "name": "Hộ Tâm Thân Cốt",
+      "source": [
+        "src/data.js:BONES",
+        "src/simulation.js:createHero/bones"
+      ],
+      "slot": "Thân",
+      "prompt": "Hộ Tâm Thân Cốt, layered jade heart-protecting chest plate, separate wearable soul-bone artifact, no person, no mannequin, no body inside, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HB-03",
+      "category": "bone",
+      "name": "Thiết Tý Tả Cốt",
+      "source": [
+        "src/data.js:BONES",
+        "src/simulation.js:createHero/bones"
+      ],
+      "slot": "Tay trái",
+      "prompt": "Thiết Tý Tả Cốt, one anatomical left armored forearm bracer, separate wearable soul-bone artifact, no person, no mannequin, no body inside, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HB-04",
+      "category": "bone",
+      "name": "Lôi Pháp Hữu Cốt",
+      "source": [
+        "src/data.js:BONES",
+        "src/simulation.js:createHero/bones"
+      ],
+      "slot": "Tay phải",
+      "prompt": "Lôi Pháp Hữu Cốt, one anatomical right lightning rune forearm bracer, separate wearable soul-bone artifact, no person, no mannequin, no body inside, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HB-05",
+      "category": "bone",
+      "name": "Phong Hành Tả Cước",
+      "source": [
+        "src/data.js:BONES",
+        "src/simulation.js:createHero/bones"
+      ],
+      "slot": "Chân trái",
+      "prompt": "Phong Hành Tả Cước, one anatomical left wind rune greave, separate wearable soul-bone artifact, no person, no mannequin, no body inside, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HB-06",
+      "category": "bone",
+      "name": "Địa Linh Hữu Cước",
+      "source": [
+        "src/data.js:BONES",
+        "src/simulation.js:createHero/bones"
+      ],
+      "slot": "Chân phải",
+      "prompt": "Địa Linh Hữu Cước, one anatomical right earth rune greave, separate wearable soul-bone artifact, no person, no mannequin, no body inside, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "HB-07",
+      "category": "external-bone",
+      "name": "Bát Chu Mâu",
+      "source": [
+        "src/data.js:BONES",
+        "src/simulation.js:createHero/bones"
+      ],
+      "slot": "Ngoại phụ",
+      "prompt": "Bát Chu Mâu, eight separate articulated spider spear limbs radiating from a compact back harness, back-worn artifact, separate wearable soul-bone artifact, no person, no mannequin, no body inside, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-wolf",
+      "category": "beast",
+      "name": "Thanh Phong Lang",
+      "species": "wolf",
+      "source": [
+        "src/creature-art.js:buildCreatureVisual",
+        "src/creature-art.js:buildwolf"
+      ],
+      "prompt": "agile four-legged green wind spirit wolf with layered fur, distinct thighs and lower legs, full body reference with all limbs visible and separated from body, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-wolf-mutant",
+      "category": "mutant-beast",
+      "name": "Thanh Phong Lang — Biến Dị",
+      "species": "wolf",
+      "source": [
+        "src/creature-art.js:addMutant"
+      ],
+      "prompt": "Mutated agile four-legged green wind spirit wolf with layered fur, distinct thighs and lower legs, additional horns and intrinsic glowing elemental veins, full body with limbs separated and visible, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-rhino",
+      "category": "beast",
+      "name": "Nham Giáp Tê",
+      "species": "rhino",
+      "source": [
+        "src/creature-art.js:buildCreatureVisual",
+        "src/creature-art.js:buildrhino"
+      ],
+      "prompt": "massive four-legged rhinoceros with layered rock armor, engraved stone cracks and large horn, full body reference with all limbs visible and separated from body, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-rhino-mutant",
+      "category": "mutant-beast",
+      "name": "Nham Giáp Tê — Biến Dị",
+      "species": "rhino",
+      "source": [
+        "src/creature-art.js:addMutant"
+      ],
+      "prompt": "Mutated massive four-legged rhinoceros with layered rock armor, engraved stone cracks and large horn, additional horns and intrinsic glowing elemental veins, full body with limbs separated and visible, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-firebird",
+      "category": "beast",
+      "name": "Hỏa Linh Điểu",
+      "species": "firebird",
+      "source": [
+        "src/creature-art.js:buildCreatureVisual",
+        "src/creature-art.js:buildfirebird"
+      ],
+      "prompt": "small fire phoenix, gold crest, twelve layered feathers on each spread wing and three long flame tail ribbons, full body reference with all limbs visible and separated from body, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-firebird-mutant",
+      "category": "mutant-beast",
+      "name": "Hỏa Linh Điểu — Biến Dị",
+      "species": "firebird",
+      "source": [
+        "src/creature-art.js:addMutant"
+      ],
+      "prompt": "Mutated small fire phoenix, gold crest, twelve layered feathers on each spread wing and three long flame tail ribbons, additional horns and intrinsic glowing elemental veins, full body with limbs separated and visible, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-icebutterfly",
+      "category": "beast",
+      "name": "Hàn Băng Điệp",
+      "species": "icebutterfly",
+      "source": [
+        "src/creature-art.js:buildCreatureVisual",
+        "src/creature-art.js:buildicebutterfly"
+      ],
+      "prompt": "large ice butterfly, open curved translucent blue-white crystal wings with engraved veins, full body reference with all limbs visible and separated from body, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-icebutterfly-mutant",
+      "category": "mutant-beast",
+      "name": "Hàn Băng Điệp — Biến Dị",
+      "species": "icebutterfly",
+      "source": [
+        "src/creature-art.js:addMutant"
+      ],
+      "prompt": "Mutated large ice butterfly, open curved translucent blue-white crystal wings with engraved veins, additional horns and intrinsic glowing elemental veins, full body with limbs separated and visible, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-ape",
+      "category": "boss",
+      "name": "Thái Nhạc Cự Viên",
+      "species": "ape",
+      "source": [
+        "src/creature-art.js:buildCreatureVisual",
+        "src/creature-art.js:buildape"
+      ],
+      "prompt": "towering muscular stone-armored giant ape, large articulated hands, ancient gold rock engravings, full body reference with all limbs visible and separated from body, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-kirin",
+      "category": "boss",
+      "name": "Lôi Diễm Kỳ Lân",
+      "species": "kirin",
+      "source": [
+        "src/creature-art.js:buildCreatureVisual",
+        "src/creature-art.js:buildkirin"
+      ],
+      "prompt": "four-legged celestial kirin, branching antlers, gold scales, lightning mane and flame tail, full body reference with all limbs visible and separated from body, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "CREATURE-dragon",
+      "category": "boss",
+      "name": "Hư Không Cổ Long",
+      "species": "dragon",
+      "source": [
+        "src/creature-art.js:buildCreatureVisual",
+        "src/creature-art.js:builddragon"
+      ],
+      "prompt": "complete long void dragon with two articulated wings, four clawed legs, horned head and long curled tail, full body reference with all limbs visible and separated from body, no ground plinth, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-sanctuary-dais",
+      "category": "environment-prop",
+      "name": "Bệ xuất chiến bạch ngọc",
+      "source": [
+        "src/scenery.js:createSanctuary"
+      ],
+      "prompt": "three-tier round white jade ceremonial dais with carved cloud relief and gilded rims, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-sanctuary-pillar",
+      "category": "environment-prop",
+      "name": "Trụ rồng sảnh",
+      "source": [
+        "src/scenery.js:createSanctuary"
+      ],
+      "prompt": "one tall jade pillar with a carved gold dragon coiled around it, dragon head and small lamp crown, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-sanctuary-arch",
+      "category": "environment-prop",
+      "name": "Cổng vòm sảnh",
+      "source": [
+        "src/scenery.js:createSanctuary"
+      ],
+      "prompt": "large carved jade and gold semicircular arch with two complete side posts, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-mountain-backdrop",
+      "category": "environment-prop",
+      "name": "Núi nền sảnh",
+      "source": [
+        "src/scenery.js:createSanctuary"
+      ],
+      "prompt": "one rocky ancient mountain peak with mist-worn ridges, no sky or clouds, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-portal-base",
+      "category": "environment-prop",
+      "name": "Đế Cổng Hồi Hoàn",
+      "source": [
+        "src/scenery.js:createPortal"
+      ],
+      "prompt": "three-tier octagonal stone portal base, carved yin-yang and ancient glyph relief, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-portal-pillar",
+      "category": "environment-prop",
+      "name": "Trụ Cổng Hồi Hoàn",
+      "source": [
+        "src/scenery.js:createPortal"
+      ],
+      "prompt": "one curved stone dragon pillar engraved with Sanskrit-like runes, curved inward near the top, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-portal-ring",
+      "category": "environment-prop",
+      "name": "Vành Cổng Hồi Hoàn",
+      "source": [
+        "src/scenery.js:createPortal"
+      ],
+      "prompt": "one large complete bronze spatial portal ring, carved gold ancient rune bands, open empty center, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-portal-lamp",
+      "category": "environment-prop",
+      "name": "Đèn Cổng Hồi Hoàn",
+      "source": [
+        "src/scenery.js:createPortal"
+      ],
+      "prompt": "one jade stone and gold carved spirit-fire brazier with an open bowl, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-shop-pavilion",
+      "category": "environment-prop",
+      "name": "Đình Đài Giao Dịch",
+      "source": [
+        "src/scenery.js:createShop"
+      ],
+      "prompt": "complete eight-column Chinese pavilion with curved glazed green roof, red gold timber columns, no people, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-shop-lantern",
+      "category": "environment-prop",
+      "name": "Đèn lồng giao dịch",
+      "source": [
+        "src/scenery.js:lantern"
+      ],
+      "prompt": "one hanging red silk lantern with gold endcaps and tassel, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-shop-cauldron",
+      "category": "environment-prop",
+      "name": "Lò luyện đan",
+      "source": [
+        "src/scenery.js:createShop"
+      ],
+      "prompt": "one engraved bronze three-legged alchemy cauldron with ornate handles and open bowl, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-shop-signboard",
+      "category": "environment-prop",
+      "name": "Biển giao dịch",
+      "source": [
+        "src/scenery.js:createShop"
+      ],
+      "prompt": "one wooden gold-edged hanging signboard with carved cloud relief, no readable text, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-altar-base",
+      "category": "environment-prop",
+      "name": "Tế Đàn Hồn Hoàn",
+      "source": [
+        "src/scenery.js:createAltar"
+      ],
+      "prompt": "nine-sided ancient stone altar with nine carved channels converging on a central crystal pedestal, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-altar-crystal",
+      "category": "environment-prop",
+      "name": "Huyết Tinh Thạch",
+      "source": [
+        "src/scenery.js:createAltar"
+      ],
+      "prompt": "one floating red faceted soul crystal with a carved gold setting, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-central-plaza",
+      "category": "environment-prop",
+      "name": "Đài Bát Quái trung tâm",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "flat circular white jade plaza with carved eight-trigram inlaid gold channels and concentric cloud relief, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-forest-tree",
+      "category": "environment-prop",
+      "name": "Cây cổ lâm",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one complete ancient jade-green broadleaf tree with exposed curved roots, tall branching trunk and dense layered canopy, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-snow-tree",
+      "category": "environment-prop",
+      "name": "Cây tuyết",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one complete snow-covered alpine spirit pine with visible brown trunk and branching foliage, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-dead-tree",
+      "category": "environment-prop",
+      "name": "Cây độc trạch",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one twisted bare dead tree with purple-black damp bark and exposed roots, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-rock-cluster",
+      "category": "environment-prop",
+      "name": "Cụm đá",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one cluster of irregular gray-gold slate rocks with natural rough faces and moss cracks, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-void-crystal",
+      "category": "environment-prop",
+      "name": "Tinh thể hư không",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one cluster of tall irregular violet crystals growing out of dark stone, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-nav-monolith",
+      "category": "environment-prop",
+      "name": "Chướng ngại cổ thạch",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one tall carved irregular stone monolith with three inset ancient rune bands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-grass-patch",
+      "category": "environment-prop",
+      "name": "Bụi cỏ ẩn thân",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one small rooted patch of curved fine jade-green grass blades, no pot, no ground square, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-spirit-flower",
+      "category": "environment-prop",
+      "name": "Linh thảo",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one small rooted jade spirit flower cluster with luminous blossoms and detailed leaves, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-ore",
+      "category": "environment-prop",
+      "name": "Quặng linh kim",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one rough gray stone ore cluster with exposed sparkling gold veins, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-lava-column",
+      "category": "environment-prop",
+      "name": "Cột đá núi lửa",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one fractured dark volcanic rock column with intrinsic orange lava cracks, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-hidden-island",
+      "category": "environment-prop",
+      "name": "Đảo Bí Cảnh",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one complete floating dark crystalline island, rocky underside and flat irregular upper surface, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-hidden-crystal",
+      "category": "environment-prop",
+      "name": "Tinh thể đảo Bí Cảnh",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one large dark violet irregular crystal formation, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-petal",
+      "category": "environment-prop",
+      "name": "Cánh hoa sảnh",
+      "source": [
+        "src/scenery.js:createSanctuary"
+      ],
+      "prompt": "one curled pink silk-like flower petal, thin detailed translucent edges, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-poison-bubble",
+      "category": "environment-prop",
+      "name": "Bọt độc",
+      "source": [
+        "src/scenery.js:createScenery"
+      ],
+      "prompt": "one translucent purple poison bubble with iridescent wet surface, isolated, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-terrain-1",
+      "category": "terrain",
+      "name": "Thanh Mộc Cổ Lâm",
+      "source": [
+        "src/scenery.js:createScenery/sceneryTerrainHeight",
+        "src/data.js:REGIONS"
+      ],
+      "requiresAuthoritativeHeightAndSeamValidation": true,
+      "prompt": "One complete flat-edged square terrain tile for Thanh Mộc Cổ Lâm, dark jade grass, exposed roots and small spirit flowers, detailed surface relief, no buildings, no characters, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-terrain-2",
+      "category": "terrain",
+      "name": "Chấn Nhạc Sơn Mạch",
+      "source": [
+        "src/scenery.js:createScenery/sceneryTerrainHeight",
+        "src/data.js:REGIONS"
+      ],
+      "requiresAuthoritativeHeightAndSeamValidation": true,
+      "prompt": "One complete flat-edged square terrain tile for Chấn Nhạc Sơn Mạch, rough gray gold slate with ore veins, detailed surface relief, no buildings, no characters, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-terrain-3",
+      "category": "terrain",
+      "name": "U Minh Độc Trạch",
+      "source": [
+        "src/scenery.js:createScenery/sceneryTerrainHeight",
+        "src/data.js:REGIONS"
+      ],
+      "requiresAuthoritativeHeightAndSeamValidation": true,
+      "prompt": "One complete flat-edged square terrain tile for U Minh Độc Trạch, wet black purple swamp mud and luminous mushrooms, detailed surface relief, no buildings, no characters, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-terrain-4",
+      "category": "terrain",
+      "name": "Hàn Tinh Tuyết Vực",
+      "source": [
+        "src/scenery.js:createScenery/sceneryTerrainHeight",
+        "src/data.js:REGIONS"
+      ],
+      "requiresAuthoritativeHeightAndSeamValidation": true,
+      "prompt": "One complete flat-edged square terrain tile for Hàn Tinh Tuyết Vực, white snow with cracked blue ice, detailed surface relief, no buildings, no characters, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-terrain-5",
+      "category": "terrain",
+      "name": "Xích Diệm Hoang Mạc",
+      "source": [
+        "src/scenery.js:createScenery/sceneryTerrainHeight",
+        "src/data.js:REGIONS"
+      ],
+      "requiresAuthoritativeHeightAndSeamValidation": true,
+      "prompt": "One complete flat-edged square terrain tile for Xích Diệm Hoang Mạc, fractured black volcanic stone with orange lava cracks, detailed surface relief, no buildings, no characters, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-terrain-6",
+      "category": "terrain",
+      "name": "Thiên Cơ Cổ Thành",
+      "source": [
+        "src/scenery.js:createScenery/sceneryTerrainHeight",
+        "src/data.js:REGIONS"
+      ],
+      "requiresAuthoritativeHeightAndSeamValidation": true,
+      "prompt": "One complete flat-edged square terrain tile for Thiên Cơ Cổ Thành, white jade paving with engraved cloud dragon and gold inlay, detailed surface relief, no buildings, no characters, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-terrain-7",
+      "category": "terrain",
+      "name": "Hư Không Bí Cảnh",
+      "source": [
+        "src/scenery.js:createScenery/sceneryTerrainHeight",
+        "src/data.js:REGIONS"
+      ],
+      "requiresAuthoritativeHeightAndSeamValidation": true,
+      "prompt": "One complete flat-edged square terrain tile for Hư Không Bí Cảnh, violet crystalline void stone, detailed surface relief, no buildings, no characters, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "WORLD-companion",
+      "category": "world-prop",
+      "name": "Hồn Linh đồng hành",
+      "source": [
+        "src/world.js:renderCompanion"
+      ],
+      "prompt": "small floating jade-blue spirit creature with detailed translucent body and luminous markings, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "WORLD-loot-container",
+      "category": "world-prop",
+      "name": "Vật chứa chiến lợi phẩm",
+      "source": [
+        "src/world.js:renderDrops"
+      ],
+      "prompt": "small carved gold and jade loot casket, complete closed box with ornate lock, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H01-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Mộc",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Mộc elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H02-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Thổ",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Thổ elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H03-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Phong",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Phong elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H04-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Lôi",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Lôi elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H05-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Quang",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Quang elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H06-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Thủy",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Thủy elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H07-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Hỏa",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Hỏa elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H08-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Băng",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Băng elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H09-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Ám",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Ám elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H10-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Kim",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Kim elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H11-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Âm Luật",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Âm Luật elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "VFX-H12-projectile",
+      "category": "effect-carrier",
+      "name": "Đạn Độc",
+      "source": [
+        "src/world.js:renderProjectiles/spawnParticles",
+        "src/environment-vfx.js"
+      ],
+      "prompt": "One small solid Độc elemental projectile spirit shard, engraved intrinsic glow, no smoke background, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-liquid-water",
+      "category": "shader-surface",
+      "name": "Mặt nước độc",
+      "source": [
+        "src/scenery.js:ribbonSurface/liquidMaterial"
+      ],
+      "prompt": "one thin flat translucent purple reflective water tile, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-liquid-lava",
+      "category": "shader-surface",
+      "name": "Mặt dung nham",
+      "source": [
+        "src/scenery.js:ribbonSurface/liquidMaterial"
+      ],
+      "prompt": "one flat fractured glowing orange lava tile, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    },
+    {
+      "status": "pending",
+      "runtimeInstalled": false,
+      "id": "ENV-liquid-ice",
+      "category": "shader-surface",
+      "name": "Mặt băng",
+      "source": [
+        "src/scenery.js:ribbonSurface/liquidMaterial"
+      ],
+      "prompt": "one thin cracked translucent blue ice tile, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+    }
+  ],
+  "sourceGeometryAudit": [
+    {
+      "path": "src/art.js",
+      "line": 238,
+      "geometry": "ExtrudeGeometry",
+      "nearestFunction": "roundedBlock",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/art.js",
+      "line": 250,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "treeTrunkGeometry",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/art.js",
+      "line": 266,
+      "geometry": "TubeGeometry",
+      "nearestFunction": "treeTrunkGeometry",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/creature-art.js",
+      "line": 177,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "loft",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/creature-art.js",
+      "line": 211,
+      "geometry": "TubeGeometry",
+      "nearestFunction": "tube",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/creature-art.js",
+      "line": 235,
+      "geometry": "ConeGeometry",
+      "nearestFunction": "crystal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/creature-art.js",
+      "line": 250,
+      "geometry": "ShapeGeometry",
+      "nearestFunction": "eye",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/creature-art.js",
+      "line": 411,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "flightFeather",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/creature-art.js",
+      "line": 438,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "firebirdEmbers",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/creature-art.js",
+      "line": 482,
+      "geometry": "ShapeGeometry",
+      "nearestFunction": "membrane",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/creature-art.js",
+      "line": 726,
+      "geometry": "DodecahedronGeometry",
+      "nearestFunction": "buildRhino",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/environment-vfx.js",
+      "line": 344,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "ribbonGeometry",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 340,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "createEllipticalLoftedMesh",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 382,
+      "geometry": "TubeGeometry",
+      "nearestFunction": "line",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 423,
+      "geometry": "ExtrudeGeometry",
+      "nearestFunction": "plate",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 441,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "ornament",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 703,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "headGeometry",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 738,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "clothPanel",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 803,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "outerCoat",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 945,
+      "geometry": "ExtrudeGeometry",
+      "nearestFunction": "hairSystem",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 972,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "hairSystem",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 1031,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "buildHands",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 1048,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "geometryHex",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 1757,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "buildAnatomy",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/hero-anatomy.js",
+      "line": 1885,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "buildAnatomy",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 67,
+      "geometry": "RingGeometry",
+      "nearestFunction": "ring",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 78,
+      "geometry": "TubeGeometry",
+      "nearestFunction": "curve",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 348,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "smokePlume",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 416,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "bladeGeometry",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 511,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "ribbonSurface",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 527,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "lantern",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 528,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "lantern",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 529,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "lantern",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 543,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 554,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 589,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 619,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 628,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 635,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 644,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 666,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 669,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 690,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 698,
+      "geometry": "ConeGeometry",
+      "nearestFunction": "createPortal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 779,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 795,
+      "geometry": "LatheGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 809,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 813,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 834,
+      "geometry": "ConeGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 844,
+      "geometry": "LatheGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 861,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 870,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 877,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 885,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 908,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "createShop",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 943,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createAltar",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 958,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createAltar",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 967,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "createAltar",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 973,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createAltar",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 976,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createAltar",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 984,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "createAltar",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1006,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1015,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1030,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1038,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1063,
+      "geometry": "DodecahedronGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1071,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1103,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1113,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1121,
+      "geometry": "ConeGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1137,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1144,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1163,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1192,
+      "geometry": "ConeGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1205,
+      "geometry": "ShapeGeometry",
+      "nearestFunction": "createSanctuary",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1262,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1277,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1284,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1371,
+      "geometry": "SphereGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1377,
+      "geometry": "ConeGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1384,
+      "geometry": "DodecahedronGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1390,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1402,
+      "geometry": "DodecahedronGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1501,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1507,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1513,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1531,
+      "geometry": "IcosahedronGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1562,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/scenery.js",
+      "line": 1629,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "createScenery",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/skill-indicators.js",
+      "line": 10,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "geometry",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/skill-indicators.js",
+      "line": 180,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "chevrons",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/soul-ring-vfx.js",
+      "line": 6,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 227,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "cylinder",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 243,
+      "geometry": "SphereGeometry",
+      "nearestFunction": "orb",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 271,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "ring",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 291,
+      "geometry": "TubeGeometry",
+      "nearestFunction": "tube",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 309,
+      "geometry": "ExtrudeGeometry",
+      "nearestFunction": "shapeMesh",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 354,
+      "geometry": "ExtrudeGeometry",
+      "nearestFunction": "petal",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 375,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "gem",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 503,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "stoneHammer",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 555,
+      "geometry": "IcosahedronGeometry",
+      "nearestFunction": "stoneHammer",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 664,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "moonMirror",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/weapons.js",
+      "line": 679,
+      "geometry": "ExtrudeGeometry",
+      "nearestFunction": "moonMirror",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 59,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 60,
+      "geometry": "IcosahedronGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 61,
+      "geometry": "ConeGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 63,
+      "geometry": "IcosahedronGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 64,
+      "geometry": "TorusGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 65,
+      "geometry": "CylinderGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 102,
+      "geometry": "TetrahedronGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 140,
+      "geometry": "RingGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 257,
+      "geometry": "SphereGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 297,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 301,
+      "geometry": "PlaneGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 713,
+      "geometry": "CircleGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 851,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 873,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/world.js",
+      "line": 900,
+      "geometry": "OctahedronGeometry",
+      "nearestFunction": "module-or-class",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    }
+  ],
+  "legacyGLBs": [
+    {
+      "path": "public/art/moc-tinh-truong/high.glb",
+      "bytes": 2686580,
+      "sha256": "7607edb907ea420b262aef6d4405d8da15a9f2f246c31d9cd620b089671d6edd",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/art/moc-tinh-truong/low.glb",
+      "bytes": 64952,
+      "sha256": "27df4965ae0866a5b1efd5813825cc6f6f17f57f91af717337f95e9b45adb51b",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/art/moc-tinh-truong/medium.glb",
+      "bytes": 278684,
+      "sha256": "468432eea12064b12ef336cde31a9f0796baa5a7ddcf77080a5442ed6ce5d5ad",
+      "status": "legacy-not-Tencent-not-replaced"
+    }
+  ],
+  "notes": [
+    "48 body/costume assets include the 12 base heroes; 36 weapon assets include 12 originals and 24 skins. Their combinations are assembled, not counted as separately generated characters.",
+    "H06 is Đỗ Kình and H11 is Ninh Từ in the source; preserve IDs when matching user abbreviations Kính/Tư.",
+    "The six equipment bone items were gameplay data without independent visible models; their new attachments must be integrated and tested, not falsely reported as existing geometry.",
+    "Terrain, water, VFX carriers and HUD Geometry calls are explicitly inventoried; generated terrain cannot silently alter collision coordinates.",
+    "Boss four is not invented; three Boss definitions remain the original scope."
+  ]
+}
