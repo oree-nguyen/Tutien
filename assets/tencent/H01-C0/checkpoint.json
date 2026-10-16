@@ -97,11 +97,31 @@
       "startedAt": "2026-10-16T01:47:33.533177+00:00",
       "finishedAt": "2026-10-16T01:47:35.741027+00:00",
       "passed": true
+    },
+    {
+      "stage": "mesh",
+      "attempt": 1,
+      "startedAt": "2026-10-16T02:02:48.656656+00:00",
+      "finishedAt": "2026-10-16T02:02:48.657958+00:00",
+      "passed": false,
+      "errorType": "RuntimeError",
+      "error": "MODELSCOPE_SHAPE_URL missing: a ModelScope weights repository is not a GPU Studio API; run tools/tencent/modelscope_probe.py to inspect availability, or deploy the GPU notebook",
+      "retryAfterSeconds": null
+    },
+    {
+      "stage": "shape-connect",
+      "attempt": 1,
+      "startedAt": "2026-10-16T02:02:48.657157+00:00",
+      "finishedAt": "2026-10-16T02:02:48.657731+00:00",
+      "passed": false,
+      "errorType": "RuntimeError",
+      "error": "MODELSCOPE_SHAPE_URL missing: a ModelScope weights repository is not a GPU Studio API; run tools/tencent/modelscope_probe.py to inspect availability, or deploy the GPU notebook",
+      "retryAfterSeconds": null
     }
   ],
   "runtimeInstalled": false,
   "status": "blocked",
-  "error": "'The requested GPU duration (270s) is larger than the maximum allowedSubscribe to Hugging Face PRO to allow GPU tasks up to 40 min - https://huggingface.co/subscribe/pro?from=ZeroGPU'",
+  "error": "MODELSCOPE_SHAPE_URL missing: a ModelScope weights repository is not a GPU Studio API; run tools/tencent/modelscope_probe.py to inspect availability, or deploy the GPU notebook",
   "providerBackoff": {
     "provider": "Hugging Face ZeroGPU",
     "nextRetryAt": "2026-10-16T12:01:47.362724+00:00",
@@ -110,5 +130,5 @@
     "scope": "Provider-reported quota; pause new GPU jobs across the worker until retry time or meaningful auth change"
   },
   "quotaPrerequisiteChanged": "Authentication environment presence changed; actual provider response must revalidate quota",
-  "errorType": "AppError"
+  "errorType": "RuntimeError"
 }

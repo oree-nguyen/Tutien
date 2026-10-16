@@ -185,7 +185,7 @@ class LocalPipelineTests(unittest.TestCase):
                 async with ClientSession(*streams) as client:
                     await client.initialize()
                     tools=await client.list_tools()
-                    self.assertEqual({t.name for t in tools.tools},{"tencent_probe","tencent_generate","tencent_inspect_glb","tencent_normalize","tencent_asset_catalog","tencent_generate_asset"})
+                    self.assertEqual({t.name for t in tools.tools},{"tencent_probe","tencent_generate","tencent_inspect_glb","tencent_normalize","tencent_asset_catalog","tencent_generate_asset","tencent_modelscope_probe","tencent_project_texture"})
                     result=await client.call_tool("tencent_inspect_glb",{"path":str(self.paths[0])})
                     self.assertFalse(result.is_error)
                     self.assertIn('"triangles"',result.content[0].text)

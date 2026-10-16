@@ -1,19 +1,22 @@
 # Pipeline Tencent Hunyuan cho Hồn Giới
 
-Pipeline đã chuyển sang **Tencent Hunyuan3D-2.1** theo yêu cầu. Lần gọi `/generation_all` có xác thực cho H01 bị dịch vụ từ chối: `The requested GPU duration (270s) is larger than the maximum allowed`; phản hồi yêu cầu Hugging Face PRO. Đây là giới hạn thời lượng mỗi job, không phải thời gian chờ hàng đợi; chưa có GLB textured mới. Bằng chứng: `assets/tencent/H01-C0/hunyuan21-attempt.json`. Không lặp job hoặc đổi danh tính để né giới hạn.
+Provider mặc định hiện là **ModelScope / GPU riêng Hunyuan3D-2.1**, không tự gọi Hugging Face. Xem [thiết lập, notebook, lệnh chạy và các giới hạn thực tế](MODELSCOPE.md).
 
+Đã cài SDK, cập nhật MCP, chạy projection Blender trên mesh H01 thật và lưu [bản chẩn đoán](../../assets/tencent/H01-C0/projection-diagnostic.glb). Bản đó có UV/albedo 2048 nhưng không có PBR sinh thật, sáu bộ phận, rig hoặc nghiệm thu runtime. Concept H05 đã bị loại sau khi xem pose/trang phục. **0/167 target được nghiệm thu thay thế**; chưa xóa model legacy hoặc build APK mới.
 
-Trạng thái cập nhật ngày **16/10/2026 UTC**: `HF_TOKEN` đã có trong môi trường và Hugging Face xác thực thành công. Đã sinh concept H01 và H05 thật. H01 `/shape_generation` đã trả GLB hình học 5,6 MiB, được lưu riêng tại `assets/tencent/H01-C0/shape-only.glb`; **không có texture và không được kích hoạt trong game**. H05 còn chờ duyệt ảnh.
+ModelScope có weights nhưng metadata 2.1 không có Studio/API inference; container không có GPU và chưa có URL GPU riêng. Bộ Colab/PAI kiểm tra VRAM, khóa source Tencent, dùng ModelScope weights và dựng API/tunnel; CUDA build/inference trên GPU chưa được chạy. Cấu hình mặc định cần khoảng 29 GiB, không vừa T4 16 GB/A10 24 GB.
 
-**Điểm chặn trước khi chuyển sang 2.1 là texture bị tắt ở Space 2.0**, không phải thiếu token. Bốn lần gọi `/generation_all` có xác thực trả `NameError`. Config trực tiếp của Space ghi `Texture Generation (Unavailable)` và `Texture synthesis is disable due to missing requirements`. Xem [bằng chứng](../../assets/tencent/H01-C0/texture-capability.json). Cài thêm thư viện trong container này không sửa được môi trường GPU của Space do Tencent quản lý. Quota cũ được giữ trong journal làm lịch sử; chưa có asset textured đạt chuẩn để thay runtime.
+## Kiểm tra tooling cục bộ
 
+Blender 4.3.2, venv `/workspace/tencent-3d-venv`, dependency pin ở `tools/tencent/requirements.lock`. `bash tools/tencent/setup.sh` và `pip check` đã chạy thành công. Ba bộ kiểm thử hiện có 35 test đạt, gồm GLB/UV/Blender/MCP thật trên fixture trừu tượng, queue/checkpoint và adapter HTTP/fallback. Fixture/mocked HTTP không phải bằng chứng sinh model GPU.
 
-## Đã cài và kiểm tra
+```bash
+/workspace/tencent-3d-venv/bin/python -B tools/tencent/test_pipeline.py
+/workspace/tencent-3d-venv/bin/python -B tools/tencent/test_batch.py
+/workspace/tencent-3d-venv/bin/python -B tools/tencent/test_providers.py
+```
 
-- Blender 4.3.2 có sẵn, chạy headless được. Container không có NVIDIA GPU cục bộ.
-- Python venv riêng `/workspace/tencent-3d-venv`, `gradio_client` 2.7.2, MCP 2.3.0, trimesh 5.1.1 và Pillow 12.3.0; các dependency được pin trong `tools/tencent/requirements.lock`. `pip check` đạt.
-- `.codex/config.toml` đăng ký MCP stdio; đã thử initialize, list tools và gọi công cụ kiểm tra GLB qua client MCP thật. Client Codex cần tải cấu hình ở phiên khởi động phù hợp; không nhận rằng tool mới đã được hot-load vào cuộc trò chuyện này.
-- Bộ kiểm thử cục bộ dùng các tam giác trừu tượng trong thư mục tạm, không tạo người/vũ khí hoặc asset game. Kiểm tra chuẩn hóa/Blender/MCP và retry/checkpoint là bằng chứng tooling, không phải bằng chứng model Tencent đã sinh. Số kiểm thử hiện hành được ghi trong [status.json](status.json).
+MCP có 8 tool, gồm `tencent_modelscope_probe` và `tencent_project_texture`; đã kiểm tra stdio initialize/list/inspect. Cấu hình repo không tự hot-load tool vào chat hiện tại hoặc tự khởi chạy job GPU.
 
 ## Danh mục toàn bộ mã nguồn và hàng đợi
 
@@ -21,39 +24,7 @@ Trạng thái cập nhật ngày **16/10/2026 UTC**: `HF_TOKEN` đã có trong m
 
 Danh mục kèm **118 vị trí khởi tạo geometry** hiện có để đối chiếu khi bỏ primitive. Kể cả terrain, carrier hiệu ứng, plane chỉ hướng/HUD đều được liệt kê; phải phân loại/chứng minh xử lý từng nơi trước khi gọi hoàn tất. Những chi tiết nằm trong model cha không bị đếm thành hàng nghìn model độc lập. H06/H11 giữ đúng tên gốc Đỗ Kình/Ninh Từ; khác biệt tên Hồn khí H08 giữa bảng và renderer được ghi trong catalog.
 
-`tools/tencent/batch.py` và hai tool MCP mới `tencent_asset_catalog`, `tencent_generate_asset` chạy từng asset với khóa một worker. Mỗi bước lưu file, SHA và journal riêng; ảnh/mesh đã đủ điều kiện được đọc lại thay vì sinh lại. Lỗi hàng đợi/429/timeout được retry tối đa bốn lần, backoff 10/20/40 giây. Lỗi schema/403 không lặp. Quota dài hơn 60 giây được chuyển `deferred` với `nextRetryAt`; quota ZeroGPU tạm dừng chung các job tiếp theo. Khi xác thực thực sự thay đổi, phải kiểm tra lại phản hồi quota. Không có vòng lặp chờ 12 giờ hoặc thay account/IP để vượt giới hạn.
-
-```sh
-node tools/tencent/catalog.mjs
-/workspace/tencent-3d-venv/bin/python -B tools/tencent/test_batch.py
-/workspace/tencent-3d-venv/bin/python -B tools/tencent/batch.py --asset H01-C0 --until mesh
-/workspace/tencent-3d-venv/bin/python -B tools/tencent/batch.py --asset H01-W0 --until concept
-```
-
-Không chạy lệnh GPU thứ hai trong thời gian quota chung đang chặn. `--commit` lưu checkpoint đúng thư mục asset và queue khi index Git sạch; không đụng staged work khác. Các bản download trung gian bị ignore, còn concept/mesh đã chọn, SHA và journal được commit theo đợt. Lần chạy hiện tại có concept và mesh hình học chưa texture, **chưa có model đạt** để kích hoạt loader hoặc build APK mới.
-
-```sh
-cd /workspace/Tutien
-bash tools/tencent/setup.sh
-/workspace/tencent-3d-venv/bin/python -B tools/tencent/test_pipeline.py
-/workspace/tencent-3d-venv/bin/python tools/tencent_3d_pipeline.py probe
-/workspace/tencent-3d-venv/bin/python tools/tencent_3d_pipeline.py generate H01
-/workspace/tencent-3d-venv/bin/python tools/tencent_3d_pipeline.py generate H05
-```
-
-Lệnh `probe` chỉ đọc schema, không sinh ảnh/model. `generate` trả exit 2 khi bị chặn, exit 3 khi đã sinh nhưng còn chờ ánh xạ bộ phận/duyệt thực tế. Exit 3 không phải hoàn tất hoặc tích hợp. Mọi lần chạy lưu vào `.local/tencent-3d`, không ghi token vào báo cáo. Khởi động MCP không tự gọi GPU.
-
-## Luồng inference thực
-
-`tools/tencent_3d_pipeline.py` dùng đúng ba Space chính thức:
-
-1. `black-forest-labs/FLUX.1-schnell`, `/infer`: prompt A-pose nền trắng cho cơ thể tay trống; prompt riêng cho Hồn Khí không có người/tay. Ảnh 1024, seed cố định, 4 bước FLUX.
-2. `tencent/Hunyuan3D-2`, `/generation_all`: ảnh qua `handle_file`, `check_box_rembg=True`, `steps=30`, `octree_resolution=256`. Đọc schema API thực trước khi gửi; thiếu endpoint hoặc thay tham số thì dừng, không đoán số `fn_index`.
-3. `tencent/Hunyuan3D-Part`, `/segment` rồi `/generate`, cùng một Client/session để giữ `gr_state`. Lưu `face_id.npy`, mesh phân đoạn và ba đầu ra X-Part có thể tải về. X-Part được giữ làm tài nguyên đối chiếu, không tự thay mesh textured gốc.
-
-Lâm Dật có prompt trường bào xanh/trắng viền vàng và Mộc Tinh Trượng riêng. Tịch Dao có prompt y phục trắng/xanh ngọc và Nguyệt Linh Kính riêng. Prompt không tạo chỉ số gameplay. Chưa có ảnh/model thực tế để duyệt nên chưa thể nhận chất lượng, tư thế hay sự tách rời là đạt.
-
-API nguồn được đối chiếu từ `app.py` của FLUX và Hunyuan3D-Part, `gradio_app.py` của Hunyuan3D-2 trên kho Space chính thức. Các bản source tham khảo nằm ở `.local/tencent-api-source`, không được chạy như chương trình cục bộ. Schema trực tiếp sau Publish đã đọc được và lưu ở `.local/tencent-3d/published-probe`.
+`batch.py` chạy tuần tự với khóa worker, SHA/checkpoint từng bước và retry hữu hạn. Concept bị loại không sinh mesh. Bản projection đã lưu hợp lệ dừng để duyệt, không lặp GPU; receipt ghi `generatedPBR: false`. `--commit` chỉ commit đúng asset/queue khi index sạch. Lịch sử quota HF vẫn giữ nhưng không chặn provider mới. [Reuse plan](../../assets/tencent/reuse-plan.json) có 107 nhóm ứng viên cho 167 target, chưa có alias được duyệt; khác silhouette vẫn cần geometry riêng.
 
 ## Giữ UV, PBR và gốc khớp
 
@@ -72,16 +43,8 @@ Các node chuẩn cho `category: hero` là `HonCot_Dau`, `HonCot_Than`, `HonCot_
 
 Inspector báo đúng các kênh tồn tại. Albedo + UV + PBR metallic/roughness factors không được mô tả là đã có normal/metallic-roughness image; các kênh đó chỉ xuất hiện trong báo cáo khi có tham chiếu texture thật. Pipeline không tạo normal/roughness giả để vượt kiểm tra.
 
-## Điều kiện mở chặn và thay model
+## Lịch sử và trạng thái hiện hành
 
-Ba host sau đã được người dùng mở và kiểm tra kết nối thành công trong phiên khôi phục:
+Các lần HF trước: token đã xác thực; Space 2.0 tắt texture và `/generation_all` lỗi `NameError`; shape 2.0 đã sinh thật. Space 2.1 từ chối job 270 giây theo giới hạn tài khoản. Không có thêm lời gọi HF trong luồng mặc định mới. Bằng chứng cũ được giữ để truy nguồn, không phải điểm chặn credential hiện tại. Xem [báo cáo trước chuyển đổi](README-before-modelscope.md), [goal](GOAL.md) và [status](status.json).
 
-- `black-forest-labs-flux-1-schnell.hf.space`
-- `tencent-hunyuan3d-2.hf.space`
-- `tencent-hunyuan3d-part.hf.space`
-
-`huggingface.co` đọc được metadata/source; token môi trường hiện đã xác thực thành công. Không cần nhập lại token. Cần Space Tencent khôi phục dịch vụ texture hoặc xác minh một endpoint Tencent khác có texture hoạt động trước khi tiếp tục mesh textured. Không bỏ TLS, đổi danh tính hoặc host nhằm lách quota.
-
-Sau khi dịch vụ texture hoạt động: resume H01; sinh lần lượt mục còn lại; duyệt concept; ánh xạ nhãn/pivot thật; chuẩn hóa; kiểm tra hướng/tỷ lệ và ảnh Toàn Thân/Cận Cảnh; kiểm tra rig/animation, skin/trang phục, LOD và geometry audit. Chỉ lúc đó mới thêm GLB đã xác thực vào asset loader, build PWA/HTML/APK và cập nhật goal. Hiện không có GLB Tencent mới trong `public/`, runtime hoặc APK; mô hình legacy chưa được thay. Không gọi đã hoàn tất yêu cầu loại bỏ primitive.
-
-Xem [goal riêng](GOAL.md) và [bằng chứng lần thử thật](status.json). Báo cáo GDD/overhaul trước có fingerprint riêng; thay đổi tooling lần này làm fingerprint toàn repository đổi, không chuyển các báo cáo cũ sang trạng thái đạt cho mã mới.
+Báo cáo GDD/Android cũ có fingerprint riêng. Đợt này chỉ kiểm thử tooling; không relabel APK hoặc test gameplay cũ thành kết quả của mã hiện tại.

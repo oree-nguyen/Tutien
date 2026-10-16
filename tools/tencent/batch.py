@@ -124,6 +124,7 @@ def _run_asset(asset, until='parts', seed=42, client_factory=p.get_client):
     journal=json.loads(path.read_text()) if path.exists() else {'asset':asset_id,'stages':{},'attempts':[],'runtimeInstalled':False}
     journal['_path']=path
     journal['status']='running'
+    journal['provider']='modelscope-or-private-gpu' if p.providers.active() else 'huggingface'
     journal.pop('nextRetryAt',None)
     clients={}
     def client(role):
@@ -134,8 +135,8 @@ def _run_asset(asset, until='parts', seed=42, client_factory=p.get_client):
         queue_path=BANK/'queue.json'
         queue=json.loads(queue_path.read_text()) if queue_path.exists() else {}
         provider=queue.get('providerBackoff',{})
-        auth=auth_present()
-        if provider.get('nextRetryAt') and datetime.fromisoformat(provider['nextRetryAt'])>datetime.now(timezone.utc):
+        auth=auth_present() if not p.providers.active() else False
+        if not p.providers.active() and provider.get('nextRetryAt') and datetime.fromisoformat(provider['nextRetryAt'])>datetime.now(timezone.utc):
             recorded_auth=provider.get('authPresent',provider.get('authEnvironmentPresent',False))
             if not (auth and not recorded_auth):
                 journal.update(status='deferred',nextRetryAt=provider['nextRetryAt'],error='Shared ZeroGPU quota backoff: no new GPU job submitted')
@@ -158,8 +159,16 @@ def _run_asset(asset, until='parts', seed=42, client_factory=p.get_client):
         review=concept.get('review',{})
         approved=review.get('sha256')==concept['sha256'] and bool(review.get('reviewer')) and review.get('approvedForMesh') is True
         if until=='concept' or not approved:
-            journal['status']='awaiting-concept-review' if not approved else 'concept-reviewed'
+            journal['status']=('concept-rejected' if concept.get('status')=='concept-rejected' else 'awaiting-concept-review') if not approved else 'concept-reviewed'
             return journal
+        draft=output/'projected_mesh.glb'
+        draft_receipt=output/'projected_mesh.projection.json'
+        if draft.is_file() and draft_receipt.is_file():
+            receipt=json.loads(draft_receipt.read_text())
+            if receipt.get('imageSha256')==concept['sha256'] and receipt.get('outputSha256')==digest(draft):
+                p.inspect_glb(str(draft))
+                journal['status']='awaiting-projection-art-and-part-review'
+                return journal
         shape=valid_record(output/'mesh.json',{'.glb'},p.inspect_glb)
         if not shape:
             from gradio_client import handle_file
@@ -172,11 +181,25 @@ def _run_asset(asset, until='parts', seed=42, client_factory=p.get_client):
                     textured.append((candidate,p.inspect_glb(str(candidate))))
                 except (p.PipelineError,KeyError,ValueError):
                     continue
+            raw_candidates=candidates(result,{'.glb'})
+            if not textured and len(raw_candidates)==1 and p.providers.active():
+                projected=Path(p.providers.project_existing(raw_candidates[0],parameters['image'],output/'downloads'))
+                textured=[(projected,p.inspect_glb(str(projected)))]
             if len(textured)!=1:
                 raise p.PipelineError('Expected exactly one textured GLB, not the white shape output')
+            projection = textured[0][0].with_suffix('.projection.json')
+            if projection.is_file():
+                draft = output/'projected_mesh.glb'
+                shutil.copy2(textured[0][0],draft)
+                shutil.copy2(projection,output/'projected_mesh.projection.json')
+                journal['stages']['projectionDraft']={'path':str(draft.relative_to(ROOT)), 'sha256':digest(draft), 'generatedPBR':False}
+                journal['status']='awaiting-projection-art-and-part-review'
+                return journal
+            if getattr(client('shape'),'provider',None)=='private-hunyuan21' and 'metallicRoughness' not in textured[0][1]['textureChannels']:
+                raise p.PipelineError('Private PBR worker returned no embedded metallic/roughness texture')
             mesh=output/'textured_mesh.glb'
             shutil.copy2(textured[0][0],mesh)
-            shape={'asset':asset_id,'space':p.SPACES['shape'],'endpoint':'/generation_all','path':str(mesh.relative_to(ROOT)),'sha256':digest(mesh),'inputSha256':concept['sha256'],'validation':p.inspect_glb(str(mesh)),'generatedAt':stamp()}
+            shape={'asset':asset_id,'space':p.SPACES['shape'] if not p.providers.active() else getattr(client('shape'),'provider','modelscope'),'endpoint':'/generation_all','path':str(mesh.relative_to(ROOT)),'sha256':digest(mesh),'inputSha256':concept['sha256'],'validation':p.inspect_glb(str(mesh)),'generatedAt':stamp()}
             p.save_json(output/'mesh.json',shape)
         if shape.get('inputSha256')!=concept['sha256']:
             raise p.PipelineError('Mesh checkpoint belongs to a different concept')
@@ -269,7 +292,7 @@ def main():
             auth=auth_present()
             provider=current.get('providerBackoff',{})
             recorded_auth=provider.get('authPresent',provider.get('authEnvironmentPresent',auth))
-            if current.get('nextRetryAt') and datetime.fromisoformat(current['nextRetryAt'])>datetime.now(timezone.utc) and not (auth and not recorded_auth):
+            if not p.providers.active() and current.get('nextRetryAt') and datetime.fromisoformat(current['nextRetryAt'])>datetime.now(timezone.utc) and not (auth and not recorded_auth):
                 print(json.dumps({'asset':asset['id'],'status':'deferred','nextRetryAt':current['nextRetryAt']}),flush=True)
                 return 2
         result=run_asset(asset,args.until,args.seed)
@@ -280,7 +303,7 @@ def main():
         if result['status'] in ['deferred','blocked']:
             return 2
         # Review images/part labels before spending more quota or installing meshes.
-        if result['status'].startswith('awaiting-'):
+        if result['status'].startswith('awaiting-') or result['status']=='concept-rejected':
             return 3
     return 0
 

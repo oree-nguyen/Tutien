@@ -2,7 +2,7 @@
 
 Game Three.js r160, giao diện cảm ứng ngang tiếng Việt, có chế độ ngoại tuyến với bot và chế độ online dùng máy chủ có thẩm quyền. **Điều kiện gọi bản chuẩn hoàn tất nằm trong [GOAL.md](GOAL.md); số kiểm thử đạt không thay nghiệm thu 100% GDD hoặc FPS trên điện thoại thật.**
 
-Yêu cầu thay toàn bộ model bằng Tencent có [pipeline/MCP và trạng thái riêng](docs/tencent-3d/README.md). Token đã xác thực hợp lệ; đã có concept H01/H05 và mesh H01 chưa texture. Pipeline hiện dùng Hunyuan3D-2.1; job 270 giây bị chặn do giới hạn thời lượng GPU của tài khoản; chưa có asset textured được tích hợp trong game/APK. Danh mục gồm 167 mục sinh/biến thể.
+Pipeline Tencent hiện mặc định dùng [ModelScope / GPU riêng Hunyuan3D-2.1](docs/tencent-3d/MODELSCOPE.md), có notebook Colab/PAI và fallback Blender chiếu albedo. Đã lưu bản H01 chiếu thử, chưa đạt giải phẫu/PBR/rig; 0/167 asset được tích hợp. ModelScope có weights nhưng chưa có endpoint GPU, container không GPU và chưa có URL máy từ xa.
 
 ## Chạy
 

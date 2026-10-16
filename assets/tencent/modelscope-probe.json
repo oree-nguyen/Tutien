@@ -1,0 +1,69 @@
+{
+  "recordedAt": "2026-10-16T02:06:54.939983+00:00",
+  "sdk": "1.40.2",
+  "repositories": [
+    {
+      "kind": "models",
+      "id": "Tencent-Hunyuan/Hunyuan3D-2.1",
+      "code": 200,
+      "accessible": 1,
+      "demoAvailable": 0,
+      "supportApiInference": false,
+      "studios": [],
+      "note": "Metadata access does not establish inference/GPU availability"
+    },
+    {
+      "kind": "models",
+      "id": "Tencent-Hunyuan/Hunyuan3D-Part",
+      "code": 200,
+      "accessible": 1,
+      "demoAvailable": 0,
+      "supportApiInference": false,
+      "studios": [],
+      "note": "Metadata access does not establish inference/GPU availability"
+    },
+    {
+      "kind": "models",
+      "id": "tencent/Hunyuan3D-2",
+      "errorType": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "kind": "studios",
+      "id": "Tencent-Hunyuan/Hunyuan3D-2.1",
+      "errorType": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "kind": "studios",
+      "id": "Tencent-Hunyuan/Hunyuan3D-Part",
+      "errorType": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    },
+    {
+      "kind": "studios",
+      "id": "tencent/Hunyuan3D-2",
+      "errorType": "HTTPError",
+      "error": "HTTP Error 404: Not Found"
+    }
+  ],
+  "inference": {
+    "shape": {
+      "connected": false,
+      "errorType": "RuntimeError",
+      "error": "MODELSCOPE_SHAPE_URL missing: a ModelScope weights repository is not a GPU Studio API; run tools/tencent/modelscope_probe.py to inspect availability, or deploy the GPU notebook"
+    },
+    "parts": {
+      "connected": false,
+      "errorType": "RuntimeError",
+      "error": "MODELSCOPE_PART_URL missing: a ModelScope weights repository is not a GPU Studio API; run tools/tencent/modelscope_probe.py to inspect availability, or deploy the GPU notebook"
+    },
+    "concept": {
+      "connected": false,
+      "errorType": "RuntimeError",
+      "error": "MODELSCOPE_CONCEPT_URL missing: a ModelScope weights repository is not a GPU Studio API; run tools/tencent/modelscope_probe.py to inspect availability, or deploy the GPU notebook"
+    }
+  },
+  "remoteUrlPresent": false,
+  "runtimeInstalled": false
+}

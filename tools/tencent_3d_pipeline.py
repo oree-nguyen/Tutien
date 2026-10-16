@@ -23,6 +23,9 @@ from contextlib import redirect_stdout
 
 import numpy as np
 
+sys.path.insert(0, str(Path(__file__).parent / "tencent"))
+import providers
+
 ROOT = Path(__file__).resolve().parents[1]
 SPACES = {
     "concept": "black-forest-labs/FLUX.1-schnell",
@@ -196,6 +199,9 @@ def inspect_glb(path: str, required_nodes: list[str] | None = None) -> dict:
 
 
 def get_client(role: str, output: Path):
+    if providers.active():
+        with redirect_stdout(sys.stderr):
+            return providers.get_client(role, output)
     from gradio_client import Client
     options = {"verbose": False, "download_files": str(output), "httpx_kwargs": {"timeout": 30},
                "analytics_enabled": False}
@@ -209,6 +215,12 @@ def get_client(role: str, output: Path):
 def call(client, endpoint: str, values: dict, timeout: int = 900):
     schema = client.view_api(print_info=False, return_format="dict")
     definition = schema.get("named_endpoints", {}).get(endpoint)
+    if endpoint == '/generation_all' and getattr(client, 'provider', None) == 'modelscope':
+        endpoints = schema.get('named_endpoints', {})
+        # Only the specific missing/broken texture branch permits shape fallback.
+        # Queue/auth/schema errors propagate; they never switch identities.
+        if definition is None and '/shape_generation' in endpoints:
+            return providers.project_fallback(client, values, client.pipeline_output)
     if definition is None:
         raise PipelineError(f"Official Space does not expose {endpoint}; inspect live schema")
     parameters = definition.get("parameters", [])
@@ -223,7 +235,7 @@ def call(client, endpoint: str, values: dict, timeout: int = 900):
     # Legacy entry points also respect the shared quota breaker. Probe/list API
     # remain usable; signing in may revalidate quota, signing out cannot evade it.
     queue_path = ROOT / "assets/tencent/queue.json"
-    if queue_path.is_file():
+    if queue_path.is_file() and not providers.active():
         from datetime import datetime, timezone
         from huggingface_hub import get_token
         provider = json.loads(queue_path.read_text()).get("providerBackoff", {})
@@ -235,9 +247,13 @@ def call(client, endpoint: str, values: dict, timeout: int = 900):
     with redirect_stdout(sys.stderr):
         job = client.submit(api_name=endpoint, **values)
         try:
-            return job.result(timeout=timeout)
-        except Exception:
+            return job.result(timeout=max(timeout, 3600) if getattr(client, "provider", None) == "private-hunyuan21" else timeout)
+        except Exception as error:
             job.cancel()
+            if (endpoint == '/generation_all' and getattr(client, 'provider', None) == 'modelscope'
+                    and ('NameError' in str(error) or 'texgen_worker' in str(error))
+                    and '/shape_generation' in schema.get('named_endpoints', {})):
+                return providers.project_fallback(client, values, client.pipeline_output)
             raise
 
 
@@ -267,7 +283,7 @@ def probe(output: Path) -> dict:
         try:
             c = get_client(role, output / "downloads")
             schema = c.view_api(print_info=False, return_format="dict")
-            report["spaces"][role] = {"space": name, "connected": True,
+            report["spaces"][role] = {"space": name if not providers.active() else getattr(c, "provider", "modelscope"), "connected": True,
                                       "endpoints": list(schema.get("named_endpoints", {}))}
             save_json(output / (role + "-api.json"), schema)
         except Exception as error:
@@ -479,12 +495,29 @@ def serve() -> None:
 
     @server.tool()
     def tencent_probe() -> dict:
-        """Check the three official Gradio Spaces without starting inference."""
+        """Check configured provider endpoints without starting inference."""
         return probe(ROOT / ".local/tencent-3d/probe")
 
     @server.tool()
+    def tencent_modelscope_probe() -> dict:
+        """Inspect ModelScope model/Studio metadata and configured remote APIs without inference."""
+        import modelscope_probe
+        return modelscope_probe.probe()
+
+    @server.tool()
+    def tencent_project_texture(source: str, image: str, output: str, front: str) -> dict:
+        """Bake a single-view projection draft on an existing Tencent mesh; not generative PBR or runtime approval."""
+        if front not in ('-Y', '+Y', '-Z', '+Z'):
+            raise PipelineError('Specify a reviewed Blender front direction')
+        subprocess.run(['blender', '--background', '--factory-startup', '--python',
+                        str(ROOT / 'tools/tencent/blender_project_texture.py'), '--',
+                        '--source', source, '--image', image, '--output', output, '--front=' + front],
+                       check=True, stdout=sys.stderr)
+        return json.loads(Path(output).with_suffix('.projection.json').read_text())
+
+    @server.tool()
     def tencent_generate(hero: str, seed: int = 42) -> dict:
-        """Start real FLUX + Hunyuan3D-2 + P3-SAM/X-Part jobs for H01 or H05. Never installs unreviewed assets."""
+        """Start configured concept + Hunyuan3D-2.1 + Part jobs for H01 or H05. Never installs unreviewed assets."""
         return generate(hero, ROOT / ".local/tencent-3d" / hero, seed)
 
     @server.tool()

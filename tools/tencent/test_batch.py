@@ -16,6 +16,8 @@ fixtures=load('tencent_fixture_test','test_pipeline.py')
 
 class QueueTests(unittest.TestCase):
     def setUp(self):
+        self.provider_env=patch.dict('os.environ', {'HUNYUAN_PROVIDER':'huggingface'})
+        self.provider_env.start()
         self.temp=tempfile.TemporaryDirectory(prefix='tencent-queue-contract-')
         self.root=Path(self.temp.name)
         self.bank=self.root/'assets/tencent';self.bank.mkdir(parents=True)
@@ -28,6 +30,7 @@ class QueueTests(unittest.TestCase):
     def tearDown(self):
         b.ROOT,b.BANK=self.old_root,self.old_bank
         self.temp.cleanup()
+        self.provider_env.stop()
 
     def journal(self):
         return {'_path':self.out/'journal.json','attempts':[]}
@@ -84,6 +87,22 @@ class QueueTests(unittest.TestCase):
             result=b.run_asset(self.asset,client_factory=forbidden)
         self.assertEqual(result['status'],'deferred')
         self.assertEqual(result['attempts'],[])
+
+    def test_projection_draft_resumes_without_gpu_submission(self):
+        concept=self.concept(approved=True)
+        draft=self.out/'projected_mesh.glb';draft.write_bytes(self.paths[0].read_bytes())
+        b.p.save_json(self.out/'projected_mesh.projection.json',{'imageSha256':concept['sha256'],'outputSha256':b.digest(draft),'generatedPBR':False})
+        def forbidden(*args):raise AssertionError('Projection draft must not spend another GPU job')
+        result=b.run_asset(self.asset,client_factory=forbidden)
+        self.assertEqual(result['status'],'awaiting-projection-art-and-part-review')
+        self.assertFalse(result['runtimeInstalled'])
+
+    def test_rejected_concept_never_generates_mesh(self):
+        self.concept(approved=False)
+        path=self.out/'concept.json';record=json.loads(path.read_text());record['status']='concept-rejected';b.p.save_json(path,record)
+        def forbidden(*args):raise AssertionError('Rejected reference must not generate a mesh')
+        result=b.run_asset(self.asset,client_factory=forbidden)
+        self.assertEqual(result['status'],'concept-rejected')
 
     def test_single_worker_lock_rejects_parallel_generation(self):
         import fcntl

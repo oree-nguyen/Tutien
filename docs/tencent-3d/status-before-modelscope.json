@@ -1,0 +1,190 @@
+{
+  "status": "BLOCKED_PROVIDER_GPU_TASK_DURATION",
+  "recordedAt": "2026-10-16T01:47:00.064885+00:00",
+  "restoration": {
+    "checkoutStartedAt": "6bc40411a11e82ae0d927f56942c57a5461eb410",
+    "workspaceVenvBlenderAndMCPChecked": true,
+    "scope": "Selected filesystem/runtime capabilities after user-reported Publish; not full backend/device restoration certification"
+  },
+  "connectivity": {
+    "recordedAt": "2026-10-15T23:27:38Z",
+    "spaces": {
+      "concept": {
+        "space": "black-forest-labs/FLUX.1-schnell",
+        "connected": true,
+        "endpoints": [
+          "/infer"
+        ]
+      },
+      "shape": {
+        "space": "tencent/Hunyuan3D-2",
+        "connected": true,
+        "endpoints": [
+          "/lambda",
+          "/lambda_1",
+          "/shape_generation",
+          "/lambda_2",
+          "/lambda_3",
+          "/generation_all",
+          "/lambda_4",
+          "/lambda_5",
+          "/on_gen_mode_change",
+          "/on_decode_mode_change",
+          "/lambda_6",
+          "/on_export_click"
+        ]
+      },
+      "parts": {
+        "space": "tencent/Hunyuan3D-Part",
+        "connected": true,
+        "endpoints": [
+          "/segment",
+          "/generate"
+        ]
+      }
+    },
+    "passed": true,
+    "scope": "Official live API connectivity/schema discovery only; does not prove GPU inference success"
+  },
+  "inventory": {
+    "targets": 167,
+    "counts": {
+      "hero": 48,
+      "weapon": 36,
+      "soul-ring": 12,
+      "bone": 6,
+      "external-bone": 1,
+      "beast": 4,
+      "mutant-beast": 4,
+      "boss": 3,
+      "environment-prop": 29,
+      "terrain": 7,
+      "world-prop": 2,
+      "effect-carrier": 12,
+      "shader-surface": 3
+    },
+    "geometrySites": 118,
+    "legacyGLBs": 3,
+    "catalogSha256": "5ab02d6bc82f56ada0d65529c3be58a6a0c3bbe441cb2ce21dbe4c7aa2a82616"
+  },
+  "concepts": {
+    "approvedForMeshPrototype": 1,
+    "rejected": 1,
+    "H01": {
+      "path": "assets/tencent/H01-C0/concept.webp",
+      "sha256": "05758703fc958b6a9b15c6319c612914fb8de0c1e3819b639f36cfc90bde32ad",
+      "finalArtAccepted": false
+    }
+  },
+  "providerBackoff": {
+    "provider": "Hugging Face ZeroGPU",
+    "nextRetryAt": "2026-10-16T12:01:47.362724+00:00",
+    "authEnvironmentPresent": false,
+    "reason": "'You have exceeded your ZeroGPU quota (135s requested vs. 122s left). Try again in 12:25:13. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens'",
+    "scope": "Provider-reported quota; pause new GPU jobs across the worker until retry time or meaningful auth change"
+  },
+  "localTests": {
+    "pipeline": {
+      "count": 13,
+      "seconds": 4.644
+    },
+    "batch": {
+      "count": 11,
+      "seconds": 0.118
+    },
+    "total": 24,
+    "scope": "Temporary abstract fixtures, actual Blender import and MCP protocol; no fake Tencent meshes"
+  },
+  "mcpSmoke": {
+    "transport": "real stdio MCP",
+    "tools": [
+      "tencent_probe",
+      "tencent_generate",
+      "tencent_inspect_glb",
+      "tencent_asset_catalog",
+      "tencent_generate_asset",
+      "tencent_normalize"
+    ],
+    "catalogTotal": 167,
+    "resumeStatus": "deferred",
+    "gpuRequestSubmittedByThisResume": false,
+    "scope": "Actual local MCP catalog/resume call; saved provider quota prevented remote GPU submission"
+  },
+  "auth": {
+    "present": false,
+    "secretRequirement": "HF_TOKEN",
+    "newDraftSaved": true,
+    "requiresPublishForNewDraft": true,
+    "valueStoredInRepository": false
+  },
+  "generatedTencentGLBs": 0,
+  "runtimeInstalled": false,
+  "newAPKBuilt": false,
+  "sourceFiles": [
+    {
+      "path": "tools/tencent_3d_pipeline.py",
+      "sha256": "6dc73af69975727bdd76a84f663eb0d7507f52cdcd00542491c06dc977309df7"
+    },
+    {
+      "path": "tools/tencent/batch.py",
+      "sha256": "39467c14976d0d08ba289a0737a0e09e92562af86a1da7ebe95d6edf8f735bee"
+    },
+    {
+      "path": "tools/tencent/catalog.mjs",
+      "sha256": "7a5d1e276db66c60e403f50504bdf46359d88782d24d59c48b60eb018dd540cf"
+    },
+    {
+      "path": "tools/tencent/blender_validate.py",
+      "sha256": "bc036df51bd2bec0cff0aefdfc822e54233f6163f1d0ce0fc104a9e1eb49015a"
+    },
+    {
+      "path": "tools/tencent/test_pipeline.py",
+      "sha256": "8494dab7bfa27bae58b6f101e8fb060de705b8f3f89de87c3a6cd9672f1e9be3"
+    },
+    {
+      "path": "tools/tencent/test_batch.py",
+      "sha256": "33a0910d9a24571554fdd3237f748fe8a2fdecf4abbfb074a70ca58cc1e4a670"
+    },
+    {
+      "path": "tools/tencent/requirements.lock",
+      "sha256": "420f454760afea6db2b529faad4e5640bfec4bee4a9148d59b9d24cccc922799"
+    },
+    {
+      "path": ".codex/config.toml",
+      "sha256": "27d0db9847ef6a5ae9502a75648dd7cc0bbfbd7c7c283699d0f56e0fca150b55"
+    }
+  ],
+  "currentAuthentication": {
+    "environmentTokenPresent": true,
+    "huggingFaceWhoamiAccepted": true
+  },
+  "currentResults": {
+    "H01Concept": true,
+    "H05Concept": true,
+    "H05ConceptReviewed": false,
+    "H01ShapeOnlyGLB": true,
+    "texturedAcceptedAssets": 0,
+    "runtimeReplacements": 0
+  },
+  "currentBlocker": {
+    "space": "tencent/Hunyuan3D-2.1",
+    "endpoint": "/generation_all",
+    "recordedAt": "2026-10-16T01:48:02.892107+00:00",
+    "authenticated": true,
+    "inputConceptSha256": "05758703fc958b6a9b15c6319c612914fb8de0c1e3819b639f36cfc90bde32ad",
+    "status": "blocked-provider-task-duration",
+    "requestedGpuSeconds": 270,
+    "error": "The requested GPU duration (270s) is larger than the maximum allowed. Subscribe to Hugging Face PRO to allow GPU tasks up to 40 min.",
+    "runtimeInstalled": false
+  },
+  "historicalEvidenceNotice": "Earlier connectivity/quota fields below are historical, superseded by currentBlocker and currentAuthentication.",
+  "currentProvider": "tencent/Hunyuan3D-2.1",
+  "previousBlocker": {
+    "space": "tencent/Hunyuan3D-2",
+    "message": "Texture Generation (Unavailable); Texture synthesis is disable due to missing requirements",
+    "evidence": "assets/tencent/H01-C0/texture-capability.json",
+    "authenticatedGenerationAllAttempts": 4,
+    "generationAllError": "NameError",
+    "shapeGenerationSucceeded": true
+  }
+}
