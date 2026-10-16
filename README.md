@@ -2,7 +2,7 @@
 
 Game Three.js r160, giao diện cảm ứng ngang tiếng Việt, có chế độ ngoại tuyến với bot và chế độ online dùng máy chủ có thẩm quyền. **Điều kiện gọi bản chuẩn hoàn tất nằm trong [GOAL.md](GOAL.md); số kiểm thử đạt không thay nghiệm thu 100% GDD hoặc FPS trên điện thoại thật.**
 
-Pipeline Tencent hiện mặc định dùng [ModelScope / GPU riêng Hunyuan3D-2.1](docs/tencent-3d/MODELSCOPE.md), có notebook Colab/PAI và fallback Blender chiếu albedo. Đã lưu bản H01 chiếu thử, chưa đạt giải phẫu/PBR/rig; 0/167 asset được tích hợp. ModelScope có weights nhưng chưa có endpoint GPU, container không GPU và chưa có URL máy từ xa.
+Tạo tài nguyên thủ công trên web Hunyuan: [Prompt_Asset — 227 brief tiếng Anh](Prompt_Asset/hunyuan_asset_prompts.md), gồm nhân vật/trang phục, vũ khí, Hồn Cốt/Hoàn, Q/W/E/R/F và tài nguyên cảnh. Chép GLB theo tên manifest vào assets/base_models/ rồi kiểm định offline. Đã bỏ đăng ký/server MCP; pipeline GPU cũ không còn là quy trình mặc định.
 
 ## Chạy
 

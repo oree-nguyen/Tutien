@@ -1,10 +1,12 @@
-# Quy tắc tài nguyên 3D Hồn Giới
+# Quy tắc tài nguyên Hồn Giới — tạo thủ công
 
-- Mọi model 3D mới của game (nhân vật, Hồn Khí, Ngoại Phụ, Hồn thú hoặc mô hình trang trí) phải có nguồn Tencent Hunyuan3D qua `tools/tencent_3d_pipeline.py`: ảnh tham chiếu riêng, GLB từ Hunyuan3D-2.1 qua GPU riêng/ModelScope (theo yêu cầu cập nhật) và nhãn P3-SAM/X-Part từ Hunyuan3D-Part. Hai target đầu là H01/H05; mở rộng target bằng đặc tả/prompt thật khi cần model khác.
-- Cấm tạo model thay thế người/vũ khí bằng cách ghép primitive Blender hoặc Three.js. Không dùng asset ví dụ, fixture hay mesh tự tạo để nhận là sản phẩm Tencent.
-- Model thủ tục cũ là tài nguyên legacy đang chạy; chỉ thay khi asset Tencent thật đã qua kiểm tra. Nếu API/GPU không truy cập được, giữ tính năng game, ghi BLOCKED và lỗi thật; không báo sinh hoặc tích hợp thành công.
-- P3-SAM xuất màu phân đoạn; X-Part sinh hình học mới. Không nhận hai đầu ra này là bản còn nguyên UV/texture. Chỉ cắt mặt trên mesh textured gốc khi kiểm tra khớp hình học; phải bảo toàn SHA của ảnh nhúng, UV gốc và số mặt. Không đoán chuyển UV khi topology thay đổi.
-- Mã nhãn phân đoạn không có ý nghĩa giải phẫu cố định. Bản đồ nhãn → sáu Hồn Cốt/Ngoại Phụ/Hồn Khí và pivot phải được xem trên asset thật và gắn SHA nguồn; không điền tên node rỗng rồi coi là bộ phận có hình học.
-- GLB kiểm tra cấu trúc/Blender chưa đủ nghiệm thu. Cần xem Toàn Thân/Cận Cảnh, hướng mặt, tỷ lệ, khớp, animation, skin/trang phục và LOD trong game trước khi kích hoạt runtime; giữ luật GDD V2.5 và bảo mật hiện hành.
-- Khởi động MCP bằng cấu hình `.codex/config.toml`; quy trình cài đặt và trạng thái thực tế ở `docs/tencent-3d/README.md`. Không lưu HF token vào Git, log hoặc prompt; chỉ dùng biến môi trường khi thực sự cần.
-- Danh mục toàn bộ target và source audit được tạo bằng `node tools/tencent/catalog.mjs`, lưu trong `assets/tencent/catalog.json`. Dùng `tools/tencent/batch.py` hoặc `tencent_generate_asset` để resume từng bước. Không chạy song song worker; tôn trọng `queue.json`/`nextRetryAt`, lưu và commit checkpoint, không xoay account/IP để vượt quota. Không đếm concept hoặc fixture là GLB đã hoàn thiện. ModelScope là mặc định; không fallback ngầm sang Hugging Face. Texture chiếu ảnh bằng Blender được phép làm bản thử theo yêu cầu mới, nhưng phải ghi rõ single-view projection, không phải PBR sinh thật, không tự duyệt mặt sau/giải phẫu hoặc kích hoạt runtime.
+- Workflow hiện tại: tạo model gốc thủ công trên web Hunyuan, dùng Prompt_Asset/hunyuan_asset_prompts.md và asset_manifest.json. Không dùng hoặc thiết lập lại MCP/remote GPU pipeline trừ khi người dùng yêu cầu mới.
+- Tên tướng, trang phục, vũ khí và gameplay lấy từ src/data.js, src/hero-anatomy.js, src/weapons.js, src/simulation.js. Không tự thêm Boss thứ tư hoặc chỉ số còn thiếu.
+- Chép GLB chưa kiểm định vào assets/base_models/ đúng tên manifest; dùng python Prompt_Asset/inspect_base_models.py để nhận dạng offline. Không coi file mới xuất là đã được game sử dụng.
+- Cấm ghép primitive làm model thay thế người/vũ khí mới. Giữ model legacy đang chạy cho đến khi bản thay thế qua kiểm định để không làm mất tính năng game.
+- Body phải toàn thân A-pose, tay trống; vũ khí, Hồn Cốt trang bị và Ngoại phụ xuất riêng. Sáu mesh giải phẫu đầu/thân/tay/chân khác với sáu món trang bị HB-01…06.
+- Tên file chỉ định danh asset; không tự đoán phân đoạn giải phẫu từ tên hoặc tạo node rỗng để giả bộ phận. Cắt trên mesh gốc, giữ UV/material, đặt origin đúng khớp và kiểm tra trên mesh thật. Socket rỗng chỉ là điểm gắn.
+- Bộ chuẩn hóa/Blender offline cũ có thể dùng khi đã có input thật và mapping được duyệt gắn SHA. Không coi P3-SAM/X-Part là bắt buộc cho workflow manual. Không đổi UV theo topology khác rồi khẳng định giữ nguyên texture.
+- GLB phải được xem toàn thân/cận cảnh, trước/sau, kiểm tra rig/animation, trang phục, LOD và runtime trước khi kích hoạt. Prompt PBR hoặc A-pose không bảo đảm đầu ra đạt.
+- VFX GLB là carrier tĩnh; shader/hạt/animation, hitbox, CC và bán kính theo engine. Tái sử dụng mesh khi phù hợp, không coi 227 brief là 227 model đã tạo.
+- Không ghi credential vào Git hoặc tài liệu. Tài liệu tools Tencent cloud cũ giữ làm lịch sử, không phải workflow mặc định.

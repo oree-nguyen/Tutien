@@ -175,21 +175,6 @@ class LocalPipelineTests(unittest.TestCase):
         with self.assertRaisesRegex(pipeline.PipelineError,"additional parameters"):
             pipeline.call(SchemaClient(),"/infer",{})
 
-    def test_stdio_mcp_server_initializes_lists_tools_and_inspects_real_fixture(self):
-        async def run():
-            from mcp import ClientSession, StdioServerParameters
-            from mcp.client.stdio import stdio_client
-            import sys
-            parameters=StdioServerParameters(command=sys.executable,args=[str(pipeline.ROOT/"tools/tencent_3d_pipeline.py"),"serve"])
-            async with stdio_client(parameters) as streams:
-                async with ClientSession(*streams) as client:
-                    await client.initialize()
-                    tools=await client.list_tools()
-                    self.assertEqual({t.name for t in tools.tools},{"tencent_probe","tencent_generate","tencent_inspect_glb","tencent_normalize","tencent_asset_catalog","tencent_generate_asset","tencent_modelscope_probe","tencent_project_texture"})
-                    result=await client.call_tool("tencent_inspect_glb",{"path":str(self.paths[0])})
-                    self.assertFalse(result.is_error)
-                    self.assertIn('"triangles"',result.content[0].text)
-        asyncio.run(run())
 
 
 if __name__=="__main__":

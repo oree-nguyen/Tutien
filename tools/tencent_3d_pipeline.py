@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Official public Gradio clients and lossless, fail-closed GLB part packaging.
 
-No local geometry generator or substitute assets. Network jobs are opt-in CLI/MCP
-operations; starting the MCP server never starts an inference job.
+No local geometry generator or substitute assets. The active workflow is manual
+Hunyuan web creation with offline GLB inspection/normalization. Legacy network
+CLI commands remain opt-in; no MCP server is provided.
 """
 from __future__ import annotations
 
@@ -489,82 +490,9 @@ def normalize(source: Path, segmented: Path, label_file: Path, mapping_file: Pat
     return report
 
 
-def serve() -> None:
-    from mcp.server.mcpserver import MCPServer
-    server = MCPServer("hon-gioi-tencent-3d", instructions="Official Tencent assets only; no primitive substitutes. Remote availability and visual acceptance are separate requirements.")
-
-    @server.tool()
-    def tencent_probe() -> dict:
-        """Check configured provider endpoints without starting inference."""
-        return probe(ROOT / ".local/tencent-3d/probe")
-
-    @server.tool()
-    def tencent_modelscope_probe() -> dict:
-        """Inspect ModelScope model/Studio metadata and configured remote APIs without inference."""
-        import modelscope_probe
-        return modelscope_probe.probe()
-
-    @server.tool()
-    def tencent_project_texture(source: str, image: str, output: str, front: str) -> dict:
-        """Bake a single-view projection draft on an existing Tencent mesh; not generative PBR or runtime approval."""
-        if front not in ('-Y', '+Y', '-Z', '+Z'):
-            raise PipelineError('Specify a reviewed Blender front direction')
-        subprocess.run(['blender', '--background', '--factory-startup', '--python',
-                        str(ROOT / 'tools/tencent/blender_project_texture.py'), '--',
-                        '--source', source, '--image', image, '--output', output, '--front=' + front],
-                       check=True, stdout=sys.stderr)
-        return json.loads(Path(output).with_suffix('.projection.json').read_text())
-
-    @server.tool()
-    def tencent_generate(hero: str, seed: int = 42) -> dict:
-        """Start configured concept + Hunyuan3D-2.1 + Part jobs for H01 or H05. Never installs unreviewed assets."""
-        return generate(hero, ROOT / ".local/tencent-3d" / hero, seed)
-
-    @server.tool()
-    def tencent_inspect_glb(path: str) -> dict:
-        """Verify a local GLB's actual UV data, PBR image references, image bytes and nodes."""
-        return inspect_glb(path)
-
-    @server.tool()
-    def tencent_asset_catalog(offset: int = 0, limit: int = 50) -> dict:
-        """Read source-derived asset IDs and current queue states; does not start GPU jobs."""
-        catalog = json.loads((ROOT / "assets/tencent/catalog.json").read_text())
-        queue_path = ROOT / "assets/tencent/queue.json"
-        queue = json.loads(queue_path.read_text()).get("assets", {}) if queue_path.exists() else {}
-        rows = catalog["assets"][max(0, offset):max(0, offset) + max(1, min(limit, 100))]
-        return {"total": catalog["total"], "counts": catalog["counts"], "assets": [
-            {"id": a["id"], "name": a["name"], "category": a["category"],
-             "status": queue.get(a["id"], {}).get("status", "pending")} for a in rows]}
-
-    @server.tool()
-    def tencent_generate_asset(asset_id: str, until: str = "parts", seed: int = 42) -> dict:
-        """Resume one catalog asset with checkpoints/backoff; stop for actual concept/part review before installation."""
-        if until not in ("concept", "mesh", "parts"):
-            raise PipelineError("until must be concept, mesh or parts")
-        import importlib.util
-        module_spec = importlib.util.spec_from_file_location("tencent_batch", ROOT / "tools/tencent/batch.py")
-        module = importlib.util.module_from_spec(module_spec)
-        module_spec.loader.exec_module(module)
-        catalog = json.loads((ROOT / "assets/tencent/catalog.json").read_text())
-        asset = next((a for a in catalog["assets"] if a["id"] == asset_id), None)
-        if asset is None:
-            raise PipelineError("Unknown catalog asset")
-        result = module.run_asset(asset, until, seed)
-        result.pop("_path", None)
-        return result
-
-    @server.tool()
-    def tencent_normalize(source: str, segmented: str, labels: str, mapping: str, output: str) -> dict:
-        """Split original textured faces using a reviewed semantic map; validate exact UV/image preservation and Blender import."""
-        return normalize(*map(Path, (source, segmented, labels, mapping, output)))
-
-    server.run(transport="stdio")
-
-
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest="command", required=True)
-    commands.add_parser("serve")
     p = commands.add_parser("probe")
     p.add_argument("--output", type=Path, default=ROOT / ".local/tencent-3d/probe")
     p = commands.add_parser("generate")
@@ -578,9 +506,6 @@ def main() -> int:
         p.add_argument(name, type=Path)
     args = parser.parse_args()
     try:
-        if args.command == "serve":
-            serve()
-            return 0
         if args.command == "probe":
             result = probe(args.output)
             code = 0 if result["passed"] else 2

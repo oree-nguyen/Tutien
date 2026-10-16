@@ -1,5 +1,7 @@
 # Pipeline Tencent Hunyuan cho Hồn Giới
 
+> TÀI LIỆU LỊCH SỬ: người dùng đã chuyển sang [tạo thủ công trên web Hunyuan](../../Prompt_Asset/README.md). MCP server/đăng ký đã được gỡ; không dùng hướng dẫn khởi chạy MCP cũ. Các báo cáo dưới đây thuộc đợt trước, không mô tả workflow hiện hành.
+
 Provider mặc định hiện là **ModelScope / GPU riêng Hunyuan3D-2.1**, không tự gọi Hugging Face. Xem [thiết lập, notebook, lệnh chạy và các giới hạn thực tế](MODELSCOPE.md).
 
 Đã cài SDK, cập nhật MCP, chạy projection Blender trên mesh H01 thật và lưu [bản chẩn đoán](../../assets/tencent/H01-C0/projection-diagnostic.glb). Bản đó có UV/albedo 2048 nhưng không có PBR sinh thật, sáu bộ phận, rig hoặc nghiệm thu runtime. Concept H05 đã bị loại sau khi xem pose/trang phục. **0/167 target được nghiệm thu thay thế**; chưa xóa model legacy hoặc build APK mới.
