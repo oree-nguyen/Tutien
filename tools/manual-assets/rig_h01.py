@@ -147,11 +147,11 @@ for level in receipt['levels']:
    if name=='Entrance':
     crouch=1-smooth(2.45,2.95,seconds)
     emerge=smooth(.75,1.28,seconds)
-    arm.pose.bones['Hips'].location.y=-.37*crouch-1.6*(1-emerge)
-    arm.pose.bones['Hips'].location.z=-.20*crouch
+    arm.pose.bones['Hips'].location.y=-.69*crouch-1.6*(1-emerge)
+    arm.pose.bones['Hips'].location.z=-.08*crouch
     rotate('Hips',(1,0,0),math.radians(12)*crouch)
-    rotate('Spine',(1,0,0),math.radians(94)*crouch)
-    rotate('Head',(1,0,0),math.radians(-110)*crouch*smooth(1.5,1.85,seconds))
+    rotate('Spine',(1,0,0),math.radians(55)*crouch)
+    rotate('Head',(1,0,0),math.radians(-62)*crouch*smooth(1.5,1.85,seconds))
     for side,sgn in [('Left',1),('Right',-1)]:
      rotate(side+'UpLeg',(1,0,0),-math.radians(85)*crouch)
      rotate(side+'Leg',(1,0,0),math.radians(120)*crouch)

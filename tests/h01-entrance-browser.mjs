@@ -18,6 +18,7 @@ const frame=async time=>{
   const staff=body.getObjectByName('Staff_Root'),socket=body.getObjectByName('RightHand_WeaponSocket');
   const a=staff.getWorldPosition(body.position.clone()),b=socket.getWorldPosition(body.position.clone());
   return {state:root.userData.manualAsset,staffParent:staff.parent.name,gripDistance:a.distanceTo(b),tip:point(staff.getObjectByName('Staff_Base_Tip')),hips:point(body.getObjectByName('Hips')),leftHand:point(body.getObjectByName('LeftHand')),leftPalm:point(body.getObjectByName('LeftHand_GroundSocket')),
+   vinePbr:(()=>{const m=body.getObjectByName('H01_EntranceVFX')?.children[0];return m?{triangles:m.geometry.index.count/3,standard:m.material.isMeshStandardMaterial,maps:['map','normalMap','roughnessMap'].map(k=>m.material[k]?.image.width)}:null;})(),
    fingers:body.getObjectByName('RightHandIndex1').quaternion.toArray(),fidelity:body.userData.fidelity,material:body.getObjectByProperty('isSkinnedMesh',true).material.normalScale.toArray(),battlefieldReady:window.__HON_GIOI__.world.scenery.ready};
  });
 };
@@ -25,10 +26,16 @@ try{
  const start=Date.now();await page.goto(process.env.GAME_URL??'http://127.0.0.1:5173');const documentMs=Date.now()-start;await ready();const assetMs=Date.now()-start;
  await page.evaluate(()=>window.__HON_GIOI__.world.replayHeroEntrance());
  const samples=[];
- for(const t of [0,1.45,1.85,2.5,3.05,3.55,4.3]){
+ for(const t of [0,.6,1.45,1.85,2.5,3.05,3.55,4.3]){
   const data=await frame(t);samples.push({time:t,...data});
   await page.screenshot({path:`${out}/phase-${t.toFixed(2)}.png`});
   if(t===1.85){
+   await page.evaluate(()=>{window.__HON_GIOI__.world.showcaseYaw+=Math.PI/2;});await page.waitForTimeout(300);
+   await page.screenshot({path:out+'/crouch-profile.png'});
+   await page.evaluate(()=>{window.__HON_GIOI__.world.preview.getObjectByName('H01_EntranceVFX').traverse(n=>{if(n.material)n.material.visible=false;});});
+   await page.screenshot({path:out+'/crouch-profile-pose.png'});
+   await page.evaluate(()=>{window.__HON_GIOI__.world.preview.getObjectByName('H01_EntranceVFX').traverse(n=>{if(n.material)n.material.visible=true;});});
+   await page.evaluate(()=>{window.__HON_GIOI__.world.showcaseYaw-=Math.PI/2;});await page.waitForTimeout(300);
    await page.locator('#showcaseFace').tap();await page.waitForTimeout(400);
    await page.screenshot({path:out+'/crouch-face.png'});
    const pose=await page.evaluate(()=>({time:window.__HON_GIOI__.world.preview.getObjectByName('manualHero_H01_C0').userData.manualAsset.entrance.time,y:window.__HON_GIOI__.world.camera.position.y}));
@@ -37,7 +44,7 @@ try{
   }
  }
  const grip=samples.find(s=>s.time===3.05),impact=samples.find(s=>s.time===3.55);
- const squat=samples.find(s=>s.time===1.45);assert.ok(Math.abs(squat.hips[1]-.48)<.005);assert.ok(Math.abs(squat.leftPalm[1]-.025)<.005);
+ const squat=samples.find(s=>s.time===1.45);assert.deepEqual(squat.vinePbr,{triangles:32000,standard:true,maps:[1024,1024,1024]});assert.ok(Math.abs(squat.hips[1]-.16)<.005);assert.ok(Math.abs(squat.leftPalm[1]-.025)<.005);
  assert.equal(grip.staffParent,'RightHand_WeaponSocket');assert.ok(grip.gripDistance<.005);
  assert.ok(Math.abs(impact.tip[1])<.025,'Staff tip must touch the stage at frame 213');
  console.log('Pose diagnostics',JSON.stringify(samples.map(s=>({t:s.time,hips:s.hips,leftHand:s.leftHand,tip:s.tip,meta:s.state.entrance}))));

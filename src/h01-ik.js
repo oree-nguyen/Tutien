@@ -55,7 +55,7 @@ export function poseRightHand(rig,palmTarget,closedGrip=true){
  const scale=rig.bones.RightHand.getWorldScale(new THREE.Vector3());
  const offset=rig.socket.position.clone().multiply(scale).applyQuaternion(q);
  const target=toWorld(rig,palmTarget).sub(offset);
- const error=solveTwoBoneIK(rig.bones.RightArm,rig.bones.RightForeArm,rig.bones.RightHand,target,toWorld(rig,[-.7,1.25,-.15]));
+ const error=solveTwoBoneIK(rig.bones.RightArm,rig.bones.RightForeArm,rig.bones.RightHand,target,toWorld(rig,closedGrip?[-.7,1.25,-.15]:[-.52,palmTarget[1]+.12,-.16]));
  setWorldRotation(rig.bones.RightHand,q);rig.lastError=error;
  if(closedGrip){
   if(!rig.gripPose){
@@ -82,9 +82,9 @@ export function poseCrouch(rig,amount){
  if(amount<=.01){rig.leftGroundError=null;return;}
  rig.body.updateWorldMatrix(true,true);
  for(const [side,sign] of [['Left',1],['Right',-1]]){
-  const foot=toWorld(rig,[sign*(.105+.075*amount),.12,.08*amount]);
+  const foot=toWorld(rig,[sign*(.105+.14*amount),.12,.08*amount]);
   solveTwoBoneIK(rig.bones[side+'UpLeg'],rig.bones[side+'Leg'],rig.bones[side+'Foot'],foot,toWorld(rig,[sign*.45,.28,.5]));
-  setWorldRotation(rig.bones[side+'Foot'],rig.body.getWorldQuaternion(new THREE.Quaternion()).multiply(rig.restFeet[side]));
+  setWorldRotation(rig.bones[side+'Foot'],rig.body.getWorldQuaternion(new THREE.Quaternion()).multiply(rig.restFeet[side]).multiply(new THREE.Quaternion().setFromAxisAngle(Y,-sign*amount*Math.PI/9)));
  }
  const q=rig.body.getWorldQuaternion(new THREE.Quaternion()).multiply(rig.leftFrame);
  const offset=rig.leftSocket.position.clone().multiply(rig.bones.LeftHand.getWorldScale(new THREE.Vector3())).applyQuaternion(q);

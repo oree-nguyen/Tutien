@@ -8,7 +8,7 @@ import {MeshoptDecoder} from 'meshoptimizer';
 import {Vector3,Matrix4,AnimationMixer} from 'three';
 import {loadCpuGlb} from './helpers/load-cpu-glb.mjs';
 import{createH01IK,poseCrouch,poseRightHand}from'../src/h01-ik.js';
-import{entranceFrame,H01_ENTRANCE}from'../src/h01-entrance.js';
+import{organicVineGeometry,entranceFrame,H01_ENTRANCE}from'../src/h01-entrance.js';
 await MeshoptDecoder.ready;
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
 
@@ -57,7 +57,13 @@ test('actual entrance clip plants the left palm and fingers fit the staff instea
  const clip=gltf.animations.find(a=>a.name==='Entrance');assert.ok(Math.abs(clip.duration-4.2)<.001);
  mixer.clipAction(clip).play();mixer.setTime(1.85);poseCrouch(rig,1);
  const palm=rig.leftSocket.getWorldPosition(new Vector3());assert.ok(palm.distanceTo(new Vector3(0,.025,.22))<.002);
- const hips=body.getObjectByName('Hips').getWorldPosition(new Vector3());assert.ok(Math.abs(hips.y-.48)<.001);
+ const hips=body.getObjectByName('Hips').getWorldPosition(new Vector3());assert.ok(Math.abs(hips.y-.16)<.001);
+ const neck=body.getObjectByName('Neck').getWorldPosition(new Vector3());
+ const torso=neck.clone().sub(hips).normalize();assert.ok(torso.y>.4,'Squat must not fold the torso horizontally');
+ const left=body.getObjectByName('LeftFoot').getWorldPosition(new Vector3()),right=body.getObjectByName('RightFoot').getWorldPosition(new Vector3());
+ assert.ok(left.x>.23&&right.x<-.23,'Knees and feet must open to leave space for the grounded palm');
+ assert.ok(palm.x>right.x&&palm.x<left.x&&palm.z>left.z,'Left palm must be in front between the feet');
+ poseRightHand(rig,[-.22,.28,-.02],false);assert.ok(rig.socket.getWorldPosition(new Vector3()).distanceTo(new Vector3(-.22,.28,-.02))<.002,'Right palm stays at the lowered belt');
  mixer.setTime(3.55);poseRightHand(rig,[-.34,1.264,.18]);assert.ok(rig.lastError<.001);
  for(const finger of ['Thumb','Index','Middle','Ring','Pinky']){
   const point=body.getObjectByName('RightHand'+finger+'3').getWorldPosition(new Vector3()).sub(new Vector3(-.34,1.264,.18));
@@ -69,4 +75,14 @@ test('entrance phases preserve the exact grip/impact times and support dropped f
  assert.equal(entranceFrame(3.549).impact,false);assert.equal(entranceFrame(3.55).impact,true);
  assert.equal(entranceFrame(4.2).complete,true);assert.equal(entranceFrame(.6).visible,false);
  assert.equal(entranceFrame(3.8).shake,0);assert.equal(entranceFrame(9).complete,true);
+});
+
+test('Blender vine meshes have real volume, UVs, smooth normals and mobile triangle budgets',()=>{
+ for(const roots of [false,true]){
+  const geometry=organicVineGeometry(roots),p=geometry.getAttribute('position'),n=geometry.getAttribute('normal'),uv=geometry.getAttribute('uv');
+  assert.equal(geometry.index.count/3,32000);assert.equal(uv.count,p.count);assert.equal(n.count,p.count);
+  for(let i=0;i<n.count;i+=37)assert.ok(Math.abs(Math.hypot(n.getX(i),n.getY(i),n.getZ(i))-1)<.001);
+  const center=new Vector3();for(let k=0;k<20;k++)center.add(new Vector3().fromBufferAttribute(p,k));center.multiplyScalar(1/20);const outward=new Vector3().fromBufferAttribute(p,0).sub(center);assert.ok(outward.dot(new Vector3().fromBufferAttribute(n,0))>0,'Tube faces must point outward');
+  geometry.computeBoundingBox();assert.ok(geometry.boundingBox.max.y>(roots?.1:2.3));geometry.dispose();
+ }
 });

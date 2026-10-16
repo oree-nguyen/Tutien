@@ -109,9 +109,9 @@ function updateEntrance(root,state,t){
  if(!f.gripped){
   if(state.gripped){state.body.attach(state.staff);state.gripped=false;}
   state.staff.position.set(-.38,1.45,.12);state.staff.quaternion.setFromAxisAngle(new THREE.Vector3(0,1,0),f.morph*Math.PI*2);
-  const target=new THREE.Vector3(-.22,.55,.06).lerp(new THREE.Vector3(-.38,1.45,.12),f.reach);
+  const target=new THREE.Vector3(-.22,.28,-.02).lerp(new THREE.Vector3(-.38,1.45,.12),f.reach);
   // Raise the hip-hand target with the standing transition.
-  target.y+=.45*(1-f.crouch)*(1-f.reach);
+  target.y+=.72*(1-f.crouch)*(1-f.reach);
   poseRightHand(state.ik,target.toArray(),false);
  }else{
   const target=new THREE.Vector3(-.38,1.45,.12).lerp(state.plantedGrip,f.plant);
