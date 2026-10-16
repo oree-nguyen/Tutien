@@ -5,17 +5,23 @@
   "sourceBytes": 80791928,
   "sourceTriangles": 1499726,
   "heightMeters": 1.82,
-  "rigged": false,
-  "animations": false,
+  "rigged": true,
+  "animations": [
+    "Idle",
+    "Run",
+    "Attack",
+    "Cast",
+    "Dash"
+  ],
   "anatomicallySegmented": false,
-  "scope": "User-authorized static in-game/APK trial. Reduced geometry and rebaked PBR; not lossless UV/geometry or final rig/LOD acceptance.",
+  "scope": "User-authorized animated trial. Actual skinned source mesh; locally authored clips. Conservative robe weights, no cloth simulation or separate anatomical meshes. Not final animation acceptance.",
   "levels": [
     {
       "detail": "high",
       "targetTriangles": 60000,
       "triangles": 60000,
-      "bytes": 5584628,
-      "sha256": "8af7ada8329fdf7f2b9168f56d19e315b8103cca99c7ed38f71b3acb75e229f0",
+      "bytes": 6570244,
+      "sha256": "7183a2f6b1a4b7082b0b41e14a0c06ee4e002fcb76fb631245864e5dc238ee2d",
       "file": "h01-c0-high.glb",
       "texturePreparation": "high-to-low selected-to-active PBR rebake",
       "textureResolution": 2048
@@ -24,8 +30,8 @@
       "detail": "medium",
       "targetTriangles": 9000,
       "triangles": 9000,
-      "bytes": 2527320,
-      "sha256": "509dd1c3dc62226ba4658d0e45ccae457341d101d1c6ea3f70171601c1714f31",
+      "bytes": 2804448,
+      "sha256": "fb4c504fc78b0965daf195b08a4144f323004fe9154f08cddc62907fa6e06bff",
       "file": "h01-c0-medium.glb",
       "texturePreparation": "high-to-low selected-to-active PBR rebake",
       "textureResolution": 1024
@@ -34,11 +40,12 @@
       "detail": "low",
       "targetTriangles": 900,
       "triangles": 900,
-      "bytes": 2746768,
-      "sha256": "35dcae6a439815dcba8e516b030afc7243e682808660d160a14e6c156c914f5d",
+      "bytes": 2849712,
+      "sha256": "a986e6ac9966aeb08c41631158d1546164c3e899f3017449a99bb73c2595f0db",
       "file": "h01-c0-low.glb",
       "texturePreparation": "high-to-low selected-to-active PBR rebake",
       "textureResolution": 1024
     }
-  ]
+  ],
+  "skeletonBones": 17
 }

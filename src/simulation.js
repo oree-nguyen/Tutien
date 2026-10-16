@@ -240,8 +240,10 @@ export class Match {
     type = "burst",
     duration = 0.6,
     realm = 0,
+    visual = null,
   ) {
     this.effects.push({
+      visual,
       id: this.nextId++,
       realm,
       x,
@@ -798,12 +800,14 @@ export class Match {
       a.cooldowns[4] = 8 - (a.items.includes(14) ? 0.5 : 0);
       a.immuneUntil = this.time + 0.25;
       a.dodgeReady = this.time + 0.25;
+      const trailOrigin = { x: a.x, z: a.z };
       this.dash(a, 2.8);
       if (a.hero === 2) {
         a.stacks = Math.min(3, a.stacks + 1);
         a.stackEnd = this.time + 4;
       }
-      this.effect(a.x, a.z, 0xc9fafa, 1.5, "burst", 0.4, realmOf(a));
+      this.effect(a.x, a.z, 0xc9fafa, 1.5, "burst", 0.4, realmOf(a),
+        a.hero === 0 ? { hero: 0, skill: 4, direction: { ...a.dir }, origin: trailOrigin, range: 2.8 } : null);
       return true;
     }
     let sk = R.skillFor(a, k),
@@ -1138,6 +1142,7 @@ export class Match {
       sk.shape === "line" ? "slash" : "burst",
       0.45,
       realmOf(a),
+      h === 0 ? { hero: 0, skill: k, direction: { ...dir }, origin: { x: a.x, z: a.z }, range: sk.range } : null,
     );
     return true;
   }

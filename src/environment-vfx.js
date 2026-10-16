@@ -19,6 +19,32 @@ const DEFINITIONS = [
       p = vec3(cos(angle) * distance, 0.10 + sin(t * PI) * 0.42, sin(angle) * distance);
       p.xz += vec2(-sin(angle), cos(angle)) * side * width;
       p.y += 0.035 * sin(phase + t * 10.0 + s);
+      if (uSkill > -0.5 && uSkill < 0.5) {
+        // Tangled directional lash, built in +Z and oriented by the cast vector.
+        p = vec3((s / PARTS - 0.5) * 0.10 + sin(t * 19.0 + s) * 0.025,
+          0.12 + sin(t * PI) * 0.18, t);
+        p.x += side * 0.012 * sin(t * PI);
+      } else if (uSkill > 0.5 && uSkill < 1.5) {
+        float a = t * TAU + s * TAU / PARTS;
+        float r = 0.76 + 0.15 * sin(t * PI * 4.0 + s);
+        p = vec3(cos(a) * r, 0.05 + t * 0.42, sin(a) * r);
+        p.xz += vec2(cos(a), sin(a)) * side * 0.022;
+      } else if (uSkill > 1.5 && uSkill < 2.5) {
+        float a = s * TAU / PARTS;
+        float r = sin(t * PI) * 0.92;
+        p = vec3(cos(a) * r, 0.025 + sin(t * PI) * 0.13, sin(a) * r);
+        p.xz += vec2(-sin(a), cos(a)) * side * sin(t * PI) * 0.11;
+      } else if (uSkill > 2.5 && uSkill < 3.5) {
+        float a = s * TAU / PARTS + 0.24 * sin(t * PI * 3.0 + phase);
+        float r = 0.96 - 0.22 * t * t;
+        p = vec3(cos(a) * r, t * 1.15, sin(a) * r);
+        p.xz += vec2(-sin(a), cos(a)) * side * 0.025;
+      } else if (uSkill > 3.5) {
+        p = vec3((s / PARTS - 0.5) * 0.24 + sin(t * 15.0 + s) * 0.018,
+          0.10 + sin(t * PI) * 0.13, t);
+        p.x += side * 0.018 * sin(t * PI);
+      }
+
     `,
     fragment: `
       float vein = exp(-abs(vUv.y - 0.5) * 65.0);
@@ -365,6 +391,7 @@ function shaderSource(definition, parts) {
     uniform float uDuration;
     uniform float uRadius;
     uniform float uSeed;
+    uniform float uSkill;
     attribute float aStrip;
     attribute float aAlong;
     attribute float aSide;
@@ -424,6 +451,7 @@ function borrowMaterial(definition, parts) {
         uDuration: { value: 1 },
         uRadius: { value: 1 },
         uSeed: { value: 0 },
+        uSkill: { value: -1 },
         uColor: { value: new THREE.Color(definition.color) },
         uOpacity: { value: 1 },
       },
@@ -446,6 +474,8 @@ function borrowMaterial(definition, parts) {
 /** Returns a THREE.Group, or null when the global safety bound is reached. */
 export function createElementalEffect({
   element,
+  skill = -1,
+  direction,
   color,
   radius = 1.5,
   duration = 0.8,
@@ -466,6 +496,7 @@ export function createElementalEffect({
   const effectRadius = finite(radius, 1.5, 0.1, 20);
   material.uniforms.uDuration.value = lifespan;
   material.uniforms.uElapsed.value = 0;
+  material.uniforms.uSkill.value = Number.isInteger(skill) && skill >= 0 && skill <= 4 ? skill : -1;
   material.uniforms.uRadius.value = effectRadius;
   material.uniforms.uSeed.value = finite(
     seed,
@@ -486,9 +517,11 @@ export function createElementalEffect({
     finite(y, 0, -1e5, 1e5),
     finite(z, 0, -1e5, 1e5),
   );
+  if ((skill === 0 || skill === 4) && direction) group.rotation.y = Math.atan2(direction.x, direction.z);
   group.add(mesh);
   group.userData.elementalVfx = {
     element: definition.key,
+    skill: material.uniforms.uSkill.value,
     pattern: definition.pattern,
     duration: lifespan,
     radius: effectRadius,

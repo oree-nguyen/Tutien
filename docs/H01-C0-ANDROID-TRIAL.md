@@ -8,7 +8,9 @@ GLB gốc có 1.499.726 tam giác, 80.791.928 byte, có albedo/normal/metallic-r
 
 Bản Android gồm ba LOD đã giảm lưới, hàn đỉnh trùng trong ngưỡng nhỏ và bake lại PBR từ mesh gốc lên UV mới bằng Blender CPU: high 60.000 mặt, medium 9.000, low 900. Chiều cao chuẩn 1,82 m; hướng mặt đã căn theo renderer. Albedo/normal/metallic-roughness là ảnh nhúng, được kiểm tra trong GLB. Đây là chuyển đổi có mất chi tiết, không nhận là bảo toàn byte UV/ảnh hoặc geometry 100%. Vũ khí Mộc Tinh Trượng hiện có vẫn được trang bị riêng.
 
-**Giới hạn:** nhân vật di chuyển và dùng kỹ năng theo luật game, nhưng thân đang giữ pose tĩnh; chưa có hoạt ảnh khớp tay/chân, cloth simulation, rig hoặc sáu mesh giải phẫu riêng. Các slot Hồn Cốt và chỉ số gameplay vẫn hoạt động; không nhận rằng đã có hệ thay bộ phận 3D hoàn chỉnh. Nhãn sảnh ghi rõ model tĩnh thử nghiệm. Camera xa dùng LOD thấp, nên chi tiết mặt/áo giảm mạnh.
+**Bản cập nhật hoạt ảnh:** đã gắn skeleton 17 xương, skin weights và năm clip Idle/Run/Attack/Cast/Dash vào mesh thật ở cả ba LOD. Mỗi actor có skeleton/mixer độc lập; Mộc Tinh Trượng hiện có bám Hand_R. Q/W/E/R dùng chung clip Cast, kèm năm dạng shader Mộc khác nhau cho từng chiêu Q/W/E/R/F.
+
+**Giới hạn:** chưa có cloth simulation, rig ngón tay hoặc sáu mesh giải phẫu riêng. Trường bào dài dùng trọng số biến dạng nhẹ, cần thử tiếp trên thiết bị thật. Các slot Hồn Cốt và chỉ số gameplay vẫn hoạt động; không nhận rằng đã có hệ thay bộ phận 3D hoàn chỉnh. Nhãn sảnh ghi rõ rig/hoạt ảnh thử nghiệm. Camera xa dùng LOD thấp, nên chi tiết mặt/áo giảm mạnh.
 
 Mô hình được tải từ file cục bộ trong APK; chơi offline không cần truy cập Hunyuan hoặc GPU server. Standalone HTML cũng nhúng các GLB để không thêm yêu cầu tải model bên ngoài. Thư mục `assets/base_models/` chứa bản high đã chuẩn bị để công cụ nhận diện offline; đây là bản dẫn xuất, không phải raw export gốc.
 
@@ -31,3 +33,12 @@ blender --background --factory-startup --python tools/manual-assets/prepare_h01_
 ```
 
 Script này chỉ xử lý mesh do người dùng cung cấp; không gọi MCP, suy luận AI hoặc ghép primitive thành người.
+
+
+Gắn rig lại từ ba LOD tĩnh đã bake (bản sao nguồn lưu trong `.local/manual-assets/static-lods/`):
+
+```bash
+blender -b --python tools/manual-assets/rig_h01.py
+```
+
+Script không tái tạo model bằng primitive; thêm skeleton, trọng số và clip vào mesh có sẵn. Không chạy chuẩn hóa LOD tĩnh sau bước rig vì sẽ ghi đè rig. Prompt tạo Mộc Tinh Trượng và carrier riêng từng chiêu: [H01_Lam_Dat_Weapon_VFX.md](../Prompt_Asset/H01_Lam_Dat_Weapon_VFX.md).

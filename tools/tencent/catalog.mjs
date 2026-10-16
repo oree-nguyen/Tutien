@@ -129,7 +129,7 @@ async function scanLegacy(dir) {
         const receipt=JSON.parse(await readFile("public/models/h01-c0/provenance.json","utf8"));
         trial=receipt.levels.some(level=>level.file===entry.name&&level.sha256===digest);
       }
-      legacyGLBs.push({path,bytes:bytes.length,sha256:digest,status:trial?"hunyuan-user-shared-static-trial":"legacy-not-Tencent-not-replaced",...(trial?{assetId:"H01-C0"}:{})});
+      legacyGLBs.push({path,bytes:bytes.length,sha256:digest,status:trial?"hunyuan-user-shared-animated-trial":"legacy-not-Tencent-not-replaced",...(trial?{assetId:"H01-C0"}:{})});
     }
   }
 }

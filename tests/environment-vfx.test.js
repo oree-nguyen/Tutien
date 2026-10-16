@@ -163,3 +163,16 @@ test("global effect cap and teardown prevent unbounded meshes, buffers or pooled
   assert.equal(elementalVfxCacheStats().geometryCount, 0);
   assert.equal(elementalVfxCacheStats().pooledMaterials, 0);
 });
+
+test('Lam Dat skill uniforms select five forms and reset when pooled for generic wood',()=>{
+  for(let skill=0;skill<5;skill++){
+    const effect=createElementalEffect({element:'wood',skill,direction:{x:1,z:0}});
+    assert.equal(effect.children[0].material.uniforms.uSkill.value,skill);
+    assert.equal(effect.userData.elementalVfx.skill,skill);
+    if(skill===0||skill===4)assert.equal(effect.rotation.y,Math.PI/2);
+    disposeElementalEffect(effect);
+  }
+  const generic=createElementalEffect({element:'wood'});
+  assert.equal(generic.children[0].material.uniforms.uSkill.value,-1);
+  disposeElementalEffect(generic);
+});

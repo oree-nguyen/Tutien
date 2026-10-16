@@ -1,4 +1,4 @@
-import { usesManualH01, createManualH01 } from './manual-hero.js';
+import { usesManualH01, createManualH01, updateManualH01Animation } from './manual-hero.js';
 import * as T from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import {
@@ -181,6 +181,7 @@ export function animateVisual(root, a, time, dt) {
       Math.max(dt, 0.001) /
       4,
   );
+  if (root.userData.manualHunyuan) updateManualH01Animation(root, a, speed, dt);
   if (root.userData.anatomy) animateHeroAnatomy(root, a, time, speed);
   if (root.userData.creatureArt) animateCreatureVisual(root, a, time, dt);
   root.traverse((o) => {

@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { disposeManualH01 } from "./manual-hero.js";
 import { HEROES, REGIONS } from "./data.js";
 import {
   visualTemplate,
@@ -353,7 +354,10 @@ export class World {
     });
   }
   releaseModelRings(model) {
-    for (const level of model.lod.levels) disposeSoulRingVisuals(level.object);
+    for (const level of model.lod.levels) {
+      disposeSoulRingVisuals(level.object);
+      disposeManualH01(level.object);
+    }
   }
   setQuality(value) {
     if (!["balanced", "ultra"].includes(value))
@@ -579,10 +583,12 @@ export class World {
           (z.realm ?? z.owner.realm ?? 0) === (player.realm ?? 0) &&
           !this.effectMeshes.has("z" + z.id)
         ) {
-          let ring = this.ring(
-            HEROES[z.owner.hero]?.color ?? 0xffaa77,
-            z.sk.radius,
-          );
+          const woodZone = z.owner.hero === 0;
+          let ring = woodZone ? createElementalEffect({ element: 'wood', skill: z.k,
+            color: HEROES[0].color, radius: z.sk.radius, duration: z.end - match.time,
+            quality: this.quality, seed: z.id }) : this.ring(
+            HEROES[z.owner.hero]?.color ?? 0xffaa77, z.sk.radius);
+          if (!ring) continue;
           ring.position.set(
             z.point.x,
             groundHeight(z.point.x, z.point.z) + 0.03,
@@ -591,6 +597,8 @@ export class World {
           this.scene.add(ring);
           this.effectMeshes.set("z" + z.id, {
             mesh: ring,
+            elemental: woodZone,
+            born: match.time,
             end: z.end,
             realm: z.realm ?? z.owner.realm ?? 0,
           });
@@ -600,14 +608,19 @@ export class World {
           (e.realm ?? 0) === (player.realm ?? 0) &&
           !this.effectMeshes.has(e.id)
         ) {
+          const wood = e.visual?.hero === 0 ? e.visual : null;
+          const directional = wood && [0, 4].includes(wood.skill);
           const effect = createElementalEffect({
+            element: wood ? 'wood' : undefined,
+            skill: wood?.skill,
+            direction: wood?.direction,
             color: e.color,
-            radius: Math.max(0.4, e.radius),
+            radius: directional ? wood.range : Math.max(0.4, e.radius),
             duration: e.end - e.born,
             quality: this.quality,
-            x: e.x,
+            x: directional ? wood.origin.x : e.x,
             y: groundHeight(e.x, e.z) + 0.06,
-            z: e.z,
+            z: directional ? wood.origin.z : e.z,
             seed: e.id,
           });
           if (!effect) continue;

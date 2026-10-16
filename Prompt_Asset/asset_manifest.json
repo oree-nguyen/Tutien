@@ -42,7 +42,7 @@
     },
     {
       "path": "src/world.js",
-      "sha256": "dcf8ca7ff3d351865eb9d60047a8aab56b91273742d34c5083e3e24b5928b3a4"
+      "sha256": "c7112ac93ebb9a1c6767728183c65dd2fae6abef6557b7a478cf5365c82ef70f"
     },
     {
       "path": "src/soul-ring-vfx.js",
@@ -50,7 +50,7 @@
     },
     {
       "path": "src/environment-vfx.js",
-      "sha256": "fd1828fe6e44d635eb21494edb0d7f5c6456bc1352f43c8aea5d81bcf9c21782"
+      "sha256": "eb30a6c9488d61b37faa6f1fb3f71600f36e3ff41f23423d7fac49678179504b"
     },
     {
       "path": "src/skill-projection.js",
@@ -58,12 +58,12 @@
     },
     {
       "path": "src/simulation.js",
-      "sha256": "51eb75ecda8c96129539742202dbf04ea8924d45c648815a3c07d8b4111b7df3"
+      "sha256": "2309d45dda7ad8ee69247b2d7ffc2618a7c0ab5fc91e065cc066eea7f40cb7bf"
     }
   ],
   "assets": [
     {
-      "status": "manual-static-trial-available",
+      "status": "manual-animated-trial-available",
       "runtimeInstalled": false,
       "id": "H01-C0",
       "category": "hero",
@@ -90,7 +90,14 @@
       "origin": "source-catalog",
       "trial": {
         "provenance": "public/models/h01-c0/provenance.json",
-        "rigged": false,
+        "rigged": true,
+        "animations": [
+          "Idle",
+          "Run",
+          "Attack",
+          "Cast",
+          "Dash"
+        ],
         "productionApproved": false
       }
     },
