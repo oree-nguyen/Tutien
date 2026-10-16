@@ -1,8 +1,12 @@
 # Pipeline Tencent Hunyuan cho Hồn Giới
 
-Trạng thái ngày **16/10/2026 (Asia/Saigon)** sau Publish: **cả ba API đã kết nối được**, gồm `/infer`, `/generation_all`, `/segment`, `/generate`. FLUX đã sinh ảnh concept H01 thật. Ảnh đầu bị cắt chân/không đúng pose được giữ riêng và loại; ảnh thứ hai thấy toàn thân, tay trống và nền trắng được duyệt thử sinh mesh, chưa duyệt mỹ thuật cuối. **Hunyuan3D-2 hiện bị chặn bởi quota ZeroGPU**, chưa có GLB Tencent để thay model trong game.
+Pipeline đã chuyển sang **Tencent Hunyuan3D-2.1** theo yêu cầu. Lần gọi `/generation_all` có xác thực cho H01 bị dịch vụ từ chối: `The requested GPU duration (270s) is larger than the maximum allowed`; phản hồi yêu cầu Hugging Face PRO. Đây là giới hạn thời lượng mỗi job, không phải thời gian chờ hàng đợi; chưa có GLB textured mới. Bằng chứng: `assets/tencent/H01-C0/hunyuan21-attempt.json`. Không lặp job hoặc đổi danh tính để né giới hạn.
 
-Phản hồi thật: `135s requested vs. 122s left`, thử lại sau `12:25:13`; checkpoint ghi thời điểm dự kiến **19:01:47 ngày 16/10/2026 (Asia/Saigon)**. Một lần trước đó trả lỗi dịch vụ `NameError`. Không chuyển các lỗi này thành kết quả thành công hoặc đổi danh tính/host để né quota. [queue.json](../../assets/tencent/queue.json) lưu từng lần thử và thời điểm resume. Số quota/thời điểm là phản hồi đã ghi, không bảo đảm dịch vụ sẽ sẵn sàng đúng giờ đó.
+
+Trạng thái cập nhật ngày **16/10/2026 UTC**: `HF_TOKEN` đã có trong môi trường và Hugging Face xác thực thành công. Đã sinh concept H01 và H05 thật. H01 `/shape_generation` đã trả GLB hình học 5,6 MiB, được lưu riêng tại `assets/tencent/H01-C0/shape-only.glb`; **không có texture và không được kích hoạt trong game**. H05 còn chờ duyệt ảnh.
+
+**Điểm chặn trước khi chuyển sang 2.1 là texture bị tắt ở Space 2.0**, không phải thiếu token. Bốn lần gọi `/generation_all` có xác thực trả `NameError`. Config trực tiếp của Space ghi `Texture Generation (Unavailable)` và `Texture synthesis is disable due to missing requirements`. Xem [bằng chứng](../../assets/tencent/H01-C0/texture-capability.json). Cài thêm thư viện trong container này không sửa được môi trường GPU của Space do Tencent quản lý. Quota cũ được giữ trong journal làm lịch sử; chưa có asset textured đạt chuẩn để thay runtime.
+
 
 ## Đã cài và kiểm tra
 
@@ -26,7 +30,7 @@ node tools/tencent/catalog.mjs
 /workspace/tencent-3d-venv/bin/python -B tools/tencent/batch.py --asset H01-W0 --until concept
 ```
 
-Không chạy lệnh GPU thứ hai trong thời gian quota chung đang chặn. `--commit` lưu checkpoint đúng thư mục asset và queue khi index Git sạch; không đụng staged work khác. Các bản download trung gian bị ignore, còn concept/mesh đã chọn, SHA và journal được commit theo đợt. Lần chạy hiện tại chỉ có concept, **chưa có model đạt** để kích hoạt loader hoặc build APK mới.
+Không chạy lệnh GPU thứ hai trong thời gian quota chung đang chặn. `--commit` lưu checkpoint đúng thư mục asset và queue khi index Git sạch; không đụng staged work khác. Các bản download trung gian bị ignore, còn concept/mesh đã chọn, SHA và journal được commit theo đợt. Lần chạy hiện tại có concept và mesh hình học chưa texture, **chưa có model đạt** để kích hoạt loader hoặc build APK mới.
 
 ```sh
 cd /workspace/Tutien
@@ -76,8 +80,8 @@ Ba host sau đã được người dùng mở và kiểm tra kết nối thành 
 - `tencent-hunyuan3d-2.hf.space`
 - `tencent-hunyuan3d-part.hf.space`
 
-`huggingface.co` đọc được metadata/source. Hiện không có token trong env hoặc cache HF. Space đã đề nghị xác thực Hugging Face để có thêm quota. Trường secret cá nhân `HF_TOKEN` đã được khai báo trong một **draft mới** cho bốn host cần thiết; không chứa giá trị token và không thay allowlist người dùng. Nếu dùng đăng nhập, điền token ở Environment settings, review/save và publish thay đổi; đừng gửi token vào chat. Đăng nhập không bảo đảm đủ quota cho 167 mục. Có thể đợi thời điểm retry do dịch vụ báo thay vì đăng nhập. Không bỏ TLS, đổi host/IP nhằm lách quota hoặc giả model đầu ra.
+`huggingface.co` đọc được metadata/source; token môi trường hiện đã xác thực thành công. Không cần nhập lại token. Cần Space Tencent khôi phục dịch vụ texture hoặc xác minh một endpoint Tencent khác có texture hoạt động trước khi tiếp tục mesh textured. Không bỏ TLS, đổi danh tính hoặc host nhằm lách quota.
 
-Sau khi quota đủ: resume H01; sinh lần lượt mục còn lại; duyệt concept; ánh xạ nhãn/pivot thật; chuẩn hóa; kiểm tra hướng/tỷ lệ và ảnh Toàn Thân/Cận Cảnh; kiểm tra rig/animation, skin/trang phục, LOD và geometry audit. Chỉ lúc đó mới thêm GLB đã xác thực vào asset loader, build PWA/HTML/APK và cập nhật goal. Hiện không có GLB Tencent mới trong `public/`, runtime hoặc APK; mô hình legacy chưa được thay. Không gọi đã hoàn tất yêu cầu loại bỏ primitive.
+Sau khi dịch vụ texture hoạt động: resume H01; sinh lần lượt mục còn lại; duyệt concept; ánh xạ nhãn/pivot thật; chuẩn hóa; kiểm tra hướng/tỷ lệ và ảnh Toàn Thân/Cận Cảnh; kiểm tra rig/animation, skin/trang phục, LOD và geometry audit. Chỉ lúc đó mới thêm GLB đã xác thực vào asset loader, build PWA/HTML/APK và cập nhật goal. Hiện không có GLB Tencent mới trong `public/`, runtime hoặc APK; mô hình legacy chưa được thay. Không gọi đã hoàn tất yêu cầu loại bỏ primitive.
 
 Xem [goal riêng](GOAL.md) và [bằng chứng lần thử thật](status.json). Báo cáo GDD/overhaul trước có fingerprint riêng; thay đổi tooling lần này làm fingerprint toàn repository đổi, không chuyển các báo cáo cũ sang trạng thái đạt cho mã mới.

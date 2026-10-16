@@ -2,7 +2,7 @@
 
 Game Three.js r160, giao diện cảm ứng ngang tiếng Việt, có chế độ ngoại tuyến với bot và chế độ online dùng máy chủ có thẩm quyền. **Điều kiện gọi bản chuẩn hoàn tất nằm trong [GOAL.md](GOAL.md); số kiểm thử đạt không thay nghiệm thu 100% GDD hoặc FPS trên điện thoại thật.**
 
-Yêu cầu thay toàn bộ model bằng Tencent ngày 16/10/2026 có [pipeline/MCP và trạng thái riêng](docs/tencent-3d/README.md). Sau Publish, cả ba API đã kết nối được; danh mục có 167 mục sinh/biến thể và audit 118 vị trí geometry cùng ba GLB legacy. FLUX đã sinh concept H01 thật; Hunyuan hiện thiếu quota ZeroGPU (135 giây yêu cầu, 122 giây còn lại). Hàng đợi lưu checkpoint/backoff; chưa có GLB mới hoặc model Tencent trong game/APK.
+Yêu cầu thay toàn bộ model bằng Tencent có [pipeline/MCP và trạng thái riêng](docs/tencent-3d/README.md). Token đã xác thực hợp lệ; đã có concept H01/H05 và mesh H01 chưa texture. Pipeline hiện dùng Hunyuan3D-2.1; job 270 giây bị chặn do giới hạn thời lượng GPU của tài khoản; chưa có asset textured được tích hợp trong game/APK. Danh mục gồm 167 mục sinh/biến thể.
 
 ## Chạy
 

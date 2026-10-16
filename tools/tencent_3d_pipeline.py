@@ -26,7 +26,7 @@ import numpy as np
 ROOT = Path(__file__).resolve().parents[1]
 SPACES = {
     "concept": "black-forest-labs/FLUX.1-schnell",
-    "shape": "tencent/Hunyuan3D-2",
+    "shape": "tencent/Hunyuan3D-2.1",
     "parts": "tencent/Hunyuan3D-Part",
 }
 SLOTS = ("HonCot_Dau", "HonCot_Than", "HonCot_TayTrai", "HonCot_TayPhai",

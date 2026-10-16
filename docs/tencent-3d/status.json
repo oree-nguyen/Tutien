@@ -1,6 +1,6 @@
 {
-  "status": "DEFERRED_ZEROGPU_QUOTA",
-  "recordedAt": "2026-10-15T23:48:31.298174+00:00",
+  "status": "BLOCKED_PROVIDER_GPU_TASK_DURATION",
+  "recordedAt": "2026-10-16T01:47:00.064885+00:00",
   "restoration": {
     "checkoutStartedAt": "6bc40411a11e82ae0d927f56942c57a5461eb410",
     "workspaceVenvBlenderAndMCPChecked": true,
@@ -153,5 +153,38 @@
       "path": ".codex/config.toml",
       "sha256": "27d0db9847ef6a5ae9502a75648dd7cc0bbfbd7c7c283699d0f56e0fca150b55"
     }
-  ]
+  ],
+  "currentAuthentication": {
+    "environmentTokenPresent": true,
+    "huggingFaceWhoamiAccepted": true
+  },
+  "currentResults": {
+    "H01Concept": true,
+    "H05Concept": true,
+    "H05ConceptReviewed": false,
+    "H01ShapeOnlyGLB": true,
+    "texturedAcceptedAssets": 0,
+    "runtimeReplacements": 0
+  },
+  "currentBlocker": {
+    "space": "tencent/Hunyuan3D-2.1",
+    "endpoint": "/generation_all",
+    "recordedAt": "2026-10-16T01:48:02.892107+00:00",
+    "authenticated": true,
+    "inputConceptSha256": "05758703fc958b6a9b15c6319c612914fb8de0c1e3819b639f36cfc90bde32ad",
+    "status": "blocked-provider-task-duration",
+    "requestedGpuSeconds": 270,
+    "error": "The requested GPU duration (270s) is larger than the maximum allowed. Subscribe to Hugging Face PRO to allow GPU tasks up to 40 min.",
+    "runtimeInstalled": false
+  },
+  "historicalEvidenceNotice": "Earlier connectivity/quota fields below are historical, superseded by currentBlocker and currentAuthentication.",
+  "currentProvider": "tencent/Hunyuan3D-2.1",
+  "previousBlocker": {
+    "space": "tencent/Hunyuan3D-2",
+    "message": "Texture Generation (Unavailable); Texture synthesis is disable due to missing requirements",
+    "evidence": "assets/tencent/H01-C0/texture-capability.json",
+    "authenticatedGenerationAllAttempts": 4,
+    "generationAllError": "NameError",
+    "shapeGenerationSucceeded": true
+  }
 }

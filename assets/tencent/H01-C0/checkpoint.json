@@ -33,11 +33,75 @@
       "errorType": "AppError",
       "error": "'You have exceeded your ZeroGPU quota (135s requested vs. 122s left). Try again in 12:25:13. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens'",
       "retryAfterSeconds": 44713
+    },
+    {
+      "stage": "mesh",
+      "attempt": 1,
+      "startedAt": "2026-10-16T01:37:47.963358+00:00",
+      "finishedAt": "2026-10-16T01:38:03.296998+00:00",
+      "passed": false,
+      "errorType": "AppError",
+      "error": "'NameError'",
+      "retryAfterSeconds": 10
+    },
+    {
+      "stage": "shape-connect",
+      "attempt": 1,
+      "startedAt": "2026-10-16T01:37:47.964083+00:00",
+      "finishedAt": "2026-10-16T01:37:49.833859+00:00",
+      "passed": true
+    },
+    {
+      "stage": "mesh",
+      "attempt": 2,
+      "startedAt": "2026-10-16T01:38:13.297994+00:00",
+      "finishedAt": "2026-10-16T01:38:26.216323+00:00",
+      "passed": false,
+      "errorType": "AppError",
+      "error": "'NameError'",
+      "retryAfterSeconds": 20
+    },
+    {
+      "stage": "mesh",
+      "attempt": 3,
+      "startedAt": "2026-10-16T01:38:46.220987+00:00",
+      "finishedAt": "2026-10-16T01:38:59.853750+00:00",
+      "passed": false,
+      "errorType": "AppError",
+      "error": "'NameError'",
+      "retryAfterSeconds": 40
+    },
+    {
+      "stage": "mesh",
+      "attempt": 4,
+      "startedAt": "2026-10-16T01:39:39.855990+00:00",
+      "finishedAt": "2026-10-16T01:39:53.294644+00:00",
+      "passed": false,
+      "errorType": "AppError",
+      "error": "'NameError'",
+      "retryAfterSeconds": 60
+    },
+    {
+      "stage": "mesh",
+      "attempt": 1,
+      "startedAt": "2026-10-16T01:47:33.532660+00:00",
+      "finishedAt": "2026-10-16T01:47:38.633798+00:00",
+      "passed": false,
+      "errorType": "AppError",
+      "error": "'The requested GPU duration (270s) is larger than the maximum allowedSubscribe to Hugging Face PRO to allow GPU tasks up to 40 min - https://huggingface.co/subscribe/pro?from=ZeroGPU'",
+      "retryAfterSeconds": null
+    },
+    {
+      "stage": "shape-connect",
+      "attempt": 1,
+      "startedAt": "2026-10-16T01:47:33.533177+00:00",
+      "finishedAt": "2026-10-16T01:47:35.741027+00:00",
+      "passed": true
     }
   ],
   "runtimeInstalled": false,
-  "status": "deferred",
-  "error": "Shared ZeroGPU quota backoff: no new GPU job submitted",
+  "status": "blocked",
+  "error": "'The requested GPU duration (270s) is larger than the maximum allowedSubscribe to Hugging Face PRO to allow GPU tasks up to 40 min - https://huggingface.co/subscribe/pro?from=ZeroGPU'",
   "providerBackoff": {
     "provider": "Hugging Face ZeroGPU",
     "nextRetryAt": "2026-10-16T12:01:47.362724+00:00",
@@ -45,5 +109,6 @@
     "reason": "'You have exceeded your ZeroGPU quota (135s requested vs. 122s left). Try again in 12:25:13. Authenticate with a Hugging Face token for more quota - https://huggingface.co/settings/tokens'",
     "scope": "Provider-reported quota; pause new GPU jobs across the worker until retry time or meaningful auth change"
   },
-  "nextRetryAt": "2026-10-16T12:01:47.362724+00:00"
+  "quotaPrerequisiteChanged": "Authentication environment presence changed; actual provider response must revalidate quota",
+  "errorType": "AppError"
 }
