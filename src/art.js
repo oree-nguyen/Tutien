@@ -1,3 +1,4 @@
+import { usesManualH01, createManualH01 } from './manual-hero.js';
 import * as T from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import {
@@ -118,6 +119,9 @@ function textureMaps() {
   return maps;
 }
 export function visualTemplate(a, d = "low") {
+  // Browser GLTF textures need an image decoder; CPU-only geometry tooling
+  // retains the legacy generator. The imported browser path is tested separately.
+  if (typeof document !== "undefined" && usesManualH01(a)) return createManualH01(a, d);
   const key = [
     a.kind,
     a.hero,
@@ -167,6 +171,7 @@ export function triangleCount(root) {
   return n;
 }
 export function animateVisual(root, a, time, dt) {
+  if (root.userData.manualHunyuan) syncSoulRingVisuals(root, a, root.userData.detail, time);
   const speed = Math.min(
     1,
     Math.hypot(

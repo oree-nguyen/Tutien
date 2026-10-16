@@ -123,7 +123,13 @@ async function scanLegacy(dir) {
     if(entry.isDirectory())await scanLegacy(path);
     else if(entry.name.endsWith(".glb")) {
       const bytes=await readFile(path);
-      legacyGLBs.push({path,bytes:bytes.length,sha256:createHash("sha256").update(bytes).digest("hex"),status:"legacy-not-Tencent-not-replaced"});
+      const digest=createHash("sha256").update(bytes).digest("hex");
+      let trial=false;
+      if(path.startsWith("public/models/h01-c0/")) {
+        const receipt=JSON.parse(await readFile("public/models/h01-c0/provenance.json","utf8"));
+        trial=receipt.levels.some(level=>level.file===entry.name&&level.sha256===digest);
+      }
+      legacyGLBs.push({path,bytes:bytes.length,sha256:digest,status:trial?"hunyuan-user-shared-static-trial":"legacy-not-Tencent-not-replaced",...(trial?{assetId:"H01-C0"}:{})});
     }
   }
 }

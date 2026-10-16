@@ -2,6 +2,8 @@
 
 Game Three.js r160, giao diện cảm ứng ngang tiếng Việt, có chế độ ngoại tuyến với bot và chế độ online dùng máy chủ có thẩm quyền. **Điều kiện gọi bản chuẩn hoàn tất nằm trong [GOAL.md](GOAL.md); số kiểm thử đạt không thay nghiệm thu 100% GDD hoặc FPS trên điện thoại thật.**
 
+Bản thử Android dùng model H01-C0 do người dùng chia sẻ: [hướng dẫn và giới hạn](docs/H01-C0-ANDROID-TRIAL.md).
+
 Tạo tài nguyên thủ công trên web Hunyuan: [Prompt_Asset — 227 brief tiếng Anh](Prompt_Asset/hunyuan_asset_prompts.md), gồm nhân vật/trang phục, vũ khí, Hồn Cốt/Hoàn, Q/W/E/R/F và tài nguyên cảnh. Chép GLB theo tên manifest vào assets/base_models/ rồi kiểm định offline. Đã bỏ đăng ký/server MCP; pipeline GPU cũ không còn là quy trình mặc định.
 
 ## Chạy

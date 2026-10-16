@@ -14,6 +14,19 @@ const result = await build({
   },
   plugins: [
     {
+      name: "inline-manual-hunyuan-models",
+      setup(build) {
+        build.onLoad({ filter: /manual-hero-assets\.js$/ }, async () => {
+          const assets = {};
+          for (const detail of ["high", "medium", "low"]) {
+            const bytes = await readFile(`public/models/h01-c0/h01-c0-${detail}.glb`);
+            assets[detail] = "data:model/gltf-binary;base64," + bytes.toString("base64");
+          }
+          return { contents: "export const manualHeroAssetUrls = " + JSON.stringify(assets), loader: "js" };
+        });
+      },
+    },
+    {
       name: "inline-css-separately",
       setup(build) {
         build.onLoad({ filter: /\.css$/ }, () => ({

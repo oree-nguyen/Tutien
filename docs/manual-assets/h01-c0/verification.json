@@ -1,0 +1,57 @@
+{
+  "passed": true,
+  "models": [
+    {
+      "path": "/models/h01-c0/h01-c0-high.glb",
+      "status": 200
+    },
+    {
+      "path": "/models/h01-c0/h01-c0-low.glb",
+      "status": 200
+    },
+    {
+      "path": "/models/h01-c0/h01-c0-medium.glb",
+      "status": 200
+    }
+  ],
+  "errors": [],
+  "playerMoved": true,
+  "joystickTouch": true,
+  "dashSkill": true,
+  "rigged": false,
+  "scope": "Chromium software WebGL and mobile viewport only; no physical Android/FPS acceptance",
+  "webBundle": "Final dist bundle served by the local static test server; same bundle copied into APK",
+  "nodeChecks": {
+    "gameplay": 128,
+    "portraitAndRings": 24,
+    "actualImportedAsset": 2,
+    "allPassed": true
+  },
+  "apk": {
+    "sourceHash": "c83722e450a13e22d0412891d0c9d6261baaffd2b167260e511f9249e1c8735e",
+    "apkSha256": "6b05d6b7d5849ddff0ff87ffa4636bbea519305252a660028acc7a8ac7916134",
+    "apkBytes": 23274784,
+    "buildType": "debug",
+    "signed": true,
+    "recordedAt": "2026-10-16T06:43:43.037Z"
+  },
+  "packagedGLBs": [
+    {
+      "detail": "high",
+      "sha256Matched": true,
+      "bytes": 5584628
+    },
+    {
+      "detail": "medium",
+      "sha256Matched": true,
+      "bytes": 2527320
+    },
+    {
+      "detail": "low",
+      "sha256Matched": true,
+      "bytes": 2746768
+    }
+  ],
+  "signingCertificateMatchesPreviousAPK": true,
+  "physicalAndroidTested": false
+}

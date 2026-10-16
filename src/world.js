@@ -234,7 +234,7 @@ export class World {
       visual,
       detail === "high" ? 0 : detail === "medium" ? 28 : 48,
     );
-    if (a.kind === "hero" && a.hero === 0 && !visual.userData.anatomy) {
+    if (a.kind === "hero" && a.hero === 0 && !visual.userData.anatomy && !visual.userData.manualHunyuan) {
       this.loadStaff(detail)
         .then((source) => {
           const weapon = visual.getObjectByName("soulWeapon");
@@ -327,11 +327,13 @@ export class World {
     return model;
   }
   setConcealment(model, active) {
+    const revision = model.lod.levels.reduce((n, level) => n + (level.object.userData.modelLoadRevision ?? 0), 0);
     if (
       model.concealment === active &&
-      model.concealmentDetails === model.details.size
+      model.concealmentDetails === model.details.size && model.concealmentRevision === revision
     )
       return;
+    model.concealmentRevision = revision;
     model.concealment = active;
     model.concealmentDetails = model.details.size;
     model.lod.traverse((o) => {

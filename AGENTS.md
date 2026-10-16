@@ -10,3 +10,5 @@
 - GLB phải được xem toàn thân/cận cảnh, trước/sau, kiểm tra rig/animation, trang phục, LOD và runtime trước khi kích hoạt. Prompt PBR hoặc A-pose không bảo đảm đầu ra đạt.
 - VFX GLB là carrier tĩnh; shader/hạt/animation, hitbox, CC và bán kính theo engine. Tái sử dụng mesh khi phù hợp, không coi 227 brief là 227 model đã tạo.
 - Không ghi credential vào Git hoặc tài liệu. Tài liệu tools Tencent cloud cũ giữ làm lịch sử, không phải workflow mặc định.
+
+- Ngoại lệ thử nghiệm đã được người dùng cho phép: tích hợp H01-C0 từ share a93d658b-a40d-4854-b755-ad1fa9bcc79b vào sảnh/trận và APK test dưới dạng model tĩnh chưa rig/chưa phân đoạn. Xem docs/H01-C0-ANDROID-TRIAL.md; không nhận là nghiệm thu mỹ thuật/animation hoàn chỉnh.

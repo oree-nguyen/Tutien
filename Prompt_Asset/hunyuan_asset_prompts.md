@@ -53,6 +53,8 @@ H06 là **Đỗ Kình**, H11 là **Ninh Từ** theo mã nguồn; không đổi t
 - [shader-surface (3)](#shader-surface)
 - [skill-vfx-prop (60)](#skill-vfx-prop)
 
+> H01-C0 hiện có bản thử tĩnh đã tích hợp sảnh/trận/APK, chưa rig và chưa nghiệm thu sản xuất. Xem [hướng dẫn](../docs/H01-C0-ANDROID-TRIAL.md). File trong assets/base_models là bản giảm lưới và bake lại từ model web của người dùng, không phải export gốc 1,5 triệu mặt.
+
 <a id="hero"></a>
 
 ## hero
