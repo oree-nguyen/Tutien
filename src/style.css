@@ -2836,3 +2836,6 @@ strong {
 .hud .modal select {
   touch-action: manipulation;
 }
+
+.asset-load-status { position:fixed; top:14px; left:50%; transform:translateX(-50%); z-index:9000; pointer-events:none; padding:8px 14px; border:1px solid #799d8c; border-radius:8px; color:#e6ffe9; background:rgba(12,36,42,.88); font-size:12px; }
+.asset-load-status[hidden] { display:none; }

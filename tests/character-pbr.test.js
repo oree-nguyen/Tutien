@@ -345,7 +345,7 @@ test("Engraved opaque materials keep base paint and share the silk normal/roughn
   assert.ok(copy.attributes.uv.array.every((v) => v >= 0 && v <= 1));
 });
 
-test("All twelve equipped weapons and armor use the same authored atlas, while optical fields remain unengraved", () => {
+test("Legacy weapons share their costume atlas; imported H01 keeps its own validated PBR", () => {
   const sample = buildHeroAnatomy({ kind: "hero", hero: 0 }, "high"),
     activeAtlas =
       sample.getObjectByName("FrontApronPanel").children[0].material;
@@ -375,6 +375,7 @@ test("All twelve equipped weapons and armor use the same authored atlas, while o
         assert.equal(o.material.userData.characterEngraving, undefined);
       }
     });
+    if(hero===0){assert.equal(root.getObjectByName("soulWeapon").userData.hunyuanStaff,true);continue;}
     assert.ok(opaque > 0, `H${hero + 1} has engraved opaque weapon parts`);
     assert.ok(optical > 0, `H${hero + 1} retains its optical/energy parts`);
   }

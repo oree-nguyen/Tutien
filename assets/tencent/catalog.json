@@ -12,7 +12,7 @@
     },
     {
       "path": "src/weapons.js",
-      "sha256": "0f140eff4445b8954014ae3068f9a99fdd96b3bfee6d04f0b71f8b62b6d84dc6"
+      "sha256": "acfc143964fd399098ab15b4e5131a2c8541440584a617cc5d5c69497a3c508e"
     },
     {
       "path": "src/creature-art.js",
@@ -20,11 +20,11 @@
     },
     {
       "path": "src/scenery.js",
-      "sha256": "dd51e84a7979e4739f0fd407e0f07d9af6e2adf7de6d9c31f2e1072df1d2f479"
+      "sha256": "e0b0caa48cd6dbd60ee4ce303a907cd9001db107f8778d54167d100286c74023"
     },
     {
       "path": "src/world.js",
-      "sha256": "c7112ac93ebb9a1c6767728183c65dd2fae6abef6557b7a478cf5365c82ef70f"
+      "sha256": "d2f9afc15d448e2e70d39d3f152442766e9df7469d846793c820aebdd28585a3"
     },
     {
       "path": "src/soul-ring-vfx.js",
@@ -156,12 +156,12 @@
       "weapon": {
         "name": "Mộc Tinh Trượng",
         "weaponType": "wood-dragon-lotus-staff",
-        "metricLength": 1.95,
+        "metricLength": 2.0384,
         "handedness": "right",
         "woodStrands": 3,
         "petalCount": 12
       },
-      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":1.95,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":2.0384,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, original carved elemental design, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
     },
     {
       "status": "pending",
@@ -179,12 +179,12 @@
       "weapon": {
         "name": "Mộc Tinh Trượng",
         "weaponType": "wood-dragon-lotus-staff",
-        "metricLength": 1.95,
+        "metricLength": 2.0384,
         "handedness": "right",
         "woodStrands": 3,
         "petalCount": 12
       },
-      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":1.95,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":2.0384,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, celestial silver-gold jewelry and gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
     },
     {
       "status": "pending",
@@ -202,12 +202,12 @@
       "weapon": {
         "name": "Mộc Tinh Trượng",
         "weaponType": "wood-dragon-lotus-staff",
-        "metricLength": 1.95,
+        "metricLength": 2.0384,
         "handedness": "right",
         "woodStrands": 3,
         "petalCount": 12
       },
-      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":1.95,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
+      "prompt": "Mộc Tinh Trượng, wood dragon lotus staff, one isolated artifact, {\"name\":\"Mộc Tinh Trượng\",\"weaponType\":\"wood-dragon-lotus-staff\",\"metricLength\":2.0384,\"handedness\":\"right\",\"woodStrands\":3,\"petalCount\":12}, imperial gold crown fittings, lotus flame filigree and jade gemstones, no person, no hands, isolated complete object, entire silhouette visible with ample white margins, clean solid white background, Oriental fantasy xianxia game art, real PBR material, no text, no watermark"
     },
     {
       "status": "pending",
@@ -3174,6 +3174,38 @@
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
+      "path": "src/h01-entrance.js",
+      "line": 18,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "ribbonGeometry",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/h01-entrance.js",
+      "line": 49,
+      "geometry": "RingGeometry",
+      "nearestFunction": "createH01EntranceVfx",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/h01-entrance.js",
+      "line": 53,
+      "geometry": "RingGeometry",
+      "nearestFunction": "createH01EntranceVfx",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/h01-entrance.js",
+      "line": 56,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "createH01EntranceVfx",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
       "path": "src/hero-anatomy.js",
       "line": 340,
       "geometry": "BufferGeometry",
@@ -3679,113 +3711,113 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 1262,
+      "line": 1263,
       "geometry": "PlaneGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1277,
+      "line": 1278,
       "geometry": "CylinderGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1284,
+      "line": 1285,
       "geometry": "CircleGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1371,
+      "line": 1373,
       "geometry": "SphereGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1377,
+      "line": 1379,
       "geometry": "ConeGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1384,
+      "line": 1386,
       "geometry": "DodecahedronGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1390,
+      "line": 1392,
       "geometry": "OctahedronGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1402,
+      "line": 1404,
       "geometry": "DodecahedronGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1501,
+      "line": 1504,
       "geometry": "OctahedronGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1507,
+      "line": 1510,
       "geometry": "OctahedronGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1513,
+      "line": 1516,
       "geometry": "CylinderGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1531,
+      "line": 1534,
       "geometry": "IcosahedronGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1562,
+      "line": 1567,
       "geometry": "CircleGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1629,
+      "line": 1634,
       "geometry": "OctahedronGeometry",
-      "nearestFunction": "createScenery",
+      "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
@@ -3815,7 +3847,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 227,
+      "line": 228,
       "geometry": "CylinderGeometry",
       "nearestFunction": "cylinder",
       "status": "not-replaced",
@@ -3823,7 +3855,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 243,
+      "line": 244,
       "geometry": "SphereGeometry",
       "nearestFunction": "orb",
       "status": "not-replaced",
@@ -3831,7 +3863,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 271,
+      "line": 272,
       "geometry": "TorusGeometry",
       "nearestFunction": "ring",
       "status": "not-replaced",
@@ -3839,7 +3871,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 291,
+      "line": 292,
       "geometry": "TubeGeometry",
       "nearestFunction": "tube",
       "status": "not-replaced",
@@ -3847,7 +3879,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 309,
+      "line": 310,
       "geometry": "ExtrudeGeometry",
       "nearestFunction": "shapeMesh",
       "status": "not-replaced",
@@ -3855,7 +3887,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 354,
+      "line": 355,
       "geometry": "ExtrudeGeometry",
       "nearestFunction": "petal",
       "status": "not-replaced",
@@ -3863,7 +3895,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 375,
+      "line": 376,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "gem",
       "status": "not-replaced",
@@ -3871,7 +3903,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 503,
+      "line": 439,
       "geometry": "CylinderGeometry",
       "nearestFunction": "stoneHammer",
       "status": "not-replaced",
@@ -3879,7 +3911,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 555,
+      "line": 491,
       "geometry": "IcosahedronGeometry",
       "nearestFunction": "stoneHammer",
       "status": "not-replaced",
@@ -3887,7 +3919,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 664,
+      "line": 600,
       "geometry": "CircleGeometry",
       "nearestFunction": "moonMirror",
       "status": "not-replaced",
@@ -3895,7 +3927,7 @@
     },
     {
       "path": "src/weapons.js",
-      "line": 679,
+      "line": 615,
       "geometry": "ExtrudeGeometry",
       "nearestFunction": "moonMirror",
       "status": "not-replaced",
@@ -3967,15 +3999,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 258,
-      "geometry": "SphereGeometry",
-      "nearestFunction": "module-or-class",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/world.js",
-      "line": 298,
+      "line": 245,
       "geometry": "PlaneGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3983,7 +4007,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 302,
+      "line": 249,
       "geometry": "PlaneGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3991,7 +4015,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 728,
+      "line": 682,
       "geometry": "CircleGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3999,7 +4023,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 866,
+      "line": 820,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -4007,7 +4031,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 888,
+      "line": 842,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -4015,7 +4039,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 915,
+      "line": 869,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -4024,43 +4048,46 @@
   ],
   "legacyGLBs": [
     {
-      "path": "public/art/moc-tinh-truong/high.glb",
-      "bytes": 2686580,
-      "sha256": "7607edb907ea420b262aef6d4405d8da15a9f2f246c31d9cd620b089671d6edd",
-      "status": "legacy-not-Tencent-not-replaced"
-    },
-    {
-      "path": "public/art/moc-tinh-truong/low.glb",
-      "bytes": 64952,
-      "sha256": "27df4965ae0866a5b1efd5813825cc6f6f17f57f91af717337f95e9b45adb51b",
-      "status": "legacy-not-Tencent-not-replaced"
-    },
-    {
-      "path": "public/art/moc-tinh-truong/medium.glb",
-      "bytes": 278684,
-      "sha256": "468432eea12064b12ef336cde31a9f0796baa5a7ddcf77080a5442ed6ce5d5ad",
-      "status": "legacy-not-Tencent-not-replaced"
-    },
-    {
       "path": "public/models/h01-c0/h01-c0-high.glb",
-      "bytes": 6570244,
-      "sha256": "7183a2f6b1a4b7082b0b41e14a0c06ee4e002fcb76fb631245864e5dc238ee2d",
+      "bytes": 1529468,
+      "sha256": "97e6de9a97e7ea4dbfebe1ade697e3bb1eb84720751e5fef13a6a58100f9f448",
       "status": "hunyuan-user-shared-animated-trial",
       "assetId": "H01-C0"
     },
     {
       "path": "public/models/h01-c0/h01-c0-low.glb",
-      "bytes": 2849712,
-      "sha256": "a986e6ac9966aeb08c41631158d1546164c3e899f3017449a99bb73c2595f0db",
+      "bytes": 286720,
+      "sha256": "cf97175f6451b2a87f502b955870b529c0988f3d9153642830df04d0a6518bc1",
       "status": "hunyuan-user-shared-animated-trial",
       "assetId": "H01-C0"
     },
     {
       "path": "public/models/h01-c0/h01-c0-medium.glb",
-      "bytes": 2804448,
-      "sha256": "fb4c504fc78b0965daf195b08a4144f323004fe9154f08cddc62907fa6e06bff",
+      "bytes": 613720,
+      "sha256": "77ef6f18b81104e37846690ed73a730a2487755bb3ade54c634cf81e062a85dc",
       "status": "hunyuan-user-shared-animated-trial",
       "assetId": "H01-C0"
+    },
+    {
+      "path": "public/models/h01-staff/h01-staff-high.glb",
+      "bytes": 747528,
+      "sha256": "a0cb241905b1aec8b29e43be7aebfea7a48a29a0cb2d0cc268e02cd15328840a",
+      "status": "hunyuan-user-shared-animated-trial",
+      "assetId": "H01-W0"
+    },
+    {
+      "path": "public/models/h01-staff/h01-staff-low.glb",
+      "bytes": 71468,
+      "sha256": "633edc5bb44b74f4416cdd86fcf883770e8dcdf79587301a01c22b576e067f57",
+      "status": "hunyuan-user-shared-animated-trial",
+      "assetId": "H01-W0"
+    },
+    {
+      "path": "public/models/h01-staff/h01-staff-medium.glb",
+      "bytes": 305904,
+      "sha256": "01f2755f9a7ea9bf7afabc594566f155938b547d55ae66335b66445b54b602d2",
+      "status": "hunyuan-user-shared-animated-trial",
+      "assetId": "H01-W0"
     }
   ],
   "notes": [

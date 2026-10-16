@@ -95,6 +95,13 @@ const input = { x: 0, z: 0, attack: false, targetMode: "auto" },
 let toastTimer;
 let appraisalTimer = null;
 let releaseJoystick = () => {};
+function updateAssetLoadingIndicator(){
+ const el=document.getElementById('assetLoadStatus');if(!el)return;
+ const asset=world?.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset;
+ el.hidden=!!match||loadout.hero!==0||loadout.costume!==0||asset?.status==='loaded';
+ const text=asset?.status==='failed'?'Không nạp được model — chạm Dật để thử lại.':'Đang nạp Lâm Dật và Mộc Tinh Trượng…';
+ if(el.textContent!==text)el.textContent=text;
+}
 const lootArt = (item, className = "item-art") =>
   itemIcon(item.kind, item.id ?? 1, { className, label: item.name });
 function toast(s) {
@@ -105,7 +112,8 @@ function toast(s) {
 }
 function guarded(fn) {
   try {
-    return fn();
+    const result=fn();
+    return result?.catch ? result.catch(e=>{toast(e.message);return false;}) : result;
   } catch (e) {
     toast(e.message);
     return false;
@@ -306,11 +314,12 @@ function renderHub() {
    )
    .join(
      "",
-   )}<button id="ranked" class="${loadout.ranked ? "active" : ""}">${loadout.ranked ? "XẾP HẠNG · MÔ PHỎNG" : "ĐẤU THƯỜNG"}</button></div><div class="version">${onlineAccount ? "V2.5 / ONLINE · VÍ VÀ KHO DO MÁY CHỦ QUẢN LÝ" : "V2.5 / NGOẠI TUYẾN VỚI BOT · LƯU TRÊN THIẾT BỊ"}</div><div class="footer-links"><button class="ghost" id="stash">KHO HỒN THÀNH (${profile.stash.length})</button><button class="ghost" id="help">HƯỚNG DẪN</button><button class="ghost" id="history">ĐÀI VINH DANH</button></div></div><div><button class="primary start-button" id="start">BẮT ĐẦU TRẬN ĐẤU ↗<small>${loadout.mode === "squad3" ? "96" : "100"} HỒN SƯ · ${loadout.ranked ? "CHUẨN HÓA SKIN" : "THƯƠNG MANG CỔ VỰC"}</small></button><div class="version" style="text-align:right">CHI PHÍ TRỢ PHẨM: ${supportCost()} NB + ${supportTbCost()}TB</div></div></footer></main><div id="modalRoot"></div>`;
+   )}<button id="ranked" class="${loadout.ranked ? "active" : ""}">${loadout.ranked ? "XẾP HẠNG · MÔ PHỎNG" : "ĐẤU THƯỜNG"}</button></div><div class="version">${onlineAccount ? "V2.5 / ONLINE · VÍ VÀ KHO DO MÁY CHỦ QUẢN LÝ" : "V2.5 / NGOẠI TUYẾN VỚI BOT · LƯU TRÊN THIẾT BỊ"}</div><div class="footer-links"><button class="ghost" id="stash">KHO HỒN THÀNH (${profile.stash.length})</button><button class="ghost" id="help">HƯỚNG DẪN</button><button class="ghost" id="history">ĐÀI VINH DANH</button></div></div><div><button class="primary start-button" id="start">BẮT ĐẦU TRẬN ĐẤU ↗<small>${loadout.mode === "squad3" ? "96" : "100"} HỒN SƯ · ${loadout.ranked ? "CHUẨN HÓA SKIN" : "THƯƠNG MANG CỔ VỰC"}</small></button><div class="version" style="text-align:right">CHI PHÍ TRỢ PHẨM: ${supportCost()} NB + ${supportTbCost()}TB</div></div></footer></main><div id="assetLoadStatus" class="asset-load-status" role="status">Đang nạp Lâm Dật và Mộc Tinh Trượng…</div><div id="modalRoot"></div>`;
   $("#branchText").textContent = BRANCH_TEXT[loadout.hero][loadout.branch];
   $$("[data-hero]").forEach(
     (el) =>
       (el.onclick = () => {
+        if(+el.dataset.hero===0&&loadout.hero===0)world.replayHeroEntrance();
         loadout.hero = +el.dataset.hero;
         loadout.branch = 0;
         loadout.skin = 0;
@@ -708,10 +717,13 @@ function showHelp() {
     `<div class="help"><p>Săn Hồn thú → nhặt chiến lợi phẩm → mua/ghép Bổ phẩm → rút qua Cổng để giữ tài sản. Đây là bản ngoại tuyến, 1 người chơi cùng bot; trận vẫn chạy khi mở túi/cửa hàng.</p><h3>Điều khiển</h3><p>Cảm ứng: cần trái di chuyển; giữ/kéo nút kỹ năng để ngắm, thả để tung. Nút kiếm đánh thường; ba lá bùa ở bên phải. PC: WASD di chuyển, chuột ngắm, Q/W/E/R kỹ năng, F Linh Bộ, Space đánh thường, 1/2/3 Trợ phẩm, G nhặt đồ, B cửa hàng, I túi đồ. Vì W trùng di chuyển, dùng Shift+W để thi triển W trên PC; nút W cảm ứng luôn dùng được.</p><h3>Tài sản & Hồi Hoàn</h3><p>Vốn mang vào tối đa 300 TB, tiêu trước tiền kiếm mới. Cửa hàng chỉ hoạt động gần Đài/Thương Nhân. Tối đa 7 Bổ phẩm, bán 60%, ghép đủ nguyên liệu + phí. Túi 24 ô/48W. Cổng mở 05:00, 10:00, 15:00 trong 120s; 20:00 có 3 Đại Cổng. Đứng 20+2×ceil(W/4)s. Hạ Gian có sàn 15s. Bị đánh không hủy, CC chỉ tạm dừng tổng 3s; ra khỏi vòng quá 0,8s thì hủy. Trang bị tháo gửi được ký quỹ và hoàn lại khi hủy.</p><h3>Thử nghiệm nhanh</h3><p>Mở “DEV SANDBOX” góc trên phải để nhận 500 TB/Hồn Tinh, dịch chuyển, gọi Cổng, tua lịch, thêm chiến lợi phẩm, nhận CC hoặc sát thương. Tới Bí Cảnh, kích hoạt hai Ấn Khóa để gọi Cổ Long. Minimap: xanh là bạn/đồng đội, đỏ là địch đã thấy, vàng là Đài, tím là Tế Đàn, vòng ngọc là Cổng. Chạm bản đồ để đặt dấu dẫn đường.</p><h3>Phạm vi bản dựng</h3><p>Tài khoản và kho dùng localStorage; không nạp tiền thật. Ranked offline chỉ mô phỏng chuẩn hóa skin với bot; online dùng máy chủ. Chế độ online có máy chủ30Hz và PostgreSQL/Redis; Ranked chờ tối thiểu60 tài khoản thật. Chưa chứng nhận hiệu năng trên máy Android thật. Các giả định và phần chưa khớp hoàn toàn GDD được ghi trong docs/GDD-COVERAGE.md.</p><h3>Android / AI Studio</h3><p>Chạy npm install rồi npm run dev. Build npm run build. Dùng thư mục dist cho máy chủ web/AI Studio hỗ trợ dự án Vite. Capacitor: npm run android:add, npm run android:sync, npx cap open android. Xem docs/ANDROID.md cho SDK, Activity, chế độ ngang và APK.</p></div>`,
   );
 }
-function startMatch() {
+async function startMatch() {
+  const button=$("#start");if(button?.disabled)return;
+  if(button){button.disabled=true;button.textContent="ĐANG CHUẨN BỊ CHIẾN TRƯỜNG…";}
+  try{await world.prepareBattlefield();}catch(error){if(button){button.disabled=false;button.textContent="BẮT ĐẦU TRẬN ĐẤU";}throw error;}
+  if(button){button.disabled=false;button.textContent="BẮT ĐẦU TRẬN ĐẤU";}
   if (onlineAccount) {
-    startOnline();
-    return;
+    return startOnline();
   }
   R.validateLoadout(loadout);
   sanitizeLoadout();
@@ -765,7 +777,8 @@ function renderHUD() {
   $("#autoFarmToggle").onclick = () => {
     const modes = ["off", "pve", "full"];
     autoFarm.setMode(modes[(modes.indexOf(autoFarm.mode) + 1) % 3]);
-    updateAutoHUD();
+    updateAssetLoadingIndicator();
+  updateAutoHUD();
   };
   $("#autoFarmToggle").oncontextmenu = (e) => {
     e.preventDefault();
@@ -1642,6 +1655,7 @@ function animate(now) {
     if (match && !match.result && !match.online) save();
   }
   if (!match || match.player) world.render(match, dt, loadout.hero, loadout);
+  updateAssetLoadingIndicator();
   updateAutoHUD();
   audio.update(match, now / 1000);
   updateSkillCooldowns();
@@ -1661,7 +1675,8 @@ function animate(now) {
   }
 }
 if (pendingSnapshot) {
-  guarded(() => {
+  guarded(async () => {
+    await world.prepareBattlefield();
     match = Match.restore(pendingSnapshot, (type, data) => {
       if (type === "message") toast(data);
       if (type === "hit") audio.hit();
@@ -1766,6 +1781,7 @@ async function showOnline() {
   );
 }
 async function startOnline() {
+  await world.prepareBattlefield();
   try {
     R.validateLoadout(loadout);
     const q = await api("/queue", { loadout });

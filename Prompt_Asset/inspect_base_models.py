@@ -27,7 +27,9 @@ def inspect(path):
     if not document or binary is None:raise ValueError('Missing embedded JSON/BIN')
     if document.get('asset',{}).get('version')!='2.0':raise ValueError('Not glTF 2.0')
     buffers=document.get('buffers',[])
-    if len(buffers)!=1 or buffers[0].get('uri') or buffers[0].get('byteLength',0)>len(binary):raise ValueError('Require one valid embedded BIN')
+    if not buffers or buffers[0].get('uri') or buffers[0].get('byteLength',0)>len(binary):raise ValueError('Require one valid embedded BIN')
+    for buffer in buffers[1:]:
+        if buffer.get('uri') or not buffer.get('extensions',{}).get('EXT_meshopt_compression',{}).get('fallback'):raise ValueError('Only Meshopt virtual fallback buffers may accompany the BIN')
     images=document.get('images',[])
     if not images:raise ValueError('No embedded texture images')
     for image in images:
@@ -35,7 +37,7 @@ def inspect(path):
         view=document['bufferViews'][image['bufferView']];start=view.get('byteOffset',0);end=start+view['byteLength']
         if start<0 or end>len(binary):raise ValueError('Image extends beyond BIN')
         data=binary[start:end]
-        if not(data.startswith(b'\x89PNG\r\n\x1a\n') or data.startswith(b'\xff\xd8\xff') or data.startswith(b'\xabKTX 20\xbb\r\n\x1a\n')):
+        if not(data.startswith(b'\x89PNG\r\n\x1a\n') or data.startswith(b'\xff\xd8\xff') or data.startswith(b'\xabKTX 20\xbb\r\n\x1a\n') or (data[:4]==b'RIFF' and data[8:12]==b'WEBP')):
             raise ValueError('Unrecognized embedded image signature')
     meshes=document.get('meshes',[]);primitives=[p for m in meshes for p in m.get('primitives',[])]
     if not primitives:raise ValueError('No mesh primitives')
@@ -53,7 +55,8 @@ def inspect(path):
         for key,info in [('albedo',pbr.get('baseColorTexture')),('metallicRoughness',pbr.get('metallicRoughnessTexture')),('normal',material.get('normalTexture')),('emissive',material.get('emissiveTexture'))]:
             if info:
                 texture=document['textures'][info['index']]
-                if 'source' not in texture or texture['source']>=len(images):raise ValueError('Texture references missing image')
+                source=texture.get('source',texture.get('extensions',{}).get('EXT_texture_webp',{}).get('source'))
+                if source is None or source<0 or source>=len(images):raise ValueError('Texture references missing image')
                 channels.add(key)
     nodes=[n.get('name','') for n in document.get('nodes',[])]
     return {'sha256':hashlib.sha256(raw).hexdigest(),'bytes':len(raw),'meshes':len(meshes),'images':len(images),'textureChannels':sorted(channels),'nodes':nodes,'anatomicalNodesPresent':[s for s in SLOTS if s in nodes],'anatomicalCutApproved':False,'scope':'Offline structural intake only; no decoded image/UV quality, rig, anatomy or runtime acceptance'}
@@ -68,11 +71,17 @@ def main():
     args=parser.parse_args();manifest=json.loads(args.manifest.read_text());assets=manifest['assets']
     names={a['filename']:a for a in assets};ids={a['id'] for a in assets}
     if set(args.require)-ids:parser.error('Unknown required asset ID')
-    report={'recordedAt':datetime.now(timezone.utc).isoformat(),'workflow':'manual-offline-no-MCP','found':[],'unknownFiles':[],'pendingIds':[],'runtimeInstalled':False}
+    report={'recordedAt':datetime.now(timezone.utc).isoformat(),'workflow':'manual-offline-no-MCP','found':[],'unknownFiles':[],'sourceFiles':[],'pendingIds':[],'runtimeInstalled':False}
     found=set()
     for path in sorted(args.directory.glob('*.glb')):
         asset=names.get(path.name)
-        if asset is None:report['unknownFiles'].append(path.name);continue
+        if asset is None:
+            sidecar=path.with_suffix('.json')
+            if path.name.endswith('_raw.glb') and sidecar.exists():
+                source=json.loads(sidecar.read_text())
+                if source.get('source')=='Tencent Hunyuan public user share' and source.get('sha256')==hashlib.sha256(path.read_bytes()).hexdigest():
+                    report['sourceFiles'].append({'filename':path.name,'scope':'Preserved raw source, not a runtime asset'});continue
+            report['unknownFiles'].append(path.name);continue
         found.add(asset['id']);row={'id':asset['id'],'filename':path.name,'category':asset['category']}
         try:row.update(inspect(path),structuralIntakePassed=True)
         except Exception as error:row.update(structuralIntakePassed=False,errorType=type(error).__name__,error=str(error))

@@ -12,3 +12,5 @@
 - Không ghi credential vào Git hoặc tài liệu. Tài liệu tools Tencent cloud cũ giữ làm lịch sử, không phải workflow mặc định.
 
 - Ngoại lệ thử nghiệm đã được người dùng cho phép: tích hợp H01-C0 từ share a93d658b-a40d-4854-b755-ad1fa9bcc79b vào sảnh/trận và APK test dưới dạng model thử nghiệm; người dùng đã cho phép gắn rig và hoạt ảnh tay/chân. Hiện có skeleton/clip cục bộ, chưa phân đoạn giải phẫu, chưa mô phỏng vải. Xem docs/H01-C0-ANDROID-TRIAL.md; không nhận là nghiệm thu mỹ thuật/animation hoàn chỉnh.
+
+- H01-C0/H01-W0 hiện dùng hai share Hunyuan thật, rig humanoid 52 xương và Entrance 4,2 giây; không tái dùng trượng primitive/base64 cũ. Meshopt/WebP cần worker module riêng (không dùng MeshoptDecoder.useWorkers trong bundle minified). Kiểm cả production/offline và xem docs/H01-STAFF-ENTRANCE.md. Không nhận là đã đạt 60 FPS Android khi chưa đo trên thiết bị.

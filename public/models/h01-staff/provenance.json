@@ -1,0 +1,56 @@
+{
+  "assetId": "H01-W0",
+  "sourceShare": "https://3d.hunyuan.tencent.com/share?shareId=4fe3cb84-fd7b-48d2-b5f6-3f77abe3e3d6",
+  "sourceSha256": "151893dacf08b1416c9ea573fd45b86c5c36c8c7b635a471d95e430547bd16e7",
+  "sourceBytes": 50401568,
+  "sourceTriangles": 619640,
+  "lengthMeters": 2.0384,
+  "gripFractionFromBase": 0.62,
+  "gripDiameterMeters": 0.04,
+  "gripCenterCorrection": {
+    "x": 0.016885030549019575,
+    "y": 0.006809777580201626,
+    "transverseScale": 0.6499674500783743
+  },
+  "nodes": [
+    "Staff_Root",
+    "Staff_Base_Tip",
+    "Staff_Head_Core"
+  ],
+  "scope": "Reduced user-shared Hunyuan staff with high-to-low PBR rebake. No primitive replacement.",
+  "levels": [
+    {
+      "detail": "high",
+      "targetTriangles": 12000,
+      "triangles": 12000,
+      "bytes": 747528,
+      "sha256": "a0cb241905b1aec8b29e43be7aebfea7a48a29a0cb2d0cc268e02cd15328840a",
+      "file": "h01-staff-high.glb",
+      "texturePreparation": "high-to-low selected-to-active PBR rebake",
+      "textureResolution": 1024,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp"
+    },
+    {
+      "detail": "medium",
+      "targetTriangles": 4000,
+      "triangles": 4000,
+      "bytes": 305904,
+      "sha256": "01f2755f9a7ea9bf7afabc594566f155938b547d55ae66335b66445b54b602d2",
+      "file": "h01-staff-medium.glb",
+      "texturePreparation": "high-to-low selected-to-active PBR rebake",
+      "textureResolution": 512,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp"
+    },
+    {
+      "detail": "low",
+      "targetTriangles": 800,
+      "triangles": 795,
+      "bytes": 71468,
+      "sha256": "633edc5bb44b74f4416cdd86fcf883770e8dcdf79587301a01c22b576e067f57",
+      "file": "h01-staff-low.glb",
+      "texturePreparation": "high-to-low selected-to-active PBR rebake",
+      "textureResolution": 256,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp"
+    }
+  ]
+}

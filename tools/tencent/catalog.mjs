@@ -124,12 +124,14 @@ async function scanLegacy(dir) {
     else if(entry.name.endsWith(".glb")) {
       const bytes=await readFile(path);
       const digest=createHash("sha256").update(bytes).digest("hex");
-      let trial=false;
-      if(path.startsWith("public/models/h01-c0/")) {
-        const receipt=JSON.parse(await readFile("public/models/h01-c0/provenance.json","utf8"));
+      let trial=false,assetId=null;
+      const folder=path.startsWith("public/models/h01-c0/")?"h01-c0":path.startsWith("public/models/h01-staff/")?"h01-staff":null;
+      if(folder) {
+        const receipt=JSON.parse(await readFile("public/models/"+folder+"/provenance.json","utf8"));
+        assetId=receipt.assetId;
         trial=receipt.levels.some(level=>level.file===entry.name&&level.sha256===digest);
       }
-      legacyGLBs.push({path,bytes:bytes.length,sha256:digest,status:trial?"hunyuan-user-shared-animated-trial":"legacy-not-Tencent-not-replaced",...(trial?{assetId:"H01-C0"}:{})});
+      legacyGLBs.push({path,bytes:bytes.length,sha256:digest,status:trial?"hunyuan-user-shared-animated-trial":"legacy-not-Tencent-not-replaced",...(trial?{assetId}:{})});
     }
   }
 }

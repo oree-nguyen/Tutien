@@ -30,7 +30,7 @@
     },
     {
       "path": "src/weapons.js",
-      "sha256": "0f140eff4445b8954014ae3068f9a99fdd96b3bfee6d04f0b71f8b62b6d84dc6"
+      "sha256": "acfc143964fd399098ab15b4e5131a2c8541440584a617cc5d5c69497a3c508e"
     },
     {
       "path": "src/creature-art.js",
@@ -38,11 +38,11 @@
     },
     {
       "path": "src/scenery.js",
-      "sha256": "dd51e84a7979e4739f0fd407e0f07d9af6e2adf7de6d9c31f2e1072df1d2f479"
+      "sha256": "e0b0caa48cd6dbd60ee4ce303a907cd9001db107f8778d54167d100286c74023"
     },
     {
       "path": "src/world.js",
-      "sha256": "c7112ac93ebb9a1c6767728183c65dd2fae6abef6557b7a478cf5365c82ef70f"
+      "sha256": "d2f9afc15d448e2e70d39d3f152442766e9df7469d846793c820aebdd28585a3"
     },
     {
       "path": "src/soul-ring-vfx.js",
@@ -64,7 +64,7 @@
   "assets": [
     {
       "status": "manual-animated-trial-available",
-      "runtimeInstalled": false,
+      "runtimeInstalled": true,
       "id": "H01-C0",
       "category": "hero",
       "hero": 0,
@@ -96,7 +96,8 @@
           "Run",
           "Attack",
           "Cast",
-          "Dash"
+          "Dash",
+          "Entrance"
         ],
         "productionApproved": false
       }
@@ -183,8 +184,8 @@
       "origin": "source-catalog"
     },
     {
-      "status": "manual-generation-required",
-      "runtimeInstalled": false,
+      "status": "manual-textured-runtime-trial-available",
+      "runtimeInstalled": true,
       "id": "H01-W0",
       "category": "weapon",
       "hero": 0,
@@ -198,16 +199,21 @@
       "weapon": {
         "name": "Mộc Tinh Trượng",
         "weaponType": "wood-dragon-lotus-staff",
-        "metricLength": 1.95,
+        "metricLength": 2.0384,
         "handedness": "right",
         "woodStrands": 3,
         "petalCount": 12
       },
-      "prompt": "One complete 1.95 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette. Original elemental design; restrained ornamentation and clear useful silhouette. No person, fingers, arms or support stand. Oriental high-fantasy xianxia mobile MOBA game art, coherent stylized realism with elegant readable shapes rather than photorealistic noise. Fully isolated asset, clean solid white background, entire object visible, centered composition with generous margins. Detailed UV-mapped PBR surfaces with physically plausible albedo, metallic and roughness variation; separate emissive accents where supported. Clear material boundaries, coherent geometry from front, sides and back, no baked directional lighting or cast shadows, no ground plane, no scenery, no text, no watermark, no UI.",
+      "prompt": "One complete 2.0384 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette. Original elemental design; restrained ornamentation and clear useful silhouette. No person, fingers, arms or support stand. Oriental high-fantasy xianxia mobile MOBA game art, coherent stylized realism with elegant readable shapes rather than photorealistic noise. Fully isolated asset, clean solid white background, entire object visible, centered composition with generous margins. Detailed UV-mapped PBR surfaces with physically plausible albedo, metallic and roughness variation; separate emissive accents where supported. Clear material boundaries, coherent geometry from front, sides and back, no baked directional lighting or cast shadows, no ground plane, no scenery, no text, no watermark, no UI.",
       "filename": "H01-W0_moc_tinh_truong_nguyen_ban.glb",
       "negativePrompt": "No cropped head, feet, wings or weapon tips; no extra limbs or fingers, fused hands, merged legs, duplicate faces, melted anatomy, floating identification labels, unrelated objects, diorama base, black stripe across the face, painted hair over the eyes, exaggerated bloom, opaque smoke cloud, baked attack trails or attached weapons on character bodies.",
       "note": "Vũ khí xuất riêng khỏi cơ thể; cặp đôi phải được kiểm tra và tách trái/phải trong Blender.",
-      "origin": "source-catalog"
+      "origin": "source-catalog",
+      "trial": {
+        "provenance": "public/models/h01-staff/provenance.json",
+        "sourceShare": "https://3d.hunyuan.tencent.com/share?shareId=4fe3cb84-fd7b-48d2-b5f6-3f77abe3e3d6",
+        "productionApproved": false
+      }
     },
     {
       "status": "manual-generation-required",
@@ -225,12 +231,12 @@
       "weapon": {
         "name": "Mộc Tinh Trượng",
         "weaponType": "wood-dragon-lotus-staff",
-        "metricLength": 1.95,
+        "metricLength": 2.0384,
         "handedness": "right",
         "woodStrands": 3,
         "petalCount": 12
       },
-      "prompt": "One complete 1.95 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette. Basic cosmetic skin: refined silver-gold engraved fittings and small jade gems; preserve the original dimensions, handedness and silhouette. No person, fingers, arms or support stand. Oriental high-fantasy xianxia mobile MOBA game art, coherent stylized realism with elegant readable shapes rather than photorealistic noise. Fully isolated asset, clean solid white background, entire object visible, centered composition with generous margins. Detailed UV-mapped PBR surfaces with physically plausible albedo, metallic and roughness variation; separate emissive accents where supported. Clear material boundaries, coherent geometry from front, sides and back, no baked directional lighting or cast shadows, no ground plane, no scenery, no text, no watermark, no UI.",
+      "prompt": "One complete 2.0384 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette. Basic cosmetic skin: refined silver-gold engraved fittings and small jade gems; preserve the original dimensions, handedness and silhouette. No person, fingers, arms or support stand. Oriental high-fantasy xianxia mobile MOBA game art, coherent stylized realism with elegant readable shapes rather than photorealistic noise. Fully isolated asset, clean solid white background, entire object visible, centered composition with generous margins. Detailed UV-mapped PBR surfaces with physically plausible albedo, metallic and roughness variation; separate emissive accents where supported. Clear material boundaries, coherent geometry from front, sides and back, no baked directional lighting or cast shadows, no ground plane, no scenery, no text, no watermark, no UI.",
       "filename": "H01-W1_moc_tinh_truong_co_ban.glb",
       "negativePrompt": "No cropped head, feet, wings or weapon tips; no extra limbs or fingers, fused hands, merged legs, duplicate faces, melted anatomy, floating identification labels, unrelated objects, diorama base, black stripe across the face, painted hair over the eyes, exaggerated bloom, opaque smoke cloud, baked attack trails or attached weapons on character bodies.",
       "note": "Vũ khí xuất riêng khỏi cơ thể; cặp đôi phải được kiểm tra và tách trái/phải trong Blender.",
@@ -252,12 +258,12 @@
       "weapon": {
         "name": "Mộc Tinh Trượng",
         "weaponType": "wood-dragon-lotus-staff",
-        "metricLength": 1.95,
+        "metricLength": 2.0384,
         "handedness": "right",
         "woodStrands": 3,
         "petalCount": 12
       },
-      "prompt": "One complete 1.95 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette. VIP cosmetic skin: elaborate imperial gold filigree, small jewel inlays and more refined carved fittings; preserve the original dimensions, grip and silhouette, with no visual suggestion of a larger hitbox. No person, fingers, arms or support stand. Oriental high-fantasy xianxia mobile MOBA game art, coherent stylized realism with elegant readable shapes rather than photorealistic noise. Fully isolated asset, clean solid white background, entire object visible, centered composition with generous margins. Detailed UV-mapped PBR surfaces with physically plausible albedo, metallic and roughness variation; separate emissive accents where supported. Clear material boundaries, coherent geometry from front, sides and back, no baked directional lighting or cast shadows, no ground plane, no scenery, no text, no watermark, no UI.",
+      "prompt": "One complete 2.0384 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette. VIP cosmetic skin: elaborate imperial gold filigree, small jewel inlays and more refined carved fittings; preserve the original dimensions, grip and silhouette, with no visual suggestion of a larger hitbox. No person, fingers, arms or support stand. Oriental high-fantasy xianxia mobile MOBA game art, coherent stylized realism with elegant readable shapes rather than photorealistic noise. Fully isolated asset, clean solid white background, entire object visible, centered composition with generous margins. Detailed UV-mapped PBR surfaces with physically plausible albedo, metallic and roughness variation; separate emissive accents where supported. Clear material boundaries, coherent geometry from front, sides and back, no baked directional lighting or cast shadows, no ground plane, no scenery, no text, no watermark, no UI.",
       "filename": "H01-W2_moc_tinh_truong_vip.glb",
       "negativePrompt": "No cropped head, feet, wings or weapon tips; no extra limbs or fingers, fused hands, merged legs, duplicate faces, melted anatomy, floating identification labels, unrelated objects, diorama base, black stripe across the face, painted hair over the eyes, exaggerated bloom, opaque smoke cloud, baked attack trails or attached weapons on character bodies.",
       "note": "Vũ khí xuất riêng khỏi cơ thể; cặp đôi phải được kiểm tra và tách trái/phải trong Blender.",

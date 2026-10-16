@@ -1,44 +1,9 @@
-# Android — bản thử H01-C0 từ Hunyuan Web
+# Android — bản thử Lâm Dật từ Hunyuan Web
 
-Model của người dùng: [share Hunyuan](https://3d.hunyuan.tencent.com/share?shareId=a93d658b-a40d-4854-b755-ad1fa9bcc79b). Đây là bản thử được người dùng yêu cầu tích hợp trực tiếp; không phải nghiệm thu toàn bộ mục tiêu đồ họa/animation.
+Cài `release/Hon-Gioi-Sinh-Ton-debug.apk`, chọn **Lâm Dật → Thanh Mộc Y (C0)**. Chuỗi xuất hiện phát khi vào sảnh hoặc chạm lại Dật. Hai nút Toàn Thân/Cận Cảnh giữ pose; vào trận thử joystick, đánh thường và Q/W/E/R/F.
 
-Cài `release/Hon-Gioi-Sinh-Ton-debug.apk`, mở game và chọn **Lâm Dật → Thanh Mộc Y (trang phục đầu tiên/C0)**. Xem Toàn Thân/Cận Cảnh, kéo xoay và vào trận offline để thử joystick, đánh thường, kỹ năng. Các trang phục khác và tướng khác giữ renderer hiện có.
+Hiện có thân Hunyuan gắn rig 52 xương, 30 khớp ngón có skin weights, sáu clip và Mộc Tinh Trượng từ share mới. Trượng gắn socket bàn tay, có IK và pivot tiếp đất. Shader chiêu thức riêng vẫn chạy theo luật game. Những tướng/trang phục khác dùng renderer fallback hiện có.
 
-GLB gốc có 1.499.726 tam giác, 80.791.928 byte, có albedo/normal/metallic-roughness nhúng; không có skin skeleton hoặc animation. Bản gốc được giữ nguyên trong `.local/manual-assets/H01-C0-shared-original.glb`, không đóng vào APK. SHA256 nguồn và từng file đã chuẩn bị nằm ở [provenance](../public/models/h01-c0/provenance.json); không lưu signed download URL hoặc thông tin tài khoản Hunyuan.
+Xem [hướng dẫn, nguồn model, tối ưu và giới hạn nghiệm thu](H01-STAFF-ENTRANCE.md). Chưa có cloth simulation hoặc sáu mesh giải phẫu riêng; không nhận là đã hoàn tất toàn bộ mỹ thuật game. Chưa có thiết bị Android thật để chứng nhận 60 FPS.
 
-Bản Android gồm ba LOD đã giảm lưới, hàn đỉnh trùng trong ngưỡng nhỏ và bake lại PBR từ mesh gốc lên UV mới bằng Blender CPU: high 60.000 mặt, medium 9.000, low 900. Chiều cao chuẩn 1,82 m; hướng mặt đã căn theo renderer. Albedo/normal/metallic-roughness là ảnh nhúng, được kiểm tra trong GLB. Đây là chuyển đổi có mất chi tiết, không nhận là bảo toàn byte UV/ảnh hoặc geometry 100%. Vũ khí Mộc Tinh Trượng hiện có vẫn được trang bị riêng.
-
-**Bản cập nhật hoạt ảnh:** đã gắn skeleton 17 xương, skin weights và năm clip Idle/Run/Attack/Cast/Dash vào mesh thật ở cả ba LOD. Mỗi actor có skeleton/mixer độc lập; Mộc Tinh Trượng hiện có bám Hand_R. Q/W/E/R dùng chung clip Cast, kèm năm dạng shader Mộc khác nhau cho từng chiêu Q/W/E/R/F.
-
-**Giới hạn:** chưa có cloth simulation, rig ngón tay hoặc sáu mesh giải phẫu riêng. Trường bào dài dùng trọng số biến dạng nhẹ, cần thử tiếp trên thiết bị thật. Các slot Hồn Cốt và chỉ số gameplay vẫn hoạt động; không nhận rằng đã có hệ thay bộ phận 3D hoàn chỉnh. Nhãn sảnh ghi rõ rig/hoạt ảnh thử nghiệm. Camera xa dùng LOD thấp, nên chi tiết mặt/áo giảm mạnh.
-
-Mô hình được tải từ file cục bộ trong APK; chơi offline không cần truy cập Hunyuan hoặc GPU server. Standalone HTML cũng nhúng các GLB để không thêm yêu cầu tải model bên ngoài. Thư mục `assets/base_models/` chứa bản high đã chuẩn bị để công cụ nhận diện offline; đây là bản dẫn xuất, không phải raw export gốc.
-
-## Kiểm tra và build
-
-```bash
-npm test
-node --test tests/manual-hero.test.js tests/portrait-equipment.test.js tests/soul-ring-vfx.test.js
-GAME_URL=http://127.0.0.1:5173 node tests/manual-hero-browser.mjs
-npm run android:apk
-```
-
-Kiểm thử Node xác minh geometry/PBR/file SHA; trình dựng procedural headless cũ vẫn được kiểm tra riêng khi không có bộ giải mã ảnh của trình duyệt. Kiểm thử browser xác minh model thực được tải trong sảnh và trận, đổi tướng, joystick touch và Linh Bộ; không coi kết quả CPU/SwiftShader là FPS Android thật. APK phải được kiểm chữ ký và so byte GLB bên trong với provenance trước khi giao. Chưa có thiết bị Android kết nối để đo hiệu năng thực tế.
-
-Tái tạo LOD từ raw export bằng Blender:
-
-```bash
-blender --background --factory-startup --python tools/manual-assets/prepare_h01_trial.py -- \
-  --source .local/manual-assets/H01-C0-shared-original.glb --output public/models/h01-c0
-```
-
-Script này chỉ xử lý mesh do người dùng cung cấp; không gọi MCP, suy luận AI hoặc ghép primitive thành người.
-
-
-Gắn rig lại từ ba LOD tĩnh đã bake (bản sao nguồn lưu trong `.local/manual-assets/static-lods/`):
-
-```bash
-blender -b --python tools/manual-assets/rig_h01.py
-```
-
-Script không tái tạo model bằng primitive; thêm skeleton, trọng số và clip vào mesh có sẵn. Không chạy chuẩn hóa LOD tĩnh sau bước rig vì sẽ ghi đè rig. Prompt tạo Mộc Tinh Trượng và carrier riêng từng chiêu: [H01_Lam_Dat_Weapon_VFX.md](../Prompt_Asset/H01_Lam_Dat_Weapon_VFX.md).
+GLB/texture/worker nằm trong APK; chơi offline không gọi Hunyuan. HTML standalone nhúng cả model và worker. Nguồn raw được giữ cục bộ; model trong `assets/base_models/` là dẫn xuất mobile, không phải raw export.

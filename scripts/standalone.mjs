@@ -1,5 +1,7 @@
 import { build } from "esbuild";
 import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
+const workerBuild=await build({entryPoints:['src/meshopt-worker.js'],bundle:true,write:false,format:'iife',target:'es2022',minify:true});
+const workerSource=workerBuild.outputFiles[0].text;
 const result = await build({
   entryPoints: ["src/main.js"],
   bundle: true,
@@ -13,16 +15,18 @@ const result = await build({
     "import.meta.env.VITE_API_ORIGIN": JSON.stringify(""),
   },
   plugins: [
+    {name:'inline-meshopt-worker',setup(build){build.onLoad({filter:/meshopt-worker-source\.js$/},()=>({loader:'js',contents:'export function createMeshoptWorker(){const url=URL.createObjectURL(new Blob(['+JSON.stringify(workerSource)+'],{type:"text/javascript"}));const worker=new Worker(url);worker.objectURL=url;return worker;}'}));}},
     {
       name: "inline-manual-hunyuan-models",
       setup(build) {
         build.onLoad({ filter: /manual-hero-assets\.js$/ }, async () => {
           const assets = {};
-          for (const detail of ["high", "medium", "low"]) {
-            const bytes = await readFile(`public/models/h01-c0/h01-c0-${detail}.glb`);
-            assets[detail] = "data:model/gltf-binary;base64," + bytes.toString("base64");
+          const {manualHeroAssetUrls,manualHeroAssetHashes}=await import('../src/manual-hero-assets.js?build='+Date.now());
+          for (const [key,url] of Object.entries(manualHeroAssetUrls)) {
+            const bytes=await readFile('public'+url.split('?')[0]);
+            assets[key]='data:model/gltf-binary;base64,'+bytes.toString('base64');
           }
-          return { contents: "export const manualHeroAssetUrls = " + JSON.stringify(assets), loader: "js" };
+          return {contents:'export const manualHeroAssetUrls='+JSON.stringify(assets)+';export const manualHeroAssetHashes='+JSON.stringify(manualHeroAssetHashes)+';',loader:'js'};
         });
       },
     },

@@ -33,15 +33,15 @@ test('actual imported LODs match source receipt and embed all three PBR channels
     assert.ok(triangles<=budgets[level.detail]);
     assert.ok(d.images.length>=3 && d.images.every(image=>Number.isInteger(image.bufferView)&&!image.uri));
     assert.equal(d.skins?.length,1);
-    assert.equal(d.skins[0].joints.length,17);
+    assert.equal(d.skins[0].joints.length,52);
     for(const mesh of d.meshes)for(const primitive of mesh.primitives){
       assert.ok(Number.isInteger(primitive.attributes.JOINTS_0));
       assert.ok(Number.isInteger(primitive.attributes.WEIGHTS_0));
     }
-    assert.deepEqual(d.animations.map(a=>a.name).sort(),['Attack','Cast','Dash','Idle','Run']);
+    assert.deepEqual(d.animations.map(a=>a.name).sort(),['Attack','Cast','Dash','Entrance','Idle','Run']);
     for(const clip of d.animations) {
-      assert.ok(clip.channels.some(c=>d.nodes[c.target.node].name==='Hand_R'));
-      assert.ok(clip.channels.some(c=>d.nodes[c.target.node].name==='Shin_L'));
+      assert.ok(clip.channels.some(c=>d.nodes[c.target.node].name==='RightHand'));
+      assert.ok(clip.channels.some(c=>d.nodes[c.target.node].name==='LeftLeg'));
     }
   }
 });
@@ -63,17 +63,17 @@ test('real embedded animations deform hands and legs, cloned actors remain indep
   const header=Buffer.alloc(20);header.writeUInt32LE(0x46546c67);header.writeUInt32LE(2,4);
   header.writeUInt32LE(20+padded.length+binary.length,8);header.writeUInt32LE(padded.length,12);header.writeUInt32LE(0x4e4f534a,16);
   const clean=Buffer.concat([header,padded,binary]);
-  const gltf=await new GLTFLoader().parseAsync(clean.buffer.slice(clean.byteOffset,clean.byteOffset+clean.byteLength),'');
+  const gltf=await new GLTFLoader().setMeshoptDecoder((await import('three/addons/libs/meshopt_decoder.module.js')).MeshoptDecoder).parseAsync(clean.buffer.slice(clean.byteOffset,clean.byteOffset+clean.byteLength),'');
   const first=clone(gltf.scene),second=clone(gltf.scene);
   const mixer=new AnimationMixer(first);
   mixer.clipAction(gltf.animations.find(c=>c.name==='Run')).play();
   first.updateMatrixWorld(true);second.updateMatrixWorld(true);
-  const hand=first.getObjectByName('Hand_R'),leg=first.getObjectByName('Shin_L');
+  const hand=first.getObjectByName('RightHand'),leg=first.getObjectByName('LeftLeg');
   const handBefore=hand.getWorldPosition(new Vector3()),legBefore=leg.getWorldPosition(new Vector3());
   mixer.update(.2);first.updateMatrixWorld(true);
   assert.ok(hand.getWorldPosition(new Vector3()).distanceTo(handBefore)>.02);
   assert.ok(leg.getWorldPosition(new Vector3()).distanceTo(legBefore)>.02);
-  assert.ok(second.getObjectByName('Hand_R').getWorldPosition(new Vector3()).distanceTo(handBefore)<1e-6);
+  assert.ok(second.getObjectByName('RightHand').getWorldPosition(new Vector3()).distanceTo(handBefore)<1e-6);
   let skin;first.traverse(n=>{if(n.isSkinnedMesh)skin=n;});
   skin.skeleton.update();
   const posed=skin.getVertexPosition(0,new Vector3());

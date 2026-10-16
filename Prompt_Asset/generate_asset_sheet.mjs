@@ -29,7 +29,7 @@ const bodies=[
  'Adult male void-serpent cultivator, slender angular silhouette; long dark violet-black hair, charcoal and violet robes, subtly reflective snake-scale collar, gold-purple hem embroidery and jade ornaments. Human face with calm sharp features, not a snake head; no staff or free-floating serpent fused to the body.'
 ];
 const weaponDescriptions=[
- 'One complete 1.95 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette.',
+ 'One complete 2.0384 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette.',
  'One complete 1.85 meter two-handed mountain hammer with an eight-sided stone-and-metal hammer head, chiseled mountain reliefs, weathered slate faces, bronze-gold edge bands and a reinforced dark wooden grip. Keep head and handle structurally connected.',
  'Two matching 0.65 meter reverse-crescent assassin blades, displayed as separate left and right objects with an obvious gap. Mint jade and violet-black steel blades, sharpened metal cutting edges, crescent filigree and leather-wrapped ergonomic grips. No hands, body or connecting decorative bridge between the pair.',
  'One open 0.90 meter lightning war fan spanning 120 degrees, built from exactly nine readable layered feather ribs. Blue-violet enamel, silver and gold lightning inlay, articulated metal hub and a short usable handle. Solid fan structure with emissive groove details, no diffuse electricity cloud.',
@@ -110,9 +110,15 @@ let trial=null;
 try {
  trial=JSON.parse(await readFile('public/models/h01-c0/provenance.json','utf8'));
  const body=all.find(a=>a.id==='H01-C0');
+ body.runtimeInstalled=true;
  body.status=trial.rigged?'manual-animated-trial-available':'manual-static-trial-available';
  body.trial={provenance:'public/models/h01-c0/provenance.json',rigged:trial.rigged,animations:trial.animations,productionApproved:false};
 } catch(error) { if(error.code!=='ENOENT')throw error; }
+try {
+ const staff=JSON.parse(await readFile('public/models/h01-staff/provenance.json','utf8'));
+ const weapon=all.find(a=>a.id==='H01-W0');weapon.status='manual-textured-runtime-trial-available';weapon.runtimeInstalled=true;
+ weapon.trial={provenance:'public/models/h01-staff/provenance.json',sourceShare:staff.sourceShare,productionApproved:false};
+} catch(error) {if(error.code!=='ENOENT')throw error;}
 const manifest={version:1,workflow:'manual-Hunyuan-web-no-MCP',baseDirectory:'assets/base_models',total:all.length,counts:Object.fromEntries([...new Set(all.map(x=>x.category))].map(c=>[c,all.filter(x=>x.category===c).length])),sourceHashes,assets:all,notes:['167 catalog targets plus 60 explicit Q/W/E/R/F art briefs. Existing generic VFX carriers and dedicated skill props are alternatives/reuse candidates, not evidence of 227 distinct existing meshes.','Characters include 12 originals and 36 costume variants. Weapons include 12 originals and 24 cosmetic variants.','Do not invent a fourth boss or missing ancient-weapon stats. No game behavior is modified by these art prompts.']};
 await mkdir('Prompt_Asset',{recursive:true});await mkdir('assets/base_models',{recursive:true});
 await writeFile('Prompt_Asset/asset_manifest.json',JSON.stringify(manifest,null,2)+'\n');

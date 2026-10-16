@@ -208,7 +208,7 @@ test("Ly Sa has two soft convex triangular fox ears with pale inner fur", () => 
 });
 
 test("Master anatomy: every skin/costume keeps both mobile LOD triangle budgets", () => {
-  for (let hero = 0; hero < 12; hero++)
+  for (let hero = 1; hero < 12; hero++)
     for (let skin = 0; skin < 3; skin++)
       for (let costume = 0; costume < 4; costume++) {
         for (const detail of ["medium", "low"]) {
@@ -287,7 +287,7 @@ test("Master anatomy: distant heroes generate 64px faces and medium 256px faces"
   assert.ok((anatomyCacheStats().faceResolutions[2048] ?? 0) <= 4);
 });
 
-test("Master weapons: all 108 authored variants have metre bounds and fixed ornamental counts", () => {
+test("Master weapons: legacy variants preserve metre bounds; H01 uses the verified external GLB", () => {
   assert.equal(SOUL_WEAPON_SPEC[0].petalCount, 12);
   assert.equal(SOUL_WEAPON_SPEC[3].featherCount, 9);
   assert.equal(SOUL_WEAPON_SPEC[3].fanAngleDegrees, 120);
@@ -295,7 +295,7 @@ test("Master weapons: all 108 authored variants have metre bounds and fixed orna
   assert.equal(SOUL_WEAPON_SPEC[9].clawsPerHand, 4);
   assert.equal(SOUL_WEAPON_SPEC[10].stringCount, 7);
   assert.equal(SOUL_WEAPON_SPEC[11].serpentCount, 2);
-  for (let hero = 0; hero < 12; hero++)
+  for (let hero = 1; hero < 12; hero++)
     for (let skin = 0; skin < 3; skin++)
       for (const detail of ["high", "medium", "low"]) {
         const root = buildSoulWeapon(hero, detail, { skin });

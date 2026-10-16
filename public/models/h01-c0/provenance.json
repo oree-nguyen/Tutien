@@ -11,41 +11,48 @@
     "Run",
     "Attack",
     "Cast",
-    "Dash"
+    "Dash",
+    "Entrance"
   ],
   "anatomicallySegmented": false,
-  "scope": "User-authorized animated trial. Actual skinned source mesh; locally authored clips. Conservative robe weights, no cloth simulation or separate anatomical meshes. Not final animation acceptance.",
+  "scope": "User-authorized animated trial. Actual skinned source mesh; locally authored clips. Humanoid finger skinning and entrance clip, no cloth simulation or separate anatomical meshes. Not final animation acceptance.",
   "levels": [
     {
       "detail": "high",
       "targetTriangles": 60000,
       "triangles": 60000,
-      "bytes": 6570244,
-      "sha256": "7183a2f6b1a4b7082b0b41e14a0c06ee4e002fcb76fb631245864e5dc238ee2d",
+      "bytes": 1529468,
+      "sha256": "97e6de9a97e7ea4dbfebe1ade697e3bb1eb84720751e5fef13a6a58100f9f448",
       "file": "h01-c0-high.glb",
       "texturePreparation": "high-to-low selected-to-active PBR rebake",
-      "textureResolution": 2048
+      "textureResolution": 2048,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp",
+      "dataTextureResolution": 1024
     },
     {
       "detail": "medium",
       "targetTriangles": 9000,
       "triangles": 9000,
-      "bytes": 2804448,
-      "sha256": "fb4c504fc78b0965daf195b08a4144f323004fe9154f08cddc62907fa6e06bff",
+      "bytes": 613720,
+      "sha256": "77ef6f18b81104e37846690ed73a730a2487755bb3ade54c634cf81e062a85dc",
       "file": "h01-c0-medium.glb",
       "texturePreparation": "high-to-low selected-to-active PBR rebake",
-      "textureResolution": 1024
+      "textureResolution": 512,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp",
+      "dataTextureResolution": 512
     },
     {
       "detail": "low",
       "targetTriangles": 900,
       "triangles": 900,
-      "bytes": 2849712,
-      "sha256": "a986e6ac9966aeb08c41631158d1546164c3e899f3017449a99bb73c2595f0db",
+      "bytes": 286720,
+      "sha256": "cf97175f6451b2a87f502b955870b529c0988f3d9153642830df04d0a6518bc1",
       "file": "h01-c0-low.glb",
       "texturePreparation": "high-to-low selected-to-active PBR rebake",
-      "textureResolution": 1024
+      "textureResolution": 256,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp",
+      "dataTextureResolution": 256
     }
   ],
-  "skeletonBones": 17
+  "skeletonBones": 52
 }

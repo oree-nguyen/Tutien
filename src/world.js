@@ -1,5 +1,6 @@
 import * as THREE from "three";
-import { disposeManualH01 } from "./manual-hero.js";
+import { disposeManualH01,configureManualH01,replayManualH01Entrance,seekManualH01Entrance,usesManualH01 } from "./manual-hero.js";
+import { createCharacterStudio } from "./character-fidelity.js";
 import { HEROES, REGIONS } from "./data.js";
 import {
   visualTemplate,
@@ -10,14 +11,12 @@ import {
   roundedBlock,
   proceduralMaps,
 } from "./art.js";
-import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
 import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
-import { staffAssets } from "./staff-asset.js";
 import { MAP_BUSHES, NAV_OBSTACLES } from "./systems.js";
-import { createScenery, createPortal, updatePortal } from "./scenery.js";
+import { createDeferredScenery, createPortal, updatePortal } from "./scenery.js";
 import { SkillIndicatorRenderer } from "./skill-indicators.js";
 import { characterPBR } from "./character-pbr.js";
 import { disposeSoulRingVisuals } from "./soul-ring-vfx.js";
@@ -34,7 +33,6 @@ export class World {
       powerPreference: "high-performance",
     });
     this.quality = localStorage.getItem("hon-gioi-quality") || "balanced";
-    this.staffCache = new Map();
     this.renderer.setPixelRatio(
       Math.min(devicePixelRatio, this.quality === "ultra" ? 1.8 : 1.3),
     );
@@ -48,6 +46,8 @@ export class World {
     this.scene.fog = new THREE.FogExp2(0x1f3b40, 0.011);
     this.camera = new THREE.PerspectiveCamera(40, 1, 0.1, 700);
     this.camera.position.set(17, 27, 23);
+    this.camera.layers.enable(2);
+    this.characterStudio=createCharacterStudio();this.scene.add(this.characterStudio);
     this.focus = new THREE.Vector3();
     this.clock = 0;
     this.models = new Map();
@@ -166,7 +166,7 @@ export class World {
     return m;
   }
   environment() {
-    this.scenery = createScenery({
+    this.scenery = createDeferredScenery({
       renderer: this.renderer,
       quality: this.quality,
     });
@@ -176,6 +176,17 @@ export class World {
     this.showcaseView = "full";
     this.showcaseYaw = Math.PI;
   }
+  seekHeroEntrance(seconds) {
+    this.preview?.traverse(node=>{if(node.userData.manualHunyuan)seekManualH01Entrance(node,seconds);});
+  }
+  replayHeroEntrance() {
+    const asset=this.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset;
+    if(asset?.status==='failed'){
+      const model=this.models.get('preview');this.releaseModelRings(model);this.dynamic.remove(model.group);this.models.delete('preview');this.preview=null;return;
+    }
+    this.preview?.traverse(node=>{if(node.userData.manualHunyuan)replayManualH01Entrance(node);});
+  }
+  prepareBattlefield() { return this.scenery.prepare(); }
   setShowcaseView(value) {
     if (!["face", "full"].includes(value)) throw Error("Góc sảnh không hợp lệ");
     this.showcaseView = value;
@@ -186,7 +197,7 @@ export class World {
     this.portraitEquipmentVisibility ??= new WeakMap();
     group.traverse((node) => {
       const equipment =
-        node.name === "soulWeapon" ||
+        node.name === "soulWeapon" || node.name === "Staff_Root" ||
         (node.userData.proceduralMasterwork === true &&
           typeof node.userData.weaponType === "string");
       if (!equipment) return;
@@ -203,81 +214,17 @@ export class World {
   rotateShowcase(delta) {
     if (Number.isFinite(delta)) this.showcaseYaw += delta;
   }
-  loadStaff(detail) {
-    if (!this.staffCache.has(detail))
-      this.staffCache.set(
-        detail,
-        new GLTFLoader().loadAsync(staffAssets[detail]).then((g) => {
-          g.scene.traverse((o) => {
-            if (o.isMesh) {
-              o.castShadow = true;
-              const old = o.material;
-              const m = new THREE.MeshPhysicalMaterial();
-              THREE.MeshStandardMaterial.prototype.copy.call(m, old);
-              m.clearcoat = 1;
-              m.flatShading = false;
-              m.userData.sharedArt = true;
-              o.material = m;
-              o.geometry.computeVertexNormals();
-              o.geometry.userData.sharedArt = true;
-            }
-          });
-          return g.scene;
-        }),
-      );
-    return this.staffCache.get(detail);
-  }
   addDetail(model, a, detail) {
     if (model.details.has(detail)) return;
     const visual = visualTemplate(a, detail);
+    if(visual.userData.manualHunyuan)configureManualH01(visual,this.renderer,this.scene,this.camera);
     model.details.add(detail);
     model.lod.addLevel(
       visual,
       detail === "high" ? 0 : detail === "medium" ? 28 : 48,
     );
-    if (a.kind === "hero" && a.hero === 0 && !visual.userData.anatomy && !visual.userData.manualHunyuan) {
-      this.loadStaff(detail)
-        .then((source) => {
-          const weapon = visual.getObjectByName("soulWeapon");
-          if (!weapon) return;
-          weapon.clear();
-          const staff = source.clone(true);
-          staff.scale.setScalar(0.38);
-          staff.position.y = -0.35;
-          weapon.add(staff);
-          if (a.skin) {
-            staff.traverse((o) => {
-              if (o.isMesh) {
-                o.material = o.material.clone();
-                o.material.iridescence = a.skin === 2 ? 0.4 : 0;
-                if (a.skin === 2) o.material.color.offsetHSL(0.025, 0.08, 0.03);
-              }
-            });
-            for (let i = 0; i < (a.skin === 2 ? 5 : 2); i++) {
-              const gem = new THREE.Mesh(
-                new THREE.SphereGeometry(0.03, 24, 12),
-                new THREE.MeshPhysicalMaterial({
-                  color: a.skin === 2 ? 0xffd179 : 0x92edcf,
-                  emissive: a.skin === 2 ? 0xffa95c : 0x62d8a1,
-                  emissiveIntensity: 1,
-                  metalness: 0.55,
-                  roughness: 0.25,
-                  iridescence: a.skin === 2 ? 0.4 : 0,
-                  clearcoat: 1,
-                }),
-              );
-              gem.position.set(
-                Math.sin(i * 2.4) * 0.08,
-                0.5 + i * 0.06,
-                Math.cos(i * 2.4) * 0.08,
-              );
-              weapon.add(gem);
-            }
-          }
-        })
-        .catch((e) => console.error("GLB staff load failed", e.message));
-    }
   }
+
   appearanceKey(a) {
     return [
       a.kind,
@@ -324,7 +271,7 @@ export class World {
       appearanceKey: this.appearanceKey(a),
     };
     this.models.set(a.id, model);
-    this.addDetail(model, a, a.id === "preview" ? "high" : "low");
+    this.addDetail(model, a, a.id === "preview" ? (usesManualH01(a) ? "high" : "medium") : "low");
     return model;
   }
   setConcealment(model, active) {
@@ -357,6 +304,7 @@ export class World {
     for (const level of model.lod.levels) {
       disposeSoulRingVisuals(level.object);
       disposeManualH01(level.object);
+      level.object.traverse(node=>{if(node.userData.hunyuanStaff)node.userData.disposed=true;});
     }
   }
   setQuality(value) {
@@ -408,6 +356,8 @@ export class World {
   }
   render(match, dt, hubHero = 0, appearance = {}) {
     this.clock += dt;
+    this.characterStudio.visible=!match&&hubHero===0;
+    this.renderer.toneMappingExposure=!match&&hubHero===0?1.35:1.25;
     this.scenery.update(this.clock, match);
     this.sun.visible = this.mapRim.visible = this.mapAmbient.visible = !!match;
     this.scene.background.setHex(match ? 0x142d36 : 0x6a8da1);
@@ -422,7 +372,7 @@ export class World {
     this.focus.lerp(target, 1 - Math.exp(-dt * 8));
     const dist = match ? (this.quality === "ultra" ? 16 : 18) : 10.5;
     const elevation = (48 * Math.PI) / 180;
-    this.camera.position
+    if(match) this.camera.position
       .copy(this.focus)
       .add(
         new THREE.Vector3(
@@ -493,15 +443,19 @@ export class World {
           this.clock,
           dt,
         );
-      const faceView = this.showcaseView === "face",
-        aimY = 0.74 + heroHeight * (faceView ? 0.92 : 0.53);
+      const faceView = this.showcaseView === "face";
+      const look=new THREE.Vector3(0,.74+heroHeight*(faceView?.92:.53),0);
+      const head=visual?.getObjectByName('Head');
+      if(faceView&&head){head.getWorldPosition(look);look.y=Math.max(.74+heroHeight*.18,look.y+.24);}
+      const entrance=visual?.userData.manualAsset?.entrance;
+      const wideEntrance=!faceView&&entrance&&!entrance.complete&&entrance.time<2.65;
       this.syncPortraitEquipment(this.preview, faceView);
-      this.camera.position.set(
-        0,
-        aimY + (faceView ? 0.03 : 0.7),
-        faceView ? 2.6 : 10.5,
-      );
-      this.camera.lookAt(0, aimY, 0);
+      const cameraTarget=look.clone().add(new THREE.Vector3(0,faceView?.03:wideEntrance?1.0:.7,faceView?2.6:wideEntrance?12.3:10.5));
+      if(!this.portraitCameraInitialized){this.camera.position.copy(cameraTarget);this.portraitLook=look.clone();this.portraitCameraInitialized=true;}
+      else this.camera.position.lerp(cameraTarget,1-Math.exp(-12*dt));
+      this.portraitLook.lerp(look,1-Math.exp(-12*dt));
+      this.camera.lookAt(this.portraitLook);
+      this.camera.position.y+=visual?.userData.manualAsset?.cameraShake??0;
       this.scenery.sanctuary.userData.sanctuary.rim.color.setHex(
         HEROES[hubHero].color,
       );

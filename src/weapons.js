@@ -1,3 +1,4 @@
+import { createHunyuanStaffGroup,hydrateHunyuanStaff } from './manual-staff.js';
 import * as T from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import { characterPBR, HERO_BROCADE_PATTERNS } from "./character-pbr.js";
@@ -20,7 +21,7 @@ export const SOUL_WEAPON_SPEC = [
   {
     name: "Mộc Tinh Trượng",
     weaponType: "wood-dragon-lotus-staff",
-    metricLength: 1.95,
+    metricLength: 2.0384,
     handedness: "right",
     woodStrands: 3,
     petalCount: 12,
@@ -423,71 +424,6 @@ function staff(parent, ctx, height, twists = 0) {
     ring(parent, gold, 0.035, 0.007, [0, y, 0], d, [Math.PI / 2, 0, 0]);
 }
 
-function woodDragonLotus(g, c) {
-  staff(g, c, 1.61, 3);
-  tube(
-    g,
-    c.wood,
-    [
-      [0, 0.61, 0],
-      [0.12, 0.77, 0],
-      [0.11, 0.93, 0],
-      [-0.06, 1, 0],
-      [-0.13, 0.92, 0],
-    ],
-    0.065,
-    c.d,
-    "woodDragonNeck",
-  );
-  shapeMesh(
-    g,
-    c.wood,
-    [
-      [-0.15, 0.86],
-      [-0.24, 0.89],
-      [-0.23, 0.96],
-      [-0.12, 1.01],
-      [-0.035, 0.97],
-      [-0.07, 0.9],
-    ],
-    0.11,
-    c.d,
-    "carvedDragonHead",
-  );
-  for (const z of [-0.061, 0.061]) {
-    gem(g, c.energy, 0.015, [-0.15, 0.96, z], c.d);
-    tube(
-      g,
-      c.gold,
-      [
-        [-0.08, 0.98, z],
-        [-0.055, 1.09, z],
-        [0.02, 1.12, z],
-      ],
-      0.009,
-      c.d,
-      "dragonAntler",
-    );
-  }
-  const flower = group(g, "lotusRotor", [0.04, 1.1, 0]);
-  flower.userData.soulMotion = "lotus";
-  for (let i = 0; i < 12; i++) {
-    const p = petal(
-      flower,
-      i % 2 ? c.jade : c.energy,
-      0.09,
-      0.21,
-      0.017,
-      c.d,
-      (i * Math.PI) / 6,
-      [0, 0, (i % 2) * 0.015],
-      "lotusPetal",
-    );
-    p.rotation.x = i % 2 ? 0.35 : -0.1;
-  }
-  gem(flower, c.jade, 0.055, [0, 0, 0.04], c.d);
-  ring(g, c.gold, 0.145, 0.009, [0.04, 1.1, 0], c.d);
-}
 
 function stoneHammer(g, c) {
   staff(g, c, 1.45);
@@ -1243,7 +1179,7 @@ function makeTemplate(hero, detail, color, skin, side) {
     voidMat: material(0x130b28, "void", detail, skin),
   };
   const builders = [
-    woodDragonLotus,
+    null,
     stoneHammer,
     null,
     lightningFan,
@@ -1326,6 +1262,7 @@ export function buildSoulWeapon(
     throw new RangeError("Soul weapon detail must be high, medium or low");
   if (![0, 1, 2].includes(skin))
     throw new RangeError("Soul weapon skin must be 0, 1 or 2");
+  if (hero === 0) return createHunyuanStaffGroup(detail,skin);
   const tint = new T.Color(color ?? COLORS[hero]).getHex();
   const key = `${hero}:${detail}:${tint}:${skin}:${side ?? "display"}`;
   if (!templates.has(key))
@@ -1345,6 +1282,7 @@ export function buildSoulWeapon(
 
 export function animateSoulWeapons(root, time) {
   root.traverse((o) => {
+    if(o.userData.hunyuanStaff&&['pending','loading'].includes(o.userData.status))hydrateHunyuanStaff(o);
     const motion = o.userData.soulMotion;
     if (motion === "lotus") o.rotation.y = time * 0.42;
     else if (motion === "wheel") o.rotation.z = time * 2.2;

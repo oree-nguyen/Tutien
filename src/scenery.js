@@ -1248,10 +1248,11 @@ function createSanctuary(time = { value: 0 }) {
   };
   return group;
 }
-export function createScenery({
+function* createScenerySteps({
   renderer = null,
   quality = "balanced",
   textureSize = 2048,
+  sanctuaryOverride = null,
 } = {}) {
   const anisotropy = configureEnvironmentAnisotropy(renderer);
   const battlefield = new THREE.Group();
@@ -1365,6 +1366,7 @@ export function createScenery({
         ry: rand() * TAU,
       });
   }
+  yield null;
   instanced(battlefield, treeTrunkGeometry(), material(0x63533b), roots);
   instanced(
     battlefield,
@@ -1439,6 +1441,7 @@ export function createScenery({
       });
     }
   });
+  yield null;
   const grass = instanced(
     battlefield,
     bladeGeometry(),
@@ -1549,6 +1552,7 @@ export function createScenery({
     liquidMaterial(0x392047, 0, time),
   );
   water.name = "view-dependent-procedural-sky-poison-water";
+  yield null;
   const lava = ribbonSurface(
     battlefield,
     -53,
@@ -1559,6 +1563,7 @@ export function createScenery({
     0.1,
   );
   lava.name = "animated-emissive-lava";
+  yield null;
   const iceGeometry = new THREE.CircleGeometry(9, 64);
   iceGeometry.rotateX(-Math.PI / 2);
   const ice = mesh(
@@ -1634,7 +1639,8 @@ export function createScenery({
       );
     m.scale.y = 1.8;
   }
-  const sanctuary = createSanctuary(time);
+  yield null;
+  const sanctuary = sanctuaryOverride ?? createSanctuary(time);
   return {
     battlefield,
     sanctuary,
@@ -1719,4 +1725,48 @@ export function createScenery({
       }
     },
   };
+}
+
+
+// Tooling retains a deterministic synchronous builder. The app consumes one
+// section per task, and never constructs battlefield props before the hub paints.
+export function createScenery(options={}) {
+ const steps=createScenerySteps(options);let next;
+ do {next=steps.next();} while(!next.done);
+ return next.value;
+}
+export function createDeferredScenery(options={}) {
+ const time={value:0},sanctuary=createSanctuary(time),battlefield=new THREE.Group();
+ const markerMeshes=[];let backend=null,pending=null;
+ const result={sanctuary,battlefield,markerMeshes,time,ready:false,
+  prepare(){
+   if(pending)return pending;
+   const steps=createScenerySteps({...options,sanctuaryOverride:sanctuary});
+   pending=new Promise((resolve,reject)=>{
+    const advance=()=>{
+     try {
+      const next=steps.next();
+      if(!next.done){setTimeout(advance,0);return;}
+      backend=next.value;battlefield.add(backend.battlefield);markerMeshes.push(...backend.markerMeshes);
+      result.ready=true;resolve(result);
+     }catch(error){pending=null;reject(error);}
+    };
+    setTimeout(advance,0);
+   });
+   return pending;
+  },
+  setQuality(value){options.quality=value;backend?.setQuality(value);},
+  configureRenderer(renderer){options.renderer=renderer;backend?.configureRenderer(renderer);},
+  update(clock,match){
+   time.value=clock;
+   if(backend){backend.update(clock,match);battlefield.visible=!!match;return;}
+   time.value=clock;battlefield.visible=false;sanctuary.visible=!match;
+   const s=sanctuary.userData.sanctuary;
+   s.sigil.material.emissiveIntensity=1.2+Math.sin(clock*1.7)*.3;
+   for(const [i,flame] of s.flames.entries())flame.scale.y=.85+Math.sin(clock*5+i)*.15;
+   for(const cloud of s.clouds)cloud.mesh.position.x=cloud.x+Math.sin(clock*cloud.speed)*2;
+   for(const [i,p] of s.motes.entries())p.mesh.position.set(Math.cos(p.phase+clock*.07)*p.r,1.8+Math.sin(clock*.4+i)*1.2,Math.sin(p.phase+clock*.07)*p.r);
+  }
+ };
+ return result;
 }

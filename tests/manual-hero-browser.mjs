@@ -17,16 +17,17 @@ try{
  await page.goto(process.env.GAME_URL??'http://127.0.0.1:5173');
  await page.waitForFunction(()=>window.__HON_GIOI__);
  await page.waitForFunction(()=>{let ready=false;window.__HON_GIOI__.world.preview?.traverse(n=>{if(n.userData.manualAsset?.status==='loaded')ready=true;});return ready;},null,{timeout:90000});
+ await page.waitForFunction(()=>window.__HON_GIOI__.world.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset.animation==='Idle',null,{timeout:30000});
  assert.equal((await state())[0].source,'a93d658b-a40d-4854-b755-ad1fa9bcc79b');
  const rig = await page.evaluate(async()=>{
    const root=window.__HON_GIOI__.world.preview.getObjectByName('manualHero_H01_C0');
    let skinned=0;root.traverse(n=>{if(n.isSkinnedMesh)skinned++;});
    return {skinned,clips:root.userData.manualAsset.clips,animation:root.userData.manualAsset.animation,
-     weaponParent:root.getObjectByName('soulWeapon').parent.name};
+     weaponParent:root.getObjectByName('Staff_Root').parent.name};
  });
  assert.ok(rig.skinned>0);
- assert.deepEqual(rig.clips.slice().sort(),['Attack','Cast','Dash','Idle','Run']);
- assert.equal(rig.weaponParent,'Hand_R');
+ assert.deepEqual(rig.clips.slice().sort(),['Attack','Cast','Dash','Entrance','Idle','Run']);
+ assert.equal(rig.weaponParent,'RightHand_WeaponSocket');
  assert.equal(rig.animation,'Idle');
  await page.screenshot({path:directory+'/hub-full.png'});
  await page.locator('#showcaseFace').tap();

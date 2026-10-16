@@ -2,7 +2,7 @@
 
 ## Model động hiện có
 
-H01-C0 từ model web bạn gửi đã được gắn 17 xương và skin weights, có clip Idle, Run, Attack, Cast, Dash ở cả 3 LOD. Engine chọn hoạt ảnh theo di chuyển và lần bắt đầu hồi chiêu; không thay đổi luật chiến đấu. Vũ khí hiện có bám Hand_R. Tay áo/trường bào dùng trọng số biến dạng nhẹ, chưa có cloth simulation, ngón tay chưa có rig riêng. Đây là bản thử hoạt ảnh, không phải rig sản xuất đã nghiệm thu trên Android thật.
+H01-C0 hiện có 52 xương, skin ngón tay và sáu clip Idle/Run/Attack/Cast/Dash/Entrance. Mộc Tinh Trượng từ share mới đã tích hợp với socket/IK và chuỗi xuất hiện 4,2 giây. Xem [hướng dẫn bản cập nhật](../docs/H01-STAFF-ENTRANCE.md). Chưa có cloth simulation hoặc sáu mesh giải phẫu riêng.
 
 ## Hiệu ứng riêng đã chạy trong engine
 
@@ -18,17 +18,17 @@ Shader riêng tạo chuyển động/phát sáng/fade; không cần model web đ
 
 ## Cách tạo trên web Hunyuan
 
-Mỗi prompt dưới đây là một lượt tạo riêng. Xuất GLB có texture nhúng, đặt đúng tên vào assets/base_models/. Chưa có model Hunyuan mới cho vũ khí/carrier từ những prompt này; game đang dùng vũ khí cũ và shader runtime. Tạo xong cần kiểm tra UV, scale, pivot, silhouette và tích hợp mới được thay thế. GLB tĩnh không chứa sẵn gameplay hoặc hiệu ứng hạt động.
+Mỗi prompt dưới đây là một lượt tạo riêng. Xuất GLB có texture nhúng, đặt đúng tên vào assets/base_models/. Trượng Hunyuan mới đã tích hợp từ share của người dùng; các carrier GLB của chiêu chưa được tạo, game dùng shader runtime riêng. Những prompt dưới đây còn dùng khi tạo lại hoặc nâng chất lượng asset. Tạo xong cần kiểm tra UV, scale, pivot, silhouette và tích hợp mới được thay thế. GLB tĩnh không chứa sẵn gameplay hoặc hiệu ứng hạt động.
 
 ## Mộc Tinh Trượng — nguyên bản
 
 File: `assets/base_models/H01-W0_moc_tinh_truong_nguyen_ban.glb`
 
 ```text
-One complete 1.95 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette. Original elemental design; restrained ornamentation and clear useful silhouette. No person, fingers, arms or support stand. Oriental high-fantasy xianxia mobile MOBA game art, coherent stylized realism with elegant readable shapes rather than photorealistic noise. Fully isolated asset, clean solid white background, entire object visible, centered composition with generous margins. Detailed UV-mapped PBR surfaces with physically plausible albedo, metallic and roughness variation; separate emissive accents where supported. Clear material boundaries, coherent geometry from front, sides and back, no baked directional lighting or cast shadows, no ground plane, no scenery, no text, no watermark, no UI.
+One complete 2.0384 meter living-wood staff: three twisting wood strands form a strong continuous shaft, fine bark grain, carved gold joints, a twelve-petal jade lotus crown and one luminous green crystal. Preserve a straight graspable lower handle and a narrow dragon-vine silhouette. Original elemental design; restrained ornamentation and clear useful silhouette. No person, fingers, arms or support stand. Oriental high-fantasy xianxia mobile MOBA game art, coherent stylized realism with elegant readable shapes rather than photorealistic noise. Fully isolated asset, clean solid white background, entire object visible, centered composition with generous margins. Detailed UV-mapped PBR surfaces with physically plausible albedo, metallic and roughness variation; separate emissive accents where supported. Clear material boundaries, coherent geometry from front, sides and back, no baked directional lighting or cast shadows, no ground plane, no scenery, no text, no watermark, no UI.
 ```
 
-Sau import: chiều dài 1,95 m; grip ở phần cán thấp, gắn tay phải; giữ vũ khí tách rời cơ thể. Phần phát sáng cần material emissive và animation của engine.
+Sau import: chiều dài 2,0384 m; grip ở 62% tính từ đế, gắn tay phải; giữ vũ khí tách rời cơ thể. Phần phát sáng cần material emissive và animation của engine.
 
 ## Lâm Dật — Q: Đằng Tiên
 
