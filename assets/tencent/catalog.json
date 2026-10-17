@@ -20,11 +20,11 @@
     },
     {
       "path": "src/scenery.js",
-      "sha256": "e0b0caa48cd6dbd60ee4ce303a907cd9001db107f8778d54167d100286c74023"
+      "sha256": "8b51fbfded71f45b70d3cea8fec3513aac9b1bb545e0c636ebee12e83cd51600"
     },
     {
       "path": "src/world.js",
-      "sha256": "d2f9afc15d448e2e70d39d3f152442766e9df7469d846793c820aebdd28585a3"
+      "sha256": "f33519ef955664a0832ca0bd0e691e4f9cef5dd35a317603326aa3fd7e7ae263"
     },
     {
       "path": "src/soul-ring-vfx.js",
@@ -3079,7 +3079,7 @@
   "sourceGeometryAudit": [
     {
       "path": "src/art.js",
-      "line": 244,
+      "line": 222,
       "geometry": "ExtrudeGeometry",
       "nearestFunction": "roundedBlock",
       "status": "not-replaced",
@@ -3087,7 +3087,7 @@
     },
     {
       "path": "src/art.js",
-      "line": 256,
+      "line": 234,
       "geometry": "CylinderGeometry",
       "nearestFunction": "treeTrunkGeometry",
       "status": "not-replaced",
@@ -3095,7 +3095,7 @@
     },
     {
       "path": "src/art.js",
-      "line": 272,
+      "line": 250,
       "geometry": "TubeGeometry",
       "nearestFunction": "treeTrunkGeometry",
       "status": "not-replaced",
@@ -3167,7 +3167,7 @@
     },
     {
       "path": "src/environment-vfx.js",
-      "line": 370,
+      "line": 371,
       "geometry": "BufferGeometry",
       "nearestFunction": "ribbonGeometry",
       "status": "not-replaced",
@@ -3175,15 +3175,15 @@
     },
     {
       "path": "src/h01-entrance.js",
-      "line": 18,
+      "line": 22,
       "geometry": "BufferGeometry",
-      "nearestFunction": "ribbonGeometry",
+      "nearestFunction": "organicVineGeometry",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/h01-entrance.js",
-      "line": 49,
+      "line": 64,
       "geometry": "RingGeometry",
       "nearestFunction": "createH01EntranceVfx",
       "status": "not-replaced",
@@ -3191,7 +3191,7 @@
     },
     {
       "path": "src/h01-entrance.js",
-      "line": 53,
+      "line": 68,
       "geometry": "RingGeometry",
       "nearestFunction": "createH01EntranceVfx",
       "status": "not-replaced",
@@ -3199,7 +3199,7 @@
     },
     {
       "path": "src/h01-entrance.js",
-      "line": 56,
+      "line": 71,
       "geometry": "BufferGeometry",
       "nearestFunction": "createH01EntranceVfx",
       "status": "not-replaced",
@@ -3311,15 +3311,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 67,
-      "geometry": "RingGeometry",
-      "nearestFunction": "ring",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 78,
+      "line": 79,
       "geometry": "TubeGeometry",
       "nearestFunction": "curve",
       "status": "not-replaced",
@@ -3327,7 +3319,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 348,
+      "line": 349,
       "geometry": "PlaneGeometry",
       "nearestFunction": "smokePlume",
       "status": "not-replaced",
@@ -3335,7 +3327,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 416,
+      "line": 415,
       "geometry": "BufferGeometry",
       "nearestFunction": "bladeGeometry",
       "status": "not-replaced",
@@ -3343,7 +3335,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 511,
+      "line": 510,
       "geometry": "PlaneGeometry",
       "nearestFunction": "ribbonSurface",
       "status": "not-replaced",
@@ -3351,47 +3343,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 527,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "lantern",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 528,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "lantern",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 529,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "lantern",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 543,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 554,
-      "geometry": "CircleGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 589,
+      "line": 588,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createPortal",
       "status": "not-replaced",
@@ -3399,31 +3351,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 619,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 628,
-      "geometry": "TorusGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 635,
-      "geometry": "TorusGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 644,
+      "line": 643,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createPortal",
       "status": "not-replaced",
@@ -3431,47 +3359,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 666,
-      "geometry": "CircleGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 669,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 690,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 698,
-      "geometry": "ConeGeometry",
-      "nearestFunction": "createPortal",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 779,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createShop",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 795,
+      "line": 794,
       "geometry": "LatheGeometry",
       "nearestFunction": "createShop",
       "status": "not-replaced",
@@ -3479,31 +3367,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 809,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createShop",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 813,
-      "geometry": "TorusGeometry",
-      "nearestFunction": "createShop",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 834,
-      "geometry": "ConeGeometry",
-      "nearestFunction": "createShop",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 844,
+      "line": 843,
       "geometry": "LatheGeometry",
       "nearestFunction": "createShop",
       "status": "not-replaced",
@@ -3511,31 +3375,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 861,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createShop",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 870,
-      "geometry": "TorusGeometry",
-      "nearestFunction": "createShop",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 877,
-      "geometry": "CircleGeometry",
-      "nearestFunction": "createShop",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 885,
+      "line": 884,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createShop",
       "status": "not-replaced",
@@ -3543,7 +3383,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 908,
+      "line": 907,
       "geometry": "PlaneGeometry",
       "nearestFunction": "createShop",
       "status": "not-replaced",
@@ -3551,15 +3391,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 943,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createAltar",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 958,
+      "line": 957,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createAltar",
       "status": "not-replaced",
@@ -3567,23 +3399,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 967,
-      "geometry": "CircleGeometry",
-      "nearestFunction": "createAltar",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 973,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createAltar",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 976,
+      "line": 975,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createAltar",
       "status": "not-replaced",
@@ -3591,63 +3407,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 984,
-      "geometry": "TorusGeometry",
-      "nearestFunction": "createAltar",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1006,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1015,
-      "geometry": "CircleGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1030,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1038,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1063,
-      "geometry": "DodecahedronGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1071,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1103,
+      "line": 1102,
       "geometry": "PlaneGeometry",
       "nearestFunction": "createSanctuary",
       "status": "not-replaced",
@@ -3655,63 +3415,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 1113,
-      "geometry": "TorusGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1121,
-      "geometry": "ConeGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1137,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1144,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1163,
-      "geometry": "TorusGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1192,
-      "geometry": "ConeGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1205,
-      "geometry": "ShapeGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1263,
+      "line": 1200,
       "geometry": "PlaneGeometry",
       "nearestFunction": "createSanctuary",
       "status": "not-replaced",
@@ -3719,47 +3423,15 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 1278,
-      "geometry": "CylinderGeometry",
+      "line": 1247,
+      "geometry": "PlaneGeometry",
       "nearestFunction": "createSanctuary",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
     {
       "path": "src/scenery.js",
-      "line": 1285,
-      "geometry": "CircleGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1373,
-      "geometry": "SphereGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1379,
-      "geometry": "ConeGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1386,
-      "geometry": "DodecahedronGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1392,
+      "line": 1378,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createSanctuary",
       "status": "not-replaced",
@@ -3767,15 +3439,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 1404,
-      "geometry": "DodecahedronGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1504,
+      "line": 1490,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createSanctuary",
       "status": "not-replaced",
@@ -3783,7 +3447,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 1510,
+      "line": 1496,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createSanctuary",
       "status": "not-replaced",
@@ -3791,31 +3455,7 @@
     },
     {
       "path": "src/scenery.js",
-      "line": 1516,
-      "geometry": "CylinderGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1534,
-      "geometry": "IcosahedronGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1567,
-      "geometry": "CircleGeometry",
-      "nearestFunction": "createSanctuary",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/scenery.js",
-      "line": 1634,
+      "line": 1620,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "createSanctuary",
       "status": "not-replaced",
@@ -3935,7 +3575,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 60,
+      "line": 78,
       "geometry": "CylinderGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3943,7 +3583,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 61,
+      "line": 79,
       "geometry": "IcosahedronGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3951,7 +3591,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 62,
+      "line": 80,
       "geometry": "ConeGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3959,7 +3599,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 64,
+      "line": 82,
       "geometry": "IcosahedronGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3967,7 +3607,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 65,
+      "line": 83,
       "geometry": "TorusGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3975,7 +3615,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 66,
+      "line": 84,
       "geometry": "CylinderGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3983,7 +3623,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 103,
+      "line": 121,
       "geometry": "TetrahedronGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -3991,15 +3631,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 141,
-      "geometry": "RingGeometry",
-      "nearestFunction": "module-or-class",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/world.js",
-      "line": 245,
+      "line": 295,
       "geometry": "PlaneGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -4007,7 +3639,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 249,
+      "line": 299,
       "geometry": "PlaneGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -4015,7 +3647,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 682,
+      "line": 739,
       "geometry": "CircleGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -4023,23 +3655,7 @@
     },
     {
       "path": "src/world.js",
-      "line": 820,
-      "geometry": "OctahedronGeometry",
-      "nearestFunction": "module-or-class",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/world.js",
-      "line": 842,
-      "geometry": "OctahedronGeometry",
-      "nearestFunction": "module-or-class",
-      "status": "not-replaced",
-      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
-    },
-    {
-      "path": "src/world.js",
-      "line": 869,
+      "line": 877,
       "geometry": "OctahedronGeometry",
       "nearestFunction": "module-or-class",
       "status": "not-replaced",
@@ -4049,22 +3665,35 @@
   "legacyGLBs": [
     {
       "path": "public/models/h01-c0/h01-c0-high.glb",
-      "bytes": 1529468,
-      "sha256": "97e6de9a97e7ea4dbfebe1ade697e3bb1eb84720751e5fef13a6a58100f9f448",
+      "bytes": 1529584,
+      "sha256": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
       "status": "hunyuan-user-shared-animated-trial",
       "assetId": "H01-C0"
     },
     {
       "path": "public/models/h01-c0/h01-c0-low.glb",
-      "bytes": 286720,
-      "sha256": "cf97175f6451b2a87f502b955870b529c0988f3d9153642830df04d0a6518bc1",
+      "bytes": 286836,
+      "sha256": "c8f7666aaa45f2c3ba8ac529510a5bb06667d0e083e743ab72aa25dc536be3fe",
       "status": "hunyuan-user-shared-animated-trial",
       "assetId": "H01-C0"
     },
     {
       "path": "public/models/h01-c0/h01-c0-medium.glb",
-      "bytes": 613720,
-      "sha256": "77ef6f18b81104e37846690ed73a730a2487755bb3ade54c634cf81e062a85dc",
+      "bytes": 613836,
+      "sha256": "7cb641211b1d89b8a35612eb0f4d55bb0446ff2052683b19bb4e0632b18b3341",
+      "status": "hunyuan-user-shared-animated-trial",
+      "assetId": "H01-C0"
+    },
+    {
+      "path": "public/models/h01-c0/h01-c0-mobile-gpu.glb",
+      "bytes": 1983400,
+      "sha256": "33e8459455aff4120017275843bf52b3f34e2d62eeabc81710e846bb8b3a0d75",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/models/h01-c0/h01-c0-mobile.glb",
+      "bytes": 849352,
+      "sha256": "386f350da4b67949f46b515fcb8af96993baaf061fb386f57b305e1bf93ccf50",
       "status": "hunyuan-user-shared-animated-trial",
       "assetId": "H01-C0"
     },
@@ -4081,6 +3710,12 @@
       "sha256": "633edc5bb44b74f4416cdd86fcf883770e8dcdf79587301a01c22b576e067f57",
       "status": "hunyuan-user-shared-animated-trial",
       "assetId": "H01-W0"
+    },
+    {
+      "path": "public/models/h01-staff/h01-staff-medium-gpu.glb",
+      "bytes": 828316,
+      "sha256": "f007473e6ff9f752b59d32466c61337db43210771ecf43f4c167dac23ff03c54",
+      "status": "legacy-not-Tencent-not-replaced"
     },
     {
       "path": "public/models/h01-staff/h01-staff-medium.glb",

@@ -50,5 +50,5 @@ if high_poly:
  report={'sourceTriangles':len(data['vines']['index'])//3,'rootTriangles':len(data['roots']['index'])//3,'runtimeVineTriangles':32000,'runtimeRootTriangles':32000,'highPolySource':'.local/manual-assets/h01-organic-vines-high.blend','highPolyShipped':False,'uv':'BarkUV','smoothShading':True,'runtimeMaps':['albedo 1024','normal 1024','roughness 1024'],'lossyReduction':True}
  (root/'docs/manual-assets/h01-entrance/vine-authoring.json').write_text(json.dumps(report,indent=2))
 else:
- (root/'src/generated/h01-organic-vines.json').write_text(json.dumps(data,separators=(',',':')))
+ (root/'tools/manual-assets/generated/h01-organic-vines.json').write_text(json.dumps(data,separators=(',',':')))
 print('Exported',len(data['vines']['index'])//3,'vine triangles')

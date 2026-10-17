@@ -14,13 +14,13 @@ const state=()=>page.evaluate(()=>{
  return result;
 });
 try{
- await page.goto(process.env.GAME_URL??'http://127.0.0.1:5173');
+ await page.goto((process.env.GAME_URL??'http://127.0.0.1:5173')+'?renderer=main');
  await page.waitForFunction(()=>window.__HON_GIOI__);
- await page.waitForFunction(()=>{let ready=false;window.__HON_GIOI__.world.preview?.traverse(n=>{if(n.userData.manualAsset?.status==='loaded')ready=true;});return ready;},null,{timeout:90000});
- await page.waitForFunction(()=>window.__HON_GIOI__.world.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset.animation==='Idle',null,{timeout:30000});
+ await page.waitForFunction(()=>{let ready=false;window.__HON_GIOI__?.world?.preview?.traverse(n=>{if(n.userData.manualAsset?.status==='loaded')ready=true;});return ready;},null,{timeout:90000});
+ await page.waitForFunction(()=>window.__HON_GIOI__?.world?.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset.animation==='Idle',null,{timeout:30000});
  assert.equal((await state())[0].source,'a93d658b-a40d-4854-b755-ad1fa9bcc79b');
  const rig = await page.evaluate(async()=>{
-   const root=window.__HON_GIOI__.world.preview.getObjectByName('manualHero_H01_C0');
+   const root=window.__HON_GIOI__?.world?.preview?.getObjectByName('manualHero_H01_C0');
    let skinned=0;root.traverse(n=>{if(n.isSkinnedMesh)skinned++;});
    return {skinned,clips:root.userData.manualAsset.clips,animation:root.userData.manualAsset.animation,
      weaponParent:root.getObjectByName('Staff_Root').parent.name};
@@ -35,9 +35,9 @@ try{
  await page.screenshot({path:directory+'/hub-face.png'});
  await page.locator('#showcaseFull').tap();
  await page.locator('[data-hero="4"]').tap();
- await page.waitForFunction(()=>window.__HON_GIOI__.world.preview && !window.__HON_GIOI__.world.preview.getObjectByName('manualHero_H01_C0'));
+ await page.waitForFunction(()=>window.__HON_GIOI__?.world?.preview && !window.__HON_GIOI__?.world?.preview?.getObjectByName('manualHero_H01_C0'));
  await page.locator('[data-hero="0"]').tap();
- await page.waitForFunction(()=>{let ready=false;window.__HON_GIOI__.world.preview?.traverse(n=>{if(n.userData.manualAsset?.status==='loaded')ready=true;});return ready;},null,{timeout:60000});
+ await page.waitForFunction(()=>{let ready=false;window.__HON_GIOI__?.world?.preview?.traverse(n=>{if(n.userData.manualAsset?.status==='loaded')ready=true;});return ready;},null,{timeout:60000});
  await page.locator('#start').tap();
  await page.waitForFunction(()=>window.__HON_GIOI__.match?.player);
  await page.waitForFunction(()=>{
@@ -65,8 +65,9 @@ try{
  assert.equal(dashReady,true,'Linh Bộ remains playable with the imported body');
  await page.screenshot({path:directory+'/battle.png'});
  assert.deepEqual(errors,[]);
- assert.ok(models.some(r=>r.path.endsWith('high.glb')&&r.status===200));
- assert.ok(models.some(r=>r.path.endsWith('low.glb')&&r.status===200));
+ assert.ok(models.some(r=>r.path.endsWith('mobile-gpu.glb')&&r.status===200));
+ const activeDetails=await page.evaluate(()=>window.__HON_GIOI__.world.models.get(window.__HON_GIOI__.match.player.id).lod.levels.map(l=>l.object.userData.detail));
+ assert.ok(activeDetails.includes('mobile'));assert.equal(activeDetails.includes('high'),false,'Balanced player must reuse the prepared mobile visual');
  await writeFile(directory+'/report.json',JSON.stringify({passed:true,models,errors,playerMoved:true,joystickTouch:true,dashSkill:true,rigged:true,rig,runAnimation:true,scope:'Chromium software WebGL and mobile viewport only; no physical Android/FPS acceptance'},null,2));
  console.log('Manual H01: packaged model loaded in full/face hub and battle, hero switching/movement passed.');
 }finally{await browser.close();}

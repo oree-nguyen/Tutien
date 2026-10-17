@@ -14,7 +14,7 @@ test('actual imported LODs match source receipt and embed all three PBR channels
   const receipt=JSON.parse(await readFile('public/models/h01-c0/provenance.json','utf8'));
   assert.equal(receipt.rigged,true);
   assert.equal(receipt.anatomicallySegmented,false);
-  const budgets={high:60000,medium:9000,low:900};
+  const budgets={high:60000,medium:9000,low:900,mobile:18000};
   for(const level of receipt.levels){
     const raw=await readFile('public/models/h01-c0/'+level.file);
     assert.equal(createHash('sha256').update(raw).digest('hex'),level.sha256);

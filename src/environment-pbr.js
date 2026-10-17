@@ -312,6 +312,8 @@ export function assignTerrainBiomeGroups(geometry, biomeAt) {
   return geometry;
 }
 
+let bakedTerrainProvider=null;
+export function installTerrainTextureProvider(provider){bakedTerrainProvider=provider;}
 export class BiomePBRManager {
   constructor({
     splatmap,
@@ -565,6 +567,15 @@ export class BiomePBRManager {
       !this.queue.length
     )
       return;
+    if(bakedTerrainProvider&&!this.providerFailed){
+      const biome=this.queue.shift(),id=++this.requestId;this.pending={id,biome,size:this.textureSize};
+      bakedTerrainProvider(biome,this.textureSize,this.anisotropy).then(set=>{
+        if(this.disposed||this.pending?.id!==id||!this.active.includes(biome)){set.dispose();this.staleResults++;if(this.pending?.id===id)this.pending=null;}
+        else{this.pending=null;this.cache.set(biome,set);this.generated++;this.attach(biome,set,true);}
+        this.refreshQueue();this.pumpWorker();
+      }).catch(()=>{if(this.pending?.id===id){this.pending=null;this.providerFailed=true;this.refreshQueue();this.pumpWorker();}});
+      return;
+    }
     if (!this.openWorker()) return;
     const biome = this.queue.shift(),
       id = ++this.requestId;
@@ -716,6 +727,7 @@ export class BiomePBRManager {
       staleResults: this.staleResults,
       workerErrors: this.workerErrors,
       workerError: this.workerError,
+      gpuCompressedBiomes:[...this.cache.values()].filter(set=>set.gpuCompressed).length,
       textureSize: this.textureSize,
       anisotropy: this.anisotropy,
     };
@@ -745,6 +757,9 @@ export function configureEnvironmentAnisotropy(renderer) {
       t.needsUpdate = true;
     }
   return architecturalAnisotropy;
+}
+export function installPrebakedEnvironmentMaps(sets){
+ sanctuaryMaps=sets.marble;for(const style of ['roof','wood','gilt'])architectureCache.set(style,sets[style]);
 }
 export function architecturalMaps(
   style,

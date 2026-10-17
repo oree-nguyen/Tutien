@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import {pooledGeometry} from "./geometry-pool.js";
 import { REGIONS, GATE_POS, SHRINES } from "./data.js";
 import { MAP_BUSHES, NAV_OBSTACLES } from "./systems.js";
 import { terrainHeight, groundHeight, treeTrunkGeometry } from "./art.js";
@@ -64,7 +65,7 @@ function mesh(parent, geometry, mat, x = 0, y = 0, z = 0) {
 function ring(parent, radius, width, mat, y = 0.04, segments = 96) {
   const m = mesh(
     parent,
-    new THREE.RingGeometry(radius - width, radius, segments),
+    pooledGeometry("RingGeometry",radius - width, radius, segments),
     mat,
     0,
     y,
@@ -383,21 +384,19 @@ function cloudTexture() {
   return new THREE.CanvasTexture(canvas);
 }
 function instanced(parent, geometry, mat, entries) {
-  const m = new THREE.InstancedMesh(geometry, mat, entries.length),
-    dummy = new THREE.Object3D();
-  entries.forEach((e, i) => {
-    dummy.position.set(e.x, e.y, e.z);
-    dummy.rotation.set(e.rx || 0, e.ry || 0, e.rz || 0);
-    dummy.scale.set(e.sx || 1, e.sy || 1, e.sz || 1);
-    dummy.updateMatrix();
-    m.setMatrixAt(i, dummy.matrix);
-  });
-  m.castShadow = true;
-  m.receiveShadow = true;
-  m.instanceMatrix.needsUpdate = true;
-  parent.add(m);
-  return m;
+ const buckets=new Map();for(const entry of entries){const key=Math.floor(entry.x/20)+':'+Math.floor(entry.z/20);if(!buckets.has(key))buckets.set(key,[]);buckets.get(key).push(entry);}
+ geometry.userData.sharedInstanced=true;
+ const group=new THREE.Group();group.name='SpatialInstancedCells';group.userData.spatialInstancing=true;
+ const dummy=new THREE.Object3D();
+ for(const values of buckets.values()){
+  const mesh=new THREE.InstancedMesh(geometry,mat,values.length);
+  for(let i=0;i<values.length;i++){const e=values[i];dummy.position.set(e.x,e.y,e.z);dummy.rotation.set(e.rx||0,e.ry||0,e.rz||0);dummy.scale.set(e.sx||1,e.sy||1,e.sz||1);dummy.updateMatrix();mesh.setMatrixAt(i,dummy.matrix);}
+  mesh.castShadow=mesh.receiveShadow=true;mesh.instanceMatrix.needsUpdate=true;mesh.computeBoundingSphere();mesh.boundingSphere.radius+=2;
+  mesh.userData.spatialCell=true;group.add(mesh);
+ }
+ parent.add(group);return group;
 }
+
 function bladeGeometry() {
   const positions = [],
     uv = [],
@@ -524,9 +523,9 @@ function lantern(parent, x, y, z, gold) {
   group.name = "swinging-red-gold-lantern";
   group.position.set(x, y + 0.18, z);
   parent.add(group);
-  mesh(group, new THREE.CylinderGeometry(0.14, 0.14, 0.32, 8), amber, 0, -0.18);
-  mesh(group, new THREE.CylinderGeometry(0.2, 0.2, 0.04, 8), gold, 0, 0);
-  mesh(group, new THREE.CylinderGeometry(0.18, 0.18, 0.04, 8), gold, 0, -0.36);
+  mesh(group, pooledGeometry("CylinderGeometry",0.14, 0.14, 0.32, 8), amber, 0, -0.18);
+  mesh(group, pooledGeometry("CylinderGeometry",0.2, 0.2, 0.04, 8), gold, 0, 0);
+  mesh(group, pooledGeometry("CylinderGeometry",0.18, 0.18, 0.04, 8), gold, 0, -0.36);
   return group;
 }
 export function createPortal() {
@@ -540,7 +539,7 @@ export function createPortal() {
     const radius = 3.5 + i * 0.14;
     const step = mesh(
       group,
-      new THREE.CylinderGeometry(radius, radius + 0.06, 0.08, 8),
+      pooledGeometry("CylinderGeometry",radius, radius + 0.06, 0.08, 8),
       stone,
       0,
       0.2 - i * 0.08,
@@ -551,7 +550,7 @@ export function createPortal() {
   }
   const sigil = mesh(
     group,
-    new THREE.CircleGeometry(3.2, 96),
+    pooledGeometry("CircleGeometry",3.2, 96),
     etchedSigil(0x8ffff0),
     0,
     0.25,
@@ -616,7 +615,7 @@ export function createPortal() {
     energyBeams.push(beam);
     mesh(
       group,
-      new THREE.CylinderGeometry(0.34, 0.48, 0.28, 8),
+      pooledGeometry("CylinderGeometry",0.34, 0.48, 0.28, 8),
       gold,
       cs * 2.75,
       0.38,
@@ -625,14 +624,14 @@ export function createPortal() {
   }
   const halo = mesh(
     group,
-    new THREE.TorusGeometry(1.7, 0.075, 12, 96),
+    pooledGeometry("TorusGeometry",1.7, 0.075, 12, 96),
     energy,
     0,
     2.15,
   );
   const goldRing = mesh(
     group,
-    new THREE.TorusGeometry(1.91, 0.035, 8, 96),
+    pooledGeometry("TorusGeometry",1.91, 0.035, 8, 96),
     gold,
     0,
     2.15,
@@ -663,10 +662,10 @@ export function createPortal() {
     vertexShader: `varying vec2 vUv;void main(){vUv=uv;gl_Position=projectionMatrix*modelViewMatrix*vec4(position,1.);}`,
     fragmentShader: `varying vec2 vUv;uniform float uTime;uniform vec3 uColor;uniform float uOpacity;void main(){vec2 p=vUv-.5;float r=length(p)*2.;float a=atan(p.y,p.x);float spiral=pow(.5+.5*sin(a*6.+r*22.-uTime*2.8),4.);float edge=1.-smoothstep(.75,1.,r);float core=exp(-r*7.);vec3 c=mix(uColor,vec3(.9,1.,.9),core);gl_FragColor=vec4(c*(.45+spiral+core),edge*uOpacity*(.35+spiral*.6));}`,
   });
-  const core = mesh(group, new THREE.CircleGeometry(1.62, 96), swirl, 0, 2.15);
+  const core = mesh(group, pooledGeometry("CircleGeometry",1.62, 96), swirl, 0, 2.15);
   const beam = mesh(
     group,
-    new THREE.CylinderGeometry(0.32, 1.2, 15, 32, 1, true),
+    pooledGeometry("CylinderGeometry",0.32, 1.2, 15, 32, 1, true),
     new THREE.MeshBasicMaterial({
       color: 0x60ffcb,
       transparent: true,
@@ -687,7 +686,7 @@ export function createPortal() {
       z = Math.sin(a) * 3.22;
     mesh(
       group,
-      new THREE.CylinderGeometry(0.13, 0.19, 0.22, 8),
+      pooledGeometry("CylinderGeometry",0.13, 0.19, 0.22, 8),
       gold,
       x,
       0.35,
@@ -695,7 +694,7 @@ export function createPortal() {
     );
     const flame = mesh(
       group,
-      new THREE.ConeGeometry(0.09, 0.36, 12, 8, true),
+      pooledGeometry("ConeGeometry",0.09, 0.36, 12, 8, true),
       flameMaterial,
       x,
       0.61,
@@ -776,7 +775,7 @@ export function createShop(time = { value: 0 }) {
   for (let i = 0; i < 2; i++)
     mesh(
       g,
-      new THREE.CylinderGeometry(2.5 + i * 0.15, 2.65 + i * 0.15, 0.12, 8),
+      pooledGeometry("CylinderGeometry",2.5 + i * 0.15, 2.65 + i * 0.15, 0.12, 8),
       jade,
       0,
       0.18 - i * 0.12,
@@ -806,11 +805,11 @@ export function createShop(time = { value: 0 }) {
     const a = (i * TAU) / 8,
       x = Math.cos(a) * 2.25,
       z = Math.sin(a) * 2.25;
-    mesh(g, new THREE.CylinderGeometry(0.085, 0.13, 2.9, 16), wood, x, 1.7, z);
+    mesh(g, pooledGeometry("CylinderGeometry",0.085, 0.13, 2.9, 16), wood, x, 1.7, z);
     for (let j = 0; j < 3; j++)
       mesh(
         g,
-        new THREE.TorusGeometry(0.13, 0.016, 6, 20),
+        pooledGeometry("TorusGeometry",0.13, 0.016, 6, 20),
         gold,
         x,
         0.5 + j * 1.05,
@@ -831,7 +830,7 @@ export function createShop(time = { value: 0 }) {
     lanterns.push(lantern(g, x, 2.85, z, gold));
     const bracket = mesh(
       g,
-      new THREE.ConeGeometry(0.18, 0.35, 4),
+      pooledGeometry("ConeGeometry",0.18, 0.35, 4),
       gold,
       x,
       2.97,
@@ -858,7 +857,7 @@ export function createShop(time = { value: 0 }) {
     const a = (i * TAU) / 3;
     mesh(
       g,
-      new THREE.CylinderGeometry(0.09, 0.13, 0.38, 8),
+      pooledGeometry("CylinderGeometry",0.09, 0.13, 0.38, 8),
       gold,
       Math.cos(a) * 0.48,
       0.3,
@@ -867,14 +866,14 @@ export function createShop(time = { value: 0 }) {
   }
   mesh(
     g,
-    new THREE.TorusGeometry(0.6, 0.055, 10, 48),
+    pooledGeometry("TorusGeometry",0.6, 0.055, 10, 48),
     gold,
     0,
     1.49,
   ).rotation.x = Math.PI / 2;
   const liquid = mesh(
     g,
-    new THREE.CircleGeometry(0.55, 48),
+    pooledGeometry("CircleGeometry",0.55, 48),
     glow(0x64e9aa, 1.2),
     0,
     1.5,
@@ -940,7 +939,7 @@ export function createAltar() {
       thickness: 0.3,
     });
   g.name = "eight-second-soul-ring-altar";
-  mesh(g, new THREE.CylinderGeometry(2.3, 2.6, 0.32, 9), stone, 0, 0.16);
+  mesh(g, pooledGeometry("CylinderGeometry",2.3, 2.6, 0.32, 9), stone, 0, 0.16);
   ring(g, 2.12, 0.025, gold, 0.33, 9);
   const channels = [];
   for (let i = 0; i < 9; i++) {
@@ -964,13 +963,13 @@ export function createAltar() {
   }
   const sigil = mesh(
     g,
-    new THREE.CircleGeometry(1.8, 72),
+    pooledGeometry("CircleGeometry",1.8, 72),
     etchedSigil(0xc6a2ee),
     0,
     0.34,
   );
   sigil.rotation.x = -Math.PI / 2;
-  mesh(g, new THREE.CylinderGeometry(0.46, 0.7, 0.38, 9), stone, 0, 0.52);
+  mesh(g, pooledGeometry("CylinderGeometry",0.46, 0.7, 0.38, 9), stone, 0, 0.52);
   const crystal = mesh(
     g,
     new THREE.OctahedronGeometry(0.4, 1),
@@ -981,7 +980,7 @@ export function createAltar() {
   crystal.scale.y = 1.8;
   const halo = mesh(
     g,
-    new THREE.TorusGeometry(0.7, 0.032, 10, 64),
+    pooledGeometry("TorusGeometry",0.7, 0.032, 10, 64),
     glow(0xb78ce8, 1.15),
     0,
     1.25,
@@ -1003,7 +1002,7 @@ function createSanctuary(time = { value: 0 }) {
   for (let i = 0; i < 3; i++)
     mesh(
       group,
-      new THREE.CylinderGeometry(3.3 - i * 0.35, 3.45 - i * 0.35, 0.24, 96),
+      pooledGeometry("CylinderGeometry",3.3 - i * 0.35, 3.45 - i * 0.35, 0.24, 96),
       jade,
       0,
       0.12 + i * 0.24,
@@ -1012,7 +1011,7 @@ function createSanctuary(time = { value: 0 }) {
     ring(group, 3.3 - i * 0.35, 0.035, gold, 0.25 + i * 0.24);
   const sigil = mesh(
     group,
-    new THREE.CircleGeometry(2.55, 96),
+    pooledGeometry("CircleGeometry",2.55, 96),
     etchedSigil(0x99ffe4, time),
     0,
     0.735,
@@ -1027,7 +1026,7 @@ function createSanctuary(time = { value: 0 }) {
       z = Math.sin(a) * 4.3;
     mesh(
       group,
-      new THREE.CylinderGeometry(0.32, 0.5, 0.28, 12),
+      pooledGeometry("CylinderGeometry",0.32, 0.5, 0.28, 12),
       gold,
       x,
       0.14,
@@ -1035,7 +1034,7 @@ function createSanctuary(time = { value: 0 }) {
     );
     const pillar = mesh(
       group,
-      new THREE.CylinderGeometry(0.19, 0.25, 3.3, 24),
+      pooledGeometry("CylinderGeometry",0.19, 0.25, 3.3, 24),
       jade,
       x,
       1.9,
@@ -1060,7 +1059,7 @@ function createSanctuary(time = { value: 0 }) {
     dragonHeads.push(head);
     mesh(
       head,
-      new THREE.DodecahedronGeometry(0.18, 1),
+      pooledGeometry("DodecahedronGeometry",0.18, 1),
       gold,
       0,
       0.07,
@@ -1068,7 +1067,7 @@ function createSanctuary(time = { value: 0 }) {
     ).scale.set(1, 0.72, 1.15);
     const snout = mesh(
       head,
-      new THREE.CylinderGeometry(0.07, 0.11, 0.24, 10),
+      pooledGeometry("CylinderGeometry",0.07, 0.11, 0.24, 10),
       gold,
       0,
       0.035,
@@ -1110,7 +1109,7 @@ function createSanctuary(time = { value: 0 }) {
     }
     mesh(
       group,
-      new THREE.TorusGeometry(0.25, 0.04, 6, 24),
+      pooledGeometry("TorusGeometry",0.25, 0.04, 6, 24),
       gold,
       x,
       3.58,
@@ -1118,7 +1117,7 @@ function createSanctuary(time = { value: 0 }) {
     ).rotation.x = Math.PI / 2;
     const flame = mesh(
       group,
-      new THREE.ConeGeometry(0.17, 0.65, 12),
+      pooledGeometry("ConeGeometry",0.17, 0.65, 12),
       flameMaterial,
       x,
       3.95,
@@ -1134,14 +1133,14 @@ function createSanctuary(time = { value: 0 }) {
   for (const side of [-1, 1]) {
     mesh(
       gate,
-      new THREE.CylinderGeometry(0.44, 0.65, 7, 8),
+      pooledGeometry("CylinderGeometry",0.44, 0.65, 7, 8),
       jade,
       side * 4,
       3.5,
     );
     mesh(
       gate,
-      new THREE.CylinderGeometry(0.6, 0.6, 0.2, 8),
+      pooledGeometry("CylinderGeometry",0.6, 0.6, 0.2, 8),
       gold,
       side * 4,
       6.7,
@@ -1160,7 +1159,7 @@ function createSanctuary(time = { value: 0 }) {
   }
   mesh(
     gate,
-    new THREE.TorusGeometry(3.6, 0.2, 10, 96, Math.PI),
+    pooledGeometry("TorusGeometry",3.6, 0.2, 10, 96, Math.PI),
     jade,
     0,
     3.3,
@@ -1189,7 +1188,7 @@ function createSanctuary(time = { value: 0 }) {
       h = 8 + rand() * 20;
     const m = mesh(
       group,
-      new THREE.ConeGeometry(6 + rand() * 6, h, 7),
+      pooledGeometry("ConeGeometry",6 + rand() * 6, h, 7),
       mountainMat,
       Math.cos(angle) * r,
       h * 0.25 - 5,
@@ -1197,34 +1196,19 @@ function createSanctuary(time = { value: 0 }) {
     );
     m.rotation.y = rand() * TAU;
   }
-  const motes = [];
-  const petalShape = new THREE.Shape();
-  petalShape.moveTo(0, 0);
-  petalShape.bezierCurveTo(0.08, 0.05, 0.12, 0.2, 0, 0.23);
-  petalShape.bezierCurveTo(-0.12, 0.2, -0.08, 0.05, 0, 0);
-  const petalGeometry = new THREE.ShapeGeometry(petalShape),
-    petalMat = material(0xffc6d1, {
-      side: THREE.DoubleSide,
-      emissive: 0x401623,
-      emissiveIntensity: 0.2,
-    });
-  for (let i = 0; i < 38; i++) {
-    const a = rand() * TAU,
-      r = 2 + rand() * 5,
-      m = mesh(
-        group,
-        petalGeometry,
-        petalMat,
-        Math.cos(a) * r,
-        0.8 + rand() * 4,
-        Math.sin(a) * r,
-      );
-    motes.push({ mesh: m, phase: a, r, petal: true });
-  }
+  const motes=[];
+  const petalGeometry=new THREE.PlaneGeometry(.15,.25);
+  const petalMaterial=new THREE.ShaderMaterial({uniforms:{uTime:time},
+   vertexShader:`attribute vec3 petalSeed;uniform float uTime;varying vec2 vUv;void main(){vUv=uv;float a=petalSeed.x+uTime*.07;vec3 p=position;p.xy=mat2(cos(a),-sin(a),sin(a),cos(a))*p.xy;p+=vec3(cos(a)*petalSeed.y,1.8+sin(uTime*.4+petalSeed.z)*1.2,sin(a)*petalSeed.y);gl_Position=projectionMatrix*modelViewMatrix*vec4(p,1.);}`,
+   fragmentShader:`varying vec2 vUv;void main(){vec2 p=vUv*2.-1.;if(dot(p,p)>.9)discard;gl_FragColor=vec4(1.,.65,.74,.8);}`,side:THREE.DoubleSide,transparent:true,forceSinglePass:true,depthWrite:false});
+  const petals=new THREE.InstancedMesh(petalGeometry,petalMaterial,38),seeds=[];
+  for(let i=0;i<38;i++)seeds.push(rand()*TAU,2+rand()*5,i);
+  petalGeometry.setAttribute('petalSeed',new THREE.InstancedBufferAttribute(new Float32Array(seeds),3));
+  petals.name='Sanctuary_Petals_GPU_Instanced';petals.frustumCulled=false;group.add(petals);
   const key = new THREE.DirectionalLight(0xfffbeb, 2.2);
   key.position.set(4, 6, 5);
   key.castShadow = true;
-  key.shadow.mapSize.set(4096, 4096);
+  key.shadow.mapSize.set(1024, 1024);
   Object.assign(key.shadow.camera, { left: -5, right: 5, top: 7, bottom: -3 });
   key.shadow.normalBias = 0.02;
   const rim = new THREE.SpotLight(0x38bdf8, 3, 25, Math.PI / 4, 0.5, 1);
@@ -1262,8 +1246,10 @@ function* createScenerySteps({
   const splatmap = generateTerrainSplatmap(),
     terrainGeometry = new THREE.PlaneGeometry(600, 600, 256, 256),
     vertices = terrainGeometry.attributes.position;
-  for (let i = 0; i < vertices.count; i++)
+  for (let i = 0; i < vertices.count; i++){
     vertices.setZ(i, sceneryTerrainHeight(vertices.getX(i), -vertices.getY(i)));
+    if(i%512===511)yield null;
+  }
   terrainGeometry.computeVertexNormals();
   splatmap.anisotropy = anisotropy;
   assignTerrainBiomeGroups(terrainGeometry, biomeAt);
@@ -1275,14 +1261,14 @@ function* createScenerySteps({
   // 600m scenery is visual only and does not expand the authoritative map.
   mesh(
     battlefield,
-    new THREE.CylinderGeometry(14, 14.3, 0.8, 64),
+    pooledGeometry("CylinderGeometry",14, 14.3, 0.8, 64),
     marble(0xb3c5b6),
     0,
     0.39,
   );
   const plazaSigil = mesh(
     battlefield,
-    new THREE.CircleGeometry(13.4, 96),
+    pooledGeometry("CircleGeometry",13.4, 96),
     etchedSigil(0xd5be7c, time),
     0,
     0.802,
@@ -1370,20 +1356,20 @@ function* createScenerySteps({
   instanced(battlefield, treeTrunkGeometry(), material(0x63533b), roots);
   instanced(
     battlefield,
-    new THREE.SphereGeometry(1, 10, 7),
+    pooledGeometry("SphereGeometry",1, 10, 7),
     material(0x2e6948),
     canopy,
   );
   instanced(
     battlefield,
-    new THREE.ConeGeometry(1, 1, 12),
+    pooledGeometry("ConeGeometry",1, 1, 12),
     material(0xd2e4e5),
     snowTrees,
   );
   instanced(battlefield, treeTrunkGeometry(), material(0x3c3347), deadTrees);
   instanced(
     battlefield,
-    new THREE.DodecahedronGeometry(1, 1),
+    pooledGeometry("DodecahedronGeometry",1, 1),
     material(0x776e5a),
     rocks,
   );
@@ -1401,7 +1387,7 @@ function* createScenerySteps({
     battlefield.add(g);
     const stone = material(0x586c63),
       gold = glow(0xb5b67c, 0.3);
-    mesh(g, new THREE.DodecahedronGeometry(0.85, 0), stone, 0, 1.1).scale.y =
+    mesh(g, pooledGeometry("DodecahedronGeometry",0.85, 0), stone, 0, 1.1).scale.y =
       2.1;
     for (let j = 0; j < 3; j++)
       ring(g, 0.7 - j * 0.1, 0.025, gold, 0.8 + j * 0.7, 6);
@@ -1513,7 +1499,7 @@ function* createScenerySteps({
   );
   instanced(
     battlefield,
-    new THREE.CylinderGeometry(0.6, 0.85, 1, 7),
+    pooledGeometry("CylinderGeometry",0.6, 0.85, 1, 7),
     material(0x513b37, { emissive: 0x69210b, emissiveIntensity: 0.5 }),
     fireColumns,
   );
@@ -1531,7 +1517,7 @@ function* createScenerySteps({
       z = 47 + (rand() - 0.5) * 45,
       m = mesh(
         battlefield,
-        new THREE.IcosahedronGeometry(0.15 + rand() * 0.15, 1),
+        pooledGeometry("IcosahedronGeometry",0.15 + rand() * 0.15, 1),
         poisonMaterial,
         x,
         terrainHeight(x, z) + 0.3,
@@ -1564,7 +1550,7 @@ function* createScenerySteps({
   );
   lava.name = "animated-emissive-lava";
   yield null;
-  const iceGeometry = new THREE.CircleGeometry(9, 64);
+  const iceGeometry = pooledGeometry("CircleGeometry",9, 64);
   iceGeometry.rotateX(-Math.PI / 2);
   const ice = mesh(
     battlefield,
@@ -1737,17 +1723,20 @@ export function createScenery(options={}) {
 }
 export function createDeferredScenery(options={}) {
  const time={value:0},sanctuary=createSanctuary(time),battlefield=new THREE.Group();
- const markerMeshes=[];let backend=null,pending=null;
+ const markerMeshes=[];let backend=null,pending=null,generation=0,cells=[];
  const result={sanctuary,battlefield,markerMeshes,time,ready:false,
+  stats(){return backend?.pbr.stats()??null;},
   prepare(){
    if(pending)return pending;
-   const steps=createScenerySteps({...options,sanctuaryOverride:sanctuary});
+   const token=++generation;const steps=createScenerySteps({...options,sanctuaryOverride:sanctuary});
    pending=new Promise((resolve,reject)=>{
     const advance=()=>{
      try {
+      if(token!==generation){steps.return();reject(Error("Đã hủy tải chiến trường"));return;}
       const next=steps.next();
       if(!next.done){setTimeout(advance,0);return;}
       backend=next.value;battlefield.add(backend.battlefield);markerMeshes.push(...backend.markerMeshes);
+      cells=[];battlefield.traverse(node=>{if(node.userData.spatialCell)cells.push(node);});
       result.ready=true;resolve(result);
      }catch(error){pending=null;reject(error);}
     };
@@ -1755,11 +1744,20 @@ export function createDeferredScenery(options={}) {
    });
    return pending;
   },
-  setQuality(value){options.quality=value;backend?.setQuality(value);},
+  release(){
+   generation++;backend?.pbr?.dispose();
+   const geometries=new Set(),materials=new Set();battlefield.traverse(node=>{if(node.geometry&&!node.geometry.userData.sharedArt)geometries.add(node.geometry);for(const material of node.material?(Array.isArray(node.material)?node.material:[node.material]):[])materials.add(material);});for(const geometry of geometries)geometry.dispose();for(const material of materials)material.dispose();
+   battlefield.clear();cells.length=0;markerMeshes.length=0;backend=null;pending=null;result.ready=false;
+  },
+  setQuality(value){
+   options.quality=value;
+   if(options.runtimeTextureBudget){options.textureSize=value==='ultra'?2048:1024;if(backend){backend.pbr.activate([]);backend.pbr.textureSize=options.textureSize;backend.pbr.providerFailed=false;for(const material of backend.pbr.materials)material.userData.biomePBR.resolution=options.textureSize;}}
+   backend?.setQuality(value);
+  },
   configureRenderer(renderer){options.renderer=renderer;backend?.configureRenderer(renderer);},
   update(clock,match){
    time.value=clock;
-   if(backend){backend.update(clock,match);battlefield.visible=!!match;return;}
+   if(backend&&match){for(const cell of cells){const s=cell.boundingSphere;cell.visible=(s.center.x-match.player.x)**2+(s.center.z-match.player.z)**2<(55+s.radius)**2;}backend.update(clock,match);battlefield.visible=true;return;}
    time.value=clock;battlefield.visible=false;sanctuary.visible=!match;
    const s=sanctuary.userData.sanctuary;
    s.sigil.material.emissiveIntensity=1.2+Math.sin(clock*1.7)*.3;

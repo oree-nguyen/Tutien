@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen"
-        android:label="Hồn Giới: Sinh Tồn" android:hardwareAccelerated="true"
+        android:label="Hồn Giới: Sinh Tồn" android:hardwareAccelerated="true" android:largeHeap="true"
         android:allowBackup="false" android:usesCleartextTraffic="false">
         <activity android:name=".MainActivity" android:exported="true"
             android:screenOrientation="sensorLandscape"

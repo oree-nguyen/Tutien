@@ -10,11 +10,15 @@
     <meta name="mobile-web-app-capable" content="yes" />
     <link rel="manifest" href="./manifest.json" />
     <link rel="icon" href="./icon.svg" type="image/svg+xml" />
+    <style>
+      html,body{margin:0;background:#102b32;color:#e6eee8;font-family:Arial,sans-serif}#world{position:fixed;inset:0;width:100%;height:100%}#app{position:relative;z-index:2}
+      .boot-shell{height:100dvh;padding:20px 3%;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr 1fr;grid-template-rows:55px 1fr 75px;gap:12px;background:radial-gradient(ellipse at 50% 55%,#42657040,#102b32 70%)}.boot-shell header{grid-column:1/4;display:flex;justify-content:space-between}.boot-shell h1{font-size:36px;color:#f2e2bd}.boot-shell aside{grid-column:3;background:#123548df;padding:14px}.boot-shell .boot-heroes{display:grid;grid-template-columns:repeat(6,1fr);gap:4px}.boot-shell button{color:#eadab4;background:#123548;border:1px solid #8c5a2b;padding:8px}.boot-shell footer{grid-column:1/4;display:flex;align-items:center;justify-content:space-between}.boot-shell .boot-stage{align-self:center;text-align:center;color:#b5e7d2}.boot-shell small{display:block;font-size:12px;line-height:1.7}.boot-shell .boot-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:18px 0}
+    </style>
     <title>Hồn Giới: Sinh Tồn</title>
   </head>
   <body>
     <canvas id="world"></canvas>
-    <div id="app"></div>
+    <div id="app"><main class="boot-shell" aria-label="Hồn Thành đang khởi động"><header><b>魂 HỒN GIỚI · SINH TỒN</b><span>✦ Ngân Bảo 2.000　◈ Thanh Bảo 5.000</span></header><section><small>HỒN THÀNH / CHUẨN BỊ XUẤT CHIẾN</small><h1>Lâm Dật</h1><p>Thanh Mạch Đằng</p><div class="boot-stats"><span>950<small>HP</small></span><span>58<small>Công VL</small></span><span>105<small>Hồn công</small></span><span>43<small>Giáp</small></span></div><p>Mộc Phược · Huyết Đằng · Linh Sinh</p><div class="boot-heroes"><button disabled>Dật</button><button disabled>Trạch</button><button disabled>Sa</button><button disabled>Vân</button><button disabled>Dao</button><button disabled>Kình</button><button disabled>Chước</button><button disabled>Nghi</button><button disabled>Tinh</button><button disabled>Lạc</button><button disabled>Từ</button><button disabled>Uyên</button></div></section><div class="boot-stage" role="status">⟡<p>ĐANG MỞ HỒN THÀNH</p><small>Đang chuẩn bị nhân vật và ánh sáng…</small></div><aside><h2>01 / HÀNH TRANG XUẤT CHIẾN</h2><p>HỒN HOÀN · 2 KHE</p><p>HỒN CỐT · 6 VỊ TRÍ + NGOẠI PHỤ</p><p>HỒN KHÍ &amp; TRANG PHỤC</p><p>PHẨM KHO · 3 KHE</p><p>VỐN MANG VÀO · 200 / 300 TB</p></aside><footer><span>SOLO · 100 HỒN SƯ</span><button disabled>BẮT ĐẦU TRẬN ĐẤU · ĐANG CHUẨN BỊ</button></footer></main></div>
     <div id="toast" role="status"></div>
     <div id="rotate">
       <span>⟳</span>
@@ -22,6 +26,10 @@
       <p>Trải nghiệm được thiết kế cho màn hình ngang.</p>
       <button id="rotatePlay">Tiếp tục</button>
     </div>
-    <script type="module" src="/src/main.js"></script>
+    <script>
+      window.__HON_GIOI_BOOT__={started:performance.now(),longTasks:[],marks:{shellDOM:performance.now()}};
+      requestAnimationFrame(function(){window.__HON_GIOI_BOOT__.marks.shellFrame=performance.now();});
+    </script>
+    <script type="module" src="/src/boot.js"></script>
   </body>
 </html>

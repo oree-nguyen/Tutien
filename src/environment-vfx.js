@@ -306,6 +306,7 @@ const aliases = new Map([
 ]);
 const geometries = new Map();
 const materialPool = new Map();
+const groupPool=new Map(),strictPoolQualities=new Set();
 const instances = new WeakMap();
 const active = new Set();
 let serial = 0;
@@ -461,6 +462,7 @@ function borrowMaterial(definition, parts) {
       side: THREE.DoubleSide,
       blending: THREE.AdditiveBlending,
       toneMapped: true,
+      forceSinglePass:true,
     });
   material.name = `ElementalVfx_${definition.key}`;
   material.userData = {
@@ -490,6 +492,9 @@ export function createElementalEffect({
   const definition = definitionByKey.get(resolveElement(element, color));
   const [density, segments] = qualities[quality] ?? qualities.balanced;
   const parts = Math.max(4, Math.round(definition.parts * density));
+  const poolKey=definition.key+':'+parts+':'+segments;
+  const recycled=groupPool.get(poolKey)?.pop();
+  if(!recycled&&strictPoolQualities.has(quality))return null;
   const geometry = ribbonGeometry(parts, segments);
   const material = borrowMaterial(definition, parts);
   const lifespan = finite(duration, 0.8, 0.05, 120);
@@ -506,11 +511,13 @@ export function createElementalEffect({
   );
   material.uniforms.uColor.value.set(color ?? definition.color);
   material.uniforms.uOpacity.value = finite(opacity, 1, 0, 1);
-  const mesh = new THREE.Mesh(geometry, material);
+  const mesh = recycled?.userData.pooledMesh??new THREE.Mesh(geometry, material);
+  mesh.geometry=geometry;mesh.material=material;
   mesh.name = `ElementalRibbon_${definition.pattern}`;
   mesh.frustumCulled = false;
   mesh.renderOrder = 8;
-  const group = new THREE.Group();
+  const group = recycled??new THREE.Group();
+  group.visible=true;group.rotation.set(0,0,0);
   group.name = `ElementalEffect_${definition.key}`;
   group.position.set(
     finite(x, 0, -1e5, 1e5),
@@ -533,9 +540,16 @@ export function createElementalEffect({
     pooledMaterial: true,
     proceduralTextureCount: 0,
   };
-  instances.set(group, { mesh, material, poolKey: material.userData.poolKey });
+  instances.set(group, { mesh, material, poolKey: material.userData.poolKey,groupPoolKey:poolKey });
   active.add(group);
   return group;
+}
+
+/** Warm bounded cosmetic leases at MATCH_LOADING. Exhaustion skips VFX, never combat. */
+export function prewarmElementalVfx(quality='balanced'){
+ if(strictPoolQualities.has(quality))return;
+ for(const definition of DEFINITIONS){const effects=[];for(let i=0;i<4;i++)effects.push(createElementalEffect({element:definition.key,quality}));for(const effect of effects)if(effect)disposeElementalEffect(effect);}
+ strictPoolQualities.add(quality);
 }
 
 /** elapsed is seconds since this effect was born, not the global game time. */
@@ -560,7 +574,8 @@ export function disposeElementalEffect(effect) {
     materialPool.set(instance.poolKey, pool);
   } else instance.material.dispose();
   effect.removeFromParent();
-  effect.clear();
+  const groups=groupPool.get(instance.groupPoolKey)??[];
+  if(groups.length<4){effect.userData.pooledMesh=effect.children[0];effect.clear();groups.push(effect);groupPool.set(instance.groupPoolKey,groups);}else effect.clear();
   effect.visible = false;
   effect.userData.elementalVfx.disposed = true;
   instances.delete(effect);
@@ -588,7 +603,7 @@ export function clearElementalVfxCache() {
   for (const pool of materialPool.values())
     for (const material of pool) material.dispose();
   geometries.clear();
-  materialPool.clear();
+  materialPool.clear();groupPool.clear();strictPoolQualities.clear();
   return true;
 }
 

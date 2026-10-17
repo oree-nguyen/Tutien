@@ -1,5 +1,15 @@
 import * as THREE from "three";
+import{loadTerrainTextureSet}from"./terrain-assets.js";
+import{installTerrainTextureProvider}from"./environment-pbr.js";
+import{GpuFrameTimer}from"./gpu-frame-timer.js";
+import{warmSceneMaterials}from"./shader-warmup.js";
+import{batchStaticSanctuary}from"./static-batching.js";
+import {AdaptiveResolution,nextPaint} from "./runtime-performance.js";
+import {pooledGeometry} from "./geometry-pool.js";
 import { disposeManualH01,configureManualH01,replayManualH01Entrance,seekManualH01Entrance,usesManualH01 } from "./manual-hero.js";
+import { configureGpuTextures } from "./gpu-textures.js";
+import { prepareEnvironmentAssets } from "./environment-assets.js";
+import {configureBakedCharacterEnvironment} from "./character-fidelity.js";
 import { createCharacterStudio } from "./character-fidelity.js";
 import { HEROES, REGIONS } from "./data.js";
 import {
@@ -24,19 +34,27 @@ import {
   createElementalEffect,
   updateElementalEffect,
   disposeElementalEffect,
+  prewarmElementalVfx,
 } from "./environment-vfx.js";
 export class World {
-  constructor(canvas) {
-    this.renderer = new THREE.WebGLRenderer({
+  static async create(canvas){
+    const renderer=new THREE.WebGLRenderer({canvas,antialias:false,powerPreference:'high-performance'});
+    configureGpuTextures(renderer);installTerrainTextureProvider(loadTerrainTextureSet);
+    await prepareEnvironmentAssets();await configureBakedCharacterEnvironment(renderer);await nextPaint();
+    const world=new World(canvas,{renderer});
+    world.batching=await batchStaticSanctuary(world.scenery.sanctuary);
+    world.warmupTasks=await warmSceneMaterials(renderer,world.scenery.sanctuary,world.camera,world.scene);
+    return world;
+  }
+  constructor(canvas,options={}) {
+    this.renderer = options.renderer??new THREE.WebGLRenderer({
       canvas,
       antialias: true,
       powerPreference: "high-performance",
     });
     this.quality = localStorage.getItem("hon-gioi-quality") || "balanced";
-    this.renderer.setPixelRatio(
-      Math.min(devicePixelRatio, this.quality === "ultra" ? 1.8 : 1.3),
-    );
-    this.renderer.shadowMap.enabled = true;
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.quality==="ultra"?1.5:1.25));
+    this.renderer.shadowMap.enabled = this.quality === "ultra";
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
@@ -49,8 +67,8 @@ export class World {
     this.camera.layers.enable(2);
     this.characterStudio=createCharacterStudio();this.scene.add(this.characterStudio);
     this.focus = new THREE.Vector3();
-    this.clock = 0;
-    this.models = new Map();
+    this.clock = 0;this.gpuTimer=new GpuFrameTimer(this.renderer);
+    this.models = new Map();this.actorIds=new Set();
     this.dynamic = new THREE.Group();
     this.scene.add(this.dynamic);
     this.effectMeshes = new Map();
@@ -86,16 +104,16 @@ export class World {
     this.mapRim = rim;
     this.scene.add(rim);
     this.environment();
-    this.composer = new EffectComposer(this.renderer);
-    this.composer.addPass(new RenderPass(this.scene, this.camera));
-    this.bloom = new UnrealBloomPass(
-      new THREE.Vector2(innerWidth, innerHeight),
-      0.35,
-      0.5,
-      1.05,
-    );
-    this.composer.addPass(this.bloom);
-    this.composer.addPass(new OutputPass());
+    this.composer=null;this.bloom=null;
+    if(this.quality==='ultra')this.ensureComposer();
+    this.resolution=new AdaptiveResolution({max:Math.min(devicePixelRatio,this.quality==="ultra"?1.5:1.25),apply:ratio=>{this.renderer.setPixelRatio(ratio);this.resize();}});
+    this._v1=new THREE.Vector3();this._v2=new THREE.Vector3();this._v3=new THREE.Vector3();this._ndc=new THREE.Vector2();
+    this._frustum=new THREE.Frustum();this._cameraMatrix=new THREE.Matrix4();this._actorSphere=new THREE.Sphere(new THREE.Vector3(),3);
+    this._instance=new THREE.Object3D();this._instanceColor=new THREE.Color();
+    this.projectileMesh=new THREE.InstancedMesh(pooledGeometry('OctahedronGeometry',.16),new THREE.MeshBasicMaterial({color:0xffffff}),128);
+    this.dropMesh=new THREE.InstancedMesh(pooledGeometry('OctahedronGeometry',.28),new THREE.MeshBasicMaterial({color:0xe3bf76}),128);
+    for(const mesh of [this.projectileMesh,this.dropMesh]){mesh.count=0;mesh.frustumCulled=false;this.dynamic.add(mesh);}
+    this.pooledRender={projectileCapacity:128,dropCapacity:128,projectileCount:0,dropCount:0,cosmeticsSkipped:0};
     this.weaponLight = new THREE.PointLight(0x70edc5, 2, 4, 2);
     this.scene.add(this.weaponLight);
     this.particles = [];
@@ -138,7 +156,7 @@ export class World {
   }
   ring(color, r = 1) {
     const m = new THREE.Mesh(
-      new THREE.RingGeometry(r * 0.94, r, 64),
+      pooledGeometry("RingGeometry",.94,1,32),
       new THREE.MeshBasicMaterial({
         color,
         transparent: true,
@@ -148,7 +166,7 @@ export class World {
       }),
     );
     m.rotation.x = -Math.PI / 2;
-    m.position.y = 0.06;
+    m.scale.setScalar(r);m.position.y = 0.06;
     return m;
   }
   instances(geo, color, entries) {
@@ -169,8 +187,12 @@ export class World {
     this.scenery = createDeferredScenery({
       renderer: this.renderer,
       quality: this.quality,
+      textureSize:this.quality==="ultra"?2048:1024,runtimeTextureBudget:true,
     });
     this.scene.add(this.scenery.battlefield, this.scenery.sanctuary);
+    for(const light of [this.scenery.sanctuary.userData.sanctuary.key,this.scenery.sanctuary.userData.sanctuary.rim,this.scenery.sanctuary.userData.sanctuary.fill,this.scenery.sanctuary.userData.sanctuary.under])light.visible=false;
+    this.sun.visible=this.mapRim.visible=this.mapAmbient.visible=false;
+    this.scenery.sanctuary.userData.sanctuary.key.castShadow=this.quality==="ultra";
     this.markerMeshes = this.scenery.markerMeshes;
     this.obstacles = structuredClone(NAV_OBSTACLES);
     this.showcaseView = "full";
@@ -186,7 +208,34 @@ export class World {
     }
     this.preview?.traverse(node=>{if(node.userData.manualHunyuan)replayManualH01Entrance(node);});
   }
-  prepareBattlefield() { return this.scenery.prepare(); }
+  async prepareBattlefield(appearance={hero:0,skin:0,costume:0,rings:[]}) {
+    this.loadingBattlefield=true;const epoch=this.prepareEpoch=(this.prepareEpoch??0)+1;const check=()=>{if(epoch!==this.prepareEpoch)throw Error("Đã hủy tải chiến trường");};
+    await this.scenery.prepare();check();await nextPaint();prewarmElementalVfx(this.quality);
+    const saved=[this.scenery.sanctuary.visible,this.scenery.battlefield.visible,this.characterStudio.visible,this.sun.visible,this.mapRim.visible,this.mapAmbient.visible,this.weaponLight.visible];
+    this.scenery.sanctuary.visible=false;this.scenery.battlefield.visible=true;this.characterStudio.visible=false;
+    this.sun.visible=this.mapRim.visible=this.mapAmbient.visible=true;this.weaponLight.visible=this.quality==='ultra';
+    try{
+      await warmSceneMaterials(this.renderer,this.scenery.battlefield,this.camera,this.scene);
+      check();for(let hero=1;hero<12;hero++){check();visualTemplate({id:'prewarm',kind:'hero',hero,skin:0,costume:0,rings:[]},'low');await nextPaint();}
+      const actor={...appearance,id:'prewarm',kind:'hero',team:0},detail=usesManualH01(actor)?'mobile':'medium';
+      const visual=visualTemplate(actor,detail);configureManualH01(visual,this.renderer,this.scene,this.camera);
+      if(visual.userData.manualHunyuan){
+        const started=performance.now();while(!['loaded','failed'].includes(visual.userData.manualAsset.status)){if(epoch!==this.prepareEpoch){disposeManualH01(visual);throw Error('Đã hủy tải nhân vật');}if(performance.now()-started>45000){disposeManualH01(visual);throw Error('Không chuẩn bị được nhân vật xuất chiến');}await nextPaint();}
+        if(visual.userData.manualAsset.status==='failed')throw Error(visual.userData.manualAsset.error);
+      }else await warmSceneMaterials(this.renderer,visual,this.camera,this.scene);
+      if(epoch!==this.prepareEpoch){disposeSoulRingVisuals(visual);disposeManualH01(visual);check();}
+      this.preparedPlayerVisual={visual,detail,key:this.appearanceKey(actor)};
+    }finally{
+      if(epoch===this.prepareEpoch)this.loadingBattlefield=false;
+      [this.scenery.sanctuary.visible,this.scenery.battlefield.visible,this.characterStudio.visible,this.sun.visible,this.mapRim.visible,this.mapAmbient.visible,this.weaponLight.visible]=saved;
+    }
+  }
+  releaseBattlefield(){this.loadingBattlefield=false;this.prepareEpoch=(this.prepareEpoch??0)+1;if(this.preparedPlayerVisual){disposeSoulRingVisuals(this.preparedPlayerVisual.visual);disposeManualH01(this.preparedPlayerVisual.visual);this.preparedPlayerVisual=null;}this.scenery.release();this.renderer.renderLists.dispose();}
+  ensureComposer(){
+    if(this.composer)return;this.composer=new EffectComposer(this.renderer);this.composer.addPass(new RenderPass(this.scene,this.camera));
+    this.bloom=new UnrealBloomPass(new THREE.Vector2(innerWidth,innerHeight),.35,.5,1.05);this.composer.addPass(this.bloom);this.composer.addPass(new OutputPass());
+  }
+
   setShowcaseView(value) {
     if (!["face", "full"].includes(value)) throw Error("Góc sảnh không hợp lệ");
     this.showcaseView = value;
@@ -215,13 +264,14 @@ export class World {
     if (Number.isFinite(delta)) this.showcaseYaw += delta;
   }
   addDetail(model, a, detail) {
-    if (model.details.has(detail)) return;
-    const visual = visualTemplate(a, detail);
+    if (model.details.has(detail)||(detail==="medium"&&model.details.has("mobile"))) return;
+    let visual;
+    if(a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)&&detail===this.preparedPlayerVisual.detail){visual=this.preparedPlayerVisual.visual;this.preparedPlayerVisual=null;}else visual=visualTemplate(a,detail);
     if(visual.userData.manualHunyuan)configureManualH01(visual,this.renderer,this.scene,this.camera);
     model.details.add(detail);
     model.lod.addLevel(
       visual,
-      detail === "high" ? 0 : detail === "medium" ? 28 : 48,
+      detail === "high" || detail === "mobile" ? 0 : detail === "medium" ? 28 : 48,
     );
   }
 
@@ -233,7 +283,7 @@ export class World {
       a.costume ?? 0,
       a.mutant ?? false,
       a.tier ?? 0,
-      a.species ?? (typeof a.id === "number" ? a.id % 4 : 0),
+      a.kind==="beast"?(a.species??Number(a.id)%4):0,
       a.rings?.some((id) => [6, 8, 9, 12].includes(id)) ? "black" : "purple",
     ].join(":");
   }
@@ -271,7 +321,7 @@ export class World {
       appearanceKey: this.appearanceKey(a),
     };
     this.models.set(a.id, model);
-    this.addDetail(model, a, a.id === "preview" ? (usesManualH01(a) ? "high" : "medium") : "low");
+    this.addDetail(model, a, a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)?this.preparedPlayerVisual.detail:a.id === "preview" ? (usesManualH01(a) ? (this.quality==="ultra"?"high":"mobile") : "medium") : (usesManualH01(a)&&a.id===this.localPlayerId?"mobile":"low"));
     return model;
   }
   setConcealment(model, active) {
@@ -301,6 +351,9 @@ export class World {
     });
   }
   releaseModelRings(model) {
+    if(!model||model.released)return;model.released=true;
+    for(const mesh of [model.bar,model.barBg]){mesh?.geometry.dispose();mesh?.material.dispose();}
+    model.lod.traverse(node=>{if(node.userData.ownConcealmentMaterial&&!node.userData.soulRing)node.material?.dispose();});
     for (const level of model.lod.levels) {
       disposeSoulRingVisuals(level.object);
       disposeManualH01(level.object);
@@ -313,6 +366,9 @@ export class World {
     this.scenery?.setQuality(value);
     this.quality = value;
     const textures = value === "ultra" ? proceduralMaps() : null;
+    this.renderer.shadowMap.enabled=value==="ultra";
+    if(value==="ultra")this.ensureComposer();else if(this.composer){this.composer.passes.forEach(p=>p.dispose?.());this.composer.dispose();this.composer=null;this.bloom=null;}
+    const lobbyKey=this.scenery.sanctuary.userData.sanctuary.key;lobbyKey.castShadow=value==="ultra";
     for (const m of this.materials.values()) {
       Object.assign(m, {
         clearcoat: value === "ultra" ? 1 : 0.1,
@@ -329,15 +385,14 @@ export class World {
     this.sun.shadow.mapSize.set(size, size);
     this.sun.shadow.map?.dispose();
     this.sun.shadow.map = null;
-    this.renderer.setPixelRatio(
-      Math.min(devicePixelRatio, value === "ultra" ? 1.8 : 1.3),
-    );
+    this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.quality==="ultra"?1.5:1.25));
+    this.resolution.max=this.resolution.ratio=Math.min(devicePixelRatio,this.quality==="ultra"?1.5:1.25);
     this.resize();
   }
   resize() {
     const w = innerWidth,
       h = innerHeight;
-    this.renderer.setSize(w, h);
+    this.renderer.setSize(w, h,false);
     this.camera.aspect = w / h;
     this.camera.updateProjectionMatrix();
     this.composer?.setPixelRatio(this.renderer.getPixelRatio());
@@ -345,37 +400,31 @@ export class World {
   }
   screenToWorld(clientX, clientY) {
     this.ray.setFromCamera(
-      new THREE.Vector2(
-        (clientX / innerWidth) * 2 - 1,
-        (-clientY / innerHeight) * 2 + 1,
-      ),
+      this._ndc.set((clientX/innerWidth)*2-1,(-clientY/innerHeight)*2+1),
       this.camera,
     );
     const v = projectGround(this.ray.ray) ?? this.focus;
     return { x: v.x, z: v.z };
   }
   render(match, dt, hubHero = 0, appearance = {}) {
+    if(this.loadingBattlefield)return;
     this.clock += dt;
-    this.characterStudio.visible=!match&&hubHero===0;
+    this.characterStudio.visible=!match;
     this.renderer.toneMappingExposure=!match&&hubHero===0?1.35:1.25;
     this.scenery.update(this.clock, match);
     this.sun.visible = this.mapRim.visible = this.mapAmbient.visible = !!match;
     this.scene.background.setHex(match ? 0x142d36 : 0x6a8da1);
     this.scene.fog.color.setHex(match ? 0x1f3b40 : 0x8baabb);
     this.scene.fog.density = match ? 0.011 : 0.008;
-    const player = match?.player ?? { x: 0, z: 0 };
-    const target = new THREE.Vector3(
-      player.x,
-      match ? groundHeight(player.x, player.z) : 0,
-      player.z,
-    );
+    const player = match?.player ?? { x: 0, z: 0 };this.localPlayerId=match?.player.id;
+    const target = this._v1.set(player.x,match?groundHeight(player.x,player.z):0,player.z);
     this.focus.lerp(target, 1 - Math.exp(-dt * 8));
     const dist = match ? (this.quality === "ultra" ? 16 : 18) : 10.5;
     const elevation = (48 * Math.PI) / 180;
     if(match) this.camera.position
       .copy(this.focus)
       .add(
-        new THREE.Vector3(
+        this._v2.set(
           dist * Math.cos(elevation) * 0.477,
           dist * Math.sin(elevation),
           dist * Math.cos(elevation) * 0.879,
@@ -395,6 +444,7 @@ export class World {
     this.sun.target.position.copy(this.focus);
     if (!match) {
       if (!this.preview) {
+        this.previewHero=`${hubHero}:${appearance.skin??0}:${appearance.costume??0}:${appearance.rings?.some(id=>[6,8,9,12].includes(id))?'black':'purple'}`;
         this.preview = this.character({
           id: "preview",
           kind: "hero",
@@ -444,13 +494,13 @@ export class World {
           dt,
         );
       const faceView = this.showcaseView === "face";
-      const look=new THREE.Vector3(0,.74+heroHeight*(faceView?.92:.53),0);
+      const look=this._v1.set(0,.74+heroHeight*(faceView?.92:.53),0);
       const head=visual?.getObjectByName('Head');
       if(faceView&&head){head.getWorldPosition(look);look.y=Math.max(.74+heroHeight*.18,look.y+.24);}
       const entrance=visual?.userData.manualAsset?.entrance;
       const wideEntrance=!faceView&&entrance&&!entrance.complete&&entrance.time<2.65;
       this.syncPortraitEquipment(this.preview, faceView);
-      const cameraTarget=look.clone().add(new THREE.Vector3(0,faceView?.03:wideEntrance?1.0:.7,faceView?2.6:wideEntrance?12.3:10.5));
+      const cameraTarget=this._v2.copy(look).add(this._v3.set(0,faceView?.03:wideEntrance?1.0:.7,faceView?2.6:wideEntrance?12.3:10.5));
       if(!this.portraitCameraInitialized){this.camera.position.copy(cameraTarget);this.portraitLook=look.clone();this.portraitCameraInitialized=true;}
       else this.camera.position.lerp(cameraTarget,1-Math.exp(-12*dt));
       this.portraitLook.lerp(look,1-Math.exp(-12*dt));
@@ -470,8 +520,9 @@ export class World {
       this.realmMarkers?.forEach((m) => (m.visible = false));
     } else {
       this.particleMesh.visible = true;
+      this.camera.updateMatrixWorld();this._frustum.setFromProjectionMatrix(this._cameraMatrix.multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse));
       if (this.preview) this.preview.visible = false;
-      const actorIds = new Set(match.actors.map((a) => a.id));
+      const actorIds=this.actorIds;actorIds.clear();for(const actor of match.actors)actorIds.add(actor.id);
       // An authoritative snapshot can remove an actor immediately when it
       // leaves visibility; retain its cached geometry, never its last image.
       for (const [id, model] of this.models)
@@ -482,12 +533,13 @@ export class World {
         if (
           !a.alive ||
           a.extracted ||
-          Math.abs(a.x - player.x) > 42 ||
-          Math.abs(a.z - player.z) > 42
+          (a.x-player.x)**2+(a.z-player.z)**2>1600
         ) {
           if (model) model.group.visible = false;
           continue;
         }
+        this._actorSphere.center.set(a.x,groundHeight(a.x,a.z)+1,a.z);
+        if(a!==player&&!this._frustum.intersectsSphere(this._actorSphere)){if(model)model.group.visible=false;continue;}
         if (model && model.appearanceKey !== this.appearanceKey(a)) {
           this.releaseModelRings(model);
           this.dynamic.remove(model.group);
@@ -504,20 +556,21 @@ export class World {
         this.setConcealment(model, a === player && inGrass);
         if (
           this.camera.position.distanceTo(
-            new THREE.Vector3(a.x, groundHeight(a.x, a.z), a.z),
-          ) < 48
+            this._v1.set(a.x, groundHeight(a.x, a.z), a.z),
+          ) < (a===player?48:18)
         )
           this.addDetail(model, a, "medium");
         if (
           this.quality === "ultra" &&
           (a === player || a.kind === "boss") &&
           this.camera.position.distanceTo(
-            new THREE.Vector3(a.x, groundHeight(a.x, a.z), a.z),
+            this._v1.set(a.x, groundHeight(a.x, a.z), a.z),
           ) < 28
         )
           this.addDetail(model, a, "high");
+        model.lod.update(this.camera);
         for (const level of model.lod.levels)
-          animateVisual(level.object, a, this.clock, dt);
+          if(level.object.visible)animateVisual(level.object, a, this.clock, dt);
         g.position.set(
           a.x,
           groundHeight(a.x, a.z) + Math.sin(this.clock * 5 + a.id) * 0.025,
@@ -594,7 +647,7 @@ export class World {
           this.scene.remove(e.mesh);
           if (e.elemental) disposeElementalEffect(e.mesh);
           else {
-            e.mesh.geometry?.dispose();
+            if(!e.mesh.geometry?.userData.sharedArt)e.mesh.geometry?.dispose();
             e.mesh.material?.dispose();
           }
           this.effectMeshes.delete(key);
@@ -672,9 +725,13 @@ export class World {
       lit.z,
     );
     this.weaponLight.visible = !match || this.quality === "ultra";
-    if (this.quality === "ultra") this.composer.render();
-    else this.renderer.render(this.scene, this.camera);
+    this.projectileMesh.visible=this.dropMesh.visible=!!match;
+    this.gpuTimer.begin();
+    try{if(this.quality==='ultra')this.composer.render();else this.renderer.render(this.scene,this.camera);}
+    finally{this.gpuTimer.end();}
+
   }
+  samplePerformance(frameMs){this.gpuTimer.poll();this.resolution.sample(Math.max(frameMs,this.gpuTimer.lastMs));}
   renderMapEffects(match) {
     if (!this.fogRegions) {
       this.fogRegions = REGIONS.slice(0, 5).map((r, i) => {
@@ -832,63 +889,23 @@ export class World {
     this.pet.rotation.y = this.clock;
   }
   renderProjectiles(match) {
-    if (!this.boltModels) this.boltModels = new Map();
-    const ids = new Set();
-    for (const p of match.projectiles) {
-      ids.add(p.id);
-      let mesh = this.boltModels.get(p.id);
-      if (!mesh) {
-        mesh = new THREE.Mesh(
-          new THREE.OctahedronGeometry(0.16),
-          this.mat(HEROES[p.owner.hero].color, true),
-        );
-        mesh.scale.z = 2.8;
-        this.dynamic.add(mesh);
-        this.boltModels.set(p.id, mesh);
-      }
-      mesh.position.set(p.x, groundHeight(p.x, p.z) + 1, p.z);
-      mesh.rotation.y = Math.atan2(p.dir.x, p.dir.z);
-      mesh.visible =
-        (p.realm ?? p.owner.realm ?? 0) === (match.player.realm ?? 0);
+    let count=0;const mesh=this.projectileMesh,dummy=this._instance;
+    for(const p of match.projectiles){
+      if((p.realm??p.owner.realm??0)!==(match.player.realm??0)||(p.x-match.player.x)**2+(p.z-match.player.z)**2>1600)continue;
+      if(count>=128){this.pooledRender.cosmeticsSkipped++;continue;}
+      dummy.position.set(p.x,groundHeight(p.x,p.z)+1,p.z);dummy.rotation.set(0,Math.atan2(p.dir.x,p.dir.z),0);dummy.scale.set(1,1,2.8);dummy.updateMatrix();mesh.setMatrixAt(count,dummy.matrix);
+      mesh.setColorAt(count,this._instanceColor.setHex(HEROES[p.owner.hero]?.color??0xffffff));count++;
     }
-    for (const [id, mesh] of this.boltModels)
-      if (!ids.has(id)) {
-        this.dynamic.remove(mesh);
-        mesh.geometry.dispose();
-        this.boltModels.delete(id);
-      }
+    mesh.count=count;mesh.instanceMatrix.needsUpdate=true;if(mesh.instanceColor)mesh.instanceColor.needsUpdate=true;this.pooledRender.projectileCount=count;
   }
   renderDrops(match) {
-    if (!this.dropModels) this.dropModels = new Map();
-    const ids = new Set();
-    for (const d of match.drops) {
-      ids.add(d.id);
-      let g = this.dropModels.get(d.id);
-      if (!g) {
-        g = this.mesh(
-          new THREE.OctahedronGeometry(0.28),
-          0xe3bf76,
-          this.dynamic,
-        );
-        g.material = this.mat(0xe3bf76, true);
-        this.dropModels.set(d.id, g);
-      }
-      g.position.set(
-        d.x,
-        groundHeight(d.x, d.z) + 0.6 + Math.sin(this.clock * 2 + d.id) * 0.15,
-        d.z,
-      );
-      g.rotation.y = this.clock;
-      g.visible =
-        (d.realm ?? 0) === (match.player.realm ?? 0) &&
-        Math.hypot(d.x - match.player.x, d.z - match.player.z) < 35;
+    let count=0;const mesh=this.dropMesh,dummy=this._instance;
+    for(const d of match.drops){
+      if((d.realm??0)!==(match.player.realm??0)||(d.x-match.player.x)**2+(d.z-match.player.z)**2>1225)continue;
+      if(count>=128){this.pooledRender.cosmeticsSkipped++;continue;}
+      dummy.position.set(d.x,groundHeight(d.x,d.z)+.6+Math.sin(this.clock*2+d.id)*.15,d.z);dummy.rotation.set(0,this.clock,0);dummy.scale.setScalar(1);dummy.updateMatrix();mesh.setMatrixAt(count++,dummy.matrix);
     }
-    for (const [id, g] of this.dropModels)
-      if (!ids.has(id)) {
-        this.dynamic.remove(g);
-        g.geometry.dispose();
-        this.dropModels.delete(id);
-      }
+    mesh.count=count;mesh.instanceMatrix.needsUpdate=true;this.pooledRender.dropCount=count;
   }
   spawnParticles(e) {
     for (let i = 0; i < 12; i++) {
@@ -963,11 +980,7 @@ export class World {
     );
   }
   actorScreenPosition(actor, offset = 2) {
-    const point = new THREE.Vector3(
-      actor.x,
-      groundHeight(actor.x, actor.z) + offset,
-      actor.z,
-    ).project(this.camera);
+    const point = this._v1.set(actor.x,groundHeight(actor.x, actor.z)+offset,actor.z).project(this.camera);
     return {
       x: (point.x * 0.5 + 0.5) * innerWidth,
       y: (-point.y * 0.5 + 0.5) * innerHeight,
@@ -975,6 +988,12 @@ export class World {
   }
 
   reset() {
+    for(const portal of this.activeGateModels?.values()??[]){portal.removeFromParent();portal.traverse(node=>{if(node.geometry&&!node.geometry.userData.sharedArt)node.geometry.dispose();node.material?.dispose();});}
+    this.activeGateModels?.clear();
+    for(const mesh of [...(this.fogRegions??[]),...(this.realmMarkers??[])]){mesh.removeFromParent();if(!mesh.geometry.userData.sharedArt)mesh.geometry.dispose();mesh.material.dispose();}
+    this.fogRegions=this.realmMarkers=null;
+    if(this.pet){this.pet.removeFromParent();if(!this.pet.geometry.userData.sharedArt)this.pet.geometry.dispose();this.pet=null;}
+    this.projectileMesh.count=this.dropMesh.count=0;
     this.clearAim();
     this.particles = [];
     if (this.boltModels) {
@@ -994,7 +1013,7 @@ export class World {
       this.scene.remove(e.mesh);
       if (e.elemental) disposeElementalEffect(e.mesh);
       else {
-        e.mesh.geometry?.dispose();
+        if(!e.mesh.geometry?.userData.sharedArt)e.mesh.geometry?.dispose();
         e.mesh.material?.dispose();
       }
     }

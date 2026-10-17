@@ -12,6 +12,7 @@ import {
   segmentTouchesCircle,
 } from "./systems.js";
 import { projectSkillCast } from "./skill-projection.js";
+const farAiSteering=new WeakMap();
 const rnd = (a, b) => a + Math.random() * (b - a),
   pick = (a) => a[Math.floor(Math.random() * a.length)];
 export class Match {
@@ -2174,7 +2175,7 @@ export class Match {
         continue;
       }
       if (a !== this.player && a.ai !== false && a.alive && !a.downedUntil)
-        this.ai(a, dt);
+        this.updateTieredAI(a,dt);
       if (a.channel) {
         const c = a.channel;
         if (R.distance(a, c.gate) > 3.5) c.outside += dt;
@@ -2332,6 +2333,16 @@ export class Match {
       }
     });
     return best;
+  }
+  updateTieredAI(a,dt){
+    const far=this.performanceTiering&&a.kind!=='boss'&&!a.channel&&((a.realm??0)!==(this.player.realm??0)||(a.x-this.player.x)**2+(a.z-this.player.z)**2>1600);
+    if(!far){farAiSteering.delete(a);this.ai(a,dt);return;}
+    let steering=farAiSteering.get(a);
+    if(!steering||this.time>=steering.next){
+      const x=a.x,z=a.z;this.ai(a,dt);
+      const dx=a.x-x,dz=a.z-z,n=Math.hypot(dx,dz);
+      steering={next:this.time+.25,x:n>.00001?dx/n:0,z:n>.00001?dz/n:0};farAiSteering.set(a,steering);
+    }else if(steering.x||steering.z)this.move(a,steering.x,steering.z,dt);
   }
   ai(a, dt) {
     if (a.channel) return;

@@ -8,8 +8,9 @@ import {MeshoptDecoder} from 'meshoptimizer';
 import {Vector3,Matrix4,AnimationMixer} from 'three';
 import {loadCpuGlb} from './helpers/load-cpu-glb.mjs';
 import{createH01IK,poseCrouch,poseRightHand}from'../src/h01-ik.js';
-import{organicVineGeometry,entranceFrame,H01_ENTRANCE}from'../src/h01-entrance.js';
+import{installOrganicVineData,organicVineGeometry,entranceFrame,H01_ENTRANCE}from'../src/h01-entrance.js';
 await MeshoptDecoder.ready;
+const vineBytes=await readFile('public/models/h01-vines/geometry.bin');installOrganicVineData(vineBytes.buffer.slice(vineBytes.byteOffset,vineBytes.byteOffset+vineBytes.byteLength));
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
 
 test('three actual Hunyuan staff LODs have PBR, a real 4cm grip, correct length and attachment pivots',async()=>{

@@ -1,3 +1,4 @@
+import {getGpuTextureLoader,gpuTextureMetrics} from './gpu-textures.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { threadedMeshoptDecoder as MeshoptDecoder,meshoptWorkerMetrics } from './meshopt-worker-bridge.js';
 import { manualHeroAssetUrls, manualHeroAssetHashes } from './manual-hero-assets.js';
@@ -12,8 +13,8 @@ async function db(){
   let done=false;const finish=value=>{if(!done){done=true;resolve(value);}};
   const timeout=setTimeout(()=>{manualAssetMetrics.cacheError='open-timeout';finish(null);},15000);
   try {
-   const request=indexedDB.open('hon-gioi-manual-assets-v1',1);
-   request.onupgradeneeded=()=>request.result.createObjectStore('glb',{keyPath:'key'});
+   const request=indexedDB.open('hon-gioi-manual-assets-v1',2);
+   request.onupgradeneeded=()=>{const store=request.result.objectStoreNames.contains('glb')?request.transaction.objectStore('glb'):request.result.createObjectStore('glb',{keyPath:'key'});if(!store.indexNames.contains('used'))store.createIndex('used','used');};
    request.onsuccess=()=>{clearTimeout(timeout);if(done)request.result.close();else finish(request.result);};
    request.onerror=request.onblocked=()=>{manualAssetMetrics.cacheError=request.error?.name??'blocked';clearTimeout(timeout);finish(null);};
   }catch(error){manualAssetMetrics.cacheError=error.name;clearTimeout(timeout);finish(null);}
@@ -30,7 +31,7 @@ async function stored(key,value){
    request.onerror=()=>{manualAssetMetrics.cacheError=request.error?.name;resolve(null);};
    tx.onabort=()=>resolve(null);
    if(value){
-    const keys=store.getAll();keys.onsuccess=()=>{const old=keys.result.filter(row=>row.key!==key).sort((a,b)=>(a.used??0)-(b.used??0));for(const row of old.slice(0,Math.max(0,keys.result.length-12)))store.delete(row.key);};
+    let count=0;const keys=store.index('used').openKeyCursor(null,'prev');keys.onsuccess=()=>{const cursor=keys.result;if(!cursor)return;if(++count>12)store.delete(cursor.primaryKey);cursor.continue();};
    }
   }catch(error){manualAssetMetrics.cacheError=error.name;resolve(null);}
  });
@@ -55,19 +56,31 @@ export async function manualAssetBuffer(key){
  void stored(cacheKey,buffer);
  return buffer;
 }
-export function loadManualAsset(key){
+export function loadManualAsset(key,allowGpu=true){
+ const originalKey=key;
+ const gpu=getGpuTextureLoader();
+ if(allowGpu&&gpu&&manualHeroAssetUrls[key+'-gpu'])key+='-gpu';
  if(!loaded.has(key)){
   const promise=manualAssetBuffer(key).then(buffer=>{
    const job=decodeQueue.catch(()=>{}).then(async()=>{
     await yieldFrame();
     const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
+    if(gpu)loader.setKTX2Loader(gpu);
+    // Embedded WebP can decode directly to ImageBitmap inside the render worker.
+    // Three r160's default capability probe uses DOM Image, which workers lack.
+    if(typeof Image==='undefined'&&typeof createImageBitmap==='function')loader.register(parser=>({
+     name:'EXT_texture_webp',loadTexture:index=>{
+      const texture=parser.json.textures[index],extension=texture.extensions?.EXT_texture_webp;
+      return extension?parser.loadTextureImage(index,extension.source,parser.textureLoader):null;
+     }
+    }));
     const start=performance.now();
     const gltf=await loader.parseAsync(buffer,'');
-    manualAssetMetrics.decoded++;manualAssetMetrics.lastDecodeMs=performance.now()-start;manualAssetMetrics.worker={...meshoptWorkerMetrics};
+    manualAssetMetrics.gpu={...gpuTextureMetrics};manualAssetMetrics.decoded++;manualAssetMetrics.lastDecodeMs=performance.now()-start;manualAssetMetrics.worker={...meshoptWorkerMetrics};
     return gltf;
    });
    decodeQueue=job;return job;
-  }).catch(error=>{loaded.delete(key);throw error;});
+  }).catch(error=>{loaded.delete(key);if(key!==originalKey){manualAssetMetrics.gpuFallbacks=(manualAssetMetrics.gpuFallbacks??0)+1;return loadManualAsset(originalKey,false);}throw error;});
   loaded.set(key,promise);
  }
  return loaded.get(key);

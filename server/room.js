@@ -342,7 +342,7 @@ export class Room {
             break;
           }
           case "surrender":
-            if (a.downedUntil) a.downedUntil = 1;
+            a.downedUntil = 1;
             this.match.kill(a, { kind: "beast", team: -1 });
             break;
           case "buy":

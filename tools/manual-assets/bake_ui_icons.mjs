@@ -1,0 +1,7 @@
+import{chromium}from'playwright-core';
+import fs from'node:fs/promises';import sharp from 'sharp';
+const browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-gl=angle','--use-angle=swiftshader','--enable-unsafe-swiftshader']});const page=await browser.newPage();await page.route('**/__bake.html',r=>r.fulfill({contentType:'text/html',body:'<html><body>Offline icon baking</body></html>'}));await page.goto('http://127.0.0.1:5173/__bake.html');
+const entries=await page.evaluate(async()=>{const {masterworkAssets}=await import('/src/item-art.js');return [...masterworkAssets.catalogue(),...[1,2,3,4].map(id=>({type:'action',id})),...['material','fragment','boss'].map(type=>({type,id:1}))];});
+const urls={};await fs.mkdir('public/art/ui',{recursive:true});
+for(const entry of entries){const uri=await page.evaluate(async e=>{const {masterworkAssets}=await import('/src/item-art.js');return masterworkAssets.generate(e.type,e.id,e.type==='skill'?(e.id%4===0?3:2):undefined,undefined,512);},entry);const name=entry.type+'-'+entry.id+'.webp';await sharp(Buffer.from(uri.split(',')[1],'base64')).resize(128,128).webp({quality:85}).toFile('public/art/ui/'+name);urls[entry.type+':'+entry.id]='/art/ui/'+name;}
+await fs.writeFile('src/baked-ui-assets.js','export const bakedUiAssetUrls='+JSON.stringify(urls)+';\n');console.log('Baked',entries.length,'icons');await browser.close();

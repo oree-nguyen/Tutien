@@ -15,6 +15,7 @@ import androidx.webkit.WebViewAssetLoader
 
 class MainActivity : Activity() {
     private lateinit var game: WebView
+    private var hasResumed = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,6 +31,8 @@ class MainActivity : Activity() {
         game.settings.apply {
             javaScriptEnabled = true
             domStorageEnabled = true
+            cacheMode = android.webkit.WebSettings.LOAD_DEFAULT
+            setRenderPriority(android.webkit.WebSettings.RenderPriority.HIGH)
             allowFileAccess = false
             allowContentAccess = false
             mediaPlaybackRequiresUserGesture = false
@@ -41,9 +44,10 @@ class MainActivity : Activity() {
             override fun shouldOverrideUrlLoading(view: WebView, request: WebResourceRequest): Boolean =
                 request.url.host != "appassets.androidplatform.net"
         }
+        game.setBackgroundColor(android.graphics.Color.rgb(16,43,50))
         game.setLayerType(View.LAYER_TYPE_HARDWARE, null)
         setContentView(game)
-        game.loadUrl("https://appassets.androidplatform.net/assets/index.html")
+        game.loadUrl("https://appassets.androidplatform.net/assets/startup.html")
         immersive()
     }
 
@@ -66,7 +70,7 @@ class MainActivity : Activity() {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) immersive()
     }
-    override fun onPause() { game.onPause(); super.onPause() }
-    override fun onResume() { super.onResume(); if (::game.isInitialized) game.onResume() }
+    override fun onPause() { if (::game.isInitialized) { game.evaluateJavascript("window.dispatchEvent(new Event('hon-gioi-native-pause'))", null); game.onPause() }; super.onPause() }
+    override fun onResume() { super.onResume(); if (::game.isInitialized) { game.onResume(); if (hasResumed) game.evaluateJavascript("window.dispatchEvent(new Event('hon-gioi-native-resume'))", null) }; hasResumed = true }
     override fun onDestroy() { game.destroy(); super.onDestroy() }
 }

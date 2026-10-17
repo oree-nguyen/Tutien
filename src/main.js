@@ -19,7 +19,11 @@ import { quickOffers, contextualActions } from "./hud.js";
 import { MAP_BUSHES } from "./systems.js";
 import { itemIcon, skillIcon, masterworkAssets } from "./item-art.js";
 import { ensureRuntimeSecurity, securityFacade } from "./runtime-security.js";
-import { World } from "./world.js";
+import { GameLifecycleStateMachine, PHASES, sanitizeStaleMatchStateOnBoot } from './game-lifecycle.js';
+import { nextPaint, waitForUiPaint, observeBoot } from './runtime-performance.js';
+const lifecycle=new GameLifecycleStateMachine();
+const bootMetrics=observeBoot();
+sanitizeStaleMatchStateOnBoot(globalThis.localStorage,globalThis.sessionStorage);
 import { SoulAudio } from "./audio.js";
 import {
   SmoothSkillshotController,
@@ -38,11 +42,13 @@ const clock = (t) =>
 const app = $("#app");
 let profile;
 let pendingSnapshot = null;
+let pendingRun=null;
 let onlineAccount = false;
 try {
   const saved = JSON.parse(localStorage.getItem("hon-gioi-save-v2"));
   profile = saved?.profile ?? JSON.parse(localStorage.getItem("hon-gioi-v25"));
   pendingSnapshot = saved?.match ?? null;
+  pendingRun=saved?.activeRun??null;
   if (profile?.version !== 1) profile = null;
 } catch {}
 if (!profile) {
@@ -59,9 +65,13 @@ const save = () => {
     localStorage.setItem(
       "hon-gioi-save-v2",
       JSON.stringify({
-        version: 2,
+        version: 3,
         profile,
-        match: match && !match.result ? match.snapshot() : null,
+        match:null,
+        activeRun:match&&!match.result&&!match.online?{
+          wallet:match.player.wallet,gear:match.player.gear,supports:match.player.supports,
+          escrow:match.player.channel?.escrow??[],kills:match.player.kills,
+        }:null,
       }),
     );
     localStorage.setItem("hon-gioi-v25", JSON.stringify(profile));
@@ -97,8 +107,8 @@ let appraisalTimer = null;
 let releaseJoystick = () => {};
 function updateAssetLoadingIndicator(){
  const el=document.getElementById('assetLoadStatus');if(!el)return;
- const asset=world?.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset;
- el.hidden=!!match||loadout.hero!==0||loadout.costume!==0||asset?.status==='loaded';
+ const asset=world?.previewAsset??world?.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset;
+ const hidden=!!match||loadout.hero!==0||loadout.costume!==0||asset?.status==='loaded';if(el.hidden!==hidden)el.hidden=hidden;
  const text=asset?.status==='failed'?'Không nạp được model — chạm Dật để thử lại.':'Đang nạp Lâm Dật và Mộc Tinh Trượng…';
  if(el.textContent!==text)el.textContent=text;
 }
@@ -119,12 +129,14 @@ function guarded(fn) {
     return false;
   }
 }
-try {
-  world = new World($("#world"));
-} catch (e) {
-  app.innerHTML =
-    '<div class="modal-backdrop"><div class="modal"><h2>WebGL không khả dụng</h2><p>Hãy bật tăng tốc đồ họa trong trình duyệt rồi tải lại.</p></div></div>';
-  throw e;
+let worldReady;
+async function initializeWorld(options={}){
+ await waitForUiPaint();
+ const {createRenderEngine}=await import('./render-engine.js');
+ await nextPaint();
+ world=await createRenderEngine($('#world'),options);
+ bootMetrics.marks.worldReady=performance.now();
+ return world;
 }
 const autoInput = { x: 0, z: 0, attack: false, targetMode: "auto" };
 const autoFarm = new AutoFarmAIController({
@@ -167,7 +179,7 @@ const skillshot = new SmoothSkillshotController({
     return r ? { x: r.left + r.width / 2, y: r.top + r.height / 2 } : null;
   },
   onAim: (...args) => world.aim(...args),
-  onClear: () => world.clearAim(),
+  onClear: () => world?.clearAim(),
   onManualStart: (id) => {
     autoFarm.manualStart(id);
     Object.assign(autoInput, { x: 0, z: 0, attack: false });
@@ -319,7 +331,7 @@ function renderHub() {
   $$("[data-hero]").forEach(
     (el) =>
       (el.onclick = () => {
-        if(+el.dataset.hero===0&&loadout.hero===0)world.replayHeroEntrance();
+        if(+el.dataset.hero===0&&loadout.hero===0)world?.replayHeroEntrance();
         loadout.hero = +el.dataset.hero;
         loadout.branch = 0;
         loadout.skin = 0;
@@ -404,10 +416,10 @@ function renderHub() {
   $("#stash").onclick = showStash;
   $("#help").onclick = showHelp;
   $("#history").onclick = showHistory;
-  $("#start").onclick = () => guarded(startMatch);
+  $("#start").onclick = (event) => guarded(()=>startMatch(event));
   $("#fullscreen").onclick = fullscreen;
-  $("#showcaseFull").onclick = () => world.setShowcaseView("full");
-  $("#showcaseFace").onclick = () => world.setShowcaseView("face");
+  $("#showcaseFull").onclick = () => world?.setShowcaseView("full");
+  $("#showcaseFace").onclick = () => world?.setShowcaseView("face");
   const drag = $("#showcaseDrag");
   let dragX = null;
   drag.onpointerdown = (event) => {
@@ -416,7 +428,7 @@ function renderHub() {
   };
   drag.onpointermove = (event) => {
     if (dragX !== null) {
-      world.rotateShowcase((event.clientX - dragX) * 0.009);
+      world?.rotateShowcase((event.clientX - dragX) * 0.009);
       dragX = event.clientX;
     }
   };
@@ -717,13 +729,21 @@ function showHelp() {
     `<div class="help"><p>Săn Hồn thú → nhặt chiến lợi phẩm → mua/ghép Bổ phẩm → rút qua Cổng để giữ tài sản. Đây là bản ngoại tuyến, 1 người chơi cùng bot; trận vẫn chạy khi mở túi/cửa hàng.</p><h3>Điều khiển</h3><p>Cảm ứng: cần trái di chuyển; giữ/kéo nút kỹ năng để ngắm, thả để tung. Nút kiếm đánh thường; ba lá bùa ở bên phải. PC: WASD di chuyển, chuột ngắm, Q/W/E/R kỹ năng, F Linh Bộ, Space đánh thường, 1/2/3 Trợ phẩm, G nhặt đồ, B cửa hàng, I túi đồ. Vì W trùng di chuyển, dùng Shift+W để thi triển W trên PC; nút W cảm ứng luôn dùng được.</p><h3>Tài sản & Hồi Hoàn</h3><p>Vốn mang vào tối đa 300 TB, tiêu trước tiền kiếm mới. Cửa hàng chỉ hoạt động gần Đài/Thương Nhân. Tối đa 7 Bổ phẩm, bán 60%, ghép đủ nguyên liệu + phí. Túi 24 ô/48W. Cổng mở 05:00, 10:00, 15:00 trong 120s; 20:00 có 3 Đại Cổng. Đứng 20+2×ceil(W/4)s. Hạ Gian có sàn 15s. Bị đánh không hủy, CC chỉ tạm dừng tổng 3s; ra khỏi vòng quá 0,8s thì hủy. Trang bị tháo gửi được ký quỹ và hoàn lại khi hủy.</p><h3>Thử nghiệm nhanh</h3><p>Mở “DEV SANDBOX” góc trên phải để nhận 500 TB/Hồn Tinh, dịch chuyển, gọi Cổng, tua lịch, thêm chiến lợi phẩm, nhận CC hoặc sát thương. Tới Bí Cảnh, kích hoạt hai Ấn Khóa để gọi Cổ Long. Minimap: xanh là bạn/đồng đội, đỏ là địch đã thấy, vàng là Đài, tím là Tế Đàn, vòng ngọc là Cổng. Chạm bản đồ để đặt dấu dẫn đường.</p><h3>Phạm vi bản dựng</h3><p>Tài khoản và kho dùng localStorage; không nạp tiền thật. Ranked offline chỉ mô phỏng chuẩn hóa skin với bot; online dùng máy chủ. Chế độ online có máy chủ30Hz và PostgreSQL/Redis; Ranked chờ tối thiểu60 tài khoản thật. Chưa chứng nhận hiệu năng trên máy Android thật. Các giả định và phần chưa khớp hoàn toàn GDD được ghi trong docs/GDD-COVERAGE.md.</p><h3>Android / AI Studio</h3><p>Chạy npm install rồi npm run dev. Build npm run build. Dùng thư mục dist cho máy chủ web/AI Studio hỗ trợ dự án Vite. Capacitor: npm run android:add, npm run android:sync, npx cap open android. Xem docs/ANDROID.md cho SDK, Activity, chế độ ngang và APK.</p></div>`,
   );
 }
-async function startMatch() {
-  const button=$("#start");if(button?.disabled)return;
+async function startMatch(event) {
+  const token=lifecycle.begin(event);if(token===null)return false;app.inert=true;
+  try {await worldReady;if(!lifecycle.valid(token))return false;return await launchMatch(token);}
+  catch(error){world?.releaseBattlefield();lifecycle.cancel();const button=$('#start');if(button){button.disabled=false;button.textContent='BẮT ĐẦU TRẬN ĐẤU';}throw error;}
+  finally{app.inert=false;}
+}
+async function launchMatch(token) {
+  const button=$("#start");if(button?.disabled){lifecycle.cancel();return;}
   if(button){button.disabled=true;button.textContent="ĐANG CHUẨN BỊ CHIẾN TRƯỜNG…";}
-  try{await world.prepareBattlefield();}catch(error){if(button){button.disabled=false;button.textContent="BẮT ĐẦU TRẬN ĐẤU";}throw error;}
+  if(!onlineAccount){R.validateLoadout(loadout);sanitizeLoadout();if(profile.nb<supportCost())throw Error('Không đủ Ngân Bảo để mang Trợ phẩm');if(profile.tb<loadout.brought+supportTbCost())throw Error('Không đủ Thanh Bảo');}
+  try{await world.prepareBattlefield(structuredClone(loadout));}catch(error){if(button){button.disabled=false;button.textContent="BẮT ĐẦU TRẬN ĐẤU";}throw error;}
   if(button){button.disabled=false;button.textContent="BẮT ĐẦU TRẬN ĐẤU";}
+  if(!lifecycle.valid(token))return false;
   if (onlineAccount) {
-    return startOnline();
+    return startOnline(token);
   }
   R.validateLoadout(loadout);
   sanitizeLoadout();
@@ -731,29 +751,21 @@ async function startMatch() {
   if (profile.nb < price) throw Error("Không đủ Ngân Bảo để mang Trợ phẩm");
   if (profile.tb < loadout.brought + supportTbCost())
     throw Error("Không đủ Thanh Bảo");
-  profile.nb -= price;
-  profile.tb -= loadout.brought + supportTbCost();
-  const actualGear = [];
-  for (const [kind, ids] of [
-    ["ring", loadout.rings],
-    ["bone", loadout.bones],
-  ])
-    for (const id of ids)
-      if (id) {
-        const item = profile.stash.find((i) => i.kind === kind && i.id === id);
-        if (!item) throw Error("Trang bị không còn trong kho");
-        profile.stash = profile.stash.filter((i) => i !== item);
-        actualGear.push({ ...item, brought: true });
-      }
-  save();
-  world.reset();
-  match = new Match(structuredClone(loadout), profile, (type, data) => {
+  const actualGear=[];
+  for(const [kind,ids] of [['ring',loadout.rings],['bone',loadout.bones]])for(const id of ids)if(id){
+    const item=profile.stash.find(i=>i.kind===kind&&i.id===id);
+    if(!item)throw Error('Trang bị không còn trong kho');actualGear.push({...item,brought:true});
+  }
+  const candidate = new Match(structuredClone(loadout), profile, (type, data) => {
     if (type === "message") toast(data);
     if (type === "hit") audio.hit();
     if (type === "save") save();
     if (type === "sendPanel") showSend();
     if (type === "end") setTimeout(showResult, 50);
   });
+  profile.nb-=price;profile.tb-=loadout.brought+supportTbCost();
+  const ids=new Set(actualGear.map(item=>item.uid));profile.stash=profile.stash.filter(item=>!ids.has(item.uid));
+  world.reset();match=candidate;lifecycle.enter(token);match.performanceTiering=true;
   match.obstacles = world.obstacles;
   match.player.gear = actualGear;
   paused = false;
@@ -861,6 +873,7 @@ function renderHUD() {
       () =>
         ($("#confirmExit").onclick = () => {
           closeModal();
+          if(!match.online)a.downedUntil=1;
           match.kill(a, { team: -1, kind: "beast" });
         }),
     );
@@ -1253,12 +1266,15 @@ function backHub() {
   autoFarm.reset();
   if (match?.online) match.close();
   match = null;
+  lifecycle.cleanup();
   modal = null;
   paused = false;
   input.attack = false;
   keys.clear();
-  world.reset();
+  world?.reset();
+  world?.releaseBattlefield();
   sanitizeLoadout();
+  save();
   renderHub();
 }
 function debug(action) {
@@ -1631,9 +1647,11 @@ let last = performance.now(),
   frames = 0,
   fpsTimer = 0;
 function animate(now) {
-  const dt = Math.max(0, Math.min(0.1, (now - last) / 1000));
+  const frameMs=now-last;
+  const dt = Math.max(0, Math.min(0.1, frameMs / 1000));
+  world?.samplePerformance?.(frameMs);
   last = now;
-  requestAnimationFrame(animate);
+  animationId=requestAnimationFrame(animate);
   if (match && match.player && !paused && !match.result) {
     if (
       !modal &&
@@ -1650,18 +1668,18 @@ function animate(now) {
     match.step(dt, controlInput());
   }
   saveAcc += dt;
-  if (saveAcc >= 1) {
+  if (saveAcc >= 5) {
     saveAcc = 0;
     if (match && !match.result && !match.online) save();
   }
-  if (!match || match.player) world.render(match, dt, loadout.hero, loadout);
+  if (world&&(!match || match.player)) world.render(match, dt, loadout.hero, loadout);
   updateAssetLoadingIndicator();
   updateAutoHUD();
   audio.update(match, now / 1000);
   updateSkillCooldowns();
   uiAcc += dt;
   frames++;
-  fpsTimer += dt;
+  fpsTimer += frameMs/1000;
   if (uiAcc > 0.1) {
     uiAcc = 0;
     updateHUD();
@@ -1669,37 +1687,67 @@ function animate(now) {
   if (fpsTimer > 1) {
     if ($("#performance"))
       $("#performance").textContent =
-        `${Math.round(frames / fpsTimer)} FPS · ${world.renderer.info.render.calls} draws`;
+        `${world?.backend==='worker'?world.renderMetrics.fps:Math.round(frames / fpsTimer)} FPS · ${world?.renderer.info.render.calls??0} draws`;
     fpsTimer = 0;
     frames = 0;
   }
 }
-if (pendingSnapshot) {
-  guarded(async () => {
-    await world.prepareBattlefield();
-    match = Match.restore(pendingSnapshot, (type, data) => {
-      if (type === "message") toast(data);
-      if (type === "hit") audio.hit();
-      if (type === "save") save();
-      if (type === "end") setTimeout(showResult, 50);
-      if (type === "sendPanel") showSend();
-    });
-    profile = match.profile;
-    match.obstacles = world.obstacles;
-    renderHUD();
-    toast("Đã khôi phục trận đang chơi.");
-  });
-} else renderHub();
-save();
-window.addEventListener("pagehide", save);
-document.addEventListener("visibilitychange", () => {
-  if (document.hidden) save();
+// A stored offline match is settled once as an abandonment; never made active.
+function settleInterruptedMatch(){
+ if(!pendingSnapshot&&!pendingRun)return;
+ try{
+  let player;
+  if(pendingRun){player={...pendingRun,bag:[],gear:[...(pendingRun.gear??[]),...(pendingRun.escrow??[])]};}
+  else{
+   const abandoned=Match.restore(pendingSnapshot);
+   if(!abandoned.result&&abandoned.player?.alive){abandoned.cancelExtraction(abandoned.player);player=abandoned.player;}
+  }
+  pendingRun=pendingSnapshot=null;
+  if(player){
+   const result=R.deathSettlement(player);
+   profile.tb+=result.refund;profile.stash.push(...result.saved);
+   profile.matches++;profile.record.unshift({title:'Rời trận khi đóng ứng dụng',value:0,kills:player.kills??0,time:Date.now()});profile.record=profile.record.slice(0,10);
+   bootMetrics.interruptedMatchSettled=true;
+  }
+ }catch(error){bootMetrics.recoveryError=error.message;pendingRun=pendingSnapshot=null;}
+ save();
+}
+lifecycle.boot();renderHub();bootMetrics.marks.lobbyUI=performance.now();
+worldReady=(async()=>{await nextPaint();settleInterruptedMatch();renderHub();return initializeWorld();})().catch(error=>{
+ bootMetrics.error=error.message;toast('Không khởi tạo được 3D. Giao diện và kho vẫn khả dụng.');throw error;
 });
-requestAnimationFrame(animate);
-if ("serviceWorker" in navigator && import.meta.env.PROD)
-  navigator.serviceWorker.register("./sw.js").catch(() => {});
+// Attach rejection handling immediately even before the user presses Start.
+void worldReady.catch(()=>{});
+let recoveringRenderer=false;
+window.addEventListener('hon-gioi-render-error',async()=>{
+ if(recoveringRenderer)return;recoveringRenderer=true;
+ try{
+  if(match?.online&&!match.result)match.kill();else if(match&&!match.result){match.player.downedUntil=1;match.kill(match.player,{team:-1,kind:'beast'});}
+  if(match)backHub();world?.dispose?.();world=undefined;
+  const canvas=$('#world'),replacement=canvas.cloneNode(false);canvas.replaceWith(replacement);
+  toast('Đang khôi phục đồ họa…');worldReady=initializeWorld({forceMain:true});await worldReady;
+ }catch(error){toast(error.message);}finally{recoveringRenderer=false;}
+});
+window.addEventListener('pagehide',save);
+let animationId=null,backgroundMatch=false;
+function suspend(){save();backgroundMatch=!!match;if(lifecycle.phase===PHASES.LOADING){lifecycle.cancel();world?.releaseBattlefield();renderHub();}if(animationId!==null)cancelAnimationFrame(animationId);animationId=null;releaseJoystick();skillshot.reset();keys.clear();input.x=input.z=0;input.attack=false;}
+function resume(){
+ if(backgroundMatch&&match){
+  if(match.online&&!match.result)match.kill();else if(!match.result){match.player.downedUntil=1;match.kill(match.player,{team:-1,kind:'beast'});}
+  backHub();
+ }
+ backgroundMatch=false;last=performance.now();if(animationId===null)animationId=requestAnimationFrame(animate);
+}
+document.addEventListener('visibilitychange',()=>document.hidden?suspend():resume());
+window.addEventListener('hon-gioi-native-pause',suspend);
+window.addEventListener('hon-gioi-native-resume',()=>{if(match)backgroundMatch=true;resume();});
+window.addEventListener('pageshow',event=>{if(event.persisted)resume();});
+animationId=requestAnimationFrame(animate);
+// Service worker ownership belongs to boot.js; native APKs read their packaged assets directly.
 // Read-only diagnostics for QA; game state remains available for local sandbox automation.
 window.__HON_GIOI__ = {
+  get lifecycle(){return {phase:lifecycle.phase,revision:lifecycle.revision,transitions:[...lifecycle.transitions]};},
+  get boot(){return bootMetrics;},
   get match() {
     return match;
   },
@@ -1780,8 +1828,7 @@ async function showOnline() {
     },
   );
 }
-async function startOnline() {
-  await world.prepareBattlefield();
+async function startOnline(token) {
   try {
     R.validateLoadout(loadout);
     const q = await api("/queue", { loadout });
@@ -1800,6 +1847,7 @@ async function startOnline() {
           intro.textContent = `Ranked: ${data.players}/${data.required} tài khoản đang chờ.`;
       }
       if (type === "connected") {
+        if(!lifecycle.enter(token)){match?.close();return;}
         closeModal();
         renderHUD();
       }

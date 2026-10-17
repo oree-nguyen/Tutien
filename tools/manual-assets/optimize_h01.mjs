@@ -10,6 +10,7 @@ const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'
 for(const folder of (process.argv.includes('--body-only')?['h01-c0']:process.argv.includes('--staff-only')?['h01-staff']:['h01-c0','h01-staff'])) {
  const path=`public/models/${folder}`,receipt=JSON.parse(await fs.readFile(path+'/provenance.json'));
  for(const level of receipt.levels) {
+  if(level.detail==='mobile')continue;
   const file=path+'/'+level.file;
   const document=await io.read(file);
   const size=folder==='h01-c0'?(level.detail==='high'?2048:level.detail==='medium'?512:256):(level.detail==='high'?1024:level.detail==='medium'?512:256);

@@ -49,6 +49,7 @@ def smooth(a,b,x):
  return t*t*(3-2*t)
 
 for level in receipt['levels']:
+ if level['detail']=='mobile':continue
  path=folder/level['file']
  original=backup/path.name
  if not original.exists():shutil.copy2(path,original)

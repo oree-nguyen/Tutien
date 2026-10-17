@@ -1,0 +1,27 @@
+✔ boot and cancelled async loads cannot enter combat without a new trusted start (0.904455ms)
+✔ storage sanitation preserves bank/profile and unrelated services (0.209954ms)
+✔ resolution responds to sustained frame pressure, recovers slowly and respects the budget (3.138102ms)
+✔ cosmetic pool exhaustion does not allocate and each lease releases exactly once (0.327981ms)
+✔ far offline AI thinks at 4Hz but movement integrates at fixed tick; authoritative defaults stay full-rate (4.021625ms)
+✔ mobile body is 15k triangles with complete rig/clips and GPU variants embed mipmapped KTX2 (129.879932ms)
+✔ render packets omit hidden enemies and never carry executable simulation state (2.703471ms)
+✔ worker screen projection matches the real isometric camera ray and terrain (83.52172ms)
+✔ GPU timing never reads an unavailable result and returns leases to the fixed pool (0.743344ms)
+✔ terrain streaming discards a cancelled region before adopting the current region (106.332262ms)
+✔ team combat still downs for 25s, while explicit server surrender settles immediately once (4.63826ms)
+✔ three actual Hunyuan staff LODs have PBR, a real 4cm grip, correct length and attachment pivots (55.590739ms)
+✔ all thirty finger joints and both toes influence actual high LOD vertices (142.086015ms)
+✔ actual entrance clip plants the left palm and fingers fit the staff instead of being decorative nodes (125.699028ms)
+✔ entrance phases preserve the exact grip/impact times and support dropped frames (0.437125ms)
+✔ Blender vine meshes have real volume, UVs, smooth normals and mobile triangle budgets (11.005308ms)
+✔ manual trial applies only to H01 base costume and keeps other loadouts (0.688562ms)
+✔ actual imported LODs match source receipt and embed all three PBR channels (30.339005ms)
+✔ real embedded animations deform hands and legs, cloned actors remain independent (99.231774ms)
+ℹ tests 19
+ℹ suites 0
+ℹ pass 19
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 588.714288

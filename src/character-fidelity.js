@@ -1,6 +1,16 @@
 import * as THREE from 'three';
+import {studioIblUrl,studioIblInfo} from './studio-ibl-assets.js';
 import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
-const environments=new WeakMap();
+const environments=new WeakMap();let bakedLighting;
+export async function configureBakedCharacterEnvironment(renderer){
+ if(!bakedLighting)bakedLighting=fetch(studioIblUrl).then(response=>{if(!response.ok)throw Error('Studio IBL HTTP '+response.status);return response.arrayBuffer();});
+ const buffer=await bakedLighting;
+ const texture=new THREE.DataTexture(new Uint16Array(buffer),studioIblInfo.width,studioIblInfo.height,THREE.RGBAFormat,THREE.HalfFloatType);
+ texture.mapping=THREE.CubeUVReflectionMapping;texture.minFilter=texture.magFilter=THREE.LinearFilter;
+ texture.generateMipmaps=false;texture.colorSpace=THREE.LinearSRGBColorSpace;texture.needsUpdate=true;
+ environments.set(renderer,{texture,dispose:()=>texture.dispose(),baked:true});
+}
+
 
 export function enhanceCharacterVisualFidelity(modelRoot,renderer,scene){
  renderer.outputColorSpace=THREE.SRGBColorSpace;
@@ -24,6 +34,7 @@ export function enhanceCharacterVisualFidelity(modelRoot,renderer,scene){
   node.receiveShadow=false;
   for(const material of Array.isArray(node.material)?node.material:[node.material]){
    material.vertexColors=false;
+   if(node.isSkinnedMesh){material.metalness=Math.min(material.metalness??0,.05);material.emissiveMap=material.map;material.emissive.setHex(0xffffff);material.emissiveIntensity=.28;}
    if(material.map)material.map.colorSpace=THREE.SRGBColorSpace;
    for(const key of ['normalMap','roughnessMap','metalnessMap','aoMap'])if(material[key])material[key].colorSpace=THREE.NoColorSpace;
    if(material.emissiveMap)material.emissiveMap.colorSpace=THREE.SRGBColorSpace;
@@ -34,12 +45,12 @@ export function enhanceCharacterVisualFidelity(modelRoot,renderer,scene){
    material.needsUpdate=true;
   }
  });
- modelRoot.userData.fidelity={srgb:true,studioIBL:true,vertexColorsDisabled:true,normalStrength:.35};
+ modelRoot.userData.fidelity={srgb:true,studioIBL:true,vertexColorsDisabled:true,normalStrength:.35,bakedStudioIBL:!!environment.baked};
  return modelRoot;
 }
 export function createCharacterStudio(){
  const root=new THREE.Group();root.name='H01_StudioLighting';
- for(const [color,intensity,position] of [[0xfff1df,2.4,[3,7,8]],[0xe2f5ff,2.0,[-4,4,7]],[0x98ffd7,1.2,[4,6,-4]]]){
+ for(const [color,intensity,position] of [[0xfff1df,2.4,[3,7,8]],[0xe2f5ff,2.0,[-4,4,7]],[0x98ffd7,1.2,[4,6,-4]],[0xe9ffef,.55,[0,1.5,5]]]){
   const light=new THREE.DirectionalLight(color,intensity);light.position.set(...position);light.layers.set(2);
   light.target.position.set(0,3,0);root.add(light,light.target);
  }

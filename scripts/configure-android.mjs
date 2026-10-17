@@ -15,6 +15,9 @@ if (!manifest.includes("vn.hongioi.sinhton.TRUSTED_SIGNING_SHA256"))
     "</application>",
     `    <meta-data android:name="vn.hongioi.sinhton.TRUSTED_SIGNING_SHA256" android:resource="@string/hg_signing_sha256" />\n    </application>`,
   );
+manifest=manifest.replace(/<(application|activity)([^>]*)>/g,(tag,name,attrs)=>'<'+name+attrs.replace(/\s+android:hardwareAccelerated="[^"]*"/g,'')+' android:hardwareAccelerated="true">');
+manifest=manifest.replace(/(android:hardwareAccelerated="true"\s*){2,}/g,'android:hardwareAccelerated="true" ');
+manifest=manifest.replace(/<application([^>]*)>/,(_,attrs)=>'<application'+attrs.replace(/\s+android:largeHeap="[^"]*"/g,'')+' android:largeHeap="true">');
 await writeFile(`${path}/AndroidManifest.xml`, manifest);
 await mkdir(`${path}/java/vn/hongioi/sinhton`, { recursive: true });
 await copyFile(
@@ -61,6 +64,7 @@ import android.view.View;
 import android.webkit.JavascriptInterface;
 import com.getcapacitor.BridgeActivity;
 public class MainActivity extends BridgeActivity {
+  private boolean hasResumed=false;
   @Override public void onCreate(Bundle state) {
     // Compile-time DEBUG is intentional: changing only the manifest's debug flag
     // must not turn off release certificate verification.
@@ -70,9 +74,22 @@ public class MainActivity extends BridgeActivity {
     setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
     getBridge().getWebView().getSettings().setJavaScriptEnabled(true);
     getBridge().getWebView().getSettings().setDomStorageEnabled(true);
+    getBridge().getWebView().setLayerType(View.LAYER_TYPE_HARDWARE,null);
+    getBridge().getWebView().setBackgroundColor(android.graphics.Color.rgb(16,43,50));
+    getBridge().getWebView().getSettings().setCacheMode(android.webkit.WebSettings.LOAD_DEFAULT);
+    getBridge().getWebView().getSettings().setRenderPriority(android.webkit.WebSettings.RenderPriority.HIGH);
     getBridge().getWebView().setFilterTouchesWhenObscured(true);
     getWindow().addFlags(android.view.WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     immersive();
+  }
+  @Override public void onPause(){
+    if(getBridge()!=null)getBridge().getWebView().evaluateJavascript("window.dispatchEvent(new Event('hon-gioi-native-pause'))",null);
+    super.onPause();
+  }
+  @Override public void onResume(){
+    super.onResume();
+    if(hasResumed&&getBridge()!=null)getBridge().getWebView().evaluateJavascript("window.dispatchEvent(new Event('hon-gioi-native-resume'))",null);
+    hasResumed=true;
   }
   public static final class NativeSecurityBridge {
     private final Context context;

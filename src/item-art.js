@@ -1,3 +1,4 @@
+import {bakedUiAssetUrls} from './baked-ui-assets.js';
 import {
   HEROES,
   SKILLS,
@@ -2374,7 +2375,7 @@ export const generateMasterworkItemIcon = (
   rarity,
   element,
   size = 512,
-) => masterworkAssets.generate(type, id, rarity, element, size);
+) => (size===512&&bakedUiAssetUrls[type+':'+numberId(id)]) || masterworkAssets.generate(type, id, rarity, element, size);
 export function skillIcon(hero, slot) {
   const h = typeof hero === "number" ? hero : numberId(hero) - 1;
   return generateMasterworkItemIcon(
