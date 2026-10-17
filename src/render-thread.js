@@ -29,7 +29,7 @@ export class RenderThread{
   };
   worker.onerror=event=>this.fail(event.message);
  }
- apply(data){if(!data)return;this.diagnostic=data;this.previewAsset=data.previewAsset;this.scenery.ready=data.sceneryReady;this.quality=data.quality;this.camera.position=data.camera;this.focus=data.focus;this.basis=data.basis;this.batching=data.batching;this.renderer.info={render:data.render,memory:data.memory};this.renderMetrics.fps=data.fps;}
+ apply(data){if(!data)return;this.diagnostic=data;this.previewAsset=data.previewAsset;this.loadingCharacter=!!data.loadingCharacter;this.scenery.ready=data.sceneryReady;this.quality=data.quality;this.camera.position=data.camera;this.focus=data.focus;this.basis=data.basis;this.batching=data.batching;this.renderer.info={render:data.render,memory:data.memory};this.renderMetrics.fps=data.fps;}
  fail(error){if(this.failed)return;this.failed=true;for(const pending of this.pending.values()){clearTimeout(pending.timer);pending.reject(Error(error));}this.pending.clear();if(this.ready&&this.canvas)window.dispatchEvent(new CustomEvent('hon-gioi-render-error',{detail:error}));}
  request(type,args={},transfer=[]){const id=++this.sequence;return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{this.pending.delete(id);reject(Error('Render worker timeout: '+(args.method??type)));},120000);this.pending.set(id,{resolve,reject,timer});this.worker.postMessage({type,id,...args},transfer);});}
  command(method,args=[]){this.worker.postMessage({type:'command',method,args,epoch:this.epoch});}

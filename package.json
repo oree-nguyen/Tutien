@@ -35,7 +35,8 @@
     "verify:overhaul": "node scripts/verify-overhaul.mjs",
     "assets:optimize": "node scripts/optimize-models.mjs",
     "assets:basis": "node scripts/copy-basis.mjs",
-    "assets:verify": "node --test tests/model-pipeline.test.js"
+    "assets:verify": "node --test tests/model-pipeline.test.js tests/model-template-cache.test.js tests/shader-warmup.test.js tests/baked-character-pbr.test.js",
+    "assets:bake:characters": "node scripts/bake-character-pbr.mjs"
   },
   "dependencies": {
     "@capacitor/android": "7.6.9",

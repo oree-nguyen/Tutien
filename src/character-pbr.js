@@ -400,6 +400,15 @@ export class ProceduralCharacterPBRGenerator {
     this.engravedMaterials = new Map();
     this.engravedGeometry = new WeakMap();
   }
+  installBaked(key,maps,size){
+    if(this.registry.has(key))return false;
+    const parsed=JSON.parse(key),detail=parsed.requestedTier;
+    if(size!==DIMENSIONS[detail]||channels.some(name=>!maps[name]?.isTexture))throw Error('Invalid baked character atlas');
+    const {requestedTier,...spec}=parsed;
+    const entry={key,spec,maps,size,tier:detail,requestedTier,baked:true};
+    for(const tex of Object.values(maps))this.entriesByTexture.set(tex,entry);
+    this.registry.set(key,entry);return true;
+  }
   generateSilkBrocadeTexture(...args){return perfMeasure('texture:character-five-maps',()=>this.generateSilkBrocadeTextureMeasured(...args),{detail:args[4]?.detail??'high'});}
   generateSilkBrocadeTextureMeasured(
     primaryHex,
@@ -461,7 +470,7 @@ export class ProceduralCharacterPBRGenerator {
     };
   }
   #resize(entry, size) {
-    if (entry.size === size) return;
+    if (entry.baked || entry.size === size) return;
     const images = drawImages(size, entry.spec);
     for (const name of channels) {
       const t = entry.maps[name];

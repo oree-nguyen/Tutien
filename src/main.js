@@ -100,8 +100,8 @@ function updateAssetLoadingIndicator(){
  const el=document.getElementById('assetLoadStatus');if(!el)return;
  const asset=world?.previewAsset??world?.preview?.getObjectByName(loadout.hero===1?'manualHero_H02_C0':'manualHero_H01_C0')?.userData.manualAsset;
  const expected=loadout.hero===1?'H02-C0':'H01-C0';const visible=asset?.id===expected&&asset.status==='loaded'&&(asset.entrance?.visible!==false)&&(asset.entrance?.heroVisible!==false);
- const hidden=!!match||![0,1].includes(loadout.hero)||loadout.costume!==0||visible;if(el.hidden!==hidden)el.hidden=hidden;
- const text=asset?.status==='failed'?`Không nạp được model — chạm ${loadout.hero===1?'Trạch':'Dật'} để thử lại.`:(loadout.hero===1?'Đang nạp Hàn Trạch và Chấn Nhạc Chùy…':'Đang nạp Lâm Dật và Mộc Tinh Trượng…');
+ const hidden=!!match||(world?.loadingCharacter?false:(![0,1].includes(loadout.hero)||loadout.costume!==0||visible));if(el.hidden!==hidden)el.hidden=hidden;
+ const text=world?.loadingCharacter?`Đang nạp ${HEROES[loadout.hero].name}…`:asset?.status==='failed'?`Không nạp được model — chạm ${loadout.hero===1?'Trạch':'Dật'} để thử lại.`:(loadout.hero===1?'Đang nạp Hàn Trạch và Chấn Nhạc Chùy…':'Đang nạp Lâm Dật và Mộc Tinh Trượng…');
  if(el.textContent!==text)el.textContent=text;
 }
 const lootArt = (item, className = "item-art") =>
@@ -435,6 +435,7 @@ function renderHub() {
   safety.textContent = "THIÊN ĐẠO HỘ GIỚI";
   safety.onclick = showSecurity;
   $(".footer-links").append(safety);
+  const perfButton=document.createElement('button');perfButton.className='ghost';perfButton.id='perfDebug';perfButton.textContent='ĐO HIỆU NĂNG';perfButton.onclick=showPerfDiagnostics;$('.footer-links').append(perfButton);
   const soundButton = document.createElement("button");
   soundButton.className = "ghost";
   soundButton.textContent = audio.enabled ? "ÂM THANH: BẬT" : "ÂM THANH: TẮT";
@@ -526,6 +527,20 @@ function closeModal() {
   appraisalTimer = null;
   $("#modalRoot").innerHTML = "";
   input.attack = false;
+}
+function showPerfDiagnostics(){
+ const enabled=new URLSearchParams(location.search).get('perf')==='1';
+ showModal('Đo hiệu năng',`<p class="intro">${enabled?'Đang ghi số đo.':'Chưa bật ghi số đo.'} Bật đo sẽ tải lại sảnh. Chọn nhân vật hoặc mở cửa hàng/túi đồ, đợi ít nhất 5 giây rồi lấy báo cáo. Số đo này thuộc thiết bị đang chạy.</p><button id="perfToggle">${enabled?'TẮT':'BẬT'} ĐO VÀ TẢI LẠI SẢNH</button><button id="perfCollect">LẤY BÁO CÁO</button><textarea id="perfReport" aria-label="Báo cáo hiệu năng" readonly style="width:100%;height:220px;margin-top:12px"></textarea>`,()=>{
+  $('#perfToggle').onclick=()=>{const url=new URL(location.href);if(enabled)url.searchParams.delete('perf');else url.searchParams.set('perf','1');location.href=url.href;};
+  $('#perfCollect').onclick=async()=>{
+   const target=$('#perfReport');target.value='Đang lấy số đo…';
+   try{
+    const diagnostic=await world?.inspect?.();
+    target.value=JSON.stringify({build:window.__HON_GIOI__.build,enabled,backend:world?.backend,renderer:diagnostic?{render:diagnostic.render,memory:diagnostic.memory}:world?.renderer?.info?{render:world.renderer.info.render,memory:world.renderer.info.memory}:null,perf:diagnostic?.perf??globalThis.__HG_PERF__?.snapshot?.()??null},null,2);
+    target.focus();target.select();
+   }catch(error){target.value='Không lấy được số đo: '+error.message;}
+  };
+ });
 }
 function showSecurity() {
   const security = window.__HON_GIOI__?.security;

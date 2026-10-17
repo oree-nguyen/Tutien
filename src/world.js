@@ -1,3 +1,4 @@
+import {ensureBakedCharacter,prepareBakedCharacter} from './baked-character-pbr.js';
 import {releaseManualAssets} from './manual-asset-cache.js';
 import{perfFrame,perfBeginAppearance}from'./perf-debug.js';
 import * as THREE from "three";
@@ -218,8 +219,9 @@ export class World {
     this.sun.visible=this.mapRim.visible=this.mapAmbient.visible=true;this.weaponLight.visible=this.quality==='ultra';
     try{
       await warmSceneMaterials(this.renderer,this.scenery.battlefield,this.camera,this.scene);
-      check();for(let hero=1;hero<12;hero++){check();const templateActor={id:'prewarm',kind:'hero',hero,skin:0,costume:0,rings:[]};if(!usesManualHero(templateActor))visualTemplate(templateActor,'low');await nextPaint();}
+      check();for(let hero=1;hero<12;hero++){check();const templateActor={id:'prewarm',kind:'hero',hero,skin:0,costume:0,rings:[]};if(!usesManualHero(templateActor)){await prepareBakedCharacter(templateActor,'low');check();visualTemplate(templateActor,'low');}await nextPaint();}
       const actor={...appearance,id:'prewarm',kind:'hero',team:0},detail=usesManualHero(actor)?'mobile':'medium';
+      if(!usesManualHero(actor))await prepareBakedCharacter(actor,detail);check();
       const visual=visualTemplate(actor,detail);configureManualH01(visual,this.renderer,this.scene,this.camera);
       if(visual.userData.manualHunyuan){
         const started=performance.now();while(!['loaded','failed'].includes(visual.userData.manualAsset.status)){if(epoch!==this.prepareEpoch){disposeManualH01(visual);throw Error('Đã hủy tải nhân vật');}if(performance.now()-started>45000){disposeManualH01(visual);throw Error('Không chuẩn bị được nhân vật xuất chiến');}await nextPaint();}
@@ -447,6 +449,10 @@ export class World {
     this.sun.target.position.copy(this.focus);
     if (!match) {
       if (!this.preview) {
+        const pending=usesManualHero({hero:hubHero,...appearance,kind:'hero'})?null:ensureBakedCharacter({hero:hubHero,...appearance},'medium');
+        this.loadingCharacter=!!pending&&pending.status==='loading';
+        if(this.loadingCharacter){this.renderer.render(this.scene,this.camera);return;}
+
         this.previewHero=`${hubHero}:${appearance.skin??0}:${appearance.costume??0}:${appearance.rings?.some(id=>[6,8,9,12].includes(id))?'black':'purple'}`;
         this.preview = this.character({
           id: "preview",
