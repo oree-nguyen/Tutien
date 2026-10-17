@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
+    "build": "npm run assets:optimize && vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js",
     "android:add": "cap add android && node scripts/configure-android.mjs",
@@ -32,7 +32,10 @@
     "verify:master": "node scripts/verify-master.mjs",
     "android:hardening": "node scripts/native-hardening.mjs",
     "test:overhaul-ui": "node tests/overhaul-browser.mjs",
-    "verify:overhaul": "node scripts/verify-overhaul.mjs"
+    "verify:overhaul": "node scripts/verify-overhaul.mjs",
+    "assets:optimize": "node scripts/optimize-models.mjs",
+    "assets:basis": "node scripts/copy-basis.mjs",
+    "assets:verify": "node --test tests/model-pipeline.test.js"
   },
   "dependencies": {
     "@capacitor/android": "7.6.9",
@@ -44,6 +47,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "7.6.9",
+    "@gltf-transform/cli": "4.5.1",
     "@gltf-transform/core": "^4.5.1",
     "@gltf-transform/extensions": "^4.5.1",
     "@gltf-transform/functions": "^4.5.1",

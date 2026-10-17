@@ -1,0 +1,3 @@
+import{mkdir,readFile,writeFile}from'node:fs/promises';import{createHash}from'node:crypto';
+export async function copyBasis(){await mkdir('public/basis',{recursive:true});const hashes={};for(const file of['basis_transcoder.js','basis_transcoder.wasm','README.md']){const bytes=await readFile('node_modules/three/examples/jsm/libs/basis/'+file);let previous;try{previous=await readFile('public/basis/'+file);}catch{}if(!previous?.equals(bytes))await writeFile('public/basis/'+file,bytes);hashes[file]=createHash('sha256').update(bytes).digest('hex');}return hashes;}
+if(process.argv[1]?.endsWith('/copy-basis.mjs'))console.log(JSON.stringify(await copyBasis()));

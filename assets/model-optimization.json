@@ -1,0 +1,174 @@
+{
+  "version": 1,
+  "roles": {
+    "character": {
+      "maxTextureSize": 1024
+    },
+    "item": {
+      "maxTextureSize": 512
+    },
+    "unmapped": {
+      "maxTextureSize": 512
+    }
+  },
+  "colorEncoding": "etc1s",
+  "dataEncoding": "uastc",
+  "colorQuality": 255,
+  "uastcQuality": 2,
+  "quantizationBits": 16,
+  "models": [
+    {
+      "key": "high",
+      "file": "H01-C0_lam_dat_thanh_moc_y.glb",
+      "seed": "public/models/h01-c0/h01-c0-high.glb",
+      "role": "character",
+      "requiredClips": [
+        "Attack",
+        "Cast",
+        "Dash",
+        "Entrance",
+        "Idle",
+        "Run"
+      ],
+      "requiredBones": 52
+    },
+    {
+      "key": "medium",
+      "file": "H01-C0_lam_dat_thanh_moc_y_medium.glb",
+      "seed": "public/models/h01-c0/h01-c0-medium.glb",
+      "role": "character",
+      "requiredClips": [
+        "Attack",
+        "Cast",
+        "Dash",
+        "Entrance",
+        "Idle",
+        "Run"
+      ],
+      "requiredBones": 52
+    },
+    {
+      "key": "low",
+      "file": "H01-C0_lam_dat_thanh_moc_y_low.glb",
+      "seed": "public/models/h01-c0/h01-c0-low.glb",
+      "role": "character",
+      "requiredClips": [
+        "Attack",
+        "Cast",
+        "Dash",
+        "Entrance",
+        "Idle",
+        "Run"
+      ],
+      "requiredBones": 52
+    },
+    {
+      "key": "mobile",
+      "file": "H01-C0_lam_dat_thanh_moc_y_mobile.glb",
+      "seed": "public/models/h01-c0/h01-c0-mobile.glb",
+      "role": "character",
+      "requiredClips": [
+        "Attack",
+        "Cast",
+        "Dash",
+        "Entrance",
+        "Idle",
+        "Run"
+      ],
+      "requiredBones": 52
+    },
+    {
+      "key": "staff-high",
+      "file": "H01-W0_moc_tinh_truong_nguyen_ban.glb",
+      "seed": "public/models/h01-staff/h01-staff-high.glb",
+      "role": "item",
+      "requiredClips": [],
+      "requiredBones": 0
+    },
+    {
+      "key": "staff-medium",
+      "file": "H01-W0_moc_tinh_truong_nguyen_ban_medium.glb",
+      "seed": "public/models/h01-staff/h01-staff-medium.glb",
+      "role": "item",
+      "requiredClips": [],
+      "requiredBones": 0
+    },
+    {
+      "key": "staff-low",
+      "file": "H01-W0_moc_tinh_truong_nguyen_ban_low.glb",
+      "seed": "public/models/h01-staff/h01-staff-low.glb",
+      "role": "item",
+      "requiredClips": [],
+      "requiredBones": 0
+    },
+    {
+      "key": "h02-body-high",
+      "file": "H02-C0_han_trach_son_thiet_giap.glb",
+      "seed": "public/models/h02-body/h02-body-high.glb",
+      "role": "character",
+      "requiredClips": [
+        "Attack",
+        "Cast",
+        "Dash",
+        "Entrance",
+        "Idle",
+        "Run"
+      ],
+      "requiredBones": 52
+    },
+    {
+      "key": "h02-body-medium",
+      "file": "H02-C0_han_trach_son_thiet_giap_medium.glb",
+      "seed": "public/models/h02-body/h02-body-medium.glb",
+      "role": "character",
+      "requiredClips": [
+        "Attack",
+        "Cast",
+        "Dash",
+        "Entrance",
+        "Idle",
+        "Run"
+      ],
+      "requiredBones": 52
+    },
+    {
+      "key": "h02-body-low",
+      "file": "H02-C0_han_trach_son_thiet_giap_low.glb",
+      "seed": "public/models/h02-body/h02-body-low.glb",
+      "role": "character",
+      "requiredClips": [
+        "Attack",
+        "Cast",
+        "Dash",
+        "Entrance",
+        "Idle",
+        "Run"
+      ],
+      "requiredBones": 52
+    },
+    {
+      "key": "h02-hammer-high",
+      "file": "H02-W0_chan_nhac_chuy_nguyen_ban.glb",
+      "seed": "public/models/h02-hammer/h02-hammer-high.glb",
+      "role": "item",
+      "requiredClips": [],
+      "requiredBones": 0
+    },
+    {
+      "key": "h02-hammer-medium",
+      "file": "H02-W0_chan_nhac_chuy_nguyen_ban_medium.glb",
+      "seed": "public/models/h02-hammer/h02-hammer-medium.glb",
+      "role": "item",
+      "requiredClips": [],
+      "requiredBones": 0
+    },
+    {
+      "key": "h02-hammer-low",
+      "file": "H02-W0_chan_nhac_chuy_nguyen_ban_low.glb",
+      "seed": "public/models/h02-hammer/h02-hammer-low.glb",
+      "role": "item",
+      "requiredClips": [],
+      "requiredBones": 0
+    }
+  ]
+}

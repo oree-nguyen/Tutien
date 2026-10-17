@@ -1,0 +1,914 @@
+{
+  "version": 1,
+  "tool": "toktx v4.4.2",
+  "basis": {
+    "basis_transcoder.js": "48a0ef319a28bf0224ee88ded34f74eaf97c175bba9eb18b47fb9720510ad6c4",
+    "basis_transcoder.wasm": "79ae97d781e10a566659c689b7bb1de91726453f55f9f5e3bcc07a4e3904070f",
+    "README.md": "930b11bbbb742b2525491b0964f0462d63d8b21383c0623ec4c98c43d53723c6"
+  },
+  "entries": [
+    {
+      "file": "H01-C0_lam_dat_thanh_moc_y.glb",
+      "key": "high",
+      "role": "character",
+      "sourceHash": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
+      "sourceBytes": 1529584,
+      "configurationHash": "23e5ac7c66ff751b83d8e704522e541385488bd80bd7bdcb2a262001e11aa2c9",
+      "sha256": "ed1e3eefb96148deffccfdf146137eac7e246c3aee6180715da37a41371076d7",
+      "bytes": 2042368,
+      "triangles": 60000,
+      "bones": 52,
+      "animations": [
+        {
+          "name": "Attack",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 480
+        },
+        {
+          "name": "Cast",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 508
+        },
+        {
+          "name": "Dash",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 430
+        },
+        {
+          "name": "Entrance",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 729
+        },
+        {
+          "name": "Idle",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 345
+        },
+        {
+          "name": "Run",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 588
+        }
+      ],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "high_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 509880
+        },
+        {
+          "name": "high_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 144634
+        },
+        {
+          "name": "high_metallic-high_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 512896
+        }
+      ]
+    },
+    {
+      "file": "H01-C0_lam_dat_thanh_moc_y_low.glb",
+      "key": "low",
+      "role": "character",
+      "sourceHash": "c8f7666aaa45f2c3ba8ac529510a5bb06667d0e083e743ab72aa25dc536be3fe",
+      "sourceBytes": 286836,
+      "configurationHash": "23e5ac7c66ff751b83d8e704522e541385488bd80bd7bdcb2a262001e11aa2c9",
+      "sha256": "bd79d610050d493faf27233536164ec0a228c65ad4446a74bb0f139022573e88",
+      "bytes": 378264,
+      "triangles": 900,
+      "bones": 52,
+      "animations": [
+        {
+          "name": "Attack",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 480
+        },
+        {
+          "name": "Cast",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 508
+        },
+        {
+          "name": "Dash",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 430
+        },
+        {
+          "name": "Entrance",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 729
+        },
+        {
+          "name": "Idle",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 345
+        },
+        {
+          "name": "Run",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 588
+        }
+      ],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "low_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 76637
+        },
+        {
+          "name": "low_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 27057
+        },
+        {
+          "name": "low_metallic-low_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 73655
+        }
+      ]
+    },
+    {
+      "file": "H01-C0_lam_dat_thanh_moc_y_medium.glb",
+      "key": "medium",
+      "role": "character",
+      "sourceHash": "7cb641211b1d89b8a35612eb0f4d55bb0446ff2052683b19bb4e0632b18b3341",
+      "sourceBytes": 613836,
+      "configurationHash": "23e5ac7c66ff751b83d8e704522e541385488bd80bd7bdcb2a262001e11aa2c9",
+      "sha256": "d365c0ecfbf215f2ccca9452ae8709a532fc7d2fff512b700df9bbccf6a08245",
+      "bytes": 925320,
+      "triangles": 9000,
+      "bones": 52,
+      "animations": [
+        {
+          "name": "Attack",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 480
+        },
+        {
+          "name": "Cast",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 508
+        },
+        {
+          "name": "Dash",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 430
+        },
+        {
+          "name": "Entrance",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 729
+        },
+        {
+          "name": "Idle",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 345
+        },
+        {
+          "name": "Run",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 588
+        }
+      ],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "medium_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 253464
+        },
+        {
+          "name": "medium_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 79724
+        },
+        {
+          "name": "medium_metallic-medium_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 240690
+        }
+      ]
+    },
+    {
+      "file": "H01-C0_lam_dat_thanh_moc_y_mobile.glb",
+      "key": "mobile",
+      "role": "character",
+      "sourceHash": "386f350da4b67949f46b515fcb8af96993baaf061fb386f57b305e1bf93ccf50",
+      "sourceBytes": 849352,
+      "configurationHash": "23e5ac7c66ff751b83d8e704522e541385488bd80bd7bdcb2a262001e11aa2c9",
+      "sha256": "efe93494f108cfee7b3d219c12d9f584f5089a2e29f42670668c65f40953416b",
+      "bytes": 1711812,
+      "triangles": 15000,
+      "bones": 52,
+      "animations": [
+        {
+          "name": "Attack",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 480
+        },
+        {
+          "name": "Cast",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 508
+        },
+        {
+          "name": "Dash",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 430
+        },
+        {
+          "name": "Entrance",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 729
+        },
+        {
+          "name": "Idle",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 345
+        },
+        {
+          "name": "Run",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 588
+        }
+      ],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "high_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 538548
+        },
+        {
+          "name": "high_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 151176
+        },
+        {
+          "name": "high_metallic-high_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 563774
+        }
+      ]
+    },
+    {
+      "file": "H01-W0_moc_tinh_truong_nguyen_ban.glb",
+      "key": "staff-high",
+      "role": "item",
+      "sourceHash": "a0cb241905b1aec8b29e43be7aebfea7a48a29a0cb2d0cc268e02cd15328840a",
+      "sourceBytes": 747528,
+      "configurationHash": "3afef29c35ba70be97f7f83821e093caf42d00b5965c6c0c30fe818a157a5119",
+      "sha256": "4cdabc83eb2b4224d2074b72f91abb48757bcca81afdc0479359238d4da06f2d",
+      "bytes": 651348,
+      "triangles": 12000,
+      "bones": 0,
+      "animations": [],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "high_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 243445
+        },
+        {
+          "name": "high_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 82538
+        },
+        {
+          "name": "high_metallic-high_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 168010
+        }
+      ]
+    },
+    {
+      "file": "H01-W0_moc_tinh_truong_nguyen_ban_low.glb",
+      "key": "staff-low",
+      "role": "item",
+      "sourceHash": "633edc5bb44b74f4416cdd86fcf883770e8dcdf79587301a01c22b576e067f57",
+      "sourceBytes": 71468,
+      "configurationHash": "3afef29c35ba70be97f7f83821e093caf42d00b5965c6c0c30fe818a157a5119",
+      "sha256": "9cc5c44a9e2915591326454693242349004e8464054f27da32d46cb2f56b0ea6",
+      "bytes": 133296,
+      "triangles": 795,
+      "bones": 0,
+      "animations": [],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "low_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 59095
+        },
+        {
+          "name": "low_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 23138
+        },
+        {
+          "name": "low_metallic-low_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 30663
+        }
+      ]
+    },
+    {
+      "file": "H01-W0_moc_tinh_truong_nguyen_ban_medium.glb",
+      "key": "staff-medium",
+      "role": "item",
+      "sourceHash": "01f2755f9a7ea9bf7afabc594566f155938b547d55ae66335b66445b54b602d2",
+      "sourceBytes": 305904,
+      "configurationHash": "3afef29c35ba70be97f7f83821e093caf42d00b5965c6c0c30fe818a157a5119",
+      "sha256": "bdb9daa382f9852ca0b0ae2f838a1488d4a9167489c6506f08e299a6e6efc297",
+      "bytes": 662632,
+      "triangles": 4000,
+      "bones": 0,
+      "animations": [],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "medium_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 297056
+        },
+        {
+          "name": "medium_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 104923
+        },
+        {
+          "name": "medium_metallic-medium_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 189795
+        }
+      ]
+    },
+    {
+      "file": "H02-C0_han_trach_son_thiet_giap.glb",
+      "key": "h02-body-high",
+      "role": "character",
+      "sourceHash": "6ba32bc115ac5978eb55b9830828998aa942f5f5e7a4e5f4b2b89546b19b88e5",
+      "sourceBytes": 1007776,
+      "configurationHash": "23e5ac7c66ff751b83d8e704522e541385488bd80bd7bdcb2a262001e11aa2c9",
+      "sha256": "6582d8f3fc1b24e200b4e5b3c58f3542f1f9d2c738598aa1a1032f468faf6d70",
+      "bytes": 1601380,
+      "triangles": 30000,
+      "bones": 52,
+      "animations": [
+        {
+          "name": "Attack",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 480
+        },
+        {
+          "name": "Cast",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 508
+        },
+        {
+          "name": "Dash",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 430
+        },
+        {
+          "name": "Entrance",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 1140
+        },
+        {
+          "name": "Idle",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 343
+        },
+        {
+          "name": "Run",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 585
+        }
+      ],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "texture_pbr_20250901_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 424780
+        },
+        {
+          "name": "texture_pbr_20250901",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 250628
+        },
+        {
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 221806
+        }
+      ]
+    },
+    {
+      "file": "H02-C0_han_trach_son_thiet_giap_low.glb",
+      "key": "h02-body-low",
+      "role": "character",
+      "sourceHash": "973959437ff517d4944741bb9a4b94e8be5b05dcf0f537aa35e2a9d14da1aa1f",
+      "sourceBytes": 257880,
+      "configurationHash": "23e5ac7c66ff751b83d8e704522e541385488bd80bd7bdcb2a262001e11aa2c9",
+      "sha256": "3f75456175fa78c787fed2e5bff588f2fc9d37eb1928ddc7f6aca14ffbe8d873",
+      "bytes": 339528,
+      "triangles": 1000,
+      "bones": 52,
+      "animations": [
+        {
+          "name": "Attack",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 480
+        },
+        {
+          "name": "Cast",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 508
+        },
+        {
+          "name": "Dash",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 430
+        },
+        {
+          "name": "Entrance",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 1140
+        },
+        {
+          "name": "Idle",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 343
+        },
+        {
+          "name": "Run",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 585
+        }
+      ],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "low_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 82517
+        },
+        {
+          "name": "low_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 28254
+        },
+        {
+          "name": "low_metallic-low_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 27670
+        }
+      ]
+    },
+    {
+      "file": "H02-C0_han_trach_son_thiet_giap_medium.glb",
+      "key": "h02-body-medium",
+      "role": "character",
+      "sourceHash": "4361622d2fd5d94449d351e951d60c6010fb4481c38ab8e9d673d9cae1d568c4",
+      "sourceBytes": 816956,
+      "configurationHash": "23e5ac7c66ff751b83d8e704522e541385488bd80bd7bdcb2a262001e11aa2c9",
+      "sha256": "5f1e899f71171b8f522e93b64fa6eaba223b87155b561948c2f11593332ac77d",
+      "bytes": 1410844,
+      "triangles": 15000,
+      "bones": 52,
+      "animations": [
+        {
+          "name": "Attack",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 480
+        },
+        {
+          "name": "Cast",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 508
+        },
+        {
+          "name": "Dash",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 430
+        },
+        {
+          "name": "Entrance",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 1140
+        },
+        {
+          "name": "Idle",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 343
+        },
+        {
+          "name": "Run",
+          "samplers": 156,
+          "channels": 156,
+          "keyframes": 585
+        }
+      ],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "texture_pbr_20250901_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 424780
+        },
+        {
+          "name": "texture_pbr_20250901",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 250628
+        },
+        {
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 1024,
+          "height": 1024,
+          "mipLevels": 11,
+          "bytes": 221806
+        }
+      ]
+    },
+    {
+      "file": "H02-W0_chan_nhac_chuy_nguyen_ban.glb",
+      "key": "h02-hammer-high",
+      "role": "item",
+      "sourceHash": "d87a761b288aff2a8c412dca046f5dec5ac84dd9ce68141765a959d45510cdda",
+      "sourceBytes": 349040,
+      "configurationHash": "3afef29c35ba70be97f7f83821e093caf42d00b5965c6c0c30fe818a157a5119",
+      "sha256": "ad7e90bb338661b0199f94ac1703dd819e1959d44f299f91e363bbe5c3fa9654",
+      "bytes": 750668,
+      "triangles": 8000,
+      "bones": 0,
+      "animations": [],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "high_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 273179
+        },
+        {
+          "name": "high_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 94278
+        },
+        {
+          "name": "high_metallic-high_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 263584
+        }
+      ]
+    },
+    {
+      "file": "H02-W0_chan_nhac_chuy_nguyen_ban_low.glb",
+      "key": "h02-hammer-low",
+      "role": "item",
+      "sourceHash": "7f62b928965b9f58e9e4ba1dbaa52b73fce54298687e3d0be17838b765122ec6",
+      "sourceBytes": 87528,
+      "configurationHash": "3afef29c35ba70be97f7f83821e093caf42d00b5965c6c0c30fe818a157a5119",
+      "sha256": "71bd459586211826651acc34100efe05cb40d0ef553af135ce12129931fc8d50",
+      "bytes": 196368,
+      "triangles": 600,
+      "bones": 0,
+      "animations": [],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "low_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 79719
+        },
+        {
+          "name": "low_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 30271
+        },
+        {
+          "name": "low_metallic-low_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 256,
+          "height": 256,
+          "mipLevels": 9,
+          "bytes": 72203
+        }
+      ]
+    },
+    {
+      "file": "H02-W0_chan_nhac_chuy_nguyen_ban_medium.glb",
+      "key": "h02-hammer-medium",
+      "role": "item",
+      "sourceHash": "c919a99e3d90842a916fc6168a79a505dbae6002e0b97c1b932a8a831d8122b1",
+      "sourceBytes": 289072,
+      "configurationHash": "3afef29c35ba70be97f7f83821e093caf42d00b5965c6c0c30fe818a157a5119",
+      "sha256": "ab4f34d1c8e231e21a894606bfbdd9f4bc28906197b2d4e9f04fed3d3122b2d0",
+      "bytes": 690776,
+      "triangles": 3000,
+      "bones": 0,
+      "animations": [],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "high_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 273179
+        },
+        {
+          "name": "high_albedo",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 94278
+        },
+        {
+          "name": "high_metallic-high_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 263584
+        }
+      ]
+    },
+    {
+      "file": "h01_moc_tinh_truong_raw.glb",
+      "key": null,
+      "role": "unmapped",
+      "sourceHash": "151893dacf08b1416c9ea573fd45b86c5c36c8c7b635a471d95e430547bd16e7",
+      "sourceBytes": 50401568,
+      "configurationHash": "846619cec76977f6a9849296a4d2d6af1289d167fabe1c9686df7518a13b6467",
+      "sha256": "d204811a9210a9f2bb0952c7634b6f3e6fcc48ed668022bf127df70748b9db93",
+      "bytes": 13183724,
+      "triangles": 619640,
+      "bones": 0,
+      "animations": [],
+      "morphTargets": [
+        0
+      ],
+      "animationDataUnchanged": true,
+      "textures": [
+        {
+          "name": "texture_pbr_20250901_normal",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 234876
+        },
+        {
+          "name": "texture_pbr_20250901",
+          "colorSpace": "srgb",
+          "encoding": "ETC1S",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 104917
+        },
+        {
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "colorSpace": "linear",
+          "encoding": "UASTC",
+          "width": 512,
+          "height": 512,
+          "mipLevels": 10,
+          "bytes": 135469
+        }
+      ]
+    }
+  ]
+}
