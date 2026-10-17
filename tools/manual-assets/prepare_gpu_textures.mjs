@@ -4,7 +4,7 @@ await Promise.all([MeshoptDecoder.ready,MeshoptEncoder.ready]);
 const executable=process.env.TOKTX??'/workspace/ktx-tools/KTX-Software-4.4.2-Linux-x86_64/bin/toktx';
 const tmp=await fs.mkdtemp(path.join(os.tmpdir(),'honyuan-gpu-'));const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder,'meshopt.encoder':MeshoptEncoder});const reports=[];
 try{
- for(const [family,detail,key]of[['h01-c0','mobile','mobile-gpu'],['h01-staff','medium','staff-medium-gpu']]){
+ for(const [family,detail,key]of(process.argv.includes('--h02-only')?[['h02-body','medium','h02-body-medium-gpu'],['h02-hammer','medium','h02-hammer-medium-gpu']]:[['h01-c0','mobile','mobile-gpu'],['h01-staff','medium','staff-medium-gpu']])){
   const prefix='public/models/'+family,source=JSON.parse(await fs.readFile(prefix+'/provenance.json')).levels.find(l=>l.detail===detail);
   const document=await io.read(prefix+'/'+source.file),root=document.getRoot();const colorTextures=new Set(root.listMaterials().flatMap(m=>[m.getBaseColorTexture(),m.getEmissiveTexture()]).filter(Boolean));
   let i=0;const textures=[];
@@ -19,5 +19,6 @@ try{
  }
  const {manualHeroAssetUrls:urls,manualHeroAssetHashes:hashes}=await import('../../src/manual-hero-assets.js?gpu='+Date.now());for(const r of reports){urls[r.key]='/models/'+r.family+'/'+r.file+'?v='+r.sha256.slice(0,12);hashes[r.key]=r.sha256;}
  await fs.writeFile('src/manual-hero-assets.js','export const manualHeroAssetUrls='+JSON.stringify(urls,null,2)+';\nexport const manualHeroAssetHashes='+JSON.stringify(hashes,null,2)+';\n');
- await fs.writeFile('public/models/gpu-texture-provenance.json',JSON.stringify({tool:'KTX-Software 4.4.2',reports},null,2)+'\n');console.log(JSON.stringify(reports,null,2));
+ const old=JSON.parse(await fs.readFile('public/models/gpu-texture-provenance.json').catch(()=>'{"reports":[]}'));const merged=[...old.reports.filter(r=>!reports.some(n=>n.key===r.key)),...reports];
+ await fs.writeFile('public/models/gpu-texture-provenance.json',JSON.stringify({tool:'KTX-Software 4.4.2',reports:merged},null,2)+'\n');console.log(JSON.stringify(reports,null,2));
 }finally{await fs.rm(tmp,{recursive:true,force:true});}

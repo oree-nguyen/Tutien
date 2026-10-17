@@ -1,0 +1,17 @@
+import fs from'node:fs/promises';import{createHash}from'node:crypto';import{NodeIO}from'@gltf-transform/core';import{ALL_EXTENSIONS}from'@gltf-transform/extensions';import{simplify,textureCompress,meshopt,dedup,resample,prune}from'@gltf-transform/functions';import{MeshoptDecoder,MeshoptEncoder,MeshoptSimplifier}from'meshoptimizer';import sharp from'sharp';
+await Promise.all([MeshoptDecoder.ready,MeshoptEncoder.ready,MeshoptSimplifier.ready]);const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder,'meshopt.encoder':MeshoptEncoder});
+const registry=await import('../../src/manual-hero-assets.js?build='+Date.now()),urls={...registry.manualHeroAssetUrls},hashes={...registry.manualHeroAssetHashes};
+for(const kind of ['body','hammer']){
+ const folder='public/models/h02-'+kind,receipt=JSON.parse(await fs.readFile(folder+'/provenance.json')),input=folder+'/h02-'+kind+'-high.glb',raw=await fs.readFile(input);await fs.mkdir('.local/manual-assets/h02-rigged',{recursive:true});const backup='.local/manual-assets/h02-rigged/h02-'+kind+'-high.glb';try{await fs.access(backup);}catch{await fs.writeFile(backup,raw);}
+ const lowOnly=process.argv.includes('--low-only'),levels=lowOnly?receipt.levels.filter(l=>l.detail!=='low'):[];for(const detail of (lowOnly?['low']:['high','medium','low'])){
+  let lowSource=null;const preparedLow='.local/manual-assets/h02-rigged/h02-'+kind+'-low.glb';if(detail==='low')try{await fs.access(preparedLow);lowSource=preparedLow;}catch{}
+  const lowFile=folder+'/h02-'+kind+'-low.glb';if(detail==='low'&&!lowSource){const prepared=receipt.levels.find(l=>l.detail==='low');if(!prepared||prepared.triangles>(kind==='body'?1000:600))throw Error('Prepare and rig the bounded low LOD before optimization: '+kind);lowSource=lowFile;}
+  const document=await io.read(lowSource??(lowOnly?lowFile:backup)),ratio=(lowOnly||lowSource)?1:detail==='high'?1:kind==='body'?(detail==='medium'?.5:1/30):(detail==='medium'?.375:.075),size=kind==='body'?(detail==='low'?256:1024):(detail==='low'?256:512);
+  const transforms=[dedup(),resample(),prune({keepLeaves:true})];if(ratio<1)transforms.push(simplify({simplifier:MeshoptSimplifier,ratio,error:detail==='low'?1:.02,lockBorder:false}));transforms.push(textureCompress({encoder:sharp,targetFormat:'webp',resize:[size,size],quality:91}),meshopt({encoder:MeshoptEncoder,level:'medium'}));await document.transform(...transforms);
+  let triangles=0;for(const m of document.getRoot().listMeshes())for(const p of m.listPrimitives())triangles+=(p.getIndices()?.getCount()??p.getAttribute('POSITION').getCount())/3;
+  const file='h02-'+kind+'-'+detail+'.glb';await io.write(folder+'/'+file,document);const bytes=await fs.readFile(folder+'/'+file),sha256=createHash('sha256').update(bytes).digest('hex'),key='h02-'+kind+'-'+detail;
+  levels.push({detail,file,triangles,bytes:bytes.length,sha256,textureResolution:size,compression:'EXT_meshopt_compression + EXT_texture_webp',texturePreparation:kind==='body'&&detail!=='low'?'Original face-corner UV; original PBR images resized (lossy)':'High-to-low rebaked atlas'});urls[key]='/models/h02-'+kind+'/'+file+'?v='+sha256.slice(0,12);hashes[key]=sha256;console.log(key,triangles,bytes.length);
+ }
+ receipt.levels=levels;await fs.writeFile(folder+'/provenance.json',JSON.stringify(receipt,null,2)+'\n');
+}
+await fs.writeFile('src/manual-hero-assets.js','export const manualHeroAssetUrls='+JSON.stringify(urls,null,2)+';\nexport const manualHeroAssetHashes='+JSON.stringify(hashes,null,2)+';\n');

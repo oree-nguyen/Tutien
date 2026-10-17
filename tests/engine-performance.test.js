@@ -30,7 +30,7 @@ test('far offline AI thinks at 4Hz but movement integrates at fixed tick; author
 });
 test('mobile body is 15k triangles with complete rig/clips and GPU variants embed mipmapped KTX2',async()=>{
  await MeshoptDecoder.ready;const io=new NodeIO().registerExtensions(ALL_EXTENSIONS).registerDependencies({'meshopt.decoder':MeshoptDecoder});
- const receipt=JSON.parse(await readFile('public/models/gpu-texture-provenance.json'));assert.equal(receipt.reports.length,2);
+ const receipt=JSON.parse(await readFile('public/models/gpu-texture-provenance.json'));assert.deepEqual(receipt.reports.map(r=>r.key).sort(),['mobile-gpu','staff-medium-gpu','h02-body-medium-gpu','h02-hammer-medium-gpu'].sort());
  for(const r of receipt.reports){const bytes=await readFile('public/models/'+r.family+'/'+r.file);assert.equal(createHash('sha256').update(bytes).digest('hex'),r.sha256);
   const doc=await io.read('public/models/'+r.family+'/'+r.file),root=doc.getRoot();assert.ok(root.listTextures().length>=3);
   for(const texture of root.listTextures()){assert.equal(texture.getMimeType(),'image/ktx2');const image=Buffer.from(texture.getImage());assert.equal(image.readUInt32LE(0),0x58544bab);assert.ok(image.readUInt32LE(40)>1);}

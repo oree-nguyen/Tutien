@@ -1,3 +1,4 @@
+import{usesManualH02,createManualH02}from'./manual-h02.js';
 import { usesManualH01, createManualH01, updateManualH01Animation } from './manual-hero.js';
 import * as T from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
@@ -99,6 +100,7 @@ function textureMaps() {
 export function visualTemplate(a, d = "low") {
   // Browser GLTF textures need an image decoder; CPU-only geometry tooling
   // retains the legacy generator. The imported browser path is tested separately.
+  if(typeof document!=="undefined"&&usesManualH02(a))return createManualH02(a,d);
   if (typeof document !== "undefined" && usesManualH01(a)) return createManualH01(a, d);
   const key = [
     a.kind,

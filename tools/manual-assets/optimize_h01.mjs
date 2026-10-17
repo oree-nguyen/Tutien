@@ -29,7 +29,8 @@ for(const folder of (process.argv.includes('--body-only')?['h01-c0']:process.arg
 await fs.copyFile('public/models/h01-c0/h01-c0-high.glb','assets/base_models/H01-C0_lam_dat_thanh_moc_y.glb');
 const body=JSON.parse(await fs.readFile('public/models/h01-c0/provenance.json'));
 await fs.writeFile('assets/base_models/H01-C0-import.json',JSON.stringify({...body,bankFileIsPreparedDerivative:true,rawSourcePreservedLocally:true},null,2)+'\n');
-const urls={},hashes={};
+const previous=await import('../../src/manual-hero-assets.js?preserve='+Date.now());
+const urls=Object.fromEntries(Object.entries(previous.manualHeroAssetUrls).filter(([key])=>key.startsWith('h02-'))),hashes=Object.fromEntries(Object.entries(previous.manualHeroAssetHashes).filter(([key])=>key.startsWith('h02-')));
 for(const folder of ['h01-c0','h01-staff']) {
  const receipt=JSON.parse(await fs.readFile(`public/models/${folder}/provenance.json`));
  for(const level of receipt.levels){const key=folder==='h01-c0'?level.detail:'staff-'+level.detail;urls[key]=`/models/${folder}/${level.file}?v=${level.sha256.slice(0,12)}`;hashes[key]=level.sha256;}

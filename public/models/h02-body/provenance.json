@@ -1,0 +1,52 @@
+{
+  "assetId": "H02-C0",
+  "sourceShare": "cd050512-738f-449f-95d3-7c11a9c06851",
+  "sourceSha256": "9ecc6c14e792f4f8f3137fb1376f2cc1253846ad359945fd6ab0a7706e837787",
+  "sourceBytes": 79035308,
+  "sourceTriangles": 1499746,
+  "heightMeters": 2.2,
+  "rigged": true,
+  "anatomicallySegmented": false,
+  "scope": "User-authorized animated trial. Actual skinned source mesh; locally authored clips. Humanoid finger skinning and entrance clip, no cloth simulation or separate anatomical meshes. Not final animation acceptance.",
+  "levels": [
+    {
+      "detail": "high",
+      "file": "h02-body-high.glb",
+      "triangles": 30000,
+      "bytes": 1007776,
+      "sha256": "6ba32bc115ac5978eb55b9830828998aa942f5f5e7a4e5f4b2b89546b19b88e5",
+      "textureResolution": 1024,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp",
+      "texturePreparation": "Original face-corner UV; original PBR images resized (lossy)"
+    },
+    {
+      "detail": "medium",
+      "file": "h02-body-medium.glb",
+      "triangles": 15000,
+      "bytes": 816956,
+      "sha256": "4361622d2fd5d94449d351e951d60c6010fb4481c38ab8e9d673d9cae1d568c4",
+      "textureResolution": 1024,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp",
+      "texturePreparation": "Original face-corner UV; original PBR images resized (lossy)"
+    },
+    {
+      "detail": "low",
+      "file": "h02-body-low.glb",
+      "triangles": 1000,
+      "bytes": 257880,
+      "sha256": "973959437ff517d4944741bb9a4b94e8be5b05dcf0f537aa35e2a9d14da1aa1f",
+      "textureResolution": 256,
+      "compression": "EXT_meshopt_compression + EXT_texture_webp",
+      "texturePreparation": "High-to-low rebaked atlas"
+    }
+  ],
+  "animations": [
+    "Idle",
+    "Run",
+    "Attack",
+    "Cast",
+    "Dash",
+    "Entrance"
+  ],
+  "skeletonBones": 52
+}

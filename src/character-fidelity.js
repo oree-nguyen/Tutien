@@ -34,7 +34,7 @@ export function enhanceCharacterVisualFidelity(modelRoot,renderer,scene){
   node.receiveShadow=false;
   for(const material of Array.isArray(node.material)?node.material:[node.material]){
    material.vertexColors=false;
-   if(node.isSkinnedMesh){material.metalness=Math.min(material.metalness??0,.05);material.emissiveMap=material.map;material.emissive.setHex(0xffffff);material.emissiveIntensity=.28;}
+   if(node.isSkinnedMesh&&!modelRoot.userData.preserveMetalPbr){material.metalness=Math.min(material.metalness??0,.05);material.emissiveMap=material.map;material.emissive.setHex(0xffffff);material.emissiveIntensity=.28;}
    if(material.map)material.map.colorSpace=THREE.SRGBColorSpace;
    for(const key of ['normalMap','roughnessMap','metalnessMap','aoMap'])if(material[key])material[key].colorSpace=THREE.NoColorSpace;
    if(material.emissiveMap)material.emissiveMap.colorSpace=THREE.SRGBColorSpace;

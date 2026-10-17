@@ -24,7 +24,7 @@
     },
     {
       "path": "src/world.js",
-      "sha256": "f33519ef955664a0832ca0bd0e691e4f9cef5dd35a317603326aa3fd7e7ae263"
+      "sha256": "7315c889ae3e59b62e94f5fdf41b3c43291ecf38ab3bb641b13990050edeb3d0"
     },
     {
       "path": "src/soul-ring-vfx.js",
@@ -3079,7 +3079,7 @@
   "sourceGeometryAudit": [
     {
       "path": "src/art.js",
-      "line": 222,
+      "line": 224,
       "geometry": "ExtrudeGeometry",
       "nearestFunction": "roundedBlock",
       "status": "not-replaced",
@@ -3087,7 +3087,7 @@
     },
     {
       "path": "src/art.js",
-      "line": 234,
+      "line": 236,
       "geometry": "CylinderGeometry",
       "nearestFunction": "treeTrunkGeometry",
       "status": "not-replaced",
@@ -3095,7 +3095,7 @@
     },
     {
       "path": "src/art.js",
-      "line": 250,
+      "line": 252,
       "geometry": "TubeGeometry",
       "nearestFunction": "treeTrunkGeometry",
       "status": "not-replaced",
@@ -3202,6 +3202,30 @@
       "line": 71,
       "geometry": "BufferGeometry",
       "nearestFunction": "createH01EntranceVfx",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/h02-entrance.js",
+      "line": 26,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "crackGeometry",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/h02-entrance.js",
+      "line": 30,
+      "geometry": "RingGeometry",
+      "nearestFunction": "impact",
+      "status": "not-replaced",
+      "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
+    },
+    {
+      "path": "src/h02-entrance.js",
+      "line": 32,
+      "geometry": "BufferGeometry",
+      "nearestFunction": "impact",
       "status": "not-replaced",
       "action": "Audit exact model versus HUD/indicator/particle render surface before removing; no blanket completion claim"
     },
@@ -3723,6 +3747,54 @@
       "sha256": "01f2755f9a7ea9bf7afabc594566f155938b547d55ae66335b66445b54b602d2",
       "status": "hunyuan-user-shared-animated-trial",
       "assetId": "H01-W0"
+    },
+    {
+      "path": "public/models/h02-body/h02-body-high.glb",
+      "bytes": 1007776,
+      "sha256": "6ba32bc115ac5978eb55b9830828998aa942f5f5e7a4e5f4b2b89546b19b88e5",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/models/h02-body/h02-body-low.glb",
+      "bytes": 257880,
+      "sha256": "973959437ff517d4944741bb9a4b94e8be5b05dcf0f537aa35e2a9d14da1aa1f",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/models/h02-body/h02-body-medium-gpu.glb",
+      "bytes": 2089828,
+      "sha256": "ab6e756fd8041337793a7f1dc1c854eeb9e247dadab8e4dd88f4a0de555b3fc2",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/models/h02-body/h02-body-medium.glb",
+      "bytes": 816956,
+      "sha256": "4361622d2fd5d94449d351e951d60c6010fb4481c38ab8e9d673d9cae1d568c4",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/models/h02-hammer/h02-hammer-high.glb",
+      "bytes": 349040,
+      "sha256": "d87a761b288aff2a8c412dca046f5dec5ac84dd9ce68141765a959d45510cdda",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/models/h02-hammer/h02-hammer-low.glb",
+      "bytes": 87528,
+      "sha256": "7f62b928965b9f58e9e4ba1dbaa52b73fce54298687e3d0be17838b765122ec6",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/models/h02-hammer/h02-hammer-medium-gpu.glb",
+      "bytes": 839468,
+      "sha256": "b0c6e6fbebec981e3d1375bcb5fa4c339c92a321a62ba03621fad69c831cc7ba",
+      "status": "legacy-not-Tencent-not-replaced"
+    },
+    {
+      "path": "public/models/h02-hammer/h02-hammer-medium.glb",
+      "bytes": 289072,
+      "sha256": "c919a99e3d90842a916fc6168a79a505dbae6002e0b97c1b932a8a831d8122b1",
+      "status": "legacy-not-Tencent-not-replaced"
     }
   ],
   "notes": [

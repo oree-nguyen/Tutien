@@ -7,7 +7,15 @@ export const manualHeroAssetUrls={
   "staff-low": "/models/h01-staff/h01-staff-low.glb?v=633edc5bb44b",
   "mobile": "/models/h01-c0/h01-c0-mobile.glb?v=386f350da4b6",
   "mobile-gpu": "/models/h01-c0/h01-c0-mobile-gpu.glb?v=33e8459455af",
-  "staff-medium-gpu": "/models/h01-staff/h01-staff-medium-gpu.glb?v=f007473e6ff9"
+  "staff-medium-gpu": "/models/h01-staff/h01-staff-medium-gpu.glb?v=f007473e6ff9",
+  "h02-body-high": "/models/h02-body/h02-body-high.glb?v=6ba32bc115ac",
+  "h02-body-medium": "/models/h02-body/h02-body-medium.glb?v=4361622d2fd5",
+  "h02-body-low": "/models/h02-body/h02-body-low.glb?v=973959437ff5",
+  "h02-hammer-high": "/models/h02-hammer/h02-hammer-high.glb?v=d87a761b288a",
+  "h02-hammer-medium": "/models/h02-hammer/h02-hammer-medium.glb?v=c919a99e3d90",
+  "h02-hammer-low": "/models/h02-hammer/h02-hammer-low.glb?v=7f62b928965b",
+  "h02-body-medium-gpu": "/models/h02-body/h02-body-medium-gpu.glb?v=ab6e756fd804",
+  "h02-hammer-medium-gpu": "/models/h02-hammer/h02-hammer-medium-gpu.glb?v=b0c6e6fbebec"
 };
 export const manualHeroAssetHashes={
   "high": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
@@ -18,5 +26,13 @@ export const manualHeroAssetHashes={
   "staff-low": "633edc5bb44b74f4416cdd86fcf883770e8dcdf79587301a01c22b576e067f57",
   "mobile": "386f350da4b67949f46b515fcb8af96993baaf061fb386f57b305e1bf93ccf50",
   "mobile-gpu": "33e8459455aff4120017275843bf52b3f34e2d62eeabc81710e846bb8b3a0d75",
-  "staff-medium-gpu": "f007473e6ff9f752b59d32466c61337db43210771ecf43f4c167dac23ff03c54"
+  "staff-medium-gpu": "f007473e6ff9f752b59d32466c61337db43210771ecf43f4c167dac23ff03c54",
+  "h02-body-high": "6ba32bc115ac5978eb55b9830828998aa942f5f5e7a4e5f4b2b89546b19b88e5",
+  "h02-body-medium": "4361622d2fd5d94449d351e951d60c6010fb4481c38ab8e9d673d9cae1d568c4",
+  "h02-body-low": "973959437ff517d4944741bb9a4b94e8be5b05dcf0f537aa35e2a9d14da1aa1f",
+  "h02-hammer-high": "d87a761b288aff2a8c412dca046f5dec5ac84dd9ce68141765a959d45510cdda",
+  "h02-hammer-medium": "c919a99e3d90842a916fc6168a79a505dbae6002e0b97c1b932a8a831d8122b1",
+  "h02-hammer-low": "7f62b928965b9f58e9e4ba1dbaa52b73fce54298687e3d0be17838b765122ec6",
+  "h02-body-medium-gpu": "ab6e756fd8041337793a7f1dc1c854eeb9e247dadab8e4dd88f4a0de555b3fc2",
+  "h02-hammer-medium-gpu": "b0c6e6fbebec981e3d1375bcb5fa4c339c92a321a62ba03621fad69c831cc7ba"
 };

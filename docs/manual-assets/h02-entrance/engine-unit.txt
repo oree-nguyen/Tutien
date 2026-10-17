@@ -1,0 +1,35 @@
+✔ boot and cancelled async loads cannot enter combat without a new trusted start (0.884405ms)
+✔ storage sanitation preserves bank/profile and unrelated services (0.17333ms)
+✔ resolution responds to sustained frame pressure, recovers slowly and respects the budget (5.997665ms)
+✔ cosmetic pool exhaustion does not allocate and each lease releases exactly once (0.252258ms)
+✔ far offline AI thinks at 4Hz but movement integrates at fixed tick; authoritative defaults stay full-rate (4.609005ms)
+✔ mobile body is 15k triangles with complete rig/clips and GPU variants embed mipmapped KTX2 (199.763401ms)
+✔ render packets omit hidden enemies and never carry executable simulation state (2.313305ms)
+✔ worker screen projection matches the real isometric camera ray and terrain (104.812341ms)
+✔ GPU timing never reads an unavailable result and returns leases to the fixed pool (0.799899ms)
+✔ terrain streaming discards a cancelled region before adopting the current region (205.204101ms)
+✔ team combat still downs for 25s, while explicit server surrender settles immediately once (4.985499ms)
+✔ three actual Hunyuan staff LODs have PBR, a real 4cm grip, correct length and attachment pivots (84.071694ms)
+✔ all thirty finger joints and both toes influence actual high LOD vertices (159.969566ms)
+✔ actual entrance clip plants the left palm and fingers fit the staff instead of being decorative nodes (123.658342ms)
+✔ entrance phases preserve the exact grip/impact times and support dropped frames (0.446499ms)
+✔ Blender vine meshes have real volume, UVs, smooth normals and mobile triangle budgets (10.461113ms)
+✔ H02 manual model replaces only the supplied base costume, including clones (0.889783ms)
+✔ all six H02 runtime LODs preserve embedded PBR and meet triangle budgets (56.30223ms)
+✔ H02 PBR GPU variants match registry and contain real mipmapped KTX2 (23.318608ms)
+✔ H02 hammer has actual cap/impact anchors and head rises to face level upright (14.189318ms)
+✔ H02 source vertices deform under Run; independently cloned rigs do not move together (99.452335ms)
+✔ entrance preserves the 1.5 second launch delay, pickup, upright flip and secondary stamp (0.875461ms)
+✔ two separate bounded impact effects trigger at their own timestamps and dispose resources (2.019846ms)
+✔ upright hammer front surface aligns with the actual face plane, rather than projecting across the chest (78.74331ms)
+✔ manual trial applies only to H01 base costume and keeps other loadouts (0.811576ms)
+✔ actual imported LODs match source receipt and embed all three PBR channels (16.595342ms)
+✔ real embedded animations deform hands and legs, cloned actors remain independent (53.414284ms)
+ℹ tests 27
+ℹ suites 0
+ℹ pass 27
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 710.404059

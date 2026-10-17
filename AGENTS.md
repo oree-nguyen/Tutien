@@ -14,3 +14,5 @@
 - Ngoại lệ thử nghiệm đã được người dùng cho phép: tích hợp H01-C0 từ share a93d658b-a40d-4854-b755-ad1fa9bcc79b vào sảnh/trận và APK test dưới dạng model thử nghiệm; người dùng đã cho phép gắn rig và hoạt ảnh tay/chân. Hiện có skeleton/clip cục bộ, chưa phân đoạn giải phẫu, chưa mô phỏng vải. Xem docs/H01-C0-ANDROID-TRIAL.md; không nhận là nghiệm thu mỹ thuật/animation hoàn chỉnh.
 
 - H01-C0/H01-W0 hiện dùng hai share Hunyuan thật, rig humanoid 52 xương và Entrance 4,2 giây; không tái dùng trượng primitive/base64 cũ. Meshopt/WebP cần worker module riêng (không dùng MeshoptDecoder.useWorkers trong bundle minified). Kiểm cả production/offline và xem docs/H01-STAFF-ENTRANCE.md. Không nhận là đã đạt 60 FPS Android khi chưa đo trên thiết bị.
+
+- H02-C0 và Chấn Nhạc Chùy đã được người dùng cấp hai share `cd050512-738f-449f-95d3-7c11a9c06851` / `45b118bc-58ce-4000-94c6-8e09945aa9f1` để tích hợp và tạo hoạt ảnh. Rig/clip cục bộ, chùy là mesh rời từ share thật; không tạo người/chùy primitive. Xem docs/H02-HAMMER-ENTRANCE.md và kiểm thử H01/H02 trước khi đổi bộ rig chung.

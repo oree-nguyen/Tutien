@@ -43,11 +43,11 @@ export function createH01IK(body){
  let socket=body.getObjectByName('RightHand_WeaponSocket');
  if(!socket){socket=new THREE.Object3D();socket.name='RightHand_WeaponSocket';hand.add(socket);}
  // Reviewed palm center on the supplied mesh, not the old approximate wrist.
- const palm=body.localToWorld(new THREE.Vector3(-.535,.985,.125));
+ const palm=body.localToWorld(new THREE.Vector3().fromArray(body.userData.ikLandmarks?.right??[-.535,.985,.125]));
  socket.position.copy(hand.worldToLocal(palm));socket.quaternion.identity();
  socket.position.z-=.025;
  const leftSocket=new THREE.Object3D();leftSocket.name='LeftHand_GroundSocket';bones.LeftHand.add(leftSocket);
- leftSocket.position.copy(bones.LeftHand.worldToLocal(body.localToWorld(new THREE.Vector3(.535,.985,.125))));
+ leftSocket.position.copy(bones.LeftHand.worldToLocal(body.localToWorld(new THREE.Vector3().fromArray(body.userData.ikLandmarks?.left??[.535,.985,.125]))));
  const leftFrame=new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(new THREE.Vector3(1,0,0),new THREE.Vector3(0,0,1),new THREE.Vector3(0,-1,0)));
  const handFrame=new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(
   new THREE.Vector3(0,1,0),new THREE.Vector3(-1,0,0),new THREE.Vector3(0,0,1)));
@@ -62,13 +62,13 @@ export function poseRightHand(rig,palmTarget,closedGrip=true){
  const scale=rig.bones.RightHand.getWorldScale(vector());
  const offset=vector(rig.socket.position).multiply(scale).applyQuaternion(q);
  const target=toWorld(rig,palmTarget).sub(offset);
- const error=solveTwoBoneIK(rig.bones.RightArm,rig.bones.RightForeArm,rig.bones.RightHand,target,toWorld(rig,closedGrip?[-.7,1.25,-.15]:[-.52,(palmTarget.y??palmTarget[1])+.12,-.16]));
+ const error=solveTwoBoneIK(rig.bones.RightArm,rig.bones.RightForeArm,rig.bones.RightHand,target,toWorld(rig,rig.body.userData.rightElbowPole??(closedGrip?[-.7,1.25,-.15]:[-.52,(palmTarget.y??palmTarget[1])+.12,-.16])));
  setWorldRotation(rig.bones.RightHand,q);rig.lastError=error;
  if(closedGrip){
   if(!rig.gripPose){
    const axis=rig.body.getWorldQuaternion(quaternion());
    const up=vector(Y).applyQuaternion(axis);
-   const center=worldPosition(rig.socket),radius=.026*rig.body.getWorldScale(vector()).y;
+   const center=worldPosition(rig.socket),radius=(rig.body.userData.ikLandmarks?.gripRadius??.026)*rig.body.getWorldScale(vector()).y;
    rig.gripPose=[];
    for(const finger of ['Thumb','Index','Middle','Ring','Pinky']){
     const joints=[1,2,3].map(i=>rig.body.getObjectByName('RightHand'+finger+i));

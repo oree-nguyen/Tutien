@@ -107,9 +107,9 @@ let appraisalTimer = null;
 let releaseJoystick = () => {};
 function updateAssetLoadingIndicator(){
  const el=document.getElementById('assetLoadStatus');if(!el)return;
- const asset=world?.previewAsset??world?.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset;
- const hidden=!!match||loadout.hero!==0||loadout.costume!==0||asset?.status==='loaded';if(el.hidden!==hidden)el.hidden=hidden;
- const text=asset?.status==='failed'?'Không nạp được model — chạm Dật để thử lại.':'Đang nạp Lâm Dật và Mộc Tinh Trượng…';
+ const asset=world?.previewAsset??world?.preview?.getObjectByName(loadout.hero===1?'manualHero_H02_C0':'manualHero_H01_C0')?.userData.manualAsset;
+ const hidden=!!match||![0,1].includes(loadout.hero)||loadout.costume!==0||asset?.status==='loaded';if(el.hidden!==hidden)el.hidden=hidden;
+ const text=asset?.status==='failed'?`Không nạp được model — chạm ${loadout.hero===1?'Trạch':'Dật'} để thử lại.`:(loadout.hero===1?'Đang nạp Hàn Trạch và Chấn Nhạc Chùy…':'Đang nạp Lâm Dật và Mộc Tinh Trượng…');
  if(el.textContent!==text)el.textContent=text;
 }
 const lootArt = (item, className = "item-art") =>
@@ -295,7 +295,7 @@ function renderHub() {
    .join(
      "",
    )}</div><div class="section-label">NHÁNH TIẾN HÓA <span>KHÓA KHI VÀO TRẬN</span></div><div class="branches">${h.branches.map((n, i) => `<button data-branch="${i}" class="${loadout.branch === i ? "active" : ""}">${n}</button>`).join("")}</div><div class="branch-description" id="branchText"></div><div class="hero-grid">${HEROES.map((h, i) => `<button class="hero-card ${loadout.hero === i ? "active" : ""}" data-hero="${i}" style="--hero:#${h.color.toString(16)}" title="${h.name}">${itemIcon("weapon", i + 1, { label: WEAPONS[i] })}<span class="hero-card-name">${h.name.split(" ").at(-1)}</span></button>`).join("")}</div></div>
- <div class="stage-label"><p>${WEAPONS[loadout.hero].toUpperCase()}</p><small>${loadout.hero === 0 && (loadout.costume ?? 0) === 0 ? "HUNYUAN · RIG / HOẠT ẢNH THỬ NGHIỆM" : "MÔ HÌNH 3D"} · ${loadout.skin === 2 ? "VIP" : loadout.skin === 1 ? "CƠ BẢN" : "NGUYÊN BẢN"}</small><div class="showcase-controls"><button id="showcaseFull" aria-label="Xem toàn thân">TOÀN THÂN</button><button id="showcaseFace" aria-label="Xem khuôn mặt">CẬN CẢNH</button></div><div id="showcaseDrag" aria-label="Kéo xoay nhân vật"></div></div>
+ <div class="stage-label"><p>${WEAPONS[loadout.hero].toUpperCase()}</p><small>${[0,1].includes(loadout.hero) && (loadout.costume ?? 0) === 0 ? "HUNYUAN · RIG / HOẠT ẢNH THỬ NGHIỆM" : "MÔ HÌNH 3D"} · ${loadout.skin === 2 ? "VIP" : loadout.skin === 1 ? "CƠ BẢN" : "NGUYÊN BẢN"}</small><div class="showcase-controls"><button id="showcaseFull" aria-label="Xem toàn thân">TOÀN THÂN</button><button id="showcaseFace" aria-label="Xem khuôn mặt">CẬN CẢNH</button></div><div id="showcaseDrag" aria-label="Kéo xoay nhân vật"></div></div>
  <aside class="loadout-panel"><h2 class="panel-title">01 / HÀNH TRANG XUẤT CHIẾN</h2><div class="section-label">HỒN HOÀN <span>2 KHE</span></div><div class="ring-pair">${[
    1, 2,
  ]
@@ -331,7 +331,7 @@ function renderHub() {
   $$("[data-hero]").forEach(
     (el) =>
       (el.onclick = () => {
-        if(+el.dataset.hero===0&&loadout.hero===0)world?.replayHeroEntrance();
+        if([0,1].includes(+el.dataset.hero)&&+el.dataset.hero===loadout.hero)world?.replayHeroEntrance();
         loadout.hero = +el.dataset.hero;
         loadout.branch = 0;
         loadout.skin = 0;

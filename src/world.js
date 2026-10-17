@@ -6,7 +6,7 @@ import{warmSceneMaterials}from"./shader-warmup.js";
 import{batchStaticSanctuary}from"./static-batching.js";
 import {AdaptiveResolution,nextPaint} from "./runtime-performance.js";
 import {pooledGeometry} from "./geometry-pool.js";
-import { disposeManualH01,configureManualH01,replayManualH01Entrance,seekManualH01Entrance,usesManualH01 } from "./manual-hero.js";
+import { disposeManualH01,configureManualH01,replayManualH01Entrance,seekManualH01Entrance,usesManualHero } from "./manual-hero.js";
 import { configureGpuTextures } from "./gpu-textures.js";
 import { prepareEnvironmentAssets } from "./environment-assets.js";
 import {configureBakedCharacterEnvironment} from "./character-fidelity.js";
@@ -202,7 +202,7 @@ export class World {
     this.preview?.traverse(node=>{if(node.userData.manualHunyuan)seekManualH01Entrance(node,seconds);});
   }
   replayHeroEntrance() {
-    const asset=this.preview?.getObjectByName('manualHero_H01_C0')?.userData.manualAsset;
+    let asset;this.preview?.traverse(n=>{if(n.userData.manualHunyuan)asset=n.userData.manualAsset;});
     if(asset?.status==='failed'){
       const model=this.models.get('preview');this.releaseModelRings(model);this.dynamic.remove(model.group);this.models.delete('preview');this.preview=null;return;
     }
@@ -216,8 +216,8 @@ export class World {
     this.sun.visible=this.mapRim.visible=this.mapAmbient.visible=true;this.weaponLight.visible=this.quality==='ultra';
     try{
       await warmSceneMaterials(this.renderer,this.scenery.battlefield,this.camera,this.scene);
-      check();for(let hero=1;hero<12;hero++){check();visualTemplate({id:'prewarm',kind:'hero',hero,skin:0,costume:0,rings:[]},'low');await nextPaint();}
-      const actor={...appearance,id:'prewarm',kind:'hero',team:0},detail=usesManualH01(actor)?'mobile':'medium';
+      check();for(let hero=1;hero<12;hero++){check();const templateActor={id:'prewarm',kind:'hero',hero,skin:0,costume:0,rings:[]};if(!usesManualHero(templateActor))visualTemplate(templateActor,'low');await nextPaint();}
+      const actor={...appearance,id:'prewarm',kind:'hero',team:0},detail=usesManualHero(actor)?'mobile':'medium';
       const visual=visualTemplate(actor,detail);configureManualH01(visual,this.renderer,this.scene,this.camera);
       if(visual.userData.manualHunyuan){
         const started=performance.now();while(!['loaded','failed'].includes(visual.userData.manualAsset.status)){if(epoch!==this.prepareEpoch){disposeManualH01(visual);throw Error('Đã hủy tải nhân vật');}if(performance.now()-started>45000){disposeManualH01(visual);throw Error('Không chuẩn bị được nhân vật xuất chiến');}await nextPaint();}
@@ -246,7 +246,7 @@ export class World {
     this.portraitEquipmentVisibility ??= new WeakMap();
     group.traverse((node) => {
       const equipment =
-        node.name === "soulWeapon" || node.name === "Staff_Root" ||
+        node.name === "soulWeapon" || node.name === "Staff_Root" || node.name === "Hammer_Root" ||
         (node.userData.proceduralMasterwork === true &&
           typeof node.userData.weaponType === "string");
       if (!equipment) return;
@@ -321,7 +321,7 @@ export class World {
       appearanceKey: this.appearanceKey(a),
     };
     this.models.set(a.id, model);
-    this.addDetail(model, a, a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)?this.preparedPlayerVisual.detail:a.id === "preview" ? (usesManualH01(a) ? (this.quality==="ultra"?"high":"mobile") : "medium") : (usesManualH01(a)&&a.id===this.localPlayerId?"mobile":"low"));
+    this.addDetail(model, a, a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)?this.preparedPlayerVisual.detail:a.id === "preview" ? (usesManualHero(a) ? (this.quality==="ultra"?"high":"mobile") : "medium") : (usesManualHero(a)&&a.id===this.localPlayerId?"mobile":"low"));
     return model;
   }
   setConcealment(model, active) {
@@ -498,7 +498,7 @@ export class World {
       const head=visual?.getObjectByName('Head');
       if(faceView&&head){head.getWorldPosition(look);look.y=Math.max(.74+heroHeight*.18,look.y+.24);}
       const entrance=visual?.userData.manualAsset?.entrance;
-      const wideEntrance=!faceView&&entrance&&!entrance.complete&&entrance.time<2.65;
+      const wideEntrance=!faceView&&entrance&&!entrance.complete&&entrance.time<(visual?.userData.manualH02?2.9:2.65);
       this.syncPortraitEquipment(this.preview, faceView);
       const cameraTarget=this._v2.copy(look).add(this._v3.set(0,faceView?.03:wideEntrance?1.0:.7,faceView?2.6:wideEntrance?12.3:10.5));
       if(!this.portraitCameraInitialized){this.camera.position.copy(cameraTarget);this.portraitLook=look.clone();this.portraitCameraInitialized=true;}

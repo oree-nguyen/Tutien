@@ -1,3 +1,4 @@
+import{usesManualH02,configureManualH02,updateManualH02,replayManualH02,seekManualH02,disposeManualH02}from'./manual-h02.js';
 import * as THREE from 'three';
 import {warmSceneMaterials}from'./shader-warmup.js';
 import { clone as cloneSkeleton } from 'three/addons/utils/SkeletonUtils.js';
@@ -10,7 +11,8 @@ import { syncSoulRingVisuals } from './soul-ring-vfx.js';
 
 const states=new WeakMap(),contexts=new WeakMap();
 export function usesManualH01(actor){return ['hero','clone'].includes(actor.kind)&&actor.hero===0&&(actor.costume??0)===0;}
-export function configureManualH01(root,renderer,scene,camera){contexts.set(root,{renderer,scene,camera});}
+export const usesManualHero=a=>usesManualH01(a)||usesManualH02(a);
+export function configureManualH01(root,renderer,scene,camera){if(root.userData.manualH02){configureManualH02(root,renderer,scene,camera);return;}contexts.set(root,{renderer,scene,camera});}
 function cloneMaterials(body){body.traverse(node=>{
  if(!node.isMesh)return;
  node.geometry.userData.sharedArt=true;
@@ -92,13 +94,15 @@ function staffReveal(state,amount){
  state.staff.traverse(node=>{if(node.material?.userData.reveal)node.material.userData.reveal.value=amount;});
 }
 export function replayManualH01Entrance(root){
+ if(root.userData.manualH02)return replayManualH02(root);
  const s=states.get(root);if(!s?.preview)return;
  s.introStart=performance.now();delete s.forcedTime;s.gripped=false;s.impact=false;
  s.body.attach(s.staff);s.staff.position.set(-.38,1.45,.12);s.staff.quaternion.identity();s.current=null;s.mixer.stopAllAction();
  if(!s.vfx){s.vfx=createH01EntranceVfx();s.body.add(s.vfx.root);}
 }
 // Deterministic art review of frame 183/213 without modifying gameplay time.
-export function seekManualH01Entrance(root,seconds){const state=states.get(root);if(state?.preview){if(!state.vfx){state.vfx=createH01EntranceVfx();state.body.add(state.vfx.root);}state.forcedTime=Math.max(0,seconds);}}
+export function seekManualH01Entrance(root,seconds){
+ if(root.userData.manualH02)return seekManualH02(root,seconds);const state=states.get(root);if(state?.preview){if(!state.vfx){state.vfx=createH01EntranceVfx();state.body.add(state.vfx.root);}state.forcedTime=Math.max(0,seconds);}}
 function updateEntrance(root,state,t){
  const f=entranceFrame(t,state.frame);
  if(state.current!=='Entrance'){state.mixer.stopAllAction();state.actions.Entrance.reset().play();state.current='Entrance';}
@@ -132,6 +136,7 @@ function updateEntrance(root,state,t){
 }
 /** Poses are visual only: combat clocks, costs, movement and hitboxes stay authoritative. */
 export function updateManualH01Animation(root,actor,speed,dt){
+ if(root.userData.manualH02)return updateManualH02(root,actor,speed,dt);
  const s=states.get(root);if(!s)return;
  if(s.preview){
   const elapsed=s.forcedTime??((performance.now()-s.introStart)/1000);
@@ -158,6 +163,7 @@ export function updateManualH01Animation(root,actor,speed,dt){
  root.userData.manualAsset.rightGripError=s.ik.lastError;
 }
 export function disposeManualH01(root){
+ if(root.userData.manualH02)return disposeManualH02(root);
  if(!root.userData.manualHunyuan)return;
  root.userData.manualAsset.disposed=true;const s=states.get(root);
  if(s){s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);if(s.vfx)disposeH01EntranceVfx(s.vfx);states.delete(root);}

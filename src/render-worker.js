@@ -1,11 +1,11 @@
 import{hydrateRenderMatch}from'./render-packet.js';
 let world,preparing=false,epoch=0,last=performance.now(),renderFrames=0,renderTime=0,fps=0;
 function diagnostic(full=false){
- const root=world.preview?.getObjectByName('manualHero_H01_C0');let material;
+ let root;world.preview?.traverse(n=>{if(n.userData.manualHunyuan)root=n;});let material;
  root?.traverse(node=>{if(node.isSkinnedMesh)material=node.material;});
  let pose;
- if(full&&root){const body=root.getObjectByName('HunyuanBody');if(body){body.updateWorldMatrix(true,true);pose={};for(const name of ['Hips','LeftHand_GroundSocket','RightHand_WeaponSocket','Staff_Base_Tip']){const node=root.getObjectByName(name);if(node){const point=node.getWorldPosition(body.position.clone());body.worldToLocal(point);pose[name]=point.toArray();}}}}
- return {pose,terrain:full?world.scenery.stats():undefined,backend:'worker',previewAsset:root?.userData.manualAsset??null,quality:world.quality,sceneryReady:world.scenery.ready,
+ if(full&&root){const body=root.getObjectByName('HunyuanBody');if(body){body.updateWorldMatrix(true,true);pose={};for(const name of ['Head','LeftFoot','RightFoot','LeftHand','Hips','LeftHand_GroundSocket','RightHand_WeaponSocket','Staff_Base_Tip','Hammer_Base_Tip','Hammer_Head_Core','Hammer_Head_Impact']){const node=root.getObjectByName(name);if(node){const point=node.getWorldPosition(body.position.clone());(root.userData.manualH02?root.getObjectByName('H02_Entrance_Stage'):body).worldToLocal(point);pose[name]=point.toArray();}}}}
+ return {pose,weapon:full&&root?.userData.manualH02?{visible:root.getObjectByName('Hammer_Root')?.visible,parent:root.getObjectByName('Hammer_Root')?.parent.name}:undefined,terrain:full?world.scenery.stats():undefined,backend:'worker',previewAsset:root?.userData.manualAsset??null,quality:world.quality,sceneryReady:world.scenery.ready,
   camera:{x:world.camera.position.x,y:world.camera.position.y,z:world.camera.position.z},focus:{x:world.focus.x,y:world.focus.y,z:world.focus.z},look:world.portraitLook?{x:world.portraitLook.x,y:world.portraitLook.y,z:world.portraitLook.z}:null,
   basis:{right:Array.from(world.camera.matrixWorld.elements.slice(0,3)),up:Array.from(world.camera.matrixWorld.elements.slice(4,7)),forward:Array.from(world.camera.matrixWorld.elements.slice(8,11)).map(n=>-n)},
   gpuTiming:{available:!!world.gpuTimer.ext,ms:world.gpuTimer.lastMs,samples:world.gpuTimer.samples},
