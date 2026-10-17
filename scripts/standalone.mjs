@@ -1,3 +1,4 @@
+import {fingerprint} from './fingerprint.mjs';
 import { build } from "esbuild";
 import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
 const workerBuild=await build({entryPoints:['src/meshopt-worker.js'],bundle:true,write:false,format:'iife',target:'es2022',minify:true});
@@ -10,6 +11,7 @@ const result = await build({
   target: "es2022",
   minify: true,
   define: {
+    "import.meta.env.HG_BUILD_ID":JSON.stringify(await fingerprint()),
     "import.meta.env.PROD": "false",
     "import.meta.env.DEV": "false",
     "import.meta.env.HG_STANDALONE":"true",

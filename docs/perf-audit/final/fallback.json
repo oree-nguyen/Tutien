@@ -1,0 +1,590 @@
+{
+  "blocked": 2,
+  "state": {
+    "id": "H01-C0",
+    "status": "loaded",
+    "detail": "mobile",
+    "rigged": true,
+    "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+    "shaderWarmup": [
+      {
+        "kind": "texture",
+        "name": "high_albedo",
+        "ms": 2.0999999940395355
+      },
+      {
+        "kind": "texture",
+        "name": "high_normal",
+        "ms": 2.8999999910593033
+      },
+      {
+        "kind": "texture",
+        "name": "high_metallic-high_roughness",
+        "ms": 8.399999991059303
+      },
+      {
+        "kind": "texture",
+        "name": "2a95ecf8-46d7-4756-8f32-5af386fcb104",
+        "ms": 0.8999999910593033
+      },
+      {
+        "kind": "texture",
+        "name": "medium_albedo",
+        "ms": 0.5999999940395355
+      },
+      {
+        "kind": "texture",
+        "name": "medium_normal",
+        "ms": 0.5
+      },
+      {
+        "kind": "texture",
+        "name": "medium_metallic-medium_roughness",
+        "ms": 0.5
+      },
+      {
+        "kind": "texture",
+        "name": "9f75bd0f-ba10-4b0a-9bcc-392cbc3e2c5d",
+        "ms": 0.30000001192092896
+      },
+      {
+        "kind": "texture",
+        "name": "295e1138-1c9d-4b89-bd0d-c13c2107cd31",
+        "ms": 0.29999999701976776
+      },
+      {
+        "kind": "texture",
+        "name": "996ce71c-34ae-4ba6-9a06-f0bb701c492b",
+        "ms": 0.29999999701976776
+      },
+      {
+        "kind": "program",
+        "name": "H01_C0_Hunyuan_StaticTrial",
+        "ms": 18.5
+      },
+      {
+        "kind": "program",
+        "name": "MocTinhTruong_TexturedMesh",
+        "ms": 11.700000002980232
+      },
+      {
+        "kind": "program",
+        "name": "Mesh",
+        "ms": 14.799999997019768
+      },
+      {
+        "kind": "program",
+        "name": "Mesh",
+        "ms": 20.899999991059303
+      },
+      {
+        "kind": "program",
+        "name": "Mesh",
+        "ms": 10.599999994039536
+      },
+      {
+        "kind": "program",
+        "name": "Mesh",
+        "ms": 11.600000008940697
+      }
+    ],
+    "clips": [
+      "Attack",
+      "Cast",
+      "Dash",
+      "Entrance",
+      "Idle",
+      "Run"
+    ],
+    "loadMs": 2519,
+    "cache": {
+      "hits": 0,
+      "misses": 2,
+      "bytes": 1155256,
+      "decoded": 2,
+      "gpuFallbacks": 2,
+      "cacheWrites": 2,
+      "gpu": {
+        "configured": true,
+        "workers": 1,
+        "support": {
+          "astcSupported": true,
+          "etc1Supported": false,
+          "etc2Supported": true,
+          "dxtSupported": true,
+          "bptcSupported": true,
+          "pvrtcSupported": false
+        }
+      },
+      "lastDecodeMs": 25.19999998807907,
+      "worker": {
+        "decoded": 14,
+        "fallbacks": 0
+      },
+      "templates": {
+        "templates": 2,
+        "referenced": 2,
+        "leases": 2
+      }
+    },
+    "entrance": {
+      "time": 0.11079999999701977,
+      "visible": false,
+      "emerge": 0,
+      "open": 0,
+      "morph": 0,
+      "staff": 0,
+      "crouch": 1,
+      "reach": 0,
+      "gripped": false,
+      "plant": 0,
+      "impact": false,
+      "complete": false,
+      "shake": 0,
+      "leftGroundError": 1.6741648987772355,
+      "rightGripError": 2.345644857729196
+    },
+    "cameraShake": 0,
+    "animation": "Entrance"
+  },
+  "events": [
+    {
+      "kind": "event",
+      "at": 928.5,
+      "thread": "main",
+      "name": "gpu-support",
+      "support": {
+        "astcSupported": true,
+        "etc1Supported": false,
+        "etc2Supported": true,
+        "dxtSupported": true,
+        "bptcSupported": true,
+        "pvrtcSupported": false
+      }
+    },
+    {
+      "kind": "measure",
+      "at": 1168.6000000089407,
+      "thread": "main",
+      "name": "texture:sigilTexture",
+      "ms": 1.4000000059604645,
+      "arguments": []
+    },
+    {
+      "kind": "measure",
+      "at": 1370,
+      "thread": "main",
+      "name": "texture:cloudTexture",
+      "ms": 0.3999999910593033,
+      "arguments": []
+    },
+    {
+      "kind": "event",
+      "at": 1477,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "a13a842e-8e12-4955-b323-769bfef8cb7f",
+      "ms": 19
+    },
+    {
+      "kind": "event",
+      "at": 1480.300000011921,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "a0f4495f-664b-4c56-bcba-12c7074995cc",
+      "ms": 2.9000000059604645
+    },
+    {
+      "kind": "event",
+      "at": 1491,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "e32326c1-c0fe-4e57-af2b-e689287266d3",
+      "ms": 0.699999988079071
+    },
+    {
+      "kind": "event",
+      "at": 1507.800000011921,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "21dc671f-3cfa-4c7e-b69d-204d6566d62d",
+      "ms": 0.800000011920929
+    },
+    {
+      "kind": "event",
+      "at": 1524.5,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "a861f3de-2201-4388-bb1e-2f7687afd35b",
+      "ms": 0.7999999970197678
+    },
+    {
+      "kind": "event",
+      "at": 1543.4000000059605,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "6eecbc21-aced-467d-be45-8923f3ec9c80",
+      "ms": 3.2000000029802322
+    },
+    {
+      "kind": "event",
+      "at": 1557.2000000029802,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "bf7ec369-f6d3-41da-b5ea-80d0632a31fa",
+      "ms": 0.20000000298023224
+    },
+    {
+      "kind": "event",
+      "at": 1573.800000011921,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "dea20f12-a65c-4dc6-8949-0e41032241a7",
+      "ms": 0.30000001192092896
+    },
+    {
+      "kind": "event",
+      "at": 1607.2000000029802,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 17
+    },
+    {
+      "kind": "event",
+      "at": 1634.5,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 10.899999991059303
+    },
+    {
+      "kind": "event",
+      "at": 1650.800000011921,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "Sanctuary_Petals_GPU_Instanced",
+      "ms": 10.700000002980232
+    },
+    {
+      "kind": "event",
+      "at": 1668.9000000059605,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "StaticBatch_0",
+      "ms": 12.099999994039536
+    },
+    {
+      "kind": "event",
+      "at": 1685.7000000029802,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "StaticBatch_1",
+      "ms": 12.200000002980232
+    },
+    {
+      "kind": "event",
+      "at": 1703.800000011921,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "StaticBatch_2",
+      "ms": 11.700000002980232
+    },
+    {
+      "kind": "measure",
+      "at": 1742.2000000029802,
+      "thread": "main",
+      "name": "texture:textureFor",
+      "ms": 16.299999997019768,
+      "arguments": [
+        1,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1744,
+      "thread": "main",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        1,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1756.2000000029802,
+      "thread": "main",
+      "name": "texture:textureFor",
+      "ms": 11.899999991059303,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1756.5,
+      "thread": "main",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "appearance",
+      "at": 1757.1000000089407,
+      "thread": "main",
+      "name": "hero:0:mobile"
+    },
+    {
+      "kind": "event",
+      "at": 1888.7000000029802,
+      "thread": "main",
+      "name": "model-fallback",
+      "key": "mobile",
+      "reason": "Model HTTP 503"
+    },
+    {
+      "kind": "event",
+      "at": 1893.2000000029802,
+      "thread": "main",
+      "name": "model-fallback",
+      "key": "staff-medium",
+      "reason": "Model HTTP 503"
+    },
+    {
+      "kind": "measure",
+      "at": 1955.5,
+      "thread": "main",
+      "name": "glb:decode",
+      "ms": 48.599999994039536,
+      "key": "mobile",
+      "bytes": 849352
+    },
+    {
+      "kind": "event",
+      "at": 1956.2000000029802,
+      "thread": "main",
+      "name": "gpu-formats",
+      "key": "mobile",
+      "formats": [
+        1023
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1956.7000000029802,
+      "thread": "main",
+      "name": "glb:load",
+      "ms": 67.70000000298023,
+      "key": "mobile",
+      "allowGpu": false
+    },
+    {
+      "kind": "measure",
+      "at": 1956.800000011921,
+      "thread": "main",
+      "name": "glb:load",
+      "ms": 199.70000000298023,
+      "key": "mobile",
+      "allowGpu": true
+    },
+    {
+      "kind": "measure",
+      "at": 1981.800000011921,
+      "thread": "main",
+      "name": "glb:decode",
+      "ms": 24.900000005960464,
+      "key": "staff-medium",
+      "bytes": 305904
+    },
+    {
+      "kind": "event",
+      "at": 1982,
+      "thread": "main",
+      "name": "gpu-formats",
+      "key": "staff-medium",
+      "formats": [
+        1023
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1982.1000000089407,
+      "thread": "main",
+      "name": "glb:load",
+      "ms": 88.70000000298023,
+      "key": "staff-medium",
+      "allowGpu": false
+    },
+    {
+      "kind": "measure",
+      "at": 1982.1000000089407,
+      "thread": "main",
+      "name": "glb:load",
+      "ms": 225,
+      "key": "staff-medium",
+      "allowGpu": true
+    },
+    {
+      "kind": "event",
+      "at": 2066.4000000059605,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "high_albedo",
+      "ms": 2.0999999940395355
+    },
+    {
+      "kind": "event",
+      "at": 2555.5,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "high_normal",
+      "ms": 2.8999999910593033
+    },
+    {
+      "kind": "event",
+      "at": 2674.2000000029802,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "high_metallic-high_roughness",
+      "ms": 8.399999991059303
+    },
+    {
+      "kind": "event",
+      "at": 3104.5,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "2a95ecf8-46d7-4756-8f32-5af386fcb104",
+      "ms": 0.8999999910593033
+    },
+    {
+      "kind": "event",
+      "at": 3107,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "medium_albedo",
+      "ms": 0.5999999940395355
+    },
+    {
+      "kind": "event",
+      "at": 3114.9000000059605,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "medium_normal",
+      "ms": 0.5
+    },
+    {
+      "kind": "event",
+      "at": 3179.5,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "medium_metallic-medium_roughness",
+      "ms": 0.5
+    },
+    {
+      "kind": "event",
+      "at": 3273.300000011921,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "9f75bd0f-ba10-4b0a-9bcc-392cbc3e2c5d",
+      "ms": 0.30000001192092896
+    },
+    {
+      "kind": "event",
+      "at": 3377.9000000059605,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "295e1138-1c9d-4b89-bd0d-c13c2107cd31",
+      "ms": 0.29999999701976776
+    },
+    {
+      "kind": "event",
+      "at": 3476,
+      "thread": "main",
+      "name": "warmup:texture",
+      "texture": "996ce71c-34ae-4ba6-9a06-f0bb701c492b",
+      "ms": 0.29999999701976776
+    },
+    {
+      "kind": "event",
+      "at": 3631.5,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "H01_C0_Hunyuan_StaticTrial",
+      "ms": 18.5
+    },
+    {
+      "kind": "event",
+      "at": 3723.7000000029802,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "MocTinhTruong_TexturedMesh",
+      "ms": 11.700000002980232
+    },
+    {
+      "kind": "event",
+      "at": 3821,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 14.799999997019768
+    },
+    {
+      "kind": "event",
+      "at": 3905,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 20.899999991059303
+    },
+    {
+      "kind": "event",
+      "at": 4022.4000000059605,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 10.599999994039536
+    },
+    {
+      "kind": "event",
+      "at": 4139.800000011921,
+      "thread": "main",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 11.600000008940697
+    },
+    {
+      "kind": "five-second-window",
+      "at": 4244.300000011921,
+      "thread": "main",
+      "name": "hero:0:mobile",
+      "start": 1757.1000000089407,
+      "frames": 18,
+      "maxFrameMs": 650.1000000000001,
+      "over50": 16,
+      "renderer": {
+        "geometries": 9,
+        "textures": 21,
+        "frame": 18,
+        "calls": 48,
+        "triangles": 19024,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 2487.2000000029802,
+      "complete": false
+    },
+    {
+      "kind": "appearance",
+      "at": 4244.600000008941,
+      "thread": "main",
+      "name": "model:H01:mobile"
+    }
+  ],
+  "errors": []
+}

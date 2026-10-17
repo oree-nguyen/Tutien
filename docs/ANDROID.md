@@ -44,3 +44,9 @@ Cần một điện thoại vật lý cấp quyền ADB. Script kiểm tra `ro.k
 Bằng chứng `acceptance/evidence/android-functional.json` cần fingerprint hiện tại, thông tin thiết bị thật, checks launch/landscape/touchCombat/extraction/resume và trace có checksum. `android-performance.json` cần thiết bị thật, trace, normalDurationSeconds>=60 và gateCombatDurationSeconds>=60 (mỗi cảnh), durationSeconds>=60, normalFps>=60, gateCombatFps>=30, combatants>=40. Điền kết quả từ phép đo thực tế; không nhập con số ước tính. Emulator và SwiftShader không thỏa gate thiết bị thật.
 
 Máy cloud hiện không có thiết bị USB Android hoặc KVM. ADB bản mới còn bị chặn thư mục `/home/agent/.android` chỉ đọc; điều này không được giải quyết bằng cách đổi HOME hay giả lập một serial thiết bị. Chưa có báo cáo chức năng/FPS vật lý hợp lệ, nên goal phải tiếp tục BLOCKED dù APK đã build được.
+
+## Đợt kiểm tra boot và KTX2 ngày 17/10/2026
+
+Xem [PERF-REPORT.md](PERF-REPORT.md) để biết số đo thật, SHA APK và các mục chưa đạt. Sảnh có nút **ĐO HIỆU NĂNG**: bật để tải lại với `?perf=1`, sau thao tác đợi ít nhất5giây rồi lấy JSON. Mặc định log tắt. Chưa có nghiệm thu Android thật.
+
+Build chạy `assets:optimize`; cần KTX-Software4.4.2 (`toktx` trên PATH hoặc biến `TOKTX=/đường/dẫn/toktx`). Có thể dev với `HG_SKIP_ASSET_OPTIMIZE=1 npm run build` khi dùng các bản tối ưu đã commit; đây là bỏ qua rõ ràng, không phải nén thành công. BasisJS/WASM được script chép từ Three trong node_modules và đóng trongAPK, không dùngCDN. Lệnh `npm run assets:verify` kiểm clip/keyframe/bone/morph và ownership của cache.
