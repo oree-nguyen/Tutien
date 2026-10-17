@@ -19,11 +19,12 @@ import { quickOffers, contextualActions } from "./hud.js";
 import { MAP_BUSHES } from "./systems.js";
 import { itemIcon, skillIcon, masterworkAssets } from "./item-art.js";
 import { ensureRuntimeSecurity, securityFacade } from "./runtime-security.js";
-import { GameLifecycleStateMachine, PHASES, sanitizeStaleMatchStateOnBoot } from './game-lifecycle.js';
+import{persistOfflineSave,clearOfflineSave}from'./offline-session.js';
+import{perfMeasure}from'./perf-debug.js';
+import { GameLifecycleStateMachine, PHASES } from './game-lifecycle.js';
 import { nextPaint, waitForUiPaint, observeBoot } from './runtime-performance.js';
 const lifecycle=new GameLifecycleStateMachine();
-const bootMetrics=observeBoot();
-sanitizeStaleMatchStateOnBoot(globalThis.localStorage,globalThis.sessionStorage);
+const bootMetrics=observeBoot();bootMetrics.sourceHash=import.meta.env.HG_BUILD_ID??'development';
 import { SoulAudio } from "./audio.js";
 import {
   SmoothSkillshotController,
@@ -60,24 +61,14 @@ if (!profile) {
 }
 profile.eventTickets ??= 1;
 const save = () => {
-  if (onlineAccount) return;
-  try {
-    localStorage.setItem(
-      "hon-gioi-save-v2",
-      JSON.stringify({
-        version: 3,
-        profile,
-        match:null,
-        activeRun:match&&!match.result&&!match.online?{
-          wallet:match.player.wallet,gear:match.player.gear,supports:match.player.supports,
-          escrow:match.player.channel?.escrow??[],kills:match.player.kills,
-        }:null,
-      }),
-    );
-    localStorage.setItem("hon-gioi-v25", JSON.stringify(profile));
-  } catch {
-    toast("Không thể lưu bộ nhớ thiết bị. Hãy cho phép lưu trữ.");
-  }
+  if(onlineAccount)return true;
+  try{
+    const active=match&&!match.online&&!match.result;
+    const snapshot=active?perfMeasure('offline:snapshot',()=>match.snapshot()):match?.result?null:pendingSnapshot;
+    const receipt=active||match?.result?null:pendingRun;
+    const result=persistOfflineSave(localStorage,profile,{snapshot,receipt});
+    bootMetrics.persistenceError=null;bootMetrics.mirrorError=result.mirrorError;return true;
+  }catch(error){bootMetrics.persistenceError=error.message;toast('Chưa lưu được trạng thái trận. Không đóng ứng dụng; hãy thử lại.');return false;}
 };
 let loadout = {
   hero: 0,
@@ -108,7 +99,8 @@ let releaseJoystick = () => {};
 function updateAssetLoadingIndicator(){
  const el=document.getElementById('assetLoadStatus');if(!el)return;
  const asset=world?.previewAsset??world?.preview?.getObjectByName(loadout.hero===1?'manualHero_H02_C0':'manualHero_H01_C0')?.userData.manualAsset;
- const hidden=!!match||![0,1].includes(loadout.hero)||loadout.costume!==0||asset?.status==='loaded';if(el.hidden!==hidden)el.hidden=hidden;
+ const expected=loadout.hero===1?'H02-C0':'H01-C0';const visible=asset?.id===expected&&asset.status==='loaded'&&(asset.entrance?.visible!==false)&&(asset.entrance?.heroVisible!==false);
+ const hidden=!!match||![0,1].includes(loadout.hero)||loadout.costume!==0||visible;if(el.hidden!==hidden)el.hidden=hidden;
  const text=asset?.status==='failed'?`Không nạp được model — chạm ${loadout.hero===1?'Trạch':'Dật'} để thử lại.`:(loadout.hero===1?'Đang nạp Hàn Trạch và Chấn Nhạc Chùy…':'Đang nạp Lâm Dật và Mộc Tinh Trượng…');
  if(el.textContent!==text)el.textContent=text;
 }
@@ -326,7 +318,7 @@ function renderHub() {
    )
    .join(
      "",
-   )}<button id="ranked" class="${loadout.ranked ? "active" : ""}">${loadout.ranked ? "XẾP HẠNG · MÔ PHỎNG" : "ĐẤU THƯỜNG"}</button></div><div class="version">${onlineAccount ? "V2.5 / ONLINE · VÍ VÀ KHO DO MÁY CHỦ QUẢN LÝ" : "V2.5 / NGOẠI TUYẾN VỚI BOT · LƯU TRÊN THIẾT BỊ"}</div><div class="footer-links"><button class="ghost" id="stash">KHO HỒN THÀNH (${profile.stash.length})</button><button class="ghost" id="help">HƯỚNG DẪN</button><button class="ghost" id="history">ĐÀI VINH DANH</button></div></div><div><button class="primary start-button" id="start">BẮT ĐẦU TRẬN ĐẤU ↗<small>${loadout.mode === "squad3" ? "96" : "100"} HỒN SƯ · ${loadout.ranked ? "CHUẨN HÓA SKIN" : "THƯƠNG MANG CỔ VỰC"}</small></button><div class="version" style="text-align:right">CHI PHÍ TRỢ PHẨM: ${supportCost()} NB + ${supportTbCost()}TB</div></div></footer></main><div id="assetLoadStatus" class="asset-load-status" role="status">Đang nạp Lâm Dật và Mộc Tinh Trượng…</div><div id="modalRoot"></div>`;
+   )}<button id="ranked" class="${loadout.ranked ? "active" : ""}">${loadout.ranked ? "XẾP HẠNG · MÔ PHỎNG" : "ĐẤU THƯỜNG"}</button></div><div class="version">${onlineAccount ? "V2.5 / ONLINE · VÍ VÀ KHO DO MÁY CHỦ QUẢN LÝ" : "V2.5 / NGOẠI TUYẾN VỚI BOT · LƯU TRÊN THIẾT BỊ"} · BẢN ${bootMetrics.sourceHash.slice(0,8)}</div><div class="footer-links"><button class="ghost" id="stash">KHO HỒN THÀNH (${profile.stash.length})</button><button class="ghost" id="help">HƯỚNG DẪN</button><button class="ghost" id="history">ĐÀI VINH DANH</button></div></div><div><button class="primary start-button" id="start">BẮT ĐẦU TRẬN ĐẤU ↗<small>${loadout.mode === "squad3" ? "96" : "100"} HỒN SƯ · ${loadout.ranked ? "CHUẨN HÓA SKIN" : "THƯƠNG MANG CỔ VỰC"}</small></button><div class="version" style="text-align:right">CHI PHÍ TRỢ PHẨM: ${supportCost()} NB + ${supportTbCost()}TB</div></div></footer></main><section class="offline-resume-actions" aria-label="Trận ngoại tuyến đang dở">${!onlineAccount&&pendingSnapshot?'<button class="ghost" id="resumeOffline">TIẾP TỤC TRẬN</button>':''}${!onlineAccount&&(pendingSnapshot||pendingRun)?'<button class="ghost" id="abandonOffline">XỬ LÝ TRẬN DỞ</button>':''}</section><div id="assetLoadStatus" class="asset-load-status model-placeholder" role="status" aria-live="polite">✦ Đang nạp Lâm Dật và Mộc Tinh Trượng…</div><div id="modalRoot"></div>`;
   $("#branchText").textContent = BRANCH_TEXT[loadout.hero][loadout.branch];
   $$("[data-hero]").forEach(
     (el) =>
@@ -417,6 +409,8 @@ function renderHub() {
   $("#help").onclick = showHelp;
   $("#history").onclick = showHistory;
   $("#start").onclick = (event) => guarded(()=>startMatch(event));
+  if($('#resumeOffline'))$('#resumeOffline').onclick=event=>guarded(()=>continueOfflineMatch(event));
+  if($('#abandonOffline'))$('#abandonOffline').onclick=()=>showInterruptedRunConfirmation();
   $("#fullscreen").onclick = fullscreen;
   $("#showcaseFull").onclick = () => world?.setShowcaseView("full");
   $("#showcaseFace").onclick = () => world?.setShowcaseView("face");
@@ -730,6 +724,7 @@ function showHelp() {
   );
 }
 async function startMatch(event) {
+  if(!onlineAccount&&(pendingSnapshot||pendingRun)){toast('Hãy tiếp tục hoặc xác nhận bỏ trận dở trước khi bắt đầu trận mới.');return false;}
   const token=lifecycle.begin(event);if(token===null)return false;app.inert=true;
   try {await worldReady;if(!lifecycle.valid(token))return false;return await launchMatch(token);}
   catch(error){world?.releaseBattlefield();lifecycle.cancel();const button=$('#start');if(button){button.disabled=false;button.textContent='BẮT ĐẦU TRẬN ĐẤU';}throw error;}
@@ -1261,7 +1256,9 @@ function showResult() {
     },
   );
 }
+function cleanupWorldForLobby(){for(const method of ['reset','releaseBattlefield'])try{world?.[method]?.();}catch(error){bootMetrics.cleanupError=error.message;}}
 function backHub() {
+  if(match&&!match.online){if(!save())return false;pendingSnapshot=pendingRun=null;}
   skillshot.reset();
   autoFarm.reset();
   if (match?.online) match.close();
@@ -1271,8 +1268,7 @@ function backHub() {
   paused = false;
   input.attack = false;
   keys.clear();
-  world?.reset();
-  world?.releaseBattlefield();
+  cleanupWorldForLobby();
   sanitizeLoadout();
   save();
   renderHub();
@@ -1692,30 +1688,32 @@ function animate(now) {
     frames = 0;
   }
 }
-// A stored offline match is settled once as an abandonment; never made active.
-function settleInterruptedMatch(){
- if(!pendingSnapshot&&!pendingRun)return;
+// Offline snapshots stay pending until an explicit trusted gesture.
+async function continueOfflineMatch(event){
+ const token=lifecycle.begin(event);if(token===null)return false;app.inert=true;
  try{
+  if(onlineAccount||!pendingSnapshot)throw Error('Không có snapshot ngoại tuyến đầy đủ để tiếp tục.');
+  const restored=Match.restore(pendingSnapshot,offlineMatchEvent);
+  if(restored.result||!restored.player?.alive)throw Error('Trận lưu đã kết thúc. Hãy xử lý bản ghi cũ trước.');
+  const p=restored.player,appearance={...loadout,hero:p.hero,branch:p.branch,rings:[...p.rings],bones:[...p.bones],skin:p.skin??0,costume:p.costume??0,ranked:p.ranked??false,mode:({1:'solo',2:'duo',3:'squad3',4:'squad4'})[restored.teamSize]??loadout.mode,supports:p.supports.map(({id,tier})=>({id,tier}))};
+  await worldReady;if(!lifecycle.valid(token))return false;await world.prepareBattlefield(appearance);if(!lifecycle.valid(token))return false;
+  restored.profile=profile;world.reset();match=restored;loadout=appearance;lifecycle.enter(token);match.performanceTiering=true;match.obstacles=world.obstacles;
+  pendingSnapshot=pendingRun=null;paused=false;renderHUD();save();toast('Đã tiếp tục trận ngoại tuyến theo yêu cầu.');return true;
+ }catch(error){world?.releaseBattlefield();lifecycle.cancel();throw error;}finally{app.inert=false;}
+}
+function offlineMatchEvent(type,data){if(type==='message')toast(data);if(type==='hit')audio.hit();if(type==='save')save();if(type==='sendPanel')showSend();if(type==='end')setTimeout(showResult,50);}
+function showInterruptedRunConfirmation(){
+ showModal('Trận ngoại tuyến đang dở',`<p class="intro">${pendingSnapshot?'Có snapshot đầy đủ: bạn có thể tiếp tục bằng nút ở sảnh.':'Bản lưu v3 chỉ có biên nhận tài sản, không đủ vị trí/bot/timer để tiếp tục nguyên trận.'} Bỏ trận chỉ diễn ra khi bạn xác nhận, theo luật tử vong hiện có.</p><button id="confirmAbandonOffline" class="danger">XÁC NHẬN BỎ TRẬN DỞ</button>`,()=>{$('#confirmAbandonOffline').onclick=event=>guarded(()=>{if(!event.isTrusted)return false;
   let player;
-  if(pendingRun){player={...pendingRun,bag:[],gear:[...(pendingRun.gear??[]),...(pendingRun.escrow??[])]};}
-  else{
-   const abandoned=Match.restore(pendingSnapshot);
-   if(!abandoned.result&&abandoned.player?.alive){abandoned.cancelExtraction(abandoned.player);player=abandoned.player;}
-  }
-  pendingRun=pendingSnapshot=null;
-  if(player){
-   const result=R.deathSettlement(player);
-   profile.tb+=result.refund;profile.stash.push(...result.saved);
-   profile.matches++;profile.record.unshift({title:'Rời trận khi đóng ứng dụng',value:0,kills:player.kills??0,time:Date.now()});profile.record=profile.record.slice(0,10);
-   bootMetrics.interruptedMatchSettled=true;
-  }
- }catch(error){bootMetrics.recoveryError=error.message;pendingRun=pendingSnapshot=null;}
- save();
+  if(pendingRun)player={...pendingRun,bag:[],gear:[...(pendingRun.gear??[]),...(pendingRun.escrow??[])]};
+  else if(pendingSnapshot){const stored=Match.restore(pendingSnapshot);if(!stored.result&&stored.player?.alive){stored.cancelExtraction(stored.player);player=stored.player;}}
+  const next=structuredClone(profile);
+  if(player){const result=R.deathSettlement(player);next.tb+=result.refund;next.stash.push(...result.saved);next.matches++;next.record.unshift({title:'Xác nhận bỏ trận ngoại tuyến',value:0,kills:player.kills??0,time:Date.now()});next.record=next.record.slice(0,10);}
+  clearOfflineSave(localStorage,next);profile=next;pendingSnapshot=pendingRun=null;closeModal();renderHub();
+ });});
 }
 lifecycle.boot();renderHub();bootMetrics.marks.lobbyUI=performance.now();
-worldReady=(async()=>{await nextPaint();settleInterruptedMatch();renderHub();return initializeWorld();})().catch(error=>{
- bootMetrics.error=error.message;toast('Không khởi tạo được 3D. Giao diện và kho vẫn khả dụng.');throw error;
-});
+worldReady=initializeWorld().catch(error=>{bootMetrics.error=error.message;toast('Không khởi tạo được 3D. Giao diện và kho vẫn khả dụng.');throw error;});
 // Attach rejection handling immediately even before the user presses Start.
 void worldReady.catch(()=>{});
 let recoveringRenderer=false;
@@ -1733,8 +1731,9 @@ let animationId=null,backgroundMatch=false;
 function suspend(){save();backgroundMatch=!!match;if(lifecycle.phase===PHASES.LOADING){lifecycle.cancel();world?.releaseBattlefield();renderHub();}if(animationId!==null)cancelAnimationFrame(animationId);animationId=null;releaseJoystick();skillshot.reset();keys.clear();input.x=input.z=0;input.attack=false;}
 function resume(){
  if(backgroundMatch&&match){
-  if(match.online&&!match.result)match.kill();else if(!match.result){match.player.downedUntil=1;match.kill(match.player,{team:-1,kind:'beast'});}
-  backHub();
+  if(!match.online&&!match.result){
+   if(save()){pendingSnapshot=match.snapshot();pendingRun=null;match=null;lifecycle.cleanup();cleanupWorldForLobby();modal=null;paused=false;closeModal();renderHub();}
+  }else{if(match.online&&!match.result)match.kill();backHub();}
  }
  backgroundMatch=false;last=performance.now();if(animationId===null)animationId=requestAnimationFrame(animate);
 }
@@ -1746,6 +1745,7 @@ animationId=requestAnimationFrame(animate);
 // Service worker ownership belongs to boot.js; native APKs read their packaged assets directly.
 // Read-only diagnostics for QA; game state remains available for local sandbox automation.
 window.__HON_GIOI__ = {
+  get build(){return{sourceHash:bootMetrics.sourceHash,version:"2.5.0"};},
   get lifecycle(){return {phase:lifecycle.phase,revision:lifecycle.revision,transitions:[...lifecycle.transitions]};},
   get boot(){return bootMetrics;},
   get match() {

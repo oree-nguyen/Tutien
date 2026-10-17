@@ -14,7 +14,7 @@ npm ci --cache /workspace/.npm-cache
 npm run dev
 ```
 
-Ngoại tuyến không cần API key, tài khoản hoặc cơ sở dữ liệu. Tài khoản mẫu 2.000 NB / 5.000 TB, một bản mỗi Hoàn/Cốt, một Vé Sự Kiện; tiến trình trận và ví/kho lưu trong một bản ghi localStorage. Reload khôi phục trận cùng tham chiếu actor, Hoàn đang ký quỹ, vùng kỹ năng, đạn và timer. Không coi localStorage là chống gian lận.
+Ngoại tuyến không cần API key, tài khoản hoặc cơ sở dữ liệu. Tài khoản mẫu 2.000 NB / 5.000 TB, một bản mỗi Hoàn/Cốt, một Vé Sự Kiện; tiến trình trận và ví/kho lưu trong một bản ghi localStorage. Reload luôn vào Hồn Thành; snapshot đầy đủ chỉ khôi phục actor, Hoàn ký quỹ, vùng kỹ năng, đạn và timer khi tự bấm “Tiếp tục trận”. Biên nhận v3 cũ không đủ khôi phục thế giới; chỉ xử lý bỏ trận sau xác nhận. Không coi localStorage là chống gian lận.
 
 ```sh
 npm run services  # PostgreSQL 17 + Redis 8, Docker; chỉ bind loopback

@@ -1,6 +1,9 @@
 import { defineConfig } from "vite";
+import{fingerprint}from"./scripts/fingerprint.mjs";
+const sourceHash=await fingerprint();
 export default defineConfig({
   base: "./",
+  define:{"import.meta.env.HG_BUILD_ID":JSON.stringify(sourceHash)},
   worker:{format:"es"},
   build: { rollupOptions: { output: { manualChunks: { three: ["three"] } } } },
   server: {

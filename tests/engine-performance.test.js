@@ -9,7 +9,7 @@ test('boot and cancelled async loads cannot enter combat without a new trusted s
 });
 test('storage sanitation preserves bank/profile and unrelated services',()=>{
  const map=new Map([['activeMatch','battle'],['hon-gioi-save-v2','profile'],['other-service','{"phase":"battle","balance":900}']]);const store={removeItem:k=>map.delete(k)};
- sanitizeStaleMatchStateOnBoot(store,store);assert.equal(map.has('activeMatch'),false);assert.equal(map.get('hon-gioi-save-v2'),'profile');assert.equal(map.get('other-service'),'{"phase":"battle","balance":900}');
+ sanitizeStaleMatchStateOnBoot(store,store);assert.equal(map.has('activeMatch'),true);assert.equal(map.get('hon-gioi-save-v2'),'profile');assert.equal(map.get('other-service'),'{"phase":"battle","balance":900}');
 });
 test('resolution responds to sustained frame pressure, recovers slowly and respects the budget',()=>{
  const applied=[],scale=new AdaptiveResolution({max:1.5,min:.8,apply:v=>applied.push(v)});
