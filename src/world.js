@@ -1,3 +1,4 @@
+import{perfFrame,perfBeginAppearance}from'./perf-debug.js';
 import * as THREE from "three";
 import{loadTerrainTextureSet}from"./terrain-assets.js";
 import{installTerrainTextureProvider}from"./environment-pbr.js";
@@ -266,7 +267,7 @@ export class World {
   addDetail(model, a, detail) {
     if (model.details.has(detail)||(detail==="medium"&&model.details.has("mobile"))) return;
     let visual;
-    if(a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)&&detail===this.preparedPlayerVisual.detail){visual=this.preparedPlayerVisual.visual;this.preparedPlayerVisual=null;}else visual=visualTemplate(a,detail);
+    if(a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)&&detail===this.preparedPlayerVisual.detail){visual=this.preparedPlayerVisual.visual;this.preparedPlayerVisual=null;}else visual=visualTemplate(a,detail);if(a.id==='preview')perfBeginAppearance('hero:'+a.hero+':'+detail);
     if(visual.userData.manualHunyuan)configureManualH01(visual,this.renderer,this.scene,this.camera);
     model.details.add(detail);
     model.lod.addLevel(
@@ -731,7 +732,7 @@ export class World {
     finally{this.gpuTimer.end();}
 
   }
-  samplePerformance(frameMs){this.gpuTimer.poll();this.resolution.sample(Math.max(frameMs,this.gpuTimer.lastMs));}
+  samplePerformance(frameMs){perfFrame(frameMs,this.renderer.info);this.gpuTimer.poll();this.resolution.sample(Math.max(frameMs,this.gpuTimer.lastMs));}
   renderMapEffects(match) {
     if (!this.fogRegions) {
       this.fogRegions = REGIONS.slice(0, 5).map((r, i) => {

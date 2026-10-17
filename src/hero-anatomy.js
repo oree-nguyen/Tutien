@@ -1,3 +1,4 @@
+import{perfMeasure}from'./perf-debug.js';
 import * as THREE from "three";
 import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
 import { buildSoulWeapon, animateSoulWeapons } from "./weapons.js";
@@ -462,7 +463,7 @@ function soft(ctx, x, y, rx, ry, color) {
   ctx.fillRect(-1, -1, 2, 2);
   ctx.restore();
 }
-export function generateHighResCharacterFaceTexture(
+function generateHighResCharacterFaceTextureMeasured(
   heroId,
   gender = "male",
   skinTone = "#efd3bd",
@@ -2001,3 +2002,5 @@ export function anatomyCacheStats() {
     }, {}),
   };
 }
+
+export function generateHighResCharacterFaceTexture(...args){return perfMeasure('texture:generateHighResCharacterFaceTexture',()=>generateHighResCharacterFaceTextureMeasured(...args),{arguments:args.map(a=>typeof a==='object'?a?.detail??a?.size??null:a)});}

@@ -1,3 +1,4 @@
+import{perfBeginAppearance}from'./perf-debug.js';
 import * as THREE from 'three';
 import {clone as cloneSkeleton}from'three/addons/utils/SkeletonUtils.js';
 import{loadManualAsset,manualAssetMetrics}from'./manual-asset-cache.js';
@@ -50,7 +51,7 @@ export function createManualH02(actor,detail){
   if(root.userData.manualAsset.disposed){mixer.stopAllAction();s.vfx&&disposeH02EntranceVfx(s.vfx);return;}
   states.set(root,s);s.introStart=performance.now();body.visible=true;
   if(!preview){ik.socket.add(hammer);hammer.position.set(0,0,0);s.gripped=true;}
-  Object.assign(root.userData.manualAsset,{status:'loaded',clips:gltf.animations.map(c=>c.name),loadMs:performance.now()-started,cache:{...manualAssetMetrics},weaponSource:'45b118bc-58ce-4000-94c6-8e09945aa9f1'});root.userData.modelLoadRevision=1;
+  if(preview)perfBeginAppearance('model:H02:'+detail);Object.assign(root.userData.manualAsset,{status:'loaded',clips:gltf.animations.map(c=>c.name),loadMs:performance.now()-started,cache:{...manualAssetMetrics},weaponSource:'45b118bc-58ce-4000-94c6-8e09945aa9f1'});root.userData.modelLoadRevision=1;
  }).catch(error=>{if(!root.userData.manualAsset.disposed){root.userData.manualAsset.status='failed';root.userData.manualAsset.error=error.message;console.error('H02 Hunyuan asset failed',error);}});
  return root;
 }

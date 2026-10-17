@@ -1,3 +1,4 @@
+import{perfMeasure}from'./perf-debug.js';
 import * as T from "three";
 import { RINGS } from "./data.js";
 
@@ -133,7 +134,7 @@ function makePixels(ring, size) {
   return pixels;
 }
 
-function textureFor(id, resolution) {
+function textureForMeasured(id, resolution) {
   const key = `${id}:${resolution}`;
   if (!textureCache.has(key)) {
     const ring = RINGS[id - 1],
@@ -401,3 +402,5 @@ export function getSoulRingTextureCacheInfo() {
     entries,
   };
 }
+
+function textureFor(...args){return perfMeasure('texture:textureFor',()=>textureForMeasured(...args),{arguments:args.map(a=>typeof a==='object'?a?.detail??a?.size??null:a)});}

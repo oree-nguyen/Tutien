@@ -1,3 +1,4 @@
+import{perfMeasure}from'./perf-debug.js';
 import * as THREE from "three";
 
 export const BROCADE_PATTERNS = Object.freeze({
@@ -399,7 +400,8 @@ export class ProceduralCharacterPBRGenerator {
     this.engravedMaterials = new Map();
     this.engravedGeometry = new WeakMap();
   }
-  generateSilkBrocadeTexture(
+  generateSilkBrocadeTexture(...args){return perfMeasure('texture:character-five-maps',()=>this.generateSilkBrocadeTextureMeasured(...args),{detail:args[4]?.detail??'high'});}
+  generateSilkBrocadeTextureMeasured(
     primaryHex,
     secondaryHex,
     goldAccentHex,
@@ -620,7 +622,8 @@ export class ProceduralCharacterPBRGenerator {
     };
     return m;
   }
-  hairMaterial(color, detail = "high") {
+  hairMaterial(...args){return perfMeasure('texture:hair',()=>this.hairMaterialMeasured(...args),{detail:args[1]??'high'});}
+  hairMaterialMeasured(color, detail = "high") {
     const size = detail === "high" ? 512 : detail === "medium" ? 128 : 64,
       key = `${color}:${size}`;
     if (this.hairCache.has(key)) return this.hairCache.get(key);

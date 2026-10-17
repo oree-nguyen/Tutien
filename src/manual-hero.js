@@ -1,3 +1,4 @@
+import{perfBeginAppearance}from'./perf-debug.js';
 import{usesManualH02,configureManualH02,updateManualH02,replayManualH02,seekManualH02,disposeManualH02}from'./manual-h02.js';
 import * as THREE from 'three';
 import {warmSceneMaterials}from'./shader-warmup.js';
@@ -74,7 +75,7 @@ export function createManualH01(actor,detail){
   if(root.userData.manualAsset.disposed){mixer.stopAllAction();state.vfx&&disposeH01EntranceVfx(state.vfx);return;}
   state.introStart=performance.now();states.set(root,state);body.visible=true;root.visible=true;
   if(!preview){ik.socket.add(staff);staff.position.set(0,0,0);state.gripped=true;}
-  root.userData.manualAsset.status='loaded';root.userData.manualAsset.clips=gltf.animations.map(c=>c.name);
+  if(preview)perfBeginAppearance('model:H01:'+detail);root.userData.manualAsset.status='loaded';root.userData.manualAsset.clips=gltf.animations.map(c=>c.name);
   root.userData.manualAsset.loadMs=performance.now()-started;root.userData.manualAsset.cache={...manualAssetMetrics};
   root.userData.modelLoadRevision=1;
  }).catch(error=>{

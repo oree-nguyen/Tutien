@@ -1,3 +1,4 @@
+import{perfAsync,perfEnabled,perfEvent}from'./perf-debug.js';
 import {getGpuTextureLoader,gpuTextureMetrics} from './gpu-textures.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { threadedMeshoptDecoder as MeshoptDecoder,meshoptWorkerMetrics } from './meshopt-worker-bridge.js';
@@ -56,7 +57,8 @@ export async function manualAssetBuffer(key){
  void stored(cacheKey,buffer);
  return buffer;
 }
-export function loadManualAsset(key,allowGpu=true){
+export function loadManualAsset(key,allowGpu=true){return perfAsync('glb:load',()=>loadManualAssetMeasured(key,allowGpu),{key,cached:loaded.has(key),allowGpu});}
+function loadManualAssetMeasured(key,allowGpu=true){
  const originalKey=key;
  const gpu=getGpuTextureLoader();
  if(allowGpu&&gpu&&manualHeroAssetUrls[key+'-gpu'])key+='-gpu';
@@ -75,7 +77,8 @@ export function loadManualAsset(key,allowGpu=true){
      }
     }));
     const start=performance.now();
-    const gltf=await loader.parseAsync(buffer,'');
+    const gltf=await perfAsync('glb:decode',()=>loader.parseAsync(buffer,''),{key,bytes:buffer.byteLength});
+    if(perfEnabled()){const formats=new Set();gltf.scene.traverse(n=>{for(const m of (Array.isArray(n.material)?n.material:[n.material]).filter(Boolean))for(const slot of ['map','normalMap','metalnessMap','roughnessMap'])if(m[slot])formats.add(m[slot].format);});perfEvent('gpu-formats',{key,formats:[...formats]});}
     manualAssetMetrics.gpu={...gpuTextureMetrics};manualAssetMetrics.decoded++;manualAssetMetrics.lastDecodeMs=performance.now()-start;manualAssetMetrics.worker={...meshoptWorkerMetrics};
     return gltf;
    });
