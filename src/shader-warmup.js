@@ -15,11 +15,14 @@ export async function warmSceneMaterials(renderer,root,camera,scene,includeHidde
  });
  // A shared shader program may still reference different images on each mesh.
  // Upload all images, including those skipped by program deduplication.
+ let uploadSliceStart=performance.now();
  for(const texture of textures){
   const start=performance.now();renderer.initTexture(texture);
   const timing={kind:'texture',name:texture.name||texture.uuid,ms:performance.now()-start};
-  timings.push(timing);perfEvent('warmup:texture',{texture:timing.name,ms:timing.ms});await nextPaint();
+  timings.push(timing);perfEvent('warmup:texture',{texture:timing.name,ms:timing.ms});
+  if(performance.now()-uploadSliceStart>=4){await nextPaint();uploadSliceStart=performance.now();}
  }
+ if(textures.size)await nextPaint();
  for(const mesh of meshes){
   const start=performance.now();
   if(renderer.compileAsync)await renderer.compileAsync(mesh,camera,scene);else renderer.compile(mesh,camera,scene);

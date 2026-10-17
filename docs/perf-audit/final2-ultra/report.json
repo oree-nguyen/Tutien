@@ -1,0 +1,6049 @@
+{
+  "phase": "final2",
+  "quality": "ultra",
+  "sourceHash": "ac7dc406f47797bcd4fe838b60f059b993163bc3c9392bcaf1d94d7ffe287c1c",
+  "readyMs": 5075.504912,
+  "paints": [
+    {
+      "name": "first-paint",
+      "ms": 304
+    },
+    {
+      "name": "first-contentful-paint",
+      "ms": 304
+    }
+  ],
+  "appearances": [
+    {
+      "hero": 0,
+      "asset": {
+        "id": "H01-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "texture",
+            "name": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "texture",
+            "name": "91e682e6-6628-4d82-801a-5549aed11502",
+            "ms": 1.2999999970197678
+          },
+          {
+            "kind": "texture",
+            "name": "00b3c320-d163-4ec3-8c44-341f4197ab30",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "bcb5bee0-4a3f-49a1-9e08-95a147719c9d",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "program",
+            "name": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 11.700000002980232
+          },
+          {
+            "kind": "program",
+            "name": "MocTinhTruong_TexturedMesh",
+            "ms": 15.200000002980232
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 16.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 18
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 10.5
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 11.800000011920929
+          }
+        ],
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 2822.6000000089407,
+        "cache": {
+          "hits": 0,
+          "misses": 2,
+          "bytes": 2693716,
+          "decoded": 2,
+          "cacheWrites": 2,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 67.79999999701977,
+          "worker": {
+            "decoded": 14,
+            "fallbacks": 0
+          },
+          "templates": {
+            "templates": 2,
+            "referenced": 2,
+            "leases": 2
+          }
+        },
+        "entrance": {
+          "time": 5.793600000008941,
+          "complete": true
+        },
+        "cameraShake": 0,
+        "animation": "Idle",
+        "gripEvents": 1,
+        "impactEvents": 1,
+        "rightGripError": 3.674860582927666e-8
+      },
+      "render": {
+        "frame": 495,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "memory": {
+        "geometries": 12,
+        "textures": 35
+      },
+      "perf": {
+        "enabled": true,
+        "records": [
+          {
+            "kind": "event",
+            "at": 375,
+            "thread": "worker",
+            "name": "gpu-support",
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          {
+            "kind": "measure",
+            "at": 632.5999999940395,
+            "thread": "worker",
+            "name": "texture:sigilTexture",
+            "ms": 0.5999999940395355,
+            "arguments": []
+          },
+          {
+            "kind": "measure",
+            "at": 839.5999999940395,
+            "thread": "worker",
+            "name": "texture:cloudTexture",
+            "ms": 0.29999999701976776,
+            "arguments": []
+          },
+          {
+            "kind": "event",
+            "at": 971,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f0b0ae25-7f2e-4a26-9faf-92b9ca1863d2",
+            "ms": 2.1000000089406967
+          },
+          {
+            "kind": "event",
+            "at": 973,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b949a563-2740-4f23-b218-cf24a8754735",
+            "ms": 1.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 985.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "211bb5c4-ffad-46a2-bbf6-7e48ab8458a6",
+            "ms": 0.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 986.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "dc2cd154-32d9-4248-b803-1385c32c8fb7",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 986.7999999970198,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "3d01c572-0977-47c7-a09f-5bf53828d698",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 997.7000000029802,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b13e6bf1-005b-45f9-803b-cdc100851949",
+            "ms": 10.800000011920929
+          },
+          {
+            "kind": "event",
+            "at": 1001.5999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bca8a23f-28ae-48a7-a47f-86c891166d9d",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 1002,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f3d81181-fd87-43ed-9723-64e210f3b7f6",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 1034.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 1045.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.799999997019768
+          },
+          {
+            "kind": "event",
+            "at": 1062.0999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Sanctuary_Petals_GPU_Instanced",
+            "ms": 10.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1080.2999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_0",
+            "ms": 12.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 1097.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_1",
+            "ms": 12.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1113.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_2",
+            "ms": 12.099999994039536
+          },
+          {
+            "kind": "measure",
+            "at": 1211.7999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 57.599999994039536,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1213.2999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.0999999940395,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 47.599999994039536,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.3999999910593,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 1262,
+            "thread": "worker",
+            "name": "hero:0:high"
+          },
+          {
+            "kind": "measure",
+            "at": 1888,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 69.5,
+            "key": "staff-high-gpu",
+            "bytes": 651348
+          },
+          {
+            "kind": "event",
+            "at": 1888.2999999970198,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "staff-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1888.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 626.5,
+            "key": "staff-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 1956.2000000029802,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 67.6000000089407,
+            "key": "high-gpu",
+            "bytes": 2042368
+          },
+          {
+            "kind": "event",
+            "at": 1956.3999999910593,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1956.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 694.5,
+            "key": "high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 2060.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2061.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2062,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2062.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "event",
+            "at": 2062.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2065.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "91e682e6-6628-4d82-801a-5549aed11502",
+            "ms": 1.2999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 2601.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "00b3c320-d163-4ec3-8c44-341f4197ab30",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 2601.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bcb5bee0-4a3f-49a1-9e08-95a147719c9d",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 2616.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 11.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2635.7999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "MocTinhTruong_TexturedMesh",
+            "ms": 15.200000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2655.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.599999994039536
+          },
+          {
+            "kind": "event",
+            "at": 3204.8999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 18
+          },
+          {
+            "kind": "event",
+            "at": 3393.5999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.5
+          },
+          {
+            "kind": "event",
+            "at": 3629.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 11.800000011920929
+          },
+          {
+            "kind": "five-second-window",
+            "at": 3976.0999999940395,
+            "thread": "worker",
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 3976.5,
+            "thread": "worker",
+            "name": "model:H01:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 9267.20000000298,
+            "thread": "worker",
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          }
+        ],
+        "windows": [
+          {
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          }
+        ],
+        "active": null
+      }
+    },
+    {
+      "hero": 1,
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 0.30000001192092896
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "texture",
+            "name": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 501.19999998807907
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 11.400000005960464
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 12.299999997019768
+          }
+        ],
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 1268.2999999970198,
+        "cache": {
+          "hits": 0,
+          "misses": 4,
+          "bytes": 5045764,
+          "decoded": 4,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 58.79999999701977,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          },
+          "templates": {
+            "templates": 4,
+            "referenced": 2,
+            "leases": 2
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "animation": "Entrance",
+        "entrance": {
+          "time": 5.365,
+          "hammerFall": 1,
+          "heroFlight": 1,
+          "heroVisible": true,
+          "landed": true,
+          "crouch": 0,
+          "pickup": 1,
+          "stand": 1,
+          "hammerFlip": 1,
+          "gripped": true,
+          "hammerImpact": true,
+          "stamp": true,
+          "complete": false,
+          "stampLift": 0,
+          "shake": -0.0001720061418787409,
+          "rightGripError": 7.470275628273551e-8
+        },
+        "cameraShake": -0.0001720061418787409,
+        "hammerImpactEvents": 1,
+        "gripEvents": 1,
+        "stampEvents": 1
+      },
+      "render": {
+        "frame": 1050,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "memory": {
+        "geometries": 20,
+        "textures": 43
+      },
+      "perf": {
+        "enabled": true,
+        "records": [
+          {
+            "kind": "event",
+            "at": 375,
+            "thread": "worker",
+            "name": "gpu-support",
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          {
+            "kind": "measure",
+            "at": 632.5999999940395,
+            "thread": "worker",
+            "name": "texture:sigilTexture",
+            "ms": 0.5999999940395355,
+            "arguments": []
+          },
+          {
+            "kind": "measure",
+            "at": 839.5999999940395,
+            "thread": "worker",
+            "name": "texture:cloudTexture",
+            "ms": 0.29999999701976776,
+            "arguments": []
+          },
+          {
+            "kind": "event",
+            "at": 971,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f0b0ae25-7f2e-4a26-9faf-92b9ca1863d2",
+            "ms": 2.1000000089406967
+          },
+          {
+            "kind": "event",
+            "at": 973,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b949a563-2740-4f23-b218-cf24a8754735",
+            "ms": 1.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 985.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "211bb5c4-ffad-46a2-bbf6-7e48ab8458a6",
+            "ms": 0.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 986.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "dc2cd154-32d9-4248-b803-1385c32c8fb7",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 986.7999999970198,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "3d01c572-0977-47c7-a09f-5bf53828d698",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 997.7000000029802,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b13e6bf1-005b-45f9-803b-cdc100851949",
+            "ms": 10.800000011920929
+          },
+          {
+            "kind": "event",
+            "at": 1001.5999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bca8a23f-28ae-48a7-a47f-86c891166d9d",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 1002,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f3d81181-fd87-43ed-9723-64e210f3b7f6",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 1034.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 1045.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.799999997019768
+          },
+          {
+            "kind": "event",
+            "at": 1062.0999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Sanctuary_Petals_GPU_Instanced",
+            "ms": 10.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1080.2999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_0",
+            "ms": 12.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 1097.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_1",
+            "ms": 12.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1113.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_2",
+            "ms": 12.099999994039536
+          },
+          {
+            "kind": "measure",
+            "at": 1211.7999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 57.599999994039536,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1213.2999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.0999999940395,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 47.599999994039536,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.3999999910593,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 1262,
+            "thread": "worker",
+            "name": "hero:0:high"
+          },
+          {
+            "kind": "measure",
+            "at": 1888,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 69.5,
+            "key": "staff-high-gpu",
+            "bytes": 651348
+          },
+          {
+            "kind": "event",
+            "at": 1888.2999999970198,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "staff-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1888.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 626.5,
+            "key": "staff-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 1956.2000000029802,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 67.6000000089407,
+            "key": "high-gpu",
+            "bytes": 2042368
+          },
+          {
+            "kind": "event",
+            "at": 1956.3999999910593,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1956.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 694.5,
+            "key": "high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 2060.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2061.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2062,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2062.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "event",
+            "at": 2062.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2065.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "91e682e6-6628-4d82-801a-5549aed11502",
+            "ms": 1.2999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 2601.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "00b3c320-d163-4ec3-8c44-341f4197ab30",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 2601.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bcb5bee0-4a3f-49a1-9e08-95a147719c9d",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 2616.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 11.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2635.7999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "MocTinhTruong_TexturedMesh",
+            "ms": 15.200000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2655.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.599999994039536
+          },
+          {
+            "kind": "event",
+            "at": 3204.8999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 18
+          },
+          {
+            "kind": "event",
+            "at": 3393.5999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.5
+          },
+          {
+            "kind": "event",
+            "at": 3629.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 11.800000011920929
+          },
+          {
+            "kind": "five-second-window",
+            "at": 3976.0999999940395,
+            "thread": "worker",
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 3976.5,
+            "thread": "worker",
+            "name": "model:H01:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 9267.20000000298,
+            "thread": "worker",
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 10975.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 100.80000001192093,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 10975.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11066.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 90.70000000298023,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11067.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11704.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.39999999106,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 11705.70000000298,
+            "thread": "worker",
+            "name": "hero:1:high"
+          },
+          {
+            "kind": "measure",
+            "at": 12022.09999999404,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 27.299999997019768,
+            "key": "h02-hammer-high-gpu",
+            "bytes": 750668
+          },
+          {
+            "kind": "event",
+            "at": 12022.39999999106,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "h02-hammer-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 12022.39999999106,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 316.69999998807907,
+            "key": "h02-hammer-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 12080.59999999404,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 58.099999994039536,
+            "key": "h02-body-high-gpu",
+            "bytes": 1601380
+          },
+          {
+            "kind": "event",
+            "at": 12081.20000000298,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "h02-body-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 12081.29999999702,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 375.59999999403954,
+            "key": "h02-body-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 12085.59999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 12086.20000000298,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901_normal",
+            "ms": 0.30000001192092896
+          },
+          {
+            "kind": "event",
+            "at": 12086.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "event",
+            "at": 12086.59999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12086.79999999702,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12087,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "event",
+            "at": 12087.09999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12664.89999999106,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H02_Hunyuan_Body",
+            "ms": 501.19999998807907
+          },
+          {
+            "kind": "event",
+            "at": 12678.20000000298,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H02_Hunyuan_Hammer",
+            "ms": 11.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 12967.29999999702,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 12.299999997019768
+          },
+          {
+            "kind": "five-second-window",
+            "at": 12969,
+            "thread": "worker",
+            "name": "hero:1:high",
+            "start": 11705.70000000298,
+            "frames": 6,
+            "maxFrameMs": 497.70000000298023,
+            "over50": 4,
+            "renderer": {
+              "geometries": 19,
+              "textures": 42,
+              "frame": 645,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 1263.2999999970198,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 12972.79999999702,
+            "thread": "worker",
+            "name": "model:H02:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 18321.79999999702,
+            "thread": "worker",
+            "name": "model:H02:high",
+            "start": 12972.79999999702,
+            "frames": 25,
+            "maxFrameMs": 544.7000000029802,
+            "over50": 16,
+            "renderer": {
+              "geometries": 20,
+              "textures": 43,
+              "frame": 1020,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5349,
+            "complete": true
+          }
+        ],
+        "windows": [
+          {
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          },
+          {
+            "name": "hero:1:high",
+            "start": 11705.70000000298,
+            "frames": 6,
+            "maxFrameMs": 497.70000000298023,
+            "over50": 4,
+            "renderer": {
+              "geometries": 19,
+              "textures": 42,
+              "frame": 645,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 1263.2999999970198,
+            "complete": false
+          },
+          {
+            "name": "model:H02:high",
+            "start": 12972.79999999702,
+            "frames": 25,
+            "maxFrameMs": 544.7000000029802,
+            "over50": 16,
+            "renderer": {
+              "geometries": 20,
+              "textures": 43,
+              "frame": 1020,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5349,
+            "complete": true
+          }
+        ],
+        "active": null
+      }
+    },
+    {
+      "hero": 4,
+      "asset": null,
+      "render": {
+        "frame": 1262,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "memory": {
+        "geometries": 92,
+        "textures": 54
+      },
+      "perf": {
+        "enabled": true,
+        "records": [
+          {
+            "kind": "event",
+            "at": 375,
+            "thread": "worker",
+            "name": "gpu-support",
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          {
+            "kind": "measure",
+            "at": 632.5999999940395,
+            "thread": "worker",
+            "name": "texture:sigilTexture",
+            "ms": 0.5999999940395355,
+            "arguments": []
+          },
+          {
+            "kind": "measure",
+            "at": 839.5999999940395,
+            "thread": "worker",
+            "name": "texture:cloudTexture",
+            "ms": 0.29999999701976776,
+            "arguments": []
+          },
+          {
+            "kind": "event",
+            "at": 971,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f0b0ae25-7f2e-4a26-9faf-92b9ca1863d2",
+            "ms": 2.1000000089406967
+          },
+          {
+            "kind": "event",
+            "at": 973,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b949a563-2740-4f23-b218-cf24a8754735",
+            "ms": 1.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 985.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "211bb5c4-ffad-46a2-bbf6-7e48ab8458a6",
+            "ms": 0.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 986.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "dc2cd154-32d9-4248-b803-1385c32c8fb7",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 986.7999999970198,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "3d01c572-0977-47c7-a09f-5bf53828d698",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 997.7000000029802,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b13e6bf1-005b-45f9-803b-cdc100851949",
+            "ms": 10.800000011920929
+          },
+          {
+            "kind": "event",
+            "at": 1001.5999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bca8a23f-28ae-48a7-a47f-86c891166d9d",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 1002,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f3d81181-fd87-43ed-9723-64e210f3b7f6",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 1034.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 1045.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.799999997019768
+          },
+          {
+            "kind": "event",
+            "at": 1062.0999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Sanctuary_Petals_GPU_Instanced",
+            "ms": 10.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1080.2999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_0",
+            "ms": 12.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 1097.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_1",
+            "ms": 12.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1113.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_2",
+            "ms": 12.099999994039536
+          },
+          {
+            "kind": "measure",
+            "at": 1211.7999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 57.599999994039536,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1213.2999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.0999999940395,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 47.599999994039536,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.3999999910593,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 1262,
+            "thread": "worker",
+            "name": "hero:0:high"
+          },
+          {
+            "kind": "measure",
+            "at": 1888,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 69.5,
+            "key": "staff-high-gpu",
+            "bytes": 651348
+          },
+          {
+            "kind": "event",
+            "at": 1888.2999999970198,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "staff-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1888.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 626.5,
+            "key": "staff-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 1956.2000000029802,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 67.6000000089407,
+            "key": "high-gpu",
+            "bytes": 2042368
+          },
+          {
+            "kind": "event",
+            "at": 1956.3999999910593,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1956.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 694.5,
+            "key": "high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 2060.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2061.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2062,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2062.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "event",
+            "at": 2062.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2065.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "91e682e6-6628-4d82-801a-5549aed11502",
+            "ms": 1.2999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 2601.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "00b3c320-d163-4ec3-8c44-341f4197ab30",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 2601.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bcb5bee0-4a3f-49a1-9e08-95a147719c9d",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 2616.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 11.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2635.7999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "MocTinhTruong_TexturedMesh",
+            "ms": 15.200000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2655.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.599999994039536
+          },
+          {
+            "kind": "event",
+            "at": 3204.8999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 18
+          },
+          {
+            "kind": "event",
+            "at": 3393.5999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.5
+          },
+          {
+            "kind": "event",
+            "at": 3629.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 11.800000011920929
+          },
+          {
+            "kind": "five-second-window",
+            "at": 3976.0999999940395,
+            "thread": "worker",
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 3976.5,
+            "thread": "worker",
+            "name": "model:H01:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 9267.20000000298,
+            "thread": "worker",
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 10975.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 100.80000001192093,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 10975.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11066.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 90.70000000298023,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11067.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11704.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.39999999106,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 11705.70000000298,
+            "thread": "worker",
+            "name": "hero:1:high"
+          },
+          {
+            "kind": "measure",
+            "at": 12022.09999999404,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 27.299999997019768,
+            "key": "h02-hammer-high-gpu",
+            "bytes": 750668
+          },
+          {
+            "kind": "event",
+            "at": 12022.39999999106,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "h02-hammer-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 12022.39999999106,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 316.69999998807907,
+            "key": "h02-hammer-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 12080.59999999404,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 58.099999994039536,
+            "key": "h02-body-high-gpu",
+            "bytes": 1601380
+          },
+          {
+            "kind": "event",
+            "at": 12081.20000000298,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "h02-body-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 12081.29999999702,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 375.59999999403954,
+            "key": "h02-body-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 12085.59999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 12086.20000000298,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901_normal",
+            "ms": 0.30000001192092896
+          },
+          {
+            "kind": "event",
+            "at": 12086.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "event",
+            "at": 12086.59999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12086.79999999702,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12087,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "event",
+            "at": 12087.09999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12664.89999999106,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H02_Hunyuan_Body",
+            "ms": 501.19999998807907
+          },
+          {
+            "kind": "event",
+            "at": 12678.20000000298,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H02_Hunyuan_Hammer",
+            "ms": 11.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 12967.29999999702,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 12.299999997019768
+          },
+          {
+            "kind": "five-second-window",
+            "at": 12969,
+            "thread": "worker",
+            "name": "hero:1:high",
+            "start": 11705.70000000298,
+            "frames": 6,
+            "maxFrameMs": 497.70000000298023,
+            "over50": 4,
+            "renderer": {
+              "geometries": 19,
+              "textures": 42,
+              "frame": 645,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 1263.2999999970198,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 12972.79999999702,
+            "thread": "worker",
+            "name": "model:H02:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 18321.79999999702,
+            "thread": "worker",
+            "name": "model:H02:high",
+            "start": 12972.79999999702,
+            "frames": 25,
+            "maxFrameMs": 544.7000000029802,
+            "over50": 16,
+            "renderer": {
+              "geometries": 20,
+              "textures": 43,
+              "frame": 1020,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5349,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 19969.5,
+            "thread": "worker",
+            "name": "texture:baked-character",
+            "ms": 660.0999999940395,
+            "id": "4:medium",
+            "size": 256
+          },
+          {
+            "kind": "measure",
+            "at": 20150.20000000298,
+            "thread": "worker",
+            "name": "texture:character-five-maps",
+            "ms": 0.20000000298023224,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 20292.89999999106,
+            "thread": "worker",
+            "name": "texture:hair",
+            "ms": 2.5999999940395355,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 20296.5,
+            "thread": "worker",
+            "name": "texture:generateHighResCharacterFaceTexture",
+            "ms": 0.7000000029802322,
+            "arguments": [
+              4,
+              "female",
+              "#efd3bd",
+              "#FDE047",
+              "moon",
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20344.5,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 16,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20344.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20356.5,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 11.600000008940697,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20356.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 20359,
+            "thread": "worker",
+            "name": "hero:4:medium"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 25612.70000000298,
+            "thread": "worker",
+            "name": "hero:4:medium",
+            "start": 20359,
+            "frames": 10,
+            "maxFrameMs": 1337.2999999970198,
+            "over50": 6,
+            "renderer": {
+              "geometries": 92,
+              "textures": 54,
+              "frame": 1232,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5253.70000000298,
+            "complete": true
+          }
+        ],
+        "windows": [
+          {
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          },
+          {
+            "name": "hero:1:high",
+            "start": 11705.70000000298,
+            "frames": 6,
+            "maxFrameMs": 497.70000000298023,
+            "over50": 4,
+            "renderer": {
+              "geometries": 19,
+              "textures": 42,
+              "frame": 645,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 1263.2999999970198,
+            "complete": false
+          },
+          {
+            "name": "model:H02:high",
+            "start": 12972.79999999702,
+            "frames": 25,
+            "maxFrameMs": 544.7000000029802,
+            "over50": 16,
+            "renderer": {
+              "geometries": 20,
+              "textures": 43,
+              "frame": 1020,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5349,
+            "complete": true
+          },
+          {
+            "name": "hero:4:medium",
+            "start": 20359,
+            "frames": 10,
+            "maxFrameMs": 1337.2999999970198,
+            "over50": 6,
+            "renderer": {
+              "geometries": 92,
+              "textures": 54,
+              "frame": 1232,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5253.70000000298,
+            "complete": true
+          }
+        ],
+        "active": null
+      }
+    },
+    {
+      "hero": 7,
+      "asset": null,
+      "render": {
+        "frame": 1489,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "memory": {
+        "geometries": 162,
+        "textures": 62
+      },
+      "perf": {
+        "enabled": true,
+        "records": [
+          {
+            "kind": "event",
+            "at": 375,
+            "thread": "worker",
+            "name": "gpu-support",
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          {
+            "kind": "measure",
+            "at": 632.5999999940395,
+            "thread": "worker",
+            "name": "texture:sigilTexture",
+            "ms": 0.5999999940395355,
+            "arguments": []
+          },
+          {
+            "kind": "measure",
+            "at": 839.5999999940395,
+            "thread": "worker",
+            "name": "texture:cloudTexture",
+            "ms": 0.29999999701976776,
+            "arguments": []
+          },
+          {
+            "kind": "event",
+            "at": 971,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f0b0ae25-7f2e-4a26-9faf-92b9ca1863d2",
+            "ms": 2.1000000089406967
+          },
+          {
+            "kind": "event",
+            "at": 973,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b949a563-2740-4f23-b218-cf24a8754735",
+            "ms": 1.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 985.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "211bb5c4-ffad-46a2-bbf6-7e48ab8458a6",
+            "ms": 0.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 986.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "dc2cd154-32d9-4248-b803-1385c32c8fb7",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 986.7999999970198,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "3d01c572-0977-47c7-a09f-5bf53828d698",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 997.7000000029802,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b13e6bf1-005b-45f9-803b-cdc100851949",
+            "ms": 10.800000011920929
+          },
+          {
+            "kind": "event",
+            "at": 1001.5999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bca8a23f-28ae-48a7-a47f-86c891166d9d",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 1002,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f3d81181-fd87-43ed-9723-64e210f3b7f6",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 1034.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 1045.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.799999997019768
+          },
+          {
+            "kind": "event",
+            "at": 1062.0999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Sanctuary_Petals_GPU_Instanced",
+            "ms": 10.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1080.2999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_0",
+            "ms": 12.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 1097.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_1",
+            "ms": 12.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1113.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_2",
+            "ms": 12.099999994039536
+          },
+          {
+            "kind": "measure",
+            "at": 1211.7999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 57.599999994039536,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1213.2999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.0999999940395,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 47.599999994039536,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.3999999910593,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 1262,
+            "thread": "worker",
+            "name": "hero:0:high"
+          },
+          {
+            "kind": "measure",
+            "at": 1888,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 69.5,
+            "key": "staff-high-gpu",
+            "bytes": 651348
+          },
+          {
+            "kind": "event",
+            "at": 1888.2999999970198,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "staff-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1888.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 626.5,
+            "key": "staff-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 1956.2000000029802,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 67.6000000089407,
+            "key": "high-gpu",
+            "bytes": 2042368
+          },
+          {
+            "kind": "event",
+            "at": 1956.3999999910593,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1956.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 694.5,
+            "key": "high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 2060.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2061.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2062,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2062.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "event",
+            "at": 2062.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2065.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "91e682e6-6628-4d82-801a-5549aed11502",
+            "ms": 1.2999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 2601.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "00b3c320-d163-4ec3-8c44-341f4197ab30",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 2601.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bcb5bee0-4a3f-49a1-9e08-95a147719c9d",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 2616.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 11.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2635.7999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "MocTinhTruong_TexturedMesh",
+            "ms": 15.200000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2655.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.599999994039536
+          },
+          {
+            "kind": "event",
+            "at": 3204.8999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 18
+          },
+          {
+            "kind": "event",
+            "at": 3393.5999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.5
+          },
+          {
+            "kind": "event",
+            "at": 3629.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 11.800000011920929
+          },
+          {
+            "kind": "five-second-window",
+            "at": 3976.0999999940395,
+            "thread": "worker",
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 3976.5,
+            "thread": "worker",
+            "name": "model:H01:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 9267.20000000298,
+            "thread": "worker",
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 10975.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 100.80000001192093,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 10975.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11066.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 90.70000000298023,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11067.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11704.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.39999999106,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 11705.70000000298,
+            "thread": "worker",
+            "name": "hero:1:high"
+          },
+          {
+            "kind": "measure",
+            "at": 12022.09999999404,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 27.299999997019768,
+            "key": "h02-hammer-high-gpu",
+            "bytes": 750668
+          },
+          {
+            "kind": "event",
+            "at": 12022.39999999106,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "h02-hammer-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 12022.39999999106,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 316.69999998807907,
+            "key": "h02-hammer-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 12080.59999999404,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 58.099999994039536,
+            "key": "h02-body-high-gpu",
+            "bytes": 1601380
+          },
+          {
+            "kind": "event",
+            "at": 12081.20000000298,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "h02-body-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 12081.29999999702,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 375.59999999403954,
+            "key": "h02-body-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 12085.59999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 12086.20000000298,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901_normal",
+            "ms": 0.30000001192092896
+          },
+          {
+            "kind": "event",
+            "at": 12086.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "event",
+            "at": 12086.59999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12086.79999999702,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12087,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "event",
+            "at": 12087.09999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12664.89999999106,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H02_Hunyuan_Body",
+            "ms": 501.19999998807907
+          },
+          {
+            "kind": "event",
+            "at": 12678.20000000298,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H02_Hunyuan_Hammer",
+            "ms": 11.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 12967.29999999702,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 12.299999997019768
+          },
+          {
+            "kind": "five-second-window",
+            "at": 12969,
+            "thread": "worker",
+            "name": "hero:1:high",
+            "start": 11705.70000000298,
+            "frames": 6,
+            "maxFrameMs": 497.70000000298023,
+            "over50": 4,
+            "renderer": {
+              "geometries": 19,
+              "textures": 42,
+              "frame": 645,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 1263.2999999970198,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 12972.79999999702,
+            "thread": "worker",
+            "name": "model:H02:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 18321.79999999702,
+            "thread": "worker",
+            "name": "model:H02:high",
+            "start": 12972.79999999702,
+            "frames": 25,
+            "maxFrameMs": 544.7000000029802,
+            "over50": 16,
+            "renderer": {
+              "geometries": 20,
+              "textures": 43,
+              "frame": 1020,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5349,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 19969.5,
+            "thread": "worker",
+            "name": "texture:baked-character",
+            "ms": 660.0999999940395,
+            "id": "4:medium",
+            "size": 256
+          },
+          {
+            "kind": "measure",
+            "at": 20150.20000000298,
+            "thread": "worker",
+            "name": "texture:character-five-maps",
+            "ms": 0.20000000298023224,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 20292.89999999106,
+            "thread": "worker",
+            "name": "texture:hair",
+            "ms": 2.5999999940395355,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 20296.5,
+            "thread": "worker",
+            "name": "texture:generateHighResCharacterFaceTexture",
+            "ms": 0.7000000029802322,
+            "arguments": [
+              4,
+              "female",
+              "#efd3bd",
+              "#FDE047",
+              "moon",
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20344.5,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 16,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20344.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20356.5,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 11.600000008940697,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20356.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 20359,
+            "thread": "worker",
+            "name": "hero:4:medium"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 25612.70000000298,
+            "thread": "worker",
+            "name": "hero:4:medium",
+            "start": 20359,
+            "frames": 10,
+            "maxFrameMs": 1337.2999999970198,
+            "over50": 6,
+            "renderer": {
+              "geometries": 92,
+              "textures": 54,
+              "frame": 1232,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5253.70000000298,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 27399.39999999106,
+            "thread": "worker",
+            "name": "texture:baked-character",
+            "ms": 41.599999994039536,
+            "id": "7:medium",
+            "size": 256
+          },
+          {
+            "kind": "measure",
+            "at": 28284.70000000298,
+            "thread": "worker",
+            "name": "texture:character-five-maps",
+            "ms": 0,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 28287.09999999404,
+            "thread": "worker",
+            "name": "texture:hair",
+            "ms": 2.0999999940395355,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 28288.20000000298,
+            "thread": "worker",
+            "name": "texture:generateHighResCharacterFaceTexture",
+            "ms": 0.30000001192092896,
+            "arguments": [
+              7,
+              "female",
+              "#efd3bd",
+              "#67E8F9",
+              "ice",
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 28326.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 16.799999997019768,
+            "arguments": [
+              6,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 28326.29999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              6,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 28327.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              6,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 28327.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              6,
+              256
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 28327.89999999106,
+            "thread": "worker",
+            "name": "hero:7:medium"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 33684,
+            "thread": "worker",
+            "name": "hero:7:medium",
+            "start": 28327.89999999106,
+            "frames": 12,
+            "maxFrameMs": 817,
+            "over50": 8,
+            "renderer": {
+              "geometries": 162,
+              "textures": 62,
+              "frame": 1474,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5356.100000008941,
+            "complete": true
+          }
+        ],
+        "windows": [
+          {
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          },
+          {
+            "name": "hero:1:high",
+            "start": 11705.70000000298,
+            "frames": 6,
+            "maxFrameMs": 497.70000000298023,
+            "over50": 4,
+            "renderer": {
+              "geometries": 19,
+              "textures": 42,
+              "frame": 645,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 1263.2999999970198,
+            "complete": false
+          },
+          {
+            "name": "model:H02:high",
+            "start": 12972.79999999702,
+            "frames": 25,
+            "maxFrameMs": 544.7000000029802,
+            "over50": 16,
+            "renderer": {
+              "geometries": 20,
+              "textures": 43,
+              "frame": 1020,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5349,
+            "complete": true
+          },
+          {
+            "name": "hero:4:medium",
+            "start": 20359,
+            "frames": 10,
+            "maxFrameMs": 1337.2999999970198,
+            "over50": 6,
+            "renderer": {
+              "geometries": 92,
+              "textures": 54,
+              "frame": 1232,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5253.70000000298,
+            "complete": true
+          },
+          {
+            "name": "hero:7:medium",
+            "start": 28327.89999999106,
+            "frames": 12,
+            "maxFrameMs": 817,
+            "over50": 8,
+            "renderer": {
+              "geometries": 162,
+              "textures": 62,
+              "frame": 1474,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5356.100000008941,
+            "complete": true
+          }
+        ],
+        "active": null
+      }
+    },
+    {
+      "hero": 10,
+      "asset": null,
+      "render": {
+        "frame": 1805,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "memory": {
+        "geometries": 228,
+        "textures": 69
+      },
+      "perf": {
+        "enabled": true,
+        "records": [
+          {
+            "kind": "event",
+            "at": 375,
+            "thread": "worker",
+            "name": "gpu-support",
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          {
+            "kind": "measure",
+            "at": 632.5999999940395,
+            "thread": "worker",
+            "name": "texture:sigilTexture",
+            "ms": 0.5999999940395355,
+            "arguments": []
+          },
+          {
+            "kind": "measure",
+            "at": 839.5999999940395,
+            "thread": "worker",
+            "name": "texture:cloudTexture",
+            "ms": 0.29999999701976776,
+            "arguments": []
+          },
+          {
+            "kind": "event",
+            "at": 971,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f0b0ae25-7f2e-4a26-9faf-92b9ca1863d2",
+            "ms": 2.1000000089406967
+          },
+          {
+            "kind": "event",
+            "at": 973,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b949a563-2740-4f23-b218-cf24a8754735",
+            "ms": 1.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 985.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "211bb5c4-ffad-46a2-bbf6-7e48ab8458a6",
+            "ms": 0.7999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 986.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "dc2cd154-32d9-4248-b803-1385c32c8fb7",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 986.7999999970198,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "3d01c572-0977-47c7-a09f-5bf53828d698",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 997.7000000029802,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "b13e6bf1-005b-45f9-803b-cdc100851949",
+            "ms": 10.800000011920929
+          },
+          {
+            "kind": "event",
+            "at": 1001.5999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bca8a23f-28ae-48a7-a47f-86c891166d9d",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 1002,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "f3d81181-fd87-43ed-9723-64e210f3b7f6",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 1034.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 1045.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.799999997019768
+          },
+          {
+            "kind": "event",
+            "at": 1062.0999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Sanctuary_Petals_GPU_Instanced",
+            "ms": 10.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1080.2999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_0",
+            "ms": 12.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 1097.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_1",
+            "ms": 12.899999991059303
+          },
+          {
+            "kind": "event",
+            "at": 1113.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "StaticBatch_2",
+            "ms": 12.099999994039536
+          },
+          {
+            "kind": "measure",
+            "at": 1211.7999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 57.599999994039536,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1213.2999999970198,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              1,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.0999999940395,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 47.599999994039536,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1261.3999999910593,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 1262,
+            "thread": "worker",
+            "name": "hero:0:high"
+          },
+          {
+            "kind": "measure",
+            "at": 1888,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 69.5,
+            "key": "staff-high-gpu",
+            "bytes": 651348
+          },
+          {
+            "kind": "event",
+            "at": 1888.2999999970198,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "staff-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1888.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 626.5,
+            "key": "staff-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 1956.2000000029802,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 67.6000000089407,
+            "key": "high-gpu",
+            "bytes": 2042368
+          },
+          {
+            "kind": "event",
+            "at": 1956.3999999910593,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 1956.5,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 694.5,
+            "key": "high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 2060.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2061.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2062,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2062.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "event",
+            "at": 2062.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 2063.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.5
+          },
+          {
+            "kind": "event",
+            "at": 2065.3999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "91e682e6-6628-4d82-801a-5549aed11502",
+            "ms": 1.2999999970197678
+          },
+          {
+            "kind": "event",
+            "at": 2601.0999999940395,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "00b3c320-d163-4ec3-8c44-341f4197ab30",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 2601.8999999910593,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "bcb5bee0-4a3f-49a1-9e08-95a147719c9d",
+            "ms": 0.5999999940395355
+          },
+          {
+            "kind": "event",
+            "at": 2616.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 11.700000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2635.7999999970198,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "MocTinhTruong_TexturedMesh",
+            "ms": 15.200000002980232
+          },
+          {
+            "kind": "event",
+            "at": 2655.3999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 16.599999994039536
+          },
+          {
+            "kind": "event",
+            "at": 3204.8999999910593,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 18
+          },
+          {
+            "kind": "event",
+            "at": 3393.5999999940395,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 10.5
+          },
+          {
+            "kind": "event",
+            "at": 3629.7000000029802,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 11.800000011920929
+          },
+          {
+            "kind": "five-second-window",
+            "at": 3976.0999999940395,
+            "thread": "worker",
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 3976.5,
+            "thread": "worker",
+            "name": "model:H01:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 9267.20000000298,
+            "thread": "worker",
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 10975.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 100.80000001192093,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 10975.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11066.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 90.70000000298023,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11067.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11704.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              4,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 11705.39999999106,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              11,
+              512
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 11705.70000000298,
+            "thread": "worker",
+            "name": "hero:1:high"
+          },
+          {
+            "kind": "measure",
+            "at": 12022.09999999404,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 27.299999997019768,
+            "key": "h02-hammer-high-gpu",
+            "bytes": 750668
+          },
+          {
+            "kind": "event",
+            "at": 12022.39999999106,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "h02-hammer-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 12022.39999999106,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 316.69999998807907,
+            "key": "h02-hammer-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "measure",
+            "at": 12080.59999999404,
+            "thread": "worker",
+            "name": "glb:decode",
+            "ms": 58.099999994039536,
+            "key": "h02-body-high-gpu",
+            "bytes": 1601380
+          },
+          {
+            "kind": "event",
+            "at": 12081.20000000298,
+            "thread": "worker",
+            "name": "gpu-formats",
+            "key": "h02-body-high-gpu",
+            "formats": [
+              36492,
+              37808
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 12081.29999999702,
+            "thread": "worker",
+            "name": "glb:load",
+            "ms": 375.59999999403954,
+            "key": "h02-body-high",
+            "allowGpu": true
+          },
+          {
+            "kind": "event",
+            "at": 12085.59999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901",
+            "ms": 0.29999999701976776
+          },
+          {
+            "kind": "event",
+            "at": 12086.20000000298,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901_normal",
+            "ms": 0.30000001192092896
+          },
+          {
+            "kind": "event",
+            "at": 12086.5,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "event",
+            "at": 12086.59999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12086.79999999702,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_albedo",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12087,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_normal",
+            "ms": 0.20000000298023224
+          },
+          {
+            "kind": "event",
+            "at": 12087.09999999404,
+            "thread": "worker",
+            "name": "warmup:texture",
+            "texture": "high_metallic-high_roughness",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "event",
+            "at": 12664.89999999106,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H02_Hunyuan_Body",
+            "ms": 501.19999998807907
+          },
+          {
+            "kind": "event",
+            "at": 12678.20000000298,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "H02_Hunyuan_Hammer",
+            "ms": 11.400000005960464
+          },
+          {
+            "kind": "event",
+            "at": 12967.29999999702,
+            "thread": "worker",
+            "name": "warmup:program",
+            "mesh": "Mesh",
+            "ms": 12.299999997019768
+          },
+          {
+            "kind": "five-second-window",
+            "at": 12969,
+            "thread": "worker",
+            "name": "hero:1:high",
+            "start": 11705.70000000298,
+            "frames": 6,
+            "maxFrameMs": 497.70000000298023,
+            "over50": 4,
+            "renderer": {
+              "geometries": 19,
+              "textures": 42,
+              "frame": 645,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 1263.2999999970198,
+            "complete": false
+          },
+          {
+            "kind": "appearance",
+            "at": 12972.79999999702,
+            "thread": "worker",
+            "name": "model:H02:high"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 18321.79999999702,
+            "thread": "worker",
+            "name": "model:H02:high",
+            "start": 12972.79999999702,
+            "frames": 25,
+            "maxFrameMs": 544.7000000029802,
+            "over50": 16,
+            "renderer": {
+              "geometries": 20,
+              "textures": 43,
+              "frame": 1020,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5349,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 19969.5,
+            "thread": "worker",
+            "name": "texture:baked-character",
+            "ms": 660.0999999940395,
+            "id": "4:medium",
+            "size": 256
+          },
+          {
+            "kind": "measure",
+            "at": 20150.20000000298,
+            "thread": "worker",
+            "name": "texture:character-five-maps",
+            "ms": 0.20000000298023224,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 20292.89999999106,
+            "thread": "worker",
+            "name": "texture:hair",
+            "ms": 2.5999999940395355,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 20296.5,
+            "thread": "worker",
+            "name": "texture:generateHighResCharacterFaceTexture",
+            "ms": 0.7000000029802322,
+            "arguments": [
+              4,
+              "female",
+              "#efd3bd",
+              "#FDE047",
+              "moon",
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20344.5,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 16,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20344.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20356.5,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 11.600000008940697,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20356.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 20358.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 20359,
+            "thread": "worker",
+            "name": "hero:4:medium"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 25612.70000000298,
+            "thread": "worker",
+            "name": "hero:4:medium",
+            "start": 20359,
+            "frames": 10,
+            "maxFrameMs": 1337.2999999970198,
+            "over50": 6,
+            "renderer": {
+              "geometries": 92,
+              "textures": 54,
+              "frame": 1232,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5253.70000000298,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 27399.39999999106,
+            "thread": "worker",
+            "name": "texture:baked-character",
+            "ms": 41.599999994039536,
+            "id": "7:medium",
+            "size": 256
+          },
+          {
+            "kind": "measure",
+            "at": 28284.70000000298,
+            "thread": "worker",
+            "name": "texture:character-five-maps",
+            "ms": 0,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 28287.09999999404,
+            "thread": "worker",
+            "name": "texture:hair",
+            "ms": 2.0999999940395355,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 28288.20000000298,
+            "thread": "worker",
+            "name": "texture:generateHighResCharacterFaceTexture",
+            "ms": 0.30000001192092896,
+            "arguments": [
+              7,
+              "female",
+              "#efd3bd",
+              "#67E8F9",
+              "ice",
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 28326.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 16.799999997019768,
+            "arguments": [
+              6,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 28326.29999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              6,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 28327.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              6,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 28327.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              6,
+              256
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 28327.89999999106,
+            "thread": "worker",
+            "name": "hero:7:medium"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 33684,
+            "thread": "worker",
+            "name": "hero:7:medium",
+            "start": 28327.89999999106,
+            "frames": 12,
+            "maxFrameMs": 817,
+            "over50": 8,
+            "renderer": {
+              "geometries": 162,
+              "textures": 62,
+              "frame": 1474,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5356.100000008941,
+            "complete": true
+          },
+          {
+            "kind": "measure",
+            "at": 35438.39999999106,
+            "thread": "worker",
+            "name": "texture:baked-character",
+            "ms": 54.19999998807907,
+            "id": "10:medium",
+            "size": 256
+          },
+          {
+            "kind": "measure",
+            "at": 35792.29999999702,
+            "thread": "worker",
+            "name": "texture:character-five-maps",
+            "ms": 0,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 35796.09999999404,
+            "thread": "worker",
+            "name": "texture:hair",
+            "ms": 3.3999999910593033,
+            "detail": "medium"
+          },
+          {
+            "kind": "measure",
+            "at": 35796.89999999106,
+            "thread": "worker",
+            "name": "texture:generateHighResCharacterFaceTexture",
+            "ms": 0.29999999701976776,
+            "arguments": [
+              10,
+              "female",
+              "#efd3bd",
+              "#34D399",
+              "music",
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 35816.39999999106,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 35816.70000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 35816.79999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 35825,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 35826.09999999404,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 35826.20000000298,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              7,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 35826.29999999702,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "measure",
+            "at": 35826.39999999106,
+            "thread": "worker",
+            "name": "texture:textureFor",
+            "ms": 0,
+            "arguments": [
+              3,
+              256
+            ]
+          },
+          {
+            "kind": "appearance",
+            "at": 35826.5,
+            "thread": "worker",
+            "name": "hero:10:medium"
+          },
+          {
+            "kind": "five-second-window",
+            "at": 41257.09999999404,
+            "thread": "worker",
+            "name": "hero:10:medium",
+            "start": 35826.5,
+            "frames": 15,
+            "maxFrameMs": 869.3000000119209,
+            "over50": 9,
+            "renderer": {
+              "geometries": 228,
+              "textures": 69,
+              "frame": 1775,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5430.5999999940395,
+            "complete": true
+          }
+        ],
+        "windows": [
+          {
+            "name": "hero:0:high",
+            "start": 1262,
+            "frames": 11,
+            "maxFrameMs": 650,
+            "over50": 7,
+            "renderer": {
+              "geometries": 10,
+              "textures": 34,
+              "frame": 165,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 2714.0999999940395,
+            "complete": false
+          },
+          {
+            "name": "model:H01:high",
+            "start": 3976.5,
+            "frames": 19,
+            "maxFrameMs": 579.4000000059605,
+            "over50": 13,
+            "renderer": {
+              "geometries": 12,
+              "textures": 35,
+              "frame": 450,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5290.5999999940395,
+            "complete": true
+          },
+          {
+            "name": "hero:1:high",
+            "start": 11705.70000000298,
+            "frames": 6,
+            "maxFrameMs": 497.70000000298023,
+            "over50": 4,
+            "renderer": {
+              "geometries": 19,
+              "textures": 42,
+              "frame": 645,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 1263.2999999970198,
+            "complete": false
+          },
+          {
+            "name": "model:H02:high",
+            "start": 12972.79999999702,
+            "frames": 25,
+            "maxFrameMs": 544.7000000029802,
+            "over50": 16,
+            "renderer": {
+              "geometries": 20,
+              "textures": 43,
+              "frame": 1020,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5349,
+            "complete": true
+          },
+          {
+            "name": "hero:4:medium",
+            "start": 20359,
+            "frames": 10,
+            "maxFrameMs": 1337.2999999970198,
+            "over50": 6,
+            "renderer": {
+              "geometries": 92,
+              "textures": 54,
+              "frame": 1232,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5253.70000000298,
+            "complete": true
+          },
+          {
+            "name": "hero:7:medium",
+            "start": 28327.89999999106,
+            "frames": 12,
+            "maxFrameMs": 817,
+            "over50": 8,
+            "renderer": {
+              "geometries": 162,
+              "textures": 62,
+              "frame": 1474,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5356.100000008941,
+            "complete": true
+          },
+          {
+            "name": "hero:10:medium",
+            "start": 35826.5,
+            "frames": 15,
+            "maxFrameMs": 869.3000000119209,
+            "over50": 9,
+            "renderer": {
+              "geometries": 228,
+              "textures": 69,
+              "frame": 1775,
+              "calls": 1,
+              "triangles": 1,
+              "points": 0,
+              "lines": 0
+            },
+            "durationMs": 5430.5999999940395,
+            "complete": true
+          }
+        ],
+        "active": null
+      }
+    }
+  ],
+  "lists": {
+    "images": 38,
+    "canvases": 0,
+    "previews": 0
+  },
+  "events": [
+    {
+      "kind": "event",
+      "at": 375,
+      "thread": "worker",
+      "name": "gpu-support",
+      "support": {
+        "astcSupported": true,
+        "etc1Supported": false,
+        "etc2Supported": true,
+        "dxtSupported": true,
+        "bptcSupported": true,
+        "pvrtcSupported": false
+      }
+    },
+    {
+      "kind": "measure",
+      "at": 632.5999999940395,
+      "thread": "worker",
+      "name": "texture:sigilTexture",
+      "ms": 0.5999999940395355,
+      "arguments": []
+    },
+    {
+      "kind": "measure",
+      "at": 839.5999999940395,
+      "thread": "worker",
+      "name": "texture:cloudTexture",
+      "ms": 0.29999999701976776,
+      "arguments": []
+    },
+    {
+      "kind": "event",
+      "at": 971,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "f0b0ae25-7f2e-4a26-9faf-92b9ca1863d2",
+      "ms": 2.1000000089406967
+    },
+    {
+      "kind": "event",
+      "at": 973,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "b949a563-2740-4f23-b218-cf24a8754735",
+      "ms": 1.7999999970197678
+    },
+    {
+      "kind": "event",
+      "at": 985.3999999910593,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "211bb5c4-ffad-46a2-bbf6-7e48ab8458a6",
+      "ms": 0.7999999970197678
+    },
+    {
+      "kind": "event",
+      "at": 986.0999999940395,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "dc2cd154-32d9-4248-b803-1385c32c8fb7",
+      "ms": 0.5999999940395355
+    },
+    {
+      "kind": "event",
+      "at": 986.7999999970198,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "3d01c572-0977-47c7-a09f-5bf53828d698",
+      "ms": 0.5999999940395355
+    },
+    {
+      "kind": "event",
+      "at": 997.7000000029802,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "b13e6bf1-005b-45f9-803b-cdc100851949",
+      "ms": 10.800000011920929
+    },
+    {
+      "kind": "event",
+      "at": 1001.5999999940395,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "bca8a23f-28ae-48a7-a47f-86c891166d9d",
+      "ms": 0.5
+    },
+    {
+      "kind": "event",
+      "at": 1002,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "f3d81181-fd87-43ed-9723-64e210f3b7f6",
+      "ms": 0.29999999701976776
+    },
+    {
+      "kind": "event",
+      "at": 1034.7000000029802,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 16.700000002980232
+    },
+    {
+      "kind": "event",
+      "at": 1045.7000000029802,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 10.799999997019768
+    },
+    {
+      "kind": "event",
+      "at": 1062.0999999940395,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "Sanctuary_Petals_GPU_Instanced",
+      "ms": 10.899999991059303
+    },
+    {
+      "kind": "event",
+      "at": 1080.2999999970198,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "StaticBatch_0",
+      "ms": 12.400000005960464
+    },
+    {
+      "kind": "event",
+      "at": 1097.3999999910593,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "StaticBatch_1",
+      "ms": 12.899999991059303
+    },
+    {
+      "kind": "event",
+      "at": 1113.3999999910593,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "StaticBatch_2",
+      "ms": 12.099999994039536
+    },
+    {
+      "kind": "measure",
+      "at": 1211.7999999970198,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 57.599999994039536,
+      "arguments": [
+        1,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1213.2999999970198,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        1,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1261.0999999940395,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 47.599999994039536,
+      "arguments": [
+        3,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1261.3999999910593,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        512
+      ]
+    },
+    {
+      "kind": "appearance",
+      "at": 1262,
+      "thread": "worker",
+      "name": "hero:0:high"
+    },
+    {
+      "kind": "measure",
+      "at": 1888,
+      "thread": "worker",
+      "name": "glb:decode",
+      "ms": 69.5,
+      "key": "staff-high-gpu",
+      "bytes": 651348
+    },
+    {
+      "kind": "event",
+      "at": 1888.2999999970198,
+      "thread": "worker",
+      "name": "gpu-formats",
+      "key": "staff-high-gpu",
+      "formats": [
+        36492,
+        37808
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1888.5,
+      "thread": "worker",
+      "name": "glb:load",
+      "ms": 626.5,
+      "key": "staff-high",
+      "allowGpu": true
+    },
+    {
+      "kind": "measure",
+      "at": 1956.2000000029802,
+      "thread": "worker",
+      "name": "glb:decode",
+      "ms": 67.6000000089407,
+      "key": "high-gpu",
+      "bytes": 2042368
+    },
+    {
+      "kind": "event",
+      "at": 1956.3999999910593,
+      "thread": "worker",
+      "name": "gpu-formats",
+      "key": "high-gpu",
+      "formats": [
+        36492,
+        37808
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1956.5,
+      "thread": "worker",
+      "name": "glb:load",
+      "ms": 694.5,
+      "key": "high",
+      "allowGpu": true
+    },
+    {
+      "kind": "event",
+      "at": 2060.5,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_albedo",
+      "ms": 0.29999999701976776
+    },
+    {
+      "kind": "event",
+      "at": 2061.0999999940395,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_normal",
+      "ms": 0.29999999701976776
+    },
+    {
+      "kind": "event",
+      "at": 2062,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_metallic-high_roughness",
+      "ms": 0.5
+    },
+    {
+      "kind": "event",
+      "at": 2062.5,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+      "ms": 0.4000000059604645
+    },
+    {
+      "kind": "event",
+      "at": 2062.8999999910593,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_albedo",
+      "ms": 0.29999999701976776
+    },
+    {
+      "kind": "event",
+      "at": 2063.3999999910593,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_normal",
+      "ms": 0.29999999701976776
+    },
+    {
+      "kind": "event",
+      "at": 2063.8999999910593,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_metallic-high_roughness",
+      "ms": 0.5
+    },
+    {
+      "kind": "event",
+      "at": 2065.3999999910593,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "91e682e6-6628-4d82-801a-5549aed11502",
+      "ms": 1.2999999970197678
+    },
+    {
+      "kind": "event",
+      "at": 2601.0999999940395,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "00b3c320-d163-4ec3-8c44-341f4197ab30",
+      "ms": 0.09999999403953552
+    },
+    {
+      "kind": "event",
+      "at": 2601.8999999910593,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "bcb5bee0-4a3f-49a1-9e08-95a147719c9d",
+      "ms": 0.5999999940395355
+    },
+    {
+      "kind": "event",
+      "at": 2616.7000000029802,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "H01_C0_Hunyuan_StaticTrial",
+      "ms": 11.700000002980232
+    },
+    {
+      "kind": "event",
+      "at": 2635.7999999970198,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "MocTinhTruong_TexturedMesh",
+      "ms": 15.200000002980232
+    },
+    {
+      "kind": "event",
+      "at": 2655.3999999910593,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 16.599999994039536
+    },
+    {
+      "kind": "event",
+      "at": 3204.8999999910593,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 18
+    },
+    {
+      "kind": "event",
+      "at": 3393.5999999940395,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 10.5
+    },
+    {
+      "kind": "event",
+      "at": 3629.7000000029802,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 11.800000011920929
+    },
+    {
+      "kind": "five-second-window",
+      "at": 3976.0999999940395,
+      "thread": "worker",
+      "name": "hero:0:high",
+      "start": 1262,
+      "frames": 11,
+      "maxFrameMs": 650,
+      "over50": 7,
+      "renderer": {
+        "geometries": 10,
+        "textures": 34,
+        "frame": 165,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 2714.0999999940395,
+      "complete": false
+    },
+    {
+      "kind": "appearance",
+      "at": 3976.5,
+      "thread": "worker",
+      "name": "model:H01:high"
+    },
+    {
+      "kind": "five-second-window",
+      "at": 9267.20000000298,
+      "thread": "worker",
+      "name": "model:H01:high",
+      "start": 3976.5,
+      "frames": 19,
+      "maxFrameMs": 579.4000000059605,
+      "over50": 13,
+      "renderer": {
+        "geometries": 12,
+        "textures": 35,
+        "frame": 450,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 5290.5999999940395,
+      "complete": true
+    },
+    {
+      "kind": "measure",
+      "at": 10975.20000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 100.80000001192093,
+      "arguments": [
+        4,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 10975.79999999702,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        4,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 11066.70000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 90.70000000298023,
+      "arguments": [
+        11,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 11067.09999999404,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        11,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 11704.70000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        4,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 11705.09999999404,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        4,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 11705.20000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        11,
+        512
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 11705.39999999106,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        11,
+        512
+      ]
+    },
+    {
+      "kind": "appearance",
+      "at": 11705.70000000298,
+      "thread": "worker",
+      "name": "hero:1:high"
+    },
+    {
+      "kind": "measure",
+      "at": 12022.09999999404,
+      "thread": "worker",
+      "name": "glb:decode",
+      "ms": 27.299999997019768,
+      "key": "h02-hammer-high-gpu",
+      "bytes": 750668
+    },
+    {
+      "kind": "event",
+      "at": 12022.39999999106,
+      "thread": "worker",
+      "name": "gpu-formats",
+      "key": "h02-hammer-high-gpu",
+      "formats": [
+        36492,
+        37808
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 12022.39999999106,
+      "thread": "worker",
+      "name": "glb:load",
+      "ms": 316.69999998807907,
+      "key": "h02-hammer-high",
+      "allowGpu": true
+    },
+    {
+      "kind": "measure",
+      "at": 12080.59999999404,
+      "thread": "worker",
+      "name": "glb:decode",
+      "ms": 58.099999994039536,
+      "key": "h02-body-high-gpu",
+      "bytes": 1601380
+    },
+    {
+      "kind": "event",
+      "at": 12081.20000000298,
+      "thread": "worker",
+      "name": "gpu-formats",
+      "key": "h02-body-high-gpu",
+      "formats": [
+        36492,
+        37808
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 12081.29999999702,
+      "thread": "worker",
+      "name": "glb:load",
+      "ms": 375.59999999403954,
+      "key": "h02-body-high",
+      "allowGpu": true
+    },
+    {
+      "kind": "event",
+      "at": 12085.59999999404,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "texture_pbr_20250901",
+      "ms": 0.29999999701976776
+    },
+    {
+      "kind": "event",
+      "at": 12086.20000000298,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "texture_pbr_20250901_normal",
+      "ms": 0.30000001192092896
+    },
+    {
+      "kind": "event",
+      "at": 12086.5,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+      "ms": 0.20000000298023224
+    },
+    {
+      "kind": "event",
+      "at": 12086.59999999404,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "927c652d-0e86-4e77-aefa-a111fd975291",
+      "ms": 0.09999999403953552
+    },
+    {
+      "kind": "event",
+      "at": 12086.79999999702,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_albedo",
+      "ms": 0.09999999403953552
+    },
+    {
+      "kind": "event",
+      "at": 12087,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_normal",
+      "ms": 0.20000000298023224
+    },
+    {
+      "kind": "event",
+      "at": 12087.09999999404,
+      "thread": "worker",
+      "name": "warmup:texture",
+      "texture": "high_metallic-high_roughness",
+      "ms": 0.09999999403953552
+    },
+    {
+      "kind": "event",
+      "at": 12664.89999999106,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "H02_Hunyuan_Body",
+      "ms": 501.19999998807907
+    },
+    {
+      "kind": "event",
+      "at": 12678.20000000298,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "H02_Hunyuan_Hammer",
+      "ms": 11.400000005960464
+    },
+    {
+      "kind": "event",
+      "at": 12967.29999999702,
+      "thread": "worker",
+      "name": "warmup:program",
+      "mesh": "Mesh",
+      "ms": 12.299999997019768
+    },
+    {
+      "kind": "five-second-window",
+      "at": 12969,
+      "thread": "worker",
+      "name": "hero:1:high",
+      "start": 11705.70000000298,
+      "frames": 6,
+      "maxFrameMs": 497.70000000298023,
+      "over50": 4,
+      "renderer": {
+        "geometries": 19,
+        "textures": 42,
+        "frame": 645,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 1263.2999999970198,
+      "complete": false
+    },
+    {
+      "kind": "appearance",
+      "at": 12972.79999999702,
+      "thread": "worker",
+      "name": "model:H02:high"
+    },
+    {
+      "kind": "five-second-window",
+      "at": 18321.79999999702,
+      "thread": "worker",
+      "name": "model:H02:high",
+      "start": 12972.79999999702,
+      "frames": 25,
+      "maxFrameMs": 544.7000000029802,
+      "over50": 16,
+      "renderer": {
+        "geometries": 20,
+        "textures": 43,
+        "frame": 1020,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 5349,
+      "complete": true
+    },
+    {
+      "kind": "measure",
+      "at": 19969.5,
+      "thread": "worker",
+      "name": "texture:baked-character",
+      "ms": 660.0999999940395,
+      "id": "4:medium",
+      "size": 256
+    },
+    {
+      "kind": "measure",
+      "at": 20150.20000000298,
+      "thread": "worker",
+      "name": "texture:character-five-maps",
+      "ms": 0.20000000298023224,
+      "detail": "medium"
+    },
+    {
+      "kind": "measure",
+      "at": 20292.89999999106,
+      "thread": "worker",
+      "name": "texture:hair",
+      "ms": 2.5999999940395355,
+      "detail": "medium"
+    },
+    {
+      "kind": "measure",
+      "at": 20296.5,
+      "thread": "worker",
+      "name": "texture:generateHighResCharacterFaceTexture",
+      "ms": 0.7000000029802322,
+      "arguments": [
+        4,
+        "female",
+        "#efd3bd",
+        "#FDE047",
+        "moon",
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 20344.5,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 16,
+      "arguments": [
+        7,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 20344.70000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        7,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 20356.5,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 11.600000008940697,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 20356.70000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 20358,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        7,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 20358.09999999404,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        7,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 20358.70000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 20358.79999999702,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "appearance",
+      "at": 20359,
+      "thread": "worker",
+      "name": "hero:4:medium"
+    },
+    {
+      "kind": "five-second-window",
+      "at": 25612.70000000298,
+      "thread": "worker",
+      "name": "hero:4:medium",
+      "start": 20359,
+      "frames": 10,
+      "maxFrameMs": 1337.2999999970198,
+      "over50": 6,
+      "renderer": {
+        "geometries": 92,
+        "textures": 54,
+        "frame": 1232,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 5253.70000000298,
+      "complete": true
+    },
+    {
+      "kind": "measure",
+      "at": 27399.39999999106,
+      "thread": "worker",
+      "name": "texture:baked-character",
+      "ms": 41.599999994039536,
+      "id": "7:medium",
+      "size": 256
+    },
+    {
+      "kind": "measure",
+      "at": 28284.70000000298,
+      "thread": "worker",
+      "name": "texture:character-five-maps",
+      "ms": 0,
+      "detail": "medium"
+    },
+    {
+      "kind": "measure",
+      "at": 28287.09999999404,
+      "thread": "worker",
+      "name": "texture:hair",
+      "ms": 2.0999999940395355,
+      "detail": "medium"
+    },
+    {
+      "kind": "measure",
+      "at": 28288.20000000298,
+      "thread": "worker",
+      "name": "texture:generateHighResCharacterFaceTexture",
+      "ms": 0.30000001192092896,
+      "arguments": [
+        7,
+        "female",
+        "#efd3bd",
+        "#67E8F9",
+        "ice",
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 28326.09999999404,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 16.799999997019768,
+      "arguments": [
+        6,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 28326.29999999702,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        6,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 28327.70000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        6,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 28327.79999999702,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        6,
+        256
+      ]
+    },
+    {
+      "kind": "appearance",
+      "at": 28327.89999999106,
+      "thread": "worker",
+      "name": "hero:7:medium"
+    },
+    {
+      "kind": "five-second-window",
+      "at": 33684,
+      "thread": "worker",
+      "name": "hero:7:medium",
+      "start": 28327.89999999106,
+      "frames": 12,
+      "maxFrameMs": 817,
+      "over50": 8,
+      "renderer": {
+        "geometries": 162,
+        "textures": 62,
+        "frame": 1474,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 5356.100000008941,
+      "complete": true
+    },
+    {
+      "kind": "measure",
+      "at": 35438.39999999106,
+      "thread": "worker",
+      "name": "texture:baked-character",
+      "ms": 54.19999998807907,
+      "id": "10:medium",
+      "size": 256
+    },
+    {
+      "kind": "measure",
+      "at": 35792.29999999702,
+      "thread": "worker",
+      "name": "texture:character-five-maps",
+      "ms": 0,
+      "detail": "medium"
+    },
+    {
+      "kind": "measure",
+      "at": 35796.09999999404,
+      "thread": "worker",
+      "name": "texture:hair",
+      "ms": 3.3999999910593033,
+      "detail": "medium"
+    },
+    {
+      "kind": "measure",
+      "at": 35796.89999999106,
+      "thread": "worker",
+      "name": "texture:generateHighResCharacterFaceTexture",
+      "ms": 0.29999999701976776,
+      "arguments": [
+        10,
+        "female",
+        "#efd3bd",
+        "#34D399",
+        "music",
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 35816.39999999106,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        7,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 35816.70000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        7,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 35816.79999999702,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 35825,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 35826.09999999404,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        7,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 35826.20000000298,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        7,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 35826.29999999702,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 35826.39999999106,
+      "thread": "worker",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "appearance",
+      "at": 35826.5,
+      "thread": "worker",
+      "name": "hero:10:medium"
+    },
+    {
+      "kind": "five-second-window",
+      "at": 41257.09999999404,
+      "thread": "worker",
+      "name": "hero:10:medium",
+      "start": 35826.5,
+      "frames": 15,
+      "maxFrameMs": 869.3000000119209,
+      "over50": 9,
+      "renderer": {
+        "geometries": 228,
+        "textures": 69,
+        "frame": 1775,
+        "calls": 1,
+        "triangles": 1,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 5430.5999999940395,
+      "complete": true
+    }
+  ],
+  "errors": [],
+  "externalRequests": [],
+  "scope": "Cloud Chromium SwiftShader only; frame intervals are not Android measurements. Lists currently use icons, so five hero/model appearances are the baseline 3D workload."
+}
