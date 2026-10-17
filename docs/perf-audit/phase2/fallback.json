@@ -1,0 +1,294 @@
+{
+  "blocked": 2,
+  "state": {
+    "id": "H01-C0",
+    "status": "loaded",
+    "detail": "mobile",
+    "rigged": true,
+    "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+    "shaderWarmup": [
+      {
+        "name": "H01_C0_Hunyuan_StaticTrial",
+        "ms": 20.5
+      },
+      {
+        "name": "MocTinhTruong_TexturedMesh",
+        "ms": 13.900000005960464
+      },
+      {
+        "name": "Mesh",
+        "ms": 19.299999997019768
+      },
+      {
+        "name": "Mesh",
+        "ms": 26.599999994039536
+      },
+      {
+        "name": "Mesh",
+        "ms": 10.5
+      },
+      {
+        "name": "Mesh",
+        "ms": 11.299999997019768
+      }
+    ],
+    "clips": [
+      "Attack",
+      "Cast",
+      "Dash",
+      "Entrance",
+      "Idle",
+      "Run"
+    ],
+    "loadMs": 1673.3999999910593,
+    "cache": {
+      "hits": 0,
+      "misses": 2,
+      "bytes": 1155256,
+      "decoded": 2,
+      "gpuFallbacks": 2,
+      "cacheWrites": 2,
+      "gpu": {
+        "configured": true,
+        "workers": 1,
+        "support": {
+          "astcSupported": true,
+          "etc1Supported": false,
+          "etc2Supported": true,
+          "dxtSupported": true,
+          "bptcSupported": true,
+          "pvrtcSupported": false
+        }
+      },
+      "lastDecodeMs": 33.400000005960464,
+      "worker": {
+        "decoded": 14,
+        "fallbacks": 0
+      },
+      "templates": {
+        "templates": 2,
+        "referenced": 2,
+        "leases": 2
+      }
+    },
+    "entrance": {
+      "time": 0.08710000000894069,
+      "visible": false,
+      "emerge": 0,
+      "open": 0,
+      "morph": 0,
+      "staff": 0,
+      "crouch": 1,
+      "reach": 0,
+      "gripped": false,
+      "plant": 0,
+      "impact": false,
+      "complete": false,
+      "shake": 0,
+      "leftGroundError": 1.674164899373378,
+      "rightGripError": 2.3456448582548024
+    },
+    "cameraShake": 0,
+    "animation": "Entrance"
+  },
+  "events": [
+    {
+      "kind": "event",
+      "at": 926.5,
+      "thread": "main",
+      "name": "gpu-support",
+      "support": {
+        "astcSupported": true,
+        "etc1Supported": false,
+        "etc2Supported": true,
+        "dxtSupported": true,
+        "bptcSupported": true,
+        "pvrtcSupported": false
+      }
+    },
+    {
+      "kind": "measure",
+      "at": 1162.2999999970198,
+      "thread": "main",
+      "name": "texture:sigilTexture",
+      "ms": 1.2999999970197678,
+      "arguments": []
+    },
+    {
+      "kind": "measure",
+      "at": 1362.7999999970198,
+      "thread": "main",
+      "name": "texture:cloudTexture",
+      "ms": 0.29999999701976776,
+      "arguments": []
+    },
+    {
+      "kind": "measure",
+      "at": 1651.199999988079,
+      "thread": "main",
+      "name": "texture:textureFor",
+      "ms": 15.699999988079071,
+      "arguments": [
+        1,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1653,
+      "thread": "main",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        1,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1664.199999988079,
+      "thread": "main",
+      "name": "texture:textureFor",
+      "ms": 11,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1664.5,
+      "thread": "main",
+      "name": "texture:textureFor",
+      "ms": 0,
+      "arguments": [
+        3,
+        256
+      ]
+    },
+    {
+      "kind": "appearance",
+      "at": 1664.7999999970198,
+      "thread": "main",
+      "name": "hero:0:mobile"
+    },
+    {
+      "kind": "event",
+      "at": 1791.2999999970198,
+      "thread": "main",
+      "name": "model-fallback",
+      "key": "mobile",
+      "reason": "Model HTTP 503"
+    },
+    {
+      "kind": "event",
+      "at": 1793,
+      "thread": "main",
+      "name": "model-fallback",
+      "key": "staff-medium",
+      "reason": "Model HTTP 503"
+    },
+    {
+      "kind": "measure",
+      "at": 1838.199999988079,
+      "thread": "main",
+      "name": "glb:decode",
+      "ms": 30.599999994039536,
+      "key": "staff-medium",
+      "bytes": 305904
+    },
+    {
+      "kind": "event",
+      "at": 1838.5,
+      "thread": "main",
+      "name": "gpu-formats",
+      "key": "staff-medium",
+      "formats": [
+        1023
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1838.7999999970198,
+      "thread": "main",
+      "name": "glb:load",
+      "ms": 45.79999999701977,
+      "key": "staff-medium",
+      "allowGpu": false
+    },
+    {
+      "kind": "measure",
+      "at": 1838.7999999970198,
+      "thread": "main",
+      "name": "glb:load",
+      "ms": 174,
+      "key": "staff-medium",
+      "allowGpu": true
+    },
+    {
+      "kind": "measure",
+      "at": 1872,
+      "thread": "main",
+      "name": "glb:decode",
+      "ms": 33.1000000089407,
+      "key": "mobile",
+      "bytes": 849352
+    },
+    {
+      "kind": "event",
+      "at": 1872.199999988079,
+      "thread": "main",
+      "name": "gpu-formats",
+      "key": "mobile",
+      "formats": [
+        1023
+      ]
+    },
+    {
+      "kind": "measure",
+      "at": 1872.2999999970198,
+      "thread": "main",
+      "name": "glb:load",
+      "ms": 80.90000000596046,
+      "key": "mobile",
+      "allowGpu": false
+    },
+    {
+      "kind": "measure",
+      "at": 1872.3999999910593,
+      "thread": "main",
+      "name": "glb:load",
+      "ms": 207.59999999403954,
+      "key": "mobile",
+      "allowGpu": true
+    },
+    {
+      "kind": "five-second-window",
+      "at": 3308,
+      "thread": "main",
+      "name": "hero:0:mobile",
+      "start": 1664.7999999970198,
+      "frames": 10,
+      "maxFrameMs": 650,
+      "over50": 8,
+      "renderer": {
+        "geometries": 9,
+        "textures": 21,
+        "frame": 10,
+        "calls": 49,
+        "triangles": 19026,
+        "points": 0,
+        "lines": 0
+      },
+      "durationMs": 1643.0999999940395,
+      "complete": false
+    },
+    {
+      "kind": "appearance",
+      "at": 3308.2999999970198,
+      "thread": "main",
+      "name": "model:H01:mobile"
+    }
+  ],
+  "errors": []
+}

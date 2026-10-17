@@ -1,10 +1,14 @@
+import {localAssetUrl} from './local-asset-url.js';
 import{perfAsync,perfEnabled,perfEvent}from'./perf-debug.js';
 import {getGpuTextureLoader,gpuTextureMetrics} from './gpu-textures.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import {modelLoader,compressedModelsSupported,logModelFallback,disposeModelTemplate} from './model-loader.js';
+import {ModelTemplateCache} from './model-template-cache.js';
 import { threadedMeshoptDecoder as MeshoptDecoder,meshoptWorkerMetrics } from './meshopt-worker-bridge.js';
-import { manualHeroAssetUrls, manualHeroAssetHashes } from './manual-hero-assets.js';
+import { manualHeroAssetUrls, manualHeroAssetHashes } from './model-asset-registry.js';
 
-const loaded=new Map();
+const loaded=new ModelTemplateCache({maxUnused:4,dispose:disposeModelTemplate});
+export function releaseManualAssets(root){root.traverse(node=>loaded.release(node));manualAssetMetrics.templates=loaded.inspect();}
+export const manualTemplateMetrics=()=>loaded.inspect();
 let decodeQueue=Promise.resolve(),database;
 export const manualAssetMetrics={hits:0,misses:0,bytes:0,decoded:0};
 const yieldFrame=()=>new Promise(resolve=>setTimeout(resolve,0));
@@ -50,43 +54,34 @@ export async function manualAssetBuffer(key){
  const cacheKey=key+':'+manualHeroAssetHashes[key];
  let buffer=await stored(cacheKey);
  if(await valid(buffer,key)){manualAssetMetrics.hits++;return buffer;}
- const response=await fetch(url);if(!response.ok)throw Error('Model HTTP '+response.status);
+ const response=await fetch(localAssetUrl(url));if(!response.ok)throw Error('Model HTTP '+response.status);
  buffer=await response.arrayBuffer();
  if(!await valid(buffer,key))throw Error('Model integrity check failed: '+key);
  manualAssetMetrics.misses++;manualAssetMetrics.bytes+=buffer.byteLength;
  void stored(cacheKey,buffer);
  return buffer;
 }
-export function loadManualAsset(key,allowGpu=true){return perfAsync('glb:load',()=>loadManualAssetMeasured(key,allowGpu),{key,cached:loaded.has(key),allowGpu});}
-function loadManualAssetMeasured(key,allowGpu=true){
+export function loadManualAsset(key,allowGpu=true,owner){return perfAsync('glb:load',()=>loadManualAssetMeasured(key,allowGpu,owner),{key,allowGpu});}
+function loadManualAssetMeasured(key,allowGpu=true,owner){
  const originalKey=key;
- const gpu=getGpuTextureLoader();
- if(allowGpu&&gpu&&manualHeroAssetUrls[key+'-gpu'])key+='-gpu';
- if(!loaded.has(key)){
-  const promise=manualAssetBuffer(key).then(buffer=>{
-   const job=decodeQueue.catch(()=>{}).then(async()=>{
-    await yieldFrame();
-    const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-    if(gpu)loader.setKTX2Loader(gpu);
-    // Embedded WebP can decode directly to ImageBitmap inside the render worker.
-    // Three r160's default capability probe uses DOM Image, which workers lack.
-    if(typeof Image==='undefined'&&typeof createImageBitmap==='function')loader.register(parser=>({
-     name:'EXT_texture_webp',loadTexture:index=>{
-      const texture=parser.json.textures[index],extension=texture.extensions?.EXT_texture_webp;
-      return extension?parser.loadTextureImage(index,extension.source,parser.textureLoader):null;
-     }
-    }));
-    const start=performance.now();
-    const gltf=await perfAsync('glb:decode',()=>loader.parseAsync(buffer,''),{key,bytes:buffer.byteLength});
-    if(perfEnabled()){const formats=new Set();gltf.scene.traverse(n=>{for(const m of (Array.isArray(n.material)?n.material:[n.material]).filter(Boolean))for(const slot of ['map','normalMap','metalnessMap','roughnessMap'])if(m[slot])formats.add(m[slot].format);});perfEvent('gpu-formats',{key,formats:[...formats]});}
-    manualAssetMetrics.gpu={...gpuTextureMetrics};manualAssetMetrics.decoded++;manualAssetMetrics.lastDecodeMs=performance.now()-start;manualAssetMetrics.worker={...meshoptWorkerMetrics};
-    return gltf;
-   });
-   decodeQueue=job;return job;
-  }).catch(error=>{loaded.delete(key);if(key!==originalKey){manualAssetMetrics.gpuFallbacks=(manualAssetMetrics.gpuFallbacks??0)+1;return loadManualAsset(originalKey,false);}throw error;});
-  loaded.set(key,promise);
+ if(allowGpu&&manualHeroAssetUrls[key+'-gpu']){
+  if(compressedModelsSupported())key+='-gpu';
+  else if(getGpuTextureLoader())logModelFallback(key,'no ASTC/ETC2/BC support');
  }
- return loaded.get(key);
+ const url=manualHeroAssetUrls[key];
+ return loaded.load(url,()=>manualAssetBuffer(key).then(buffer=>{
+  const job=decodeQueue.catch(()=>{}).then(async()=>{
+   await yieldFrame();
+   const start=performance.now();
+   const gltf=await perfAsync('glb:decode',()=>modelLoader().parseAsync(buffer,''),{key,bytes:buffer.byteLength});
+   if(perfEnabled()){const formats=new Set();gltf.scene.traverse(n=>{for(const m of (Array.isArray(n.material)?n.material:[n.material]).filter(Boolean))for(const slot of ['map','normalMap','metalnessMap','roughnessMap'])if(m[slot])formats.add(m[slot].format);});perfEvent('gpu-formats',{key,formats:[...formats]});}
+   manualAssetMetrics.gpu={...gpuTextureMetrics};manualAssetMetrics.decoded++;manualAssetMetrics.lastDecodeMs=performance.now()-start;manualAssetMetrics.worker={...meshoptWorkerMetrics};manualAssetMetrics.templates=loaded.inspect();
+   return gltf;
+  });
+  decodeQueue=job;return job;
+ }),owner).catch(error=>{
+  if(key!==originalKey){manualAssetMetrics.gpuFallbacks=(manualAssetMetrics.gpuFallbacks??0)+1;logModelFallback(originalKey,error.message);return loadManualAsset(originalKey,false,owner);}throw error;
+ });
 }
 
 if(typeof indexedDB!=='undefined')void db();

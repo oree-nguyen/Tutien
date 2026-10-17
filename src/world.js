@@ -1,3 +1,4 @@
+import {releaseManualAssets} from './manual-asset-cache.js';
 import{perfFrame,perfBeginAppearance}from'./perf-debug.js';
 import * as THREE from "three";
 import{loadTerrainTextureSet}from"./terrain-assets.js";
@@ -352,6 +353,7 @@ export class World {
     });
   }
   releaseModelRings(model) {
+    releaseManualAssets(model.lod);
     if(!model||model.released)return;model.released=true;
     for(const mesh of [model.bar,model.barBg]){mesh?.geometry.dispose();mesh?.material.dispose();}
     model.lod.traverse(node=>{if(node.userData.ownConcealmentMaterial&&!node.userData.soulRing)node.material?.dispose();});

@@ -3,7 +3,7 @@ import{usesManualH02,configureManualH02,updateManualH02,replayManualH02,seekManu
 import * as THREE from 'three';
 import {warmSceneMaterials}from'./shader-warmup.js';
 import { clone as cloneSkeleton } from 'three/addons/utils/SkeletonUtils.js';
-import { loadManualAsset,manualAssetMetrics } from './manual-asset-cache.js';
+import { loadManualAsset,manualAssetMetrics,releaseManualAssets } from './manual-asset-cache.js';
 import { cloneHunyuanStaff } from './manual-staff.js';
 import { enhanceCharacterVisualFidelity } from './character-fidelity.js';
 import { createH01IK,poseRightHand,poseCrouch,setFingerGrip,orientStaffUpright } from './h01-ik.js';
@@ -49,8 +49,8 @@ export function createManualH01(actor,detail){
   manualAsset:{id:'H01-C0',status:'loading',detail,rigged:true,source:'a93d658b-a40d-4854-b755-ad1fa9bcc79b'}};
  const started=performance.now();
  syncSoulRingVisuals(root,actor,detail,0);
- Promise.all([loadManualAsset(detail),loadManualAsset('staff-'+(detail==='mobile'?'medium':detail))]).then(async([gltf,staffGltf])=>{
-  if(root.userData.manualAsset.disposed)return;
+ Promise.all([loadManualAsset(detail,true,root),loadManualAsset('staff-'+(detail==='mobile'?'medium':detail),true,root)]).then(async([gltf,staffGltf])=>{
+  if(root.userData.manualAsset.disposed){releaseManualAssets(root);return;}
   if(actor.id==='preview')await prepareH01EntranceAssets();
   const body=cloneSkeleton(gltf.scene);body.name='HunyuanBody';body.visible=false;body.rotation.y=Math.PI;cloneMaterials(body);root.add(body);
   const staff=cloneHunyuanStaff(staffGltf),staffPulse={value:.12};body.add(staff);applyStaffReveal(staff,staffPulse);
@@ -79,7 +79,7 @@ export function createManualH01(actor,detail){
   root.userData.manualAsset.loadMs=performance.now()-started;root.userData.manualAsset.cache={...manualAssetMetrics};
   root.userData.modelLoadRevision=1;
  }).catch(error=>{
-  if(root.userData.manualAsset.disposed)return;
+  if(root.userData.manualAsset.disposed){releaseManualAssets(root);return;}
   root.userData.manualAsset.status='failed';root.userData.manualAsset.error=error.message;
   console.error('H01 Hunyuan asset failed',error);
  });
@@ -170,5 +170,5 @@ export function disposeManualH01(root){
  if(s){s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);if(s.vfx)disposeH01EntranceVfx(s.vfx);states.delete(root);}
  const materials=new Set(),skeletons=new Set();
  root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh)for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);});
- for(const s of skeletons)s.dispose();for(const m of materials)m.dispose();contexts.delete(root);
+ for(const s of skeletons)s.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);
 }
