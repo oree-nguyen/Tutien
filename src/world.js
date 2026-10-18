@@ -8,6 +8,8 @@ import{batchStaticSanctuary}from"./static-batching.js";
 import {AdaptiveResolution,nextPaint} from "./runtime-performance.js";
 import {pooledGeometry} from "./geometry-pool.js";
 import { disposeManualH01,configureManualH01,replayManualH01Entrance,seekManualH01Entrance,usesManualHero } from "./manual-hero.js";
+import { releaseManualAssets } from "./manual-asset-cache.js";
+import { perfBeginAppearance } from "./perf-debug.js";
 import { configureGpuTextures } from "./gpu-textures.js";
 import { prepareEnvironmentAssets } from "./environment-assets.js";
 import {configureBakedCharacterEnvironment} from "./character-fidelity.js";

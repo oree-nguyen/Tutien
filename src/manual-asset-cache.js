@@ -1,3 +1,4 @@
+import {localAssetUrl} from './local-asset-url.js';
 import {getGpuTextureLoader,gpuTextureMetrics} from './gpu-textures.js';
 import {getModelLoader} from './model-loader.js';
 import { threadedMeshoptDecoder as MeshoptDecoder,meshoptWorkerMetrics } from './meshopt-worker-bridge.js';
@@ -49,7 +50,7 @@ export async function manualAssetBuffer(key){
  const cacheKey=key+':'+manualHeroAssetHashes[key];
  let buffer=await stored(cacheKey);
  if(await valid(buffer,key)){manualAssetMetrics.hits++;return buffer;}
- const response=await fetch(url);if(!response.ok)throw Error('Model HTTP '+response.status);
+ const response=await fetch(localAssetUrl(url));if(!response.ok)throw Error('Model HTTP '+response.status);
  buffer=await response.arrayBuffer();
  if(!await valid(buffer,key))throw Error('Model integrity check failed: '+key);
  manualAssetMetrics.misses++;manualAssetMetrics.bytes+=buffer.byteLength;

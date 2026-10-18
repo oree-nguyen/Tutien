@@ -8,7 +8,7 @@ Follows the pre-change [boot audit](BOOT-AUDIT.md). The user's clarified scope p
 - Cleanup exceptions cannot prevent the lobby from rendering after the record was safely cleared. Ordinary deferred-send extraction remains in the match and retains its record.
 - Generic storage-name cleanup was removed. Unknown `activeMatch`, `gamePhase`, backend configuration and other services are preserved. Opaque root fields are retained when updating the owned offline record. No vault/HMAC or settlement formula was changed.
 - Offline background/resume parks the saved run in the lobby for manual continuation. The existing online branch, WebSocket implementation and server 90-second grace were not changed.
-- HTML already contains a first-frame text shell. The real hub is rendered independently of model/environment awaits. A centered loading/error placeholder remains until the expected H01/H02 asset is actually visible; it does not mistake the preceding hero's loaded state for the newly selected model.
+- HTML already contains a first-frame text shell. The real hub is rendered independently of model/environment awaits. The separate centered “Đang nạp…” overlay has been removed; an absent model no longer covers or blocks the lobby.
 - A short source build ID is shown in the lobby and the full source ID is available at `__HON_GIOI__.build`, so an installed APK serving older assets can be distinguished from the inspected source. This is diagnostic evidence, not proof that a particular phone ran it.
 
 ## Checks
@@ -20,3 +20,11 @@ Follows the pre-change [boot audit](BOOT-AUDIT.md). The user's clarified scope p
 - `npm run verify:master`: exit 1, BLOCKED 0/37. The broad gate still requires current full evidence and physical/art/source-data acceptance; no evidence or threshold was fabricated to bypass it.
 
 Raw reports and logs: [boot-fix evidence](perf-audit/boot-fix/). Chromium/SwiftShader and a simulated native marker were used; no physical Android was connected. The reported phone failure has not been reproduced or certified fixed on that device. A missing model is directly explained by preparation awaits; full-UI disappearance and automatic entry in the installed APK still require its build ID/trace for attribution.
+
+## Runtime follow-up — 2026-10-18
+
+- Fixed the `releaseManualAssets is not defined` crash: `world.js` now imports the exported cache hook. The cache deliberately keeps decoded templates alive across lobby and match transitions.
+- Fixed local asset URL resolution for both the browser document and the dedicated render worker. The old base calculation pointed Vite's worker at `/@fs/.../basis`, which returned the HTML shell instead of the Basis transcoder JavaScript/WASM. The worker now resolves packaged assets from its own script directory when it has no document base URL.
+- Added the missing `perfBeginAppearance` import used while creating the hub preview.
+- Removed the centered loading overlay and updated the blocked-GLB browser assertion to require that the element is absent.
+- Focused Chromium test passed all 9 boot/offline checks, including a 10-second GLB block, explicit restore/abandon flows, and exit/reload. No browser page errors were recorded. The normal worker path loaded H01 and its staff in about 4.2 seconds in cloud Chromium/SwiftShader; that is not a physical-device measurement.
