@@ -1314,7 +1314,7 @@ Nguồn: `h02-rig.png`, `docs/anim-report/apk-review/h02-rig.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:03:06 UTC+07:00**
 
-Nguồn: `h01-held-back.png`
+Nguồn: `h01-held-back.png`, `docs/anim-report/apk-review/h01-held-back.png`
 
 ## Ảnh 140
 
@@ -1322,7 +1322,7 @@ Nguồn: `h01-held-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:03:06 UTC+07:00**
 
-Nguồn: `h01-left.png`
+Nguồn: `h01-left.png`, `docs/anim-report/apk-review/h01-left.png`
 
 ## Ảnh 141
 
@@ -1330,7 +1330,7 @@ Nguồn: `h01-left.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:03:07 UTC+07:00**
 
-Nguồn: `h01-right.png`
+Nguồn: `h01-right.png`, `docs/anim-report/apk-review/h01-right.png`
 
 ## Ảnh 142
 
@@ -1338,4 +1338,212 @@ Nguồn: `h01-right.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:03:07 UTC+07:00**
 
-Nguồn: `h02-rig.png`
+Nguồn: `h02-rig.png`, `docs/anim-report/apk-review/h02-rig.png`
+
+## Ảnh 143
+
+![apk-current-h01-t2_1.png](../media/6917e860c5c4f14a2f085812c8e59dbe0039e020.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:49 UTC+07:00**
+
+Nguồn: `apk-current-h01-t2_1.png`
+
+## Ảnh 144
+
+![apk-current-h01-t6.png](../media/011bb58ec8ba73aafab691cb3f1aee0100ddbf4e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:50 UTC+07:00**
+
+Nguồn: `apk-current-h01-t6.png`
+
+## Ảnh 145
+
+![apk-current-h02-match.png](../media/8e51cb628971a88754ec3b8c13296e86d4aa74c2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:50 UTC+07:00**
+
+Nguồn: `apk-current-h02-match.png`
+
+## Ảnh 146
+
+![apk-current-h02-t2_1.png](../media/0e6d74d7d99a7b041c4c2f717a8dbb3e6dec46f5.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:50 UTC+07:00**
+
+Nguồn: `apk-current-h02-t2_1.png`
+
+## Ảnh 147
+
+![apk-current-h02-t6.png](../media/679348d7b53c7f998f36dd4e21270247f265e586.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:51 UTC+07:00**
+
+Nguồn: `apk-current-h02-t6.png`
+
+## Ảnh 148
+
+![apk-previous-h01-t2_1.png](../media/8a5beb414a594d8bf614cb256ca51ac925591d4d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:51 UTC+07:00**
+
+Nguồn: `apk-previous-h01-t2_1.png`
+
+## Ảnh 149
+
+![apk-previous-h01-t6.png](../media/200c21c82814d5283e61307ad440418245c0f4dc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:51 UTC+07:00**
+
+Nguồn: `apk-previous-h01-t6.png`
+
+## Ảnh 150
+
+![apk-previous-h02-match.png](../media/329bb72ca104148bc4004999f6c459d4a613f794.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:51 UTC+07:00**
+
+Nguồn: `apk-previous-h02-match.png`
+
+## Ảnh 151
+
+![apk-previous-h02-t2_1.png](../media/ae0111fe86e5c173694e000c5aba037026edb3d2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:52 UTC+07:00**
+
+Nguồn: `apk-previous-h02-t2_1.png`
+
+## Ảnh 152
+
+![apk-previous-h02-t6.png](../media/6cd2b533db8651e279ebcaacbca678acc22a494c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:52 UTC+07:00**
+
+Nguồn: `apk-previous-h02-t6.png`
+
+## Ảnh 153
+
+![coverage-01.png](../media/60ba25b346c8afe23795c7b008d845d41cf93940.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:52 UTC+07:00**
+
+Nguồn: `coverage-01.png`
+
+## Ảnh 154
+
+![coverage-02.png](../media/c12b30fdf857d9527cf30e2f24eea1e5ee1996c8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:52 UTC+07:00**
+
+Nguồn: `coverage-02.png`
+
+## Ảnh 155
+
+![coverage-03.png](../media/edfe4b55c2360d876bbe4b274d8bbcd3f6af0aea.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
+
+Nguồn: `coverage-03.png`
+
+## Ảnh 156
+
+![coverage-04.png](../media/25b65e443171510169a491a466f27dbd6dc333d6.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
+
+Nguồn: `coverage-04.png`
+
+## Ảnh 157
+
+![coverage-05.png](../media/216e12163b8c159493d7adf5862e6563b9530157.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
+
+Nguồn: `coverage-05.png`
+
+## Ảnh 158
+
+![coverage-06.png](../media/902a5f9288fa94439996a27f2fce9c20d1146285.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
+
+Nguồn: `coverage-06.png`
+
+## Ảnh 159
+
+![coverage-07.png](../media/a1cc61336c33db50a20ef360c534f8f96338eabd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
+
+Nguồn: `coverage-07.png`
+
+## Ảnh 160
+
+![coverage-08.png](../media/dd0562c0119c7242ef4452ed5f82f64e0240e447.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:54 UTC+07:00**
+
+Nguồn: `coverage-08.png`
+
+## Ảnh 161
+
+![coverage-09.png](../media/60c069dfcc3cc3003e905c872120cb68962be3b7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:54 UTC+07:00**
+
+Nguồn: `coverage-09.png`
+
+## Ảnh 162
+
+![coverage-10.png](../media/6d29491dd1140daf12a4aaffb7d2a4176a84e2f3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:54 UTC+07:00**
+
+Nguồn: `coverage-10.png`
+
+## Ảnh 163
+
+![coverage-11.png](../media/51773b45ee84e57fdd16d52afc19fd564a70f13b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:54 UTC+07:00**
+
+Nguồn: `coverage-11.png`
+
+## Ảnh 164
+
+![coverage-12.png](../media/a3ff964c840a13d5ace3d2db16740aaebaddbc4c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:55 UTC+07:00**
+
+Nguồn: `coverage-12.png`
+
+## Ảnh 165
+
+![coverage-13.png](../media/66ed7625a5f723444723daee2c037e6f79b1aab3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:55 UTC+07:00**
+
+Nguồn: `coverage-13.png`
+
+## Ảnh 166
+
+![coverage-14.png](../media/5571c6adfdccf2d92e4883b2936bc82d8da68c0e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:55 UTC+07:00**
+
+Nguồn: `coverage-14.png`
+
+## Ảnh 167
+
+![coverage-15.png](../media/235785d8cb1457426b0c14a1f5f0daadfddcc968.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:55 UTC+07:00**
+
+Nguồn: `coverage-15.png`
+
+## Ảnh 168
+
+![coverage-16.png](../media/67e1bb666861d3a3f6780238a0c6dab900e9ad48.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:27:56 UTC+07:00**
+
+Nguồn: `coverage-16.png`

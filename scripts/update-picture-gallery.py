@@ -20,6 +20,7 @@ def group(path):
         ('docs/fidelity/', 'Đối chiếu chất lượng với GLB gốc'),
         ('docs/boot-performance/', 'Sửa vòng đời tải và hiển thị'),
         ('docs/rig-audit/', 'Kiểm tra và sửa rig H01 H02'),
+        ('docs/review-conver10/', 'Kiểm tra và sửa rig H01 H02'),
         ('docs/hand-frames/', 'Kiểm tra và sửa rig H01 H02'),
         ('docs/anim-report/', 'Kiểm tra và sửa rig H01 H02')]:
         if path.startswith(prefix): return title
