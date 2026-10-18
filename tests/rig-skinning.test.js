@@ -172,3 +172,43 @@ test("constraint fitting keeps coincident UV-seam vertices on identical skin wei
   assert.deepEqual([...weights.slice(4, 8)], [...weights.slice(8, 12)]);
   assert.deepEqual([...ids.slice(4, 8)], [...ids.slice(8, 12)]);
 });
+
+test("UV seam slot permutations use the same cached joint transforms during fitting", async () => {
+  const { Document } = await import("@gltf-transform/core");
+  const { constrainHandWeights } = await import(
+    "../tools/rig/constrain-skin.mjs"
+  );
+  const doc = new Document(),
+    hand = doc.createNode("RightHand"),
+    finger = doc.createNode("RightHandThumb1");
+  hand.addChild(finger);
+  const identity = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1],
+    skin = { getInverseBindMatrices: () => ({ getElement: () => identity }) },
+    positions = new Float32Array([
+      0, 0.02, 0, 0.001, 0.02, 0, 0.001, 0.02, 0, 0.002, 0.021, 0,
+    ]),
+    triangles = new Uint32Array([0, 1, 3, 0, 2, 3]);
+  function solve(permuted) {
+    const ids = new Uint8Array([
+        0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0,
+      ]),
+      weights = new Float32Array([
+        1, 0, 0, 0, 0.5, 0.5, 0, 0, 0.5, 0.5, 0, 0, 0.2, 0.8, 0, 0,
+      ]);
+    if (permuted) {
+      ids[8] = 1;
+      ids[9] = 0;
+    }
+    constrainHandWeights(
+      positions,
+      triangles,
+      ids,
+      weights,
+      [hand, finger],
+      skin,
+      { iterations: 120 },
+    );
+    return { ids, weights };
+  }
+  assert.deepEqual(solve(true), solve(false));
+});

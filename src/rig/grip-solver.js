@@ -126,8 +126,9 @@ export function solveGrip(
 ) {
   if (!(radius > 0) || !Number.isFinite(radius))
     throw new Error("Grip shaft radius must be a positive measured value");
-  const n = vector(frame.n).normalize(),
-    axis = vector(frame.gripAxis).normalize(),
+  const n = vector(frame.contactNormal ?? frame.n).normalize(),
+    requestedAxis = vector(frame.gripAxis).normalize(),
+    axis = requestedAxis.clone().projectOnPlane(n).normalize(),
     palm = vector(frame.palmCenter),
     center = palm.clone().addScaledVector(n, radius + skinGap),
     f = vector(frame.f),
@@ -144,7 +145,8 @@ export function solveGrip(
       mcp = vector(data.points[0]),
       height = mcp.clone().sub(center).dot(axis),
       thumb = name === "Thumb",
-      limits = [90, 100, 80, 20, 10, 10, 10, ...(cupAllowed ? [25] : [])];
+      limits = [90, 100, 80, 20, 10, 10, 10, ...(cupAllowed ? [25] : [])],
+      minimums = [-30, -5, -5, -20, -10, -10, -10, ...(cupAllowed ? [0] : [])];
     let winner;
     for (const targetAngle of thumb
       ? [-110, -140, -170]
@@ -171,7 +173,7 @@ export function solveGrip(
         } else if (sum > 260) {
           let excess = sum - 260;
           for (let i = 2; i >= 0; i--) {
-            const subtract = Math.min(excess, values[i]);
+            const subtract = Math.min(excess, values[i] - minimums[i]);
             values[i] -= subtract;
             excess -= subtract;
           }
@@ -223,7 +225,7 @@ export function solveGrip(
         };
       }
       const seeds = [];
-      for (const a of [15, 35, 55, 75, 90])
+      for (const a of [-30, -15, 0, 15, 35, 55, 75, 90])
         for (const b of [20, 50, 80, 100])
           for (const c of [20, 50, 80])
             for (const opposition of [-20, 0, 20])
@@ -246,7 +248,7 @@ export function solveGrip(
       for (let sample = 1; sample <= 384; sample++) {
         const values = limits.map((limit, j) => {
           const t = halton(sample, [2, 3, 5, 7, 11, 13, 17, 19][j]);
-          return j >= 3 && j < 7 ? (t * 2 - 1) * limit : t * limit;
+          return minimums[j] + t * (limit - minimums[j]);
         });
         seeds.push(evaluate(values));
       }
@@ -261,7 +263,7 @@ export function solveGrip(
                 const values = [...current.values];
                 values[j] = MathUtils.clamp(
                   values[j] + d,
-                  j >= 3 && j < 7 ? -limits[j] : 0,
+                  minimums[j],
                   limits[j],
                 );
                 const next = evaluate(values);
@@ -297,9 +299,15 @@ export function solveGrip(
     };
   }
   const fingerAxisErrorDeg = Math.abs(90 - MathUtils.radToDeg(f.angleTo(axis)));
+  const gripAxisErrorDeg = MathUtils.radToDeg(requestedAxis.angleTo(axis));
+  const palmSurfaceNormalDot = frame.surfaceNormal
+    ? vector(frame.surfaceNormal).normalize().dot(n)
+    : 1;
   return {
     ok:
       allValid &&
+      palmSurfaceNormalDot >= 0.8 &&
+      gripAxisErrorDeg <= 25 + 1e-6 &&
       fingerAxisErrorDeg <= 20 + 1e-6 &&
       skinGap >= 0.003 &&
       skinGap <= 0.005,
@@ -309,7 +317,9 @@ export function solveGrip(
     shaftCenter: center.toArray(),
     shaftAxis: axis.toArray(),
     palmTowardShaftDot: n.dot(center.clone().sub(palm).normalize()),
-    gripAxisErrorDeg: 0,
+    gripAxisErrorDeg,
+    contactNormal: n.toArray(),
+    palmSurfaceNormalDot,
     fingerAxisErrorDeg,
     fingers,
   };

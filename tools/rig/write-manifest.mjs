@@ -13,6 +13,9 @@ const joints = JSON.parse(
 const browser = JSON.parse(
   await fs.readFile("docs/rig-audit/fullres-browser/report.json"),
 );
+const contact = JSON.parse(
+  await fs.readFile("docs/hand-frames/grip-runtime-diagnostic.json"),
+);
 const assets = [];
 for (const hero of ["H01", "H02"]) {
   const receipt = JSON.parse(
@@ -28,6 +31,7 @@ for (const hero of ["H01", "H02"]) {
     ["skin", skin],
     ["joints", joints],
     ["browser", browser],
+    ["contact", contact],
   ])
     if (report.reports.find((r) => r.hero === hero)?.rigSha256 !== actualHash)
       throw new Error(hero + " " + name + " report is stale; rerun its check");
@@ -44,6 +48,8 @@ for (const hero of ["H01", "H02"]) {
       sourceBytesAndRigStructure: structure.passed,
       diagnosticHandSkin: skin.reports.find((r) => r.hero === hero).passed,
       geometricGripCandidate: grip.reports.find((r) => r.hero === hero).passed,
+      diagnosticShaftSkin: contact.reports.find((r) => r.hero === hero)
+        .cylinderSkinDiagnostic.withinThreeMm,
       legacyJointLimits: joints.reports.find((r) => r.hero === hero).passed,
       newReferenceEntrance: false,
       actualSkinnedGripContact: false,

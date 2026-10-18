@@ -85,8 +85,23 @@ export function constrainHandWeights(
     group.push(n);
     groups[n] = group;
   }
-  for (const group of welds.values())
-    if (group.some((n) => pinned[n])) for (const n of group) pinned[n] = true;
+  // UV seams may store the same influences in different slots. Canonicalize
+  // before caching joint transforms: changing slot IDs later would otherwise
+  // leave the cached transforms pointing at the previous joints.
+  for (const group of welds.values()) {
+    const representative = group.find((n) => pinned[n]) ?? group[0],
+      source = vertices[representative],
+      locked = group.some((n) => pinned[n]);
+    for (const n of group) {
+      const vertex = vertices[n];
+      for (let k = 0; k < 4; k++) {
+        ids[vertex * 4 + k] = ids[source * 4 + k];
+        weights[vertex * 4 + k] = weights[source * 4 + k];
+      }
+      supports[n] = [0, 1, 2, 3].filter((k) => weights[vertex * 4 + k] > 1e-8);
+      pinned[n] = locked;
+    }
+  }
   const poses = [0.2, 1].map((strength) => {
     const worlds = new Map();
     function world(node) {

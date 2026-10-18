@@ -411,7 +411,7 @@ for (const hero of ["H01", "H02"].filter(
         ws,
         joints.map((j) => map.get(j)),
         newSkin,
-        { tipCores },
+        { tipCores, iterations: hero === "H01" ? 6000 : 500 },
       ),
     );
     primitive.setAttribute(

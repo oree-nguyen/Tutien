@@ -1,4 +1,5 @@
 import fs from "node:fs/promises";
+import { createHash } from "node:crypto";
 import { chromium } from "playwright-core";
 import { createServer } from "vite";
 import { Vector3, Quaternion, MathUtils } from "three";
@@ -30,6 +31,10 @@ page.on("pageerror", (error) =>
 try {
   for (const [hero, spec] of Object.entries(landmarks.heroes)) {
     result.heroes[hero] = { sourceSha256: spec.sourceSha256, hands: {} };
+    if (rigged)
+      result.heroes[hero].rigSha256 = createHash("sha256")
+        .update(await fs.readFile(`assets/rigged/${hero}-C0-rigged.glb`))
+        .digest("hex");
     for (const [side, hand] of Object.entries(spec.hands)) {
       const frame = deriveHandFrame(hand, side),
         fingers = {};
@@ -305,6 +310,14 @@ try {
     result.heroes[hero].mirrorNormalErrorDeg = mirror;
     if (mirror > 10) throw Error(hero + " palm mirror mismatch");
   }
+  if (rigged)
+    for (const hero of Object.keys(result.heroes)) {
+      const actual = createHash("sha256")
+        .update(await fs.readFile(`assets/rigged/${hero}-C0-rigged.glb`))
+        .digest("hex");
+      if (actual !== result.heroes[hero].rigSha256)
+        throw Error(hero + " rig changed while rendering hand evidence");
+    }
   await fs.writeFile(
     rigged ? "docs/hand-frames/open-close.json" : "data/rig/hand-frames.json",
     JSON.stringify(result, null, 2) + "\n",

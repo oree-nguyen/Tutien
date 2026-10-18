@@ -5,7 +5,7 @@
     {
       "id": "H01-C0",
       "file": "H01-C0-rigged.glb",
-      "sha256": "3509a27a3dd1a4294939dcf1a2bd6df99ce2d3ba3501430f3d6ea409f32de8f9",
+      "sha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
       "bytes": 98346352,
       "source": "public/models/hunyuan-original/H01-C0-source.glb",
       "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
@@ -13,8 +13,9 @@
       "runtimeEnabled": false,
       "checks": {
         "sourceBytesAndRigStructure": true,
-        "diagnosticHandSkin": false,
+        "diagnosticHandSkin": true,
         "geometricGripCandidate": true,
+        "diagnosticShaftSkin": false,
         "legacyJointLimits": false,
         "newReferenceEntrance": false,
         "actualSkinnedGripContact": false,
@@ -34,6 +35,7 @@
         "sourceBytesAndRigStructure": true,
         "diagnosticHandSkin": true,
         "geometricGripCandidate": false,
+        "diagnosticShaftSkin": false,
         "legacyJointLimits": false,
         "newReferenceEntrance": false,
         "actualSkinnedGripContact": false,

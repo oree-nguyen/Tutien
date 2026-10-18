@@ -1,5 +1,5 @@
 {
-  "passed": false,
+  "passed": true,
   "scope": "Static open/closed diagnostic hand poses on full original source topology, not full animation acceptance",
   "thresholds": {
     "p999": 1.5,
@@ -9,14 +9,15 @@
   "reports": [
     {
       "hero": "H01",
-      "passed": false,
+      "rigSha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
+      "passed": true,
       "poses": [
         {
           "strength": 0.2,
           "uniqueNondegenerateEdges": 2365667,
           "degenerateEdges": 0,
-          "p999EdgeStretch": 1.1081836049453417,
-          "maxEdgeStretch": 1.4769128139448553,
+          "p999EdgeStretch": 1.1124281945465688,
+          "maxEdgeStretch": 1.4598271540956471,
           "maxTipAttachmentRadiusError": 2.9339304076503314e-10,
           "tipEvidence": [
             {
@@ -85,7 +86,7 @@
             "a": 827569,
             "b": 827860,
             "bindLength": 0.001366114533698304,
-            "posedLength": 0.002017632060135326,
+            "posedLength": 0.001994291091897497,
             "positionA": [
               0.5818262100219727,
               0.9954359531402588,
@@ -103,10 +104,10 @@
               "LeftHandThumb1"
             ],
             "weightsA": [
-              0.7830145359039307,
-              0.15503047406673431,
-              0.0289619080722332,
-              0.03299310430884361
+              0.7964580059051514,
+              0.13103874027729034,
+              0.04244140535593033,
+              0.030061867088079453
             ],
             "jointsB": [
               "LeftHand",
@@ -115,10 +116,10 @@
               "LeftHandIndex2"
             ],
             "weightsB": [
-              0.8309663534164429,
-              0.046344466507434845,
-              0.07359933853149414,
-              0.04908981919288635
+              0.8430354595184326,
+              0.01826230250298977,
+              0.08563721925020218,
+              0.05306503549218178
             ]
           }
         },
@@ -126,8 +127,8 @@
           "strength": 1,
           "uniqueNondegenerateEdges": 2365667,
           "degenerateEdges": 0,
-          "p999EdgeStretch": 1.4510628170356268,
-          "maxEdgeStretch": 2.915424280818586,
+          "p999EdgeStretch": 1.4500154752075347,
+          "maxEdgeStretch": 1.945075785711741,
           "maxTipAttachmentRadiusError": 2.9172586048231697e-10,
           "tipEvidence": [
             {
@@ -191,53 +192,53 @@
               "radiusError": 3.323834176643947e-11
             }
           ],
-          "passed": false,
+          "passed": true,
           "worst": {
-            "a": 817780,
-            "b": 817792,
-            "bindLength": 0.0015797742659235227,
-            "posedLength": 0.004605712253085796,
+            "a": 838339,
+            "b": 838340,
+            "bindLength": 0.0007806834857237032,
+            "posedLength": 0.0015184885443862127,
             "positionA": [
-              -0.5625817775726318,
-              1.014670968055725,
-              0.13126806914806366
+              0.5565865635871887,
+              1.0244051218032837,
+              0.13135093450546265
             ],
             "positionB": [
-              -0.5638123750686646,
-              1.0138391256332397,
-              0.13073015213012695
+              0.5562377572059631,
+              1.0248616933822632,
+              0.13187946379184723
             ],
             "jointsA": [
-              "RightHandThumb1",
-              "RightHand",
-              "RightHandThumb2",
-              "RightHandIndex1"
+              "LeftHandThumb1",
+              "LeftHandThumb2",
+              "LeftHand",
+              "LeftForeArm"
             ],
             "weightsA": [
-              0.4902971684932709,
-              0.3875943124294281,
-              0.026493092998862267,
-              0.09561541676521301
+              0.30434566736221313,
+              0.2263685017824173,
+              0.32094699144363403,
+              0.14833885431289673
             ],
             "jointsB": [
-              "RightHandThumb1",
-              "RightHand",
-              "RightHandThumb2",
-              "RightHandIndex1"
+              "LeftHandThumb1",
+              "LeftHandThumb2",
+              "LeftHand",
+              "LeftForeArm"
             ],
             "weightsB": [
-              0.4526303708553314,
-              0.4206962585449219,
-              0.013493848964571953,
-              0.11317949742078781
+              0.3091385066509247,
+              0.23763293027877808,
+              0.30916446447372437,
+              0.14406408369541168
             ]
           }
         }
-      ],
-      "rigSha256": "3509a27a3dd1a4294939dcf1a2bd6df99ce2d3ba3501430f3d6ea409f32de8f9"
+      ]
     },
     {
       "hero": "H02",
+      "rigSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
       "passed": true,
       "poses": [
         {
@@ -462,8 +463,7 @@
             ]
           }
         }
-      ],
-      "rigSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b"
+      ]
     }
   ]
 }
