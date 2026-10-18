@@ -1,3 +1,4 @@
+import{perfMeasure}from'./perf-debug.js';
 import * as THREE from "three";
 import {pooledGeometry} from "./geometry-pool.js";
 import { REGIONS, GATE_POS, SHRINES } from "./data.js";
@@ -114,7 +115,7 @@ export function sceneryTerrainHeight(x, z) {
     edge * (5 + Math.abs(Math.sin(x * 0.027) * Math.cos(z * 0.021)) * 28)
   );
 }
-export function generateTerrainSplatmap(size = 2048) {
+function generateTerrainSplatmapMeasured(size = 2048) {
   const canvas = document.createElement("canvas");
   canvas.width = canvas.height = size;
   const ctx = canvas.getContext("2d"),
@@ -171,7 +172,7 @@ export function generateTerrainSplatmap(size = 2048) {
   };
   return texture;
 }
-function sigilTexture() {
+function sigilTextureMeasured() {
   if (sharedSigilTexture) return sharedSigilTexture;
   if (typeof document === "undefined") {
     const size = 1024,
@@ -371,7 +372,7 @@ function smokePlume(parent, time = { value: 0 }) {
   parent.add(smoke);
   return smoke;
 }
-function cloudTexture() {
+function cloudTextureMeasured() {
   const canvas = document.createElement("canvas");
   canvas.width = canvas.height = 128;
   const c = canvas.getContext("2d"),
@@ -1768,3 +1769,9 @@ export function createDeferredScenery(options={}) {
  };
  return result;
 }
+
+export function generateTerrainSplatmap(...args){return perfMeasure('texture:generateTerrainSplatmap',()=>generateTerrainSplatmapMeasured(...args),{arguments:args.map(a=>typeof a==='object'?a?.detail??a?.size??null:a)});}
+
+function sigilTexture(...args){return perfMeasure('texture:sigilTexture',()=>sigilTextureMeasured(...args),{arguments:args.map(a=>typeof a==='object'?a?.detail??a?.size??null:a)});}
+
+function cloudTexture(...args){return perfMeasure('texture:cloudTexture',()=>cloudTextureMeasured(...args),{arguments:args.map(a=>typeof a==='object'?a?.detail??a?.size??null:a)});}

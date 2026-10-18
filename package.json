@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
+    "build": "npm run assets:optimize && vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js",
     "android:add": "cap add android && node scripts/configure-android.mjs",
@@ -46,6 +46,7 @@
   },
   "devDependencies": {
     "@capacitor/cli": "7.6.9",
+    "@gltf-transform/cli": "4.5.1",
     "@gltf-transform/core": "^4.5.1",
     "@gltf-transform/extensions": "^4.5.1",
     "@gltf-transform/functions": "^4.5.1",

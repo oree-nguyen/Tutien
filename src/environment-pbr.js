@@ -1,3 +1,4 @@
+import{perfMeasure,perfEnabled}from'./perf-debug.js';
 import * as THREE from "three";
 import { REGIONS } from "./data.js";
 
@@ -225,7 +226,7 @@ export function rasterBiomePixels(biome, size, spec) {
 
 /** Four real maps per biome. Height is packed in roughness.R, roughness in G,
  * and micro occlusion in B; bumpMap and roughnessMap share that GPU texture. */
-export function generateBiomeTextureSet(
+function generateBiomeTextureSetMeasured(
   biome,
   { size = ENVIRONMENT_PBR_SIZE, anisotropy = 1 } = {},
 ) {
@@ -271,7 +272,8 @@ const raster = (${rasterBiomePixels.toString()});
 self.onmessage = function (event) {
   const request = event.data;
   try {
-    const pixels = raster(request.biome, request.size, request.spec);
+    const started=request.perf?performance.now():0;const pixels = raster(request.biome, request.size, request.spec);
+    if(request.perf)console.info('[HG_PERF] '+JSON.stringify({kind:'measure',thread:'terrain-worker',at:performance.now(),name:'texture:terrain-worker',ms:performance.now()-started,biome:request.biome,size:request.size}));
     const buffers = {
       albedo: pixels.albedo.buffer,
       normal: pixels.normal.buffer,
@@ -590,7 +592,7 @@ export class BiomePBRManager {
         id,
         biome,
         size: this.textureSize,
-        spec: BIOME_SURFACES[biome],
+        spec: BIOME_SURFACES[biome],perf:perfEnabled(),
       });
     } catch (error) {
       this.failWorker(error?.message ?? String(error));
@@ -903,3 +905,5 @@ export function marbleCloudMaps({
   };
   return sanctuaryMaps;
 }
+
+export function generateBiomeTextureSet(...args){return perfMeasure('texture:generateBiomeTextureSet',()=>generateBiomeTextureSetMeasured(...args),{arguments:args.map(a=>typeof a==='object'?a?.detail??a?.size??null:a)});}

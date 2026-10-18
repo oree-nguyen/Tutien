@@ -166,3 +166,9 @@ Phép đo HUD dùng hợp các hình chữ nhật bao phần UI mặc định, k
 
 
 Cổ cầm H11 giữ trục dài 1,3 m và bảy dây thực, mặt dây hướng lên và nghiêng về trước. Tư thế hai tay được giữ qua hoạt ảnh gảy đàn; kiểm thử đo mặt phẳng batch dây và đầu ngón trỏ ở nhiều khung hình, thay vì chỉ đếm metadata số dây.
+
+## Cập nhật pipeline offline 17/10/2026
+
+Các phần procedural phía trên mô tả model legacy. H01/H02 trang phục gốc hiện dùng GLB Hunyuan đã được duyệt thử nghiệm theo AGENTS.md. `assets/base_models/` là nguồn giữ nguyên; `assets/optimized/` chứa bản dẫn xuất,13 biến thể được publish qua registry runtime. Không tái sinh người/vũ khí bằng MCP hoặc primitives trong đợt này.
+
+`npm run assets:optimize` dùng Meshopt16bit và ETC1S/UASTC, giữ nguyên toàn bộ dữ liệu animation sau khi đọc lại đầu ra. `src/model-loader.js` dùng loader chung; cache template theo URL, actor clone giữ lease, bản thường làm dự phòng. `assets:bake:characters` bake24 preset low/medium thành120map KTX2 +PNG. Không nhận đây là hoàn tất ba mức chất lượng hoặc bộ icon512: hai quyết định đó còn chờ người dùng. Xem PERF-PHASE-1.md đến PERF-PHASE-4.md và PERF-REPORT.md.

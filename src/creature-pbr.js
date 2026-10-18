@@ -1,3 +1,4 @@
+import{perfMeasure}from'./perf-debug.js';
 import * as T from "three";
 
 // Albedo stays light so the creature's material tint remains authoritative.
@@ -326,7 +327,7 @@ function texture(pixels, size, profile, detail, channel, colorSpace) {
   return result;
 }
 
-function createMaps(profile, detail) {
+function createMapsMeasured(profile, detail) {
   const size = resolutions[detail],
     count = size * size,
     height = new Float32Array(count),
@@ -463,3 +464,5 @@ export function creaturePBRCacheInfo() {
     estimatedGPUMipBytes: Math.ceil((bytes * 4) / 3),
   };
 }
+
+function createMaps(...args){return perfMeasure('texture:createMaps',()=>createMapsMeasured(...args),{arguments:args.map(a=>typeof a==='object'?a?.detail??a?.size??null:a)});}

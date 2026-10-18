@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { loadManualAsset } from './manual-asset-cache.js';
+import { loadManualAsset,releaseManualAssets } from './manual-asset-cache.js';
 const inFlight=new WeakSet();
 export function cloneHunyuanStaff(gltf){
  const source=gltf.scene.getObjectByName('Staff_Root');
@@ -23,8 +23,8 @@ export function hydrateHunyuanStaff(root){
  if(!['pending','loading'].includes(root.userData.status)||inFlight.has(root)||typeof document==='undefined')return;
  inFlight.add(root);
  root.userData.status='loading';
- loadManualAsset('staff-'+root.userData.detail).then(gltf=>{
-  if(root.userData.disposed)return;
+ loadManualAsset('staff-'+root.userData.detail,true,root).then(gltf=>{
+  if(root.userData.disposed){releaseManualAssets(root);return;}
   root.add(cloneHunyuanStaff(gltf));root.userData.status='loaded';
  }).catch(error=>{root.userData.status='failed';root.userData.error=error.message;});
 }

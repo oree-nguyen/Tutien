@@ -1,3 +1,4 @@
+import{perfEnabled}from'./perf-debug.js';
 import{createRenderWorker}from'./render-worker-source.js';
 import{packRenderMatch}from'./render-packet.js';
 import{groundHeight}from'./ground-math.js';
@@ -7,7 +8,7 @@ export class RenderThread{
   const worker=createRenderWorker();if(!worker)throw Error('Render worker unavailable');
   const engine=new RenderThread(worker);engine.canvas=canvas;
   const offscreen=canvas.transferControlToOffscreen();
-  try{engine.apply(await engine.request('init',{canvas:offscreen,width:innerWidth,height:innerHeight,dpr:devicePixelRatio,quality:localStorage.getItem('hon-gioi-quality')??'balanced'},[offscreen]));}
+  try{engine.apply(await engine.request('init',{canvas:offscreen,width:innerWidth,height:innerHeight,dpr:devicePixelRatio,quality:localStorage.getItem('hon-gioi-quality')??'balanced',perf:perfEnabled()},[offscreen]));}
   catch(error){worker.terminate();throw error;}
   engine.ready=true;engine.onResize=()=>engine.command('resize',[innerWidth,innerHeight]);window.addEventListener('resize',engine.onResize);return engine;
  }
@@ -28,7 +29,7 @@ export class RenderThread{
   };
   worker.onerror=event=>this.fail(event.message);
  }
- apply(data){if(!data)return;this.diagnostic=data;this.previewAsset=data.previewAsset;this.scenery.ready=data.sceneryReady;this.quality=data.quality;this.camera.position=data.camera;this.focus=data.focus;this.basis=data.basis;this.batching=data.batching;this.renderer.info={render:data.render,memory:data.memory};this.renderMetrics.fps=data.fps;}
+ apply(data){if(!data)return;this.diagnostic=data;this.previewAsset=data.previewAsset;this.loadingCharacter=!!data.loadingCharacter;this.scenery.ready=data.sceneryReady;this.quality=data.quality;this.camera.position=data.camera;this.focus=data.focus;this.basis=data.basis;this.batching=data.batching;this.renderer.info={render:data.render,memory:data.memory};this.renderMetrics.fps=data.fps;}
  fail(error){if(this.failed)return;this.failed=true;for(const pending of this.pending.values()){clearTimeout(pending.timer);pending.reject(Error(error));}this.pending.clear();if(this.ready&&this.canvas)window.dispatchEvent(new CustomEvent('hon-gioi-render-error',{detail:error}));}
  request(type,args={},transfer=[]){const id=++this.sequence;return new Promise((resolve,reject)=>{const timer=setTimeout(()=>{this.pending.delete(id);reject(Error('Render worker timeout: '+(args.method??type)));},120000);this.pending.set(id,{resolve,reject,timer});this.worker.postMessage({type,id,...args},transfer);});}
  command(method,args=[]){this.worker.postMessage({type:'command',method,args,epoch:this.epoch});}

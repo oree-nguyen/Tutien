@@ -1,0 +1,26 @@
+✔ boot and cancelled async loads cannot enter combat without a new trusted start (0.891386ms)
+✔ storage sanitation preserves bank/profile and unrelated services (0.137346ms)
+✔ resolution responds to sustained frame pressure, recovers slowly and respects the budget (1.800878ms)
+✔ cosmetic pool exhaustion does not allocate and each lease releases exactly once (0.306619ms)
+✔ far offline AI thinks at 4Hz but movement integrates at fixed tick; authoritative defaults stay full-rate (6.537455ms)
+✔ mobile body is 15k triangles with complete rig/clips and GPU variants embed mipmapped KTX2 (154.211507ms)
+✔ render packets omit hidden enemies and never carry executable simulation state (2.232916ms)
+✔ worker screen projection matches the real isometric camera ray and terrain (98.629461ms)
+✔ GPU timing never reads an unavailable result and returns leases to the fixed pool (0.650544ms)
+✔ terrain streaming discards a cancelled region before adopting the current region (130.50562ms)
+✔ team combat still downs for 25s, while explicit server surrender settles immediately once (6.879587ms)
+✔ clearing only owned offline fields preserves profile, opaque root fields and unrelated storage (1.376291ms)
+✔ primary persistence failure is propagated before the caller can present the lobby (0.410795ms)
+✔ corrupt primary storage is not overwritten with an empty profile (0.185168ms)
+✔ redundant mirror failure does not reverse a successful primary clear (0.168082ms)
+✔ snapshot persistence retains actor references, timers, escrow and inventory for an explicit later restore (21.891289ms)
+✔ actual offline death clears the saved snapshot synchronously through finish/save (7.733106ms)
+✔ actual offline extraction clears the saved snapshot synchronously through finish/save (5.633801ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 554.815281

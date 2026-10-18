@@ -1,6 +1,7 @@
+import{perfBeginAppearance}from'./perf-debug.js';
 import * as THREE from 'three';
 import {clone as cloneSkeleton}from'three/addons/utils/SkeletonUtils.js';
-import{loadManualAsset,manualAssetMetrics}from'./manual-asset-cache.js';
+import{loadManualAsset,manualAssetMetrics,releaseManualAssets}from'./manual-asset-cache.js';
 import{enhanceCharacterVisualFidelity}from'./character-fidelity.js';
 import{warmSceneMaterials}from'./shader-warmup.js';
 import{createH01IK,poseRightHand,solveTwoBoneIK}from'./h01-ik.js';
@@ -35,8 +36,8 @@ export function createManualH02(actor,detail){
  const root=new THREE.Group();root.name='manualHero_H02_C0';root.userData={height:2.2,detail,manualHunyuan:true,manualH02:true,manualAsset:{id:'H02-C0',status:'loading',detail,rigged:true,source:'cd050512-738f-449f-95d3-7c11a9c06851'}};
  const started=performance.now(),level=detail==='mobile'?'medium':detail;
  syncSoulRingVisuals(root,actor,detail,0);
- Promise.all([loadManualAsset('h02-body-'+level),loadManualAsset('h02-hammer-'+(level==='high'?'high':level))]).then(async([gltf,weapon])=>{
-  if(root.userData.manualAsset.disposed)return;
+ Promise.all([loadManualAsset('h02-body-'+level,true,root),loadManualAsset('h02-hammer-'+(level==='high'?'high':level),true,root)]).then(async([gltf,weapon])=>{
+  if(root.userData.manualAsset.disposed){releaseManualAssets(root);return;}
   const stage=new THREE.Group();stage.name='H02_Entrance_Stage';stage.rotation.y=Math.PI;root.add(stage);
   const body=cloneSkeleton(gltf.scene);body.name='HunyuanBody';body.visible=false;body.userData.preserveMetalPbr=true;body.userData.rightElbowPole=[-.62,1.05,-.12];body.userData.ikLandmarks={right:[-.535,1.035,.125],left:[.535,1.035,.125],gripRadius:.033};cloneMaterials(body);stage.add(body);
   const source=weapon.scene.getObjectByName('Hammer_Root');if(!source?.getObjectByName('Hammer_Base_Tip')||!source.getObjectByName('Hammer_Head_Impact'))throw Error('H02 hammer attachment nodes missing');
@@ -50,7 +51,7 @@ export function createManualH02(actor,detail){
   if(root.userData.manualAsset.disposed){mixer.stopAllAction();s.vfx&&disposeH02EntranceVfx(s.vfx);return;}
   states.set(root,s);s.introStart=performance.now();body.visible=true;
   if(!preview){ik.socket.add(hammer);hammer.position.set(0,0,0);s.gripped=true;}
-  Object.assign(root.userData.manualAsset,{status:'loaded',clips:gltf.animations.map(c=>c.name),loadMs:performance.now()-started,cache:{...manualAssetMetrics},weaponSource:'45b118bc-58ce-4000-94c6-8e09945aa9f1'});root.userData.modelLoadRevision=1;
+  if(preview)perfBeginAppearance('model:H02:'+detail);Object.assign(root.userData.manualAsset,{status:'loaded',clips:gltf.animations.map(c=>c.name),loadMs:performance.now()-started,cache:{...manualAssetMetrics},weaponSource:'45b118bc-58ce-4000-94c6-8e09945aa9f1'});root.userData.modelLoadRevision=1;
  }).catch(error=>{if(!root.userData.manualAsset.disposed){root.userData.manualAsset.status='failed';root.userData.manualAsset.error=error.message;console.error('H02 Hunyuan asset failed',error);}});
  return root;
 }
@@ -88,5 +89,5 @@ export function replayManualH02(root){const s=states.get(root);if(!s?.preview)re
 export function seekManualH02(root,time){const s=states.get(root);if(s?.preview)s.forcedTime=Math.max(0,time);}
 export function disposeManualH02(root){
  root.userData.manualAsset.disposed=true;const s=states.get(root);if(s){s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);s.vfx&&disposeH02EntranceVfx(s.vfx);states.delete(root);}
- const materials=new Set(),skeletons=new Set();root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh)for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);});for(const skeleton of skeletons)skeleton.dispose();for(const m of materials)m.dispose();contexts.delete(root);
+ const materials=new Set(),skeletons=new Set();root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh)for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);});for(const skeleton of skeletons)skeleton.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);
 }

@@ -1,3 +1,4 @@
+import{perfMeasure}from'./perf-debug.js';
 import {bakedUiAssetUrls} from './baked-ui-assets.js';
 import {
   HEROES,
@@ -2218,7 +2219,8 @@ export class MasterworkIconGenerator {
     this.cache = new Map();
     this.renderCount = 0;
   }
-  generate(type, id, rarity, element, size = 512) {
+  generate(...args){return perfMeasure('texture:item-icon',()=>this.generateMeasured(...args),{type:args[0],id:args[1],size:args[4]??512});}
+  generateMeasured(type, id, rarity, element, size = 512) {
     ({ type, id } = normalize(type, id));
     size = Math.max(32, Math.min(1024, Math.round(size)));
     const hero =

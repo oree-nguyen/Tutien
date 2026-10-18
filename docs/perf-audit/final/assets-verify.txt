@@ -1,0 +1,26 @@
+
+> hon-gioi-sinh-ton@2.5.0 assets:verify
+> node --test tests/model-pipeline.test.js tests/model-template-cache.test.js tests/shader-warmup.test.js tests/baked-character-pbr.test.js
+
+✔ 24 fixed presets match current palettes and keep original dimensions with local PNG fallbacks (5.023832ms)
+✔ installed baked atlas is reused without procedural regeneration or resizing a shared image (0.932826ms)
+✔ every real optimized input preserves all clips/keyframes/joints/morphs, with role-specific KTX2 and unchanged source bank (607.909857ms)
+✔ animation guard rejects a missing clip, a lost morph target and a changed intermediate keyframe (2.438591ms)
+prune: Removed types... Accessor (7)
+prune: Removed types... Skin (1)
+Optimized and verified fixture.glb 3084 -> 7500
+{"processed":1,"skipped":0,"files":1}
+{"processed":0,"skipped":1,"files":1}
+✔ optimizer retains real skinned morph animation with subframe detail and skips an unchanged source on its next run (94.286853ms)
+✔ URL deduplication retains resources until the last live clone releases its lease (1.430292ms)
+✔ release while decoding disposes only after decode completes, and failed loads can retry (0.429983ms)
+✔ LRU budget applies only to unused templates and never evicts a live actor (0.26676ms)
+✔ all unique images upload even when meshes share the same shader program (7.488793ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 865.908646

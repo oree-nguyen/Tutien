@@ -269,7 +269,7 @@ export class World {
     if(usesManualHero(a))detail="high";
     if (model.details.has(detail)||(detail==="medium"&&model.details.has("mobile"))) return;
     let visual;
-    if(a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)&&detail===this.preparedPlayerVisual.detail){visual=this.preparedPlayerVisual.visual;this.preparedPlayerVisual=null;}else visual=visualTemplate(a,detail);
+    if(a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)&&detail===this.preparedPlayerVisual.detail){visual=this.preparedPlayerVisual.visual;this.preparedPlayerVisual=null;}else visual=visualTemplate(a,detail);if(a.id==='preview')perfBeginAppearance('hero:'+a.hero+':'+detail);
     if(visual.userData.manualHunyuan)configureManualH01(visual,this.renderer,this.scene,this.camera);
     model.details.add(detail);
     model.lod.addLevel(
@@ -354,6 +354,7 @@ export class World {
     });
   }
   releaseModelRings(model) {
+    releaseManualAssets(model.lod);
     if(!model||model.released)return;model.released=true;
     for(const mesh of [model.bar,model.barBg]){mesh?.geometry.dispose();mesh?.material.dispose();}
     model.lod.traverse(node=>{if(node.userData.ownConcealmentMaterial&&!node.userData.soulRing)node.material?.dispose();});
@@ -447,6 +448,10 @@ export class World {
     this.sun.target.position.copy(this.focus);
     if (!match) {
       if (!this.preview) {
+        const pending=usesManualHero({hero:hubHero,...appearance,kind:'hero'})?null:ensureBakedCharacter({hero:hubHero,...appearance},'medium');
+        this.loadingCharacter=!!pending&&pending.status==='loading';
+        if(this.loadingCharacter){this.renderer.render(this.scene,this.camera);return;}
+
         this.previewHero=`${hubHero}:${appearance.skin??0}:${appearance.costume??0}:${appearance.rings?.some(id=>[6,8,9,12].includes(id))?'black':'purple'}`;
         this.preview = this.character({
           id: "preview",
