@@ -16,3 +16,9 @@
 - H01-C0/H01-W0 hiện dùng hai share Hunyuan thật, rig humanoid 52 xương và Entrance 4,2 giây; không tái dùng trượng primitive/base64 cũ. Meshopt/WebP cần worker module riêng (không dùng MeshoptDecoder.useWorkers trong bundle minified). Kiểm cả production/offline và xem docs/H01-STAFF-ENTRANCE.md. Không nhận là đã đạt 60 FPS Android khi chưa đo trên thiết bị.
 
 - H02-C0 và Chấn Nhạc Chùy đã được người dùng cấp hai share `cd050512-738f-449f-95d3-7c11a9c06851` / `45b118bc-58ce-4000-94c6-8e09945aa9f1` để tích hợp và tạo hoạt ảnh. Rig/clip cục bộ, chùy là mesh rời từ share thật; không tạo người/chùy primitive. Xem docs/H02-HAMMER-ENTRANCE.md và kiểm thử H01/H02 trước khi đổi bộ rig chung.
+
+## Sổ ảnh trên Git (yêu cầu của người dùng)
+- Mọi ảnh kiểm tra mới do agent chụp hoặc xem phải được đăng vào `picture/converN/online-pic.md`, ảnh trước và thời gian ngay bên dưới, rồi commit/push để người dùng xem được.
+- N là nhiệm vụ trong `picture/tasks.json`; các tin “Tiếp” và các vòng sửa trong cùng nhiệm vụ giữ nguyên N. Nhiệm vụ rig H01/H02 hiện tại dùng số trong sổ có tiêu đề “Kiểm tra và sửa rig H01 H02”. Chỉ tạo số kế tiếp khi có nhiệm vụ mới.
+- Dùng `python3 scripts/update-picture-gallery.py --task N --image path/to/image.png`; nhiệm vụ mới thêm `--title`. Không giảm chất lượng ảnh. Không ghi credential vào ảnh/tài liệu công khai.
+- Phân biệt giờ chụp với giờ đăng ký ảnh hoặc giờ lưu trên Git. Không bịa giờ chụp cho ảnh lịch sử. Xem `picture/README.md`.
