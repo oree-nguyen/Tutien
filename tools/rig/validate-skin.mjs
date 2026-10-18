@@ -8,8 +8,12 @@ const io = new NodeIO().registerExtensions(ALL_EXTENSIONS),
 const handFrames = JSON.parse(
   await fs.readFile("data/rig/hand-frames.json"),
 ).heroes;
-for (const hero of ["H01", "H02"]) {
-  const doc = await io.read(`assets/rigged/${hero}-C0-rigged.glb`),
+for (const hero of ["H01", "H02"].filter(
+  (h) => !process.env.HERO || h === process.env.HERO,
+)) {
+  const doc = await io.read(
+      `${process.env.RIG_INPUT_DIR ?? "assets/rigged"}/${hero}-C0-rigged.glb`,
+    ),
     skin = doc.getRoot().listSkins()[0],
     joints = skin.listJoints(),
     meshNode = doc
@@ -188,7 +192,11 @@ for (const hero of ["H01", "H02"]) {
   reports.push({
     hero,
     rigSha256: createHash("sha256")
-      .update(await fs.readFile(`assets/rigged/${hero}-C0-rigged.glb`))
+      .update(
+        await fs.readFile(
+          `${process.env.RIG_INPUT_DIR ?? "assets/rigged"}/${hero}-C0-rigged.glb`,
+        ),
+      )
       .digest("hex"),
     passed: poses.every((p) => p.passed),
     poses,
@@ -203,8 +211,10 @@ for (const hero of ["H01", "H02"]) {
     })),
   );
 }
+const output = process.env.RIG_REPORT_DIR ?? "docs/rig-audit";
+await fs.mkdir(output, { recursive: true });
 await fs.writeFile(
-  "docs/rig-audit/skin-strain.json",
+  `${output}/skin-strain.json`,
   JSON.stringify(
     {
       passed: reports.every((r) => r.passed),

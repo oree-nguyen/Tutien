@@ -5,7 +5,14 @@ const swing = new Quaternion(),
   delta = new Quaternion(),
   inverse = new Quaternion();
 const wrap = (a) => MathUtils.euclideanModulo(a + 180, 360) - 180;
-export function anatomicalAngles(rotation, bind, frame = new Quaternion()) {
+export function anatomicalAngles(
+  rotation,
+  bind,
+  frame = new Quaternion(),
+  { lateralSign = 1, twistSign = 1 } = {},
+) {
+  if (![1, -1].includes(lateralSign) || ![1, -1].includes(twistSign))
+    throw Error("Anatomical mirror signs must be +1 or -1");
   delta.copy(bind).invert().multiply(rotation);
   inverse.copy(frame).invert();
   delta.premultiply(inverse).multiply(frame).normalize();
@@ -23,8 +30,9 @@ export function anatomicalAngles(rotation, bind, frame = new Quaternion()) {
     angle = length > 1e-9 ? (2 * Math.atan2(length, swing.w)) / length : 0;
   return {
     flex: MathUtils.radToDeg(swing.x * angle),
-    lateral: MathUtils.radToDeg(swing.z * angle),
-    twist: wrap(MathUtils.radToDeg(2 * Math.atan2(twist.y, twist.w))),
+    lateral: lateralSign * MathUtils.radToDeg(swing.z * angle),
+    twist:
+      twistSign * wrap(MathUtils.radToDeg(2 * Math.atan2(twist.y, twist.w))),
   };
 }
 export function inspectJoint(
@@ -32,9 +40,12 @@ export function inspectJoint(
   bind,
   frame,
   limits,
-  { finger = false, tolerance = 1 } = {},
+  { finger = false, tolerance = 1, lateralSign = 1, twistSign = 1 } = {},
 ) {
-  const angles = anatomicalAngles(rotation, bind, frame),
+  const angles = anatomicalAngles(rotation, bind, frame, {
+      lateralSign,
+      twistSign,
+    }),
     violations = [];
   for (const key of ["flex", "lateral", "twist"])
     if (
@@ -53,8 +64,14 @@ export function inspectJoint(
       });
   return violations;
 }
-export function clampJoint(rotation, bind, frame, limits) {
-  const a = anatomicalAngles(rotation, bind, frame);
+export function clampJoint(
+  rotation,
+  bind,
+  frame,
+  limits,
+  { lateralSign = 1, twistSign = 1 } = {},
+) {
+  const a = anatomicalAngles(rotation, bind, frame, { lateralSign, twistSign });
   let changed = false;
   for (const key of ["flex", "lateral", "twist"]) {
     const value = MathUtils.clamp(a[key], ...limits[key]);
@@ -62,13 +79,20 @@ export function clampJoint(rotation, bind, frame, limits) {
     a[key] = value;
   }
   if (!changed) return false;
-  axis.set(MathUtils.degToRad(a.flex), 0, MathUtils.degToRad(a.lateral));
+  axis.set(
+    MathUtils.degToRad(a.flex),
+    0,
+    MathUtils.degToRad(a.lateral * lateralSign),
+  );
   const angle = axis.length();
   swing.setFromAxisAngle(
     angle > 1e-9 ? axis.multiplyScalar(1 / angle) : axis.set(1, 0, 0),
     angle,
   );
-  twist.setFromAxisAngle(axis.set(0, 1, 0), MathUtils.degToRad(a.twist));
+  twist.setFromAxisAngle(
+    axis.set(0, 1, 0),
+    MathUtils.degToRad(a.twist * twistSign),
+  );
   rotation
     .copy(bind)
     .multiply(frame)

@@ -58,6 +58,8 @@ for (const hero of ["H01", "H02"]) {
           {
             finger: frame.type.startsWith("finger"),
             tolerance: limits.tolerance,
+            lateralSign: frame.lateralSign,
+            twistSign: frame.twistSign,
           },
         )) {
           violations++;

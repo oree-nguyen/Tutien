@@ -1,0 +1,482 @@
+{
+  "hero": "H01",
+  "hand": "Right",
+  "rigSha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
+  "weaponSha256": "0984acdf12b0a5b09ce8580e9e309ee94d2f94ec88e4e4dc3067f4a3e16a4be1",
+  "topology": {
+    "method": "Exact float-coordinate welding, undirected edge incidence and winding; source geometry unchanged",
+    "vertices": 357203,
+    "weldedVertices": 309824,
+    "triangles": 619640,
+    "uniqueEdges": 929454,
+    "degenerateEdges": 4,
+    "boundaryEdges": 0,
+    "nonManifoldEdges": 4,
+    "inconsistentWindingEdges": 0,
+    "oddIncidenceEdges": 0,
+    "unbalancedWindingEdges": 0,
+    "closedOrientedParityChain": true,
+    "closedOriented": false
+  },
+  "scope": "Source triangle contact search, cuff included, no geometry/texture/scale changes; best candidates verified by three-ray parity. Not complete entrance acceptance.",
+  "elapsedMs": 1286.2501029999999,
+  "evaluationCount": 1,
+  "selected": {
+    "candidateIndex": 3,
+    "weaponRollDegrees": 275,
+    "maximumIntrusion": 0.002879197747862674,
+    "gap": 0.004607455877389396,
+    "contactNormalDot": 0.9474709930167411,
+    "insideVertices": 71,
+    "ambiguousQueries": 0,
+    "palmAmbiguous": false,
+    "handVertices": 14654,
+    "parity": true,
+    "score": 0,
+    "passed": true,
+    "worst": {
+      "vertex": 817131,
+      "worldPosition": [
+        -0.4873961397143929,
+        0.9596563145577914,
+        0.10481555705302946
+      ],
+      "weaponPosition": [
+        -0.020598831786492574,
+        0.3301412514571344,
+        0.008205198792084523
+      ],
+      "distance": 0.002879197747862674,
+      "inside": true,
+      "signedDistance": -0.002879197747862674,
+      "face": 367202,
+      "closest": [
+        -0.02337015222305212,
+        0.3308994764991024,
+        0.008391364027661812
+      ],
+      "normal": [
+        -0.9625321632099733,
+        0.2633459416015638,
+        0.06465871811531025
+      ],
+      "ambiguous": false,
+      "votes": [
+        true,
+        true,
+        true
+      ]
+    },
+    "surfaceVerification": {
+      "passed": true,
+      "sourceTriangles": 26000,
+      "queries": 28328,
+      "subdivisions": 582,
+      "ambiguousQueries": 0,
+      "unresolvedTriangles": 0,
+      "maximumSampledIntrusion": 0.00294286026243347,
+      "maximumCertifiedUpperBound": 0.0029990673583667926,
+      "worst": {
+        "sourceTriangle": 1400354,
+        "depth": 5,
+        "position": [
+          -0.020156965720905445,
+          0.33095726546228904,
+          0.00896274236868649
+        ],
+        "distance": 0.00294286026243347,
+        "inside": true,
+        "signedDistance": -0.00294286026243347,
+        "face": 367228,
+        "closest": [
+          -0.022916290699977568,
+          0.3318801196891838,
+          0.0094042084035987
+        ],
+        "normal": [
+          -0.9376337076876471,
+          0.31359090972657855,
+          0.15001257128911785
+        ],
+        "ambiguous": false,
+        "votes": [
+          true,
+          true,
+          true
+        ]
+      },
+      "limit": 0.003,
+      "maxDepth": 12,
+      "method": "Adaptive 1-Lipschitz signed-distance bounds over original deformed triangles; three-ray classification"
+    },
+    "candidate": {
+      "ratio": 0.65,
+      "tilt": 15,
+      "gap": 0.003,
+      "normalMode": -30,
+      "result": {
+        "ok": true,
+        "radius": 0.01936392542782513,
+        "skinGap": 0.003,
+        "palmCenter": [
+          -0.5271522145638927,
+          0.9841511079370411,
+          0.1159904384469273
+        ],
+        "shaftCenter": [
+          -0.5171814933205109,
+          0.9793374444814337,
+          0.1354213036506244
+        ],
+        "shaftAxis": [
+          -0.7636660057459088,
+          0.41489345953866613,
+          0.4946490158689562
+        ],
+        "palmTowardShaftDot": 1,
+        "gripAxisErrorDeg": 5.843947485651779,
+        "contactNormal": [
+          0.44583949609205553,
+          -0.2152423317249243,
+          0.8688485957622304
+        ],
+        "palmSurfaceNormalDot": 0.8674143430635033,
+        "fingerAxisErrorDeg": 15.914662140841799,
+        "fingers": {
+          "Thumb": {
+            "angles": [
+              1.2,
+              100,
+              74.2
+            ],
+            "opposition": -16.8,
+            "twists": [
+              -10,
+              -10,
+              -10
+            ],
+            "cup": 0,
+            "points": [
+              [
+                -0.5095320325838213,
+                1.014098903920089,
+                0.10006477933339747
+              ],
+              [
+                -0.5596417908877085,
+                1.0449310989010128,
+                0.16202193825683117
+              ],
+              [
+                -0.5435312618504385,
+                1.0422824819283736,
+                0.1758337682640519
+              ],
+              [
+                -0.5348972294876085,
+                1.0386879328234906,
+                0.16918455891856765
+              ]
+            ],
+            "wrapDeg": 101.26172884989548,
+            "signedWrapDeg": -101.26172884989548,
+            "tipSurfaceDistance": 0.02499060437760651,
+            "penetration": 0.002949870350281998,
+            "segmentPenetrations": [
+              0.002949870350281998,
+              0,
+              0
+            ],
+            "totalFlexDeg": 175.4,
+            "valid": true,
+            "score": 0.004291870619216241
+          },
+          "Index": {
+            "angles": [
+              8.71875,
+              72.11358024691359,
+              76.2676697530864
+            ],
+            "opposition": 17.900000000000002,
+            "twists": [
+              -4.19984973703982,
+              -10,
+              2.318339100346021
+            ],
+            "cup": 0,
+            "points": [
+              [
+                -0.5681281303352852,
+                0.9813956156803564,
+                0.13025911733358986
+              ],
+              [
+                -0.5816848781553993,
+                0.9570781545214011,
+                0.14600395949151931
+              ],
+              [
+                -0.5679777671349717,
+                0.9553682626402793,
+                0.16634741877756623
+              ],
+              [
+                -0.554527386721965,
+                0.9665367384065693,
+                0.16369832279895263
+              ]
+            ],
+            "wrapDeg": 109.99209281133027,
+            "signedWrapDeg": 109.99209281133028,
+            "tipSurfaceDistance": 0.011854927592486006,
+            "penetration": 0,
+            "segmentPenetrations": [
+              0,
+              0,
+              0
+            ],
+            "totalFlexDeg": 157.09999999999997,
+            "valid": true,
+            "score": 1.3780184647715844e-10
+          },
+          "Middle": {
+            "angles": [
+              17.834375,
+              90.69958847736623,
+              41.76603652263376
+            ],
+            "opposition": 20,
+            "twists": [
+              -2.5319308790383177,
+              -5.4,
+              -6.608996539792388
+            ],
+            "cup": 0,
+            "points": [
+              [
+                -0.5538919880898194,
+                0.9624461414470605,
+                0.11623847366079149
+              ],
+              [
+                -0.5603568106299714,
+                0.933145357818592,
+                0.1390134742700852
+              ],
+              [
+                -0.5403402919643383,
+                0.9428585324663146,
+                0.15630048478242559
+              ],
+              [
+                -0.5300651117490098,
+                0.956931962587718,
+                0.15765685642429295
+              ]
+            ],
+            "wrapDeg": 124.99323867071928,
+            "signedWrapDeg": 124.99323867071928,
+            "tipSurfaceDistance": 0.01271726052244122,
+            "penetration": 0,
+            "segmentPenetrations": [
+              0,
+              0,
+              0
+            ],
+            "totalFlexDeg": 150.29999999999998,
+            "valid": true,
+            "score": 3.636822458885673e-11
+          },
+          "Ring": {
+            "angles": [
+              7.14375,
+              89.19753086419752,
+              58.95871913580248
+            ],
+            "opposition": 4.0274052478134115,
+            "twists": [
+              -0.2329075882794882,
+              -10,
+              -9.30795847750865
+            ],
+            "cup": 0,
+            "points": [
+              [
+                -0.5348546764618848,
+                0.9482436110074053,
+                0.10828316158557334
+              ],
+              [
+                -0.5458380789999735,
+                0.9268648729712059,
+                0.12473348881680056
+              ],
+              [
+                -0.5249281542218753,
+                0.935571210003396,
+                0.14830460190849504
+              ],
+              [
+                -0.511383086017284,
+                0.9472793426279571,
+                0.14532912149518123
+              ]
+            ],
+            "wrapDeg": 125.00343549809301,
+            "signedWrapDeg": 125.00343549809298,
+            "tipSurfaceDistance": 0.012178974174176963,
+            "penetration": 0,
+            "segmentPenetrations": [
+              0,
+              0,
+              0
+            ],
+            "totalFlexDeg": 155.3,
+            "valid": true,
+            "score": 2.8291702993502103e-11
+          },
+          "Pinky": {
+            "angles": [
+              -2.36875,
+              82.46875,
+              79.9
+            ],
+            "opposition": 8.9,
+            "twists": [
+              -6.3335837716003,
+              8.1,
+              -1.9723183391003456
+            ],
+            "cup": 0,
+            "points": [
+              [
+                -0.5126336507078986,
+                0.9402656203452614,
+                0.10220224951087084
+              ],
+              [
+                -0.5196343907456811,
+                0.9214225371188093,
+                0.10868516066922838
+              ],
+              [
+                -0.5055286005985885,
+                0.9237650865570032,
+                0.1255734101362775
+              ],
+              [
+                -0.5001843458180288,
+                0.9379029073927081,
+                0.12340038707500425
+              ]
+            ],
+            "wrapDeg": 102.01123908653717,
+            "signedWrapDeg": 102.01123908653719,
+            "tipSurfaceDistance": 0.009718275699626657,
+            "penetration": 0,
+            "segmentPenetrations": [
+              0,
+              0,
+              0
+            ],
+            "totalFlexDeg": 160,
+            "valid": true,
+            "score": 3.6535434293658434e-11
+          }
+        }
+      }
+    }
+  },
+  "passed": true,
+  "evaluated": [
+    {
+      "candidateIndex": 3,
+      "weaponRollDegrees": 275,
+      "maximumIntrusion": 0.002879197747862674,
+      "gap": 0.004607455877389396,
+      "contactNormalDot": 0.9474709930167411,
+      "insideVertices": 71,
+      "ambiguousQueries": 0,
+      "palmAmbiguous": false,
+      "handVertices": 14654,
+      "parity": true,
+      "score": 0,
+      "passed": true,
+      "worst": {
+        "vertex": 817131,
+        "worldPosition": [
+          -0.4873961397143929,
+          0.9596563145577914,
+          0.10481555705302946
+        ],
+        "weaponPosition": [
+          -0.020598831786492574,
+          0.3301412514571344,
+          0.008205198792084523
+        ],
+        "distance": 0.002879197747862674,
+        "inside": true,
+        "signedDistance": -0.002879197747862674,
+        "face": 367202,
+        "closest": [
+          -0.02337015222305212,
+          0.3308994764991024,
+          0.008391364027661812
+        ],
+        "normal": [
+          -0.9625321632099733,
+          0.2633459416015638,
+          0.06465871811531025
+        ],
+        "ambiguous": false,
+        "votes": [
+          true,
+          true,
+          true
+        ]
+      },
+      "surfaceVerification": {
+        "passed": true,
+        "sourceTriangles": 26000,
+        "queries": 28328,
+        "subdivisions": 582,
+        "ambiguousQueries": 0,
+        "unresolvedTriangles": 0,
+        "maximumSampledIntrusion": 0.00294286026243347,
+        "maximumCertifiedUpperBound": 0.0029990673583667926,
+        "worst": {
+          "sourceTriangle": 1400354,
+          "depth": 5,
+          "position": [
+            -0.020156965720905445,
+            0.33095726546228904,
+            0.00896274236868649
+          ],
+          "distance": 0.00294286026243347,
+          "inside": true,
+          "signedDistance": -0.00294286026243347,
+          "face": 367228,
+          "closest": [
+            -0.022916290699977568,
+            0.3318801196891838,
+            0.0094042084035987
+          ],
+          "normal": [
+            -0.9376337076876471,
+            0.31359090972657855,
+            0.15001257128911785
+          ],
+          "ambiguous": false,
+          "votes": [
+            true,
+            true,
+            true
+          ]
+        },
+        "limit": 0.003,
+        "maxDepth": 12,
+        "method": "Adaptive 1-Lipschitz signed-distance bounds over original deformed triangles; three-ray classification"
+      }
+    }
+  ]
+}

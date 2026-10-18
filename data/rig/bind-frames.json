@@ -33,7 +33,8 @@
             1
           ],
           "type": "hip",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Spine": {
           "parent": "Hips",
@@ -66,7 +67,8 @@
             1
           ],
           "type": "spine",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Spine1": {
           "parent": "Spine",
@@ -99,7 +101,8 @@
             1
           ],
           "type": "spine",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Spine2": {
           "parent": "Spine1",
@@ -132,7 +135,8 @@
             1
           ],
           "type": "spine",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Neck": {
           "parent": "Spine2",
@@ -165,7 +169,8 @@
             1
           ],
           "type": "neck",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Head": {
           "parent": "Neck",
@@ -198,7 +203,8 @@
             1
           ],
           "type": "neck",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftShoulder": {
           "parent": "Spine2",
@@ -231,7 +237,8 @@
             -0.666921511248423
           ],
           "type": "clavicle",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftArm": {
           "parent": "LeftShoulder",
@@ -264,7 +271,8 @@
             0.3337329006336795
           ],
           "type": "shoulder",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftForeArm": {
           "parent": "LeftArm",
@@ -297,7 +305,8 @@
             0.3605965170280453
           ],
           "type": "elbow",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHand": {
           "parent": "LeftForeArm",
@@ -318,19 +327,20 @@
             0.09000000000000004
           ],
           "worldEnd": [
-            0.50920438956261,
-            1.0144906670128204,
-            0.1000795186474632
+            0.5446167709222908,
+            0.9549623416442785,
+            0.11614147172296993
           ],
-          "length": 0.024100857961335365,
+          "length": 0.0925831615239702,
           "canonicalLocal": [
-            0.10844026277964007,
-            0.922934611560773,
-            0.009145872307374639,
-            0.36925435634574005
+            -0.09249021915857575,
+            0.9592021094765942,
+            -0.020290757514598134,
+            0.2663928906038147
           ],
           "type": "wrist",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandThumb1": {
           "parent": "LeftHand",
@@ -363,7 +373,8 @@
             1.0000000074150759
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandThumb2": {
           "parent": "LeftHandThumb1",
@@ -396,7 +407,8 @@
             1.000000008417795
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandThumb3": {
           "parent": "LeftHandThumb2",
@@ -429,7 +441,8 @@
             1.000000007551414
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandIndex1": {
           "parent": "LeftHand",
@@ -462,7 +475,8 @@
             1.0000000067767552
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandIndex2": {
           "parent": "LeftHandIndex1",
@@ -495,7 +509,8 @@
             1.0000000067334611
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandIndex3": {
           "parent": "LeftHandIndex2",
@@ -528,7 +543,8 @@
             1.0000000067515333
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandMiddle1": {
           "parent": "LeftHand",
@@ -561,7 +577,8 @@
             1.0000000066430148
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandMiddle2": {
           "parent": "LeftHandMiddle1",
@@ -594,7 +611,8 @@
             1.0000000065965218
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandMiddle3": {
           "parent": "LeftHandMiddle2",
@@ -627,7 +645,8 @@
             1.0000000066127541
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandRing1": {
           "parent": "LeftHand",
@@ -660,7 +679,8 @@
             1.0000000065644639
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandRing2": {
           "parent": "LeftHandRing1",
@@ -693,7 +713,8 @@
             1.0000000065737855
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandRing3": {
           "parent": "LeftHandRing2",
@@ -726,7 +747,8 @@
             1.0000000065721069
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandPinky1": {
           "parent": "LeftHand",
@@ -759,7 +781,8 @@
             1.0000000065296932
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandPinky2": {
           "parent": "LeftHandPinky1",
@@ -792,7 +815,8 @@
             1.0000000066143664
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandPinky3": {
           "parent": "LeftHandPinky2",
@@ -825,7 +849,8 @@
             1.0000000066154047
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "RightShoulder": {
           "parent": "Spine2",
@@ -858,7 +883,8 @@
             -0.666921511248423
           ],
           "type": "clavicle",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightArm": {
           "parent": "RightShoulder",
@@ -891,7 +917,8 @@
             -0.3337329006336795
           ],
           "type": "shoulder",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightForeArm": {
           "parent": "RightArm",
@@ -924,7 +951,8 @@
             -0.3605965170280453
           ],
           "type": "elbow",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHand": {
           "parent": "RightForeArm",
@@ -945,19 +973,20 @@
             0.09000000000000004
           ],
           "worldEnd": [
-            -0.5095320325656324,
-            1.014098903926997,
-            0.10006477932176033
+            -0.5452343513474032,
+            0.9544375961880697,
+            0.11556838793300334
           ],
-          "length": 0.024528228116468136,
+          "length": 0.09318599069591317,
           "canonicalLocal": [
-            -0.1033543143101227,
-            0.9226521642198903,
-            0.011557648174494728,
-            -0.3713452636181501
+            0.09421504688143624,
+            0.9595432267741382,
+            -0.016557945848629754,
+            -0.2648134622548469
           ],
           "type": "wrist",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandThumb1": {
           "parent": "RightHand",
@@ -990,7 +1019,8 @@
             1.000000007392745
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandThumb2": {
           "parent": "RightHandThumb1",
@@ -1023,7 +1053,8 @@
             1.000000008411255
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandThumb3": {
           "parent": "RightHandThumb2",
@@ -1056,7 +1087,8 @@
             1.0000000077788496
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandIndex1": {
           "parent": "RightHand",
@@ -1089,7 +1121,8 @@
             1.0000000067838817
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandIndex2": {
           "parent": "RightHandIndex1",
@@ -1122,7 +1155,8 @@
             1.0000000067366352
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandIndex3": {
           "parent": "RightHandIndex2",
@@ -1155,7 +1189,8 @@
             1.0000000067487131
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandMiddle1": {
           "parent": "RightHand",
@@ -1188,7 +1223,8 @@
             1.0000000066407806
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandMiddle2": {
           "parent": "RightHandMiddle1",
@@ -1221,7 +1257,8 @@
             1.0000000065943255
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandMiddle3": {
           "parent": "RightHandMiddle2",
@@ -1254,7 +1291,8 @@
             1.0000000066077754
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandRing1": {
           "parent": "RightHand",
@@ -1287,7 +1325,8 @@
             1.0000000065579064
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandRing2": {
           "parent": "RightHandRing1",
@@ -1320,7 +1359,8 @@
             1.0000000065639405
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandRing3": {
           "parent": "RightHandRing2",
@@ -1353,7 +1393,8 @@
             1.000000006545923
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandPinky1": {
           "parent": "RightHand",
@@ -1386,7 +1427,8 @@
             1.0000000065213657
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandPinky2": {
           "parent": "RightHandPinky1",
@@ -1419,7 +1461,8 @@
             1.000000006608165
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandPinky3": {
           "parent": "RightHandPinky2",
@@ -1452,7 +1495,8 @@
             1.0000000065909056
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "LeftUpLeg": {
           "parent": "Hips",
@@ -1485,7 +1529,8 @@
             1.1079756855979418e-10
           ],
           "type": "hip",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftLeg": {
           "parent": "LeftUpLeg",
@@ -1518,7 +1563,8 @@
             0.999999991584322
           ],
           "type": "knee",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftFoot": {
           "parent": "LeftLeg",
@@ -1551,7 +1597,8 @@
             1.000000040969831
           ],
           "type": "ankle",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftToeBase": {
           "parent": "LeftFoot",
@@ -1584,7 +1631,8 @@
             1.0000000294412201
           ],
           "type": "ankle",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "RightUpLeg": {
           "parent": "Hips",
@@ -1617,7 +1665,8 @@
             -1.1079756855979418e-10
           ],
           "type": "hip",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightLeg": {
           "parent": "RightUpLeg",
@@ -1650,7 +1699,8 @@
             0.999999991584322
           ],
           "type": "knee",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightFoot": {
           "parent": "RightLeg",
@@ -1683,7 +1733,8 @@
             1.000000040969831
           ],
           "type": "ankle",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightToeBase": {
           "parent": "RightFoot",
@@ -1716,7 +1767,8 @@
             1.0000000294412201
           ],
           "type": "ankle",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         }
       }
     },
@@ -1753,7 +1805,8 @@
             1
           ],
           "type": "hip",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Spine": {
           "parent": "Hips",
@@ -1786,7 +1839,8 @@
             1
           ],
           "type": "spine",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Spine1": {
           "parent": "Spine",
@@ -1819,7 +1873,8 @@
             1
           ],
           "type": "spine",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Spine2": {
           "parent": "Spine1",
@@ -1852,7 +1907,8 @@
             1
           ],
           "type": "spine",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Neck": {
           "parent": "Spine2",
@@ -1885,7 +1941,8 @@
             1
           ],
           "type": "neck",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "Head": {
           "parent": "Neck",
@@ -1918,7 +1975,8 @@
             1
           ],
           "type": "neck",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftShoulder": {
           "parent": "Spine2",
@@ -1951,7 +2009,8 @@
             -0.6587247496610942
           ],
           "type": "clavicle",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftArm": {
           "parent": "LeftShoulder",
@@ -1984,7 +2043,8 @@
             0.2756826629614001
           ],
           "type": "shoulder",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftForeArm": {
           "parent": "LeftArm",
@@ -2017,7 +2077,8 @@
             0.28902821801358736
           ],
           "type": "elbow",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHand": {
           "parent": "LeftForeArm",
@@ -2038,19 +2099,20 @@
             0.1294552384832447
           ],
           "worldEnd": [
-            0.5072502105132423,
-            1.0723055616063775,
-            0.14125485220393763
+            0.5186846786584564,
+            1.0333551204586306,
+            0.13826963104492188
           ],
-          "length": 0.014774845182285832,
+          "length": 0.05024660250633483,
           "canonicalLocal": [
-            -0.10297404519833317,
-            0.8032152899196923,
-            -0.31465549078303046,
-            0.49521063136547355
+            0.18472145634985426,
+            -0.9097822382958266,
+            0.17174133112165496,
+            0.32966540745515177
           ],
           "type": "wrist",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandThumb1": {
           "parent": "LeftHand",
@@ -2083,7 +2145,8 @@
             1.0000000364343304
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandThumb2": {
           "parent": "LeftHandThumb1",
@@ -2116,7 +2179,8 @@
             1.0000000370966844
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandThumb3": {
           "parent": "LeftHandThumb2",
@@ -2149,7 +2213,8 @@
             1.0000000335735564
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandIndex1": {
           "parent": "LeftHand",
@@ -2182,7 +2247,8 @@
             1.0000000571614962
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandIndex2": {
           "parent": "LeftHandIndex1",
@@ -2215,7 +2281,8 @@
             1.0000000575814996
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandIndex3": {
           "parent": "LeftHandIndex2",
@@ -2248,7 +2315,8 @@
             1.0000000566475833
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandMiddle1": {
           "parent": "LeftHand",
@@ -2281,7 +2349,8 @@
             1.0000000590750586
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandMiddle2": {
           "parent": "LeftHandMiddle1",
@@ -2314,7 +2383,8 @@
             1.0000000581234936
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandMiddle3": {
           "parent": "LeftHandMiddle2",
@@ -2347,7 +2417,8 @@
             1.0000000578955381
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandRing1": {
           "parent": "LeftHand",
@@ -2380,7 +2451,8 @@
             1.000000062718782
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandRing2": {
           "parent": "LeftHandRing1",
@@ -2413,7 +2485,8 @@
             1.0000000626005705
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandRing3": {
           "parent": "LeftHandRing2",
@@ -2446,7 +2519,8 @@
             1.0000000617660976
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandPinky1": {
           "parent": "LeftHand",
@@ -2479,7 +2553,8 @@
             1.0000000646810978
           ],
           "type": "fingerMCP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandPinky2": {
           "parent": "LeftHandPinky1",
@@ -2512,7 +2587,8 @@
             1.0000000640741151
           ],
           "type": "fingerPIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftHandPinky3": {
           "parent": "LeftHandPinky2",
@@ -2545,7 +2621,8 @@
             1.0000000657692047
           ],
           "type": "fingerDIP",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "RightShoulder": {
           "parent": "Spine2",
@@ -2578,7 +2655,8 @@
             -0.6587247496610942
           ],
           "type": "clavicle",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightArm": {
           "parent": "RightShoulder",
@@ -2611,7 +2689,8 @@
             -0.2756826629614001
           ],
           "type": "shoulder",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightForeArm": {
           "parent": "RightArm",
@@ -2644,7 +2723,8 @@
             -0.28894482631739354
           ],
           "type": "elbow",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHand": {
           "parent": "RightForeArm",
@@ -2665,19 +2745,20 @@
             0.12944649414886267
           ],
           "worldEnd": [
-            -0.5073280467577206,
-            1.0723317987642105,
-            0.14124829395315155
+            -0.5187290487136672,
+            1.0333195913393194,
+            0.13828342192368845
           ],
-          "length": 0.014780982453202203,
+          "length": 0.05030700377090889,
           "canonicalLocal": [
-            0.10336420927725148,
-            0.8030673575362588,
-            -0.31462532285720224,
-            -0.495388402124843
+            0.18492602886757276,
+            0.9099745249786115,
+            -0.17214820967336458,
+            0.32880666794646907
           ],
           "type": "wrist",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandThumb1": {
           "parent": "RightHand",
@@ -2710,7 +2791,8 @@
             1.0000000364884636
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandThumb2": {
           "parent": "RightHandThumb1",
@@ -2743,7 +2825,8 @@
             1.0000000371564224
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandThumb3": {
           "parent": "RightHandThumb2",
@@ -2776,7 +2859,8 @@
             1.0000000337147028
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandIndex1": {
           "parent": "RightHand",
@@ -2809,7 +2893,8 @@
             1.0000000571988412
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandIndex2": {
           "parent": "RightHandIndex1",
@@ -2842,7 +2927,8 @@
             1.0000000576150032
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandIndex3": {
           "parent": "RightHandIndex2",
@@ -2875,7 +2961,8 @@
             1.0000000567038074
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandMiddle1": {
           "parent": "RightHand",
@@ -2908,7 +2995,8 @@
             1.0000000592056932
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandMiddle2": {
           "parent": "RightHandMiddle1",
@@ -2941,7 +3029,8 @@
             1.000000058266913
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandMiddle3": {
           "parent": "RightHandMiddle2",
@@ -2974,7 +3063,8 @@
             1.0000000580368589
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandRing1": {
           "parent": "RightHand",
@@ -3007,7 +3097,8 @@
             1.00000006279567
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandRing2": {
           "parent": "RightHandRing1",
@@ -3040,7 +3131,8 @@
             1.000000062684188
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandRing3": {
           "parent": "RightHandRing2",
@@ -3073,7 +3165,8 @@
             1.0000000618482736
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandPinky1": {
           "parent": "RightHand",
@@ -3106,7 +3199,8 @@
             1.0000000649964944
           ],
           "type": "fingerMCP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandPinky2": {
           "parent": "RightHandPinky1",
@@ -3139,7 +3233,8 @@
             1.0000000643481861
           ],
           "type": "fingerPIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightHandPinky3": {
           "parent": "RightHandPinky2",
@@ -3172,7 +3267,8 @@
             1.0000000660643826
           ],
           "type": "fingerDIP",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "LeftUpLeg": {
           "parent": "Hips",
@@ -3205,7 +3301,8 @@
             0
           ],
           "type": "hip",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftLeg": {
           "parent": "LeftUpLeg",
@@ -3238,7 +3335,8 @@
             0.9998244076257393
           ],
           "type": "knee",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftFoot": {
           "parent": "LeftLeg",
@@ -3271,7 +3369,8 @@
             1.0000000788226804
           ],
           "type": "ankle",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "LeftToeBase": {
           "parent": "LeftFoot",
@@ -3304,7 +3403,8 @@
             1.0000000560306097
           ],
           "type": "ankle",
-          "lateralSign": 1
+          "lateralSign": 1,
+          "twistSign": 1
         },
         "RightUpLeg": {
           "parent": "Hips",
@@ -3337,7 +3437,8 @@
             0
           ],
           "type": "hip",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightLeg": {
           "parent": "RightUpLeg",
@@ -3370,7 +3471,8 @@
             0.9998244076257393
           ],
           "type": "knee",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightFoot": {
           "parent": "RightLeg",
@@ -3403,7 +3505,8 @@
             1.0000000788226804
           ],
           "type": "ankle",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         },
         "RightToeBase": {
           "parent": "RightFoot",
@@ -3436,7 +3539,8 @@
             1.0000000560306097
           ],
           "type": "ankle",
-          "lateralSign": -1
+          "lateralSign": -1,
+          "twistSign": -1
         }
       }
     }

@@ -21,14 +21,42 @@ const frames = JSON.parse(
   await fs.readFile("data/rig/hand-frames.json"),
 ).heroes;
 const reports = [];
+const exact = process.argv.includes("--exact");
 try {
   const page = await browser.newPage({
     viewport: { width: 1024, height: 1024 },
   });
-  for (const hero of ["H01", "H02"]) {
-    const solution = JSON.parse(
+  for (const hero of exact ? [process.env.HERO ?? "H01"] : ["H01", "H02"]) {
+    let solution = JSON.parse(
       await fs.readFile(`docs/hand-frames/${hero}-grip-patch-search.json`),
     );
+    if (exact) {
+      const proof = JSON.parse(
+        await fs.readFile(`docs/hand-frames/${hero}-exact-grip-search.json`),
+      );
+      const actualHash = createHash("sha256")
+        .update(await fs.readFile(`assets/rigged/${hero}-C0-rigged.glb`))
+        .digest("hex");
+      const actualWeaponHash = createHash("sha256")
+        .update(
+          await fs.readFile(
+            `public/models/hunyuan-original/${hero}-W0-source.glb`,
+          ),
+        )
+        .digest("hex");
+      if (
+        proof.rigSha256 !== actualHash ||
+        proof.weaponSha256 !== actualWeaponHash
+      )
+        throw Error("Exact grip proof is stale");
+      solution = {
+        ...solution,
+        result: proof.selected.candidate.result,
+        passed: proof.passed,
+        weaponRollDegrees: proof.selected.weaponRollDegrees,
+        exactMeshDiagnostic: proof.selected.surfaceVerification,
+      };
+    }
     const weapon = JSON.parse(await fs.readFile(`data/weapons/${hero}.json`));
     const hand = solution.hand,
       frame = frames[hero].hands[hand];
@@ -115,7 +143,14 @@ try {
           `/models/hunyuan-original/${hero}-W0-source.glb`,
         );
         const holder = new T.Group();
-        holder.quaternion.setFromUnitVectors(new T.Vector3(0, 1, 0), axis);
+        holder.quaternion
+          .setFromUnitVectors(new T.Vector3(0, 1, 0), axis)
+          .multiply(
+            new T.Quaternion().setFromAxisAngle(
+              new T.Vector3(0, 1, 0),
+              T.MathUtils.degToRad(solution.weaponRollDegrees ?? 0),
+            ),
+          );
         holder.position
           .copy(center)
           .sub(
@@ -189,11 +224,12 @@ try {
           camera.lookAt(centerHand);
           renderer.render(scene, camera);
           document.querySelector("#label").textContent =
-            `${hero} ${hand} · DIAGNOSTIC ${!solution.passed ? "REJECTED CONTACT" : maximumSkinIntrusion > 0.003 ? "REJECTED SKIN" : "CYLINDER CHECK ONLY"}`;
+            `${hero} ${hand} · DIAGNOSTIC ${!solution.passed ? "REJECTED CONTACT" : solution.exactMeshDiagnostic?.passed ? "EXACT MESH CHECK" : maximumSkinIntrusion > 0.003 ? "REJECTED REGION" : "CYLINDER CHECK ONLY"}`;
         };
         return {
           hero,
           solutionPassed: solution.passed,
+          exactMeshDiagnostic: solution.exactMeshDiagnostic ?? null,
           rigFkTipErrorMeters: fingertips,
           maxRigFkTipErrorMeters: Math.max(...Object.values(fingertips)),
           cylinderSkinDiagnostic: {
@@ -214,14 +250,14 @@ try {
     for (let i = 0; i < 3; i++) {
       await page.evaluate((i) => window.gripDiagnosticView(i), i);
       await page.screenshot({
-        path: `docs/hand-frames/${hero}-grip-diagnostic-${i}.png`,
+        path: `docs/hand-frames/${hero}-grip-${exact ? "exact" : "diagnostic"}-${i}.png`,
       });
     }
     reports.push(report);
     console.log(report);
   }
   await fs.writeFile(
-    "docs/hand-frames/grip-runtime-diagnostic.json",
+    `docs/hand-frames/grip-runtime-${exact ? "exact" : "diagnostic"}.json`,
     JSON.stringify(
       {
         scope:
@@ -237,7 +273,9 @@ try {
       (r) =>
         !r.solutionPassed ||
         r.maxRigFkTipErrorMeters > 1e-5 ||
-        !r.cylinderSkinDiagnostic.withinThreeMm,
+        !(r.exactMeshDiagnostic
+          ? r.exactMeshDiagnostic.passed
+          : r.cylinderSkinDiagnostic.withinThreeMm),
     )
   )
     process.exitCode = 1;

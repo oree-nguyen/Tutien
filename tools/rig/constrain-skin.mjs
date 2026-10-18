@@ -8,7 +8,15 @@ export function constrainHandWeights(
   weights,
   joints,
   skin,
-  { iterations = 500, targetStretch = 1.45, tipCores = [] } = {},
+  {
+    iterations = 500,
+    targetStretch = 1.45,
+    tipCores = [],
+    poseSamples = [{ strength: 0.2 }, { strength: 1 }],
+    affectedRegion = null,
+    fixedRegion = null,
+    onProgress = null,
+  } = {},
 ) {
   const count = positions.length / 3,
     finger = new Uint8Array(joints.length),
@@ -54,21 +62,36 @@ export function constrainHandWeights(
   const lookup = new Int32Array(count).fill(-1),
     vertices = [],
     supports = [],
-    pinned = [];
+    pinned = [],
+    distalPinned = [],
+    regionPinned = [];
   for (let i = 0; i < count; i++) {
-    let affected = false;
+    let affected = !!affectedRegion?.(
+      positions[i * 3],
+      positions[i * 3 + 1],
+      positions[i * 3 + 2],
+      i,
+    );
     for (let k = 0; k < 4; k++)
       if (weights[i * 4 + k] > 1e-8 && finger[ids[i * 4 + k]]) affected = true;
     if (!affected) continue;
     lookup[i] = vertices.length;
     vertices.push(i);
     supports.push([0, 1, 2, 3].filter((k) => weights[i * 4 + k] > 1e-8));
-    pinned.push(
+    const distalLock =
       !!coreMask[i] ||
-        [0, 1, 2, 3].some(
-          (k) => distal[ids[i * 4 + k]] && weights[i * 4 + k] >= 0.95,
-        ),
+      [0, 1, 2, 3].some(
+        (k) => distal[ids[i * 4 + k]] && weights[i * 4 + k] >= 0.95,
+      );
+    const regionLock = !!fixedRegion?.(
+      positions[i * 3],
+      positions[i * 3 + 1],
+      positions[i * 3 + 2],
+      i,
     );
+    pinned.push(distalLock || regionLock);
+    distalPinned.push(distalLock);
+    regionPinned.push(regionLock);
   }
   const welds = new Map(),
     groups = [];
@@ -102,15 +125,16 @@ export function constrainHandWeights(
       pinned[n] = locked;
     }
   }
-  const poses = [0.2, 1].map((strength) => {
+  const poses = poseSamples.map(({ strength = 0, rotations = {} }) => {
     const worlds = new Map();
     function world(node) {
       if (worlds.has(node)) return worlds.get(node);
-      const q = new Quaternion(...node.getRotation()),
+      const override = rotations[node.getName()],
+        q = new Quaternion(...(override ?? node.getRotation())),
         m = node
           .getName()
           .match(/Hand(?:Thumb|Index|Middle|Ring|Pinky)([123])$/);
-      if (m)
+      if (m && !override)
         q.multiply(
           new Quaternion().setFromAxisAngle(
             new Vector3(1, 0, 0),
@@ -137,7 +161,22 @@ export function constrainHandWeights(
             ).elements,
       ),
       transforms = new Float64Array(vertices.length * 12),
-      current = new Float64Array(vertices.length * 3);
+      current = new Float64Array(vertices.length * 3),
+      fixed = new Float64Array(positions.length);
+    for (let i = 0; i < count; i++) {
+      if (lookup[i] >= 0) continue;
+      const x = positions[i * 3],
+        y = positions[i * 3 + 1],
+        z = positions[i * 3 + 2];
+      for (let k = 0; k < 4; k++) {
+        const weight = weights[i * 4 + k];
+        if (!weight) continue;
+        const m = matrices[ids[i * 4 + k]];
+        fixed[i * 3] += weight * (m[0] * x + m[4] * y + m[8] * z + m[12]);
+        fixed[i * 3 + 1] += weight * (m[1] * x + m[5] * y + m[9] * z + m[13]);
+        fixed[i * 3 + 2] += weight * (m[2] * x + m[6] * y + m[10] * z + m[14]);
+      }
+    }
     for (let n = 0; n < vertices.length; n++) {
       const i = vertices[n],
         x = positions[i * 3],
@@ -151,7 +190,7 @@ export function constrainHandWeights(
         transforms[o + 2] = m[2] * x + m[6] * y + m[10] * z + m[14];
       }
     }
-    return { transforms, current };
+    return { transforms, current, fixed };
   });
   function refresh(n) {
     const vertex = vertices[n];
@@ -250,12 +289,12 @@ export function constrainHandWeights(
           bind = edges[e + 2],
           ia = lookup[a],
           ib = lookup[b],
-          ax = ia >= 0 ? pose.current[ia * 3] : positions[a * 3],
-          ay = ia >= 0 ? pose.current[ia * 3 + 1] : positions[a * 3 + 1],
-          az = ia >= 0 ? pose.current[ia * 3 + 2] : positions[a * 3 + 2],
-          bx = ib >= 0 ? pose.current[ib * 3] : positions[b * 3],
-          by = ib >= 0 ? pose.current[ib * 3 + 1] : positions[b * 3 + 1],
-          bz = ib >= 0 ? pose.current[ib * 3 + 2] : positions[b * 3 + 2];
+          ax = ia >= 0 ? pose.current[ia * 3] : pose.fixed[a * 3],
+          ay = ia >= 0 ? pose.current[ia * 3 + 1] : pose.fixed[a * 3 + 1],
+          az = ia >= 0 ? pose.current[ia * 3 + 2] : pose.fixed[a * 3 + 2],
+          bx = ib >= 0 ? pose.current[ib * 3] : pose.fixed[b * 3],
+          by = ib >= 0 ? pose.current[ib * 3 + 1] : pose.fixed[b * 3 + 1],
+          bz = ib >= 0 ? pose.current[ib * 3 + 2] : pose.fixed[b * 3 + 2];
         let nx = ax - bx,
           ny = ay - by,
           nz = az - bz;
@@ -282,14 +321,27 @@ export function constrainHandWeights(
         violatingTriangleEdges: violations,
       });
     if (!violations) break;
+    if (iteration % 500 === 0 || iteration === iterations - 1)
+      onProgress?.({
+        iteration,
+        maximumEdgeStretch: maximum,
+        violatingTriangleEdges: violations,
+      });
   }
   return {
     method:
       "Projected skin-weight constraints on actual source edges; four fixed influences, normalized; distal rigid cores pinned",
-    strengthSamples: [0.2, 1],
+    strengthSamples: poseSamples
+      .filter((p) => p.strength !== undefined)
+      .map((p) => p.strength),
+    additionalPoseSamples: poseSamples
+      .filter((p) => p.rotations)
+      .map((p) => ({ joints: Object.keys(p.rotations).length })),
+    includesNonFingerRegion: !!affectedRegion,
     targetStretch,
     vertices: vertices.length,
-    pinnedDistalVertices: pinned.filter(Boolean).length,
+    pinnedDistalVertices: distalPinned.filter(Boolean).length,
+    fixedRegionVertices: regionPinned.filter(Boolean).length,
     maximumIterations: iterations,
     weldedSurfaceGroups: welds.size,
     history,

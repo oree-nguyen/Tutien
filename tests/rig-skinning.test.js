@@ -8,6 +8,125 @@ import {
 } from "../src/rig/grip-solver.js";
 import { Vector3 } from "three";
 
+test("sleeve support seeding removes weight discontinuities while preserving measured hand and source positions", async () => {
+  const { Document } = await import("@gltf-transform/core");
+  const { seedSleeveWeights } = await import(
+    "../tools/rig/sleeve-supports.mjs"
+  );
+  const doc = new Document(),
+    names = [
+      "Spine2",
+      "RightArm",
+      "RightForeArm",
+      "RightHand",
+      "LeftArm",
+      "LeftForeArm",
+      "LeftHand",
+    ];
+  const joints = names.map((name, i) =>
+    doc
+      .createNode(name)
+      .setTranslation([
+        i === 0 ? 0 : (i < 4 ? -1 : 1) * [0.2, 0.35, 0.55][(i - 1) % 3],
+        1,
+        0,
+      ]),
+  );
+  const positions = new Float32Array([
+      -0.3, 1, 0, -0.30001, 1, 0, -0.55, 1, 0, 0, 0, 0,
+    ]),
+    original = positions.slice();
+  const ids = new Uint8Array([1, 0, 0, 0, 3, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0]);
+  const weights = new Float32Array([
+    1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0,
+  ]);
+  const beforeIds = ids.slice(),
+    beforeWeights = weights.slice();
+  const frames = {
+    Right: { wrist: [-0.55, 1, 0], fingers: {} },
+    Left: { wrist: [0.55, 1, 0], fingers: {} },
+  };
+  const report = seedSleeveWeights(
+    positions,
+    ids,
+    weights,
+    joints,
+    frames,
+    (x, y) => Math.abs(x) > 0.15 && y > 0.65,
+  );
+  assert.equal(report.changedVertices, 2);
+  assert.deepEqual(positions, original);
+  assert.deepEqual(ids.slice(0, 4), ids.slice(4, 8));
+  assert.ok(
+    [...weights.slice(0, 4)].reduce(
+      (sum, w, k) => sum + Math.abs(w - weights[k + 4]),
+      0,
+    ) < 0.001,
+  );
+  assert.ok(
+    Math.abs(weights.slice(0, 4).reduce((sum, w) => sum + w, 0) - 1) < 1e-6,
+  );
+  assert.deepEqual(ids.slice(8), beforeIds.slice(8));
+  assert.deepEqual(weights.slice(8), beforeWeights.slice(8));
+  seedSleeveWeights(
+    positions,
+    ids,
+    weights,
+    joints,
+    frames,
+    (x, y) => Math.abs(x) > 0.15 && y > 0.65,
+    { continuousFade: true },
+  );
+  assert.ok(weights.every((weight) => weight >= 0 && weight <= 1));
+  for (let i = 0; i < 2; i++)
+    assert.ok(
+      Math.abs(
+        weights.slice(i * 4, i * 4 + 4).reduce((sum, w) => sum + w, 0) - 1,
+      ) < 1e-6,
+    );
+  assert.deepEqual(weights.slice(8), beforeWeights.slice(8));
+});
+
+test("whole-arm rigid rotation does not invent strain against an inactive hand vertex", async () => {
+  const { Document } = await import("@gltf-transform/core");
+  const { constrainHandWeights } = await import(
+    "../tools/rig/constrain-skin.mjs"
+  );
+  const doc = new Document(),
+    hand = doc.createNode("RightHand"),
+    finger = doc.createNode("RightHandIndex1");
+  hand.addChild(finger);
+  const identity = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+  const skin = {
+    getInverseBindMatrices: () => ({ getElement: () => identity }),
+  };
+  const positions = new Float32Array([0.02, 0, 0, 0.021, 0, 0]);
+  const ids = new Uint8Array([0, 0, 0, 0, 0, 1, 0, 0]);
+  const weights = new Float32Array([1, 0, 0, 0, 0.5, 0.5, 0, 0]),
+    original = weights.slice();
+  const report = constrainHandWeights(
+    positions,
+    new Uint32Array([0, 1, 0]),
+    ids,
+    weights,
+    [hand, finger],
+    skin,
+    {
+      iterations: 10,
+      poseSamples: [
+        {
+          rotations: {
+            RightHand: [0, 0, Math.SQRT1_2, Math.SQRT1_2],
+            RightHandIndex1: [0, 0, 0, 1],
+          },
+        },
+      ],
+    },
+  );
+  assert.ok(Math.abs(report.history[0].maximumEdgeStretch - 1) < 1e-6);
+  assert.deepEqual(weights, original);
+});
+
 test("weight smoothing preserves normalized four-slot weights, welds UV seams and isolates finger joints", () => {
   const p = new Float32Array([0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0, 1, 1, 0]);
   const triangles = new Uint32Array([0, 1, 2, 3, 2, 4]);
@@ -171,6 +290,37 @@ test("constraint fitting keeps coincident UV-seam vertices on identical skin wei
   );
   assert.deepEqual([...weights.slice(4, 8)], [...weights.slice(8, 12)]);
   assert.deepEqual([...ids.slice(4, 8)], [...ids.slice(8, 12)]);
+});
+
+test("body fitting cannot change protected hand weights to hide an unresolved sleeve edge", async () => {
+  const { Document } = await import("@gltf-transform/core");
+  const { constrainHandWeights } = await import(
+    "../tools/rig/constrain-skin.mjs"
+  );
+  const doc = new Document(),
+    hand = doc.createNode("RightHand"),
+    finger = doc.createNode("RightHandThumb1");
+  hand.addChild(finger);
+  const identity = [1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1];
+  const skin = {
+    getInverseBindMatrices: () => ({ getElement: () => identity }),
+  };
+  const positions = new Float32Array([0, 0.02, 0, 0.001, 0.02, 0]);
+  const ids = new Uint8Array([0, 0, 0, 0, 0, 1, 0, 0]),
+    weights = new Float32Array([1, 0, 0, 0, 0.5, 0.5, 0, 0]);
+  const before = weights.slice();
+  const report = constrainHandWeights(
+    positions,
+    new Uint32Array([0, 1, 0]),
+    ids,
+    weights,
+    [hand, finger],
+    skin,
+    { iterations: 5, fixedRegion: (x) => x > 0.0005 },
+  );
+  assert.deepEqual(weights, before);
+  assert.equal(report.fixedRegionVertices, 1);
+  assert.ok(report.history.at(-1).maximumEdgeStretch > 2);
 });
 
 test("UV seam slot permutations use the same cached joint transforms during fitting", async () => {

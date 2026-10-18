@@ -62,6 +62,14 @@ for (const hero of ["H01", "H02"]) {
       target = new Vector3(...points[Number(finger[3])]);
       normal.fromArray(frame.n);
       type = ["fingerMCP", "fingerPIP", "fingerDIP"][Number(finger[3]) - 1];
+    } else if (name.endsWith("Hand")) {
+      const hand = handFrames[hero].hands[side];
+      const length = origin.distanceTo(
+        new Vector3(...hand.fingers.Middle.points[0]),
+      );
+      target = origin.clone().addScaledVector(new Vector3(...hand.f), length);
+      normal.fromArray(hand.n);
+      type = "wrist";
     } else {
       const children = joint
         .listChildren()
@@ -119,6 +127,7 @@ for (const hero of ["H01", "H02"]) {
       canonicalLocal: canonicalLocal.toArray(),
       type,
       lateralSign: side === "Right" ? -1 : 1,
+      twistSign: side === "Right" ? -1 : 1,
     };
   }
   result.heroes[hero] = { joints: entries };

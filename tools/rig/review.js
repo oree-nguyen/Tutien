@@ -31,7 +31,11 @@ key.position.set(2, 3, 4);
 scene.add(key);
 const gltf = await new GLTFLoader().loadAsync(
   params.has("rigged")
-    ? "/assets/rigged/" + hero + "-C0-rigged.glb"
+    ? (params.get("candidate") === "reference"
+        ? "/.local/rig-candidates/reference/"
+        : "/assets/rigged/") +
+        hero +
+        "-C0-rigged.glb"
     : "/models/hunyuan-original/" + hero + "-C0-source.glb",
 );
 const model = gltf.scene;

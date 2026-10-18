@@ -122,8 +122,18 @@ export function fingerContactMetrics(
 export function solveGrip(
   frame,
   radius,
-  { skinGap = 0.004, allowPalmCupping = false } = {},
+  {
+    skinGap = 0.004,
+    allowPalmCupping = false,
+    globalSearchIterations = 0,
+  } = {},
 ) {
+  if (
+    !Number.isInteger(globalSearchIterations) ||
+    globalSearchIterations < 0 ||
+    globalSearchIterations > 2000
+  )
+    throw Error("Global grip search iterations must be between 0 and 2000");
   if (!(radius > 0) || !Number.isFinite(radius))
     throw new Error("Grip shaft radius must be a positive measured value");
   const n = vector(frame.contactNormal ?? frame.n).normalize(),
@@ -193,13 +203,21 @@ export function solveGrip(
           ),
           total = angles.reduce((a, b) => a + b, 0),
           curlPenalty = Math.max(0, 150 - total, total - 260),
+          searchAngleMargin = globalSearchIterations ? 0.01 : 0,
           wrapPenalty = thumb
-            ? Math.max(0, 90 + metrics.signedWrapDeg * sign)
-            : Math.max(0, 100 - metrics.signedWrapDeg * sign);
+            ? Math.max(0, 90 + searchAngleMargin + metrics.signedWrapDeg * sign)
+            : Math.max(
+                0,
+                100 + searchAngleMargin - metrics.signedWrapDeg * sign,
+              );
         // Hard contact constraints dominate the aesthetic tip target. Otherwise a
         // prettier target could win while penetrating the shaft by several mm.
         const contactPenalty = metrics.segmentPenetrations.reduce(
-            (s, x) => s + (Math.max(0, x - 0.003) / 0.001) ** 2,
+            (s, x) =>
+              s +
+              (Math.max(0, x - (globalSearchIterations ? 0.00299 : 0.003)) /
+                0.001) **
+                2,
             0,
           ),
           thumbPenalty = thumb
@@ -253,6 +271,55 @@ export function solveGrip(
         seeds.push(evaluate(values));
       }
       seeds.sort((a, b) => a.score - b.score);
+      if (globalSearchIterations) {
+        let state = 0x9e3779b9;
+        const random = () => {
+          state ^= state << 13;
+          state ^= state >>> 17;
+          state ^= state << 5;
+          return (state >>> 0) / 4294967296;
+        };
+        const population = seeds.slice(0, 32);
+        for (let i = 1; i <= 32; i++)
+          population.push(
+            evaluate(
+              limits.map(
+                (high, j) =>
+                  minimums[j] +
+                  halton(i + 4096, [2, 3, 5, 7, 11, 13, 17, 19][j]) *
+                    (high - minimums[j]),
+              ),
+            ),
+          );
+        for (
+          let generation = 0;
+          generation < globalSearchIterations;
+          generation++
+        ) {
+          for (let i = 0; i < population.length; i++) {
+            const chosen = [];
+            while (chosen.length < 3) {
+              const index = Math.floor(random() * population.length);
+              if (index !== i && !chosen.includes(index)) chosen.push(index);
+            }
+            const [a, b, c] = chosen.map((j) => population[j].values);
+            const forced = Math.floor(random() * limits.length);
+            const values = population[i].values.map((value, j) =>
+              j === forced || random() < 0.8
+                ? MathUtils.clamp(
+                    a[j] + 0.65 * (b[j] - c[j]),
+                    minimums[j],
+                    limits[j],
+                  )
+                : value,
+            );
+            const trial = evaluate(values);
+            if (trial.score < population[i].score) population[i] = trial;
+          }
+        }
+        seeds.push(...population);
+        seeds.sort((a, b) => a.score - b.score);
+      }
       for (const seed of seeds.slice(0, 12)) {
         let current = seed;
         for (const step of [20, 10, 5, 2, 1, 0.5, 0.2, 0.1])

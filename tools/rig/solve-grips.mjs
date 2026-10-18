@@ -1,5 +1,6 @@
 import fs from "node:fs/promises";
 import { Vector3, MathUtils } from "three";
+import { createHash } from "node:crypto";
 import { solveGrip } from "../../src/rig/grip-solver.js";
 const frames = JSON.parse(
   await fs.readFile("data/rig/hand-frames.json"),
@@ -9,7 +10,27 @@ for (const hero of ["H01", "H02"].filter(
   (h) => !process.env.HERO || h === process.env.HERO,
 )) {
   const hand = hero === "H01" ? "Right" : "Left";
-  const frame = frames[hero].hands[hand];
+  const frame = structuredClone(frames[hero].hands[hand]);
+  const patchOption = process.argv.indexOf("--patches");
+  if (patchOption >= 0) {
+    const extra = JSON.parse(await fs.readFile(process.argv[patchOption + 1]));
+    const sourceHash = createHash("sha256")
+      .update(
+        await fs.readFile(
+          `public/models/hunyuan-original/${hero}-C0-source.glb`,
+        ),
+      )
+      .digest("hex");
+    if (
+      extra.hero !== hero ||
+      extra.hand !== hand ||
+      extra.sourceSha256 !== sourceHash
+    )
+      throw Error(
+        "Additional contact patches do not match the source hero/hand",
+      );
+    frame.palmCandidates.push(...extra.palmCandidates);
+  }
   const weapon = JSON.parse(await fs.readFile(`data/weapons/${hero}.json`));
   let best;
   const passingCandidates = [];
@@ -45,6 +66,7 @@ for (const hero of ["H01", "H02"].filter(
               tilt,
               gap,
               normalMode,
+              contactPatch: patch,
               result,
             });
           const bad = Object.values(result.fingers).filter(
@@ -59,6 +81,7 @@ for (const hero of ["H01", "H02"].filter(
               tilt,
               gap,
               normalMode,
+              contactPatch: patch,
               bad,
               score,
               result,

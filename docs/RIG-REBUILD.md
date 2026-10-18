@@ -95,3 +95,79 @@ An offline coupled solve also re-evaluated the actual skinned contact triangle a
 The search also retained all **34 H01 geometric passes** and checked each against the deformed source hand/cuff region. The best coarse alternative still had 7.172 mm intrusion and 7.060 mm actual palm gap, exceeding the 3 mm / 3–5 mm limits. Continuous refinement evaluated 125 H01 parameter sets and 31 H02 sets. Its best H01 compromise reduced intrusion to 4.984 mm but left a 7.216 mm palm gap and failed geometric conditions; **it is rejected**, as is H02. These are failed exploratory poses, not improvements applied to the game. The worst-point records include source vertex IDs, source/posed coordinates, joint weights and source albedo samples, distinguishing cuff interference from finger-skin errors. See [candidate checks](hand-frames/H01-grip-contact-refinement.json).
 
 An additional bone-heat attempt used sealed, 1.2 mm voxel proxies derived from the source hand crop, rather than the full body. Both normal numerical scale and a temporary 100× calculation scale failed with all 15 right-finger groups empty. No accepted weights or replacement model were exported. This is an algorithmic failure, not a missing Blender installation. [Attempt record](rig-audit/voxel-heat-attempt.json) and [Blender log](rig-audit/H01-voxel-heat-attempt.log). The temporary proxy is never a game asset.
+
+
+## Exact source-mesh contact and upright reference pose
+
+The older cylinder diagnostics above remain rejected. A new source-triangle test uses a BVH of the original weapon, three independent parity rays, and adaptive triangle subdivision. It rejects ambiguous inside/outside queries and unresolved subdivision bounds. The 3 mm penetration limit is unchanged. Source topology is audited before certification: H01's weapon forms a closed, balanced oriented parity chain with four degenerate and four non-manifold edges; it is **not** described as a strict two-manifold mesh. H02's source weapon passes the strict manifold check. Neither source is repaired or replaced.
+
+For H01's **local hand pose**, the accepted search result uses weapon axial roll 275°. The vertex-only maximum penetration is 2.8792 mm; adaptive testing of 26,000 hand/cuff source triangles finds 2.9429 mm maximum sampled depth and a 2.9991 mm conservative upper bound, with zero ambiguous/unresolved queries. Actual palm gap is 4.6075 mm and palm-facing dot is 0.94747. Rendered fingertip FK agrees with the offline solver within 8.23e-8 m. This is a local contact result, not acceptance of the full character or animation. The thumb is still visually loose and needs review with the complete pose. Evidence: [exact search](hand-frames/H01-exact-grip-search.json), [rendered FK](hand-frames/grip-runtime-exact.json).
+
+![H01 local grip using the unmodified source hand and weapon](hand-frames/H01-grip-exact-0.png)
+
+Calibration now derives the wrist longitudinal axis from the measured hand frame rather than the first child (Thumb1), and records mirrored lateral/twist signs. Mirrored physical rotations are regression-tested. No joint limits are widened. Rechecking the six legacy clips still fails; they are not accepted reference animations.
+
+`ReferencePose` solves the anatomical elbow hinge and scans upper-arm roll without scaling bones. The H01 upright target at staff center `[-0.56, 1.64, 0.20]` m passes all joint limits, with wrist positional error 2.61e-9 m. Its measured palm direction is rotated 30° toward the front to permit a legal wrist; this remains a diagnostic pose for visual review. An unreachable target is rejected without mutating the skeleton. [Pose report](anim-report/H01-reference-idle-solve.json).
+
+The existing staging weights **fail at that actual full-arm pose**: right hand/cuff p99.9/max edge stretch 3.1045/6.3197, left 1.4865/2.8470. The best weapon roll search still finds 4.3158 mm vertex intrusion. [Strain](anim-report/H01-reference-strain.json), [contact](anim-report/H01-reference-contact.json). This explains why a local hand contact pass alone must not activate a complete rig.
+
+The weight fitter now accepts the actual reference rotations in addition to the two generic hand poses, and can adjust hand/cuff vertices with no finger influence. Fixed neighboring vertices use their actual posed positions; a regression guards against falsely classifying common whole-arm rigid motion as skin stretch. Alternative output/report directories keep experiments separate from the accepted staging files. Example:
+
+```bash
+HERO=H01 REFERENCE_POSE=docs/anim-report/H01-reference-idle-solve.json \
+  RIG_OUTPUT_DIR=.local/rig-candidates/reference SKIN_FIT_ITERATIONS=6000 npm run assets:rig
+HERO=H01 RIG_INPUT_DIR=.local/rig-candidates/reference \
+  RIG_REPORT_DIR=docs/anim-report/reference-fit node tools/rig-verify-fullres.mjs
+RIG_INPUT_DIR=.local/rig-candidates/reference \
+  RIG_REPORT_DIR=docs/anim-report/reference-fit npm run test:rig:reference-strain
+RIG_INPUT_DIR=.local/rig-candidates/reference \
+  RIG_REPORT_DIR=docs/anim-report/reference-fit npm run test:rig:reference-contact
+```
+
+Additional H02 source palm/proximal-finger contact probes still produce no accepted geometric grip; they are diagnostic measurements, not a proof that a correct grip is impossible. No new entrance/IDLE_HOLD clip, runtime activation or Android APK is claimed by this checkpoint.
+
+
+The actual-pose refit completed in an isolated output directory. Independent source verification confirms unchanged source geometry/UV/images, all 30 weighted finger bones, and inverse-bind error 6.59e-8. Its rig SHA-256 is `e23c6f1f39fcaaf3792cac219799ab1a38422ee4eb2525563b98726710b061c3`. The same reference pose now has hand/cuff stretch p99.9/max **1.4512/1.7860 right**, **1.4133/1.4501 left**; both pass the original limits. Generic open/closed hand tests also pass, maximum 1.9453. These checks do not replace whole-body validation.
+
+Whole-body edge validation was then added to the **same pose**, and exposes a separate sleeve defect: p99.9 **27.6831**, maximum **395.1734**. One source sleeve edge of 0.32994 mm expands to 130.3841 mm. The source triangles are continuous, but transferred body/sleeve weights vary sharply; hand-region fitting cannot repair edges outside its scope. This result is retained in [whole-body report](anim-report/reference-fit/whole-body/H01-reference-strain.json). The candidate remains rejected for the complete pose. A separate sleeve-region diffusion/constraint experiment is being measured; it does not overwrite the current staging rigs.
+
+The full-arm contact search after hand refitting still fails at 4.3158 mm. Moving the hand 20 mm upward along the unchanged upright staff reduces vertex intrusion to 2.9252 mm, but adaptive triangle checking finds a **3.0418 mm** interior intrusion and rejects it. Other measured hand-height trials (−40, −20, −10, +10, +40 mm) also fail. No vertex-only pass is substituted for the triangle test.
+
+![Full-source upright diagnostic pose, before sleeve repair; not an accepted rig](anim-report/H01-reference-view-0.png)
+
+Validation so far: **152 automated tests passed**, zero failures/skips. `verify:master` still reports **BLOCKED 0/37**. Source assets and both existing staging GLBs remain unchanged; no runtime switch or APK rebuild has occurred. All numerical and rendered results in this section are from the cloud environment, not an Android phone.
+
+
+### Sleeve experiments and rejection results
+
+Inspection of the actual transferred weights identifies a specific error: sleeve vertices 752647/752585, near source position `[-0.391, 0.873, 0.073]`, carry roughly 52% Hips, 35% RightUpLeg and 12% RightLeg. Nearby sleeve vertices also carry Hand/ForeArm weights. This makes tiny source edges separate abruptly when the arm is raised. The measurements identify an incorrect influence assignment; increasing hand-fit iterations alone cannot fix it.
+
+`fit-reference-body.mjs` keeps each experiment under `.local/rig-candidates/`, never the runtime assets. It tests sleeve diffusion with fixed influence supports, continuous bind-space arm/spine supports, and a faded transition over the garment. All preserve source geometry/UV/embedded images; they are **not accepted skin replacements**:
+
+| Experiment | Whole-body p99.9 / maximum edge stretch | Outcome |
+| --- | --- | --- |
+| Existing refit, hand region only | 27.6831 / 395.1734 | Reject full pose; hands pass |
+| 32 sleeve smoothing passes + 1,000 constraints | 10.4773 / 69.8154 | Reject; right hand regresses |
+| Analytic arm supports, hard region boundary, 100 constraints | 23.6145 / 231.8048 | Reject; region boundary discontinuity |
+| Continuous garment fade, 100 constraints | 6.5330 / 22.9943 | Reject; hand-edge and generic-pose checks remain required |
+
+Protecting a hand crop alone is insufficient: its edge check includes the neighboring endpoint outside that crop. The fitter now supports fixed vertices, while the experiment preserves both the hand/finger-influenced vertices and their directly connected neighbors. All original acceptance thresholds remain unchanged. A regression proves that the fitter must report an unresolved edge rather than move protected hand weights to conceal it. The final protected experiment is measured independently in `anim-report/body-fixed-hands/`.
+
+A separate Blender automatic bone-heat attempt disables all 30 finger bones and solves only body bones on the real source surface. It still fails: all 869,627 source vertices are unweighted, so no weight binary or geometry is accepted. This is an algorithmic rejection, not a missing installation. [Recorded result](rig-audit/body-heat-attempt.json).
+
+H02 now also has a deterministic differential-evolution finger search (1,000 generations at its best measured patch). It retains all anatomical/contact bounds; the search objective uses a small **stricter interior margin**, while acceptance bounds remain unchanged. Thumb/index/middle still fail, and ring/pinky pass. [Result](hand-frames/H02-deep-grip-search.json). A triangle-plane section audit finds the narrowest sampled shaft radius about 32.466 mm, versus the existing 33.470 mm section; no shaft scale or source weapon data is changed. [Sections](hand-frames/H02-weapon-sections.json).
+
+Final automated suite at this checkpoint: **154 passed, zero failed/skipped**. `verify:master`: **BLOCKED 0/37**, not waived. Neither a new rig nor a new APK is activated by these diagnostic results. Source models and the two staging GLBs retain their previous hashes.
+
+
+Final protected sleeve trial (20 iterations): both actual-pose hand/cuff checks retain their passing values **1.4512/1.7860 right**, **1.4133/1.4501 left**, and the generic whole-mesh hand diagnostics pass (maximum **1.9453**). Protecting the complete finger-influenced region plus its neighboring endpoints prevents the earlier regressions. Source byte/UV/image/rig validation also passes. However, the upright **whole-body** check remains rejected at p99.9 **7.8622**, maximum **29.0057**. Its SHA-256 is `09ef0b87a4b55dfe9834929d04940dd866eabe27d45619ab6c44c8e9f15533ed`. This is an intermediate diagnostic result, not a final visual or animation acceptance. [Independent results](anim-report/body-fixed-hands/H01-reference-strain.json).
+
+Reproduce this rejected sleeve experiment after generating the isolated reference-fit GLB:
+
+```bash
+SKIN_FIT_ITERATIONS=20 node tools/rig/fit-reference-body.mjs --continuous-sleeves --preserve-hands
+RIG_INPUT_DIR=.local/rig-candidates/reference-body-continuous-fixed-hands \
+  RIG_REPORT_DIR=docs/anim-report/body-fixed-hands node tools/rig/validate-reference-strain.mjs --whole-body
+```
+
+The second command intentionally exits nonzero while whole-body strain fails. Do not copy this candidate into runtime assets. Remaining work includes source-surface body/sleeve weighting, a valid H02 grip, full reference entrance/IDLE_HOLD clips, whole-animation/contact/volume checks and actual Android testing.

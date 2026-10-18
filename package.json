@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js tests/runtime-performance.test.js tests/rig-joint-limits.test.js tests/rig-skinning.test.js tests/hero-pose-controller.test.js",
+    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js tests/runtime-performance.test.js tests/rig-joint-limits.test.js tests/rig-skinning.test.js tests/hero-pose-controller.test.js tests/rig-mesh-contact.test.js tests/rig-reference-pose.test.js",
     "android:add": "cap add android && node scripts/configure-android.mjs",
     "android:sync": "npm run build && cap sync android && node scripts/configure-android.mjs",
     "test:ui": "node tests/browser.mjs",
@@ -42,7 +42,10 @@
     "test:rig:grip": "node tools/rig/solve-grips.mjs",
     "test:rig:joints": "node tools/rig/validate-joints.mjs",
     "test:rig:skin": "node tools/rig/validate-skin.mjs",
-    "test:rig:contact": "node tools/rig/preview-grips.mjs"
+    "test:rig:contact": "node tools/rig/preview-grips.mjs",
+    "test:rig:mesh-contact": "node tools/rig/validate-mesh-contact.mjs",
+    "test:rig:reference-strain": "node tools/rig/validate-reference-strain.mjs",
+    "test:rig:reference-contact": "node tools/rig/validate-reference-pose.mjs --search-roll"
   },
   "dependencies": {
     "@capacitor/android": "7.6.9",
@@ -63,6 +66,7 @@
     "meshoptimizer": "^1.3.0",
     "prettier": "3.6.2",
     "sharp": "^0.35.5",
+    "three-mesh-bvh": "0.7.6",
     "vite": "6.4.1"
   }
 }

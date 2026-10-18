@@ -12,11 +12,15 @@ const io = new NodeIO()
   hash = (b) => createHash("sha256").update(b).digest("hex"),
   view = (a) => new Uint8Array(a.buffer, a.byteOffset, a.byteLength);
 const reports = [];
-for (const hero of ["H01", "H02"]) {
+for (const hero of ["H01", "H02"].filter(
+  (h) => !process.env.HERO || h === process.env.HERO,
+)) {
   const source = await io.read(
       `public/models/hunyuan-original/${hero}-C0-source.glb`,
     ),
-    rig = await io.read(`assets/rigged/${hero}-C0-rigged.glb`),
+    rig = await io.read(
+      `${process.env.RIG_INPUT_DIR ?? "assets/rigged"}/${hero}-C0-rigged.glb`,
+    ),
     skin = rig.getRoot().listSkins()[0],
     joints = skin.listJoints(),
     counts = new Map(joints.map((j) => [j.getName(), 0]));
@@ -235,7 +239,11 @@ for (const hero of ["H01", "H02"]) {
   );
   const report = {
     hero,
-    rigSha256: hash(await fs.readFile(`assets/rigged/${hero}-C0-rigged.glb`)),
+    rigSha256: hash(
+      await fs.readFile(
+        `${process.env.RIG_INPUT_DIR ?? "assets/rigged"}/${hero}-C0-rigged.glb`,
+      ),
+    ),
     vertices,
     triangles,
     joints: joints.length,
@@ -259,7 +267,9 @@ for (const hero of ["H01", "H02"]) {
     ibmError,
   );
 }
+const output = process.env.RIG_REPORT_DIR ?? "docs/rig-audit";
+await fs.mkdir(output, { recursive: true });
 await fs.writeFile(
-  "docs/rig-audit/fullres-structure.json",
+  `${output}/fullres-structure.json`,
   JSON.stringify({ passed: true, reports }, null, 2) + "\n",
 );

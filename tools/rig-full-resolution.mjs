@@ -22,7 +22,13 @@ const handFrames = JSON.parse(
 const hash = (b) => createHash("sha256").update(b).digest("hex");
 const base = path.resolve(".local/rigging");
 await fs.mkdir(base, { recursive: true });
-await fs.mkdir("assets/rigged", { recursive: true });
+const outputDirectory = process.env.RIG_OUTPUT_DIR ?? "assets/rigged";
+if (process.env.SKIN_FIT_ITERATIONS !== undefined) {
+  const iterations = Number(process.env.SKIN_FIT_ITERATIONS);
+  if (!Number.isInteger(iterations) || iterations < 1 || iterations > 20000)
+    throw Error("SKIN_FIT_ITERATIONS must be an integer from 1 to 20000");
+}
+await fs.mkdir(outputDirectory, { recursive: true });
 const signature = (doc) => ({
   meshes: doc
     .getRoot()
@@ -48,6 +54,12 @@ const signature = (doc) => ({
 for (const hero of ["H01", "H02"].filter(
   (h) => !process.env.HERO || h === process.env.HERO,
 )) {
+  const referenceBytes = process.env.REFERENCE_POSE
+    ? await fs.readFile(process.env.REFERENCE_POSE)
+    : null;
+  const reference = referenceBytes ? JSON.parse(referenceBytes) : null;
+  if (reference && (!reference.passed || reference.hero !== hero))
+    throw Error("Reference pose must be validated for the selected hero");
   const source = `public/models/hunyuan-original/${hero}-C0-source.glb`,
     donor =
       hero === "H01"
@@ -411,7 +423,32 @@ for (const hero of ["H01", "H02"].filter(
         ws,
         joints.map((j) => map.get(j)),
         newSkin,
-        { tipCores, iterations: hero === "H01" ? 6000 : 500 },
+        {
+          tipCores,
+          iterations: Number(
+            process.env.SKIN_FIT_ITERATIONS ?? (hero === "H01" ? 6000 : 500),
+          ),
+          ...(reference
+            ? {
+                poseSamples: [
+                  { strength: 0.2 },
+                  { strength: 1 },
+                  { rotations: reference.rotations },
+                ],
+                affectedRegion: (x, y, z) =>
+                  handSpecs.some(
+                    (h) =>
+                      x >= h.low[0] - 0.022 &&
+                      x <= h.high[0] + 0.022 &&
+                      y >= h.low[1] - 0.022 &&
+                      y <= h.high[1] + 0.022 &&
+                      z >= h.low[2] - 0.022 &&
+                      z <= h.high[2] + 0.022,
+                  ),
+              }
+            : {}),
+          onProgress: (progress) => console.log(hero, "skin fit", progress),
+        },
       ),
     );
     primitive.setAttribute(
@@ -497,7 +534,7 @@ for (const hero of ["H01", "H02"].filter(
     }
   }
   assert.deepEqual(signature(doc), before);
-  const output = `assets/rigged/${hero}-C0-rigged.glb`;
+  const output = path.join(outputDirectory, `${hero}-C0-rigged.glb`);
   const temporary = output + ".pending.glb";
   await io.write(temporary, doc);
   assert.deepEqual(signature(await io.read(temporary)), before);
@@ -517,6 +554,7 @@ for (const hero of ["H01", "H02"].filter(
     smoothing,
     constraintFitting,
     calibrationHash: hash(await fs.readFile("data/rig/hand-frames.json")),
+    referencePoseHash: referenceBytes ? hash(referenceBytes) : null,
     builderHash: hash(await fs.readFile("tools/rig-full-resolution.mjs")),
     weightTransferHash: hash(bytes),
     recipeHashes: Object.fromEntries(
