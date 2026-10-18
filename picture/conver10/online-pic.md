@@ -1003,3 +1003,75 @@ Nguồn: `docs/anim-report/harmonic-held/H01-reference-view-1.png`
 Nguồn: `docs/anim-report/harmonic-held/H01-reference-view-2.png`
 
 [Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/94162b6a9d4be80a947f51345b9dc2603a2f6d91)
+
+## Ảnh 101
+
+![garment-separated-isolated-view-0.png](../media/6d8adc56e149f8c37cd23b00a832ac171275206d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:37 UTC+07:00**
+
+Nguồn: `garment-separated-isolated-view-0.png`
+
+## Ảnh 102
+
+![garment-separated-isolated-view-1.png](../media/ffce72fe4b41459f5462f2ac62fa483a80c594e2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:37 UTC+07:00**
+
+Nguồn: `garment-separated-isolated-view-1.png`
+
+## Ảnh 103
+
+![garment-separated-isolated-view-2.png](../media/4858cd6d455c8dfcd41702f8e0ada9ffa41f2ffc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:37 UTC+07:00**
+
+Nguồn: `garment-separated-isolated-view-2.png`
+
+## Ảnh 104
+
+![garment-separated-view-0.png](../media/a6c64d006daa02190aaed5c361663d8cabab9f3e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:38 UTC+07:00**
+
+Nguồn: `garment-separated-view-0.png`
+
+## Ảnh 105
+
+![garment-separated-view-1.png](../media/046b1c4f15b6e94c2feabf9016b052a763bfa17b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:38 UTC+07:00**
+
+Nguồn: `garment-separated-view-1.png`
+
+## Ảnh 106
+
+![garment-separated-view-2.png](../media/dbd99af338b2d77f827c02a75b412da1337ddd45.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:38 UTC+07:00**
+
+Nguồn: `garment-separated-view-2.png`
+
+## Ảnh 107
+
+![harmonic-projected-view-0.png](../media/60aec90f0e7a037eb49e536a5fbb238f87f49847.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:38 UTC+07:00**
+
+Nguồn: `harmonic-projected-view-0.png`
+
+## Ảnh 108
+
+![harmonic-projected-view-1.png](../media/ce35736767a34d1013f207270cf1b27163333343.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:38 UTC+07:00**
+
+Nguồn: `harmonic-projected-view-1.png`
+
+## Ảnh 109
+
+![harmonic-projected-view-2.png](../media/a9d6e51317a296aca09994e6481f47de41b4165a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 19:50:39 UTC+07:00**
+
+Nguồn: `harmonic-projected-view-2.png`
