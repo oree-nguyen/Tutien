@@ -1,0 +1,52 @@
+{
+  "input": "assets/rigged/H01-C0-garment-diagnostic.glb",
+  "inputSha256": "8df2873e877169e620987f1b48b374918e15762a5f8a18516f4ff72a03d1eab8",
+  "output": "assets/rigged/H01-C0-robe-panels-diagnostic.glb",
+  "outputSha256": "ff83fd7038a578dfaf28865756ad562525db2d813ebdd5fae01385015e9dec0b",
+  "recipe": {
+    "waistY": 0.9,
+    "hemY": 0.2,
+    "halfWidth": 0.245,
+    "classifier": "Spatial nearest green/white fabric seed; lower region only"
+  },
+  "parts": [
+    {
+      "name": "H01_Ao_ThanVaTay",
+      "triangles": 530390,
+      "vertices": 308148
+    },
+    {
+      "name": "H01_Ao_VatTrai",
+      "triangles": 191443,
+      "vertices": 113864
+    },
+    {
+      "name": "H01_Ao_VatPhai",
+      "triangles": 165173,
+      "vertices": 101754
+    },
+    {
+      "name": "H01_ThanConLai",
+      "triangles": 612720,
+      "vertices": 370256
+    }
+  ],
+  "totalTriangles": 1499726,
+  "bones": 52,
+  "clips": [
+    "Attack",
+    "Cast",
+    "Dash",
+    "Entrance",
+    "Idle",
+    "Run"
+  ],
+  "checks": {
+    "everySourceTrianglePreserved": true,
+    "independentVertexBuffers": true,
+    "sourceUVAndWeightsPreserved": true,
+    "embeddedImagesPreserved": true,
+    "animationKeyframesPreserved": true
+  },
+  "scope": "Lower anatomical left/right outer-robe panels split from upper torso/sleeves, with spatial green/white seed propagation to clean lower-robe color holes. No hidden body reconstruction, weight correction or runtime activation."
+}

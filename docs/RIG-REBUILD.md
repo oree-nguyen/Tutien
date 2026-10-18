@@ -262,3 +262,7 @@ RIG_INPUT_DIR=.local/rig-candidates/robe-repaired \
 The final command intentionally fails while recording the rejected weighting trial. Remaining work: clean anatomical/garment boundaries, resolve the connected sleeve-to-skirt deformation and body strain, validate every animation and collision/contact, then validate on Android hardware. No new APK or full rig acceptance is claimed.
 
 Validation for this stage: `npm test` **158 passed, zero failed/skipped** (including two new garment partition/weight invariants). `npm run verify:master` exits **1**, remains **BLOCKED 0/37**. The rejection is retained without changing thresholds. Screenshots are published under task 10 in the Git picture gallery.
+
+## Two independent lower H01 robe panels
+
+The focused follow-up splits lower left/right outer-robe panels away from the upper garment/sleeves into compact, independently indexed skinned meshes. It preserves every source triangle and attribute; no weight correction or runtime activation is bundled. The earlier broad color selection is refined in the lower region with nearest green/white source-surface seeds; the remaining automatic segmentation limitations and exposed missing hidden surfaces are explicitly documented. See [panel breakdown, reproduction and images](anim-report/robe-panels/README.md). No complete rig or clothing acceptance is inferred from mesh separation.
