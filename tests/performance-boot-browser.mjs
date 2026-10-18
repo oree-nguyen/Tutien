@@ -21,7 +21,7 @@ try{
   return {backend:w.backend,lifecycle:app.lifecycle,match:app.match,profile:app.profile,save:JSON.parse(localStorage.getItem('hon-gioi-save-v2')),other:localStorage.getItem('other-service'),stale:localStorage.getItem('activeMatch'),metrics:app.boot,paints:performance.getEntriesByType('paint').map(p=>({name:p.name,start:p.startTime})),draws:data.render.calls,memory:data.memory,batching:data.batching,ratio:w.renderer.getPixelRatio(),asset:data.previewAsset,material:data.material,battlefieldReady:w.scenery.ready};
  });
  assert.equal(boot.backend,'worker','This gate must exercise the dedicated renderer, not silently fall back');
- assert.equal(boot.lifecycle.phase,'LOBBY_HON_THANH');assert.equal(boot.match,null);assert.equal(boot.profile.tb,4940);assert.equal(boot.profile.matches,1);assert.equal(boot.save.match,null);assert.equal(boot.save.activeRun,null);assert.equal(boot.stale,null);assert.equal(boot.other,'{"phase":"battle","balance":900}');assert.equal(boot.battlefieldReady,false);
+ assert.equal(boot.lifecycle.phase,'LOBBY_HON_THANH');assert.equal(boot.match,null);assert.equal(boot.profile.tb,4900);assert.equal(boot.profile.matches,0);assert.ok(boot.save.match);assert.equal(boot.save.activeRun??null,null);assert.equal(boot.stale,'true');assert.ok(await page.locator('#resumeOffline').isVisible());assert.equal(boot.other,'{"phase":"battle","balance":900}');assert.equal(boot.battlefieldReady,false);
  for(const selector of ['.hero-heading','.loadout-panel','#start','.hero-grid'])assert.ok(await page.locator(selector).isVisible());assert.equal(await page.locator('[data-hero]').count(),12);
  assert.equal(boot.material.vertexColors,false);assert.equal(boot.material.colorSpace,'srgb');assert.equal(boot.material.compressed,true);assert.ok(boot.material.metalness<=.05);
  assert.ok(!requests.some(p=>p.endsWith('h01-c0-high.glb')),'Balanced boot must not fetch desktop high model');
@@ -36,7 +36,7 @@ try{
  }
  const squat=phases.find(p=>p.time===1.85);assert.ok(Math.abs(squat.pose.LeftHand_GroundSocket[1]-.025)<.005);assert.ok(Math.abs(squat.pose.RightHand_WeaponSocket[0]+.22)<.005);
  const impact=phases.find(p=>p.time===3.55);assert.ok(Math.abs(impact.pose.Staff_Base_Tip[1])<.025);
- const started=Date.now();await page.locator('#start').tap();await page.waitForFunction(()=>window.__HON_GIOI__.lifecycle.phase==='IN_MATCH',null,{timeout:120000});
+ const started=Date.now();await page.locator('#resumeOffline').tap();await page.waitForFunction(()=>window.__HON_GIOI__.lifecycle.phase==='IN_MATCH',null,{timeout:120000});
  const loadingMs=Date.now()-started;
  await page.waitForFunction(()=>!!document.querySelector('#exitGame'));
  const before=await page.evaluate(()=>window.__HON_GIOI__.match.player.x);await page.keyboard.down('KeyD');await page.waitForTimeout(500);await page.keyboard.up('KeyD');
@@ -46,7 +46,7 @@ try{
  let terrain;for(let i=0;i<80;i++){const actual=await page.evaluate(()=>window.__HON_GIOI__.world.inspect());terrain=actual.terrain;if(terrain?.gpuCompressedBiomes===1)break;await page.waitForTimeout(100);}
  assert.equal(terrain?.textureSize,1024);assert.equal(terrain?.gpuCompressedBiomes,1,'The live region must use the actual compressed atlas');
 await page.locator('#exitGame').tap();await page.locator('#confirmExit').tap();await page.locator('#backHub').waitFor({timeout:15000});await page.locator('#backHub').tap();
- assert.equal(await page.evaluate(()=>window.__HON_GIOI__.world.scenery.ready),false);
+ assert.equal(await page.evaluate(()=>window.__HON_GIOI__.world.scenery.ready),false);assert.deepEqual(await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('hon-gioi-save-v2'));return[s.match,s.activeRun];}),[null,null]);
  const cancelledBank=await page.evaluate(()=>window.__HON_GIOI__.profile.tb);
  await page.locator('#start').tap();await page.evaluate(()=>{window.dispatchEvent(new Event('hon-gioi-native-pause'));window.dispatchEvent(new Event('hon-gioi-native-resume'));});
  await page.waitForTimeout(500);assert.equal(await page.evaluate(()=>window.__HON_GIOI__.lifecycle.phase),'LOBBY_HON_THANH');assert.equal(await page.evaluate(()=>window.__HON_GIOI__.profile.tb),cancelledBank);

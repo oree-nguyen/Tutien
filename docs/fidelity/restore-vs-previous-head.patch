@@ -1,0 +1,149 @@
+diff --git a/src/character-pbr.js b/src/character-pbr.js
+index fe17ac5..f0226f8 100644
+--- a/src/character-pbr.js
++++ b/src/character-pbr.js
+@@ -1,3 +1,4 @@
++import{perfMeasure}from'./perf-debug.js';
+ import * as THREE from "three";
+ 
+ export const BROCADE_PATTERNS = Object.freeze({
+@@ -399,7 +400,17 @@ export class ProceduralCharacterPBRGenerator {
+     this.engravedMaterials = new Map();
+     this.engravedGeometry = new WeakMap();
+   }
+-  generateSilkBrocadeTexture(
++  installBaked(key,maps,size){
++    if(this.registry.has(key))return false;
++    const parsed=JSON.parse(key),detail=parsed.requestedTier;
++    if(size!==DIMENSIONS[detail]||channels.some(name=>!maps[name]?.isTexture))throw Error('Invalid baked character atlas');
++    const {requestedTier,...spec}=parsed;
++    const entry={key,spec,maps,size,tier:detail,requestedTier,baked:true};
++    for(const tex of Object.values(maps))this.entriesByTexture.set(tex,entry);
++    this.registry.set(key,entry);return true;
++  }
++  generateSilkBrocadeTexture(...args){return perfMeasure('texture:character-five-maps',()=>this.generateSilkBrocadeTextureMeasured(...args),{detail:args[4]?.detail??'high'});}
++  generateSilkBrocadeTextureMeasured(
+     primaryHex,
+     secondaryHex,
+     goldAccentHex,
+@@ -459,7 +470,7 @@ export class ProceduralCharacterPBRGenerator {
+     };
+   }
+   #resize(entry, size) {
+-    if (entry.size === size) return;
++    if (entry.baked || entry.size === size) return;
+     const images = drawImages(size, entry.spec);
+     for (const name of channels) {
+       const t = entry.maps[name];
+@@ -620,7 +631,8 @@ export class ProceduralCharacterPBRGenerator {
+     };
+     return m;
+   }
+-  hairMaterial(color, detail = "high") {
++  hairMaterial(...args){return perfMeasure('texture:hair',()=>this.hairMaterialMeasured(...args),{detail:args[1]??'high'});}
++  hairMaterialMeasured(color, detail = "high") {
+     const size = detail === "high" ? 512 : detail === "medium" ? 128 : 64,
+       key = `${color}:${size}`;
+     if (this.hairCache.has(key)) return this.hairCache.get(key);
+diff --git a/src/hero-anatomy.js b/src/hero-anatomy.js
+index 8ac152d..bb2e755 100644
+--- a/src/hero-anatomy.js
++++ b/src/hero-anatomy.js
+@@ -1,3 +1,4 @@
++import{perfMeasure}from'./perf-debug.js';
+ import * as THREE from "three";
+ import { mergeGeometries } from "three/addons/utils/BufferGeometryUtils.js";
+ import { buildSoulWeapon, animateSoulWeapons } from "./weapons.js";
+@@ -462,7 +463,7 @@ function soft(ctx, x, y, rx, ry, color) {
+   ctx.fillRect(-1, -1, 2, 2);
+   ctx.restore();
+ }
+-export function generateHighResCharacterFaceTexture(
++function generateHighResCharacterFaceTextureMeasured(
+   heroId,
+   gender = "male",
+   skinTone = "#efd3bd",
+@@ -2001,3 +2002,5 @@ export function anatomyCacheStats() {
+     }, {}),
+   };
+ }
++
++export function generateHighResCharacterFaceTexture(...args){return perfMeasure('texture:generateHighResCharacterFaceTexture',()=>generateHighResCharacterFaceTextureMeasured(...args),{arguments:args.map(a=>typeof a==='object'?a?.detail??a?.size??null:a)});}
+diff --git a/src/item-art.js b/src/item-art.js
+index 7b4253c..90c1346 100644
+--- a/src/item-art.js
++++ b/src/item-art.js
+@@ -1,3 +1,4 @@
++import{perfMeasure}from'./perf-debug.js';
+ import {bakedUiAssetUrls} from './baked-ui-assets.js';
+ import {
+   HEROES,
+@@ -2218,7 +2219,8 @@ export class MasterworkIconGenerator {
+     this.cache = new Map();
+     this.renderCount = 0;
+   }
+-  generate(type, id, rarity, element, size = 512) {
++  generate(...args){return perfMeasure('texture:item-icon',()=>this.generateMeasured(...args),{type:args[0],id:args[1],size:args[4]??512});}
++  generateMeasured(type, id, rarity, element, size = 512) {
+     ({ type, id } = normalize(type, id));
+     size = Math.max(32, Math.min(1024, Math.round(size)));
+     const hero =
+diff --git a/src/world.js b/src/world.js
+index 634042d..6bcca11 100644
+--- a/src/world.js
++++ b/src/world.js
+@@ -1,3 +1,6 @@
++import {ensureBakedCharacter,prepareBakedCharacter} from './baked-character-pbr.js';
++import {releaseManualAssets} from './manual-asset-cache.js';
++import{perfFrame,perfBeginAppearance}from'./perf-debug.js';
+ import * as THREE from "three";
+ import{loadTerrainTextureSet}from"./terrain-assets.js";
+ import{installTerrainTextureProvider}from"./environment-pbr.js";
+@@ -216,8 +219,9 @@ export class World {
+     this.sun.visible=this.mapRim.visible=this.mapAmbient.visible=true;this.weaponLight.visible=this.quality==='ultra';
+     try{
+       await warmSceneMaterials(this.renderer,this.scenery.battlefield,this.camera,this.scene);
+-      check();for(let hero=1;hero<12;hero++){check();const templateActor={id:'prewarm',kind:'hero',hero,skin:0,costume:0,rings:[]};if(!usesManualHero(templateActor))visualTemplate(templateActor,'low');await nextPaint();}
++      check();for(let hero=1;hero<12;hero++){check();const templateActor={id:'prewarm',kind:'hero',hero,skin:0,costume:0,rings:[]};if(!usesManualHero(templateActor)){await prepareBakedCharacter(templateActor,'low');check();visualTemplate(templateActor,'low');}await nextPaint();}
+       const actor={...appearance,id:'prewarm',kind:'hero',team:0},detail=usesManualHero(actor)?'mobile':'medium';
++      if(!usesManualHero(actor))await prepareBakedCharacter(actor,detail);check();
+       const visual=visualTemplate(actor,detail);configureManualH01(visual,this.renderer,this.scene,this.camera);
+       if(visual.userData.manualHunyuan){
+         const started=performance.now();while(!['loaded','failed'].includes(visual.userData.manualAsset.status)){if(epoch!==this.prepareEpoch){disposeManualH01(visual);throw Error('Đã hủy tải nhân vật');}if(performance.now()-started>45000){disposeManualH01(visual);throw Error('Không chuẩn bị được nhân vật xuất chiến');}await nextPaint();}
+@@ -266,7 +270,7 @@ export class World {
+   addDetail(model, a, detail) {
+     if (model.details.has(detail)||(detail==="medium"&&model.details.has("mobile"))) return;
+     let visual;
+-    if(a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)&&detail===this.preparedPlayerVisual.detail){visual=this.preparedPlayerVisual.visual;this.preparedPlayerVisual=null;}else visual=visualTemplate(a,detail);
++    if(a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)&&detail===this.preparedPlayerVisual.detail){visual=this.preparedPlayerVisual.visual;this.preparedPlayerVisual=null;}else visual=visualTemplate(a,detail);if(a.id==='preview')perfBeginAppearance('hero:'+a.hero+':'+detail);
+     if(visual.userData.manualHunyuan)configureManualH01(visual,this.renderer,this.scene,this.camera);
+     model.details.add(detail);
+     model.lod.addLevel(
+@@ -351,6 +355,7 @@ export class World {
+     });
+   }
+   releaseModelRings(model) {
++    releaseManualAssets(model.lod);
+     if(!model||model.released)return;model.released=true;
+     for(const mesh of [model.bar,model.barBg]){mesh?.geometry.dispose();mesh?.material.dispose();}
+     model.lod.traverse(node=>{if(node.userData.ownConcealmentMaterial&&!node.userData.soulRing)node.material?.dispose();});
+@@ -444,6 +449,10 @@ export class World {
+     this.sun.target.position.copy(this.focus);
+     if (!match) {
+       if (!this.preview) {
++        const pending=usesManualHero({hero:hubHero,...appearance,kind:'hero'})?null:ensureBakedCharacter({hero:hubHero,...appearance},'medium');
++        this.loadingCharacter=!!pending&&pending.status==='loading';
++        if(this.loadingCharacter){this.renderer.render(this.scene,this.camera);return;}
++
+         this.previewHero=`${hubHero}:${appearance.skin??0}:${appearance.costume??0}:${appearance.rings?.some(id=>[6,8,9,12].includes(id))?'black':'purple'}`;
+         this.preview = this.character({
+           id: "preview",
+@@ -731,7 +740,7 @@ export class World {
+     finally{this.gpuTimer.end();}
+ 
+   }
+-  samplePerformance(frameMs){this.gpuTimer.poll();this.resolution.sample(Math.max(frameMs,this.gpuTimer.lastMs));}
++  samplePerformance(frameMs){perfFrame(frameMs,this.renderer.info);this.gpuTimer.poll();this.resolution.sample(Math.max(frameMs,this.gpuTimer.lastMs));}
+   renderMapEffects(match) {
+     if (!this.fogRegions) {
+       this.fogRegions = REGIONS.slice(0, 5).map((r, i) => {

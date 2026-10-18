@@ -11,8 +11,5 @@ export class GameLifecycleStateMachine{
  cancel(){if(this.phase===PHASES.LOADING)this.transition(PHASES.LOBBY);}
  cleanup(){if(this.phase===PHASES.MATCH||this.phase===PHASES.LOADING)this.transition(PHASES.CLEANUP);if(this.phase===PHASES.CLEANUP)this.transition(PHASES.LOBBY);}
 }
-const staleKeys=['activeMatch','matchState','currentBattle','inMatch','battleSession','combatState','autoStartMatch','pendingMatch','survivalRunState','extractionState','currentScene','gamePhase','activeMatchState','autoResumeBattle'];
-/** Only known transient keys are removed. Never sweep unrelated JSON/accounts or the GLB cache. */
-export function sanitizeStaleMatchStateOnBoot(local,session){
- for(const store of [local,session])if(store)for(const key of staleKeys){try{store.removeItem(key);}catch{}}
-}
+/** Legacy exported hook retained for callers. Unknown keys are never owned by inference. */
+export function sanitizeStaleMatchStateOnBoot(){return false;}
