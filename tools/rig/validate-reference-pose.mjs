@@ -150,7 +150,17 @@ try {
     return report;
   }
   let ranked = [];
-  if (process.argv.includes("--search-roll")) {
+  if (process.env.CONTACT_ROLLS) {
+    const rolls = process.env.CONTACT_ROLLS.split(",").map(Number);
+    if (
+      !rolls.length ||
+      rolls.some(
+        (value) => !Number.isFinite(value) || value < 0 || value >= 360,
+      )
+    )
+      throw Error("Invalid diagnostic weapon rolls");
+    ranked = rolls.map((roll) => measure(roll));
+  } else if (process.argv.includes("--search-roll")) {
     for (let roll = 0; roll < 360; roll += 15) ranked.push(measure(roll));
     ranked.sort((a, b) => a.cost - b.cost);
     const coarse = ranked[0].weaponRollDegrees;

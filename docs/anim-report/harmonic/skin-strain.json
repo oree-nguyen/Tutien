@@ -1,0 +1,240 @@
+{
+  "passed": true,
+  "scope": "Static open/closed diagnostic hand poses on full original source topology, not full animation acceptance",
+  "thresholds": {
+    "p999": 1.5,
+    "max": 2,
+    "tipAttachmentRadiusErrorMeters": 0.003
+  },
+  "reports": [
+    {
+      "hero": "H01",
+      "rigSha256": "c05a0b42afb8645a32600349efec01cfd39a98fc97a47111de8a6696b814ce3b",
+      "passed": true,
+      "poses": [
+        {
+          "strength": 0.2,
+          "uniqueNondegenerateEdges": 2365667,
+          "degenerateEdges": 0,
+          "p999EdgeStretch": 1.112175501709934,
+          "maxEdgeStretch": 1.4598603861189208,
+          "maxTipAttachmentRadiusError": 2.9339304076503314e-10,
+          "tipEvidence": [
+            {
+              "name": "RightThumb",
+              "bindRadius": 0.00463384701767463,
+              "posedRadius": 0.004633846957287136,
+              "radiusError": 6.038749361669815e-11
+            },
+            {
+              "name": "RightIndex",
+              "bindRadius": 0.007789799967900001,
+              "posedRadius": 0.0077897999011115205,
+              "radiusError": 6.67884801283658e-11
+            },
+            {
+              "name": "RightMiddle",
+              "bindRadius": 0.008675871867531411,
+              "posedRadius": 0.008675872048529149,
+              "radiusError": 1.809977376310279e-10
+            },
+            {
+              "name": "RightRing",
+              "bindRadius": 0.008192047125240172,
+              "posedRadius": 0.008192047107744231,
+              "radiusError": 1.749594046029923e-11
+            },
+            {
+              "name": "RightPinky",
+              "bindRadius": 0.005756339070070282,
+              "posedRadius": 0.005756339054073752,
+              "radiusError": 1.59965304891152e-11
+            },
+            {
+              "name": "LeftThumb",
+              "bindRadius": 0.00556473252774393,
+              "posedRadius": 0.005564732571593587,
+              "radiusError": 4.3849656544692195e-11
+            },
+            {
+              "name": "LeftIndex",
+              "bindRadius": 0.007857097320179841,
+              "posedRadius": 0.007857097323445281,
+              "radiusError": 3.2654400017317897e-12
+            },
+            {
+              "name": "LeftMiddle",
+              "bindRadius": 0.008898519945644572,
+              "posedRadius": 0.008898519973833629,
+              "radiusError": 2.8189056991423378e-11
+            },
+            {
+              "name": "LeftRing",
+              "bindRadius": 0.008517889171039685,
+              "posedRadius": 0.008517889464432726,
+              "radiusError": 2.9339304076503314e-10
+            },
+            {
+              "name": "LeftPinky",
+              "bindRadius": 0.005247119014037039,
+              "posedRadius": 0.005247118997581989,
+              "radiusError": 1.6455049996200177e-11
+            }
+          ],
+          "passed": true,
+          "worst": {
+            "a": 827569,
+            "b": 827860,
+            "bindLength": 0.001366114533698304,
+            "posedLength": 0.0019943364906474755,
+            "positionA": [
+              0.5818262100219727,
+              0.9954359531402588,
+              0.11342154443264008
+            ],
+            "positionB": [
+              0.5815260410308838,
+              0.9948745965957642,
+              0.11221280694007874
+            ],
+            "jointsA": [
+              "LeftHand",
+              "LeftHandIndex1",
+              "LeftForeArm",
+              "LeftHandThumb1"
+            ],
+            "weightsA": [
+              0.7964394688606262,
+              0.13106472790241241,
+              0.04242642968893051,
+              0.030069395899772644
+            ],
+            "jointsB": [
+              "LeftHand",
+              "LeftHandIndex1",
+              "LeftForeArm",
+              "LeftHandIndex2"
+            ],
+            "weightsB": [
+              0.8430087566375732,
+              0.018322773277759552,
+              0.08561331033706665,
+              0.053055185824632645
+            ]
+          }
+        },
+        {
+          "strength": 1,
+          "uniqueNondegenerateEdges": 2365667,
+          "degenerateEdges": 0,
+          "p999EdgeStretch": 1.4500273393724554,
+          "maxEdgeStretch": 1.9453304415419999,
+          "maxTipAttachmentRadiusError": 2.9172586048231697e-10,
+          "tipEvidence": [
+            {
+              "name": "RightThumb",
+              "bindRadius": 0.00463384701767463,
+              "posedRadius": 0.004633846886892773,
+              "radiusError": 1.3078185669840314e-10
+            },
+            {
+              "name": "RightIndex",
+              "bindRadius": 0.007789799967900001,
+              "posedRadius": 0.0077897999878653555,
+              "radiusError": 1.9965354890183473e-11
+            },
+            {
+              "name": "RightMiddle",
+              "bindRadius": 0.008675871867531411,
+              "posedRadius": 0.008675872052726364,
+              "radiusError": 1.8519495312285805e-10
+            },
+            {
+              "name": "RightRing",
+              "bindRadius": 0.008192047125240172,
+              "posedRadius": 0.00819204709808763,
+              "radiusError": 2.7152542367292476e-11
+            },
+            {
+              "name": "RightPinky",
+              "bindRadius": 0.005756339070070282,
+              "posedRadius": 0.005756339064084379,
+              "radiusError": 5.985902745697658e-12
+            },
+            {
+              "name": "LeftThumb",
+              "bindRadius": 0.00556473252774393,
+              "posedRadius": 0.005564732559309878,
+              "radiusError": 3.156594777231625e-11
+            },
+            {
+              "name": "LeftIndex",
+              "bindRadius": 0.007857097320179841,
+              "posedRadius": 0.007857097385392914,
+              "radiusError": 6.521307278906097e-11
+            },
+            {
+              "name": "LeftMiddle",
+              "bindRadius": 0.008898519945644572,
+              "posedRadius": 0.008898519935584891,
+              "radiusError": 1.005968051914774e-11
+            },
+            {
+              "name": "LeftRing",
+              "bindRadius": 0.008517889171039685,
+              "posedRadius": 0.008517889462765545,
+              "radiusError": 2.9172586048231697e-10
+            },
+            {
+              "name": "LeftPinky",
+              "bindRadius": 0.005247119014037039,
+              "posedRadius": 0.005247118980798697,
+              "radiusError": 3.323834176643947e-11
+            }
+          ],
+          "passed": true,
+          "worst": {
+            "a": 838339,
+            "b": 838340,
+            "bindLength": 0.0007806834857237032,
+            "posedLength": 0.001518687349987439,
+            "positionA": [
+              0.5565865635871887,
+              1.0244051218032837,
+              0.13135093450546265
+            ],
+            "positionB": [
+              0.5562377572059631,
+              1.0248616933822632,
+              0.13187946379184723
+            ],
+            "jointsA": [
+              "LeftHandThumb1",
+              "LeftHandThumb2",
+              "LeftHand",
+              "LeftForeArm"
+            ],
+            "weightsA": [
+              0.3046165704727173,
+              0.22625388205051422,
+              0.320868581533432,
+              0.1482609510421753
+            ],
+            "jointsB": [
+              "LeftHandThumb1",
+              "LeftHandThumb2",
+              "LeftHand",
+              "LeftForeArm"
+            ],
+            "weightsB": [
+              0.30940914154052734,
+              0.23752057552337646,
+              0.3090844452381134,
+              0.1439858227968216
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

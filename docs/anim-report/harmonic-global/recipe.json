@@ -1,0 +1,1525 @@
+{
+  "input": ".local/rig-candidates/harmonic/H01-C0-rigged.glb",
+  "inputSha256": "c05a0b42afb8645a32600349efec01cfd39a98fc97a47111de8a6696b814ce3b",
+  "rigSha256": "fee679ce73d5e702c7b25e4797575372e632ba1f9565e5289d73c4982a55f3bd",
+  "solve": {
+    "method": "Global L-BFGS descent on exact source-edge stretch with normalized four-slot LBS weights; fixed hand/finger regions",
+    "sourceFreeVertices": 311662,
+    "freeGroups": 273481,
+    "objectiveEdges": 862146,
+    "iterations": 300,
+    "optimizerConverged": false,
+    "optimizerMessage": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+    "initial": {
+      "loss": 0.01319394719885251,
+      "maximumFreeEdgeStretch": 6.860409393072729
+    },
+    "final": {
+      "loss": 0.006071539427111868,
+      "maximumFreeEdgeStretch": 4.7064080593569155
+    },
+    "history": [
+      {
+        "iteration": 0,
+        "loss": 0.012903751280192418,
+        "maximumFreeEdgeStretch": 12.326998700974107
+      },
+      {
+        "iteration": 1,
+        "loss": 0.01253077587115458,
+        "maximumFreeEdgeStretch": 6.892542031332032
+      },
+      {
+        "iteration": 2,
+        "loss": 0.012434997128860429,
+        "maximumFreeEdgeStretch": 6.9044916975066695
+      },
+      {
+        "iteration": 3,
+        "loss": 0.0120940099805376,
+        "maximumFreeEdgeStretch": 6.943039870967629
+      },
+      {
+        "iteration": 4,
+        "loss": 0.011726872833183606,
+        "maximumFreeEdgeStretch": 7.008996160769481
+      },
+      {
+        "iteration": 5,
+        "loss": 0.011443276649304224,
+        "maximumFreeEdgeStretch": 7.083851583042409
+      },
+      {
+        "iteration": 6,
+        "loss": 0.011312311213323049,
+        "maximumFreeEdgeStretch": 7.133165884893673
+      },
+      {
+        "iteration": 7,
+        "loss": 0.011052989887362327,
+        "maximumFreeEdgeStretch": 7.2737661905315205
+      },
+      {
+        "iteration": 8,
+        "loss": 0.010891067411940727,
+        "maximumFreeEdgeStretch": 7.290056976385534
+      },
+      {
+        "iteration": 9,
+        "loss": 0.010711875051295072,
+        "maximumFreeEdgeStretch": 7.346917444046249
+      },
+      {
+        "iteration": 10,
+        "loss": 0.010603249760117908,
+        "maximumFreeEdgeStretch": 7.3728617064249535
+      },
+      {
+        "iteration": 11,
+        "loss": 0.01048050248316693,
+        "maximumFreeEdgeStretch": 7.438277553515605
+      },
+      {
+        "iteration": 12,
+        "loss": 0.01039759304485391,
+        "maximumFreeEdgeStretch": 7.486318434071999
+      },
+      {
+        "iteration": 13,
+        "loss": 0.010328717609484972,
+        "maximumFreeEdgeStretch": 7.532428841544999
+      },
+      {
+        "iteration": 14,
+        "loss": 0.010224571332350248,
+        "maximumFreeEdgeStretch": 7.585456415258838
+      },
+      {
+        "iteration": 15,
+        "loss": 0.01012673630023514,
+        "maximumFreeEdgeStretch": 7.615097315520513
+      },
+      {
+        "iteration": 16,
+        "loss": 0.010058097549955557,
+        "maximumFreeEdgeStretch": 7.590258675541591
+      },
+      {
+        "iteration": 17,
+        "loss": 0.009953596422351827,
+        "maximumFreeEdgeStretch": 7.5606937150998395
+      },
+      {
+        "iteration": 18,
+        "loss": 0.009865545603276373,
+        "maximumFreeEdgeStretch": 7.537493838878926
+      },
+      {
+        "iteration": 19,
+        "loss": 0.009796187082228916,
+        "maximumFreeEdgeStretch": 7.5271977073448415
+      },
+      {
+        "iteration": 20,
+        "loss": 0.009727285075217433,
+        "maximumFreeEdgeStretch": 7.529901966351817
+      },
+      {
+        "iteration": 21,
+        "loss": 0.009656423494057638,
+        "maximumFreeEdgeStretch": 7.519199076941885
+      },
+      {
+        "iteration": 22,
+        "loss": 0.00963278274066055,
+        "maximumFreeEdgeStretch": 7.511085091192535
+      },
+      {
+        "iteration": 23,
+        "loss": 0.009590014985739295,
+        "maximumFreeEdgeStretch": 7.47451414577253
+      },
+      {
+        "iteration": 24,
+        "loss": 0.00957047424788015,
+        "maximumFreeEdgeStretch": 7.399804172855787
+      },
+      {
+        "iteration": 25,
+        "loss": 0.009514160510131323,
+        "maximumFreeEdgeStretch": 7.404738269067431
+      },
+      {
+        "iteration": 26,
+        "loss": 0.009484419680522074,
+        "maximumFreeEdgeStretch": 7.383560695364033
+      },
+      {
+        "iteration": 27,
+        "loss": 0.009422737695506915,
+        "maximumFreeEdgeStretch": 7.298652798670127
+      },
+      {
+        "iteration": 28,
+        "loss": 0.009384848473938322,
+        "maximumFreeEdgeStretch": 7.224087725511415
+      },
+      {
+        "iteration": 29,
+        "loss": 0.009345725526174721,
+        "maximumFreeEdgeStretch": 7.214912410042857
+      },
+      {
+        "iteration": 30,
+        "loss": 0.009308227664367733,
+        "maximumFreeEdgeStretch": 7.162296343278388
+      },
+      {
+        "iteration": 31,
+        "loss": 0.009233825696674929,
+        "maximumFreeEdgeStretch": 7.075590560814415
+      },
+      {
+        "iteration": 32,
+        "loss": 0.009198343074250446,
+        "maximumFreeEdgeStretch": 7.041940629909481
+      },
+      {
+        "iteration": 33,
+        "loss": 0.009180695316672581,
+        "maximumFreeEdgeStretch": 7.021777121040653
+      },
+      {
+        "iteration": 34,
+        "loss": 0.009153157275266652,
+        "maximumFreeEdgeStretch": 6.928461284315168
+      },
+      {
+        "iteration": 35,
+        "loss": 0.00911705298041243,
+        "maximumFreeEdgeStretch": 6.922459791636974
+      },
+      {
+        "iteration": 36,
+        "loss": 0.009096979529183629,
+        "maximumFreeEdgeStretch": 6.923790595853251
+      },
+      {
+        "iteration": 37,
+        "loss": 0.009071448992053349,
+        "maximumFreeEdgeStretch": 6.907804540375575
+      },
+      {
+        "iteration": 38,
+        "loss": 0.009052867080307038,
+        "maximumFreeEdgeStretch": 6.8922625269774
+      },
+      {
+        "iteration": 39,
+        "loss": 0.009023046712126653,
+        "maximumFreeEdgeStretch": 6.898037976229476
+      },
+      {
+        "iteration": 40,
+        "loss": 0.008997327578409221,
+        "maximumFreeEdgeStretch": 6.883711360957727
+      },
+      {
+        "iteration": 41,
+        "loss": 0.008976842148064892,
+        "maximumFreeEdgeStretch": 6.838151377210005
+      },
+      {
+        "iteration": 42,
+        "loss": 0.008955111518063844,
+        "maximumFreeEdgeStretch": 6.815543286829529
+      },
+      {
+        "iteration": 43,
+        "loss": 0.008940143905209466,
+        "maximumFreeEdgeStretch": 6.801592738353156
+      },
+      {
+        "iteration": 44,
+        "loss": 0.008909955355592728,
+        "maximumFreeEdgeStretch": 6.746017196443666
+      },
+      {
+        "iteration": 45,
+        "loss": 0.008890966443901291,
+        "maximumFreeEdgeStretch": 6.741407442182464
+      },
+      {
+        "iteration": 46,
+        "loss": 0.008863204017651958,
+        "maximumFreeEdgeStretch": 6.711883503271429
+      },
+      {
+        "iteration": 47,
+        "loss": 0.008832239778430988,
+        "maximumFreeEdgeStretch": 6.706782510508008
+      },
+      {
+        "iteration": 48,
+        "loss": 0.0087830655326389,
+        "maximumFreeEdgeStretch": 6.702627660807827
+      },
+      {
+        "iteration": 49,
+        "loss": 0.008762549790834564,
+        "maximumFreeEdgeStretch": 6.704061088432415
+      },
+      {
+        "iteration": 50,
+        "loss": 0.008742123656511995,
+        "maximumFreeEdgeStretch": 6.697765768803824
+      },
+      {
+        "iteration": 51,
+        "loss": 0.008725236134591807,
+        "maximumFreeEdgeStretch": 6.688214795972837
+      },
+      {
+        "iteration": 52,
+        "loss": 0.0087010757955753,
+        "maximumFreeEdgeStretch": 6.687523064830204
+      },
+      {
+        "iteration": 53,
+        "loss": 0.008688249161737308,
+        "maximumFreeEdgeStretch": 6.678870338663932
+      },
+      {
+        "iteration": 54,
+        "loss": 0.008670738094674248,
+        "maximumFreeEdgeStretch": 6.66970028127379
+      },
+      {
+        "iteration": 55,
+        "loss": 0.008664113876970293,
+        "maximumFreeEdgeStretch": 6.642877746074927
+      },
+      {
+        "iteration": 56,
+        "loss": 0.008636727255726982,
+        "maximumFreeEdgeStretch": 6.646575944755446
+      },
+      {
+        "iteration": 57,
+        "loss": 0.008619661719780273,
+        "maximumFreeEdgeStretch": 6.636512613549066
+      },
+      {
+        "iteration": 58,
+        "loss": 0.008593961924868374,
+        "maximumFreeEdgeStretch": 6.613382330581758
+      },
+      {
+        "iteration": 59,
+        "loss": 0.008559503272171236,
+        "maximumFreeEdgeStretch": 6.591469519798771
+      },
+      {
+        "iteration": 60,
+        "loss": 0.00853581033608054,
+        "maximumFreeEdgeStretch": 6.553471881337791
+      },
+      {
+        "iteration": 61,
+        "loss": 0.008513420788173213,
+        "maximumFreeEdgeStretch": 6.555034730548966
+      },
+      {
+        "iteration": 62,
+        "loss": 0.008489700229400187,
+        "maximumFreeEdgeStretch": 6.540406344841261
+      },
+      {
+        "iteration": 63,
+        "loss": 0.008472583750969074,
+        "maximumFreeEdgeStretch": 6.5145891435220795
+      },
+      {
+        "iteration": 64,
+        "loss": 0.008456009218642657,
+        "maximumFreeEdgeStretch": 6.504944530643835
+      },
+      {
+        "iteration": 65,
+        "loss": 0.008419298520058672,
+        "maximumFreeEdgeStretch": 6.455076322535549
+      },
+      {
+        "iteration": 66,
+        "loss": 0.008395792916472859,
+        "maximumFreeEdgeStretch": 6.431681906686291
+      },
+      {
+        "iteration": 67,
+        "loss": 0.00838088472940172,
+        "maximumFreeEdgeStretch": 6.4145427400391775
+      },
+      {
+        "iteration": 68,
+        "loss": 0.008353050379329957,
+        "maximumFreeEdgeStretch": 6.355681072140755
+      },
+      {
+        "iteration": 69,
+        "loss": 0.008334638251660108,
+        "maximumFreeEdgeStretch": 6.313265416641136
+      },
+      {
+        "iteration": 70,
+        "loss": 0.00831934867676368,
+        "maximumFreeEdgeStretch": 6.321987126900448
+      },
+      {
+        "iteration": 71,
+        "loss": 0.008302966921058728,
+        "maximumFreeEdgeStretch": 6.310530475716528
+      },
+      {
+        "iteration": 72,
+        "loss": 0.008286973816462899,
+        "maximumFreeEdgeStretch": 6.293474230312589
+      },
+      {
+        "iteration": 73,
+        "loss": 0.008268291839302168,
+        "maximumFreeEdgeStretch": 6.2564797842489766
+      },
+      {
+        "iteration": 74,
+        "loss": 0.0082394604666369,
+        "maximumFreeEdgeStretch": 6.170000647102065
+      },
+      {
+        "iteration": 75,
+        "loss": 0.008229892379115025,
+        "maximumFreeEdgeStretch": 6.140663461731376
+      },
+      {
+        "iteration": 76,
+        "loss": 0.008218722563178526,
+        "maximumFreeEdgeStretch": 6.165445282847414
+      },
+      {
+        "iteration": 77,
+        "loss": 0.008211107748734143,
+        "maximumFreeEdgeStretch": 6.164229537692539
+      },
+      {
+        "iteration": 78,
+        "loss": 0.00817852237112262,
+        "maximumFreeEdgeStretch": 6.1427373204093385
+      },
+      {
+        "iteration": 79,
+        "loss": 0.008149609677233759,
+        "maximumFreeEdgeStretch": 6.115113035168927
+      },
+      {
+        "iteration": 80,
+        "loss": 0.008137617018556283,
+        "maximumFreeEdgeStretch": 6.105878058189242
+      },
+      {
+        "iteration": 81,
+        "loss": 0.008118762768544405,
+        "maximumFreeEdgeStretch": 6.096372869400295
+      },
+      {
+        "iteration": 82,
+        "loss": 0.008100428496886752,
+        "maximumFreeEdgeStretch": 6.074872476417965
+      },
+      {
+        "iteration": 83,
+        "loss": 0.008080010529174623,
+        "maximumFreeEdgeStretch": 6.05894712880633
+      },
+      {
+        "iteration": 84,
+        "loss": 0.008066060189084167,
+        "maximumFreeEdgeStretch": 6.049576634908226
+      },
+      {
+        "iteration": 85,
+        "loss": 0.008044658543450694,
+        "maximumFreeEdgeStretch": 6.037660868692217
+      },
+      {
+        "iteration": 86,
+        "loss": 0.008023691502468937,
+        "maximumFreeEdgeStretch": 6.037035096218739
+      },
+      {
+        "iteration": 87,
+        "loss": 0.008015341853915248,
+        "maximumFreeEdgeStretch": 6.038597996224489
+      },
+      {
+        "iteration": 88,
+        "loss": 0.008006901082639932,
+        "maximumFreeEdgeStretch": 6.042802626547089
+      },
+      {
+        "iteration": 89,
+        "loss": 0.00800052628266044,
+        "maximumFreeEdgeStretch": 6.043939084534074
+      },
+      {
+        "iteration": 90,
+        "loss": 0.007993383433582515,
+        "maximumFreeEdgeStretch": 6.043390482267309
+      },
+      {
+        "iteration": 91,
+        "loss": 0.007982457542127078,
+        "maximumFreeEdgeStretch": 6.044327763637618
+      },
+      {
+        "iteration": 92,
+        "loss": 0.007969981435519255,
+        "maximumFreeEdgeStretch": 6.046052810565784
+      },
+      {
+        "iteration": 93,
+        "loss": 0.007951990764713146,
+        "maximumFreeEdgeStretch": 6.049242693841527
+      },
+      {
+        "iteration": 94,
+        "loss": 0.007940321459190259,
+        "maximumFreeEdgeStretch": 6.053762704820281
+      },
+      {
+        "iteration": 95,
+        "loss": 0.007923360829015689,
+        "maximumFreeEdgeStretch": 6.059794012091979
+      },
+      {
+        "iteration": 96,
+        "loss": 0.00790115893850524,
+        "maximumFreeEdgeStretch": 6.073470589964989
+      },
+      {
+        "iteration": 97,
+        "loss": 0.00788697132851738,
+        "maximumFreeEdgeStretch": 6.077620488761659
+      },
+      {
+        "iteration": 98,
+        "loss": 0.007863519219600178,
+        "maximumFreeEdgeStretch": 6.078690961836377
+      },
+      {
+        "iteration": 99,
+        "loss": 0.007849909924747371,
+        "maximumFreeEdgeStretch": 6.0715792426104525
+      },
+      {
+        "iteration": 100,
+        "loss": 0.007845085820447567,
+        "maximumFreeEdgeStretch": 6.0592229737721235
+      },
+      {
+        "iteration": 101,
+        "loss": 0.00782943148285593,
+        "maximumFreeEdgeStretch": 6.058400404245721
+      },
+      {
+        "iteration": 102,
+        "loss": 0.007824581048790271,
+        "maximumFreeEdgeStretch": 6.057623571041359
+      },
+      {
+        "iteration": 103,
+        "loss": 0.007815598213356279,
+        "maximumFreeEdgeStretch": 6.050483505411857
+      },
+      {
+        "iteration": 104,
+        "loss": 0.007805052039020205,
+        "maximumFreeEdgeStretch": 6.007064248527319
+      },
+      {
+        "iteration": 105,
+        "loss": 0.00778924495680128,
+        "maximumFreeEdgeStretch": 6.006734276279425
+      },
+      {
+        "iteration": 106,
+        "loss": 0.007786444037474281,
+        "maximumFreeEdgeStretch": 6.01232710510853
+      },
+      {
+        "iteration": 107,
+        "loss": 0.007778242059111651,
+        "maximumFreeEdgeStretch": 6.002691887189685
+      },
+      {
+        "iteration": 108,
+        "loss": 0.007750277549361099,
+        "maximumFreeEdgeStretch": 5.941906352566051
+      },
+      {
+        "iteration": 109,
+        "loss": 0.007732684120551939,
+        "maximumFreeEdgeStretch": 5.92315994448758
+      },
+      {
+        "iteration": 110,
+        "loss": 0.007718704685670603,
+        "maximumFreeEdgeStretch": 5.889881662296025
+      },
+      {
+        "iteration": 111,
+        "loss": 0.0077023846813513135,
+        "maximumFreeEdgeStretch": 5.848797253156034
+      },
+      {
+        "iteration": 112,
+        "loss": 0.007683810414357339,
+        "maximumFreeEdgeStretch": 5.809081326441771
+      },
+      {
+        "iteration": 113,
+        "loss": 0.007668982650387029,
+        "maximumFreeEdgeStretch": 5.769165877264615
+      },
+      {
+        "iteration": 114,
+        "loss": 0.0076579245610015586,
+        "maximumFreeEdgeStretch": 5.714517961771696
+      },
+      {
+        "iteration": 115,
+        "loss": 0.007646363420411764,
+        "maximumFreeEdgeStretch": 5.719734329723121
+      },
+      {
+        "iteration": 116,
+        "loss": 0.007640977894947527,
+        "maximumFreeEdgeStretch": 5.720510867090063
+      },
+      {
+        "iteration": 117,
+        "loss": 0.00763470103276476,
+        "maximumFreeEdgeStretch": 5.705876747150818
+      },
+      {
+        "iteration": 118,
+        "loss": 0.007616049547200304,
+        "maximumFreeEdgeStretch": 5.694284430173327
+      },
+      {
+        "iteration": 119,
+        "loss": 0.007600103670464468,
+        "maximumFreeEdgeStretch": 5.643283487827112
+      },
+      {
+        "iteration": 120,
+        "loss": 0.007593109535089166,
+        "maximumFreeEdgeStretch": 5.580682669550908
+      },
+      {
+        "iteration": 121,
+        "loss": 0.007582911428977446,
+        "maximumFreeEdgeStretch": 5.580541864760216
+      },
+      {
+        "iteration": 122,
+        "loss": 0.007555976419320748,
+        "maximumFreeEdgeStretch": 5.565854344239966
+      },
+      {
+        "iteration": 123,
+        "loss": 0.007546091378478674,
+        "maximumFreeEdgeStretch": 5.553240658046362
+      },
+      {
+        "iteration": 124,
+        "loss": 0.00753317835691123,
+        "maximumFreeEdgeStretch": 5.5496800058364455
+      },
+      {
+        "iteration": 125,
+        "loss": 0.007528601127060281,
+        "maximumFreeEdgeStretch": 5.5390081768180774
+      },
+      {
+        "iteration": 126,
+        "loss": 0.0075162618662642415,
+        "maximumFreeEdgeStretch": 5.542368382101661
+      },
+      {
+        "iteration": 127,
+        "loss": 0.0074998810033892575,
+        "maximumFreeEdgeStretch": 5.4989791382595765
+      },
+      {
+        "iteration": 128,
+        "loss": 0.007493780900247519,
+        "maximumFreeEdgeStretch": 5.498995640789019
+      },
+      {
+        "iteration": 129,
+        "loss": 0.007484801583957843,
+        "maximumFreeEdgeStretch": 5.515122006628077
+      },
+      {
+        "iteration": 130,
+        "loss": 0.007477600189873808,
+        "maximumFreeEdgeStretch": 5.527274788004753
+      },
+      {
+        "iteration": 131,
+        "loss": 0.007458682866155931,
+        "maximumFreeEdgeStretch": 5.5574727086789215
+      },
+      {
+        "iteration": 132,
+        "loss": 0.007446329082464483,
+        "maximumFreeEdgeStretch": 5.564272682917591
+      },
+      {
+        "iteration": 133,
+        "loss": 0.00743486771412083,
+        "maximumFreeEdgeStretch": 5.569386865808224
+      },
+      {
+        "iteration": 134,
+        "loss": 0.007429443233737661,
+        "maximumFreeEdgeStretch": 5.571592142248594
+      },
+      {
+        "iteration": 135,
+        "loss": 0.007411838948203509,
+        "maximumFreeEdgeStretch": 5.562326032388436
+      },
+      {
+        "iteration": 136,
+        "loss": 0.007394182496132722,
+        "maximumFreeEdgeStretch": 5.556889713528415
+      },
+      {
+        "iteration": 137,
+        "loss": 0.00737820617796503,
+        "maximumFreeEdgeStretch": 5.548330303132098
+      },
+      {
+        "iteration": 138,
+        "loss": 0.0073651537387270085,
+        "maximumFreeEdgeStretch": 5.524043049998213
+      },
+      {
+        "iteration": 139,
+        "loss": 0.007348932148002358,
+        "maximumFreeEdgeStretch": 5.505170209877279
+      },
+      {
+        "iteration": 140,
+        "loss": 0.007332195405063326,
+        "maximumFreeEdgeStretch": 5.488597414137568
+      },
+      {
+        "iteration": 141,
+        "loss": 0.007314998603726342,
+        "maximumFreeEdgeStretch": 5.477351315400768
+      },
+      {
+        "iteration": 142,
+        "loss": 0.0073084518981122015,
+        "maximumFreeEdgeStretch": 5.470650576696268
+      },
+      {
+        "iteration": 143,
+        "loss": 0.007297486653079319,
+        "maximumFreeEdgeStretch": 5.466288279879116
+      },
+      {
+        "iteration": 144,
+        "loss": 0.007277074709276814,
+        "maximumFreeEdgeStretch": 5.449976488701589
+      },
+      {
+        "iteration": 145,
+        "loss": 0.007266199953719348,
+        "maximumFreeEdgeStretch": 5.4392362210926555
+      },
+      {
+        "iteration": 146,
+        "loss": 0.007254410419334387,
+        "maximumFreeEdgeStretch": 5.438138531083265
+      },
+      {
+        "iteration": 147,
+        "loss": 0.00723961692839843,
+        "maximumFreeEdgeStretch": 5.43314631228946
+      },
+      {
+        "iteration": 148,
+        "loss": 0.0072273015236145165,
+        "maximumFreeEdgeStretch": 5.421987450512341
+      },
+      {
+        "iteration": 149,
+        "loss": 0.007217527513442067,
+        "maximumFreeEdgeStretch": 5.41012930005314
+      },
+      {
+        "iteration": 150,
+        "loss": 0.00720799863324517,
+        "maximumFreeEdgeStretch": 5.38117588184262
+      },
+      {
+        "iteration": 151,
+        "loss": 0.007198978903631482,
+        "maximumFreeEdgeStretch": 5.382906625175615
+      },
+      {
+        "iteration": 152,
+        "loss": 0.007190426796601654,
+        "maximumFreeEdgeStretch": 5.382527517079758
+      },
+      {
+        "iteration": 153,
+        "loss": 0.007180438855851337,
+        "maximumFreeEdgeStretch": 5.379234840810432
+      },
+      {
+        "iteration": 154,
+        "loss": 0.007167196352996762,
+        "maximumFreeEdgeStretch": 5.3730571656624795
+      },
+      {
+        "iteration": 155,
+        "loss": 0.007154236509890018,
+        "maximumFreeEdgeStretch": 5.360766895144514
+      },
+      {
+        "iteration": 156,
+        "loss": 0.007144285429534471,
+        "maximumFreeEdgeStretch": 5.3547214843789845
+      },
+      {
+        "iteration": 157,
+        "loss": 0.007139121482800851,
+        "maximumFreeEdgeStretch": 5.352156952341712
+      },
+      {
+        "iteration": 158,
+        "loss": 0.007128503773324669,
+        "maximumFreeEdgeStretch": 5.348773009544781
+      },
+      {
+        "iteration": 159,
+        "loss": 0.007117954630026679,
+        "maximumFreeEdgeStretch": 5.348817936331957
+      },
+      {
+        "iteration": 160,
+        "loss": 0.007107253004305207,
+        "maximumFreeEdgeStretch": 5.347570893392378
+      },
+      {
+        "iteration": 161,
+        "loss": 0.007100566848972777,
+        "maximumFreeEdgeStretch": 5.348197891881443
+      },
+      {
+        "iteration": 162,
+        "loss": 0.007095550142604728,
+        "maximumFreeEdgeStretch": 5.347203600652399
+      },
+      {
+        "iteration": 163,
+        "loss": 0.007089263092678605,
+        "maximumFreeEdgeStretch": 5.346623834575643
+      },
+      {
+        "iteration": 164,
+        "loss": 0.0070735549616057205,
+        "maximumFreeEdgeStretch": 5.350535002259202
+      },
+      {
+        "iteration": 165,
+        "loss": 0.0070641494504450454,
+        "maximumFreeEdgeStretch": 5.355260025581996
+      },
+      {
+        "iteration": 166,
+        "loss": 0.00705599667291876,
+        "maximumFreeEdgeStretch": 5.359936616849883
+      },
+      {
+        "iteration": 167,
+        "loss": 0.007050727865966578,
+        "maximumFreeEdgeStretch": 5.360934043192464
+      },
+      {
+        "iteration": 168,
+        "loss": 0.007042998048507265,
+        "maximumFreeEdgeStretch": 5.365426446609627
+      },
+      {
+        "iteration": 169,
+        "loss": 0.007033349259104213,
+        "maximumFreeEdgeStretch": 5.370285294701165
+      },
+      {
+        "iteration": 170,
+        "loss": 0.007029534658030453,
+        "maximumFreeEdgeStretch": 5.372725942167282
+      },
+      {
+        "iteration": 171,
+        "loss": 0.007026008706422546,
+        "maximumFreeEdgeStretch": 5.371995706278932
+      },
+      {
+        "iteration": 172,
+        "loss": 0.007019310545827433,
+        "maximumFreeEdgeStretch": 5.372034574015207
+      },
+      {
+        "iteration": 173,
+        "loss": 0.007007257618332763,
+        "maximumFreeEdgeStretch": 5.372821157845755
+      },
+      {
+        "iteration": 174,
+        "loss": 0.006998270168054048,
+        "maximumFreeEdgeStretch": 5.372737131239521
+      },
+      {
+        "iteration": 175,
+        "loss": 0.006989808795134185,
+        "maximumFreeEdgeStretch": 5.371266440093718
+      },
+      {
+        "iteration": 176,
+        "loss": 0.006987992763688708,
+        "maximumFreeEdgeStretch": 5.3699805284356
+      },
+      {
+        "iteration": 177,
+        "loss": 0.0069833178695361715,
+        "maximumFreeEdgeStretch": 5.364701755708979
+      },
+      {
+        "iteration": 178,
+        "loss": 0.006972105942676429,
+        "maximumFreeEdgeStretch": 5.356830924646558
+      },
+      {
+        "iteration": 179,
+        "loss": 0.006963503231788665,
+        "maximumFreeEdgeStretch": 5.347744347606606
+      },
+      {
+        "iteration": 180,
+        "loss": 0.006956587634739785,
+        "maximumFreeEdgeStretch": 5.335125943357662
+      },
+      {
+        "iteration": 181,
+        "loss": 0.006948781190035589,
+        "maximumFreeEdgeStretch": 5.322811658273227
+      },
+      {
+        "iteration": 182,
+        "loss": 0.00694004054056144,
+        "maximumFreeEdgeStretch": 5.308416155215933
+      },
+      {
+        "iteration": 183,
+        "loss": 0.006930603969509086,
+        "maximumFreeEdgeStretch": 5.296368848875553
+      },
+      {
+        "iteration": 184,
+        "loss": 0.0069231602184161795,
+        "maximumFreeEdgeStretch": 5.283776609535062
+      },
+      {
+        "iteration": 185,
+        "loss": 0.00691418892695126,
+        "maximumFreeEdgeStretch": 5.246300186234961
+      },
+      {
+        "iteration": 186,
+        "loss": 0.006908209490672871,
+        "maximumFreeEdgeStretch": 5.216632720827696
+      },
+      {
+        "iteration": 187,
+        "loss": 0.006900306223761842,
+        "maximumFreeEdgeStretch": 5.227648415549596
+      },
+      {
+        "iteration": 188,
+        "loss": 0.006891519314665465,
+        "maximumFreeEdgeStretch": 5.223595284234301
+      },
+      {
+        "iteration": 189,
+        "loss": 0.006881992799706615,
+        "maximumFreeEdgeStretch": 5.206689067616893
+      },
+      {
+        "iteration": 190,
+        "loss": 0.006872762858116089,
+        "maximumFreeEdgeStretch": 5.173943994529978
+      },
+      {
+        "iteration": 191,
+        "loss": 0.006861050652537116,
+        "maximumFreeEdgeStretch": 5.137044145527873
+      },
+      {
+        "iteration": 192,
+        "loss": 0.0068506861576508446,
+        "maximumFreeEdgeStretch": 5.124545925204111
+      },
+      {
+        "iteration": 193,
+        "loss": 0.006844014913516903,
+        "maximumFreeEdgeStretch": 5.1372255586779465
+      },
+      {
+        "iteration": 194,
+        "loss": 0.006837237808808591,
+        "maximumFreeEdgeStretch": 5.133842553536253
+      },
+      {
+        "iteration": 195,
+        "loss": 0.00682802407347578,
+        "maximumFreeEdgeStretch": 5.112248914606871
+      },
+      {
+        "iteration": 196,
+        "loss": 0.00681872203414077,
+        "maximumFreeEdgeStretch": 5.104628974540883
+      },
+      {
+        "iteration": 197,
+        "loss": 0.006810742726415186,
+        "maximumFreeEdgeStretch": 5.103369714221617
+      },
+      {
+        "iteration": 198,
+        "loss": 0.006804926959112625,
+        "maximumFreeEdgeStretch": 5.100745656094928
+      },
+      {
+        "iteration": 199,
+        "loss": 0.0067976272164146844,
+        "maximumFreeEdgeStretch": 5.097271715300947
+      },
+      {
+        "iteration": 200,
+        "loss": 0.006791241883965897,
+        "maximumFreeEdgeStretch": 5.0877543945859305
+      },
+      {
+        "iteration": 201,
+        "loss": 0.00678416426440944,
+        "maximumFreeEdgeStretch": 5.078941184008205
+      },
+      {
+        "iteration": 202,
+        "loss": 0.00677610217889079,
+        "maximumFreeEdgeStretch": 5.079484390435264
+      },
+      {
+        "iteration": 203,
+        "loss": 0.006765974364218567,
+        "maximumFreeEdgeStretch": 5.083811423988937
+      },
+      {
+        "iteration": 204,
+        "loss": 0.00675924387671681,
+        "maximumFreeEdgeStretch": 5.087723965707938
+      },
+      {
+        "iteration": 205,
+        "loss": 0.006749396982878896,
+        "maximumFreeEdgeStretch": 5.095318899166659
+      },
+      {
+        "iteration": 206,
+        "loss": 0.006743728799056593,
+        "maximumFreeEdgeStretch": 5.104396113999085
+      },
+      {
+        "iteration": 207,
+        "loss": 0.006737271579625936,
+        "maximumFreeEdgeStretch": 5.10052767701782
+      },
+      {
+        "iteration": 208,
+        "loss": 0.006730896322286417,
+        "maximumFreeEdgeStretch": 5.098848602100494
+      },
+      {
+        "iteration": 209,
+        "loss": 0.006724480904058593,
+        "maximumFreeEdgeStretch": 5.099753781649933
+      },
+      {
+        "iteration": 210,
+        "loss": 0.006715731275298765,
+        "maximumFreeEdgeStretch": 5.102156705729333
+      },
+      {
+        "iteration": 211,
+        "loss": 0.006709176097500228,
+        "maximumFreeEdgeStretch": 5.102880431789759
+      },
+      {
+        "iteration": 212,
+        "loss": 0.006703718664422526,
+        "maximumFreeEdgeStretch": 5.105709576233088
+      },
+      {
+        "iteration": 213,
+        "loss": 0.006688134048820092,
+        "maximumFreeEdgeStretch": 5.113211309533376
+      },
+      {
+        "iteration": 214,
+        "loss": 0.006678206859367017,
+        "maximumFreeEdgeStretch": 5.113055556800204
+      },
+      {
+        "iteration": 215,
+        "loss": 0.006671264081731932,
+        "maximumFreeEdgeStretch": 5.107814396865902
+      },
+      {
+        "iteration": 216,
+        "loss": 0.006667435946145893,
+        "maximumFreeEdgeStretch": 5.107544546803323
+      },
+      {
+        "iteration": 217,
+        "loss": 0.006658641277818999,
+        "maximumFreeEdgeStretch": 5.1048934944930755
+      },
+      {
+        "iteration": 218,
+        "loss": 0.006648233091624318,
+        "maximumFreeEdgeStretch": 5.095683243575197
+      },
+      {
+        "iteration": 219,
+        "loss": 0.006638740145657319,
+        "maximumFreeEdgeStretch": 5.091345636154035
+      },
+      {
+        "iteration": 220,
+        "loss": 0.006631210394248288,
+        "maximumFreeEdgeStretch": 5.083694133697261
+      },
+      {
+        "iteration": 221,
+        "loss": 0.006622743118260482,
+        "maximumFreeEdgeStretch": 5.070278666423138
+      },
+      {
+        "iteration": 222,
+        "loss": 0.0066149584030194405,
+        "maximumFreeEdgeStretch": 5.05808238668343
+      },
+      {
+        "iteration": 223,
+        "loss": 0.006606436713464523,
+        "maximumFreeEdgeStretch": 5.051209688409707
+      },
+      {
+        "iteration": 224,
+        "loss": 0.006601717360881703,
+        "maximumFreeEdgeStretch": 5.04495629662539
+      },
+      {
+        "iteration": 225,
+        "loss": 0.006596398880911196,
+        "maximumFreeEdgeStretch": 5.039932650485918
+      },
+      {
+        "iteration": 226,
+        "loss": 0.006592141412963848,
+        "maximumFreeEdgeStretch": 5.025961708184692
+      },
+      {
+        "iteration": 227,
+        "loss": 0.006586188598403693,
+        "maximumFreeEdgeStretch": 5.025946503162907
+      },
+      {
+        "iteration": 228,
+        "loss": 0.006582569017679148,
+        "maximumFreeEdgeStretch": 5.02120385663508
+      },
+      {
+        "iteration": 229,
+        "loss": 0.006571389183808307,
+        "maximumFreeEdgeStretch": 4.997990522935531
+      },
+      {
+        "iteration": 230,
+        "loss": 0.006565199402761125,
+        "maximumFreeEdgeStretch": 4.993058625417883
+      },
+      {
+        "iteration": 231,
+        "loss": 0.006559421087688785,
+        "maximumFreeEdgeStretch": 4.989384805026821
+      },
+      {
+        "iteration": 232,
+        "loss": 0.00655172873008827,
+        "maximumFreeEdgeStretch": 4.984006193981472
+      },
+      {
+        "iteration": 233,
+        "loss": 0.006547905918880196,
+        "maximumFreeEdgeStretch": 4.976025780045455
+      },
+      {
+        "iteration": 234,
+        "loss": 0.006539650444217097,
+        "maximumFreeEdgeStretch": 4.967539780118036
+      },
+      {
+        "iteration": 235,
+        "loss": 0.0065350552901083615,
+        "maximumFreeEdgeStretch": 4.959662624685031
+      },
+      {
+        "iteration": 236,
+        "loss": 0.006531121076844554,
+        "maximumFreeEdgeStretch": 4.953946415182687
+      },
+      {
+        "iteration": 237,
+        "loss": 0.006521055524168164,
+        "maximumFreeEdgeStretch": 4.941138422546134
+      },
+      {
+        "iteration": 238,
+        "loss": 0.006509151806517889,
+        "maximumFreeEdgeStretch": 4.928221027904815
+      },
+      {
+        "iteration": 239,
+        "loss": 0.006503762841920505,
+        "maximumFreeEdgeStretch": 4.92202896731513
+      },
+      {
+        "iteration": 240,
+        "loss": 0.006498423516450852,
+        "maximumFreeEdgeStretch": 4.919172925296181
+      },
+      {
+        "iteration": 241,
+        "loss": 0.006492290345005136,
+        "maximumFreeEdgeStretch": 4.918176942305742
+      },
+      {
+        "iteration": 242,
+        "loss": 0.006489453389333644,
+        "maximumFreeEdgeStretch": 4.917489400239381
+      },
+      {
+        "iteration": 243,
+        "loss": 0.006473005812038655,
+        "maximumFreeEdgeStretch": 4.9167934553560455
+      },
+      {
+        "iteration": 244,
+        "loss": 0.0064625026011050375,
+        "maximumFreeEdgeStretch": 4.918231017743731
+      },
+      {
+        "iteration": 245,
+        "loss": 0.006454526708810986,
+        "maximumFreeEdgeStretch": 4.920007197892459
+      },
+      {
+        "iteration": 246,
+        "loss": 0.006440433175397639,
+        "maximumFreeEdgeStretch": 4.926629221545926
+      },
+      {
+        "iteration": 247,
+        "loss": 0.006429191547237633,
+        "maximumFreeEdgeStretch": 4.9317799087485445
+      },
+      {
+        "iteration": 248,
+        "loss": 0.006417460972789286,
+        "maximumFreeEdgeStretch": 4.935176147561924
+      },
+      {
+        "iteration": 249,
+        "loss": 0.006406986962230522,
+        "maximumFreeEdgeStretch": 4.937564148028214
+      },
+      {
+        "iteration": 250,
+        "loss": 0.00639521123684681,
+        "maximumFreeEdgeStretch": 4.9408201991369065
+      },
+      {
+        "iteration": 251,
+        "loss": 0.006386584501784995,
+        "maximumFreeEdgeStretch": 4.944486904562347
+      },
+      {
+        "iteration": 252,
+        "loss": 0.006378913768517509,
+        "maximumFreeEdgeStretch": 4.945640081161521
+      },
+      {
+        "iteration": 253,
+        "loss": 0.0063710094382095316,
+        "maximumFreeEdgeStretch": 4.945994060524468
+      },
+      {
+        "iteration": 254,
+        "loss": 0.006365912775683682,
+        "maximumFreeEdgeStretch": 4.945850639845236
+      },
+      {
+        "iteration": 255,
+        "loss": 0.006358657704797742,
+        "maximumFreeEdgeStretch": 4.945576284647615
+      },
+      {
+        "iteration": 256,
+        "loss": 0.006350680006184954,
+        "maximumFreeEdgeStretch": 4.945279621495716
+      },
+      {
+        "iteration": 257,
+        "loss": 0.00634496053021124,
+        "maximumFreeEdgeStretch": 4.944430598727991
+      },
+      {
+        "iteration": 258,
+        "loss": 0.006338876816019398,
+        "maximumFreeEdgeStretch": 4.943311892652664
+      },
+      {
+        "iteration": 259,
+        "loss": 0.00632673829717506,
+        "maximumFreeEdgeStretch": 4.938874109291257
+      },
+      {
+        "iteration": 260,
+        "loss": 0.006318523592747031,
+        "maximumFreeEdgeStretch": 4.933560182921591
+      },
+      {
+        "iteration": 261,
+        "loss": 0.006308229499539147,
+        "maximumFreeEdgeStretch": 4.92905387498283
+      },
+      {
+        "iteration": 262,
+        "loss": 0.00629985567272772,
+        "maximumFreeEdgeStretch": 4.923459700340001
+      },
+      {
+        "iteration": 263,
+        "loss": 0.00629142312579337,
+        "maximumFreeEdgeStretch": 4.91699474770779
+      },
+      {
+        "iteration": 264,
+        "loss": 0.006284484425020475,
+        "maximumFreeEdgeStretch": 4.910749264584793
+      },
+      {
+        "iteration": 265,
+        "loss": 0.006273928594106286,
+        "maximumFreeEdgeStretch": 4.900143642288305
+      },
+      {
+        "iteration": 266,
+        "loss": 0.006263944868311995,
+        "maximumFreeEdgeStretch": 4.891273251008729
+      },
+      {
+        "iteration": 267,
+        "loss": 0.006258620001144664,
+        "maximumFreeEdgeStretch": 4.87684663523603
+      },
+      {
+        "iteration": 268,
+        "loss": 0.006252467224637464,
+        "maximumFreeEdgeStretch": 4.877398541021639
+      },
+      {
+        "iteration": 269,
+        "loss": 0.006251132864362713,
+        "maximumFreeEdgeStretch": 4.88077566460266
+      },
+      {
+        "iteration": 270,
+        "loss": 0.006247706603543444,
+        "maximumFreeEdgeStretch": 4.876965489622705
+      },
+      {
+        "iteration": 271,
+        "loss": 0.006239003605678307,
+        "maximumFreeEdgeStretch": 4.870843486472531
+      },
+      {
+        "iteration": 272,
+        "loss": 0.0062333337789272055,
+        "maximumFreeEdgeStretch": 4.863794792879403
+      },
+      {
+        "iteration": 273,
+        "loss": 0.00622604455269997,
+        "maximumFreeEdgeStretch": 4.854849157464712
+      },
+      {
+        "iteration": 274,
+        "loss": 0.006221941537698121,
+        "maximumFreeEdgeStretch": 4.853398634288427
+      },
+      {
+        "iteration": 275,
+        "loss": 0.006216609419116599,
+        "maximumFreeEdgeStretch": 4.845226148053573
+      },
+      {
+        "iteration": 276,
+        "loss": 0.006210780899748192,
+        "maximumFreeEdgeStretch": 4.844709069650495
+      },
+      {
+        "iteration": 277,
+        "loss": 0.0062074800576328495,
+        "maximumFreeEdgeStretch": 4.844709974531554
+      },
+      {
+        "iteration": 278,
+        "loss": 0.006201655930562698,
+        "maximumFreeEdgeStretch": 4.839457374687208
+      },
+      {
+        "iteration": 279,
+        "loss": 0.006198466868231416,
+        "maximumFreeEdgeStretch": 4.836992578495206
+      },
+      {
+        "iteration": 280,
+        "loss": 0.006193848947763169,
+        "maximumFreeEdgeStretch": 4.834941838884123
+      },
+      {
+        "iteration": 281,
+        "loss": 0.006185654921338507,
+        "maximumFreeEdgeStretch": 4.828196592439425
+      },
+      {
+        "iteration": 282,
+        "loss": 0.0061810559107978585,
+        "maximumFreeEdgeStretch": 4.823185046284401
+      },
+      {
+        "iteration": 283,
+        "loss": 0.0061749039762326995,
+        "maximumFreeEdgeStretch": 4.806420096991707
+      },
+      {
+        "iteration": 284,
+        "loss": 0.006164063151714724,
+        "maximumFreeEdgeStretch": 4.806469432797109
+      },
+      {
+        "iteration": 285,
+        "loss": 0.006160799157630682,
+        "maximumFreeEdgeStretch": 4.805092524836131
+      },
+      {
+        "iteration": 286,
+        "loss": 0.006154789195015528,
+        "maximumFreeEdgeStretch": 4.804755295077688
+      },
+      {
+        "iteration": 287,
+        "loss": 0.006149187805383601,
+        "maximumFreeEdgeStretch": 4.803004490379201
+      },
+      {
+        "iteration": 288,
+        "loss": 0.006143208193541431,
+        "maximumFreeEdgeStretch": 4.796043896013406
+      },
+      {
+        "iteration": 289,
+        "loss": 0.006136440465630374,
+        "maximumFreeEdgeStretch": 4.786506555351278
+      },
+      {
+        "iteration": 290,
+        "loss": 0.006130245527866743,
+        "maximumFreeEdgeStretch": 4.78159557349599
+      },
+      {
+        "iteration": 291,
+        "loss": 0.006127382138386223,
+        "maximumFreeEdgeStretch": 4.777141952428181
+      },
+      {
+        "iteration": 292,
+        "loss": 0.006121083913560124,
+        "maximumFreeEdgeStretch": 4.77914553216516
+      },
+      {
+        "iteration": 293,
+        "loss": 0.006118234552469172,
+        "maximumFreeEdgeStretch": 4.776204060069206
+      },
+      {
+        "iteration": 294,
+        "loss": 0.006107798569958794,
+        "maximumFreeEdgeStretch": 4.7589139465732995
+      },
+      {
+        "iteration": 295,
+        "loss": 0.006099228738761326,
+        "maximumFreeEdgeStretch": 4.744282143041819
+      },
+      {
+        "iteration": 296,
+        "loss": 0.006090319401387489,
+        "maximumFreeEdgeStretch": 4.734499783215312
+      },
+      {
+        "iteration": 297,
+        "loss": 0.006082752340206511,
+        "maximumFreeEdgeStretch": 4.7098007266137545
+      },
+      {
+        "iteration": 298,
+        "loss": 0.006074592273814364,
+        "maximumFreeEdgeStretch": 4.710541065540404
+      },
+      {
+        "iteration": 299,
+        "loss": 0.006071539427111868,
+        "maximumFreeEdgeStretch": 4.7064080593569155
+      }
+    ],
+    "status": "Diagnostic; independent full source/strain/contact checks required"
+  }
+}

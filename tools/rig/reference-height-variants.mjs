@@ -16,7 +16,15 @@ const limits = JSON.parse(await fs.readFile("data/rig/joint-limits.json"));
 const pose = new ReferencePose(doc, frames, limits);
 const output = ".local/rig-candidates/reference/heights";
 await fs.mkdir(output, { recursive: true });
-for (const millimeters of [-40, -20, -10, 10, 20, 40]) {
+const heights = process.env.REFERENCE_HEIGHT_MM
+  ? process.env.REFERENCE_HEIGHT_MM.split(",").map(Number)
+  : [-40, -20, -10, 10, 20, 40];
+if (
+  !heights.length ||
+  heights.some((value) => !Number.isInteger(value) || Math.abs(value) > 100)
+)
+  throw Error("Invalid diagnostic wrist heights");
+for (const millimeters of heights) {
   pose.reset();
   for (const [name, q] of Object.entries(base.rotations))
     pose.nodes.get(name).setRotation(q);

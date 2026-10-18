@@ -4,11 +4,25 @@ import { createServer } from "vite";
 import { chromium } from "playwright-core";
 
 const directory = process.env.RIG_INPUT_DIR ?? "assets/rigged";
-if (!["assets/rigged", ".local/rig-candidates/reference"].includes(directory))
+if (
+  ![
+    "assets/rigged",
+    ...[
+      "reference",
+      "harmonic",
+      "harmonic-global",
+      "harmonic-projected",
+      "harmonic-expanded",
+    ].map((name) => ".local/rig-candidates/" + name),
+  ].includes(directory)
+)
   throw Error("Unsupported diagnostic review directory");
 const output = process.env.RIG_REPORT_DIR ?? "docs/anim-report";
 const pose = JSON.parse(
-  await fs.readFile("docs/anim-report/H01-reference-idle-solve.json"),
+  await fs.readFile(
+    process.env.REFERENCE_POSE ??
+      "docs/anim-report/H01-reference-idle-solve.json",
+  ),
 );
 const contact = JSON.parse(
   await fs.readFile(`${output}/H01-reference-contact.json`),
@@ -42,7 +56,7 @@ try {
   const errors = [];
   page.on("pageerror", (error) => errors.push(error.message));
   await page.goto(
-    `http://127.0.0.1:5199/tools/rig-review.html?hero=H01&rigged=1&view=full${directory.startsWith(".local") ? "&candidate=reference" : ""}`,
+    `http://127.0.0.1:5199/tools/rig-review.html?hero=H01&rigged=1&view=full${directory.startsWith(".local") ? "&candidate=" + directory.split("/").at(-1) : ""}`,
   );
   await page.waitForFunction(() => window.ready, null, { timeout: 120000 });
   await page.evaluate(

@@ -171,3 +171,62 @@ RIG_INPUT_DIR=.local/rig-candidates/reference-body-continuous-fixed-hands \
 ```
 
 The second command intentionally exits nonzero while whole-body strain fails. Do not copy this candidate into runtime assets. Remaining work includes source-surface body/sleeve weighting, a valid H02 grip, full reference entrance/IDLE_HOLD clips, whole-animation/contact/volume checks and actual Android testing.
+
+
+## Surface-graph weights and a passing H01 upright grip
+
+This stage uses the actual source triangle graph instead of nearest donor anatomy. A positive inverse-edge-length Dirichlet Laplacian interpolates four shared arm/spine supports on each side. UV-coincident source vertices share weights, while the actual source position/index/normal/UV/image arrays are unchanged. Hand/finger-influenced regions and their neighboring edge endpoints remain protected. Disconnected components with no boundary anchors retain their input weights. The numerical solve reaches relative residuals below 1e-6; this is solver convergence, **not rig acceptance**.
+
+The local Python tools require `numpy==2.3.5` and `scipy==1.17.0`, listed in `tools/rig/requirements-surface.txt`. These are development dependencies for asset processing and the new math tests; they are not Android runtime dependencies. They were already available in the cloud environment. A fresh development environment can install them with `python3 -m pip install -r tools/rig/requirements-surface.txt`.
+
+Global optimization then minimizes exact original-edge stretch over normalized, nonnegative four-bone skin weights. Two tested backends are retained: L-BFGS on normalized weights and a metric-projected simplex solver with a checked descent bound. Analytic gradients are checked against finite differences, including UV-weld accumulation. Projection normalization and monotone descent are independently tested. The earlier per-edge projection experiment worsens the full-pose result and remains rejected.
+
+All rows below use the **same original upright pose** and unchanged acceptance thresholds (p99.9 ≤1.5, maximum ≤2.0):
+
+| Source-weight candidate | Whole-body p99.9 | Maximum | Full-pose result |
+| --- | ---: | ---: | --- |
+| Prior protected sleeve experiment | 7.8622 | 29.0057 | Reject |
+| Surface harmonic interpolation | 2.4935 | 6.8605 | Reject |
+| Harmonic + per-edge projection, 300 iterations | 2.8107 | 15.4500 | Reject; worse |
+| Harmonic + global L-BFGS, 300 iterations | 2.1630 | 4.7064 | Reject |
+| Global + metric projection, 500 iterations | 1.9648 | 3.6218 | Reject |
+| Expanded-domain harmonic interpolation | 2.2663 | 6.1411 | Reject |
+
+The projected candidate retains **passing** independent source-byte/rig structure and generic whole-mesh hand tests; its original-pose hand/cuff tests remain **1.4512/1.7860 right**, **1.4133/1.4501 left**. These component passes do not override the whole-body failure. Its SHA-256 is `b51ff99d4371eba5bb535039524d6328c20da746e45ff9d08ba17119214c3a1c`.
+
+A shortest-path diagnostic samples fixed endpoint pairs on the original source edges. Its strongest sampled necessary stretch bound is about 1.2733, which **does not prove feasibility**, and does not establish impossibility either. The witness and explicit scope are retained in [harmonic-feasibility.json](anim-report/harmonic-feasibility.json); no acceptance condition is inferred from this diagnostic.
+
+### Actual upright hand/weapon contact now passes at one held pose
+
+The staff stays at the original location and scale, with its base on the floor. Raising only the wrist target **22 mm along the shaft** and rotating the original staff about its axis to **276°** gives a joint-legal pose with these independently measured results:
+
+- Actual palm gap **3.3692 mm**, normal-toward-staff dot **0.81649** (required ≥0.8).
+- Maximum source-vertex intrusion **2.5049 mm**.
+- Adaptive test over **26,000 original deformed hand/cuff triangles**: maximum sampled intrusion **2.8227 mm**, conservative upper bound **2.999558 mm**, zero ambiguous queries and zero unresolved triangles. The penetration limit remains **3 mm**.
+- Actual-pose hand/cuff edge strain: right **1.4800/1.8294**, left **1.4133/1.4501**; both pass the original thresholds.
+- All joint checks pass for the static pose. This is not a baked clip or whole-animation contact check.
+
+[Pose](anim-report/harmonic-held/H01-reference-idle-solve.json), [contact proof](anim-report/harmonic-held/H01-reference-contact.json), [strain](anim-report/harmonic-held/H01-reference-strain.json). The held-pose whole-body result still fails at **1.9934/3.7895**, so the rig remains unactivated. The front screenshot was inspected in the cloud review renderer; side/back screenshots are retained too. This is not an Android test or final cloth/volume approval.
+
+![Original source model at the passing upright contact pose; whole rig not accepted](anim-report/harmonic-held/H01-reference-view-0.png)
+
+Reproduction after building the isolated reference-fit GLB described above:
+
+```bash
+npm run assets:rig:surface
+SKIN_FIT_ITERATIONS=300 node tools/rig/optimize-surface.mjs
+SKIN_FIT_ITERATIONS=500 node tools/rig/optimize-surface.mjs --projected
+RIG_INPUT_DIR=.local/rig-candidates/harmonic-projected \
+  REFERENCE_HEIGHT_MM=22 node tools/rig/reference-height-variants.mjs
+RIG_INPUT_DIR=.local/rig-candidates/harmonic-projected \
+  REFERENCE_POSE=.local/rig-candidates/reference/heights/22.json \
+  CONTACT_ROLLS=276 RIG_REPORT_DIR=.local/rig-candidates/contact-proof \
+  node tools/rig/validate-reference-pose.mjs
+```
+
+The source models, existing staging GLBs and runtime activation settings remain unchanged. H02 grip, whole-body source weighting, full reference entrance/IDLE_HOLD clips and Android hardware checks remain outstanding. No new APK is produced from this rejected full-body rig.
+
+
+Visual follow-up: front, side and back renders were opened for review. The back view still shows a local bulge in the side robe below the raised sleeve. This is an additional reason to reject complete rig/cloth acceptance even though the static hand/weapon contact passes. No cloth-volume or whole-animation acceptance is claimed.
+
+This stage's `npm test` run completed with **156 passed, zero failed/skipped** (including three Python objective/projection checks exercised by the Node wrapper). `verify:master` exits **1**, reports **BLOCKED 0/37**, and is not relabelled as passing. All measurements and images are cloud results; Android hardware remains untested.

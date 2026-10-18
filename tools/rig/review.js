@@ -6,6 +6,16 @@ const params = new URLSearchParams(location.search);
 const hero = params.get("hero") ?? "H02";
 const hand = params.get("hand") ?? "R";
 const full = params.get("view") === "full";
+const candidate = params.get("candidate");
+const candidates = [
+  "reference",
+  "harmonic",
+  "harmonic-global",
+  "harmonic-projected",
+  "harmonic-expanded",
+];
+if (candidate && !candidates.includes(candidate))
+  throw Error("Unsupported diagnostic candidate");
 if (!["H01", "H02"].includes(hero)) throw new Error("Unsupported review hero");
 const renderer = new THREE.WebGLRenderer({
   antialias: true,
@@ -31,9 +41,7 @@ key.position.set(2, 3, 4);
 scene.add(key);
 const gltf = await new GLTFLoader().loadAsync(
   params.has("rigged")
-    ? (params.get("candidate") === "reference"
-        ? "/.local/rig-candidates/reference/"
-        : "/assets/rigged/") +
+    ? (candidate ? `/.local/rig-candidates/${candidate}/` : "/assets/rigged/") +
         hero +
         "-C0-rigged.glb"
     : "/models/hunyuan-original/" + hero + "-C0-source.glb",
