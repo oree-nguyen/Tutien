@@ -1082,7 +1082,7 @@ Nguồn: `harmonic-projected-view-2.png`, `docs/anim-report/garment-separated/ha
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:02:47 UTC+07:00**
 
-Nguồn: `assembled-back.png`
+Nguồn: `assembled-back.png`, `docs/anim-report/robe-panels/assembled-back.png`
 
 ## Ảnh 111
 
@@ -1130,7 +1130,7 @@ Nguồn: `torso-sleeves.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:04:35 UTC+07:00**
 
-Nguồn: `assembled-front.png`
+Nguồn: `assembled-front.png`, `docs/anim-report/robe-panels/assembled-front.png`
 
 ## Ảnh 117
 
@@ -1138,7 +1138,7 @@ Nguồn: `assembled-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:04:36 UTC+07:00**
 
-Nguồn: `left-panel.png`
+Nguồn: `left-panel.png`, `docs/anim-report/robe-panels/left-panel.png`
 
 ## Ảnh 118
 
@@ -1146,7 +1146,7 @@ Nguồn: `left-panel.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:04:36 UTC+07:00**
 
-Nguồn: `right-panel.png`
+Nguồn: `right-panel.png`, `docs/anim-report/robe-panels/right-panel.png`
 
 ## Ảnh 119
 
@@ -1154,7 +1154,7 @@ Nguồn: `right-panel.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:04:37 UTC+07:00**
 
-Nguồn: `separated-panels.png`
+Nguồn: `separated-panels.png`, `docs/anim-report/robe-panels/separated-panels.png`
 
 ## Ảnh 120
 
@@ -1162,7 +1162,7 @@ Nguồn: `separated-panels.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:04:37 UTC+07:00**
 
-Nguồn: `torso-sleeves.png`
+Nguồn: `torso-sleeves.png`, `docs/anim-report/robe-panels/torso-sleeves.png`
 
 ## Ảnh 121
 
@@ -1170,7 +1170,7 @@ Nguồn: `torso-sleeves.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:06:08 UTC+07:00**
 
-Nguồn: `held-back.png`
+Nguồn: `held-back.png`, `docs/anim-report/robe-panels/held-back.png`
 
 ## Ảnh 122
 
@@ -1178,4 +1178,132 @@ Nguồn: `held-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:06:09 UTC+07:00**
 
-Nguồn: `held-front.png`
+Nguồn: `held-front.png`, `docs/anim-report/robe-panels/held-front.png`
+
+## Ảnh 123
+
+![h01-held-back.png](../media/f39a6d9c27d85148046996154c5cb7ad4bb19a8b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:26:01 UTC+07:00**
+
+Nguồn: `h01-held-back.png`
+
+## Ảnh 124
+
+![h01-left.png](../media/91e94d3a52d105394fefa922b55d89b8bf71d025.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:26:03 UTC+07:00**
+
+Nguồn: `h01-left.png`
+
+## Ảnh 125
+
+![h01-right.png](../media/1b76929ec469401c89b40060e81994806a2ee7b7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:26:04 UTC+07:00**
+
+Nguồn: `h01-right.png`
+
+## Ảnh 126
+
+![h01-left.png](../media/e7462743839c9da0a719b4d7beafbe0ea4530064.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:27:59 UTC+07:00**
+
+Nguồn: `h01-left.png`
+
+## Ảnh 127
+
+![h01-right.png](../media/e649b74cf2a62d32efe2f8ca5ae524fb9df328aa.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:28:00 UTC+07:00**
+
+Nguồn: `h01-right.png`
+
+## Ảnh 128
+
+![h02-rig.png](../media/c1ebd5112378b757711bd88e761c121d1eef330a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:28:00 UTC+07:00**
+
+Nguồn: `h02-rig.png`
+
+## Ảnh 129
+
+![h01-held-back.png](../media/c29135415c521b964e3062f272ef7807c7d3e3fd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:32:21 UTC+07:00**
+
+Nguồn: `h01-held-back.png`
+
+## Ảnh 130
+
+![h01-left.png](../media/38651f8dd28e2c9a776969c0255d312f036f5f4c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:32:21 UTC+07:00**
+
+Nguồn: `h01-left.png`
+
+## Ảnh 131
+
+![h01-right.png](../media/c4ee340dc62fb8c1b4b44274a1a0ceb5033f871f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:32:21 UTC+07:00**
+
+Nguồn: `h01-right.png`
+
+## Ảnh 132
+
+![h02-rig.png](../media/05923bd03f77a5b42c9d0232af9698c84e87781a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:32:22 UTC+07:00**
+
+Nguồn: `h02-rig.png`
+
+## Ảnh 133
+
+![h01-held-back.png](../media/947f6ee552ea8273a2170846c0d6b14895e06f67.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:36:04 UTC+07:00**
+
+Nguồn: `h01-held-back.png`
+
+## Ảnh 134
+
+![h01-left.png](../media/0883c73f74c5ea2c8675b2362c8e02dd210ba88a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:36:04 UTC+07:00**
+
+Nguồn: `h01-left.png`
+
+## Ảnh 135
+
+![h01-right.png](../media/2ee244a5db38809aaf85b08b01a9ff4d5c727b98.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:36:05 UTC+07:00**
+
+Nguồn: `h01-right.png`
+
+## Ảnh 136
+
+![h02-rig.png](../media/4934b51157c63c2008267e87f2a006756e30dc65.png)
+
+**Thời gian đăng ký ảnh: 2026-10-18 20:36:05 UTC+07:00**
+
+Nguồn: `h02-rig.png`
+
+## Ảnh 137
+
+![h01-held-back.png](../media/735a55f7b942f5a842774f1fae124b85ab5252bd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 03:57:20 UTC+07:00**
+
+Nguồn: `h01-held-back.png`
+
+## Ảnh 138
+
+![h02-rig.png](../media/15cd27999c91dd1ccbbaaa37f5e58cf5f4a89add.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 03:57:21 UTC+07:00**
+
+Nguồn: `h02-rig.png`

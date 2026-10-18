@@ -5,7 +5,7 @@ export default defineConfig({
   base: "./",
   define:{"import.meta.env.HG_BUILD_ID":JSON.stringify(sourceHash)},
   worker:{format:"es"},
-  build: { rollupOptions: { output: { manualChunks: { three: ["three"] } } } },
+  build: { rollupOptions: { input: { main:"index.html", rigReview:"rig-review.html" }, output: { manualChunks: { three: ["three"] } } } },
   server: {
     host: "0.0.0.0",
     proxy: {

@@ -266,3 +266,23 @@ Validation for this stage: `npm test` **158 passed, zero failed/skipped** (inclu
 ## Two independent lower H01 robe panels
 
 The focused follow-up splits lower left/right outer-robe panels away from the upper garment/sleeves into compact, independently indexed skinned meshes. It preserves every source triangle and attribute; no weight correction or runtime activation is bundled. The earlier broad color selection is refined in the lower region with nearest green/white source-surface seeds; the remaining automatic segmentation limitations and exposed missing hidden surfaces are explicitly documented. See [panel breakdown, reproduction and images](anim-report/robe-panels/README.md). No complete rig or clothing acceptance is inferred from mesh separation.
+
+## Rig/APK completion goal and whole-mesh rejection checks
+
+The follow-up goal is tracked in acceptance/goals/rig-apk.json and checked with npm run goal:rig; the existing repository goal was also run. Neither is marked complete. No requirement is waived because an APK can be built.
+
+The new validate-all-meshes.mjs independently skins **every** mesh/primitive at the held reference pose, retaining p99.9 ≤1.5 / maximum ≤2.0. It also rejects discontinuity at identical-source shared seam vertices (1 µm numerical tolerance). Intentional free seams require explicit reviewed mapping; none is silently exempted. Regression fixtures check that a failing second mesh cannot hide behind a passing first mesh, and that individually unstrained meshes still fail when their shared boundary opens.
+
+The hip-only lower-panel trial is rejected: the panels have stretch 1.0, but shared-source seams open **388.343 mm**. Upper garment and remaining surfaces also fail their independent strain checks. See robe-panels/anchored-all-mesh-strain.json. These weights remain local and are not packaged as a runtime replacement.
+
+The optimizer ran **2,000 projected iterations**, isolated under .local/rig-candidates/fullbody-refit/. Independent full-source validation still passes (original geometry/UV/images and weighted finger bones preserved). However, independent whole-body held-pose strain is **1.894217 / 3.497870**, versus **1.993379 / 3.789454** before. This is numerical improvement, **not acceptance**. The optimizer reports nonconvergence; no new rig is activated. Reports, solve history and hashes are in anim-report/fullbody-refit/.
+
+An offline mobile rig viewer is included to inspect the source-resolution split meshes and existing clips: lobby → **HƯỚNG DẪN → Xem rig thử**. H01 panels can be isolated; H02 can be inspected separately. Only one preview is retained at once. It does not edit account data, match state, economy, or existing runtime actor loaders. Textures are copied unchanged, without resolution reduction, CDN or remote generation. Camera bounds are computed after updating skeleton matrices; a browser regression checks that all of H02 fits the viewport.
+
+Native packaging assigns a new versionCode and source-derived versionName, and refuses to write provenance if source files change during the build. The separate single-file HTML exporter is skipped specifically for native packaging; all offline dist assets, including review GLBs, remain in the APK. The old standalone HTML is not presented as newly rebuilt.
+
+Recorded failures: the first Android config test exposed a dependency on the fixture working directory; packaging now passes its build identity explicitly and the original security test passes unchanged. One cloud screenshot timed out at 30 seconds; a later capture uses a 120-second timeout without changing gameplay/performance or deformation thresholds. Development reloads affected the first captures; those images are retained in the gallery and the stable review test disables source watching. Obsolete standalone-only exports were deliberately cancelled before the final native rebuild.
+
+Final automated checks for this packaging stage: **164/164 npm test**, **215/215 test:master** pass; **verify:master remains BLOCKED 0/37**. The browser review passes with zero external requests/page errors and full H02 camera framing. All measurements are from cloud Chromium, not an Android device.
+
+Verified diagnostic APK: **2.5.7c386946**, native versionCode **214493786**, **445,435,498 bytes**. SHA-256: **558b5fa1fd8cbb6529204b27c58664c4a78b4fdad5db7388882e792bb4f3747c**. APK signing, manifest version, embedded GLB hashes, current source fingerprint and entry-module dependency graphs were checked. This APK adds the offline review screen; it does **not** activate the rejected new rig. Physical Android behavior, full H02 grip and final reference animation remain unverified/unaccepted.

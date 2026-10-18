@@ -1,0 +1,70 @@
+{
+  "id": "h01-h02-rig-clothing-apk",
+  "objective": "Hoàn thiện tách áo, rig, tiếp xúc vũ khí và Entrance/IDLE_HOLD cho H01/H02, giữ texture gốc, kiểm định và xuất APK mới.",
+  "status": "blocked",
+  "required": [
+    {
+      "id": "garment",
+      "condition": "Hai vạt H01 độc lập; biên áo/tay/thân hợp lý, không giả phần thân bị thiếu",
+      "status": "in_progress",
+      "note": "Two lower panels exported, but sleeve/robe interface and missing hidden surface remain unaccepted."
+    },
+    {
+      "id": "skin",
+      "condition": "Kiểm toàn bộ mesh, không chỉ mesh đầu: p99.9 <= 1.5 và maximum <= 2.0; không đổi ngưỡng",
+      "status": "blocked",
+      "note": "Independent 2000-iteration refit: p999 1.894217, max 3.497870; limits remain 1.5 / 2.0. Hip-only panels create 388.343 mm shared-source seam gap and are rejected."
+    },
+    {
+      "id": "contact",
+      "condition": "H01/H02 qua kiểm tiếp xúc mesh vũ khí và giới hạn khớp hiện có",
+      "status": "blocked",
+      "note": "H01 static grip has earlier passing evidence; H02 full source grip still unaccepted."
+    },
+    {
+      "id": "animation",
+      "condition": "Entrance và IDLE_HOLD đúng reference; kiểm hoạt ảnh và chuyển tiếp, không mất UV/texture",
+      "status": "blocked",
+      "note": "Complete approved Entrance/IDLE_HOLD and whole-animation contact/cloth validation are still missing."
+    },
+    {
+      "id": "runtime",
+      "condition": "Chỉ kích hoạt model đã qua kiểm định; sảnh/trận/offline không lỗi",
+      "status": "blocked",
+      "note": "Unaccepted candidates are not activated. Diagnostic viewer is separate from match/lobby actors."
+    },
+    {
+      "id": "tests",
+      "condition": "npm test, test:master và verify:master báo kết quả thật; không hạ điều kiện",
+      "status": "blocked",
+      "note": "Unit tests pass; test:master passes after fixture configuration fix; verify:master remains BLOCKED 0/37."
+    },
+    {
+      "id": "apk",
+      "condition": "APK ký hợp lệ, provenance/SHA256 khớp mã nguồn mới; không nhận APK cũ là mới",
+      "status": "completed",
+      "note": "Signed APK 2.5.7c386946; native manifest, local GLBs, SHA256 and embedded source identity verified."
+    },
+    {
+      "id": "publish",
+      "condition": "Mã nguồn, ảnh và APK lên GitHub; xác minh remote",
+      "status": "in_progress",
+      "note": "Publishing source, gallery and verified diagnostic APK to main."
+    }
+  ],
+  "limitations": [
+    "Chưa có điện thoại Android thật kết nối; không được tự nhận đã nghiệm thu phần cứng"
+  ],
+  "artifact": {
+    "sourceHash": "7c386946156edebf342cd544854b2f0b969d193863db8e117628c69d5dcf9cc3",
+    "apkSha256": "558b5fa1fd8cbb6529204b27c58664c4a78b4fdad5db7388882e792bb4f3747c",
+    "apkBytes": 445435498,
+    "buildType": "debug",
+    "versionCode": 214493786,
+    "versionName": "2.5.7c386946",
+    "rigReviewIncluded": true,
+    "runtimeRigReplaced": false,
+    "signed": true,
+    "recordedAt": "2026-10-18T13:37:22.516Z"
+  }
+}

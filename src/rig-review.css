@@ -1,0 +1,96 @@
+:root {
+  font-family: system-ui, sans-serif;
+  color: #f2e5c7;
+  background: #123548;
+  color-scheme: dark;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  height: 100dvh;
+  overflow: hidden;
+}
+header {
+  height: 48px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 5px 12px;
+  border-bottom: 1px solid #8c5a2b;
+}
+header strong {
+  flex: 1;
+}
+button,
+select {
+  font: inherit;
+  color: inherit;
+  background: #173e50;
+  border: 1px solid #a98448;
+  border-radius: 5px;
+  min-height: 40px;
+  padding: 6px 10px;
+  touch-action: manipulation;
+}
+button:disabled,
+select:disabled {
+  opacity: 0.5;
+}
+main {
+  display: flex;
+  height: calc(100dvh - 48px);
+}
+aside {
+  width: 260px;
+  flex-shrink: 0;
+  padding: 12px;
+  overflow-y: auto;
+}
+label {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0;
+}
+aside button {
+  display: block;
+  width: 100%;
+  margin: 8px 0;
+}
+p {
+  font-size: 13px;
+  line-height: 1.45;
+}
+#viewport {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+canvas {
+  display: block;
+  touch-action: none;
+}
+@media (max-height: 500px) {
+  header {
+    height: 40px;
+    font-size: 12px;
+  }
+  main {
+    height: calc(100dvh - 40px);
+  }
+  aside {
+    width: 230px;
+    padding: 5px 10px;
+  }
+  label {
+    font-size: 12px;
+  }
+  p {
+    margin: 4px 0;
+  }
+  button,
+  select {
+    min-height: 34px;
+  }
+}

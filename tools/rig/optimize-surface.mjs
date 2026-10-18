@@ -5,12 +5,20 @@ import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
 import { Matrix4 } from "three";
 import { createHash } from "node:crypto";
 const projected = process.argv.includes("--projected");
-const input = projected
-    ? ".local/rig-candidates/harmonic-global/H01-C0-rigged.glb"
-    : ".local/rig-candidates/harmonic/H01-C0-rigged.glb",
-  output = projected
-    ? ".local/rig-candidates/harmonic-projected"
-    : ".local/rig-candidates/harmonic-global";
+const input =
+    process.env.RIG_INPUT_FILE ??
+    (projected
+      ? ".local/rig-candidates/harmonic-global/H01-C0-rigged.glb"
+      : ".local/rig-candidates/harmonic/H01-C0-rigged.glb"),
+  output =
+    process.env.RIG_OUTPUT_DIR ??
+    (projected
+      ? ".local/rig-candidates/harmonic-projected"
+      : ".local/rig-candidates/harmonic-global");
+if (!/^\.local\/rig-candidates\/[a-z0-9-]+$/.test(output))
+  throw Error("Optimizer output must be an isolated local candidate directory");
+if (input === output + "/H01-C0-rigged.glb")
+  throw Error("Optimizer cannot overwrite its input");
 const bytes = await fs.readFile(input),
   io = new NodeIO().registerExtensions(ALL_EXTENSIONS),
   doc = await io.readBinary(bytes);
@@ -38,7 +46,10 @@ await fs.copyFile(
   `${output}/protected.bin`,
 );
 const reference = JSON.parse(
-  await fs.readFile("docs/anim-report/H01-reference-idle-solve.json"),
+  await fs.readFile(
+    process.env.REFERENCE_POSE ??
+      "docs/anim-report/H01-reference-idle-solve.json",
+  ),
 );
 if (!reference.passed) throw Error("Reference pose rejected");
 const binds = joints.map((j) => j.getRotation());

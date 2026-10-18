@@ -21,7 +21,12 @@ async function run(cmd, args, env = {}) {
     );
   });
 }
-await run("npm", ["run", "android:sync"]);
+await run("node", ["scripts/copy-rig-review.mjs"]);
+const buildId = await fingerprint();
+await run("npm", ["run", "android:sync"], {
+  HG_ANDROID_BUILD_ID: buildId,
+  HG_SKIP_STANDALONE: "1",
+});
 await run(
   "./android/gradlew",
   [
@@ -49,15 +54,26 @@ await run(
   ["verify", "--verbose", target],
   { JAVA_HOME: jdk },
 );
+if ((await fingerprint()) !== buildId)
+  throw Error("Source changed during APK build; rebuild before publishing");
 const bytes = await readFile(target);
+const gradleMetadata = await readFile("android/app/build.gradle", "utf8");
+const versionCode = Number(gradleMetadata.match(/versionCode\s+(\d+)/)?.[1]);
+const versionName = gradleMetadata.match(/versionName\s+"([^"]+)"/)?.[1];
+if (!versionCode || !versionName) throw Error("Missing native APK version");
+
 await writeFile(
   "release/build-provenance.json",
   JSON.stringify(
     {
-      sourceHash: await fingerprint(),
+      sourceHash: buildId,
       apkSha256: createHash("sha256").update(bytes).digest("hex"),
       apkBytes: bytes.length,
       buildType: "debug",
+      versionCode,
+      versionName,
+      rigReviewIncluded: true,
+      runtimeRigReplaced: false,
       signed: true,
       recordedAt: new Date().toISOString(),
     },

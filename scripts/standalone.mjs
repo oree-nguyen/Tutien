@@ -1,3 +1,8 @@
+// Native APKs package dist directly and do not need the separate single-file HTML export.
+if(process.env.HG_SKIP_STANDALONE === "1"){
+ console.log("Native build: standalone HTML export skipped; offline dist assets remain complete.");
+ process.exit(0);
+}
 import {fingerprint} from './fingerprint.mjs';
 import { build } from "esbuild";
 import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
@@ -53,8 +58,10 @@ const result = await build({
     },
   ],
 });
-const file = (await readdir("dist/assets")).find((n) => n.endsWith(".css"));
-const css = await readFile("dist/assets/" + file, "utf8");
+const builtHtml = await readFile("dist/index.html", "utf8");
+const cssLinks = [...builtHtml.matchAll(/<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)].map(match=>match[1]);
+if(!cssLinks.length) throw Error("Main entry has no built stylesheet");
+const css = (await Promise.all(cssLinks.map(url=>readFile("dist/"+url.replace(/^\.\//,""),"utf8")))).join("\n");
 let html = await readFile("index.html", "utf8");
 html = html
   .replace(/<link[^>]*>/g, "")

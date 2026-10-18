@@ -162,3 +162,17 @@ android.applicationVariants.all { variant ->
 console.log(
   `Configured landscape WebView, obscured-touch filter, native Kotlin guard, release R8 and ${pins.length} certificate pin(s). Debug is usable; release requires a matching trusted signing certificate.`,
 );
+
+// Packaging passes its actual source identity; fixture-only configuration needs no repo.
+if(process.env.HG_ANDROID_BUILD_ID){
+ const buildId=process.env.HG_ANDROID_BUILD_ID;
+ if(!/^[a-f0-9]{8,64}$/.test(buildId))throw Error("Invalid Android build ID");
+ const gradlePath="android/app/build.gradle";
+ let gradleText=await readFile(gradlePath,"utf8");
+ const versionCode=Number(process.env.HG_ANDROID_VERSION_CODE ?? Math.floor((Date.now()-Date.UTC(2020,0,1))/1000));
+ if(!Number.isInteger(versionCode)||versionCode<1||versionCode>2100000000)throw Error("Invalid Android versionCode");
+ const versionName="2.5."+buildId.slice(0,8);
+ gradleText=gradleText.replace(/versionCode\s+\d+/,"versionCode "+versionCode).replace(/versionName\s+"[^"]*"/,'versionName "'+versionName+'"');
+ await writeFile(gradlePath,gradleText);
+ console.log("Android version:",versionName,"code",versionCode);
+}
