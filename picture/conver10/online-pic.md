@@ -1,0 +1,1005 @@
+# Nhiệm vụ 10: Kiểm tra và sửa rig H01 H02
+
+[Danh sách nhiệm vụ](../README.md)
+
+Ảnh được giữ nguyên dữ liệu. Thời gian ảnh cũ là lúc lưu trên Git, không phải giờ chụp đã xác minh.
+
+## Ảnh 1
+
+![H01_L_0.png](../media/846551b2a162f298a6781de564e5848916fe3ff4.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H01_L_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 2
+
+![H01_L_1.png](../media/c35df623eca957268906129ad80537ffeb5ac245.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H01_L_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 3
+
+![H01_L_2.png](../media/90f9bf9f78e2ba796f3f3306bad59d9b34320e08.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H01_L_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 4
+
+![H01_R_0.png](../media/11dc828ae72fa41ddf0c98dac670545507873079.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H01_R_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 5
+
+![H01_R_1.png](../media/6f2f73503c0ef09725d4632a25a53add46048716.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H01_R_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 6
+
+![H01_R_2.png](../media/fa5dbf55725649e92d6484e0bd575f014031442f.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H01_R_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 7
+
+![H02_L_0.png](../media/9efd9b394f68c9d728683750bc1a160bfbb5183f.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H02_L_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 8
+
+![H02_L_1.png](../media/420331ff89051e90804027d21648d96fc21d1095.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H02_L_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 9
+
+![H02_L_2.png](../media/7454eb13ed2193647013acc7dcf929d0a9fc6038.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H02_L_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 10
+
+![H02_R_0.png](../media/c9e28f38e65fa1ea3afac91b5c3d4a7ff8256d72.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H02_R_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 11
+
+![H02_R_1.png](../media/1a97eec410017d743fb90b1fcb7def371cdaf1bc.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H02_R_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 12
+
+![H02_R_2.png](../media/31c6ccf4bf094acd751f657232295f03c7ec1be0.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/anim-report/before/H02_R_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 13
+
+![H01_L_0.png](../media/1602f140fdf2afd112fd8b3dfe95277a22990025.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 14
+
+![H01_L_1.png](../media/734682d35998860a3330bf4abbebf75a5a92ca3b.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 15
+
+![H01_L_2.png](../media/ad1030657330c0e74ee0b8bb45a9ac25b2ed798d.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 16
+
+![H01_L_fist_0.png](../media/4f24404957e1de1b00a1fa4895ac8668e432f75b.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_fist_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 17
+
+![H01_L_fist_1.png](../media/4418fa3608264e28c78b812dcfaad8ee3d3de44d.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_fist_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 18
+
+![H01_L_fist_2.png](../media/8fb7707d44bbd5bd25b9328868aa7c17943e0d60.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_fist_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 19
+
+![H01_L_open_0.png](../media/043ff22fdaef43496c2058ed4d081c434bed103f.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_open_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 20
+
+![H01_L_open_1.png](../media/594089aa178f86ed4248f9f46299437aac01be78.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_open_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 21
+
+![H01_L_open_2.png](../media/7776425e17982ec4df4d76398041840e4ae0867e.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_open_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 22
+
+![H01_R_0.png](../media/43e818c011b706c4264608ebebd1a92088340d3e.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 23
+
+![H01_R_1.png](../media/5ed73a1b8cf9655a70e1001e66483f1ae21dd699.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 24
+
+![H01_R_2.png](../media/dc216b2d55085bfb2934702128e5d79aec953d28.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 25
+
+![H01_R_fist_0.png](../media/30746a2e8b07a2214429d078db4560f1f9f15f61.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_fist_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 26
+
+![H01_R_fist_1.png](../media/7092a8fc9d2ff3b1d9e0ba4b4f8e7d4f85799819.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_fist_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 27
+
+![H01_R_fist_2.png](../media/dba9a9b074b7bb2b1f177fad74d7fdaab6de60ee.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_fist_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 28
+
+![H01_R_open_0.png](../media/d6582efd1bbaeba4b933aa23bbe54f22b5982aa7.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_open_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 29
+
+![H01_R_open_1.png](../media/38a196746409d7ff70c02b98eae22b648b564740.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_open_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 30
+
+![H01_R_open_2.png](../media/0c441e598a022d8269499853f48273c0ede75d56.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_open_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 31
+
+![H02_L_0.png](../media/e3b07c8e5fdc137422d7227268a4b7055ba021d7.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 32
+
+![H02_L_1.png](../media/4e0e159e0184c2d1ef41056c79679831ba5e01b4.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 33
+
+![H02_L_2.png](../media/680cc57028e04fd1489d83881f48b76ec69f9241.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 34
+
+![H02_L_fist_0.png](../media/8bb3e09a0f45467162039285d03ee6eae221d81a.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_fist_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 35
+
+![H02_L_fist_1.png](../media/84e23c8e3b85ff0a97325e61db81530b860eb1a5.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_fist_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 36
+
+![H02_L_fist_2.png](../media/5551c0164b1d3ef6a7a7706a26afe6e205977052.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_fist_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 37
+
+![H02_L_open_0.png](../media/ae65ccea50cc953bb6f9267497e515d0d5201f50.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_open_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 38
+
+![H02_L_open_1.png](../media/01c5bb0a4fb895fa2e24ddb9ca30f5697fe78e06.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_open_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 39
+
+![H02_L_open_2.png](../media/60ee012e9e67ebf3d5d60cf36238443af04ba282.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_L_open_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 40
+
+![H02_R_0.png](../media/07d3f5a321f3386d86cec56c10179aa81d63b0db.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 41
+
+![H02_R_1.png](../media/806b7a943183320aa837e0f95ff29f54b9041446.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 42
+
+![H02_R_2.png](../media/3abb71af3a1e4d4d2782c0ae70d5c5823665b79b.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 43
+
+![H02_R_fist_0.png](../media/acbfb87883cc0861e8593d2aee74afe6ffc7b091.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_fist_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 44
+
+![H02_R_fist_1.png](../media/94437db5f288e9e8ef738be376b532b2ad75c2fd.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_fist_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 45
+
+![H02_R_fist_2.png](../media/d41f746452f5c95756d2b33e8634fd3d053f8db7.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_fist_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 46
+
+![H02_R_open_0.png](../media/eb1ecf542182556be71640376f524b568a55fad7.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_open_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 47
+
+![H02_R_open_1.png](../media/95253c724dc32fcbfcf766a267e5ae6c9b9c6a3c.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_open_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 48
+
+![H02_R_open_2.png](../media/ae8faf19f39c7579e4f78e681d5b20ef605278a6.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02_R_open_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 49
+
+![contact-sheet.png](../media/8ff5ef262e4942e8beb413c0491afce47b72cb92.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/hand-frames/contact-sheet.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 50
+
+![H01-Attack.png](../media/1c189c82f45147fab059a44b5cdbb143c199fe72.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Attack.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 51
+
+![H01-Cast.png](../media/6ae3ba986711f5c806760b9d6a0348498ee6786d.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Cast.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 52
+
+![H01-Dash.png](../media/55c0c06f46d89889683211541345f1dfd2b9127e.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Dash.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 53
+
+![H01-Entrance.png](../media/34e64c45f965e30c6eb3d62bf73b4b9f5a188752.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Entrance.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 54
+
+![H01-Idle.png](../media/e0f06a0e7648201d8bebbe9f61fd2f017075cc6f.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Idle.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 55
+
+![H01-Run.png](../media/200ed59d22d0506536cdce1b3e828ff3c19526d8.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Run.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 56
+
+![H01-rig-bind.png](../media/048f7a87b5c0318c5bd0c6a9bbe05c662be2173e.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-rig-bind.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 57
+
+![H01-source.png](../media/44d614b1251a07c420558e9a98196ae5e3ccaaba.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-source.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 58
+
+![H02-Attack.png](../media/2697466ff8b6ad37bf03880cc9a8c6d843897fc8.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H02-Attack.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 59
+
+![H02-Cast.png](../media/bd17c31e8925e50fa33b4d3103636fa0e882a221.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H02-Cast.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 60
+
+![H02-Dash.png](../media/821c2595d010aa7ee6a3966128209cd489b5def2.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H02-Dash.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 61
+
+![H02-Entrance.png](../media/bc0912161b661f8eab1c2a6126e228c4731890b0.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H02-Entrance.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 62
+
+![H02-Idle.png](../media/ac7091d6ca0eb240af038f8a9bd716e90c39eea6.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H02-Idle.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 63
+
+![H02-Run.png](../media/3e284f3b1a6b7b7ce2635d75990c463a60f647f6.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H02-Run.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 64
+
+![H02-rig-bind.png](../media/aa117644520aa7d88c335f11c655f6d011668da1.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H02-rig-bind.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 65
+
+![H02-source.png](../media/c34000f41f9b89d6955090dd4da21d76fe930fe5.png)
+
+**Thời gian lưu trên Git: 2026-10-18 13:49:41 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H02-source.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/6a0a03ebe368717f78d161588d743de38181367d)
+
+## Ảnh 66
+
+![H01-grip-diagnostic-0.png](../media/b81c30568167c367681dfacc3d22418f6c6154bf.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01-grip-diagnostic-0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 67
+
+![H01-grip-diagnostic-1.png](../media/8d630d1ce004688f6fa2a92bc6b0b5b20ac26fe1.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01-grip-diagnostic-1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 68
+
+![H01-grip-diagnostic-2.png](../media/c75589de46503d2572e71574f8ce8f08ca3aa5b7.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01-grip-diagnostic-2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 69
+
+![H01_L_fist_0.png](../media/7804c863c51a1ab801210806b1fb358bc234261f.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_fist_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 70
+
+![H01_L_fist_1.png](../media/00bd7e1a874509b047d3df0985c2fec84fc44c59.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_fist_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 71
+
+![H01_L_fist_2.png](../media/b1659e75c0cdd064c7cc4dde639216840fa2fb61.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_fist_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 72
+
+![H01_L_open_0.png](../media/b7304b56f18c3703c6404efd7ad8b602c3056bd5.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_open_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 73
+
+![H01_L_open_1.png](../media/ed530f1885cb40f4634432d9b5d831d7242ba2e7.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_open_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 74
+
+![H01_L_open_2.png](../media/009261615a09ab7b01ce61ce8f7aa8e56ce18cb7.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_L_open_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 75
+
+![H01_R_fist_0.png](../media/67a80f7f93bab67296b37b4b66225f2ff2a23c45.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_fist_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 76
+
+![H01_R_fist_1.png](../media/a0521e1c173bd089f7cff2a029080d2e73e98238.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_fist_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 77
+
+![H01_R_fist_2.png](../media/236dabf44993ccd6de0f7fae8c0cd849ed95bd7e.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_fist_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 78
+
+![H01_R_open_0.png](../media/98c6e4b8bd69d6cb67078fbb18b321f723d055da.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_open_0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 79
+
+![H01_R_open_1.png](../media/e7f40e15e37fb9aa553567d662cd4ecd2eb4a8db.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_open_1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 80
+
+![H01_R_open_2.png](../media/b7e067317b20a0b2d99c22e968b91f7edc6f9b5c.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01_R_open_2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 81
+
+![H02-grip-diagnostic-0.png](../media/6f9434ed3d542e1405bdee092aaeb78f3d09165b.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02-grip-diagnostic-0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 82
+
+![H02-grip-diagnostic-1.png](../media/86077d82a008462b30105e3ce2c60a815c0dfb55.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02-grip-diagnostic-1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 83
+
+![H02-grip-diagnostic-2.png](../media/1530c09aa1d0fddfd4794c9f9ee6febb24d50bfa.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H02-grip-diagnostic-2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 84
+
+![contact-sheet.png](../media/7f671ca5f2df3f33b0687efbf5d5aeb288e5222a.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/hand-frames/contact-sheet.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 85
+
+![H01-Attack.png](../media/bdfb8785343ae9bda5d7d7eb99e90e47dee45ea8.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Attack.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 86
+
+![H01-Cast.png](../media/95bbeab8af064409fe179fb1722cf26988fed8bf.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Cast.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 87
+
+![H01-Dash.png](../media/c03d5f84e1d262b79761160edd6f28bdf9129c1b.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Dash.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 88
+
+![H01-Entrance.png](../media/86fab70225667e42cce859f628a7b7a8a9c93aac.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Entrance.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 89
+
+![H01-Idle.png](../media/4fdd63d65516430129cc20034d47665efeb50ab6.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Idle.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 90
+
+![H01-Run.png](../media/2e1740cabf86413ef07f73b0b9cf5af69753ec13.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-Run.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 91
+
+![H01-rig-bind.png](../media/f62c7ab9f23ab544d87203b379d38166ff946655.png)
+
+**Thời gian lưu trên Git: 2026-10-18 14:47:37 UTC+07:00**
+
+Nguồn: `docs/rig-audit/fullres-browser/H01-rig-bind.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/c7f898d0a12faad9fac7df62a7ce38d039cb2ce1)
+
+## Ảnh 92
+
+![H01-reference-view-0.png](../media/aa7b04332ab3db83d6c29a5da4e3b70f0847d189.png)
+
+**Thời gian lưu trên Git: 2026-10-18 18:49:17 UTC+07:00**
+
+Nguồn: `docs/anim-report/H01-reference-view-0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/8e1fd03ad53c3829891dc6c0692f9bf847f8a9ad)
+
+## Ảnh 93
+
+![H01-reference-view-1.png](../media/d85c62f22b0c1ffe1a2b73f512f55f9ef69ec7bf.png)
+
+**Thời gian lưu trên Git: 2026-10-18 18:49:17 UTC+07:00**
+
+Nguồn: `docs/anim-report/H01-reference-view-1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/8e1fd03ad53c3829891dc6c0692f9bf847f8a9ad)
+
+## Ảnh 94
+
+![H01-reference-view-2.png](../media/c04e115b3ac2a857bfe52eb1bc4738fae4262a5c.png)
+
+**Thời gian lưu trên Git: 2026-10-18 18:49:17 UTC+07:00**
+
+Nguồn: `docs/anim-report/H01-reference-view-2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/8e1fd03ad53c3829891dc6c0692f9bf847f8a9ad)
+
+## Ảnh 95
+
+![H01-grip-exact-0.png](../media/ed78eb5bb03d487c6e351ee85d8227e2027cba35.png)
+
+**Thời gian lưu trên Git: 2026-10-18 18:49:17 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01-grip-exact-0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/8e1fd03ad53c3829891dc6c0692f9bf847f8a9ad)
+
+## Ảnh 96
+
+![H01-grip-exact-1.png](../media/81ed3d09f876bd81af05e13127a8ca83f0609546.png)
+
+**Thời gian lưu trên Git: 2026-10-18 18:49:17 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01-grip-exact-1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/8e1fd03ad53c3829891dc6c0692f9bf847f8a9ad)
+
+## Ảnh 97
+
+![H01-grip-exact-2.png](../media/a67f7c1abe8d852e8fd5c24ea630f362d8e696eb.png)
+
+**Thời gian lưu trên Git: 2026-10-18 18:49:17 UTC+07:00**
+
+Nguồn: `docs/hand-frames/H01-grip-exact-2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/8e1fd03ad53c3829891dc6c0692f9bf847f8a9ad)
+
+## Ảnh 98
+
+![H01-reference-view-0.png](../media/776d575cffe5d1d05e01729eeed3ad506e76a9ef.png)
+
+**Thời gian lưu trên Git: 2026-10-18 19:25:31 UTC+07:00**
+
+Nguồn: `docs/anim-report/harmonic-held/H01-reference-view-0.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/94162b6a9d4be80a947f51345b9dc2603a2f6d91)
+
+## Ảnh 99
+
+![H01-reference-view-1.png](../media/bdbdb547244837ff8a14c0640a6e88228c042d2a.png)
+
+**Thời gian lưu trên Git: 2026-10-18 19:25:31 UTC+07:00**
+
+Nguồn: `docs/anim-report/harmonic-held/H01-reference-view-1.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/94162b6a9d4be80a947f51345b9dc2603a2f6d91)
+
+## Ảnh 100
+
+![H01-reference-view-2.png](../media/ce3f161094d8403ce38cbaf1333b8f92a59aa54d.png)
+
+**Thời gian lưu trên Git: 2026-10-18 19:25:31 UTC+07:00**
+
+Nguồn: `docs/anim-report/harmonic-held/H01-reference-view-2.png`
+
+[Commit lưu ảnh](https://github.com/oree-nguyen/Tutien/commit/94162b6a9d4be80a947f51345b9dc2603a2f6d91)
