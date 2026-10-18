@@ -8,6 +8,8 @@ const hand = params.get("hand") ?? "R";
 const full = params.get("view") === "full";
 const candidate = params.get("candidate");
 const candidates = [
+  "robe-repaired",
+  "garment-separated",
   "reference",
   "harmonic",
   "harmonic-global",

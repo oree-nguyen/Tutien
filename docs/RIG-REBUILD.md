@@ -230,3 +230,35 @@ The source models, existing staging GLBs and runtime activation settings remain 
 Visual follow-up: front, side and back renders were opened for review. The back view still shows a local bulge in the side robe below the raised sleeve. This is an additional reason to reject complete rig/cloth acceptance even though the static hand/weapon contact passes. No cloth-volume or whole-animation acceptance is claimed.
 
 This stage's `npm test` run completed with **156 passed, zero failed/skipped** (including three Python objective/projection checks exercised by the Node wrapper). `verify:master` exits **1**, reports **BLOCKED 0/37**, and is not relabelled as passing. All measurements and images are cloud results; Android hardware remains untested.
+
+## H01 garment separation — diagnostic, not accepted
+
+The user's new authorization permits separating fused garment surfaces and repairing rig weights while retaining the original textures. `npm run assets:rig:garment` now builds a separate visible outer-garment mesh from the real source triangles. It does not manufacture an anatomical torso beneath the robe, and it does not activate the result in the game.
+
+- Input: previous harmonic-projected H01 candidate, SHA-256 `b51ff99d4371eba5bb535039524d6328c20da746e45ff9d08ba17119214c3a1c`.
+- Separate garment surface: **911,781 triangles**; remaining source surface: **587,945**; unchanged total **1,499,726**.
+- Actual source POSITION/NORMAL/UV attributes, skin weights and three embedded texture images are checked byte-for-byte after export. Both mesh nodes share the original material/accessors and skeleton.
+- **52 bones and six clips** (`Attack`, `Cast`, `Dash`, `Entrance`, `Idle`, `Run`) are retained, with identical sampler times, outputs and interpolation. No keyframe reduction is applied.
+- Durable experimental asset: `assets/rigged/H01-C0-garment-diagnostic.glb`; runtime loading and existing staged GLBs are unchanged. Local review mirror: `.local/rig-candidates/garment-separated/`.
+
+The selection is a conservative **UV-color and bind-position outer-garment partition**, not a proven complete clothing/anatomy segmentation. The isolated-front screenshot was inspected: the green outer robe is isolated, but the white inner garment stays in the remainder and the color-selected edges need semantic cleanup. The original joined sleeve/robe area still has a bulge in the rear upright pose. Mesh separation alone does not resolve those weights or reconstruct missing hidden surfaces.
+
+A hanging-robe weighting trial moved 390,498 vertices toward hip support. It is **rejected**: whole-body upright strain became p99.9 **6.1757**, maximum **9.1548**, versus the previous held-pose **1.9934 / 3.7895**. Both hands retain their passing values, but this does not override the body failure. These rejected weights exist only in `.local/rig-candidates/robe-repaired/` and are explicitly removed before exporting the separated candidate. [Rejected trial](anim-report/garment-separated/H01-reference-strain.json).
+
+Cloud renders compare the unchanged-weight candidate against its pre-separation input, with identical cameras and pose. Excluding labels/controls, mean absolute RGB-channel differences on a 0–255 scale are **0.000459 / 0.000499 / 0.000087** for front/side/back; only **51 / 60 / 25** channels differ out of 2,734,080 each. Small rasterization differences after splitting draws are recorded, not called pixel-identical. These measurements do not prove correct clothing segmentation or Android performance. [Metrics](anim-report/garment-separated/pixel-comparison.json), [export checks](anim-report/garment-separated/separation.json).
+
+Reproduce with the prior harmonic-projected input available:
+
+```bash
+npm run assets:rig:garment
+node tools/rig/preview-garment.mjs
+node tools/rig/preview-garment.mjs --isolated
+RIG_INPUT_DIR=.local/rig-candidates/robe-repaired \
+  REFERENCE_POSE=.local/rig-candidates/reference/heights/22.json \
+  RIG_REPORT_DIR=docs/anim-report/garment-separated \
+  node tools/rig/validate-reference-strain.mjs --whole-body
+```
+
+The final command intentionally fails while recording the rejected weighting trial. Remaining work: clean anatomical/garment boundaries, resolve the connected sleeve-to-skirt deformation and body strain, validate every animation and collision/contact, then validate on Android hardware. No new APK or full rig acceptance is claimed.
+
+Validation for this stage: `npm test` **158 passed, zero failed/skipped** (including two new garment partition/weight invariants). `npm run verify:master` exits **1**, remains **BLOCKED 0/37**. The rejection is retained without changing thresholds. Screenshots are published under task 10 in the Git picture gallery.
