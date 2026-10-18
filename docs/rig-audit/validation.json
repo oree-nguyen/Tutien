@@ -1,0 +1,28 @@
+{
+  "scope": "Cloud Linux; no physical Android device; structural audit only",
+  "checks": [
+    {
+      "command": "node tools/rig-audit.mjs",
+      "exitCode": 0,
+      "result": "Four GLBs inspected; report flags rigging blockers, not animation acceptance"
+    },
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "passed": 129,
+      "failed": 0,
+      "durationMs": 25012.297898
+    },
+    {
+      "command": "npm run verify:master",
+      "exitCode": 1,
+      "approved": 0,
+      "total": 37,
+      "result": "BLOCKED; no thresholds changed"
+    }
+  ],
+  "notRun": [
+    "test:anim (not implemented before A5 decision)",
+    "new APK build (no runtime changes)"
+  ]
+}
