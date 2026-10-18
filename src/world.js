@@ -5,7 +5,7 @@ import{installTerrainTextureProvider}from"./environment-pbr.js";
 import{GpuFrameTimer}from"./gpu-frame-timer.js";
 import{warmSceneMaterials}from"./shader-warmup.js";
 import{batchStaticSanctuary}from"./static-batching.js";
-import {AdaptiveResolution,nextPaint} from "./runtime-performance.js";
+import {AdaptiveResolution,nextPaint,renderPixelRatio} from "./runtime-performance.js";
 import {pooledGeometry} from "./geometry-pool.js";
 import { disposeManualH01,configureManualH01,replayManualH01Entrance,seekManualH01Entrance,usesManualHero } from "./manual-hero.js";
 import { releaseManualAssets } from "./manual-asset-cache.js";
@@ -56,7 +56,8 @@ export class World {
       powerPreference: "high-performance",
     });
     this.quality = localStorage.getItem("hon-gioi-quality") || "balanced";
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.quality==="ultra"?1.5:1.25));
+    this.currentMatchMode=null;
+    this.renderer.setPixelRatio(renderPixelRatio(devicePixelRatio,this.quality,false));
     this.renderer.shadowMap.enabled = this.quality === "ultra";
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -391,8 +392,10 @@ export class World {
     this.sun.shadow.mapSize.set(size, size);
     this.sun.shadow.map?.dispose();
     this.sun.shadow.map = null;
-    this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.quality==="ultra"?1.5:1.25));
-    this.resolution.max=this.resolution.ratio=Math.min(devicePixelRatio,this.quality==="ultra"?1.5:1.25);
+    const active=!!this.currentMatchMode,cap=renderPixelRatio(devicePixelRatio,this.quality,true);
+    const target=renderPixelRatio(devicePixelRatio,this.quality,active);
+    this.renderer.setPixelRatio(target);
+    this.resolution.max=active?cap:devicePixelRatio;this.resolution.min=active?Math.min(.8,cap):devicePixelRatio;this.resolution.ratio=target;
     this.resize();
   }
   resize() {
@@ -414,6 +417,13 @@ export class World {
   }
   render(match, dt, hubHero = 0, appearance = {}) {
     if(this.loadingBattlefield)return;
+    const matchActive=!!match;
+    if(this.currentMatchMode!==matchActive){
+      this.currentMatchMode=matchActive;
+      const cap=renderPixelRatio(devicePixelRatio,this.quality,true),target=renderPixelRatio(devicePixelRatio,this.quality,matchActive);
+      this.renderer.setPixelRatio(target);this.resize();
+      this.resolution.max=matchActive?cap:devicePixelRatio;this.resolution.min=matchActive?Math.min(.8,cap):devicePixelRatio;this.resolution.ratio=target;
+    }
     this.clock += dt;
     this.characterStudio.visible=!match;
     this.renderer.toneMappingExposure=1;

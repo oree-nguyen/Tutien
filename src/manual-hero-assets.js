@@ -1,4 +1,5 @@
-export const manualHeroAssetUrls={
+// Tencent Hunyuan source assets used for high-fidelity lobby previews.
+export const manualHeroAssetUrls = {
   "high": "/models/h01-c0/h01-c0-high.glb?v=ffa5f3b43fd7",
   "medium": "/models/h01-c0/h01-c0-medium.glb?v=7cb641211b1d",
   "low": "/models/h01-c0/h01-c0-low.glb?v=c8f7666aaa45",
@@ -15,9 +16,13 @@ export const manualHeroAssetUrls={
   "h02-hammer-medium": "/models/h02-hammer/h02-hammer-medium.glb?v=c919a99e3d90",
   "h02-hammer-low": "/models/h02-hammer/h02-hammer-low.glb?v=7f62b928965b",
   "h02-body-medium-gpu": "/models/h02-body/h02-body-medium-gpu.glb?v=ab6e756fd804",
-  "h02-hammer-medium-gpu": "/models/h02-hammer/h02-hammer-medium-gpu.glb?v=b0c6e6fbebec"
+  "h02-hammer-medium-gpu": "/models/h02-hammer/h02-hammer-medium-gpu.glb?v=b0c6e6fbebec",
+  "source-h01-body": "/models/hunyuan-original/H01-C0-source.glb?v=292c2631c63a",
+  "source-h01-staff": "/models/hunyuan-original/H01-W0-source.glb?v=0984acdf12b0",
+  "source-h02-body": "/models/hunyuan-original/H02-C0-source.glb?v=eec6ac781503",
+  "source-h02-hammer": "/models/hunyuan-original/H02-W0-source.glb?v=bf1bf4e377a1"
 };
-export const manualHeroAssetHashes={
+export const manualHeroAssetHashes = {
   "high": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
   "medium": "7cb641211b1d89b8a35612eb0f4d55bb0446ff2052683b19bb4e0632b18b3341",
   "low": "c8f7666aaa45f2c3ba8ac529510a5bb06667d0e083e743ab72aa25dc536be3fe",
@@ -34,5 +39,9 @@ export const manualHeroAssetHashes={
   "h02-hammer-medium": "c919a99e3d90842a916fc6168a79a505dbae6002e0b97c1b932a8a831d8122b1",
   "h02-hammer-low": "7f62b928965b9f58e9e4ba1dbaa52b73fce54298687e3d0be17838b765122ec6",
   "h02-body-medium-gpu": "ab6e756fd8041337793a7f1dc1c854eeb9e247dadab8e4dd88f4a0de555b3fc2",
-  "h02-hammer-medium-gpu": "b0c6e6fbebec981e3d1375bcb5fa4c339c92a321a62ba03621fad69c831cc7ba"
+  "h02-hammer-medium-gpu": "b0c6e6fbebec981e3d1375bcb5fa4c339c92a321a62ba03621fad69c831cc7ba",
+  "source-h01-body": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "source-h01-staff": "0984acdf12b0a5b09ce8580e9e309ee94d2f94ec88e4e4dc3067f4a3e16a4be1",
+  "source-h02-body": "eec6ac7815030ebc06052c2a662582bb0f114c2bd1e96b88e35936c716fc781a",
+  "source-h02-hammer": "bf1bf4e377a19aac5fa3c737a588daf2f98e721ea194a4c96869a562fc213c72"
 };

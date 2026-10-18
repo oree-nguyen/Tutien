@@ -45,16 +45,16 @@ async function valid(buffer,key){
  }
  return true;
 }
-export async function manualAssetBuffer(key){
+export async function manualAssetBuffer(key,persist=true){
  const url=manualHeroAssetUrls[key];if(!url)throw Error('Unknown manual asset '+key);
  const cacheKey=key+':'+manualHeroAssetHashes[key];
- let buffer=await stored(cacheKey);
+ let buffer=persist?await stored(cacheKey):null;
  if(await valid(buffer,key)){manualAssetMetrics.hits++;return buffer;}
  const response=await fetch(localAssetUrl(url));if(!response.ok)throw Error('Model HTTP '+response.status);
  buffer=await response.arrayBuffer();
  if(!await valid(buffer,key))throw Error('Model integrity check failed: '+key);
  manualAssetMetrics.misses++;manualAssetMetrics.bytes+=buffer.byteLength;
- void stored(cacheKey,buffer);
+ if(persist)void stored(cacheKey,buffer);
  return buffer;
 }
 export function loadManualAsset(key,allowGpu=true){
@@ -63,7 +63,7 @@ export function loadManualAsset(key,allowGpu=true){
  if(allowGpu&&gpu&&manualHeroAssetUrls[key+'-gpu'])key+='-gpu';
  const url=manualHeroAssetUrls[key];
  if(!loaded.has(url)){
-  const promise=manualAssetBuffer(key).then(buffer=>{
+  const promise=manualAssetBuffer(key,!key.startsWith('source-')).then(buffer=>{
    const job=decodeQueue.catch(()=>{}).then(async()=>{
     await yieldFrame();
     const loader=getModelLoader();
@@ -77,6 +77,26 @@ export function loadManualAsset(key,allowGpu=true){
   loaded.set(url,promise);
  }
  return loaded.get(url);
+}
+
+export function releaseManualSourceAsset(key){
+ const url=manualHeroAssetUrls[key]&&localAssetUrl(manualHeroAssetUrls[key]);
+ if(!url)return;
+ const pending=loaded.get(url);loaded.delete(url);
+ if(!pending)return;
+ Promise.resolve(pending).then(gltf=>{
+  const geometries=new Set(),materials=new Set(),textures=new Set();
+  gltf.scene.traverse(node=>{
+   if(node.geometry)geometries.add(node.geometry);
+   for(const material of Array.isArray(node.material)?node.material:node.material?[node.material]:[]){
+    materials.add(material);
+    for(const value of Object.values(material))if(value?.isTexture)textures.add(value);
+   }
+  });
+  for(const texture of textures)texture.dispose();
+  for(const material of materials)material.dispose();
+  for(const geometry of geometries)geometry.dispose();
+ }).catch(()=>{});
 }
 
 if(typeof indexedDB!=='undefined')void db();

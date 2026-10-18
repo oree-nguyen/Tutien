@@ -3,7 +3,7 @@ import{usesManualH02,configureManualH02,updateManualH02,replayManualH02,seekManu
 import * as THREE from 'three';
 import {warmSceneMaterials}from'./shader-warmup.js';
 import { clone as cloneSkeleton } from 'three/addons/utils/SkeletonUtils.js';
-import { loadManualAsset,manualAssetMetrics,releaseManualAssets } from './manual-asset-cache.js';
+import { loadManualAsset,manualAssetMetrics,releaseManualAssets,releaseManualSourceAsset } from './manual-asset-cache.js';
 import { cloneHunyuanStaff } from './manual-staff.js';
 import { enhanceCharacterVisualFidelity } from './character-fidelity.js';
 import { createH01IK,poseRightHand,poseCrouch,setFingerGrip,orientStaffUpright } from './h01-ik.js';
@@ -23,6 +23,19 @@ function cloneMaterials(body){body.traverse(node=>{
   for(const key of ['map','normalMap','metalnessMap','roughnessMap'])if(m[key])m[key].anisotropy=4;
  }
 });}
+function cloneTencentSource(gltf,name){const source=gltf.scene.clone(true);source.name=name;source.traverse(node=>{if(!node.isMesh)return;node.geometry.userData.sharedArt=true;node.userData.tencentSource=true;node.material=Array.isArray(node.material)?node.material.map(material=>material.clone()):node.material.clone();});return source;}
+function syncTencentPreview(state){if(!state.sourceReady||!state.preview)return;state.body.visible=false;state.sourceBody.visible=true;state.staff.visible=false;state.root.updateWorldMatrix(true,true);state.staff.updateWorldMatrix(true,true);state.sourceMatrix.copy(state.root.matrixWorld).invert().multiply(state.staff.matrixWorld);state.sourceMatrix.decompose(state.sourceStaff.position,state.sourceStaff.quaternion,state.sourceStaff.scale);state.sourceStaff.visible=true;}
+function prepareTencentPreview(state){
+ Promise.all([loadManualAsset('source-h01-body',false),loadManualAsset('source-h01-staff',false)]).then(([bodyGltf,staffGltf])=>{
+  if(state.root.userData.manualAsset.disposed){releaseManualSourceAsset('source-h01-body');releaseManualSourceAsset('source-h01-staff');return;}
+  const sourceBody=cloneTencentSource(bodyGltf,'H01_Tencent_Original_Body');sourceBody.rotation.y=Math.PI;sourceBody.visible=false;
+  const head=new THREE.Object3D();head.name='TencentSourceHead';head.position.y=1.68;sourceBody.add(head);
+  const sourceStaff=cloneHunyuanStaff(staffGltf);sourceStaff.userData.tencentSource=true;sourceStaff.traverse(node=>{if(node.isMesh)node.userData.tencentSource=true;});sourceStaff.visible=false;
+  state.root.add(sourceBody,sourceStaff);state.sourceBody=sourceBody;state.sourceStaff=sourceStaff;state.sourceReady=true;
+  Object.assign(state.root.userData.manualAsset.sourceFidelity,{status:'loaded',bodyTriangles:1499726,weaponTriangles:619640,textureResolution:4096});
+  state.root.userData.modelLoadRevision=(state.root.userData.modelLoadRevision??0)+1;
+ }).catch(error=>{if(!state.root.userData.manualAsset.disposed){state.root.userData.manualAsset.sourceFidelity={status:'failed',error:error.message};console.error('H01 Tencent original preview failed',error);}});
+}
 function applyStaffReveal(staff,pulse){staff.traverse(node=>{
  if(!node.isMesh)return;
  if(!node.geometry.getAttribute('staffRevealHeight')){
@@ -63,7 +76,7 @@ export function createManualH01(actor,detail){
   const actions=Object.fromEntries(gltf.animations.map(clip=>[clip.name,mixer.clipAction(clip)]));
   for(const name of ['Attack','Cast','Dash','Entrance']){actions[name].setLoop(THREE.LoopOnce,1);actions[name].clampWhenFinished=true;}
   const preview=actor.id==='preview';
-  const state={target:new THREE.Vector3(),floatTarget:new THREE.Vector3(-.38,1.45,.12),hipTarget:new THREE.Vector3(-.22,.28,-.02),frame:{},body,staff,ik,mixer,actions,plantedGrip,staffPulse,current:null,remaining:0,cooldowns:[...(actor.cooldowns??[])],preview,
+ const state={target:new THREE.Vector3(),floatTarget:new THREE.Vector3(-.38,1.45,.12),hipTarget:new THREE.Vector3(-.22,.28,-.02),frame:{},body,staff,ik,mixer,actions,plantedGrip,staffPulse,current:null,remaining:0,cooldowns:[...(actor.cooldowns??[])],preview,root,sourceMatrix:new THREE.Matrix4(),sourceReady:false,sourceBody:null,sourceStaff:null,
    introStart:performance.now(),gripped:false,impact:false,vfx:preview?createH01EntranceVfx():null};
   if(state.vfx)body.add(state.vfx.root);
   const context=contexts.get(root);
@@ -75,8 +88,9 @@ export function createManualH01(actor,detail){
   if(root.userData.manualAsset.disposed){mixer.stopAllAction();state.vfx&&disposeH01EntranceVfx(state.vfx);return;}
   state.introStart=performance.now();states.set(root,state);body.visible=true;root.visible=true;
   if(!preview){ik.socket.add(staff);staff.position.set(0,0,0);state.gripped=true;}
-  if(preview)perfBeginAppearance('model:H01:'+detail);root.userData.manualAsset.status='loaded';root.userData.manualAsset.clips=gltf.animations.map(c=>c.name);
+  if(preview){perfBeginAppearance('model:H01:'+detail);root.userData.manualAsset.sourceFidelity={status:'loading',mesh:'Tencent Hunyuan original'};}root.userData.manualAsset.status='loaded';root.userData.manualAsset.clips=gltf.animations.map(c=>c.name);
   root.userData.manualAsset.loadMs=performance.now()-started;root.userData.manualAsset.cache={...manualAssetMetrics};
+  if(preview)prepareTencentPreview(state);
   root.userData.modelLoadRevision=1;
  }).catch(error=>{
   if(root.userData.manualAsset.disposed){releaseManualAssets(root);return;}
@@ -98,6 +112,7 @@ export function replayManualH01Entrance(root){
  if(root.userData.manualH02)return replayManualH02(root);
  const s=states.get(root);if(!s?.preview)return;
  s.introStart=performance.now();delete s.forcedTime;s.gripped=false;s.impact=false;
+ if(s.sourceBody)s.sourceBody.visible=false;if(s.sourceStaff)s.sourceStaff.visible=false;s.body.visible=true;
  s.body.attach(s.staff);s.staff.position.set(-.38,1.45,.12);s.staff.quaternion.identity();s.current=null;s.mixer.stopAllAction();
  if(!s.vfx){s.vfx=createH01EntranceVfx();s.body.add(s.vfx.root);}
 }
@@ -160,6 +175,7 @@ export function updateManualH01Animation(root,actor,speed,dt){
  poseRightHand(s.ik,grip);
  s.staffPulse.value=0;
  s.staff.position.set(0,0,0);orientStaffUpright(s.staff,s.body);
+ syncTencentPreview(s);
  root.userData.manualAsset.animation=desired;
  root.userData.manualAsset.rightGripError=s.ik.lastError;
 }
@@ -170,5 +186,7 @@ export function disposeManualH01(root){
  if(s){s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);if(s.vfx)disposeH01EntranceVfx(s.vfx);states.delete(root);}
  const materials=new Set(),skeletons=new Set();
  root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh)for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);});
- for(const s of skeletons)s.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);
+ const sourceKeys=root.userData.manualAsset?.sourceFidelity?['source-h01-body','source-h01-staff']:[];
+ root.traverse(node=>{if(node.userData.tencentSource)node.geometry?.dispose();});
+ for(const s of skeletons)s.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);for(const key of sourceKeys)releaseManualSourceAsset(key);
 }

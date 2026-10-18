@@ -1,7 +1,7 @@
 import{perfBeginAppearance}from'./perf-debug.js';
 import * as THREE from 'three';
 import {clone as cloneSkeleton}from'three/addons/utils/SkeletonUtils.js';
-import{loadManualAsset,manualAssetMetrics,releaseManualAssets}from'./manual-asset-cache.js';
+import{loadManualAsset,manualAssetMetrics,releaseManualAssets,releaseManualSourceAsset}from'./manual-asset-cache.js';
 import{enhanceCharacterVisualFidelity}from'./character-fidelity.js';
 import{warmSceneMaterials}from'./shader-warmup.js';
 import{createH01IK,poseRightHand,solveTwoBoneIK}from'./h01-ik.js';
@@ -11,6 +11,20 @@ const states=new WeakMap(),contexts=new WeakMap(),Z=new THREE.Vector3(0,0,1);
 export function usesManualH02(a){return['hero','clone'].includes(a.kind)&&a.hero===1&&(a.costume??0)===0;}
 export function configureManualH02(root,renderer,scene,camera){contexts.set(root,{renderer,scene,camera});}
 function cloneMaterials(root){root.traverse(n=>{if(n.isMesh){n.geometry.userData.sharedArt=true;n.material=Array.isArray(n.material)?n.material.map(m=>m.clone()):n.material.clone();for(const m of Array.isArray(n.material)?n.material:[n.material])m.userData.sharedArt=true;}});}
+function cloneTencentSource(gltf,name){const source=gltf.scene.clone(true);source.name=name;source.traverse(node=>{if(!node.isMesh)return;node.geometry.userData.sharedArt=true;node.userData.tencentSource=true;node.material=Array.isArray(node.material)?node.material.map(material=>material.clone()):node.material.clone();});return source;}
+function syncTencentPreview(s){if(!s.preview||!s.sourceReady)return;s.body.traverse(node=>{if(node.isSkinnedMesh)node.visible=false;});s.sourceBody.position.copy(s.body.position);s.sourceBody.rotation.copy(s.body.rotation);s.sourceBody.visible=true;if(!s.sourceDisplayed){const driver=s.previewHammerDriver,source=s.sourceHammer,parent=driver.parent??s.stage;parent.add(source);source.position.copy(driver.position);source.quaternion.copy(driver.quaternion);source.scale.copy(driver.scale);source.visible=true;driver.visible=false;s.hammer=source;s.sourceDisplayed=true;}}
+function prepareTencentPreview(s){
+ Promise.all([loadManualAsset('source-h02-body',false),loadManualAsset('source-h02-hammer',false)]).then(([bodyGltf,hammerGltf])=>{
+  if(s.root.userData.manualAsset.disposed){releaseManualSourceAsset('source-h02-body');releaseManualSourceAsset('source-h02-hammer');return;}
+  const sourceBody=cloneTencentSource(bodyGltf,'H02_Tencent_Original_Body');sourceBody.visible=false;
+  const head=new THREE.Object3D();head.name='TencentSourceHead';head.position.y=2.02;sourceBody.add(head);
+  const source=hammerGltf.scene.getObjectByName('Hammer_Root');if(!source?.getObjectByName('Hammer_Base_Tip')||!source.getObjectByName('Hammer_Head_Impact'))throw Error('H02 Tencent source hammer attachment nodes missing');
+  const sourceHammer=source.clone(true);cloneMaterials(sourceHammer);sourceHammer.userData.tencentSource=true;sourceHammer.traverse(node=>{if(node.isMesh)node.userData.tencentSource=true;});sourceHammer.visible=false;
+  s.stage.add(sourceBody,sourceHammer);s.sourceBody=sourceBody;s.sourceHammer=sourceHammer;s.sourceReady=true;
+  Object.assign(s.root.userData.manualAsset.sourceFidelity,{status:'loaded',bodyTriangles:1499746,weaponTriangles:1500000,textureResolution:4096});
+  s.root.userData.modelLoadRevision=(s.root.userData.modelLoadRevision??0)+1;
+ }).catch(error=>{if(!s.root.userData.manualAsset.disposed){s.root.userData.manualAsset.sourceFidelity={status:'failed',error:error.message};console.error('H02 Tencent original preview failed',error);}});
+}
 function setWorldRotation(bone,q,s){bone.quaternion.copy(s.q2.copy(bone.parent.getWorldQuaternion(s.q3)).invert().multiply(q));bone.updateWorldMatrix(false,true);}
 function localPoint(s,p,index){return s.body.localToWorld(s.v[index].copy(p));}
 function poseLeftHip(s,crouch){
@@ -44,14 +58,14 @@ export function createManualH02(actor,detail){
   const hammer=source.clone(true);cloneMaterials(hammer);stage.add(hammer);
   const ik=createH01IK(body),mixer=new THREE.AnimationMixer(body),actions=Object.fromEntries(gltf.animations.map(c=>[c.name,mixer.clipAction(c)]));
   for(const n of ['Attack','Cast','Dash','Entrance']){if(!actions[n])throw Error('Missing H02 clip '+n);actions[n].setLoop(THREE.LoopOnce,1);actions[n].clampWhenFinished=true;}
-  const preview=actor.id==='preview',s={root,stage,body,hammer,ik,mixer,actions,preview,current:null,remaining:0,introStart:performance.now(),cooldowns:[...(actor.cooldowns??[])],frame:{},gripped:false,impact:false,stamp:false,v:Array.from({length:10},()=>new THREE.Vector3()),q0:new THREE.Quaternion(),q1:new THREE.Quaternion(),q2:new THREE.Quaternion(),q3:new THREE.Quaternion(),q4:new THREE.Quaternion(),leftHipFrame:new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(new THREE.Vector3(0,1,0),new THREE.Vector3(1,0,0),new THREE.Vector3(0,0,-1))),vfx:preview?createH02EntranceVfx():null};
+  const preview=actor.id==='preview',s={root,stage,body,hammer,previewHammerDriver:hammer,sourceReady:false,sourceBody:null,sourceHammer:null,ik,mixer,actions,preview,current:null,remaining:0,introStart:performance.now(),cooldowns:[...(actor.cooldowns??[])],frame:{},gripped:false,impact:false,stamp:false,v:Array.from({length:10},()=>new THREE.Vector3()),q0:new THREE.Quaternion(),q1:new THREE.Quaternion(),q2:new THREE.Quaternion(),q3:new THREE.Quaternion(),q4:new THREE.Quaternion(),leftHipFrame:new THREE.Quaternion().setFromRotationMatrix(new THREE.Matrix4().makeBasis(new THREE.Vector3(0,1,0),new THREE.Vector3(1,0,0),new THREE.Vector3(0,0,-1))),vfx:preview?createH02EntranceVfx():null};
   if(s.vfx)stage.add(s.vfx.root);
   const context=contexts.get(root);root.userData.manualAsset.status='preparing';
   if(context){enhanceCharacterVisualFidelity(body,context.renderer,context.scene);enhanceCharacterVisualFidelity(hammer,context.renderer,context.scene);root.userData.manualAsset.shaderWarmup=await warmSceneMaterials(context.renderer,stage,context.camera,context.scene,true);}
   if(root.userData.manualAsset.disposed){mixer.stopAllAction();s.vfx&&disposeH02EntranceVfx(s.vfx);return;}
   states.set(root,s);s.introStart=performance.now();body.visible=true;
   if(!preview){ik.socket.add(hammer);hammer.position.set(0,0,0);s.gripped=true;}
-  if(preview)perfBeginAppearance('model:H02:'+detail);Object.assign(root.userData.manualAsset,{status:'loaded',clips:gltf.animations.map(c=>c.name),loadMs:performance.now()-started,cache:{...manualAssetMetrics},weaponSource:'45b118bc-58ce-4000-94c6-8e09945aa9f1'});root.userData.modelLoadRevision=1;
+  if(preview){perfBeginAppearance('model:H02:'+detail);root.userData.manualAsset.sourceFidelity={status:'loading',mesh:'Tencent Hunyuan original'};}Object.assign(root.userData.manualAsset,{status:'loaded',clips:gltf.animations.map(c=>c.name),loadMs:performance.now()-started,cache:{...manualAssetMetrics},weaponSource:'45b118bc-58ce-4000-94c6-8e09945aa9f1'});root.userData.modelLoadRevision=1;if(preview)prepareTencentPreview(s);
  }).catch(error=>{if(!root.userData.manualAsset.disposed){root.userData.manualAsset.status='failed';root.userData.manualAsset.error=error.message;console.error('H02 Hunyuan asset failed',error);}});
  return root;
 }
@@ -83,11 +97,11 @@ export function updateManualH02(root,actor,speed,dt){
  s.remaining=Math.max(0,s.remaining-dt);if(requested)s.remaining=requested==='Dash'?.5:requested==='Attack'?.8:1;
  const desired=requested??(s.remaining>0?s.current:speed>.06?'Run':'Idle');selectAction(s,desired,!!requested);s.mixer.update(Math.min(.1,Math.max(0,dt)));
  const p=s.v[6].set(-.43,1.15,H02_STANDING_HAMMER_Z);if(desired==='Run')p.y+=.06*Math.sin(s.actions.Run.time*8);else if(desired!=='Idle')p.y+=.12*Math.sin(Math.PI*Math.min(1,s.actions[desired].time/s.actions[desired].getClip().duration));
- s.body.userData.rightElbowPole[1]=1.05;s.body.userData.rightElbowPole[2]=-.12;poseRightHand(s.ik,p,true);poseLeftHip(s,0);s.hammer.position.set(0,0,0);orientHammer(s);root.userData.manualAsset.animation=desired;root.userData.manualAsset.rightGripError=s.ik.lastError;
+ s.body.userData.rightElbowPole[1]=1.05;s.body.userData.rightElbowPole[2]=-.12;poseRightHand(s.ik,p,true);poseLeftHip(s,0);s.hammer.position.set(0,0,0);orientHammer(s);syncTencentPreview(s);root.userData.manualAsset.animation=desired;root.userData.manualAsset.rightGripError=s.ik.lastError;
 }
-export function replayManualH02(root){const s=states.get(root);if(!s?.preview)return;delete s.forcedTime;s.introStart=performance.now();s.gripped=s.impact=s.stamp=false;s.stage.attach(s.hammer);s.current=null;s.mixer.stopAllAction();}
+export function replayManualH02(root){const s=states.get(root);if(!s?.preview)return;delete s.forcedTime;s.introStart=performance.now();s.gripped=s.impact=s.stamp=false;s.sourceDisplayed=false;if(s.sourceBody)s.sourceBody.visible=false;if(s.sourceHammer)s.sourceHammer.visible=false;s.body.visible=true;s.body.traverse(node=>{if(node.isSkinnedMesh)node.visible=true;});s.hammer=s.previewHammerDriver;s.hammer.visible=true;s.stage.attach(s.hammer);s.current=null;s.mixer.stopAllAction();}
 export function seekManualH02(root,time){const s=states.get(root);if(s?.preview)s.forcedTime=Math.max(0,time);}
 export function disposeManualH02(root){
  root.userData.manualAsset.disposed=true;const s=states.get(root);if(s){s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);s.vfx&&disposeH02EntranceVfx(s.vfx);states.delete(root);}
- const materials=new Set(),skeletons=new Set();root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh)for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);});for(const skeleton of skeletons)skeleton.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);
+ const sourceKeys=root.userData.manualAsset?.sourceFidelity?['source-h02-body','source-h02-hammer']:[];const materials=new Set(),skeletons=new Set();root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh){if(n.userData.tencentSource)n.geometry?.dispose();for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);}});for(const skeleton of skeletons)skeleton.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);for(const key of sourceKeys)releaseManualSourceAsset(key);
 }

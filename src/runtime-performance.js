@@ -1,4 +1,8 @@
 export const nextPaint=()=>new Promise(resolve=>requestAnimationFrame(()=>setTimeout(resolve,0)));
+export function renderPixelRatio(deviceRatio,quality,matchActive){
+ const nativeRatio=Number.isFinite(deviceRatio)&&deviceRatio>0?deviceRatio:1;
+ return matchActive?Math.min(nativeRatio,quality==='ultra'?1.5:1.25):nativeRatio;
+}
 export class AdaptiveResolution{
  constructor({max=1.3,min=.8,apply=()=>{}}={}){this.max=max;this.min=Math.min(min,max);this.ratio=max;this.apply=apply;this.slow=0;this.slowMs=0;this.fast=0;this.cooldown=0;this.changes=0;}
  sample(ms,active=true){if(!active||ms<=0||ms>5000)return;this.cooldown=Math.max(0,this.cooldown-ms);this.slow=ms>22?this.slow+1:Math.max(0,this.slow-1);this.fast=ms<17?this.fast+1:0;this.slowMs=ms>22?this.slowMs+ms:Math.max(0,this.slowMs-ms);if(this.cooldown)return;
