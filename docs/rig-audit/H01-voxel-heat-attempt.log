@@ -1,0 +1,13 @@
+07:46:14 | INFO: Data are loaded, start creating Blender stuff
+07:46:14 | INFO: Blender create Mesh node node_0
+07:46:20 | INFO: glTF import finished in 5.97s
+Traceback (most recent call last):
+  File "/workspace/Tutien/tools/rig/voxel_hand_weights.py", line 83, in <module>
+    raise RuntimeError('Source-derived proxy heat failed: '+str(counts))
+RuntimeError: Source-derived proxy heat failed: {'RightHandThumb1': 0, 'RightHandThumb2': 0, 'RightHandThumb3': 0, 'RightHandIndex1': 0, 'RightHandIndex2': 0, 'RightHandIndex3': 0, 'RightHandMiddle1': 0, 'RightHandMiddle2': 0, 'RightHandMiddle3': 0, 'RightHandRing1': 0, 'RightHandRing2': 0, 'RightHandRing3': 0, 'RightHandPinky1': 0, 'RightHandPinky2': 0, 'RightHandPinky3': 0}
+
+Error: script failed, file: 'tools/rig/voxel_hand_weights.py', exiting.
+Warning: Bone Heat Weighting: failed to find solution for one or more bones
+Blender 4.3.2
+
+Blender quit

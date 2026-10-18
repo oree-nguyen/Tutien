@@ -22,3 +22,5 @@
 - N là nhiệm vụ trong `picture/tasks.json`; các tin “Tiếp” và các vòng sửa trong cùng nhiệm vụ giữ nguyên N. Nhiệm vụ rig H01/H02 hiện tại dùng số trong sổ có tiêu đề “Kiểm tra và sửa rig H01 H02”. Chỉ tạo số kế tiếp khi có nhiệm vụ mới.
 - Dùng `python3 scripts/update-picture-gallery.py --task N --image path/to/image.png`; nhiệm vụ mới thêm `--title`. Không giảm chất lượng ảnh. Không ghi credential vào ảnh/tài liệu công khai.
 - Phân biệt giờ chụp với giờ đăng ký ảnh hoặc giờ lưu trên Git. Không bịa giờ chụp cho ảnh lịch sử. Xem `picture/README.md`.
+
+- Người dùng đã cho phép tách áo dính vào thân để sửa rig, bắt đầu với H01. Tách trên bề mặt mesh thật, bảo toàn UV/texture, không giả thân người bị thiếu dưới áo. Phân vùng theo màu chỉ là bản thử và phải xem riêng mesh áo, kiểm đường biên, xuyên áo và hoạt ảnh trước khi kích hoạt. Không đưa trọng số thất bại kiểm định vào runtime.

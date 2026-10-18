@@ -1,0 +1,43 @@
+{
+  "input": ".local/rig-candidates/reference/H01-C0-rigged.glb",
+  "inputSha256": "e23c6f1f39fcaaf3792cac219799ab1a38422ee4eb2525563b98726710b061c3",
+  "rigSha256": "c05a0b42afb8645a32600349efec01cfd39a98fc97a47111de8a6696b814ce3b",
+  "status": "diagnostic; source/strain/contact/animation checks required",
+  "solve": {
+    "method": "Positive inverse-edge-length surface Dirichlet Laplacian, shared four arm/spine supports per side; protected source vertices unchanged",
+    "weldedVertices": 749845,
+    "sourceEdges": 2249589,
+    "reports": [
+      {
+        "side": "Right",
+        "freeWeldedVertices": 136854,
+        "sourceVertices": 157935,
+        "iterations": [
+          0,
+          1071,
+          1057
+        ],
+        "relativeResiduals": [
+          0,
+          9.78399644953872e-8,
+          9.877387042631913e-8
+        ]
+      },
+      {
+        "side": "Left",
+        "freeWeldedVertices": 136627,
+        "sourceVertices": 153727,
+        "iterations": [
+          0,
+          1060,
+          1040
+        ],
+        "relativeResiduals": [
+          0,
+          9.923970101973107e-8,
+          9.937037891684387e-8
+        ]
+      }
+    ]
+  }
+}

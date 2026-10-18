@@ -1,0 +1,99 @@
+{
+  "passed": false,
+  "reports": [
+    {
+      "hero": "H01",
+      "hand": "Right",
+      "rigSha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
+      "weaponSha256": "0984acdf12b0a5b09ce8580e9e309ee94d2f94ec88e4e4dc3067f4a3e16a4be1",
+      "scope": "Exact source weapon triangles versus posed source hand-region vertices, including cuffs; three-ray parity checks near contacts; not a complete animation acceptance",
+      "geometricGripPassed": true,
+      "handVertices": 14654,
+      "insideVertices": 182,
+      "ambiguousQueries": 0,
+      "maxIntrusionMeters": 0.010362952953441263,
+      "worst": {
+        "vertex": 822191,
+        "worldPosition": [
+          -0.46806242335609033,
+          0.9721195968786197,
+          0.11337621868146337
+        ],
+        "weaponPosition": [
+          -0.005128884709191588,
+          0.32139434090137176,
+          -0.0008389877329396701
+        ],
+        "distance": 0.010362952953441263,
+        "inside": true,
+        "signedDistance": -0.010362952953441263,
+        "face": 360017,
+        "closest": [
+          0.0038440157718962675,
+          0.3180389113592829,
+          -0.004791068635427347
+        ],
+        "normal": [
+          0.8658632844712656,
+          -0.3237908689891904,
+          -0.3813662881848069
+        ],
+        "ambiguous": false,
+        "votes": [
+          true,
+          true,
+          true
+        ]
+      },
+      "elapsedMs": 551.4855810000001,
+      "passed": false
+    },
+    {
+      "hero": "H02",
+      "hand": "Left",
+      "rigSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+      "weaponSha256": "bf1bf4e377a19aac5fa3c737a588daf2f98e721ea194a4c96869a562fc213c72",
+      "scope": "Exact source weapon triangles versus posed source hand-region vertices, including cuffs; three-ray parity checks near contacts; not a complete animation acceptance",
+      "geometricGripPassed": false,
+      "handVertices": 14117,
+      "insideVertices": 705,
+      "ambiguousQueries": 0,
+      "maxIntrusionMeters": 0.012852580031278297,
+      "worst": {
+        "vertex": 957,
+        "worldPosition": [
+          0.48414680263084037,
+          1.045320335902317,
+          0.08011722511007657
+        ],
+        "weaponPosition": [
+          0.01793741426883606,
+          -0.20207776353703266,
+          -0.006126767864453375
+        ],
+        "distance": 0.012852580031278297,
+        "inside": true,
+        "signedDistance": -0.012852580031278297,
+        "face": 268058,
+        "closest": [
+          0.030485776343789496,
+          -0.20196066227542042,
+          -0.008904124519766611
+        ],
+        "normal": [
+          0.9763302033066895,
+          0.009111109312470977,
+          -0.21609331733816908
+        ],
+        "ambiguous": false,
+        "votes": [
+          true,
+          true,
+          true
+        ]
+      },
+      "elapsedMs": 423.57001500000024,
+      "passed": false
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "scope": "Cloud diagnostic only, not runtime activation or contact acceptance",
+  "reports": [
+    {
+      "hero": "H01",
+      "solutionPassed": true,
+      "rigFkTipErrorMeters": {
+        "Thumb": 8.21197374481525e-8,
+        "Index": 3.6203934053888054e-8,
+        "Middle": 7.301768003724509e-8,
+        "Ring": 2.3802876237387358e-8,
+        "Pinky": 2.2884597338447985e-8
+      },
+      "maxRigFkTipErrorMeters": 8.21197374481525e-8,
+      "cylinderSkinDiagnostic": {
+        "measuredHandVertices": 14654,
+        "intrudingSkinVertices": 385,
+        "maximumIntrusionMeters": 0.011355764562659887,
+        "withinThreeMm": false,
+        "scope": "Actual deformed source skin versus measured shaft cylinder; excludes weapon ornaments and is not complete mesh-mesh contact acceptance"
+      },
+      "rigSha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc"
+    },
+    {
+      "hero": "H02",
+      "solutionPassed": false,
+      "rigFkTipErrorMeters": {
+        "Thumb": 3.864170245356214e-8,
+        "Index": 3.126093718967366e-8,
+        "Middle": 1.6973542288988855e-8,
+        "Ring": 2.0767132580523056e-8,
+        "Pinky": 6.671899271503487e-8
+      },
+      "maxRigFkTipErrorMeters": 6.671899271503487e-8,
+      "cylinderSkinDiagnostic": {
+        "measuredHandVertices": 14117,
+        "intrudingSkinVertices": 726,
+        "maximumIntrusionMeters": 0.013023697373438232,
+        "withinThreeMm": false,
+        "scope": "Actual deformed source skin versus measured shaft cylinder; excludes weapon ornaments and is not complete mesh-mesh contact acceptance"
+      },
+      "rigSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b"
+    }
+  ]
+}

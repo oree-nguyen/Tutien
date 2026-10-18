@@ -1,0 +1,55 @@
+{
+  "input": ".local/rig-candidates/fullbody-refit/H01-C0-rigged.glb",
+  "sha256": "157f65eff3c169e7dc5fa852e2fced3a42a3475dce9fb21a11dc058c1051cc3c",
+  "pose": ".local/rig-candidates/reference/heights/22.json",
+  "edgeStrainPassed": false,
+  "passed": false,
+  "scope": "Every mesh/primitive at one pose; unchanged edge-strain thresholds plus identical-source seam continuity (1 micrometre numerical tolerance). Intentional free seams require explicit reviewed mapping. Not full-animation or cloth-volume approval.",
+  "meshes": [
+    {
+      "node": "H01_Tencent_Original_Body",
+      "vertices": 869627,
+      "triangles": 1499726,
+      "passed": false,
+      "p999": 1.8942170715255389,
+      "maximum": 3.4978697927746767,
+      "edges": 2365667,
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "worst": {
+        "a": 456262,
+        "b": 455813,
+        "bindLength": 0.0032534237121798165,
+        "posedLength": 0.011380052525930634,
+        "sourceA": [
+          -0.12217345833778381,
+          0.7387405037879944,
+          -0.1369597315788269
+        ],
+        "sourceB": [
+          -0.12089122086763382,
+          0.7359743118286133,
+          -0.13809499144554138
+        ],
+        "posedA": [
+          -0.1341468871936851,
+          0.7457862557361725,
+          -0.12906077399260274
+        ],
+        "posedB": [
+          -0.12586403908138888,
+          0.7401180784801044,
+          -0.13442470811182558
+        ]
+      }
+    }
+  ],
+  "seams": {
+    "passed": true,
+    "numericalToleranceMillimetres": 0.001,
+    "pairs": 0,
+    "maximumMillimetres": 0
+  }
+}

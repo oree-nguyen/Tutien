@@ -1,0 +1,5641 @@
+{
+  "passed": false,
+  "scope": "Legacy clips retargeted onto the calibrated full-resolution rig; this is a blocker report, not entrance acceptance",
+  "sampleRateHz": 60,
+  "toleranceDegrees": 1,
+  "reports": [
+    {
+      "hero": "H01",
+      "rigSha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
+      "passed": false,
+      "clips": [
+        {
+          "name": "Attack",
+          "passed": false,
+          "violatingJointSamples": 1484,
+          "violations": [
+            {
+              "joint": "LeftForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                1.103879777884572,
+                2.9867004619737827
+              ],
+              "violatingSamples": 29,
+              "firstTime": 0.16666666666666666
+            },
+            {
+              "joint": "LeftForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.441967285662827,
+                11.060583250233643
+              ],
+              "violatingSamples": 13,
+              "firstTime": 0.3
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                1.1038839096473794,
+                2.9867007548007223
+              ],
+              "violatingSamples": 29,
+              "firstTime": 0.16666666666666666
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.441965822977252,
+                11.060585947330262
+              ],
+              "violatingSamples": 13,
+              "firstTime": 0.3
+            },
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87722713378001,
+                -38.87722713378001
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.41359995068245,
+                -9.413599950682439
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.06787485122528,
+                -47.067874851225255
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.887375300009705,
+                -24.887375300009687
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82894643612682,
+                -38.82894643612682
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24358283325555,
+                -58.24358283325555
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60257508206387,
+                -41.60257508206385
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.403728392732965,
+                -62.40372839273289
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865719439575042,
+                -14.865719439575042
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.47365204720551,
+                -42.47365204720551
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18963383459236,
+                -50.18963383459236
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.7954966487117,
+                -48.7954966487117
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.45042178932366,
+                -50.45042178932362
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.495569350293856,
+                -55.49556935029382
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819898333928837,
+                -31.819898333928812
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819746473816377,
+                -31.81974647381634
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.9015606540161,
+                -53.901560654016066
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.66122190677235,
+                -44.66122190677232
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.61655048061399,
+                -57.61655048061399
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.013925543955146,
+                -48.013925543955146
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96479305932472,
+                -37.964793059324684
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.15936487371737,
+                -24.159364873717344
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.12536689094288,
+                -55.12536689094283
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.141591615474255,
+                -43.14159161547421
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.030015902498015,
+                -61.03001590249799
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.59286329679071,
+                -43.59286329679068
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24918549929393,
+                -40.24918549929393
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124699959764722,
+                -20.124699959764722
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Cast",
+          "passed": false,
+          "violatingJointSamples": 1816,
+          "violations": [
+            {
+              "joint": "LeftForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                1.0290535890887895,
+                2.986701795422846
+              ],
+              "violatingSamples": 37,
+              "firstTime": 0.2
+            },
+            {
+              "joint": "LeftForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.23196555117756,
+                11.060577667203527
+              ],
+              "violatingSamples": 17,
+              "firstTime": 0.36666666666666664
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                1.0290521503497985,
+                2.9866996594286093
+              ],
+              "violatingSamples": 37,
+              "firstTime": 0.2
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.231967751938223,
+                11.06058376598414
+              ],
+              "violatingSamples": 17,
+              "firstTime": 0.36666666666666664
+            },
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87722713378001,
+                -38.87722713378001
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.413599950682451,
+                -9.413599950682437
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.06787485122529,
+                -47.067874851225255
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.887375300009705,
+                -24.88737530000969
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82894643612682,
+                -38.82894643612682
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24358283325555,
+                -58.24358283325555
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60257508206387,
+                -41.60257508206384
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.403728392732965,
+                -62.40372839273289
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865719439575042,
+                -14.865719439575042
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.47365204720551,
+                -42.47365204720551
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18963383459236,
+                -50.18963383459236
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.7954966487117,
+                -48.7954966487117
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.45042178932367,
+                -50.45042178932364
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.49556935029386,
+                -55.49556935029382
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819898333928844,
+                -31.819898333928812
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819746473816377,
+                -31.819746473816345
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.90156065401609,
+                -53.901560654016066
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.661221906772354,
+                -44.66122190677231
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.61655048061399,
+                -57.61655048061399
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.013925543955146,
+                -48.013925543955146
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96479305932472,
+                -37.96479305932469
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.15936487371737,
+                -24.159364873717347
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.125366890942864,
+                -55.125366890942836
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.141591615474255,
+                -43.14159161547421
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.030015902498015,
+                -61.03001590249799
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.59286329679071,
+                -43.592863296790675
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24918549929393,
+                -40.24918549929393
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124699959764722,
+                -20.124699959764722
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Dash",
+          "passed": false,
+          "violatingJointSamples": 868,
+          "violations": [
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87721772970992,
+                -38.877217729709905
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.413594085590233,
+                -9.413594085590226
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.067875488371264,
+                -47.06787548837122
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.887375329817832,
+                -24.887375329817818
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82893508246682,
+                -38.82893508246682
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24357345058128,
+                -58.24357345058128
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60257373661348,
+                -41.602573736613444
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.40372919941972,
+                -62.40372919941967
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865720065429382,
+                -14.865720065429366
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.473645485507156,
+                -42.47364548550714
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18963285242977,
+                -50.18963285242977
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.795497186303606,
+                -48.795497186303606
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.450422958029215,
+                -50.45042295802918
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.49556840777196,
+                -55.495568407771934
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819895253646955,
+                -31.819895253646955
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819739809650617,
+                -31.819739809650617
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.901554851886594,
+                -53.901554851886594
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.66121325122196,
+                -44.66121325122196
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.616550379250725,
+                -57.616550379250704
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.013920229569095,
+                -48.01392022956907
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96480150189558,
+                -37.96480150189558
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.159365980242768,
+                -24.159365980242768
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.125345125612185,
+                -55.125345125612164
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.14157788672354,
+                -43.14157788672351
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.030026635709774,
+                -61.03002663570974
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.592869615754,
+                -43.59286961575397
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24918407689392,
+                -40.24918407689392
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124694594771736,
+                -20.124694594771736
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Entrance",
+          "passed": false,
+          "violatingJointSamples": 2507,
+          "violations": [
+            {
+              "joint": "Spine",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -15,
+                25
+              ],
+              "observed": [
+                27.500005840263615,
+                55.00001500650429
+              ],
+              "violatingSamples": 163,
+              "firstTime": 0
+            },
+            {
+              "joint": "Head",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -60,
+                50
+              ],
+              "observed": [
+                -61.99999964976709,
+                -61.21009421998691
+              ],
+              "violatingSamples": 40,
+              "firstTime": 1.8333333333333333
+            },
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87723026819534,
+                -28.90430451264188
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.06788097811334,
+                -12.074066880083933
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.413596747290642,
+                -6.998783327854405
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.887375329817825,
+                -6.433983168726333
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24358322473704,
+                -43.486668919441684
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82894538086347,
+                -38.82893508246682
+              ],
+              "violatingSamples": 70,
+              "firstTime": 3.05
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.602588987814016,
+                -10.503394436963752
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.403729892048666,
+                -15.75506081636772
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.47364604882621,
+                -10.909748728846862
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.86572006542937,
+                -11.047336054101377
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18963383459236,
+                -37.47332036480806
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.795497186303606,
+                -36.432411805723106
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.450423542381934,
+                -12.737202666368885
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.49556840777195,
+                -14.010951828172216
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819895253646955,
+                -8.173234075271072
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819741248105668,
+                -8.17319185015932
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.90156065401607,
+                -40.24475306477684
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.66122190677235,
+                -33.34560376447173
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.61655037925072,
+                -14.54643154368179
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.013926132746406,
+                -12.122065435993244
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96480150189558,
+                -9.751602141919763
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.159365980242768,
+                -6.20555929814162
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.125357121809195,
+                -41.15850087584902
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.141584145103735,
+                -32.21100529984455
+              ],
+              "violatingSamples": 71,
+              "firstTime": 3.033333333333333
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.030028607720624,
+                -15.408232751426738
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.592869615754,
+                -11.00587625452773
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.249191230612404,
+                -10.338368854437702
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124701362143814,
+                -5.169217647578296
+              ],
+              "violatingSamples": 72,
+              "firstTime": 3.0166666666666666
+            },
+            {
+              "joint": "LeftFoot",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -45,
+                20
+              ],
+              "observed": [
+                -46.99999433722879,
+                -46.40118905947424
+              ],
+              "violatingSamples": 150,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightFoot",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -45,
+                20
+              ],
+              "observed": [
+                -46.99999433722879,
+                -46.40118905947424
+              ],
+              "violatingSamples": 150,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Idle",
+          "passed": false,
+          "violatingJointSamples": 3388,
+          "violations": [
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87721772970992,
+                -38.877217729709905
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.413594085590233,
+                -9.413594085590223
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.067875488371264,
+                -47.06787548837122
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.887375329817832,
+                -24.887375329817814
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82893508246682,
+                -38.82893508246682
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24357345058128,
+                -58.24357345058128
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60257373661348,
+                -41.602573736613444
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.40372919941972,
+                -62.40372919941967
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865720065429382,
+                -14.865720065429366
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.473645485507156,
+                -42.473645485507134
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18963285242977,
+                -50.18963285242977
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.795497186303606,
+                -48.795497186303606
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.450422958029215,
+                -50.45042295802917
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.49556840777196,
+                -55.49556840777193
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819895253646955,
+                -31.819895253646955
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819739809650617,
+                -31.819739809650617
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.901554851886594,
+                -53.901554851886594
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.66121325122196,
+                -44.66121325122196
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.61655037925074,
+                -57.61655037925069
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.013920229569095,
+                -48.01392022956906
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96480150189558,
+                -37.96480150189558
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.159365980242768,
+                -24.159365980242768
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.1253451256122,
+                -55.125345125612164
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.14157788672354,
+                -43.14157788672351
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.03002663570979,
+                -61.03002663570974
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.592869615754,
+                -43.59286961575396
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24918407689392,
+                -40.24918407689392
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124694594771736,
+                -20.124694594771736
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Run",
+          "passed": false,
+          "violatingJointSamples": 1442,
+          "violations": [
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87722713378001,
+                -38.87722713378001
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.41359995068245,
+                -9.413599950682439
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.06787485122528,
+                -47.067874851225255
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.887375300009705,
+                -24.887375300009687
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82894643612682,
+                -38.82894643612682
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24358283325555,
+                -58.24358283325555
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60257508206387,
+                -41.60257508206385
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.403728392732965,
+                -62.40372839273289
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865719439575042,
+                -14.865719439575042
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.47365204720551,
+                -42.47365204720551
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18963383459236,
+                -50.18963383459236
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.7954966487117,
+                -48.7954966487117
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.45042178932366,
+                -50.45042178932362
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.495569350293856,
+                -55.49556935029382
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819898333928837,
+                -31.819898333928812
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819746473816377,
+                -31.81974647381634
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.9015606540161,
+                -53.901560654016066
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.66122190677235,
+                -44.66122190677232
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.61655048061399,
+                -57.61655048061399
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.013925543955146,
+                -48.013925543955146
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96479305932472,
+                -37.964793059324684
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.15936487371737,
+                -24.159364873717344
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.12536689094288,
+                -55.12536689094283
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.141591615474255,
+                -43.14159161547421
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.030015902498015,
+                -61.03001590249799
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.59286329679071,
+                -43.59286329679068
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24918549929393,
+                -40.24918549929393
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124699959764722,
+                -20.124699959764722
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "LeftLeg",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -3,
+                150
+              ],
+              "observed": [
+                -20.0535219396273,
+                -4.295010986669684
+              ],
+              "violatingSamples": 21,
+              "firstTime": 0.43333333333333335
+            },
+            {
+              "joint": "RightLeg",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -3,
+                150
+              ],
+              "observed": [
+                -20.053522142761377,
+                -4.295014388686631
+              ],
+              "violatingSamples": 21,
+              "firstTime": 0.03333333333333333
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "hero": "H02",
+      "rigSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+      "passed": false,
+      "clips": [
+        {
+          "name": "Attack",
+          "passed": false,
+          "violatingJointSamples": 1492,
+          "violations": [
+            {
+              "joint": "LeftForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                1.0365516190236121,
+                5.311869978212144
+              ],
+              "violatingSamples": 35,
+              "firstTime": 0.11666666666666667
+            },
+            {
+              "joint": "LeftForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.100361419618737,
+                10.146375271057165
+              ],
+              "violatingSamples": 11,
+              "firstTime": 0.31666666666666665
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                1.0364050958720554,
+                5.311129749007819
+              ],
+              "violatingSamples": 35,
+              "firstTime": 0.11666666666666667
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.10070540222525,
+                10.146764734692633
+              ],
+              "violatingSamples": 11,
+              "firstTime": 0.31666666666666665
+            },
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87722727648873,
+                -38.87722727648868
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.41359587701923,
+                -9.41359587701923
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.0678733644097,
+                -47.0678733644097
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.88738630773726,
+                -24.88738630773726
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82900570624747,
+                -38.82900570624747
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.243539531085844,
+                -58.243539531085844
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60248101125465,
+                -41.60248101125465
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.40381530970677,
+                -62.40381530970677
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865718743616549,
+                -14.865718743616549
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.473660319279446,
+                -42.473660319279446
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18958941686154,
+                -50.189589416861494
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.795563073542354,
+                -48.795563073542326
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.45047724494146,
+                -50.450477244941425
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.495491414109594,
+                -55.495491414109544
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819801837442427,
+                -31.819801837442427
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819814000746625,
+                -31.819814000746625
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.901492937217746,
+                -53.90149293721772
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.6612781123128,
+                -44.661278112312765
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.616530077905345,
+                -57.616530077905345
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.01391841108416,
+                -48.01391841108416
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96479052164812,
+                -37.96479052164812
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.15937124201136,
+                -24.15937124201136
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.125369874435705,
+                -55.12536987443566
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.141586840247584,
+                -43.14158684024755
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.03004530966454,
+                -61.03004530966454
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.59286664708843,
+                -43.59286664708843
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24914852352837,
+                -40.24914852352837
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124785720959864,
+                -20.124785720959864
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Cast",
+          "passed": false,
+          "violatingJointSamples": 1820,
+          "violations": [
+            {
+              "joint": "LeftForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                1.0920648404629674,
+                5.311869762917922
+              ],
+              "violatingSamples": 43,
+              "firstTime": 0.15
+            },
+            {
+              "joint": "LeftForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.179881215899728,
+                10.146371432625001
+              ],
+              "violatingSamples": 13,
+              "firstTime": 0.4
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                1.0919141867177586,
+                5.311127375727892
+              ],
+              "violatingSamples": 43,
+              "firstTime": 0.15
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.180232836085404,
+                10.14676115596369
+              ],
+              "violatingSamples": 13,
+              "firstTime": 0.4
+            },
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87722727648873,
+                -38.87722727648869
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.41359587701923,
+                -9.41359587701923
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.0678733644097,
+                -47.0678733644097
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.88738630773726,
+                -24.88738630773726
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82900570624747,
+                -38.82900570624747
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.243539531085844,
+                -58.243539531085844
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60248101125465,
+                -41.60248101125465
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.40381530970677,
+                -62.40381530970677
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865718743616549,
+                -14.865718743616549
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.473660319279446,
+                -42.473660319279446
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18958941686155,
+                -50.189589416861494
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.795563073542354,
+                -48.795563073542326
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.45047724494146,
+                -50.450477244941425
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.49549141410959,
+                -55.49549141410955
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819801837442427,
+                -31.819801837442427
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819814000746625,
+                -31.819814000746625
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.901492937217746,
+                -53.901492937217725
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.6612781123128,
+                -44.661278112312765
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.616530077905345,
+                -57.616530077905345
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.01391841108416,
+                -48.01391841108416
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96479052164812,
+                -37.96479052164812
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.15937124201136,
+                -24.15937124201136
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.12536987443571,
+                -55.12536987443567
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.141586840247584,
+                -43.14158684024755
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.03004530966454,
+                -61.03004530966454
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.59286664708843,
+                -43.59286664708843
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24914852352837,
+                -40.24914852352837
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124785720959864,
+                -20.124785720959864
+              ],
+              "violatingSamples": 61,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Dash",
+          "passed": false,
+          "violatingJointSamples": 868,
+          "violations": [
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87722573341239,
+                -38.87722573341236
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.413594989325585,
+                -9.413594989325585
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.067883702375035,
+                -47.067883702375035
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.88738626487462,
+                -24.88738626487462
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82899941651746,
+                -38.82899941651746
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24352656288144,
+                -58.24352656288144
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.602485605325754,
+                -41.60248560532573
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.40380885926183,
+                -62.4038088592618
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865718770282566,
+                -14.86571877028255
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.473656940849914,
+                -42.47365694084987
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18959249344916,
+                -50.18959249344916
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.79555861847847,
+                -48.79555861847847
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.450497920394085,
+                -50.450497920394085
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.495500581279884,
+                -55.495500581279884
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819802324033976,
+                -31.819802324033976
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819813689516447,
+                -31.819813689516447
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.9015029844931,
+                -53.901502984493064
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.66129333876941,
+                -44.66129333876936
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.61652965234294,
+                -57.61652965234294
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.013918834155284,
+                -48.013918834155284
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.964790864369895,
+                -37.964790864369895
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.159370869090598,
+                -24.159370869090598
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.12537135845554,
+                -55.12537135845554
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.14158458941735,
+                -43.14158458941735
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.030035083005295,
+                -61.03003508300526
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.592861960596245,
+                -43.59286196059621
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.249141772255406,
+                -40.24914177225539
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.12478576748225,
+                -20.124785767482233
+              ],
+              "violatingSamples": 31,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Entrance",
+          "passed": false,
+          "violatingJointSamples": 4201,
+          "violations": [
+            {
+              "joint": "Spine",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -15,
+                25
+              ],
+              "observed": [
+                26.223352251224853,
+                38.00000890580476
+              ],
+              "violatingSamples": 80,
+              "firstTime": 2.7666666666666666
+            },
+            {
+              "joint": "LeftForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -17.230436338873233,
+                -1.8200952407740942
+              ],
+              "violatingSamples": 40,
+              "firstTime": 2.1333333333333333
+            },
+            {
+              "joint": "LeftForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.546392169534714,
+                12.924934843327494
+              ],
+              "violatingSamples": 32,
+              "firstTime": 2.183333333333333
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -17.243044183343955,
+                -1.8214443219378609
+              ],
+              "violatingSamples": 40,
+              "firstTime": 2.1333333333333333
+            },
+            {
+              "joint": "RightForeArm",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -8,
+                8
+              ],
+              "observed": [
+                9.55130218497807,
+                12.931392813386244
+              ],
+              "violatingSamples": 32,
+              "firstTime": 2.183333333333333
+            },
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87722727648873,
+                -22.656450569631524
+              ],
+              "violatingSamples": 131,
+              "firstTime": 3.433333333333333
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.067883702375035,
+                -1.6213127094800095
+              ],
+              "violatingSamples": 135,
+              "firstTime": 3.3666666666666667
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.41359587701923,
+                -6.973036048755993
+              ],
+              "violatingSamples": 130,
+              "firstTime": 3.45
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.88738708544745,
+                -3.1426900802875304
+              ],
+              "violatingSamples": 134,
+              "firstTime": 3.3833333333333333
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24354202122882,
+                -24.242946942642195
+              ],
+              "violatingSamples": 132,
+              "firstTime": 3.4166666666666665
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.829006822619775,
+                -33.9232228198612
+              ],
+              "violatingSamples": 129,
+              "firstTime": 3.466666666666667
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.40381530970677,
+                -2.163361659699249
+              ],
+              "violatingSamples": 135,
+              "firstTime": 3.3666666666666667
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60248619485882,
+                -10.78579429152068
+              ],
+              "violatingSamples": 133,
+              "firstTime": 3.4
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.473660319279446,
+                -1.4622754203860784
+              ],
+              "violatingSamples": 135,
+              "firstTime": 3.3666666666666667
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865718743616549,
+                -6.194318793450246
+              ],
+              "violatingSamples": 132,
+              "firstTime": 3.4166666666666665
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.79556729778724,
+                -28.425114062017535
+              ],
+              "violatingSamples": 131,
+              "firstTime": 3.433333333333333
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.189593069520875,
+                -37.17745009488004
+              ],
+              "violatingSamples": 130,
+              "firstTime": 3.45
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.49549141410956,
+                -1.9238725611453231
+              ],
+              "violatingSamples": 135,
+              "firstTime": 3.3666666666666667
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.45047724494143,
+                -6.401826579769901
+              ],
+              "violatingSamples": 134,
+              "firstTime": 3.3833333333333333
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819814000746625,
+                -1.0954837301533893
+              ],
+              "violatingSamples": 135,
+              "firstTime": 3.3666666666666667
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.81980195909031,
+                -8.249546266089888
+              ],
+              "violatingSamples": 133,
+              "firstTime": 3.4
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.90150387338573,
+                -31.399517657108284
+              ],
+              "violatingSamples": 131,
+              "firstTime": 3.433333333333333
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.66128395249513,
+                -26.016762112113163
+              ],
+              "violatingSamples": 131,
+              "firstTime": 3.433333333333333
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.01391841108416,
+                -1.664507136448528
+              ],
+              "violatingSamples": 135,
+              "firstTime": 3.3666666666666667
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.616530077905345,
+                -7.311147428185329
+              ],
+              "violatingSamples": 134,
+              "firstTime": 3.3833333333333333
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.15937124201136,
+                -3.054916207180179
+              ],
+              "violatingSamples": 134,
+              "firstTime": 3.3833333333333333
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96479052164812,
+                -9.84269611881726
+              ],
+              "violatingSamples": 133,
+              "firstTime": 3.4
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.125369874435705,
+                -32.11245005898494
+              ],
+              "violatingSamples": 131,
+              "firstTime": 3.433333333333333
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.141589417023965,
+                -25.131479773073647
+              ],
+              "violatingSamples": 131,
+              "firstTime": 3.433333333333333
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.59286664708843,
+                -1.511244070724961
+              ],
+              "violatingSamples": 135,
+              "firstTime": 3.3666666666666667
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.03004655206413,
+                -7.744295242521875
+              ],
+              "violatingSamples": 134,
+              "firstTime": 3.3833333333333333
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124785720959864,
+                -2.544745219736838
+              ],
+              "violatingSamples": 134,
+              "firstTime": 3.3833333333333333
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24914852352837,
+                -10.434927553531749
+              ],
+              "violatingSamples": 133,
+              "firstTime": 3.4
+            },
+            {
+              "joint": "LeftLeg",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                -5,
+                5
+              ],
+              "observed": [
+                -7.426718759737923,
+                -6.029069800995899
+              ],
+              "violatingSamples": 68,
+              "firstTime": 2.8
+            },
+            {
+              "joint": "LeftLeg",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -6,
+                6
+              ],
+              "observed": [
+                7.208363527742229,
+                7.818802374329425
+              ],
+              "violatingSamples": 61,
+              "firstTime": 2.8333333333333335
+            },
+            {
+              "joint": "RightLeg",
+              "axis": "twist",
+              "code": "JOINT_TWIST_LIMIT",
+              "allowed": [
+                -5,
+                5
+              ],
+              "observed": [
+                -7.426718759737923,
+                -6.034019578818743
+              ],
+              "violatingSamples": 67,
+              "firstTime": 2.816666666666667
+            },
+            {
+              "joint": "RightLeg",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -6,
+                6
+              ],
+              "observed": [
+                7.208363527742229,
+                7.818802374329425
+              ],
+              "violatingSamples": 61,
+              "firstTime": 2.8333333333333335
+            }
+          ]
+        },
+        {
+          "name": "Idle",
+          "passed": false,
+          "violatingJointSamples": 3388,
+          "violations": [
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.877225733412395,
+                -38.87722573341236
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.413594989325585,
+                -9.413594989325585
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.067883702375035,
+                -47.067883702375035
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.88738626487462,
+                -24.88738626487462
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82899941651746,
+                -38.82899941651746
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.24352656288144,
+                -58.24352656288144
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60248560532576,
+                -41.60248560532573
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.40380885926184,
+                -62.4038088592618
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865718770282566,
+                -14.86571877028255
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.473656940849914,
+                -42.473656940849864
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18959249344916,
+                -50.18959249344916
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.79555861847847,
+                -48.79555861847847
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.450497920394085,
+                -50.450497920394085
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.495500581279884,
+                -55.495500581279884
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819802324033976,
+                -31.819802324033976
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819813689516447,
+                -31.819813689516447
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.9015029844931,
+                -53.90150298449306
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.66129333876942,
+                -44.66129333876936
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.61652965234294,
+                -57.61652965234294
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.013918834155284,
+                -48.013918834155284
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.964790864369895,
+                -37.964790864369895
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.159370869090598,
+                -24.159370869090598
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.12537135845554,
+                -55.12537135845554
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.14158458941735,
+                -43.14158458941735
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.030035083005295,
+                -61.030035083005245
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.592861960596245,
+                -43.59286196059621
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.249141772255406,
+                -40.24914177225538
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.12478576748225,
+                -20.124785767482226
+              ],
+              "violatingSamples": 121,
+              "firstTime": 0
+            }
+          ]
+        },
+        {
+          "name": "Run",
+          "passed": false,
+          "violatingJointSamples": 1442,
+          "violations": [
+            {
+              "joint": "RightHandThumb1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -38.87722727648873,
+                -38.87722727648868
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -9.41359587701923,
+                -9.41359587701923
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -47.0678733644097,
+                -47.0678733644097
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandThumb3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.88738630773726,
+                -24.88738630773726
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -38.82900570624747,
+                -38.82900570624747
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -58.243539531085844,
+                -58.243539531085844
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -41.60248101125465,
+                -41.60248101125465
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -62.40381530970677,
+                -62.40381530970677
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -14.865718743616549,
+                -14.865718743616549
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandIndex3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -42.473660319279446,
+                -42.473660319279446
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -50.18958941686154,
+                -50.189589416861494
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -48.795563073542354,
+                -48.795563073542326
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -50.45047724494146,
+                -50.450477244941425
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -55.495491414109594,
+                -55.495491414109544
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -31.819801837442427,
+                -31.819801837442427
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandMiddle3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -31.819814000746625,
+                -31.819814000746625
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -53.901492937217746,
+                -53.90149293721772
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -44.6612781123128,
+                -44.661278112312765
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -57.616530077905345,
+                -57.616530077905345
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -48.01391841108416,
+                -48.01391841108416
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -37.96479052164812,
+                -37.96479052164812
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandRing3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -24.15937124201136,
+                -24.15937124201136
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -30,
+                90
+              ],
+              "observed": [
+                -55.125369874435705,
+                -55.12536987443566
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky1",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                -20,
+                20
+              ],
+              "observed": [
+                -43.141586840247584,
+                -43.14158684024755
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                100
+              ],
+              "observed": [
+                -61.03004530966454,
+                -61.03004530966454
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky2",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -43.59286664708843,
+                -43.59286664708843
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "flex",
+              "code": "FINGER_HYPEREXTENDED",
+              "allowed": [
+                -5,
+                80
+              ],
+              "observed": [
+                -40.24914852352837,
+                -40.24914852352837
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "RightHandPinky3",
+              "axis": "lateral",
+              "code": "JOINT_LATERAL_LIMIT",
+              "allowed": [
+                0,
+                0
+              ],
+              "observed": [
+                -20.124785720959864,
+                -20.124785720959864
+              ],
+              "violatingSamples": 50,
+              "firstTime": 0
+            },
+            {
+              "joint": "LeftLeg",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -3,
+                150
+              ],
+              "observed": [
+                -20.03890924268565,
+                -4.291992050149278
+              ],
+              "violatingSamples": 21,
+              "firstTime": 0.43333333333333335
+            },
+            {
+              "joint": "RightLeg",
+              "axis": "flex",
+              "code": "JOINT_FLEX_LIMIT",
+              "allowed": [
+                -3,
+                150
+              ],
+              "observed": [
+                -20.038909445656333,
+                -4.291995023289696
+              ],
+              "violatingSamples": 21,
+              "firstTime": 0.03333333333333333
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

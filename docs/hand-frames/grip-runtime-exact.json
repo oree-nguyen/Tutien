@@ -1,0 +1,67 @@
+{
+  "scope": "Cloud diagnostic only, not runtime activation or contact acceptance",
+  "reports": [
+    {
+      "hero": "H01",
+      "solutionPassed": true,
+      "exactMeshDiagnostic": {
+        "passed": true,
+        "sourceTriangles": 26000,
+        "queries": 28328,
+        "subdivisions": 582,
+        "ambiguousQueries": 0,
+        "unresolvedTriangles": 0,
+        "maximumSampledIntrusion": 0.00294286026243347,
+        "maximumCertifiedUpperBound": 0.0029990673583667926,
+        "worst": {
+          "sourceTriangle": 1400354,
+          "depth": 5,
+          "position": [
+            -0.020156965720905445,
+            0.33095726546228904,
+            0.00896274236868649
+          ],
+          "distance": 0.00294286026243347,
+          "inside": true,
+          "signedDistance": -0.00294286026243347,
+          "face": 367228,
+          "closest": [
+            -0.022916290699977568,
+            0.3318801196891838,
+            0.0094042084035987
+          ],
+          "normal": [
+            -0.9376337076876471,
+            0.31359090972657855,
+            0.15001257128911785
+          ],
+          "ambiguous": false,
+          "votes": [
+            true,
+            true,
+            true
+          ]
+        },
+        "limit": 0.003,
+        "maxDepth": 12,
+        "method": "Adaptive 1-Lipschitz signed-distance bounds over original deformed triangles; three-ray classification"
+      },
+      "rigFkTipErrorMeters": {
+        "Thumb": 8.228095860935161e-8,
+        "Index": 3.6234669932890315e-8,
+        "Middle": 7.29797332959277e-8,
+        "Ring": 2.3648989881364488e-8,
+        "Pinky": 2.245252462451837e-8
+      },
+      "maxRigFkTipErrorMeters": 8.228095860935161e-8,
+      "cylinderSkinDiagnostic": {
+        "measuredHandVertices": 14654,
+        "intrudingSkinVertices": 443,
+        "maximumIntrusionMeters": 0.011312757462383237,
+        "withinThreeMm": false,
+        "scope": "Actual deformed hand-region mesh, including cuffs, versus measured shaft cylinder; excludes weapon ornaments and is not complete mesh-mesh contact acceptance"
+      },
+      "rigSha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc"
+    }
+  ]
+}

@@ -1,0 +1,3067 @@
+{
+  "hero": "H01",
+  "file": "H01-C0-rigged.glb",
+  "source": "public/models/hunyuan-original/H01-C0-source.glb",
+  "sourceHash": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "donor": "public/models/h01-c0/h01-c0-high.glb",
+  "donorHash": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
+  "sha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
+  "bytes": 98346352,
+  "joints": 52,
+  "maxPositionError": 0,
+  "smoothing": [
+    {
+      "passes": 3,
+      "factor": 0.5,
+      "processedVertexPasses": 1701077,
+      "fingerVerticesDetected": 16783,
+      "fingerVerticesExcluded": 16783,
+      "weldedPositions": 749845,
+      "includesFingerTransitions": false,
+      "distanceWeighted": false
+    },
+    {
+      "passes": 384,
+      "factor": 0.5,
+      "processedVertexPasses": 14716800,
+      "fingerVerticesDetected": 16783,
+      "fingerVerticesExcluded": 0,
+      "weldedPositions": 749845,
+      "regionVertices": 44687,
+      "includesFingerTransitions": true,
+      "distanceWeighted": true
+    }
+  ],
+  "constraintFitting": [
+    {
+      "method": "Projected skin-weight constraints on actual source edges; four fixed influences, normalized; distal rigid cores pinned",
+      "strengthSamples": [
+        0.2,
+        1
+      ],
+      "targetStretch": 1.45,
+      "vertices": 37210,
+      "pinnedDistalVertices": 496,
+      "maximumIterations": 6000,
+      "weldedSurfaceGroups": 32260,
+      "history": [
+        {
+          "iteration": 0,
+          "maximumEdgeStretch": 5.272829734828532,
+          "violatingTriangleEdges": 8425
+        },
+        {
+          "iteration": 10,
+          "maximumEdgeStretch": 4.653754376206371,
+          "violatingTriangleEdges": 9631
+        },
+        {
+          "iteration": 20,
+          "maximumEdgeStretch": 4.137169792848106,
+          "violatingTriangleEdges": 9810
+        },
+        {
+          "iteration": 30,
+          "maximumEdgeStretch": 3.8760993496741505,
+          "violatingTriangleEdges": 9808
+        },
+        {
+          "iteration": 40,
+          "maximumEdgeStretch": 3.785807915675729,
+          "violatingTriangleEdges": 9726
+        },
+        {
+          "iteration": 50,
+          "maximumEdgeStretch": 3.720931353102384,
+          "violatingTriangleEdges": 9697
+        },
+        {
+          "iteration": 60,
+          "maximumEdgeStretch": 3.6470657741953376,
+          "violatingTriangleEdges": 9645
+        },
+        {
+          "iteration": 70,
+          "maximumEdgeStretch": 3.583097566159466,
+          "violatingTriangleEdges": 9632
+        },
+        {
+          "iteration": 80,
+          "maximumEdgeStretch": 3.52468486727075,
+          "violatingTriangleEdges": 9554
+        },
+        {
+          "iteration": 90,
+          "maximumEdgeStretch": 3.4754089763498133,
+          "violatingTriangleEdges": 9492
+        },
+        {
+          "iteration": 100,
+          "maximumEdgeStretch": 3.455047215749614,
+          "violatingTriangleEdges": 9491
+        },
+        {
+          "iteration": 110,
+          "maximumEdgeStretch": 3.4363707008397713,
+          "violatingTriangleEdges": 9420
+        },
+        {
+          "iteration": 120,
+          "maximumEdgeStretch": 3.4185919905139857,
+          "violatingTriangleEdges": 9323
+        },
+        {
+          "iteration": 130,
+          "maximumEdgeStretch": 3.401051641202481,
+          "violatingTriangleEdges": 9220
+        },
+        {
+          "iteration": 140,
+          "maximumEdgeStretch": 3.384716602975732,
+          "violatingTriangleEdges": 9099
+        },
+        {
+          "iteration": 150,
+          "maximumEdgeStretch": 3.369042604136976,
+          "violatingTriangleEdges": 9028
+        },
+        {
+          "iteration": 160,
+          "maximumEdgeStretch": 3.3536922239689897,
+          "violatingTriangleEdges": 8955
+        },
+        {
+          "iteration": 170,
+          "maximumEdgeStretch": 3.3378032583220536,
+          "violatingTriangleEdges": 8864
+        },
+        {
+          "iteration": 180,
+          "maximumEdgeStretch": 3.321974844895989,
+          "violatingTriangleEdges": 8800
+        },
+        {
+          "iteration": 190,
+          "maximumEdgeStretch": 3.306627512602032,
+          "violatingTriangleEdges": 8729
+        },
+        {
+          "iteration": 200,
+          "maximumEdgeStretch": 3.2917119123248573,
+          "violatingTriangleEdges": 8628
+        },
+        {
+          "iteration": 210,
+          "maximumEdgeStretch": 3.2772778311285187,
+          "violatingTriangleEdges": 8599
+        },
+        {
+          "iteration": 220,
+          "maximumEdgeStretch": 3.259639624452874,
+          "violatingTriangleEdges": 8547
+        },
+        {
+          "iteration": 230,
+          "maximumEdgeStretch": 3.2391880952716328,
+          "violatingTriangleEdges": 8478
+        },
+        {
+          "iteration": 240,
+          "maximumEdgeStretch": 3.2194535570382397,
+          "violatingTriangleEdges": 8442
+        },
+        {
+          "iteration": 250,
+          "maximumEdgeStretch": 3.200691689744991,
+          "violatingTriangleEdges": 8385
+        },
+        {
+          "iteration": 260,
+          "maximumEdgeStretch": 3.183070181370644,
+          "violatingTriangleEdges": 8310
+        },
+        {
+          "iteration": 270,
+          "maximumEdgeStretch": 3.1658589325431357,
+          "violatingTriangleEdges": 8288
+        },
+        {
+          "iteration": 280,
+          "maximumEdgeStretch": 3.1492825810052913,
+          "violatingTriangleEdges": 8222
+        },
+        {
+          "iteration": 290,
+          "maximumEdgeStretch": 3.1334132944854423,
+          "violatingTriangleEdges": 8151
+        },
+        {
+          "iteration": 300,
+          "maximumEdgeStretch": 3.118344044903733,
+          "violatingTriangleEdges": 8089
+        },
+        {
+          "iteration": 310,
+          "maximumEdgeStretch": 3.103977191739458,
+          "violatingTriangleEdges": 8042
+        },
+        {
+          "iteration": 320,
+          "maximumEdgeStretch": 3.0901775021705977,
+          "violatingTriangleEdges": 8011
+        },
+        {
+          "iteration": 330,
+          "maximumEdgeStretch": 3.076818403681386,
+          "violatingTriangleEdges": 7943
+        },
+        {
+          "iteration": 340,
+          "maximumEdgeStretch": 3.063841971297966,
+          "violatingTriangleEdges": 7860
+        },
+        {
+          "iteration": 350,
+          "maximumEdgeStretch": 3.0512392365162264,
+          "violatingTriangleEdges": 7822
+        },
+        {
+          "iteration": 360,
+          "maximumEdgeStretch": 3.038870505901667,
+          "violatingTriangleEdges": 7791
+        },
+        {
+          "iteration": 370,
+          "maximumEdgeStretch": 3.02660424777385,
+          "violatingTriangleEdges": 7782
+        },
+        {
+          "iteration": 380,
+          "maximumEdgeStretch": 3.0143991998627087,
+          "violatingTriangleEdges": 7756
+        },
+        {
+          "iteration": 390,
+          "maximumEdgeStretch": 3.0023742021420405,
+          "violatingTriangleEdges": 7711
+        },
+        {
+          "iteration": 400,
+          "maximumEdgeStretch": 2.990710722952635,
+          "violatingTriangleEdges": 7702
+        },
+        {
+          "iteration": 410,
+          "maximumEdgeStretch": 2.979367591366534,
+          "violatingTriangleEdges": 7686
+        },
+        {
+          "iteration": 420,
+          "maximumEdgeStretch": 2.9683337902610996,
+          "violatingTriangleEdges": 7661
+        },
+        {
+          "iteration": 430,
+          "maximumEdgeStretch": 2.9574616001797205,
+          "violatingTriangleEdges": 7630
+        },
+        {
+          "iteration": 440,
+          "maximumEdgeStretch": 2.9467038052999435,
+          "violatingTriangleEdges": 7627
+        },
+        {
+          "iteration": 450,
+          "maximumEdgeStretch": 2.936143590586117,
+          "violatingTriangleEdges": 7582
+        },
+        {
+          "iteration": 460,
+          "maximumEdgeStretch": 2.925808877632738,
+          "violatingTriangleEdges": 7576
+        },
+        {
+          "iteration": 470,
+          "maximumEdgeStretch": 2.915673096282736,
+          "violatingTriangleEdges": 7552
+        },
+        {
+          "iteration": 480,
+          "maximumEdgeStretch": 2.905753817706713,
+          "violatingTriangleEdges": 7488
+        },
+        {
+          "iteration": 490,
+          "maximumEdgeStretch": 2.8962696956179825,
+          "violatingTriangleEdges": 7467
+        },
+        {
+          "iteration": 500,
+          "maximumEdgeStretch": 2.8870499893336854,
+          "violatingTriangleEdges": 7457
+        },
+        {
+          "iteration": 510,
+          "maximumEdgeStretch": 2.8780773035783347,
+          "violatingTriangleEdges": 7456
+        },
+        {
+          "iteration": 520,
+          "maximumEdgeStretch": 2.8692141919884735,
+          "violatingTriangleEdges": 7413
+        },
+        {
+          "iteration": 530,
+          "maximumEdgeStretch": 2.860424792439609,
+          "violatingTriangleEdges": 7382
+        },
+        {
+          "iteration": 540,
+          "maximumEdgeStretch": 2.851925468223713,
+          "violatingTriangleEdges": 7373
+        },
+        {
+          "iteration": 550,
+          "maximumEdgeStretch": 2.843571644880566,
+          "violatingTriangleEdges": 7307
+        },
+        {
+          "iteration": 560,
+          "maximumEdgeStretch": 2.8353278724438695,
+          "violatingTriangleEdges": 7296
+        },
+        {
+          "iteration": 570,
+          "maximumEdgeStretch": 2.8271674354808387,
+          "violatingTriangleEdges": 7264
+        },
+        {
+          "iteration": 580,
+          "maximumEdgeStretch": 2.8190920655443668,
+          "violatingTriangleEdges": 7222
+        },
+        {
+          "iteration": 590,
+          "maximumEdgeStretch": 2.811113902124907,
+          "violatingTriangleEdges": 7168
+        },
+        {
+          "iteration": 600,
+          "maximumEdgeStretch": 2.803294306672867,
+          "violatingTriangleEdges": 7148
+        },
+        {
+          "iteration": 610,
+          "maximumEdgeStretch": 2.795660623147921,
+          "violatingTriangleEdges": 7107
+        },
+        {
+          "iteration": 620,
+          "maximumEdgeStretch": 2.788166300753034,
+          "violatingTriangleEdges": 7096
+        },
+        {
+          "iteration": 630,
+          "maximumEdgeStretch": 2.7808068007966313,
+          "violatingTriangleEdges": 7030
+        },
+        {
+          "iteration": 640,
+          "maximumEdgeStretch": 2.7736217435066925,
+          "violatingTriangleEdges": 7015
+        },
+        {
+          "iteration": 650,
+          "maximumEdgeStretch": 2.7666591093731387,
+          "violatingTriangleEdges": 6967
+        },
+        {
+          "iteration": 660,
+          "maximumEdgeStretch": 2.759932680153439,
+          "violatingTriangleEdges": 6935
+        },
+        {
+          "iteration": 670,
+          "maximumEdgeStretch": 2.7533458242960234,
+          "violatingTriangleEdges": 6960
+        },
+        {
+          "iteration": 680,
+          "maximumEdgeStretch": 2.7467240838690885,
+          "violatingTriangleEdges": 6916
+        },
+        {
+          "iteration": 690,
+          "maximumEdgeStretch": 2.740123519949251,
+          "violatingTriangleEdges": 6882
+        },
+        {
+          "iteration": 700,
+          "maximumEdgeStretch": 2.733581292259443,
+          "violatingTriangleEdges": 6844
+        },
+        {
+          "iteration": 710,
+          "maximumEdgeStretch": 2.7271289604686335,
+          "violatingTriangleEdges": 6813
+        },
+        {
+          "iteration": 720,
+          "maximumEdgeStretch": 2.720748371775692,
+          "violatingTriangleEdges": 6815
+        },
+        {
+          "iteration": 730,
+          "maximumEdgeStretch": 2.7144339393877184,
+          "violatingTriangleEdges": 6763
+        },
+        {
+          "iteration": 740,
+          "maximumEdgeStretch": 2.7081951448280175,
+          "violatingTriangleEdges": 6736
+        },
+        {
+          "iteration": 750,
+          "maximumEdgeStretch": 2.7020524388748686,
+          "violatingTriangleEdges": 6747
+        },
+        {
+          "iteration": 760,
+          "maximumEdgeStretch": 2.696024996182916,
+          "violatingTriangleEdges": 6698
+        },
+        {
+          "iteration": 770,
+          "maximumEdgeStretch": 2.690101701382768,
+          "violatingTriangleEdges": 6685
+        },
+        {
+          "iteration": 780,
+          "maximumEdgeStretch": 2.684273219401119,
+          "violatingTriangleEdges": 6644
+        },
+        {
+          "iteration": 790,
+          "maximumEdgeStretch": 2.678559519028511,
+          "violatingTriangleEdges": 6582
+        },
+        {
+          "iteration": 800,
+          "maximumEdgeStretch": 2.6729776405584533,
+          "violatingTriangleEdges": 6532
+        },
+        {
+          "iteration": 810,
+          "maximumEdgeStretch": 2.6674980924218348,
+          "violatingTriangleEdges": 6559
+        },
+        {
+          "iteration": 820,
+          "maximumEdgeStretch": 2.662086102579595,
+          "violatingTriangleEdges": 6553
+        },
+        {
+          "iteration": 830,
+          "maximumEdgeStretch": 2.6567734758614883,
+          "violatingTriangleEdges": 6497
+        },
+        {
+          "iteration": 840,
+          "maximumEdgeStretch": 2.6515354080861124,
+          "violatingTriangleEdges": 6466
+        },
+        {
+          "iteration": 850,
+          "maximumEdgeStretch": 2.6464126641204353,
+          "violatingTriangleEdges": 6401
+        },
+        {
+          "iteration": 860,
+          "maximumEdgeStretch": 2.6413108607880185,
+          "violatingTriangleEdges": 6380
+        },
+        {
+          "iteration": 870,
+          "maximumEdgeStretch": 2.6363120137544787,
+          "violatingTriangleEdges": 6348
+        },
+        {
+          "iteration": 880,
+          "maximumEdgeStretch": 2.6314477317676497,
+          "violatingTriangleEdges": 6335
+        },
+        {
+          "iteration": 890,
+          "maximumEdgeStretch": 2.626659645003147,
+          "violatingTriangleEdges": 6335
+        },
+        {
+          "iteration": 900,
+          "maximumEdgeStretch": 2.621913727581576,
+          "violatingTriangleEdges": 6286
+        },
+        {
+          "iteration": 910,
+          "maximumEdgeStretch": 2.617212242338779,
+          "violatingTriangleEdges": 6273
+        },
+        {
+          "iteration": 920,
+          "maximumEdgeStretch": 2.6125260150697245,
+          "violatingTriangleEdges": 6218
+        },
+        {
+          "iteration": 930,
+          "maximumEdgeStretch": 2.6079052697716945,
+          "violatingTriangleEdges": 6197
+        },
+        {
+          "iteration": 940,
+          "maximumEdgeStretch": 2.6033103204986032,
+          "violatingTriangleEdges": 6195
+        },
+        {
+          "iteration": 950,
+          "maximumEdgeStretch": 2.5987783460427885,
+          "violatingTriangleEdges": 6135
+        },
+        {
+          "iteration": 960,
+          "maximumEdgeStretch": 2.594280696072314,
+          "violatingTriangleEdges": 6137
+        },
+        {
+          "iteration": 970,
+          "maximumEdgeStretch": 2.589856373626818,
+          "violatingTriangleEdges": 6122
+        },
+        {
+          "iteration": 980,
+          "maximumEdgeStretch": 2.585489703259065,
+          "violatingTriangleEdges": 6115
+        },
+        {
+          "iteration": 990,
+          "maximumEdgeStretch": 2.5811575539232954,
+          "violatingTriangleEdges": 6094
+        },
+        {
+          "iteration": 1000,
+          "maximumEdgeStretch": 2.576866034019003,
+          "violatingTriangleEdges": 6052
+        },
+        {
+          "iteration": 1010,
+          "maximumEdgeStretch": 2.5726607005764945,
+          "violatingTriangleEdges": 6049
+        },
+        {
+          "iteration": 1020,
+          "maximumEdgeStretch": 2.568494658826914,
+          "violatingTriangleEdges": 6042
+        },
+        {
+          "iteration": 1030,
+          "maximumEdgeStretch": 2.564369800752294,
+          "violatingTriangleEdges": 5998
+        },
+        {
+          "iteration": 1040,
+          "maximumEdgeStretch": 2.5602749544305894,
+          "violatingTriangleEdges": 6007
+        },
+        {
+          "iteration": 1050,
+          "maximumEdgeStretch": 2.5562023555128555,
+          "violatingTriangleEdges": 5989
+        },
+        {
+          "iteration": 1060,
+          "maximumEdgeStretch": 2.5521824466027256,
+          "violatingTriangleEdges": 5985
+        },
+        {
+          "iteration": 1070,
+          "maximumEdgeStretch": 2.5481797445737207,
+          "violatingTriangleEdges": 5965
+        },
+        {
+          "iteration": 1080,
+          "maximumEdgeStretch": 2.5442239605232158,
+          "violatingTriangleEdges": 5943
+        },
+        {
+          "iteration": 1090,
+          "maximumEdgeStretch": 2.540274044747272,
+          "violatingTriangleEdges": 5934
+        },
+        {
+          "iteration": 1100,
+          "maximumEdgeStretch": 2.5363811302853647,
+          "violatingTriangleEdges": 5967
+        },
+        {
+          "iteration": 1110,
+          "maximumEdgeStretch": 2.5324431019726013,
+          "violatingTriangleEdges": 5949
+        },
+        {
+          "iteration": 1120,
+          "maximumEdgeStretch": 2.5283779122512686,
+          "violatingTriangleEdges": 5936
+        },
+        {
+          "iteration": 1130,
+          "maximumEdgeStretch": 2.5242437076136968,
+          "violatingTriangleEdges": 5957
+        },
+        {
+          "iteration": 1140,
+          "maximumEdgeStretch": 2.52009223807668,
+          "violatingTriangleEdges": 5909
+        },
+        {
+          "iteration": 1150,
+          "maximumEdgeStretch": 2.5159311444242443,
+          "violatingTriangleEdges": 5897
+        },
+        {
+          "iteration": 1160,
+          "maximumEdgeStretch": 2.511763527333011,
+          "violatingTriangleEdges": 5923
+        },
+        {
+          "iteration": 1170,
+          "maximumEdgeStretch": 2.507604435943631,
+          "violatingTriangleEdges": 5882
+        },
+        {
+          "iteration": 1180,
+          "maximumEdgeStretch": 2.5034489517209644,
+          "violatingTriangleEdges": 5880
+        },
+        {
+          "iteration": 1190,
+          "maximumEdgeStretch": 2.499348114331382,
+          "violatingTriangleEdges": 5858
+        },
+        {
+          "iteration": 1200,
+          "maximumEdgeStretch": 2.4953181299454377,
+          "violatingTriangleEdges": 5839
+        },
+        {
+          "iteration": 1210,
+          "maximumEdgeStretch": 2.491305927344312,
+          "violatingTriangleEdges": 5857
+        },
+        {
+          "iteration": 1220,
+          "maximumEdgeStretch": 2.4873508270174374,
+          "violatingTriangleEdges": 5816
+        },
+        {
+          "iteration": 1230,
+          "maximumEdgeStretch": 2.483438332327735,
+          "violatingTriangleEdges": 5827
+        },
+        {
+          "iteration": 1240,
+          "maximumEdgeStretch": 2.4794648592083037,
+          "violatingTriangleEdges": 5818
+        },
+        {
+          "iteration": 1250,
+          "maximumEdgeStretch": 2.475442508013278,
+          "violatingTriangleEdges": 5808
+        },
+        {
+          "iteration": 1260,
+          "maximumEdgeStretch": 2.4714914090067803,
+          "violatingTriangleEdges": 5795
+        },
+        {
+          "iteration": 1270,
+          "maximumEdgeStretch": 2.467581404542451,
+          "violatingTriangleEdges": 5787
+        },
+        {
+          "iteration": 1280,
+          "maximumEdgeStretch": 2.4636987643720234,
+          "violatingTriangleEdges": 5757
+        },
+        {
+          "iteration": 1290,
+          "maximumEdgeStretch": 2.459851481161085,
+          "violatingTriangleEdges": 5772
+        },
+        {
+          "iteration": 1300,
+          "maximumEdgeStretch": 2.45605124351172,
+          "violatingTriangleEdges": 5766
+        },
+        {
+          "iteration": 1310,
+          "maximumEdgeStretch": 2.4522871429468487,
+          "violatingTriangleEdges": 5755
+        },
+        {
+          "iteration": 1320,
+          "maximumEdgeStretch": 2.4485494516922337,
+          "violatingTriangleEdges": 5768
+        },
+        {
+          "iteration": 1330,
+          "maximumEdgeStretch": 2.4448598323270208,
+          "violatingTriangleEdges": 5746
+        },
+        {
+          "iteration": 1340,
+          "maximumEdgeStretch": 2.4412050684668567,
+          "violatingTriangleEdges": 5737
+        },
+        {
+          "iteration": 1350,
+          "maximumEdgeStretch": 2.4375614995462422,
+          "violatingTriangleEdges": 5756
+        },
+        {
+          "iteration": 1360,
+          "maximumEdgeStretch": 2.4339796056030085,
+          "violatingTriangleEdges": 5713
+        },
+        {
+          "iteration": 1370,
+          "maximumEdgeStretch": 2.430413047281003,
+          "violatingTriangleEdges": 5724
+        },
+        {
+          "iteration": 1380,
+          "maximumEdgeStretch": 2.426896117281399,
+          "violatingTriangleEdges": 5737
+        },
+        {
+          "iteration": 1390,
+          "maximumEdgeStretch": 2.4233733566050706,
+          "violatingTriangleEdges": 5753
+        },
+        {
+          "iteration": 1400,
+          "maximumEdgeStretch": 2.419887661632944,
+          "violatingTriangleEdges": 5738
+        },
+        {
+          "iteration": 1410,
+          "maximumEdgeStretch": 2.416426451721683,
+          "violatingTriangleEdges": 5734
+        },
+        {
+          "iteration": 1420,
+          "maximumEdgeStretch": 2.412994536866066,
+          "violatingTriangleEdges": 5712
+        },
+        {
+          "iteration": 1430,
+          "maximumEdgeStretch": 2.4095623410386104,
+          "violatingTriangleEdges": 5703
+        },
+        {
+          "iteration": 1440,
+          "maximumEdgeStretch": 2.4061685170910017,
+          "violatingTriangleEdges": 5702
+        },
+        {
+          "iteration": 1450,
+          "maximumEdgeStretch": 2.4027912869279255,
+          "violatingTriangleEdges": 5687
+        },
+        {
+          "iteration": 1460,
+          "maximumEdgeStretch": 2.3994125101349257,
+          "violatingTriangleEdges": 5687
+        },
+        {
+          "iteration": 1470,
+          "maximumEdgeStretch": 2.396094500036364,
+          "violatingTriangleEdges": 5666
+        },
+        {
+          "iteration": 1480,
+          "maximumEdgeStretch": 2.3927778739051657,
+          "violatingTriangleEdges": 5639
+        },
+        {
+          "iteration": 1490,
+          "maximumEdgeStretch": 2.3894885021883723,
+          "violatingTriangleEdges": 5612
+        },
+        {
+          "iteration": 1500,
+          "maximumEdgeStretch": 2.3862397979838157,
+          "violatingTriangleEdges": 5591
+        },
+        {
+          "iteration": 1510,
+          "maximumEdgeStretch": 2.3830064550723136,
+          "violatingTriangleEdges": 5598
+        },
+        {
+          "iteration": 1520,
+          "maximumEdgeStretch": 2.3798094367940927,
+          "violatingTriangleEdges": 5580
+        },
+        {
+          "iteration": 1530,
+          "maximumEdgeStretch": 2.3766154735753022,
+          "violatingTriangleEdges": 5603
+        },
+        {
+          "iteration": 1540,
+          "maximumEdgeStretch": 2.373448720415223,
+          "violatingTriangleEdges": 5582
+        },
+        {
+          "iteration": 1550,
+          "maximumEdgeStretch": 2.37031332787448,
+          "violatingTriangleEdges": 5599
+        },
+        {
+          "iteration": 1560,
+          "maximumEdgeStretch": 2.367177602089559,
+          "violatingTriangleEdges": 5576
+        },
+        {
+          "iteration": 1570,
+          "maximumEdgeStretch": 2.3640780490600157,
+          "violatingTriangleEdges": 5567
+        },
+        {
+          "iteration": 1580,
+          "maximumEdgeStretch": 2.360990143794319,
+          "violatingTriangleEdges": 5533
+        },
+        {
+          "iteration": 1590,
+          "maximumEdgeStretch": 2.357903594844189,
+          "violatingTriangleEdges": 5514
+        },
+        {
+          "iteration": 1600,
+          "maximumEdgeStretch": 2.3548580290504653,
+          "violatingTriangleEdges": 5539
+        },
+        {
+          "iteration": 1610,
+          "maximumEdgeStretch": 2.3518301184293864,
+          "violatingTriangleEdges": 5537
+        },
+        {
+          "iteration": 1620,
+          "maximumEdgeStretch": 2.3488247386650256,
+          "violatingTriangleEdges": 5509
+        },
+        {
+          "iteration": 1630,
+          "maximumEdgeStretch": 2.345831958496277,
+          "violatingTriangleEdges": 5537
+        },
+        {
+          "iteration": 1640,
+          "maximumEdgeStretch": 2.342831611711449,
+          "violatingTriangleEdges": 5499
+        },
+        {
+          "iteration": 1650,
+          "maximumEdgeStretch": 2.3398603362350805,
+          "violatingTriangleEdges": 5510
+        },
+        {
+          "iteration": 1660,
+          "maximumEdgeStretch": 2.3369153769188857,
+          "violatingTriangleEdges": 5476
+        },
+        {
+          "iteration": 1670,
+          "maximumEdgeStretch": 2.3340030272029204,
+          "violatingTriangleEdges": 5493
+        },
+        {
+          "iteration": 1680,
+          "maximumEdgeStretch": 2.33110464745709,
+          "violatingTriangleEdges": 5486
+        },
+        {
+          "iteration": 1690,
+          "maximumEdgeStretch": 2.328236996183605,
+          "violatingTriangleEdges": 5506
+        },
+        {
+          "iteration": 1700,
+          "maximumEdgeStretch": 2.325389604499313,
+          "violatingTriangleEdges": 5489
+        },
+        {
+          "iteration": 1710,
+          "maximumEdgeStretch": 2.32348825872332,
+          "violatingTriangleEdges": 5490
+        },
+        {
+          "iteration": 1720,
+          "maximumEdgeStretch": 2.321592523646405,
+          "violatingTriangleEdges": 5468
+        },
+        {
+          "iteration": 1730,
+          "maximumEdgeStretch": 2.3197219929490225,
+          "violatingTriangleEdges": 5460
+        },
+        {
+          "iteration": 1740,
+          "maximumEdgeStretch": 2.3178633015308736,
+          "violatingTriangleEdges": 5472
+        },
+        {
+          "iteration": 1750,
+          "maximumEdgeStretch": 2.3160127606149263,
+          "violatingTriangleEdges": 5471
+        },
+        {
+          "iteration": 1760,
+          "maximumEdgeStretch": 2.3141641934750434,
+          "violatingTriangleEdges": 5484
+        },
+        {
+          "iteration": 1770,
+          "maximumEdgeStretch": 2.3123370558919585,
+          "violatingTriangleEdges": 5465
+        },
+        {
+          "iteration": 1780,
+          "maximumEdgeStretch": 2.3105242864403794,
+          "violatingTriangleEdges": 5474
+        },
+        {
+          "iteration": 1790,
+          "maximumEdgeStretch": 2.3087129739064167,
+          "violatingTriangleEdges": 5468
+        },
+        {
+          "iteration": 1800,
+          "maximumEdgeStretch": 2.3069101286518268,
+          "violatingTriangleEdges": 5481
+        },
+        {
+          "iteration": 1810,
+          "maximumEdgeStretch": 2.305109904608137,
+          "violatingTriangleEdges": 5440
+        },
+        {
+          "iteration": 1820,
+          "maximumEdgeStretch": 2.303330434169395,
+          "violatingTriangleEdges": 5434
+        },
+        {
+          "iteration": 1830,
+          "maximumEdgeStretch": 2.3015647721342094,
+          "violatingTriangleEdges": 5471
+        },
+        {
+          "iteration": 1840,
+          "maximumEdgeStretch": 2.299808834568589,
+          "violatingTriangleEdges": 5479
+        },
+        {
+          "iteration": 1850,
+          "maximumEdgeStretch": 2.2980634121560466,
+          "violatingTriangleEdges": 5485
+        },
+        {
+          "iteration": 1860,
+          "maximumEdgeStretch": 2.2963399095748462,
+          "violatingTriangleEdges": 5453
+        },
+        {
+          "iteration": 1870,
+          "maximumEdgeStretch": 2.2946042432672793,
+          "violatingTriangleEdges": 5456
+        },
+        {
+          "iteration": 1880,
+          "maximumEdgeStretch": 2.292901181629199,
+          "violatingTriangleEdges": 5462
+        },
+        {
+          "iteration": 1890,
+          "maximumEdgeStretch": 2.2911961781167944,
+          "violatingTriangleEdges": 5467
+        },
+        {
+          "iteration": 1900,
+          "maximumEdgeStretch": 2.2895034372549747,
+          "violatingTriangleEdges": 5478
+        },
+        {
+          "iteration": 1910,
+          "maximumEdgeStretch": 2.2878272067376297,
+          "violatingTriangleEdges": 5457
+        },
+        {
+          "iteration": 1920,
+          "maximumEdgeStretch": 2.286159030999653,
+          "violatingTriangleEdges": 5456
+        },
+        {
+          "iteration": 1930,
+          "maximumEdgeStretch": 2.2853958973037827,
+          "violatingTriangleEdges": 5454
+        },
+        {
+          "iteration": 1940,
+          "maximumEdgeStretch": 2.2848290209030986,
+          "violatingTriangleEdges": 5455
+        },
+        {
+          "iteration": 1950,
+          "maximumEdgeStretch": 2.2842700046740165,
+          "violatingTriangleEdges": 5418
+        },
+        {
+          "iteration": 1960,
+          "maximumEdgeStretch": 2.283690380495998,
+          "violatingTriangleEdges": 5423
+        },
+        {
+          "iteration": 1970,
+          "maximumEdgeStretch": 2.283147479255954,
+          "violatingTriangleEdges": 5428
+        },
+        {
+          "iteration": 1980,
+          "maximumEdgeStretch": 2.2826216396921724,
+          "violatingTriangleEdges": 5413
+        },
+        {
+          "iteration": 1990,
+          "maximumEdgeStretch": 2.2820690366817993,
+          "violatingTriangleEdges": 5425
+        },
+        {
+          "iteration": 2000,
+          "maximumEdgeStretch": 2.2815549695882718,
+          "violatingTriangleEdges": 5433
+        },
+        {
+          "iteration": 2010,
+          "maximumEdgeStretch": 2.281056638987395,
+          "violatingTriangleEdges": 5423
+        },
+        {
+          "iteration": 2020,
+          "maximumEdgeStretch": 2.2805072757721363,
+          "violatingTriangleEdges": 5405
+        },
+        {
+          "iteration": 2030,
+          "maximumEdgeStretch": 2.2800008155670133,
+          "violatingTriangleEdges": 5393
+        },
+        {
+          "iteration": 2040,
+          "maximumEdgeStretch": 2.2794679316781856,
+          "violatingTriangleEdges": 5434
+        },
+        {
+          "iteration": 2050,
+          "maximumEdgeStretch": 2.2789483251878817,
+          "violatingTriangleEdges": 5410
+        },
+        {
+          "iteration": 2060,
+          "maximumEdgeStretch": 2.2784360456399684,
+          "violatingTriangleEdges": 5398
+        },
+        {
+          "iteration": 2070,
+          "maximumEdgeStretch": 2.2779107271630044,
+          "violatingTriangleEdges": 5398
+        },
+        {
+          "iteration": 2080,
+          "maximumEdgeStretch": 2.2773871108154697,
+          "violatingTriangleEdges": 5395
+        },
+        {
+          "iteration": 2090,
+          "maximumEdgeStretch": 2.2768726762264455,
+          "violatingTriangleEdges": 5374
+        },
+        {
+          "iteration": 2100,
+          "maximumEdgeStretch": 2.27633955447209,
+          "violatingTriangleEdges": 5389
+        },
+        {
+          "iteration": 2110,
+          "maximumEdgeStretch": 2.275816559046294,
+          "violatingTriangleEdges": 5378
+        },
+        {
+          "iteration": 2120,
+          "maximumEdgeStretch": 2.27530262125392,
+          "violatingTriangleEdges": 5371
+        },
+        {
+          "iteration": 2130,
+          "maximumEdgeStretch": 2.274787939527478,
+          "violatingTriangleEdges": 5370
+        },
+        {
+          "iteration": 2140,
+          "maximumEdgeStretch": 2.2742810364637815,
+          "violatingTriangleEdges": 5366
+        },
+        {
+          "iteration": 2150,
+          "maximumEdgeStretch": 2.2737531085148395,
+          "violatingTriangleEdges": 5355
+        },
+        {
+          "iteration": 2160,
+          "maximumEdgeStretch": 2.27323759026628,
+          "violatingTriangleEdges": 5328
+        },
+        {
+          "iteration": 2170,
+          "maximumEdgeStretch": 2.272757805049315,
+          "violatingTriangleEdges": 5345
+        },
+        {
+          "iteration": 2180,
+          "maximumEdgeStretch": 2.272258448144465,
+          "violatingTriangleEdges": 5329
+        },
+        {
+          "iteration": 2190,
+          "maximumEdgeStretch": 2.271788755169371,
+          "violatingTriangleEdges": 5361
+        },
+        {
+          "iteration": 2200,
+          "maximumEdgeStretch": 2.27128249880576,
+          "violatingTriangleEdges": 5311
+        },
+        {
+          "iteration": 2210,
+          "maximumEdgeStretch": 2.270792791765687,
+          "violatingTriangleEdges": 5327
+        },
+        {
+          "iteration": 2220,
+          "maximumEdgeStretch": 2.270315854347036,
+          "violatingTriangleEdges": 5331
+        },
+        {
+          "iteration": 2230,
+          "maximumEdgeStretch": 2.2698344215283077,
+          "violatingTriangleEdges": 5361
+        },
+        {
+          "iteration": 2240,
+          "maximumEdgeStretch": 2.26934786603024,
+          "violatingTriangleEdges": 5343
+        },
+        {
+          "iteration": 2250,
+          "maximumEdgeStretch": 2.2688882786975273,
+          "violatingTriangleEdges": 5312
+        },
+        {
+          "iteration": 2260,
+          "maximumEdgeStretch": 2.2684141918789886,
+          "violatingTriangleEdges": 5321
+        },
+        {
+          "iteration": 2270,
+          "maximumEdgeStretch": 2.267945274167032,
+          "violatingTriangleEdges": 5344
+        },
+        {
+          "iteration": 2280,
+          "maximumEdgeStretch": 2.2674768475004674,
+          "violatingTriangleEdges": 5330
+        },
+        {
+          "iteration": 2290,
+          "maximumEdgeStretch": 2.2670266614587318,
+          "violatingTriangleEdges": 5343
+        },
+        {
+          "iteration": 2300,
+          "maximumEdgeStretch": 2.266571757087372,
+          "violatingTriangleEdges": 5282
+        },
+        {
+          "iteration": 2310,
+          "maximumEdgeStretch": 2.2661139518210396,
+          "violatingTriangleEdges": 5324
+        },
+        {
+          "iteration": 2320,
+          "maximumEdgeStretch": 2.265677360699687,
+          "violatingTriangleEdges": 5323
+        },
+        {
+          "iteration": 2330,
+          "maximumEdgeStretch": 2.2654716408517994,
+          "violatingTriangleEdges": 5320
+        },
+        {
+          "iteration": 2340,
+          "maximumEdgeStretch": 2.265459047425109,
+          "violatingTriangleEdges": 5306
+        },
+        {
+          "iteration": 2350,
+          "maximumEdgeStretch": 2.2654602464132187,
+          "violatingTriangleEdges": 5321
+        },
+        {
+          "iteration": 2360,
+          "maximumEdgeStretch": 2.265442942644961,
+          "violatingTriangleEdges": 5316
+        },
+        {
+          "iteration": 2370,
+          "maximumEdgeStretch": 2.265405670847005,
+          "violatingTriangleEdges": 5352
+        },
+        {
+          "iteration": 2380,
+          "maximumEdgeStretch": 2.2653895663326087,
+          "violatingTriangleEdges": 5319
+        },
+        {
+          "iteration": 2390,
+          "maximumEdgeStretch": 2.265375004847525,
+          "violatingTriangleEdges": 5317
+        },
+        {
+          "iteration": 2400,
+          "maximumEdgeStretch": 2.265325849814157,
+          "violatingTriangleEdges": 5303
+        },
+        {
+          "iteration": 2410,
+          "maximumEdgeStretch": 2.265296874036587,
+          "violatingTriangleEdges": 5276
+        },
+        {
+          "iteration": 2420,
+          "maximumEdgeStretch": 2.2652650565444787,
+          "violatingTriangleEdges": 5317
+        },
+        {
+          "iteration": 2430,
+          "maximumEdgeStretch": 2.2652067450233657,
+          "violatingTriangleEdges": 5312
+        },
+        {
+          "iteration": 2440,
+          "maximumEdgeStretch": 2.265176127702743,
+          "violatingTriangleEdges": 5324
+        },
+        {
+          "iteration": 2450,
+          "maximumEdgeStretch": 2.265110757671476,
+          "violatingTriangleEdges": 5300
+        },
+        {
+          "iteration": 2460,
+          "maximumEdgeStretch": 2.2650945353514613,
+          "violatingTriangleEdges": 5295
+        },
+        {
+          "iteration": 2470,
+          "maximumEdgeStretch": 2.265009852743708,
+          "violatingTriangleEdges": 5288
+        },
+        {
+          "iteration": 2480,
+          "maximumEdgeStretch": 2.2649582025328026,
+          "violatingTriangleEdges": 5291
+        },
+        {
+          "iteration": 2490,
+          "maximumEdgeStretch": 2.264883915687407,
+          "violatingTriangleEdges": 5296
+        },
+        {
+          "iteration": 2500,
+          "maximumEdgeStretch": 2.2648085514751686,
+          "violatingTriangleEdges": 5262
+        },
+        {
+          "iteration": 2510,
+          "maximumEdgeStretch": 2.264732571445839,
+          "violatingTriangleEdges": 5259
+        },
+        {
+          "iteration": 2520,
+          "maximumEdgeStretch": 2.2646659129716444,
+          "violatingTriangleEdges": 5272
+        },
+        {
+          "iteration": 2530,
+          "maximumEdgeStretch": 2.2645955496577295,
+          "violatingTriangleEdges": 5263
+        },
+        {
+          "iteration": 2540,
+          "maximumEdgeStretch": 2.264503087065214,
+          "violatingTriangleEdges": 5262
+        },
+        {
+          "iteration": 2550,
+          "maximumEdgeStretch": 2.2644103213476883,
+          "violatingTriangleEdges": 5275
+        },
+        {
+          "iteration": 2560,
+          "maximumEdgeStretch": 2.264336611215543,
+          "violatingTriangleEdges": 5243
+        },
+        {
+          "iteration": 2570,
+          "maximumEdgeStretch": 2.2642503126664315,
+          "violatingTriangleEdges": 5248
+        },
+        {
+          "iteration": 2580,
+          "maximumEdgeStretch": 2.2641579164872856,
+          "violatingTriangleEdges": 5215
+        },
+        {
+          "iteration": 2590,
+          "maximumEdgeStretch": 2.264095994566368,
+          "violatingTriangleEdges": 5249
+        },
+        {
+          "iteration": 2600,
+          "maximumEdgeStretch": 2.26395543544284,
+          "violatingTriangleEdges": 5252
+        },
+        {
+          "iteration": 2610,
+          "maximumEdgeStretch": 2.2638279299205415,
+          "violatingTriangleEdges": 5256
+        },
+        {
+          "iteration": 2620,
+          "maximumEdgeStretch": 2.2636690097486825,
+          "violatingTriangleEdges": 5225
+        },
+        {
+          "iteration": 2630,
+          "maximumEdgeStretch": 2.2635341121691024,
+          "violatingTriangleEdges": 5252
+        },
+        {
+          "iteration": 2640,
+          "maximumEdgeStretch": 2.263412835451499,
+          "violatingTriangleEdges": 5231
+        },
+        {
+          "iteration": 2650,
+          "maximumEdgeStretch": 2.2632694419737067,
+          "violatingTriangleEdges": 5229
+        },
+        {
+          "iteration": 2660,
+          "maximumEdgeStretch": 2.2631749443824645,
+          "violatingTriangleEdges": 5249
+        },
+        {
+          "iteration": 2670,
+          "maximumEdgeStretch": 2.26302668857127,
+          "violatingTriangleEdges": 5233
+        },
+        {
+          "iteration": 2680,
+          "maximumEdgeStretch": 2.2629107941195175,
+          "violatingTriangleEdges": 5245
+        },
+        {
+          "iteration": 2690,
+          "maximumEdgeStretch": 2.2628001931142516,
+          "violatingTriangleEdges": 5229
+        },
+        {
+          "iteration": 2700,
+          "maximumEdgeStretch": 2.2626739075672786,
+          "violatingTriangleEdges": 5202
+        },
+        {
+          "iteration": 2710,
+          "maximumEdgeStretch": 2.2625522302291876,
+          "violatingTriangleEdges": 5234
+        },
+        {
+          "iteration": 2720,
+          "maximumEdgeStretch": 2.262463698216786,
+          "violatingTriangleEdges": 5223
+        },
+        {
+          "iteration": 2730,
+          "maximumEdgeStretch": 2.2623127829047105,
+          "violatingTriangleEdges": 5219
+        },
+        {
+          "iteration": 2740,
+          "maximumEdgeStretch": 2.2622208478433463,
+          "violatingTriangleEdges": 5203
+        },
+        {
+          "iteration": 2750,
+          "maximumEdgeStretch": 2.262090022096446,
+          "violatingTriangleEdges": 5196
+        },
+        {
+          "iteration": 2760,
+          "maximumEdgeStretch": 2.261974534031481,
+          "violatingTriangleEdges": 5198
+        },
+        {
+          "iteration": 2770,
+          "maximumEdgeStretch": 2.261870345494454,
+          "violatingTriangleEdges": 5190
+        },
+        {
+          "iteration": 2780,
+          "maximumEdgeStretch": 2.261762751164412,
+          "violatingTriangleEdges": 5161
+        },
+        {
+          "iteration": 2790,
+          "maximumEdgeStretch": 2.2616276133880913,
+          "violatingTriangleEdges": 5209
+        },
+        {
+          "iteration": 2800,
+          "maximumEdgeStretch": 2.2615016323493364,
+          "violatingTriangleEdges": 5169
+        },
+        {
+          "iteration": 2810,
+          "maximumEdgeStretch": 2.261392892336834,
+          "violatingTriangleEdges": 5179
+        },
+        {
+          "iteration": 2820,
+          "maximumEdgeStretch": 2.261252464717389,
+          "violatingTriangleEdges": 5171
+        },
+        {
+          "iteration": 2830,
+          "maximumEdgeStretch": 2.2611705595027094,
+          "violatingTriangleEdges": 5215
+        },
+        {
+          "iteration": 2840,
+          "maximumEdgeStretch": 2.2610137624288114,
+          "violatingTriangleEdges": 5158
+        },
+        {
+          "iteration": 2850,
+          "maximumEdgeStretch": 2.2609290938174325,
+          "violatingTriangleEdges": 5203
+        },
+        {
+          "iteration": 2860,
+          "maximumEdgeStretch": 2.2608328329622243,
+          "violatingTriangleEdges": 5188
+        },
+        {
+          "iteration": 2870,
+          "maximumEdgeStretch": 2.260679564383689,
+          "violatingTriangleEdges": 5171
+        },
+        {
+          "iteration": 2880,
+          "maximumEdgeStretch": 2.260569669834048,
+          "violatingTriangleEdges": 5181
+        },
+        {
+          "iteration": 2890,
+          "maximumEdgeStretch": 2.2604654356796305,
+          "violatingTriangleEdges": 5175
+        },
+        {
+          "iteration": 2900,
+          "maximumEdgeStretch": 2.260349610698573,
+          "violatingTriangleEdges": 5168
+        },
+        {
+          "iteration": 2910,
+          "maximumEdgeStretch": 2.260251724191479,
+          "violatingTriangleEdges": 5166
+        },
+        {
+          "iteration": 2920,
+          "maximumEdgeStretch": 2.2600961523276855,
+          "violatingTriangleEdges": 5146
+        },
+        {
+          "iteration": 2930,
+          "maximumEdgeStretch": 2.259964222300012,
+          "violatingTriangleEdges": 5176
+        },
+        {
+          "iteration": 2940,
+          "maximumEdgeStretch": 2.259880867188037,
+          "violatingTriangleEdges": 5175
+        },
+        {
+          "iteration": 2950,
+          "maximumEdgeStretch": 2.259762138199956,
+          "violatingTriangleEdges": 5144
+        },
+        {
+          "iteration": 2960,
+          "maximumEdgeStretch": 2.2596428706856186,
+          "violatingTriangleEdges": 5168
+        },
+        {
+          "iteration": 2970,
+          "maximumEdgeStretch": 2.2595143644795783,
+          "violatingTriangleEdges": 5195
+        },
+        {
+          "iteration": 2980,
+          "maximumEdgeStretch": 2.2594301891226185,
+          "violatingTriangleEdges": 5179
+        },
+        {
+          "iteration": 2990,
+          "maximumEdgeStretch": 2.259305761431783,
+          "violatingTriangleEdges": 5166
+        },
+        {
+          "iteration": 3000,
+          "maximumEdgeStretch": 2.2592015749126477,
+          "violatingTriangleEdges": 5170
+        },
+        {
+          "iteration": 3010,
+          "maximumEdgeStretch": 2.259075712388626,
+          "violatingTriangleEdges": 5190
+        },
+        {
+          "iteration": 3020,
+          "maximumEdgeStretch": 2.258966578189518,
+          "violatingTriangleEdges": 5160
+        },
+        {
+          "iteration": 3030,
+          "maximumEdgeStretch": 2.2588526983374653,
+          "violatingTriangleEdges": 5174
+        },
+        {
+          "iteration": 3040,
+          "maximumEdgeStretch": 2.258741339574375,
+          "violatingTriangleEdges": 5156
+        },
+        {
+          "iteration": 3050,
+          "maximumEdgeStretch": 2.2585994226539396,
+          "violatingTriangleEdges": 5181
+        },
+        {
+          "iteration": 3060,
+          "maximumEdgeStretch": 2.2584699666099617,
+          "violatingTriangleEdges": 5165
+        },
+        {
+          "iteration": 3070,
+          "maximumEdgeStretch": 2.2582509587710895,
+          "violatingTriangleEdges": 5164
+        },
+        {
+          "iteration": 3080,
+          "maximumEdgeStretch": 2.257904916901705,
+          "violatingTriangleEdges": 5174
+        },
+        {
+          "iteration": 3090,
+          "maximumEdgeStretch": 2.25763139758636,
+          "violatingTriangleEdges": 5134
+        },
+        {
+          "iteration": 3100,
+          "maximumEdgeStretch": 2.2574385963084946,
+          "violatingTriangleEdges": 5140
+        },
+        {
+          "iteration": 3110,
+          "maximumEdgeStretch": 2.2572910156221604,
+          "violatingTriangleEdges": 5150
+        },
+        {
+          "iteration": 3120,
+          "maximumEdgeStretch": 2.257127717297907,
+          "violatingTriangleEdges": 5164
+        },
+        {
+          "iteration": 3130,
+          "maximumEdgeStretch": 2.256985376149682,
+          "violatingTriangleEdges": 5166
+        },
+        {
+          "iteration": 3140,
+          "maximumEdgeStretch": 2.2568395555446545,
+          "violatingTriangleEdges": 5154
+        },
+        {
+          "iteration": 3150,
+          "maximumEdgeStretch": 2.256716279438643,
+          "violatingTriangleEdges": 5144
+        },
+        {
+          "iteration": 3160,
+          "maximumEdgeStretch": 2.256570954491108,
+          "violatingTriangleEdges": 5176
+        },
+        {
+          "iteration": 3170,
+          "maximumEdgeStretch": 2.256442890252265,
+          "violatingTriangleEdges": 5158
+        },
+        {
+          "iteration": 3180,
+          "maximumEdgeStretch": 2.256297752852089,
+          "violatingTriangleEdges": 5156
+        },
+        {
+          "iteration": 3190,
+          "maximumEdgeStretch": 2.25615499117853,
+          "violatingTriangleEdges": 5161
+        },
+        {
+          "iteration": 3200,
+          "maximumEdgeStretch": 2.2560037792088625,
+          "violatingTriangleEdges": 5161
+        },
+        {
+          "iteration": 3210,
+          "maximumEdgeStretch": 2.255871924635107,
+          "violatingTriangleEdges": 5149
+        },
+        {
+          "iteration": 3220,
+          "maximumEdgeStretch": 2.255720783616839,
+          "violatingTriangleEdges": 5102
+        },
+        {
+          "iteration": 3230,
+          "maximumEdgeStretch": 2.2555750224058633,
+          "violatingTriangleEdges": 5118
+        },
+        {
+          "iteration": 3240,
+          "maximumEdgeStretch": 2.2554352404246525,
+          "violatingTriangleEdges": 5125
+        },
+        {
+          "iteration": 3250,
+          "maximumEdgeStretch": 2.255286630353231,
+          "violatingTriangleEdges": 5144
+        },
+        {
+          "iteration": 3260,
+          "maximumEdgeStretch": 2.2551566046562788,
+          "violatingTriangleEdges": 5158
+        },
+        {
+          "iteration": 3270,
+          "maximumEdgeStretch": 2.2549880909430446,
+          "violatingTriangleEdges": 5144
+        },
+        {
+          "iteration": 3280,
+          "maximumEdgeStretch": 2.2548526557347177,
+          "violatingTriangleEdges": 5161
+        },
+        {
+          "iteration": 3290,
+          "maximumEdgeStretch": 2.254703648039228,
+          "violatingTriangleEdges": 5131
+        },
+        {
+          "iteration": 3300,
+          "maximumEdgeStretch": 2.2545731717431803,
+          "violatingTriangleEdges": 5129
+        },
+        {
+          "iteration": 3310,
+          "maximumEdgeStretch": 2.2544245185725496,
+          "violatingTriangleEdges": 5098
+        },
+        {
+          "iteration": 3320,
+          "maximumEdgeStretch": 2.2542616581852735,
+          "violatingTriangleEdges": 5134
+        },
+        {
+          "iteration": 3330,
+          "maximumEdgeStretch": 2.254103637779801,
+          "violatingTriangleEdges": 5108
+        },
+        {
+          "iteration": 3340,
+          "maximumEdgeStretch": 2.2539762992450334,
+          "violatingTriangleEdges": 5143
+        },
+        {
+          "iteration": 3350,
+          "maximumEdgeStretch": 2.2538155781861917,
+          "violatingTriangleEdges": 5124
+        },
+        {
+          "iteration": 3360,
+          "maximumEdgeStretch": 2.253625331282925,
+          "violatingTriangleEdges": 5137
+        },
+        {
+          "iteration": 3370,
+          "maximumEdgeStretch": 2.253466476290949,
+          "violatingTriangleEdges": 5106
+        },
+        {
+          "iteration": 3380,
+          "maximumEdgeStretch": 2.2532928097912324,
+          "violatingTriangleEdges": 5107
+        },
+        {
+          "iteration": 3390,
+          "maximumEdgeStretch": 2.2531545940254234,
+          "violatingTriangleEdges": 5102
+        },
+        {
+          "iteration": 3400,
+          "maximumEdgeStretch": 2.2529033627921056,
+          "violatingTriangleEdges": 5112
+        },
+        {
+          "iteration": 3410,
+          "maximumEdgeStretch": 2.2527208008050317,
+          "violatingTriangleEdges": 5110
+        },
+        {
+          "iteration": 3420,
+          "maximumEdgeStretch": 2.2525048474873812,
+          "violatingTriangleEdges": 5101
+        },
+        {
+          "iteration": 3430,
+          "maximumEdgeStretch": 2.2522629749813063,
+          "violatingTriangleEdges": 5129
+        },
+        {
+          "iteration": 3440,
+          "maximumEdgeStretch": 2.2520454964784746,
+          "violatingTriangleEdges": 5105
+        },
+        {
+          "iteration": 3450,
+          "maximumEdgeStretch": 2.2517841196257824,
+          "violatingTriangleEdges": 5101
+        },
+        {
+          "iteration": 3460,
+          "maximumEdgeStretch": 2.2515561704962934,
+          "violatingTriangleEdges": 5129
+        },
+        {
+          "iteration": 3470,
+          "maximumEdgeStretch": 2.251279092166329,
+          "violatingTriangleEdges": 5092
+        },
+        {
+          "iteration": 3480,
+          "maximumEdgeStretch": 2.251029636422901,
+          "violatingTriangleEdges": 5076
+        },
+        {
+          "iteration": 3490,
+          "maximumEdgeStretch": 2.2507616463457683,
+          "violatingTriangleEdges": 5110
+        },
+        {
+          "iteration": 3500,
+          "maximumEdgeStretch": 2.2505592457928327,
+          "violatingTriangleEdges": 5108
+        },
+        {
+          "iteration": 3510,
+          "maximumEdgeStretch": 2.2502816782866732,
+          "violatingTriangleEdges": 5074
+        },
+        {
+          "iteration": 3520,
+          "maximumEdgeStretch": 2.2500344832515995,
+          "violatingTriangleEdges": 5103
+        },
+        {
+          "iteration": 3530,
+          "maximumEdgeStretch": 2.249758859556152,
+          "violatingTriangleEdges": 5087
+        },
+        {
+          "iteration": 3540,
+          "maximumEdgeStretch": 2.2495079097499326,
+          "violatingTriangleEdges": 5094
+        },
+        {
+          "iteration": 3550,
+          "maximumEdgeStretch": 2.2492074459010936,
+          "violatingTriangleEdges": 5091
+        },
+        {
+          "iteration": 3560,
+          "maximumEdgeStretch": 2.2489130522762086,
+          "violatingTriangleEdges": 5084
+        },
+        {
+          "iteration": 3570,
+          "maximumEdgeStretch": 2.2486307582255742,
+          "violatingTriangleEdges": 5087
+        },
+        {
+          "iteration": 3580,
+          "maximumEdgeStretch": 2.248316456059317,
+          "violatingTriangleEdges": 5091
+        },
+        {
+          "iteration": 3590,
+          "maximumEdgeStretch": 2.248025598372907,
+          "violatingTriangleEdges": 5066
+        },
+        {
+          "iteration": 3600,
+          "maximumEdgeStretch": 2.2477204097170875,
+          "violatingTriangleEdges": 5056
+        },
+        {
+          "iteration": 3610,
+          "maximumEdgeStretch": 2.2473807736775218,
+          "violatingTriangleEdges": 5038
+        },
+        {
+          "iteration": 3620,
+          "maximumEdgeStretch": 2.247082273791181,
+          "violatingTriangleEdges": 5049
+        },
+        {
+          "iteration": 3630,
+          "maximumEdgeStretch": 2.2467953575479167,
+          "violatingTriangleEdges": 5053
+        },
+        {
+          "iteration": 3640,
+          "maximumEdgeStretch": 2.2464833719533064,
+          "violatingTriangleEdges": 5045
+        },
+        {
+          "iteration": 3650,
+          "maximumEdgeStretch": 2.2461442121272768,
+          "violatingTriangleEdges": 5065
+        },
+        {
+          "iteration": 3660,
+          "maximumEdgeStretch": 2.245870665309688,
+          "violatingTriangleEdges": 5026
+        },
+        {
+          "iteration": 3670,
+          "maximumEdgeStretch": 2.2455726758446577,
+          "violatingTriangleEdges": 5051
+        },
+        {
+          "iteration": 3680,
+          "maximumEdgeStretch": 2.245286976793418,
+          "violatingTriangleEdges": 5038
+        },
+        {
+          "iteration": 3690,
+          "maximumEdgeStretch": 2.2449773543944285,
+          "violatingTriangleEdges": 5054
+        },
+        {
+          "iteration": 3700,
+          "maximumEdgeStretch": 2.244686453187522,
+          "violatingTriangleEdges": 5063
+        },
+        {
+          "iteration": 3710,
+          "maximumEdgeStretch": 2.2443702433698958,
+          "violatingTriangleEdges": 5048
+        },
+        {
+          "iteration": 3720,
+          "maximumEdgeStretch": 2.2440760907551582,
+          "violatingTriangleEdges": 5033
+        },
+        {
+          "iteration": 3730,
+          "maximumEdgeStretch": 2.24377812287636,
+          "violatingTriangleEdges": 5032
+        },
+        {
+          "iteration": 3740,
+          "maximumEdgeStretch": 2.243485797990536,
+          "violatingTriangleEdges": 5056
+        },
+        {
+          "iteration": 3750,
+          "maximumEdgeStretch": 2.2431489550817454,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 3760,
+          "maximumEdgeStretch": 2.242855440742719,
+          "violatingTriangleEdges": 5050
+        },
+        {
+          "iteration": 3770,
+          "maximumEdgeStretch": 2.24253710678243,
+          "violatingTriangleEdges": 5045
+        },
+        {
+          "iteration": 3780,
+          "maximumEdgeStretch": 2.242225412475689,
+          "violatingTriangleEdges": 5036
+        },
+        {
+          "iteration": 3790,
+          "maximumEdgeStretch": 2.2418912532513207,
+          "violatingTriangleEdges": 5047
+        },
+        {
+          "iteration": 3800,
+          "maximumEdgeStretch": 2.241582117355501,
+          "violatingTriangleEdges": 5051
+        },
+        {
+          "iteration": 3810,
+          "maximumEdgeStretch": 2.241255870413383,
+          "violatingTriangleEdges": 5047
+        },
+        {
+          "iteration": 3820,
+          "maximumEdgeStretch": 2.24094904826357,
+          "violatingTriangleEdges": 5041
+        },
+        {
+          "iteration": 3830,
+          "maximumEdgeStretch": 2.240618979909828,
+          "violatingTriangleEdges": 5054
+        },
+        {
+          "iteration": 3840,
+          "maximumEdgeStretch": 2.2403080468412986,
+          "violatingTriangleEdges": 5020
+        },
+        {
+          "iteration": 3850,
+          "maximumEdgeStretch": 2.2400078138062467,
+          "violatingTriangleEdges": 5045
+        },
+        {
+          "iteration": 3860,
+          "maximumEdgeStretch": 2.2396955046724303,
+          "violatingTriangleEdges": 5042
+        },
+        {
+          "iteration": 3870,
+          "maximumEdgeStretch": 2.2393729714667248,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 3880,
+          "maximumEdgeStretch": 2.2390715125685,
+          "violatingTriangleEdges": 5045
+        },
+        {
+          "iteration": 3890,
+          "maximumEdgeStretch": 2.238775598857994,
+          "violatingTriangleEdges": 5041
+        },
+        {
+          "iteration": 3900,
+          "maximumEdgeStretch": 2.238444441720982,
+          "violatingTriangleEdges": 5051
+        },
+        {
+          "iteration": 3910,
+          "maximumEdgeStretch": 2.2381350033008713,
+          "violatingTriangleEdges": 5031
+        },
+        {
+          "iteration": 3920,
+          "maximumEdgeStretch": 2.237826440161607,
+          "violatingTriangleEdges": 5052
+        },
+        {
+          "iteration": 3930,
+          "maximumEdgeStretch": 2.2375141342303735,
+          "violatingTriangleEdges": 5067
+        },
+        {
+          "iteration": 3940,
+          "maximumEdgeStretch": 2.2372074450116757,
+          "violatingTriangleEdges": 5064
+        },
+        {
+          "iteration": 3950,
+          "maximumEdgeStretch": 2.236890277405107,
+          "violatingTriangleEdges": 5049
+        },
+        {
+          "iteration": 3960,
+          "maximumEdgeStretch": 2.236596130344925,
+          "violatingTriangleEdges": 5053
+        },
+        {
+          "iteration": 3970,
+          "maximumEdgeStretch": 2.236253678398636,
+          "violatingTriangleEdges": 5037
+        },
+        {
+          "iteration": 3980,
+          "maximumEdgeStretch": 2.235971681126539,
+          "violatingTriangleEdges": 5049
+        },
+        {
+          "iteration": 3990,
+          "maximumEdgeStretch": 2.235661086387974,
+          "violatingTriangleEdges": 5051
+        },
+        {
+          "iteration": 4000,
+          "maximumEdgeStretch": 2.235366078166808,
+          "violatingTriangleEdges": 5039
+        },
+        {
+          "iteration": 4010,
+          "maximumEdgeStretch": 2.2350240681939346,
+          "violatingTriangleEdges": 5043
+        },
+        {
+          "iteration": 4020,
+          "maximumEdgeStretch": 2.2347804011771,
+          "violatingTriangleEdges": 5058
+        },
+        {
+          "iteration": 4030,
+          "maximumEdgeStretch": 2.234459145073953,
+          "violatingTriangleEdges": 5038
+        },
+        {
+          "iteration": 4040,
+          "maximumEdgeStretch": 2.234141810943975,
+          "violatingTriangleEdges": 5057
+        },
+        {
+          "iteration": 4050,
+          "maximumEdgeStretch": 2.233858058467816,
+          "violatingTriangleEdges": 5055
+        },
+        {
+          "iteration": 4060,
+          "maximumEdgeStretch": 2.233553426105436,
+          "violatingTriangleEdges": 5047
+        },
+        {
+          "iteration": 4070,
+          "maximumEdgeStretch": 2.2332781753276705,
+          "violatingTriangleEdges": 5052
+        },
+        {
+          "iteration": 4080,
+          "maximumEdgeStretch": 2.2329627412427633,
+          "violatingTriangleEdges": 5051
+        },
+        {
+          "iteration": 4090,
+          "maximumEdgeStretch": 2.2326909430939907,
+          "violatingTriangleEdges": 5065
+        },
+        {
+          "iteration": 4100,
+          "maximumEdgeStretch": 2.2323592954724307,
+          "violatingTriangleEdges": 5047
+        },
+        {
+          "iteration": 4110,
+          "maximumEdgeStretch": 2.2320940655579915,
+          "violatingTriangleEdges": 5045
+        },
+        {
+          "iteration": 4120,
+          "maximumEdgeStretch": 2.231797108273963,
+          "violatingTriangleEdges": 5039
+        },
+        {
+          "iteration": 4130,
+          "maximumEdgeStretch": 2.2314970415639146,
+          "violatingTriangleEdges": 5045
+        },
+        {
+          "iteration": 4140,
+          "maximumEdgeStretch": 2.2312022973039376,
+          "violatingTriangleEdges": 5053
+        },
+        {
+          "iteration": 4150,
+          "maximumEdgeStretch": 2.2308695755631405,
+          "violatingTriangleEdges": 5050
+        },
+        {
+          "iteration": 4160,
+          "maximumEdgeStretch": 2.230554601890284,
+          "violatingTriangleEdges": 5035
+        },
+        {
+          "iteration": 4170,
+          "maximumEdgeStretch": 2.2302871905395896,
+          "violatingTriangleEdges": 5057
+        },
+        {
+          "iteration": 4180,
+          "maximumEdgeStretch": 2.229951724594055,
+          "violatingTriangleEdges": 5053
+        },
+        {
+          "iteration": 4190,
+          "maximumEdgeStretch": 2.229649021795252,
+          "violatingTriangleEdges": 5058
+        },
+        {
+          "iteration": 4200,
+          "maximumEdgeStretch": 2.229317135299234,
+          "violatingTriangleEdges": 5053
+        },
+        {
+          "iteration": 4210,
+          "maximumEdgeStretch": 2.2290222885248454,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 4220,
+          "maximumEdgeStretch": 2.2287339243884783,
+          "violatingTriangleEdges": 5063
+        },
+        {
+          "iteration": 4230,
+          "maximumEdgeStretch": 2.2284526852165207,
+          "violatingTriangleEdges": 5068
+        },
+        {
+          "iteration": 4240,
+          "maximumEdgeStretch": 2.228135516481621,
+          "violatingTriangleEdges": 5070
+        },
+        {
+          "iteration": 4250,
+          "maximumEdgeStretch": 2.227842389585715,
+          "violatingTriangleEdges": 5082
+        },
+        {
+          "iteration": 4260,
+          "maximumEdgeStretch": 2.2275550855928046,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 4270,
+          "maximumEdgeStretch": 2.2272518629020333,
+          "violatingTriangleEdges": 5034
+        },
+        {
+          "iteration": 4280,
+          "maximumEdgeStretch": 2.226960093419227,
+          "violatingTriangleEdges": 5058
+        },
+        {
+          "iteration": 4290,
+          "maximumEdgeStretch": 2.2266433833714494,
+          "violatingTriangleEdges": 5072
+        },
+        {
+          "iteration": 4300,
+          "maximumEdgeStretch": 2.226364665070457,
+          "violatingTriangleEdges": 5061
+        },
+        {
+          "iteration": 4310,
+          "maximumEdgeStretch": 2.2260684911837085,
+          "violatingTriangleEdges": 5049
+        },
+        {
+          "iteration": 4320,
+          "maximumEdgeStretch": 2.2257442427015754,
+          "violatingTriangleEdges": 5082
+        },
+        {
+          "iteration": 4330,
+          "maximumEdgeStretch": 2.225506460273025,
+          "violatingTriangleEdges": 5055
+        },
+        {
+          "iteration": 4340,
+          "maximumEdgeStretch": 2.225166389353267,
+          "violatingTriangleEdges": 5066
+        },
+        {
+          "iteration": 4350,
+          "maximumEdgeStretch": 2.224894209516232,
+          "violatingTriangleEdges": 5051
+        },
+        {
+          "iteration": 4360,
+          "maximumEdgeStretch": 2.2246560546091785,
+          "violatingTriangleEdges": 5045
+        },
+        {
+          "iteration": 4370,
+          "maximumEdgeStretch": 2.224384088455226,
+          "violatingTriangleEdges": 5061
+        },
+        {
+          "iteration": 4380,
+          "maximumEdgeStretch": 2.224101920887917,
+          "violatingTriangleEdges": 5068
+        },
+        {
+          "iteration": 4390,
+          "maximumEdgeStretch": 2.223829245050281,
+          "violatingTriangleEdges": 5041
+        },
+        {
+          "iteration": 4400,
+          "maximumEdgeStretch": 2.223574330348809,
+          "violatingTriangleEdges": 5024
+        },
+        {
+          "iteration": 4410,
+          "maximumEdgeStretch": 2.22328137903342,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 4420,
+          "maximumEdgeStretch": 2.2230131867630263,
+          "violatingTriangleEdges": 5064
+        },
+        {
+          "iteration": 4430,
+          "maximumEdgeStretch": 2.2227503387574266,
+          "violatingTriangleEdges": 5037
+        },
+        {
+          "iteration": 4440,
+          "maximumEdgeStretch": 2.222485862126294,
+          "violatingTriangleEdges": 5032
+        },
+        {
+          "iteration": 4450,
+          "maximumEdgeStretch": 2.222242276024073,
+          "violatingTriangleEdges": 5043
+        },
+        {
+          "iteration": 4460,
+          "maximumEdgeStretch": 2.221986848615143,
+          "violatingTriangleEdges": 5061
+        },
+        {
+          "iteration": 4470,
+          "maximumEdgeStretch": 2.2217172093341495,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 4480,
+          "maximumEdgeStretch": 2.2214609901173374,
+          "violatingTriangleEdges": 5059
+        },
+        {
+          "iteration": 4490,
+          "maximumEdgeStretch": 2.221199709823553,
+          "violatingTriangleEdges": 5047
+        },
+        {
+          "iteration": 4500,
+          "maximumEdgeStretch": 2.220918607196324,
+          "violatingTriangleEdges": 5051
+        },
+        {
+          "iteration": 4510,
+          "maximumEdgeStretch": 2.220659863266363,
+          "violatingTriangleEdges": 5041
+        },
+        {
+          "iteration": 4520,
+          "maximumEdgeStretch": 2.2203902314345036,
+          "violatingTriangleEdges": 5066
+        },
+        {
+          "iteration": 4530,
+          "maximumEdgeStretch": 2.220132491946391,
+          "violatingTriangleEdges": 5070
+        },
+        {
+          "iteration": 4540,
+          "maximumEdgeStretch": 2.219870188785843,
+          "violatingTriangleEdges": 5060
+        },
+        {
+          "iteration": 4550,
+          "maximumEdgeStretch": 2.2195910456030283,
+          "violatingTriangleEdges": 5060
+        },
+        {
+          "iteration": 4560,
+          "maximumEdgeStretch": 2.2193532619429015,
+          "violatingTriangleEdges": 5034
+        },
+        {
+          "iteration": 4570,
+          "maximumEdgeStretch": 2.2191181652196295,
+          "violatingTriangleEdges": 5033
+        },
+        {
+          "iteration": 4580,
+          "maximumEdgeStretch": 2.2188427715083594,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 4590,
+          "maximumEdgeStretch": 2.2186042338798133,
+          "violatingTriangleEdges": 5046
+        },
+        {
+          "iteration": 4600,
+          "maximumEdgeStretch": 2.2183618730605925,
+          "violatingTriangleEdges": 5048
+        },
+        {
+          "iteration": 4610,
+          "maximumEdgeStretch": 2.2180870872815315,
+          "violatingTriangleEdges": 5022
+        },
+        {
+          "iteration": 4620,
+          "maximumEdgeStretch": 2.217834439280608,
+          "violatingTriangleEdges": 5042
+        },
+        {
+          "iteration": 4630,
+          "maximumEdgeStretch": 2.217625756057259,
+          "violatingTriangleEdges": 5022
+        },
+        {
+          "iteration": 4640,
+          "maximumEdgeStretch": 2.2173316718977465,
+          "violatingTriangleEdges": 5030
+        },
+        {
+          "iteration": 4650,
+          "maximumEdgeStretch": 2.2171081043594563,
+          "violatingTriangleEdges": 5056
+        },
+        {
+          "iteration": 4660,
+          "maximumEdgeStretch": 2.2168362655813447,
+          "violatingTriangleEdges": 5029
+        },
+        {
+          "iteration": 4670,
+          "maximumEdgeStretch": 2.216565747600074,
+          "violatingTriangleEdges": 5059
+        },
+        {
+          "iteration": 4680,
+          "maximumEdgeStretch": 2.2163173736728794,
+          "violatingTriangleEdges": 5056
+        },
+        {
+          "iteration": 4690,
+          "maximumEdgeStretch": 2.2160623455130906,
+          "violatingTriangleEdges": 5039
+        },
+        {
+          "iteration": 4700,
+          "maximumEdgeStretch": 2.2158278967411436,
+          "violatingTriangleEdges": 5030
+        },
+        {
+          "iteration": 4710,
+          "maximumEdgeStretch": 2.215575821638022,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 4720,
+          "maximumEdgeStretch": 2.215296517503157,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 4730,
+          "maximumEdgeStretch": 2.2150655213022636,
+          "violatingTriangleEdges": 5034
+        },
+        {
+          "iteration": 4740,
+          "maximumEdgeStretch": 2.214806054671235,
+          "violatingTriangleEdges": 5037
+        },
+        {
+          "iteration": 4750,
+          "maximumEdgeStretch": 2.214541702072346,
+          "violatingTriangleEdges": 5033
+        },
+        {
+          "iteration": 4760,
+          "maximumEdgeStretch": 2.214317885607873,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 4770,
+          "maximumEdgeStretch": 2.214099744726111,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 4780,
+          "maximumEdgeStretch": 2.213832133613764,
+          "violatingTriangleEdges": 5021
+        },
+        {
+          "iteration": 4790,
+          "maximumEdgeStretch": 2.2135673968713303,
+          "violatingTriangleEdges": 5036
+        },
+        {
+          "iteration": 4800,
+          "maximumEdgeStretch": 2.21334319652888,
+          "violatingTriangleEdges": 5018
+        },
+        {
+          "iteration": 4810,
+          "maximumEdgeStretch": 2.2130810403756227,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 4820,
+          "maximumEdgeStretch": 2.2128630923588517,
+          "violatingTriangleEdges": 5021
+        },
+        {
+          "iteration": 4830,
+          "maximumEdgeStretch": 2.2125967882177404,
+          "violatingTriangleEdges": 5018
+        },
+        {
+          "iteration": 4840,
+          "maximumEdgeStretch": 2.2123523728789927,
+          "violatingTriangleEdges": 5032
+        },
+        {
+          "iteration": 4850,
+          "maximumEdgeStretch": 2.21210830754881,
+          "violatingTriangleEdges": 5025
+        },
+        {
+          "iteration": 4860,
+          "maximumEdgeStretch": 2.21185988190846,
+          "violatingTriangleEdges": 5036
+        },
+        {
+          "iteration": 4870,
+          "maximumEdgeStretch": 2.211599548607828,
+          "violatingTriangleEdges": 5038
+        },
+        {
+          "iteration": 4880,
+          "maximumEdgeStretch": 2.2113584784236506,
+          "violatingTriangleEdges": 5023
+        },
+        {
+          "iteration": 4890,
+          "maximumEdgeStretch": 2.2111169059543085,
+          "violatingTriangleEdges": 5038
+        },
+        {
+          "iteration": 4900,
+          "maximumEdgeStretch": 2.2108639367832468,
+          "violatingTriangleEdges": 5021
+        },
+        {
+          "iteration": 4910,
+          "maximumEdgeStretch": 2.2106353026796586,
+          "violatingTriangleEdges": 5015
+        },
+        {
+          "iteration": 4920,
+          "maximumEdgeStretch": 2.2104025504746305,
+          "violatingTriangleEdges": 5033
+        },
+        {
+          "iteration": 4930,
+          "maximumEdgeStretch": 2.2101219359725284,
+          "violatingTriangleEdges": 5017
+        },
+        {
+          "iteration": 4940,
+          "maximumEdgeStretch": 2.2099080210632733,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 4950,
+          "maximumEdgeStretch": 2.2096605042819606,
+          "violatingTriangleEdges": 5038
+        },
+        {
+          "iteration": 4960,
+          "maximumEdgeStretch": 2.209392434139256,
+          "violatingTriangleEdges": 5055
+        },
+        {
+          "iteration": 4970,
+          "maximumEdgeStretch": 2.2091625939319917,
+          "violatingTriangleEdges": 5041
+        },
+        {
+          "iteration": 4980,
+          "maximumEdgeStretch": 2.2089219556404456,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 4990,
+          "maximumEdgeStretch": 2.2086747605910766,
+          "violatingTriangleEdges": 5017
+        },
+        {
+          "iteration": 5000,
+          "maximumEdgeStretch": 2.2084405601594517,
+          "violatingTriangleEdges": 5029
+        },
+        {
+          "iteration": 5010,
+          "maximumEdgeStretch": 2.2082172681353103,
+          "violatingTriangleEdges": 5028
+        },
+        {
+          "iteration": 5020,
+          "maximumEdgeStretch": 2.2079717002255297,
+          "violatingTriangleEdges": 5029
+        },
+        {
+          "iteration": 5030,
+          "maximumEdgeStretch": 2.2077326381851314,
+          "violatingTriangleEdges": 5016
+        },
+        {
+          "iteration": 5040,
+          "maximumEdgeStretch": 2.2074655629837805,
+          "violatingTriangleEdges": 5025
+        },
+        {
+          "iteration": 5050,
+          "maximumEdgeStretch": 2.2072440479375866,
+          "violatingTriangleEdges": 5021
+        },
+        {
+          "iteration": 5060,
+          "maximumEdgeStretch": 2.2069894577593785,
+          "violatingTriangleEdges": 5048
+        },
+        {
+          "iteration": 5070,
+          "maximumEdgeStretch": 2.206788321838874,
+          "violatingTriangleEdges": 5027
+        },
+        {
+          "iteration": 5080,
+          "maximumEdgeStretch": 2.206544998296207,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 5090,
+          "maximumEdgeStretch": 2.2062820980945594,
+          "violatingTriangleEdges": 5027
+        },
+        {
+          "iteration": 5100,
+          "maximumEdgeStretch": 2.206048938121127,
+          "violatingTriangleEdges": 5043
+        },
+        {
+          "iteration": 5110,
+          "maximumEdgeStretch": 2.2058688458616866,
+          "violatingTriangleEdges": 5020
+        },
+        {
+          "iteration": 5120,
+          "maximumEdgeStretch": 2.2056605151116067,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 5130,
+          "maximumEdgeStretch": 2.2054426683032773,
+          "violatingTriangleEdges": 5037
+        },
+        {
+          "iteration": 5140,
+          "maximumEdgeStretch": 2.2052026475392377,
+          "violatingTriangleEdges": 5024
+        },
+        {
+          "iteration": 5150,
+          "maximumEdgeStretch": 2.20499102277585,
+          "violatingTriangleEdges": 5045
+        },
+        {
+          "iteration": 5160,
+          "maximumEdgeStretch": 2.204729127911514,
+          "violatingTriangleEdges": 5020
+        },
+        {
+          "iteration": 5170,
+          "maximumEdgeStretch": 2.204495101783318,
+          "violatingTriangleEdges": 5016
+        },
+        {
+          "iteration": 5180,
+          "maximumEdgeStretch": 2.2042744742298814,
+          "violatingTriangleEdges": 5037
+        },
+        {
+          "iteration": 5190,
+          "maximumEdgeStretch": 2.2040153594406817,
+          "violatingTriangleEdges": 5010
+        },
+        {
+          "iteration": 5200,
+          "maximumEdgeStretch": 2.2037850837733797,
+          "violatingTriangleEdges": 5034
+        },
+        {
+          "iteration": 5210,
+          "maximumEdgeStretch": 2.203533849046174,
+          "violatingTriangleEdges": 5025
+        },
+        {
+          "iteration": 5220,
+          "maximumEdgeStretch": 2.203305556688734,
+          "violatingTriangleEdges": 5028
+        },
+        {
+          "iteration": 5230,
+          "maximumEdgeStretch": 2.2030597723593206,
+          "violatingTriangleEdges": 5029
+        },
+        {
+          "iteration": 5240,
+          "maximumEdgeStretch": 2.202793878088893,
+          "violatingTriangleEdges": 5039
+        },
+        {
+          "iteration": 5250,
+          "maximumEdgeStretch": 2.202565469281419,
+          "violatingTriangleEdges": 5023
+        },
+        {
+          "iteration": 5260,
+          "maximumEdgeStretch": 2.202312023783495,
+          "violatingTriangleEdges": 5024
+        },
+        {
+          "iteration": 5270,
+          "maximumEdgeStretch": 2.202075266106514,
+          "violatingTriangleEdges": 5023
+        },
+        {
+          "iteration": 5280,
+          "maximumEdgeStretch": 2.2018213720688595,
+          "violatingTriangleEdges": 5046
+        },
+        {
+          "iteration": 5290,
+          "maximumEdgeStretch": 2.2016230987071146,
+          "violatingTriangleEdges": 5027
+        },
+        {
+          "iteration": 5300,
+          "maximumEdgeStretch": 2.201474663373301,
+          "violatingTriangleEdges": 5018
+        },
+        {
+          "iteration": 5310,
+          "maximumEdgeStretch": 2.201209856559352,
+          "violatingTriangleEdges": 5034
+        },
+        {
+          "iteration": 5320,
+          "maximumEdgeStretch": 2.2010257936381805,
+          "violatingTriangleEdges": 5035
+        },
+        {
+          "iteration": 5330,
+          "maximumEdgeStretch": 2.200791343529139,
+          "violatingTriangleEdges": 5025
+        },
+        {
+          "iteration": 5340,
+          "maximumEdgeStretch": 2.2005821283961735,
+          "violatingTriangleEdges": 5044
+        },
+        {
+          "iteration": 5350,
+          "maximumEdgeStretch": 2.2003668327158477,
+          "violatingTriangleEdges": 5025
+        },
+        {
+          "iteration": 5360,
+          "maximumEdgeStretch": 2.200106948091423,
+          "violatingTriangleEdges": 5032
+        },
+        {
+          "iteration": 5370,
+          "maximumEdgeStretch": 2.199907895582492,
+          "violatingTriangleEdges": 5049
+        },
+        {
+          "iteration": 5380,
+          "maximumEdgeStretch": 2.1997129171329846,
+          "violatingTriangleEdges": 5013
+        },
+        {
+          "iteration": 5390,
+          "maximumEdgeStretch": 2.1994632041344953,
+          "violatingTriangleEdges": 5031
+        },
+        {
+          "iteration": 5400,
+          "maximumEdgeStretch": 2.1992542531869654,
+          "violatingTriangleEdges": 5007
+        },
+        {
+          "iteration": 5410,
+          "maximumEdgeStretch": 2.1990486183349276,
+          "violatingTriangleEdges": 5038
+        },
+        {
+          "iteration": 5420,
+          "maximumEdgeStretch": 2.198804748949403,
+          "violatingTriangleEdges": 5040
+        },
+        {
+          "iteration": 5430,
+          "maximumEdgeStretch": 2.19862040643423,
+          "violatingTriangleEdges": 5030
+        },
+        {
+          "iteration": 5440,
+          "maximumEdgeStretch": 2.1983763141329993,
+          "violatingTriangleEdges": 5022
+        },
+        {
+          "iteration": 5450,
+          "maximumEdgeStretch": 2.1981706659976936,
+          "violatingTriangleEdges": 5020
+        },
+        {
+          "iteration": 5460,
+          "maximumEdgeStretch": 2.1979642156950017,
+          "violatingTriangleEdges": 5013
+        },
+        {
+          "iteration": 5470,
+          "maximumEdgeStretch": 2.1977079095145764,
+          "violatingTriangleEdges": 5018
+        },
+        {
+          "iteration": 5480,
+          "maximumEdgeStretch": 2.197510114226024,
+          "violatingTriangleEdges": 5012
+        },
+        {
+          "iteration": 5490,
+          "maximumEdgeStretch": 2.1972430781001577,
+          "violatingTriangleEdges": 5029
+        },
+        {
+          "iteration": 5500,
+          "maximumEdgeStretch": 2.1970757971259576,
+          "violatingTriangleEdges": 5017
+        },
+        {
+          "iteration": 5510,
+          "maximumEdgeStretch": 2.1968318145788044,
+          "violatingTriangleEdges": 5009
+        },
+        {
+          "iteration": 5520,
+          "maximumEdgeStretch": 2.1966202646272848,
+          "violatingTriangleEdges": 5011
+        },
+        {
+          "iteration": 5530,
+          "maximumEdgeStretch": 2.1964135741226003,
+          "violatingTriangleEdges": 5001
+        },
+        {
+          "iteration": 5540,
+          "maximumEdgeStretch": 2.1961983527802604,
+          "violatingTriangleEdges": 4972
+        },
+        {
+          "iteration": 5550,
+          "maximumEdgeStretch": 2.195987019283476,
+          "violatingTriangleEdges": 4987
+        },
+        {
+          "iteration": 5560,
+          "maximumEdgeStretch": 2.1957450598573804,
+          "violatingTriangleEdges": 4985
+        },
+        {
+          "iteration": 5570,
+          "maximumEdgeStretch": 2.1955495657595288,
+          "violatingTriangleEdges": 5005
+        },
+        {
+          "iteration": 5580,
+          "maximumEdgeStretch": 2.1952992103537,
+          "violatingTriangleEdges": 5004
+        },
+        {
+          "iteration": 5590,
+          "maximumEdgeStretch": 2.195110304048827,
+          "violatingTriangleEdges": 4991
+        },
+        {
+          "iteration": 5600,
+          "maximumEdgeStretch": 2.1948741404172476,
+          "violatingTriangleEdges": 5000
+        },
+        {
+          "iteration": 5610,
+          "maximumEdgeStretch": 2.194674155570901,
+          "violatingTriangleEdges": 5004
+        },
+        {
+          "iteration": 5620,
+          "maximumEdgeStretch": 2.194474105941123,
+          "violatingTriangleEdges": 4981
+        },
+        {
+          "iteration": 5630,
+          "maximumEdgeStretch": 2.1942305894371206,
+          "violatingTriangleEdges": 5013
+        },
+        {
+          "iteration": 5640,
+          "maximumEdgeStretch": 2.194031259513062,
+          "violatingTriangleEdges": 5005
+        },
+        {
+          "iteration": 5650,
+          "maximumEdgeStretch": 2.193803050466659,
+          "violatingTriangleEdges": 4982
+        },
+        {
+          "iteration": 5660,
+          "maximumEdgeStretch": 2.1936032199220934,
+          "violatingTriangleEdges": 4992
+        },
+        {
+          "iteration": 5670,
+          "maximumEdgeStretch": 2.19339223650276,
+          "violatingTriangleEdges": 4996
+        },
+        {
+          "iteration": 5680,
+          "maximumEdgeStretch": 2.1931572434261724,
+          "violatingTriangleEdges": 4987
+        },
+        {
+          "iteration": 5690,
+          "maximumEdgeStretch": 2.1929601742201887,
+          "violatingTriangleEdges": 4994
+        },
+        {
+          "iteration": 5700,
+          "maximumEdgeStretch": 2.1927307689838513,
+          "violatingTriangleEdges": 4992
+        },
+        {
+          "iteration": 5710,
+          "maximumEdgeStretch": 2.192529446541818,
+          "violatingTriangleEdges": 5010
+        },
+        {
+          "iteration": 5720,
+          "maximumEdgeStretch": 2.1923305514720774,
+          "violatingTriangleEdges": 5000
+        },
+        {
+          "iteration": 5730,
+          "maximumEdgeStretch": 2.1920703134726494,
+          "violatingTriangleEdges": 4997
+        },
+        {
+          "iteration": 5740,
+          "maximumEdgeStretch": 2.191880424229399,
+          "violatingTriangleEdges": 4993
+        },
+        {
+          "iteration": 5750,
+          "maximumEdgeStretch": 2.1916632420685955,
+          "violatingTriangleEdges": 4992
+        },
+        {
+          "iteration": 5760,
+          "maximumEdgeStretch": 2.191429897757927,
+          "violatingTriangleEdges": 4977
+        },
+        {
+          "iteration": 5770,
+          "maximumEdgeStretch": 2.191225242298713,
+          "violatingTriangleEdges": 5007
+        },
+        {
+          "iteration": 5780,
+          "maximumEdgeStretch": 2.1910074112921465,
+          "violatingTriangleEdges": 5003
+        },
+        {
+          "iteration": 5790,
+          "maximumEdgeStretch": 2.1907839134035996,
+          "violatingTriangleEdges": 4997
+        },
+        {
+          "iteration": 5800,
+          "maximumEdgeStretch": 2.1905717481336446,
+          "violatingTriangleEdges": 4980
+        },
+        {
+          "iteration": 5810,
+          "maximumEdgeStretch": 2.190349834389233,
+          "violatingTriangleEdges": 4992
+        },
+        {
+          "iteration": 5820,
+          "maximumEdgeStretch": 2.1901399137200914,
+          "violatingTriangleEdges": 5002
+        },
+        {
+          "iteration": 5830,
+          "maximumEdgeStretch": 2.1899266583226864,
+          "violatingTriangleEdges": 4993
+        },
+        {
+          "iteration": 5840,
+          "maximumEdgeStretch": 2.1897349840441365,
+          "violatingTriangleEdges": 4981
+        },
+        {
+          "iteration": 5850,
+          "maximumEdgeStretch": 2.1895051622836776,
+          "violatingTriangleEdges": 4999
+        },
+        {
+          "iteration": 5860,
+          "maximumEdgeStretch": 2.189285004594634,
+          "violatingTriangleEdges": 4987
+        },
+        {
+          "iteration": 5870,
+          "maximumEdgeStretch": 2.1890809676082923,
+          "violatingTriangleEdges": 4979
+        },
+        {
+          "iteration": 5880,
+          "maximumEdgeStretch": 2.188818950878438,
+          "violatingTriangleEdges": 4994
+        },
+        {
+          "iteration": 5890,
+          "maximumEdgeStretch": 2.1886128784034007,
+          "violatingTriangleEdges": 4994
+        },
+        {
+          "iteration": 5900,
+          "maximumEdgeStretch": 2.1884041956274554,
+          "violatingTriangleEdges": 4985
+        },
+        {
+          "iteration": 5910,
+          "maximumEdgeStretch": 2.1881815257765656,
+          "violatingTriangleEdges": 4992
+        },
+        {
+          "iteration": 5920,
+          "maximumEdgeStretch": 2.187990063426805,
+          "violatingTriangleEdges": 5002
+        },
+        {
+          "iteration": 5930,
+          "maximumEdgeStretch": 2.1877588934973793,
+          "violatingTriangleEdges": 4993
+        },
+        {
+          "iteration": 5940,
+          "maximumEdgeStretch": 2.187558165233912,
+          "violatingTriangleEdges": 4997
+        },
+        {
+          "iteration": 5950,
+          "maximumEdgeStretch": 2.1873435289391265,
+          "violatingTriangleEdges": 5007
+        },
+        {
+          "iteration": 5960,
+          "maximumEdgeStretch": 2.187123788209202,
+          "violatingTriangleEdges": 5006
+        },
+        {
+          "iteration": 5970,
+          "maximumEdgeStretch": 2.1869356506861752,
+          "violatingTriangleEdges": 5010
+        },
+        {
+          "iteration": 5980,
+          "maximumEdgeStretch": 2.186716263877782,
+          "violatingTriangleEdges": 4992
+        },
+        {
+          "iteration": 5990,
+          "maximumEdgeStretch": 2.1865279178826644,
+          "violatingTriangleEdges": 5012
+        },
+        {
+          "iteration": 5999,
+          "maximumEdgeStretch": 2.186322585353261,
+          "violatingTriangleEdges": 5008
+        }
+      ]
+    }
+  ],
+  "calibrationHash": "c687b8afbc18a7673c1b5ec2e5d6d18e123cd2f63f0de92ad4b8f6bb34bc7618",
+  "builderHash": "ec574a3807e8ebf967732232f167b4de6f317c1b599d38f69b6956147e215daf",
+  "weightTransferHash": "0c35e0ff2a457c14ee99aeb828c8400d44e1d42b128fc5c7037558bc62028354",
+  "recipeHashes": {
+    "tools/rig-full-resolution.mjs": "ec574a3807e8ebf967732232f167b4de6f317c1b599d38f69b6956147e215daf",
+    "tools/rig/constrain-skin.mjs": "6b849a003fdf72d0d570ba3304905bda4423cde0f9c51f4b2f8186af87034596",
+    "tools/rig/smooth-weights.mjs": "a74a22950d542cacf542b7b20e40f4e0ee9d769a58401c1b06eaf872c03e3a99",
+    "src/rig/finger-weights.js": "be21161213bb22dc8ecdcff611773822567362b766362eb3cbe7514c036efe5d"
+  },
+  "sourceGeometryAndTextureBytesPreserved": true,
+  "status": "staging: source skin transfer; new entrance/palm verification not yet accepted"
+}

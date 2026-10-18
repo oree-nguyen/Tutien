@@ -24,6 +24,7 @@ export async function fingerprint() {
     "package-lock.json",
     "capacitor.config.json",
     "index.html",
+    "rig-review.html",
     "vite.config.js",
     "acceptance/requirements.json",
     "acceptance/visual-requirements.json",
