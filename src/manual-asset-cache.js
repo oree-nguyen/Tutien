@@ -1,13 +1,9 @@
-import {localAssetUrl} from './local-asset-url.js';
-import{perfAsync,perfEnabled,perfEvent}from'./perf-debug.js';
 import {getGpuTextureLoader,gpuTextureMetrics} from './gpu-textures.js';
 import {getModelLoader} from './model-loader.js';
 import { threadedMeshoptDecoder as MeshoptDecoder,meshoptWorkerMetrics } from './meshopt-worker-bridge.js';
 import { manualHeroAssetUrls, manualHeroAssetHashes } from './model-asset-registry.js';
 
-const loaded=new ModelTemplateCache({maxUnused:4,dispose:disposeModelTemplate});
-export function releaseManualAssets(root){root.traverse(node=>loaded.release(node));manualAssetMetrics.templates=loaded.inspect();}
-export const manualTemplateMetrics=()=>loaded.inspect();
+const loaded=new Map();
 let decodeQueue=Promise.resolve(),database;
 export const manualAssetMetrics={hits:0,misses:0,bytes:0,decoded:0};
 const yieldFrame=()=>new Promise(resolve=>setTimeout(resolve,0));
@@ -53,15 +49,14 @@ export async function manualAssetBuffer(key){
  const cacheKey=key+':'+manualHeroAssetHashes[key];
  let buffer=await stored(cacheKey);
  if(await valid(buffer,key)){manualAssetMetrics.hits++;return buffer;}
- const response=await fetch(localAssetUrl(url));if(!response.ok)throw Error('Model HTTP '+response.status);
+ const response=await fetch(url);if(!response.ok)throw Error('Model HTTP '+response.status);
  buffer=await response.arrayBuffer();
  if(!await valid(buffer,key))throw Error('Model integrity check failed: '+key);
  manualAssetMetrics.misses++;manualAssetMetrics.bytes+=buffer.byteLength;
  void stored(cacheKey,buffer);
  return buffer;
 }
-export function loadManualAsset(key,allowGpu=true,owner){return perfAsync('glb:load',()=>loadManualAssetMeasured(key,allowGpu,owner),{key,allowGpu});}
-function loadManualAssetMeasured(key,allowGpu=true,owner){
+export function loadManualAsset(key,allowGpu=true){
  const originalKey=key;
  const gpu=getGpuTextureLoader();
  if(allowGpu&&gpu&&manualHeroAssetUrls[key+'-gpu'])key+='-gpu';
@@ -84,3 +79,7 @@ function loadManualAssetMeasured(key,allowGpu=true,owner){
 }
 
 if(typeof indexedDB!=='undefined')void db();
+
+// Decoded templates stay cached across preview and battle transitions.
+export function releaseManualAssets() {}
+export const manualTemplateMetrics=()=>({templates:loaded.size,referenced:loaded.size,leases:loaded.size});

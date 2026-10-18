@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "npm run assets:optimize && vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
+    "build": "vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
     "preview": "vite preview --host 0.0.0.0",
     "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js",
     "android:add": "cap add android && node scripts/configure-android.mjs",
