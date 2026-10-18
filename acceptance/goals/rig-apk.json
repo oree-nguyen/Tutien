@@ -48,8 +48,8 @@
     {
       "id": "publish",
       "condition": "Mã nguồn, ảnh và APK lên GitHub; xác minh remote",
-      "status": "in_progress",
-      "note": "Publishing source, gallery and verified diagnostic APK to main."
+      "status": "completed",
+      "note": "GitHub main verified at artifact commit 563c015424ad391d249511de503a08eaaa3ab0d2; APK uploaded through Git LFS and merged checkout matches provenance."
     }
   ],
   "limitations": [
@@ -66,5 +66,6 @@
     "runtimeRigReplaced": false,
     "signed": true,
     "recordedAt": "2026-10-18T21:01:15.450Z"
-  }
+  },
+  "publishedArtifactCommit": "563c015424ad391d249511de503a08eaaa3ab0d2"
 }
