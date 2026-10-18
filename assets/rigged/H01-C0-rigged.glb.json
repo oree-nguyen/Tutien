@@ -1,0 +1,316 @@
+{
+  "hero": "H01",
+  "file": "H01-C0-rigged.glb",
+  "source": "public/models/hunyuan-original/H01-C0-source.glb",
+  "sourceHash": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "donor": "public/models/h01-c0/h01-c0-high.glb",
+  "donorHash": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
+  "sha256": "3509a27a3dd1a4294939dcf1a2bd6df99ce2d3ba3501430f3d6ea409f32de8f9",
+  "bytes": 98346352,
+  "joints": 52,
+  "maxPositionError": 0,
+  "smoothing": [
+    {
+      "passes": 3,
+      "factor": 0.5,
+      "processedVertexPasses": 1701077,
+      "fingerVerticesExcluded": 16783,
+      "weldedPositions": 749845,
+      "includesFingerTransitions": false,
+      "distanceWeighted": false,
+      "fingerVerticesDetected": 16783
+    },
+    {
+      "passes": 384,
+      "factor": 0.5,
+      "processedVertexPasses": 14716800,
+      "fingerVerticesExcluded": 0,
+      "weldedPositions": 749845,
+      "regionVertices": 44687,
+      "includesFingerTransitions": true,
+      "distanceWeighted": true,
+      "fingerVerticesDetected": 16783
+    }
+  ],
+  "constraintFitting": [
+    {
+      "method": "Projected skin-weight constraints on actual source edges; four fixed influences, normalized; distal rigid cores pinned",
+      "strengthSamples": [
+        0.2,
+        1
+      ],
+      "targetStretch": 1.45,
+      "vertices": 37210,
+      "pinnedDistalVertices": 496,
+      "maximumIterations": 500,
+      "weldedSurfaceGroups": 32260,
+      "history": [
+        {
+          "iteration": 0,
+          "maximumEdgeStretch": 5.272829734828532,
+          "violatingTriangleEdges": 8425
+        },
+        {
+          "iteration": 10,
+          "maximumEdgeStretch": 4.653754376206371,
+          "violatingTriangleEdges": 9631
+        },
+        {
+          "iteration": 20,
+          "maximumEdgeStretch": 4.137169792848106,
+          "violatingTriangleEdges": 9810
+        },
+        {
+          "iteration": 30,
+          "maximumEdgeStretch": 3.8760993496741505,
+          "violatingTriangleEdges": 9808
+        },
+        {
+          "iteration": 40,
+          "maximumEdgeStretch": 3.785807915675729,
+          "violatingTriangleEdges": 9726
+        },
+        {
+          "iteration": 50,
+          "maximumEdgeStretch": 3.720931353102384,
+          "violatingTriangleEdges": 9697
+        },
+        {
+          "iteration": 60,
+          "maximumEdgeStretch": 3.6470657741953376,
+          "violatingTriangleEdges": 9645
+        },
+        {
+          "iteration": 70,
+          "maximumEdgeStretch": 3.583097566159466,
+          "violatingTriangleEdges": 9632
+        },
+        {
+          "iteration": 80,
+          "maximumEdgeStretch": 3.52468486727075,
+          "violatingTriangleEdges": 9554
+        },
+        {
+          "iteration": 90,
+          "maximumEdgeStretch": 3.4754089763498133,
+          "violatingTriangleEdges": 9492
+        },
+        {
+          "iteration": 100,
+          "maximumEdgeStretch": 3.455047215749614,
+          "violatingTriangleEdges": 9491
+        },
+        {
+          "iteration": 110,
+          "maximumEdgeStretch": 3.4363707008397713,
+          "violatingTriangleEdges": 9420
+        },
+        {
+          "iteration": 120,
+          "maximumEdgeStretch": 3.4185919905139857,
+          "violatingTriangleEdges": 9323
+        },
+        {
+          "iteration": 130,
+          "maximumEdgeStretch": 3.401051641202481,
+          "violatingTriangleEdges": 9220
+        },
+        {
+          "iteration": 140,
+          "maximumEdgeStretch": 3.384716602975732,
+          "violatingTriangleEdges": 9099
+        },
+        {
+          "iteration": 150,
+          "maximumEdgeStretch": 3.369042604136976,
+          "violatingTriangleEdges": 9028
+        },
+        {
+          "iteration": 160,
+          "maximumEdgeStretch": 3.3536922239689897,
+          "violatingTriangleEdges": 8955
+        },
+        {
+          "iteration": 170,
+          "maximumEdgeStretch": 3.3378032583220536,
+          "violatingTriangleEdges": 8864
+        },
+        {
+          "iteration": 180,
+          "maximumEdgeStretch": 3.321974844895989,
+          "violatingTriangleEdges": 8800
+        },
+        {
+          "iteration": 190,
+          "maximumEdgeStretch": 3.306627512602032,
+          "violatingTriangleEdges": 8729
+        },
+        {
+          "iteration": 200,
+          "maximumEdgeStretch": 3.2917119123248573,
+          "violatingTriangleEdges": 8628
+        },
+        {
+          "iteration": 210,
+          "maximumEdgeStretch": 3.2772778311285187,
+          "violatingTriangleEdges": 8599
+        },
+        {
+          "iteration": 220,
+          "maximumEdgeStretch": 3.259639624452874,
+          "violatingTriangleEdges": 8547
+        },
+        {
+          "iteration": 230,
+          "maximumEdgeStretch": 3.2391880952716328,
+          "violatingTriangleEdges": 8478
+        },
+        {
+          "iteration": 240,
+          "maximumEdgeStretch": 3.2194535570382397,
+          "violatingTriangleEdges": 8442
+        },
+        {
+          "iteration": 250,
+          "maximumEdgeStretch": 3.200691689744991,
+          "violatingTriangleEdges": 8385
+        },
+        {
+          "iteration": 260,
+          "maximumEdgeStretch": 3.183070181370644,
+          "violatingTriangleEdges": 8310
+        },
+        {
+          "iteration": 270,
+          "maximumEdgeStretch": 3.1658589325431357,
+          "violatingTriangleEdges": 8288
+        },
+        {
+          "iteration": 280,
+          "maximumEdgeStretch": 3.1492825810052913,
+          "violatingTriangleEdges": 8222
+        },
+        {
+          "iteration": 290,
+          "maximumEdgeStretch": 3.1334132944854423,
+          "violatingTriangleEdges": 8151
+        },
+        {
+          "iteration": 300,
+          "maximumEdgeStretch": 3.118344044903733,
+          "violatingTriangleEdges": 8089
+        },
+        {
+          "iteration": 310,
+          "maximumEdgeStretch": 3.103977191739458,
+          "violatingTriangleEdges": 8042
+        },
+        {
+          "iteration": 320,
+          "maximumEdgeStretch": 3.0901775021705977,
+          "violatingTriangleEdges": 8011
+        },
+        {
+          "iteration": 330,
+          "maximumEdgeStretch": 3.076818403681386,
+          "violatingTriangleEdges": 7943
+        },
+        {
+          "iteration": 340,
+          "maximumEdgeStretch": 3.063841971297966,
+          "violatingTriangleEdges": 7860
+        },
+        {
+          "iteration": 350,
+          "maximumEdgeStretch": 3.0512392365162264,
+          "violatingTriangleEdges": 7822
+        },
+        {
+          "iteration": 360,
+          "maximumEdgeStretch": 3.038870505901667,
+          "violatingTriangleEdges": 7791
+        },
+        {
+          "iteration": 370,
+          "maximumEdgeStretch": 3.02660424777385,
+          "violatingTriangleEdges": 7782
+        },
+        {
+          "iteration": 380,
+          "maximumEdgeStretch": 3.0143991998627087,
+          "violatingTriangleEdges": 7756
+        },
+        {
+          "iteration": 390,
+          "maximumEdgeStretch": 3.0023742021420405,
+          "violatingTriangleEdges": 7711
+        },
+        {
+          "iteration": 400,
+          "maximumEdgeStretch": 2.990710722952635,
+          "violatingTriangleEdges": 7702
+        },
+        {
+          "iteration": 410,
+          "maximumEdgeStretch": 2.979367591366534,
+          "violatingTriangleEdges": 7686
+        },
+        {
+          "iteration": 420,
+          "maximumEdgeStretch": 2.9683337902610996,
+          "violatingTriangleEdges": 7661
+        },
+        {
+          "iteration": 430,
+          "maximumEdgeStretch": 2.9574616001797205,
+          "violatingTriangleEdges": 7630
+        },
+        {
+          "iteration": 440,
+          "maximumEdgeStretch": 2.9467038052999435,
+          "violatingTriangleEdges": 7627
+        },
+        {
+          "iteration": 450,
+          "maximumEdgeStretch": 2.936143590586117,
+          "violatingTriangleEdges": 7582
+        },
+        {
+          "iteration": 460,
+          "maximumEdgeStretch": 2.925808877632738,
+          "violatingTriangleEdges": 7576
+        },
+        {
+          "iteration": 470,
+          "maximumEdgeStretch": 2.915673096282736,
+          "violatingTriangleEdges": 7552
+        },
+        {
+          "iteration": 480,
+          "maximumEdgeStretch": 2.905753817706713,
+          "violatingTriangleEdges": 7488
+        },
+        {
+          "iteration": 490,
+          "maximumEdgeStretch": 2.8962696956179825,
+          "violatingTriangleEdges": 7467
+        },
+        {
+          "iteration": 499,
+          "maximumEdgeStretch": 2.8879632142232334,
+          "violatingTriangleEdges": 7444
+        }
+      ]
+    }
+  ],
+  "calibrationHash": "c687b8afbc18a7673c1b5ec2e5d6d18e123cd2f63f0de92ad4b8f6bb34bc7618",
+  "builderHash": "5b03e105b62adee0058bac517e8841afdc3484ecdbafc25c290a21871ae43082",
+  "sourceGeometryAndTextureBytesPreserved": true,
+  "status": "staging: source skin transfer; new entrance/palm verification not yet accepted",
+  "recipeHashes": {
+    "tools/rig-full-resolution.mjs": "5b03e105b62adee0058bac517e8841afdc3484ecdbafc25c290a21871ae43082",
+    "tools/rig/constrain-skin.mjs": "d40ff05afdef6edb78713e1a619b67701b24daa130aa3bf85272f1a9f12183ae",
+    "tools/rig/smooth-weights.mjs": "0e7cec3d0a2cfe3bd7660767f351c62a913de4d97b500b0938379254ce2c1d11",
+    "src/rig/finger-weights.js": "be21161213bb22dc8ecdcff611773822567362b766362eb3cbe7514c036efe5d"
+  }
+}

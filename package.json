@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js tests/runtime-performance.test.js",
+    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js tests/runtime-performance.test.js tests/rig-joint-limits.test.js tests/rig-skinning.test.js tests/hero-pose-controller.test.js",
     "android:add": "cap add android && node scripts/configure-android.mjs",
     "android:sync": "npm run build && cap sync android && node scripts/configure-android.mjs",
     "test:ui": "node tests/browser.mjs",
@@ -35,7 +35,13 @@
     "test:overhaul-ui": "node tests/overhaul-browser.mjs",
     "verify:overhaul": "node scripts/verify-overhaul.mjs",
     "assets:models:fidelity": "node scripts/fidelity-models.mjs",
-    "assets:probe:hdr": "node scripts/probe-hdr-uastc.mjs"
+    "assets:probe:hdr": "node scripts/probe-hdr-uastc.mjs",
+    "assets:rig": "node tools/rig-full-resolution.mjs",
+    "test:rig:structure": "node tools/rig-verify-fullres.mjs",
+    "test:rig:browser": "node tools/rig/validate-browser.mjs",
+    "test:rig:grip": "node tools/rig/solve-grips.mjs",
+    "test:rig:joints": "node tools/rig/validate-joints.mjs",
+    "test:rig:skin": "node tools/rig/validate-skin.mjs"
   },
   "dependencies": {
     "@capacitor/android": "7.6.9",
