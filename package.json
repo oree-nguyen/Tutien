@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "node scripts/copy-rig-review.mjs && vite build && node scripts/cache-build.mjs && node scripts/standalone.mjs",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js tests/runtime-performance.test.js tests/rig-joint-limits.test.js tests/rig-skinning.test.js tests/hero-pose-controller.test.js tests/rig-mesh-contact.test.js tests/rig-reference-pose.test.js tests/rig-harmonic.test.js tests/rig-surface-objective.test.js tests/rig-garment.test.js tests/rig-all-meshes.test.js",
+    "test": "node --test tests/rules.test.js tests/systems.test.js tests/gdd-matrix.test.js tests/upgrade.test.js tests/runtime-performance.test.js tests/rig-joint-limits.test.js tests/rig-skinning.test.js tests/hero-pose-controller.test.js tests/rig-mesh-contact.test.js tests/rig-reference-pose.test.js tests/rig-harmonic.test.js tests/rig-surface-objective.test.js tests/rig-garment.test.js tests/rig-all-meshes.test.js tests/source-fingerprint.test.js",
     "android:add": "cap add android && node scripts/configure-android.mjs",
     "android:sync": "npm run build && cap sync android && node scripts/configure-android.mjs",
     "test:ui": "node tests/browser.mjs",

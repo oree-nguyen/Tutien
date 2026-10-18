@@ -1274,7 +1274,7 @@ Nguồn: `h01-held-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:36:04 UTC+07:00**
 
-Nguồn: `h01-left.png`
+Nguồn: `h01-left.png`, `docs/anim-report/apk-review/h01-left.png`
 
 ## Ảnh 135
 
@@ -1282,7 +1282,7 @@ Nguồn: `h01-left.png`
 
 **Thời gian đăng ký ảnh: 2026-10-18 20:36:05 UTC+07:00**
 
-Nguồn: `h01-right.png`
+Nguồn: `h01-right.png`, `docs/anim-report/apk-review/h01-right.png`
 
 ## Ảnh 136
 
@@ -1298,12 +1298,44 @@ Nguồn: `h02-rig.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 03:57:20 UTC+07:00**
 
-Nguồn: `h01-held-back.png`
+Nguồn: `h01-held-back.png`, `docs/anim-report/apk-review/h01-held-back.png`
 
 ## Ảnh 138
 
 ![h02-rig.png](../media/15cd27999c91dd1ccbbaaa37f5e58cf5f4a89add.png)
 
 **Thời gian đăng ký ảnh: 2026-10-19 03:57:21 UTC+07:00**
+
+Nguồn: `h02-rig.png`, `docs/anim-report/apk-review/h02-rig.png`
+
+## Ảnh 139
+
+![h01-held-back.png](../media/a177713fd461735700dbba6a5bb40448bd744df4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:03:06 UTC+07:00**
+
+Nguồn: `h01-held-back.png`
+
+## Ảnh 140
+
+![h01-left.png](../media/d495b3c32baef575bfc35b2df5112a556918719d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:03:06 UTC+07:00**
+
+Nguồn: `h01-left.png`
+
+## Ảnh 141
+
+![h01-right.png](../media/cf633db587cd54f5327747d85ad72b05965cf0bc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:03:07 UTC+07:00**
+
+Nguồn: `h01-right.png`
+
+## Ảnh 142
+
+![h02-rig.png](../media/12554e9ba4bfcaa035b153e634e24d28d622a346.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 04:03:07 UTC+07:00**
 
 Nguồn: `h02-rig.png`
