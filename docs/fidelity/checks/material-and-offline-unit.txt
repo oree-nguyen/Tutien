@@ -1,0 +1,16 @@
+✔ neutral glTF presentation leaves all authored material and texture properties unchanged (38.141408ms)
+✔ clearing only owned offline fields preserves profile, opaque root fields and unrelated storage (1.320618ms)
+✔ primary persistence failure is propagated before the caller can present the lobby (0.395843ms)
+✔ corrupt primary storage is not overwritten with an empty profile (0.230936ms)
+✔ redundant mirror failure does not reverse a successful primary clear (0.170345ms)
+✔ snapshot persistence retains actor references, timers, escrow and inventory for an explicit later restore (17.352285ms)
+✔ actual offline death clears the saved snapshot synchronously through finish/save (8.016349ms)
+✔ actual offline extraction clears the saved snapshot synchronously through finish/save (6.122892ms)
+ℹ tests 8
+ℹ suites 0
+ℹ pass 8
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 118.775572

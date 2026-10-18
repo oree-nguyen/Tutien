@@ -52,7 +52,7 @@ export function createManualH01(actor,detail){
   if(root.userData.manualAsset.disposed)return;
   if(actor.id==='preview')await prepareH01EntranceAssets();
   const body=cloneSkeleton(gltf.scene);body.name='HunyuanBody';body.visible=false;body.rotation.y=Math.PI;cloneMaterials(body);root.add(body);
-  const staff=cloneHunyuanStaff(staffGltf),staffPulse={value:.12};body.add(staff);applyStaffReveal(staff,staffPulse);
+  const staff=cloneHunyuanStaff(staffGltf),staffPulse={value:0};body.add(staff);applyStaffReveal(staff,staffPulse);
   body.updateWorldMatrix(true,true);
   const ik=createH01IK(body),mixer=new THREE.AnimationMixer(body);
   staff.updateWorldMatrix(true,true);
@@ -127,7 +127,7 @@ function updateEntrance(root,state,t){
  }
  staffReveal(state,f.staff);setFingerGrip(state.body,f.gripped?1:0);
  updateH01EntranceVfx(state.vfx,f);
- state.staffPulse.value=.12+.35*Math.exp(-Math.abs(t-3.05)*45)+.45*Math.exp(-Math.abs(t-3.55)*45);
+ state.staffPulse.value=.35*Math.exp(-Math.abs(t-3.05)*45)+.45*Math.exp(-Math.abs(t-3.55)*45);
  if(t>=3.55){const age=t-3.55;state.staff.rotateZ(.012*Math.sin(age*85)*Math.exp(-age*14));}
  if(f.impact&&!state.impact){state.impact=true;root.userData.manualAsset.impactEvents=(root.userData.manualAsset.impactEvents??0)+1;}
  root.userData.manualAsset.entrance={...f,leftGroundError:state.ik.leftGroundError,rightGripError:state.ik.lastError};
@@ -157,7 +157,7 @@ export function updateManualH01Animation(root,actor,speed,dt){
  if(desired==='Run'){grip.y+=.12;grip.z+=Math.sin(s.actions.Run.time*8)*.03;}
  else if(desired!=='Idle')grip.y+=.12+.16*Math.sin(Math.PI*Math.min(1,s.actions[desired].time/s.actions[desired].getClip().duration));
  poseRightHand(s.ik,grip);
- s.staffPulse.value=.12;
+ s.staffPulse.value=0;
  s.staff.position.set(0,0,0);orientStaffUpright(s.staff,s.body);
  root.userData.manualAsset.animation=desired;
  root.userData.manualAsset.rightGripError=s.ik.lastError;

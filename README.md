@@ -92,3 +92,7 @@ npm run verify:reuse     # chỉ exit 0 khi TẤT CẢ gate bắt buộc đạt 
 ## Mã nguồn
 
 `src/data.js`: bảng GDD; `rules.js`: công thức; `simulation.js`: mô phỏng; `systems.js`: snapshot/AOI/đường đi/sự kiện/dung hợp; `hero-anatomy.js`/`weapons.js`/`creature-art.js`/`scenery.js`/`art.js`/`world.js`: mô hình, LOD và cảnh 3D; `character-pbr.js`/`creature-pbr.js`/`environment-pbr.js`: texture và cache; `environment-vfx.js`/`soul-ring-vfx.js`: hiệu ứng nguyên tố và Hoàn; `smooth-skillshot.js`/`skill-indicators.js`/`skill-projection.js`: điều khiển, decal và phép chiếu dùng chung; `auto-farm.js`: quyết định Auto qua lệnh gameplay; `item-art.js`: minh họa; `security.js`/`runtime-security.js`: bảo vệ trạng thái; `cosmetics.js`/`audio.js`: biến thể và âm thanh; `hud.js`: gợi ý và ngữ cảnh; `network.js`: client mạng; `main.js`/`style.css`: UI. `server/`: HTTP/WebSocket, phòng đấu, PostgreSQL ledger, Redis snapshot và worker serialization. `scripts/`: setup/build/backup/goal. `tests/`: các suite kiểm tra.
+
+## Checkpoint fidelity18/10/2026
+
+Nhánh `fidelity/01bb51b-native-glb` xuất phát01bb51b, áp riêng sửa boot, giữ material/texture GLB gốc. Xem [FIDELITY.md](docs/FIDELITY.md) cho ảnh và ΔE, lỗi encodeHDR và cổng UASTC chưa duyệt. APK trên nhánh là checkpoint vật liệu, chưa phải nghiệm thu toàn bộ bake/warmup. Chạy `npm run assets:probe:hdr` tái hiện lỗi SDK; `npm run assets:models:fidelity` là prototype LDR đầy đủ kích thước với kiểm định accessor/animation, không tự bật vào runtime.

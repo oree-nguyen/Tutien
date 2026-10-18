@@ -1,7 +1,7 @@
 import {getGpuTextureLoader,gpuTextureMetrics} from './gpu-textures.js';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import {getModelLoader} from './model-loader.js';
 import { threadedMeshoptDecoder as MeshoptDecoder,meshoptWorkerMetrics } from './meshopt-worker-bridge.js';
-import { manualHeroAssetUrls, manualHeroAssetHashes } from './manual-hero-assets.js';
+import { manualHeroAssetUrls, manualHeroAssetHashes } from './model-asset-registry.js';
 
 const loaded=new Map();
 let decodeQueue=Promise.resolve(),database;
@@ -60,30 +60,22 @@ export function loadManualAsset(key,allowGpu=true){
  const originalKey=key;
  const gpu=getGpuTextureLoader();
  if(allowGpu&&gpu&&manualHeroAssetUrls[key+'-gpu'])key+='-gpu';
- if(!loaded.has(key)){
+ const url=manualHeroAssetUrls[key];
+ if(!loaded.has(url)){
   const promise=manualAssetBuffer(key).then(buffer=>{
    const job=decodeQueue.catch(()=>{}).then(async()=>{
     await yieldFrame();
-    const loader=new GLTFLoader().setMeshoptDecoder(MeshoptDecoder);
-    if(gpu)loader.setKTX2Loader(gpu);
-    // Embedded WebP can decode directly to ImageBitmap inside the render worker.
-    // Three r160's default capability probe uses DOM Image, which workers lack.
-    if(typeof Image==='undefined'&&typeof createImageBitmap==='function')loader.register(parser=>({
-     name:'EXT_texture_webp',loadTexture:index=>{
-      const texture=parser.json.textures[index],extension=texture.extensions?.EXT_texture_webp;
-      return extension?parser.loadTextureImage(index,extension.source,parser.textureLoader):null;
-     }
-    }));
+    const loader=getModelLoader();
     const start=performance.now();
     const gltf=await loader.parseAsync(buffer,'');
     manualAssetMetrics.gpu={...gpuTextureMetrics};manualAssetMetrics.decoded++;manualAssetMetrics.lastDecodeMs=performance.now()-start;manualAssetMetrics.worker={...meshoptWorkerMetrics};
     return gltf;
    });
    decodeQueue=job;return job;
-  }).catch(error=>{loaded.delete(key);if(key!==originalKey){manualAssetMetrics.gpuFallbacks=(manualAssetMetrics.gpuFallbacks??0)+1;return loadManualAsset(originalKey,false);}throw error;});
-  loaded.set(key,promise);
+  }).catch(error=>{loaded.delete(url);if(key!==originalKey){console.warn('Compressed GLB fallback:',originalKey,error.message);manualAssetMetrics.gpuFallbacks=(manualAssetMetrics.gpuFallbacks??0)+1;return loadManualAsset(originalKey,false);}throw error;});
+  loaded.set(url,promise);
  }
- return loaded.get(key);
+ return loaded.get(url);
 }
 
 if(typeof indexedDB!=='undefined')void db();

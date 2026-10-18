@@ -1,3 +1,4 @@
+import {fingerprint} from './fingerprint.mjs';
 import { build } from "esbuild";
 import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
 const workerBuild=await build({entryPoints:['src/meshopt-worker.js'],bundle:true,write:false,format:'iife',target:'es2022',minify:true});
@@ -10,6 +11,7 @@ const result = await build({
   target: "es2022",
   minify: true,
   define: {
+    "import.meta.env.HG_BUILD_ID":JSON.stringify(await fingerprint()),
     "import.meta.env.PROD": "false",
     "import.meta.env.DEV": "false",
     "import.meta.env.HG_STANDALONE":"true",
@@ -28,9 +30,9 @@ const result = await build({
     {
       name: "inline-manual-hunyuan-models",
       setup(build) {
-        build.onLoad({ filter: /manual-hero-assets\.js$/ }, async () => {
+        build.onLoad({ filter: /model-asset-registry\.js$/ }, async () => {
           const assets = {};
-          const {manualHeroAssetUrls,manualHeroAssetHashes}=await import('../src/manual-hero-assets.js?build='+Date.now());
+          const {manualHeroAssetUrls,manualHeroAssetHashes}=await import('../src/model-asset-registry.js?build='+Date.now());
           for (const [key,url] of Object.entries(manualHeroAssetUrls)) {
             const bytes=await readFile('public'+url.split('?')[0]);
             assets[key]='data:model/gltf-binary;base64,'+bytes.toString('base64');

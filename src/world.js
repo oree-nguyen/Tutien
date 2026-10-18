@@ -1,3 +1,4 @@
+import {getCharacterEnvironment} from './character-fidelity.js';
 import * as THREE from "three";
 import{loadTerrainTextureSet}from"./terrain-assets.js";
 import{installTerrainTextureProvider}from"./environment-pbr.js";
@@ -58,8 +59,9 @@ export class World {
     this.renderer.shadowMap.type = THREE.PCFSoftShadowMap;
     this.renderer.outputColorSpace = THREE.SRGBColorSpace;
     this.renderer.toneMapping = THREE.ACESFilmicToneMapping;
-    this.renderer.toneMappingExposure = 1.25;
+    this.renderer.toneMappingExposure = 1;
     this.scene = new THREE.Scene();
+    this.scene.environment=getCharacterEnvironment(this.renderer);
     this.scene.background = new THREE.Color(0x102b32);
     this.scene.fog = new THREE.FogExp2(0x1f3b40, 0.011);
     this.camera = new THREE.PerspectiveCamera(40, 1, 0.1, 700);
@@ -217,7 +219,7 @@ export class World {
     try{
       await warmSceneMaterials(this.renderer,this.scenery.battlefield,this.camera,this.scene);
       check();for(let hero=1;hero<12;hero++){check();const templateActor={id:'prewarm',kind:'hero',hero,skin:0,costume:0,rings:[]};if(!usesManualHero(templateActor))visualTemplate(templateActor,'low');await nextPaint();}
-      const actor={...appearance,id:'prewarm',kind:'hero',team:0},detail=usesManualHero(actor)?'mobile':'medium';
+      const actor={...appearance,id:'prewarm',kind:'hero',team:0},detail=usesManualHero(actor)?'high':'medium';
       const visual=visualTemplate(actor,detail);configureManualH01(visual,this.renderer,this.scene,this.camera);
       if(visual.userData.manualHunyuan){
         const started=performance.now();while(!['loaded','failed'].includes(visual.userData.manualAsset.status)){if(epoch!==this.prepareEpoch){disposeManualH01(visual);throw Error('Đã hủy tải nhân vật');}if(performance.now()-started>45000){disposeManualH01(visual);throw Error('Không chuẩn bị được nhân vật xuất chiến');}await nextPaint();}
@@ -264,6 +266,7 @@ export class World {
     if (Number.isFinite(delta)) this.showcaseYaw += delta;
   }
   addDetail(model, a, detail) {
+    if(usesManualHero(a))detail="high";
     if (model.details.has(detail)||(detail==="medium"&&model.details.has("mobile"))) return;
     let visual;
     if(a.id===this.localPlayerId&&this.preparedPlayerVisual?.key===this.appearanceKey(a)&&detail===this.preparedPlayerVisual.detail){visual=this.preparedPlayerVisual.visual;this.preparedPlayerVisual=null;}else visual=visualTemplate(a,detail);
@@ -410,12 +413,12 @@ export class World {
     if(this.loadingBattlefield)return;
     this.clock += dt;
     this.characterStudio.visible=!match;
-    this.renderer.toneMappingExposure=!match&&hubHero===0?1.35:1.25;
+    this.renderer.toneMappingExposure=1;
     this.scenery.update(this.clock, match);
     this.sun.visible = this.mapRim.visible = this.mapAmbient.visible = !!match;
     this.scene.background.setHex(match ? 0x142d36 : 0x6a8da1);
     this.scene.fog.color.setHex(match ? 0x1f3b40 : 0x8baabb);
-    this.scene.fog.density = match ? 0.011 : 0.008;
+    this.scene.fog.density = match ? 0.011 : 0;
     const player = match?.player ?? { x: 0, z: 0 };this.localPlayerId=match?.player.id;
     const target = this._v1.set(player.x,match?groundHeight(player.x,player.z):0,player.z);
     this.focus.lerp(target, 1 - Math.exp(-dt * 8));
@@ -724,14 +727,14 @@ export class World {
       groundHeight(lit.x, lit.z) + 1.2,
       lit.z,
     );
-    this.weaponLight.visible = !match || this.quality === "ultra";
+    this.weaponLight.visible = !!match && this.quality === "ultra";
     this.projectileMesh.visible=this.dropMesh.visible=!!match;
     this.gpuTimer.begin();
-    try{if(this.quality==='ultra')this.composer.render();else this.renderer.render(this.scene,this.camera);}
+    try{if(match&&this.quality==='ultra')this.composer.render();else this.renderer.render(this.scene,this.camera);}
     finally{this.gpuTimer.end();}
 
   }
-  samplePerformance(frameMs){this.gpuTimer.poll();this.resolution.sample(Math.max(frameMs,this.gpuTimer.lastMs));}
+  samplePerformance(frameMs){this.gpuTimer.poll();}
   renderMapEffects(match) {
     if (!this.fogRegions) {
       this.fogRegions = REGIONS.slice(0, 5).map((r, i) => {

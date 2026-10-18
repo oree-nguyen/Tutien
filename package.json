@@ -32,7 +32,9 @@
     "verify:master": "node scripts/verify-master.mjs",
     "android:hardening": "node scripts/native-hardening.mjs",
     "test:overhaul-ui": "node tests/overhaul-browser.mjs",
-    "verify:overhaul": "node scripts/verify-overhaul.mjs"
+    "verify:overhaul": "node scripts/verify-overhaul.mjs",
+    "assets:models:fidelity": "node scripts/fidelity-models.mjs",
+    "assets:probe:hdr": "node scripts/probe-hdr-uastc.mjs"
   },
   "dependencies": {
     "@capacitor/android": "7.6.9",
