@@ -1,0 +1,158 @@
+{
+  "sourceContinuity": {
+    "method": "paired-opposite-source-boundary-halfedges",
+    "rawNonmanifoldEdges": 0,
+    "boundaryHalfedges": 232156,
+    "uniqueOppositePairs": 116078,
+    "ambiguousPairs": 0,
+    "orientationDisagreements": 0,
+    "coordinateMismatch": 0,
+    "sourceVertices": 869627,
+    "sewnCopies": 119782,
+    "scope": "Original UV chart continuity only; no inferred free garment cuts or near-surface stitching"
+  },
+  "algorithm": "Source-edge albedo seeds + surface geodesic semantic regions; full-joint Dirichlet supports with anatomical pelvis/spine anchors and protected hands",
+  "spatialNearestNeighborUsed": false,
+  "sourceWeldGroups": 749845,
+  "parts": [
+    {
+      "id": 0,
+      "triangles": 580252
+    },
+    {
+      "id": 1,
+      "triangles": 197776
+    },
+    {
+      "id": 2,
+      "triangles": 184832
+    },
+    {
+      "id": 3,
+      "triangles": 279272
+    },
+    {
+      "id": 4,
+      "triangles": 129564
+    },
+    {
+      "id": 5,
+      "triangles": 128030
+    }
+  ],
+  "supportFreeGroups": 594596,
+  "lowerPelvisAnchors": 220925,
+  "waistSpineAnchors": 23282,
+  "torsoSpineAnchors": 63618,
+  "armAnchors": [
+    {
+      "segment": "LeftArm",
+      "groups": 10881
+    },
+    {
+      "segment": "LeftForeArm",
+      "groups": 7949
+    },
+    {
+      "segment": "RightArm",
+      "groups": 10989
+    },
+    {
+      "segment": "RightForeArm",
+      "groups": 8175
+    }
+  ],
+  "changedSourceVertices": 697671,
+  "protectedSourceVertices": 38037,
+  "maximumDiscardedInfluenceBeforeFourWeightNormalization": 0.24073429365151466,
+  "fourInfluenceReduction": "Continuous subtract-fifth sparsification; equal-top-five singularities rejected",
+  "anatomicalTargetMode": "Soft screened source-Laplacian targets; measured original cuff/hand and domain boundary remain fixed",
+  "targetRegularizationRadiusMeters": 0.08,
+  "targetStrength": 0.4131379878932201,
+  "fixedCuffGroups": 22421,
+  "linearPreconditioner": {
+    "method": "Smoothed-aggregation algebraic multigrid V-cycle",
+    "pyamgVersion": "5.3.0",
+    "levels": 4,
+    "operatorComplexity": 1.228980197504797
+  },
+  "solves": [
+    {
+      "joint": "Hips",
+      "residual": 5.045168068388912e-07
+    },
+    {
+      "joint": "Spine",
+      "residual": 6.923671167338962e-07
+    },
+    {
+      "joint": "Spine2",
+      "residual": 9.278500701420874e-07
+    },
+    {
+      "joint": "Neck",
+      "residual": 4.818109758023911e-07
+    },
+    {
+      "joint": "Head",
+      "residual": 8.84167367198066e-07
+    },
+    {
+      "joint": "LeftArm",
+      "residual": 5.628247999197796e-07
+    },
+    {
+      "joint": "LeftForeArm",
+      "residual": 4.5750337291688396e-07
+    },
+    {
+      "joint": "LeftHand",
+      "residual": 8.429643457405504e-07
+    },
+    {
+      "joint": "RightArm",
+      "residual": 5.683965357295589e-07
+    },
+    {
+      "joint": "RightForeArm",
+      "residual": 6.257617287576215e-07
+    },
+    {
+      "joint": "RightHand",
+      "residual": 8.023036431313527e-07
+    },
+    {
+      "joint": "LeftUpLeg",
+      "residual": 8.111956453163142e-07
+    },
+    {
+      "joint": "LeftLeg",
+      "residual": 4.5422671691156337e-07
+    },
+    {
+      "joint": "LeftFoot",
+      "residual": 7.34337293858287e-07
+    },
+    {
+      "joint": "LeftToeBase",
+      "residual": 8.46508273885559e-07
+    },
+    {
+      "joint": "RightUpLeg",
+      "residual": 6.393448095093965e-07
+    },
+    {
+      "joint": "RightLeg",
+      "residual": 5.056435426695653e-07
+    },
+    {
+      "joint": "RightFoot",
+      "residual": 8.725757303235646e-07
+    },
+    {
+      "joint": "RightToeBase",
+      "residual": 4.2931856983858e-07
+    }
+  ],
+  "status": "Candidate; independent multi-pose/contact/volume and visual checks required"
+}

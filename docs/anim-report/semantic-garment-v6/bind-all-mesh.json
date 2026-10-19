@@ -1,0 +1,565 @@
+{
+  "input": ".local/rig-candidates/semantic-garment-v6/H01-C0-rigged.glb",
+  "sha256": "c24b7cdbe874b745ad54d9e951ebeedd85db465f759c91dcc768c58871eae143",
+  "pose": "bind",
+  "poseSha256": null,
+  "poseValidation": null,
+  "appliedPoseChannels": {
+    "rotations": 0,
+    "translations": 0
+  },
+  "passed": true,
+  "edgeStrainPassed": true,
+  "provenancePassed": true,
+  "errors": [],
+  "scope": "Every node/primitive at one pose; unchanged p99.9 1.5 / maximum 2.0 edge-stretch limits, fail-closed newly collapsed/nonfinite checks and provenance-bound source-copy seams. Existing source degeneracy is diagnostic. Not full-animation, volume, cross-section, semantic segmentation or phone acceptance.",
+  "meshes": [
+    {
+      "nodeIndex": 54,
+      "meshIndex": 0,
+      "primitiveIndex": 0,
+      "node": "H01_Remaining_Source",
+      "mesh": "H01_Remaining_Source",
+      "vertices": 343021,
+      "sourceTriangles": 580068,
+      "passed": true,
+      "p999": 1.0000387518044995,
+      "maximum": 1.0001525755618506,
+      "minimum": 0.9997627961610568,
+      "edges": 921243,
+      "triangles": 580068,
+      "selectedTriangles": 580068,
+      "areaRatios": {
+        "minimum": 0.9030683092401414,
+        "maximum": 1.0098919332667942,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 301629,
+        "b": 301630,
+        "bindLength": 0.00030803680419921875,
+        "posedLength": 0.0003080838030876901,
+        "sourceA": [
+          -0.5241507291793823,
+          1.0542716979980469,
+          0.09154851734638214
+        ],
+        "sourceB": [
+          -0.5241507291793823,
+          1.0539636611938477,
+          0.09154851734638214
+        ],
+        "posedA": [
+          -0.524150744225588,
+          1.0542717103888948,
+          0.09154850915477888
+        ],
+        "posedB": [
+          -0.524150720852182,
+          1.0539636265867207,
+          0.0915485050767017
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": true,
+        "errors": [],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "b5e63f8a19cf6494d3782d4c27f54a8b3be4ac7025d6c37c0a1df491d776e306",
+          "count": 580068,
+          "offsetBytes": 0
+        },
+        "weldStatus": "hash-bound independently reconstructed opposite source boundary halfedges; garment pattern unreviewed",
+        "weldProof": {
+          "method": "paired-opposite-source-boundary-halfedges",
+          "rawNonmanifoldEdges": 0,
+          "boundaryHalfedges": 232156,
+          "uniqueOppositePairs": 116078,
+          "ambiguousPairs": 0,
+          "orientationDisagreements": 0,
+          "coordinateMismatch": 0,
+          "sourceVertices": 869627,
+          "sewnCopies": 119782
+        }
+      }
+    },
+    {
+      "nodeIndex": 55,
+      "meshIndex": 1,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Left",
+      "mesh": "H01_Robe_Left",
+      "vertices": 108063,
+      "sourceTriangles": 181682,
+      "passed": true,
+      "p999": 1.0000274502480564,
+      "maximum": 1.0002301415081334,
+      "minimum": 0.999920793247962,
+      "edges": 289150,
+      "triangles": 181682,
+      "selectedTriangles": 181682,
+      "areaRatios": {
+        "minimum": 0.9986081478882558,
+        "maximum": 1.0026602342286388,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 39710,
+        "b": 39709,
+        "bindLength": 0.0002205371856689453,
+        "posedLength": 0.00022058794042945467,
+        "sourceA": [
+          0.18677301704883575,
+          0.8016934990882874,
+          -0.07817710936069489
+        ],
+        "sourceB": [
+          0.18677301704883575,
+          0.8014729619026184,
+          -0.07817710936069489
+        ],
+        "posedA": [
+          0.1867730230802647,
+          0.8016935195672614,
+          -0.07817711401178219
+        ],
+        "posedB": [
+          0.18677301125202198,
+          0.8014729316272048,
+          -0.07817710905492586
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": true,
+        "errors": [],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "b5e63f8a19cf6494d3782d4c27f54a8b3be4ac7025d6c37c0a1df491d776e306",
+          "count": 181682,
+          "offsetBytes": 2320272
+        },
+        "weldStatus": "hash-bound independently reconstructed opposite source boundary halfedges; garment pattern unreviewed",
+        "weldProof": {
+          "method": "paired-opposite-source-boundary-halfedges",
+          "rawNonmanifoldEdges": 0,
+          "boundaryHalfedges": 232156,
+          "uniqueOppositePairs": 116078,
+          "ambiguousPairs": 0,
+          "orientationDisagreements": 0,
+          "coordinateMismatch": 0,
+          "sourceVertices": 869627,
+          "sewnCopies": 119782
+        }
+      }
+    },
+    {
+      "nodeIndex": 56,
+      "meshIndex": 2,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Right",
+      "mesh": "H01_Robe_Right",
+      "vertices": 100351,
+      "sourceTriangles": 162022,
+      "passed": true,
+      "p999": 1.0000285287273285,
+      "maximum": 1.0000856044685211,
+      "minimum": 0.9999383872945926,
+      "edges": 261629,
+      "triangles": 162022,
+      "selectedTriangles": 162022,
+      "areaRatios": {
+        "minimum": 0.9920395902250962,
+        "maximum": 1.0022259626870067,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 67534,
+        "b": 67545,
+        "bindLength": 0.00034862756729125977,
+        "posedLength": 0.0003486574113688695,
+        "sourceA": [
+          -0.18544545769691467,
+          0.8013776540756226,
+          -0.07696212083101273
+        ],
+        "sourceB": [
+          -0.18544545769691467,
+          0.8017262816429138,
+          -0.07696212083101273
+        ],
+        "posedA": [
+          -0.185445456734014,
+          0.8013776445273088,
+          -0.07696212267600294
+        ],
+        "posedB": [
+          -0.18544546364245634,
+          0.8017263019385973,
+          -0.07696212555578524
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": true,
+        "errors": [],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "b5e63f8a19cf6494d3782d4c27f54a8b3be4ac7025d6c37c0a1df491d776e306",
+          "count": 162022,
+          "offsetBytes": 3047000
+        },
+        "weldStatus": "hash-bound independently reconstructed opposite source boundary halfedges; garment pattern unreviewed",
+        "weldProof": {
+          "method": "paired-opposite-source-boundary-halfedges",
+          "rawNonmanifoldEdges": 0,
+          "boundaryHalfedges": 232156,
+          "uniqueOppositePairs": 116078,
+          "ambiguousPairs": 0,
+          "orientationDisagreements": 0,
+          "coordinateMismatch": 0,
+          "sourceVertices": 869627,
+          "sewnCopies": 119782
+        }
+      }
+    },
+    {
+      "nodeIndex": 57,
+      "meshIndex": 3,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Torso",
+      "mesh": "H01_Robe_Torso",
+      "vertices": 165243,
+      "sourceTriangles": 279272,
+      "passed": true,
+      "p999": 1.000058356049031,
+      "maximum": 1.0002222929829527,
+      "minimum": 0.9996641754583135,
+      "edges": 443822,
+      "triangles": 279272,
+      "selectedTriangles": 279272,
+      "areaRatios": {
+        "minimum": 0.9949849412625204,
+        "maximum": 1.0026588377622327,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 39945,
+        "b": 39948,
+        "bindLength": 0.00020802021026611328,
+        "posedLength": 0.00020806645169916778,
+        "sourceA": [
+          -0.1433897465467453,
+          1.12855064868927,
+          0.06525803357362747
+        ],
+        "sourceB": [
+          -0.1433897465467453,
+          1.128342628479004,
+          0.06525803357362747
+        ],
+        "posedA": [
+          -0.14338974773140772,
+          1.1285506696498824,
+          0.0652580351640883
+        ],
+        "posedB": [
+          -0.14338974185888145,
+          1.1283426031982833,
+          0.06525803248907527
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": true,
+        "errors": [],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "b5e63f8a19cf6494d3782d4c27f54a8b3be4ac7025d6c37c0a1df491d776e306",
+          "count": 279272,
+          "offsetBytes": 3695088
+        },
+        "weldStatus": "hash-bound independently reconstructed opposite source boundary halfedges; garment pattern unreviewed",
+        "weldProof": {
+          "method": "paired-opposite-source-boundary-halfedges",
+          "rawNonmanifoldEdges": 0,
+          "boundaryHalfedges": 232156,
+          "uniqueOppositePairs": 116078,
+          "ambiguousPairs": 0,
+          "orientationDisagreements": 0,
+          "coordinateMismatch": 0,
+          "sourceVertices": 869627,
+          "sewnCopies": 119782
+        }
+      }
+    },
+    {
+      "nodeIndex": 58,
+      "meshIndex": 4,
+      "primitiveIndex": 0,
+      "node": "H01_Sleeve_Left",
+      "mesh": "H01_Sleeve_Left",
+      "vertices": 81409,
+      "sourceTriangles": 145786,
+      "passed": true,
+      "p999": 1.000048189659853,
+      "maximum": 1.0002000748151507,
+      "minimum": 0.9998531974783823,
+      "edges": 227053,
+      "triangles": 145786,
+      "selectedTriangles": 145786,
+      "areaRatios": {
+        "minimum": 0.9970665256170659,
+        "maximum": 1.0018650868312007,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 79699,
+        "b": 79720,
+        "bindLength": 0.00015947222709655762,
+        "posedLength": 0.00015950413347291562,
+        "sourceA": [
+          0.4574260115623474,
+          0.997979998588562,
+          0.07511401921510696
+        ],
+        "sourceB": [
+          0.45726653933525085,
+          0.997979998588562,
+          0.07511401921510696
+        ],
+        "posedA": [
+          0.4574260228008719,
+          0.9979800064335739,
+          0.07511400970941844
+        ],
+        "posedB": [
+          0.4572665186826636,
+          0.9979799368484783,
+          0.07511400447014895
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": true,
+        "errors": [],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "b5e63f8a19cf6494d3782d4c27f54a8b3be4ac7025d6c37c0a1df491d776e306",
+          "count": 145786,
+          "offsetBytes": 4812176
+        },
+        "weldStatus": "hash-bound independently reconstructed opposite source boundary halfedges; garment pattern unreviewed",
+        "weldProof": {
+          "method": "paired-opposite-source-boundary-halfedges",
+          "rawNonmanifoldEdges": 0,
+          "boundaryHalfedges": 232156,
+          "uniqueOppositePairs": 116078,
+          "ambiguousPairs": 0,
+          "orientationDisagreements": 0,
+          "coordinateMismatch": 0,
+          "sourceVertices": 869627,
+          "sewnCopies": 119782
+        }
+      }
+    },
+    {
+      "nodeIndex": 59,
+      "meshIndex": 5,
+      "primitiveIndex": 0,
+      "node": "H01_Sleeve_Right",
+      "mesh": "H01_Sleeve_Right",
+      "vertices": 85967,
+      "sourceTriangles": 150896,
+      "passed": true,
+      "p999": 1.0000466655005111,
+      "maximum": 1.0001228006603504,
+      "minimum": 0.9998576029599602,
+      "edges": 236575,
+      "triangles": 150896,
+      "selectedTriangles": 150896,
+      "areaRatios": {
+        "minimum": 0.9981793894677872,
+        "maximum": 1.0017389070610732,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 81225,
+        "b": 81223,
+        "bindLength": 0.00017560172740885532,
+        "posedLength": 0.00017562329141693978,
+        "sourceA": [
+          -0.5015192627906799,
+          1.0410819053649902,
+          0.12167945504188538
+        ],
+        "sourceB": [
+          -0.5015459060668945,
+          1.0409083366394043,
+          0.12167945504188538
+        ],
+        "posedA": [
+          -0.5015192674747297,
+          1.0410819013925385,
+          0.12167944624661503
+        ],
+        "posedB": [
+          -0.5015458993860229,
+          1.040908309106473,
+          0.12167944349979472
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": true,
+        "errors": [],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "b5e63f8a19cf6494d3782d4c27f54a8b3be4ac7025d6c37c0a1df491d776e306",
+          "count": 150896,
+          "offsetBytes": 5395320
+        },
+        "weldStatus": "hash-bound independently reconstructed opposite source boundary halfedges; garment pattern unreviewed",
+        "weldProof": {
+          "method": "paired-opposite-source-boundary-halfedges",
+          "rawNonmanifoldEdges": 0,
+          "boundaryHalfedges": 232156,
+          "uniqueOppositePairs": 116078,
+          "ambiguousPairs": 0,
+          "orientationDisagreements": 0,
+          "coordinateMismatch": 0,
+          "sourceVertices": 869627,
+          "sewnCopies": 119782
+        }
+      }
+    }
+  ],
+  "sourceCoverage": {
+    "passed": true,
+    "sources": [
+      {
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "sourceTriangles": 1499726,
+        "measuredTriangles": 1499726,
+        "missingTriangles": 0,
+        "duplicatedTriangles": 0,
+        "validatedOutputPrimitives": 6,
+        "passed": true
+      }
+    ]
+  },
+  "seams": {
+    "passed": true,
+    "status": "measured-within-tolerance",
+    "identityMode": "source IDs plus hash-bound independently reconstructed opposite source boundary halfedges",
+    "numericalToleranceMillimetres": 0.001,
+    "referencedVertices": 884054,
+    "verifiedVertices": 884054,
+    "mechanicallyVerifiedWeldPrimitives": 6,
+    "groups": 123287,
+    "pairs": 146771,
+    "maximumMillimetres": 0,
+    "invalidPositions": 0,
+    "inferredXYZDiagnostic": {
+      "acceptedAsSourceIdentity": false,
+      "scope": "Coincident bind XYZ only; may join unrelated/free surfaces and cannot certify source identity.",
+      "groups": 123287,
+      "pairs": 146771,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    }
+  }
+}

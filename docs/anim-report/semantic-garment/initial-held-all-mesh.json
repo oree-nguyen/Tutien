@@ -1,0 +1,506 @@
+{
+  "input": ".local/rig-candidates/semantic-garment/H01-C0-rigged.glb",
+  "sha256": "0395a86aac4c0e5482e8a8d974d0b0ee1970c1a7e501a5fc7cf77d7a13506ed3",
+  "pose": ".local/rig-candidates/reference/heights/22.json",
+  "poseSha256": "f546c092e1bb660fa0dd3d796618980de143cadaa4980a254d00103d65d1feb5",
+  "passed": false,
+  "edgeStrainPassed": false,
+  "provenancePassed": false,
+  "errors": [],
+  "scope": "Every node/primitive at one pose; unchanged p99.9 1.5 / maximum 2.0 edge-stretch limits, fail-closed newly collapsed/nonfinite checks and provenance-bound source-copy seams. Existing source degeneracy is diagnostic. Not full-animation, volume, cross-section, semantic segmentation or phone acceptance.",
+  "meshes": [
+    {
+      "nodeIndex": 54,
+      "meshIndex": 0,
+      "primitiveIndex": 0,
+      "node": "H01_Remaining_Source",
+      "mesh": "H01_Remaining_Source",
+      "vertices": 359092,
+      "sourceTriangles": 606232,
+      "passed": false,
+      "p999": 1.449999801870916,
+      "maximum": 12.401976044482304,
+      "minimum": 0.03463928841798587,
+      "edges": 963384,
+      "triangles": 606232,
+      "selectedTriangles": 606232,
+      "areaRatios": {
+        "minimum": 0.02678347240969928,
+        "maximum": 13.593262746428918,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 40709,
+        "b": 40710,
+        "bindLength": 0.003767997051846059,
+        "posedLength": 0.04673060917267477,
+        "sourceA": [
+          -0.1865275353193283,
+          1.4603677988052368,
+          -0.018543746322393417
+        ],
+        "sourceB": [
+          -0.1889168620109558,
+          1.4587650299072266,
+          -0.016110630705952644
+        ],
+        "posedA": [
+          -0.18861436164943812,
+          1.4522574184039176,
+          -0.03281762014750521
+        ],
+        "posedB": [
+          -0.15096148271980936,
+          1.4267235299556118,
+          -0.04349615387969276
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Supplied weld map has no hash-bound source boundary proof"
+        ],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "2d4b0e83a51265e4c13ebb1f6cde8542ae73b9044c7febd36e962028b4cc3338",
+          "count": 606232,
+          "offsetBytes": 0
+        },
+        "weldStatus": "unreviewed weld candidates; excluded from accepted identity"
+      }
+    },
+    {
+      "nodeIndex": 55,
+      "meshIndex": 1,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Left",
+      "mesh": "H01_Robe_Left",
+      "vertices": 125686,
+      "sourceTriangles": 212454,
+      "passed": false,
+      "p999": 2.547640254994076,
+      "maximum": 20.410555210450593,
+      "minimum": 0.060609743385218406,
+      "edges": 337504,
+      "triangles": 212454,
+      "selectedTriangles": 212454,
+      "areaRatios": {
+        "minimum": 0.006314701219504823,
+        "maximum": 89.49157021820976,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 10552,
+        "b": 10511,
+        "bindLength": 0.0007825549723016421,
+        "posedLength": 0.0159723814673753,
+        "sourceA": [
+          0.2986197769641876,
+          0.7458271980285645,
+          0.016761381179094315
+        ],
+        "sourceB": [
+          0.2981444299221039,
+          0.7453596591949463,
+          0.016351692378520966
+        ],
+        "posedA": [
+          0.2587200844244421,
+          0.7819448635209173,
+          -0.1409668196640598
+        ],
+        "posedB": [
+          0.2594839523269983,
+          0.7779823231696466,
+          -0.1255126373973933
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Supplied weld map has no hash-bound source boundary proof"
+        ],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "2d4b0e83a51265e4c13ebb1f6cde8542ae73b9044c7febd36e962028b4cc3338",
+          "count": 212454,
+          "offsetBytes": 2424928
+        },
+        "weldStatus": "unreviewed weld candidates; excluded from accepted identity"
+      }
+    },
+    {
+      "nodeIndex": 56,
+      "meshIndex": 2,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Right",
+      "mesh": "H01_Robe_Right",
+      "vertices": 122538,
+      "sourceTriangles": 199110,
+      "passed": false,
+      "p999": 6.908875243646024,
+      "maximum": 45.56800327980937,
+      "minimum": 0.16148931012626547,
+      "edges": 320798,
+      "triangles": 199110,
+      "selectedTriangles": 199110,
+      "areaRatios": {
+        "minimum": 0.009509163164563607,
+        "maximum": 661.1172957480347,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 113714,
+        "b": 114031,
+        "bindLength": 0.0017079280139593149,
+        "posedLength": 0.07782686934177636,
+        "sourceA": [
+          -0.24526166915893555,
+          0.8759692907333374,
+          0.009258764795958996
+        ],
+        "sourceB": [
+          -0.24654704332351685,
+          0.8758629560470581,
+          0.01037837378680706
+        ],
+        "posedA": [
+          -0.38334841892959426,
+          1.0868810942805114,
+          0.11644377061489014
+        ],
+        "posedB": [
+          -0.43275438420049384,
+          1.141193298556387,
+          0.14225571850512392
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Supplied weld map has no hash-bound source boundary proof"
+        ],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "2d4b0e83a51265e4c13ebb1f6cde8542ae73b9044c7febd36e962028b4cc3338",
+          "count": 199110,
+          "offsetBytes": 3274744
+        },
+        "weldStatus": "unreviewed weld candidates; excluded from accepted identity"
+      }
+    },
+    {
+      "nodeIndex": 57,
+      "meshIndex": 3,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Torso",
+      "mesh": "H01_Robe_Torso",
+      "vertices": 159363,
+      "sourceTriangles": 272228,
+      "passed": false,
+      "p999": 3.0558230806700637,
+      "maximum": 51.326738894087235,
+      "minimum": 0.05135341322647851,
+      "edges": 430985,
+      "triangles": 272228,
+      "selectedTriangles": 272228,
+      "areaRatios": {
+        "minimum": 0.008494391284284747,
+        "maximum": 93.45113771773916,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 148837,
+        "b": 148845,
+        "bindLength": 0.0017957009617145434,
+        "posedLength": 0.09216747439378371,
+        "sourceA": [
+          -0.2113637775182724,
+          1.0811266899108887,
+          -0.08180642127990723
+        ],
+        "sourceB": [
+          -0.21140913665294647,
+          1.0811266899108887,
+          -0.0800112932920456
+        ],
+        "posedA": [
+          -0.27823087300642846,
+          1.1318561218797063,
+          -0.04131500790833387
+        ],
+        "posedB": [
+          -0.3470887087592626,
+          1.1806582029875896,
+          -0.004277207337780708
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Supplied weld map has no hash-bound source boundary proof"
+        ],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "2d4b0e83a51265e4c13ebb1f6cde8542ae73b9044c7febd36e962028b4cc3338",
+          "count": 272228,
+          "offsetBytes": 4071184
+        },
+        "weldStatus": "unreviewed weld candidates; excluded from accepted identity"
+      }
+    },
+    {
+      "nodeIndex": 58,
+      "meshIndex": 4,
+      "primitiveIndex": 0,
+      "node": "H01_Sleeve_Left",
+      "mesh": "H01_Sleeve_Left",
+      "vertices": 58961,
+      "sourceTriangles": 105652,
+      "passed": false,
+      "p999": 8.207221363747887,
+      "maximum": 39.32183423130638,
+      "minimum": 0.051827642325612676,
+      "edges": 164513,
+      "triangles": 105652,
+      "selectedTriangles": 105652,
+      "areaRatios": {
+        "minimum": 0.010842617514404523,
+        "maximum": 83.12435239555913,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 30282,
+        "b": 30281,
+        "bindLength": 0.0008069751111227004,
+        "posedLength": 0.031731741548356875,
+        "sourceA": [
+          0.22403912246227264,
+          1.0499262809753418,
+          -0.11283648759126663
+        ],
+        "sourceB": [
+          0.22463957965373993,
+          1.0496275424957275,
+          -0.11328528076410294
+        ],
+        "posedA": [
+          0.24430793466632997,
+          1.0693940938345683,
+          -0.13525069950033614
+        ],
+        "posedB": [
+          0.26551000635648064,
+          1.0803421310790353,
+          -0.15616758402531242
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Supplied weld map has no hash-bound source boundary proof"
+        ],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "2d4b0e83a51265e4c13ebb1f6cde8542ae73b9044c7febd36e962028b4cc3338",
+          "count": 105652,
+          "offsetBytes": 5160096
+        },
+        "weldStatus": "unreviewed weld candidates; excluded from accepted identity"
+      }
+    },
+    {
+      "nodeIndex": 59,
+      "meshIndex": 5,
+      "primitiveIndex": 0,
+      "node": "H01_Sleeve_Right",
+      "mesh": "H01_Sleeve_Right",
+      "vertices": 58549,
+      "sourceTriangles": 104050,
+      "passed": false,
+      "p999": 16.18791619582598,
+      "maximum": 85.98263375594672,
+      "minimum": 0.1285969002742824,
+      "edges": 162429,
+      "triangles": 104050,
+      "selectedTriangles": 104050,
+      "areaRatios": {
+        "minimum": 0.024655697218810377,
+        "maximum": 135.14590627753284,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 32883,
+        "b": 32879,
+        "bindLength": 0.0010355363717530768,
+        "posedLength": 0.0890381445934067,
+        "sourceA": [
+          -0.2210243195295334,
+          1.0643669366836548,
+          -0.11093659698963165
+        ],
+        "sourceB": [
+          -0.2216169536113739,
+          1.064965844154358,
+          -0.11153861880302429
+        ],
+        "posedA": [
+          -0.2794992920380702,
+          1.1057648790908843,
+          -0.07458389717956927
+        ],
+        "posedB": [
+          -0.346612455722508,
+          1.1520876551776076,
+          -0.03883736072466835
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Supplied weld map has no hash-bound source boundary proof"
+        ],
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "2d4b0e83a51265e4c13ebb1f6cde8542ae73b9044c7febd36e962028b4cc3338",
+          "count": 104050,
+          "offsetBytes": 5582704
+        },
+        "weldStatus": "unreviewed weld candidates; excluded from accepted identity"
+      }
+    }
+  ],
+  "sourceCoverage": {
+    "passed": false,
+    "sources": [
+      {
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "sourceTriangles": 1499726,
+        "measuredTriangles": 0,
+        "missingTriangles": 1499726,
+        "duplicatedTriangles": 0,
+        "validatedOutputPrimitives": 0,
+        "passed": false
+      }
+    ]
+  },
+  "seams": {
+    "passed": false,
+    "status": "unverified-source-provenance-or-coverage",
+    "identityMode": "verified exact source vertex IDs only; distinct original UV-seam IDs are not certified",
+    "numericalToleranceMillimetres": 0.001,
+    "referencedVertices": 884189,
+    "verifiedVertices": 0,
+    "reviewedWeldPrimitives": 0,
+    "groups": 0,
+    "pairs": 0,
+    "maximumMillimetres": 0,
+    "invalidPositions": 0,
+    "inferredXYZDiagnostic": {
+      "acceptedAsSourceIdentity": false,
+      "scope": "Coincident bind XYZ only; may join unrelated/free surfaces and cannot certify source identity.",
+      "groups": 123472,
+      "pairs": 146857,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    }
+  }
+}

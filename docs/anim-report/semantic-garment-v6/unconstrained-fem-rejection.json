@@ -1,0 +1,20 @@
+{
+  "attempt": "v6-unconstrained-cotangent-FEM",
+  "registeredAt": "2026-10-19T08:13:56.949697+00:00",
+  "status": "Rejected before export; no candidate GLB was produced by this unconstrained attempt",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "parentRigSha256": "b51ff99d4371eba5bb535039524d6328c20da746e45ff9d08ba17119214c3a1c",
+  "seedManifestSha256": "e6984b8a920b5b4583491676055b355ece808d58e214f97f8560a1aee85e4b06",
+  "supportOperator": "Original cotangent FEM stiffness with lumped original-source triangle-area mass, radius0.08metres",
+  "linearRhsFields": 19,
+  "allInitialConjugateGradientResidualsPassed": true,
+  "residualGate": 2e-06,
+  "failure": {
+    "minimumBeforeNonnegativeProjection": -0.009118992112065061,
+    "negativeEntriesBelowMinus1e_6": 10,
+    "maximumPartitionOfUnityErrorBeforeNormalization": 3.067622761054878e-05
+  },
+  "cause": "Obtuse source triangles permit negative unconstrained FEM support values even when the linear residual converges",
+  "followup": "Same v6 discretization with explicit nonnegative convex-energy active-set constraints and KKT checks; no relaxed acceptance or silent clipping",
+  "garmentAccepted": false
+}

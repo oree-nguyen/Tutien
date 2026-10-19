@@ -1,0 +1,227 @@
+{
+  "sourceContinuity": {
+    "method": "paired-opposite-source-boundary-halfedges",
+    "rawNonmanifoldEdges": 0,
+    "boundaryHalfedges": 232156,
+    "uniqueOppositePairs": 116078,
+    "ambiguousPairs": 0,
+    "orientationDisagreements": 0,
+    "coordinateMismatch": 0,
+    "sourceVertices": 869627,
+    "sewnCopies": 119782,
+    "scope": "Original UV chart continuity only; no inferred free garment cuts or near-surface stitching"
+  },
+  "algorithm": "Source-edge albedo seeds + surface geodesic semantic regions; full-joint screened source-Laplacian supports with anatomical pelvis/spine targets and protected hands",
+  "semanticSourceFacePatches": [
+    {
+      "side": "Left",
+      "semanticRegion": "H01_Sleeve_Left",
+      "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+      "rayPickedSourceFaces": [
+        477597,
+        225087,
+        477434,
+        476985,
+        222671
+      ],
+      "sourceFaceMap": {
+        "file": "Left-Cuff-source-face-seeds.u32bin",
+        "count": 61346,
+        "sha256": "6650ce40a0dec9008c907f956824c778550b5144d793caa750c5e57577df5869"
+      },
+      "sourceBoundsMin": [
+        0.26256710290908813,
+        0.6337943077087402,
+        -0.05905619636178017
+      ],
+      "sourceBoundsMax": [
+        0.5336189270019531,
+        1.1021100282669067,
+        0.12782792747020721
+      ],
+      "selection": "Source-edge gold components reached from exact original source-ray face picks; anatomical window limits search, never forces box labels",
+      "reviewStatus": "pending-isolated-front-side-back-patch-review",
+      "manifestFile": "docs/anim-report/semantic-garment-cuff-review/source-cuff-patches.json",
+      "manifestSha256": "e6984b8a920b5b4583491676055b355ece808d58e214f97f8560a1aee85e4b06",
+      "hardSourceGroups": 31554,
+      "role": "Hard source-face ownership and source-edge semantic seeds; no weight constraint"
+    },
+    {
+      "side": "Right",
+      "semanticRegion": "H01_Sleeve_Right",
+      "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+      "rayPickedSourceFaces": [
+        1288900,
+        1288610,
+        1288910,
+        1286945,
+        1291877
+      ],
+      "sourceFaceMap": {
+        "file": "Right-Cuff-source-face-seeds.u32bin",
+        "count": 62026,
+        "sha256": "622ac68aa1c1b9c24228b39306ddf5484a194092684b3f1dea0696acde82a8ed"
+      },
+      "sourceBoundsMin": [
+        -0.5329809188842773,
+        0.6346715688705444,
+        -0.059872448444366455
+      ],
+      "sourceBoundsMax": [
+        -0.2545875906944275,
+        1.103872299194336,
+        0.12779508531093597
+      ],
+      "selection": "Source-edge gold components reached from exact original source-ray face picks; anatomical window limits search, never forces box labels",
+      "reviewStatus": "pending-isolated-front-side-back-patch-review",
+      "manifestFile": "docs/anim-report/semantic-garment-cuff-review/source-cuff-patches.json",
+      "manifestSha256": "e6984b8a920b5b4583491676055b355ece808d58e214f97f8560a1aee85e4b06",
+      "hardSourceGroups": 31819,
+      "role": "Hard source-face ownership and source-edge semantic seeds; no weight constraint"
+    }
+  ],
+  "spatialNearestNeighborUsed": false,
+  "sourceWeldGroups": 749845,
+  "parts": [
+    {
+      "id": 0,
+      "triangles": 580068
+    },
+    {
+      "id": 1,
+      "triangles": 181682
+    },
+    {
+      "id": 2,
+      "triangles": 162022
+    },
+    {
+      "id": 3,
+      "triangles": 279272
+    },
+    {
+      "id": 4,
+      "triangles": 145786
+    },
+    {
+      "id": 5,
+      "triangles": 150896
+    }
+  ],
+  "supportFreeGroups": 594596,
+  "lowerPelvisAnchors": 220925,
+  "waistSpineAnchors": 23282,
+  "torsoSpineAnchors": 63618,
+  "armAnchors": [
+    {
+      "segment": "LeftArm",
+      "groups": 10881
+    },
+    {
+      "segment": "LeftForeArm",
+      "groups": 7949
+    },
+    {
+      "segment": "RightArm",
+      "groups": 10989
+    },
+    {
+      "segment": "RightForeArm",
+      "groups": 8175
+    }
+  ],
+  "changedSourceVertices": 697671,
+  "protectedSourceVertices": 38037,
+  "maximumDiscardedInfluenceBeforeFourWeightNormalization": 0.24073429373764554,
+  "fourInfluenceReduction": "Continuous subtract-fifth sparsification; equal-top-five singularities rejected",
+  "anatomicalTargetMode": "Soft screened source-Laplacian targets; measured original cuff/hand and domain boundary remain fixed",
+  "targetRegularizationRadiusMeters": 0.08,
+  "targetStrength": 0.4131379878932201,
+  "homogeneousJointFields": "Zero RHS fields are solved as zero; original weights are initial guesses only",
+  "fixedCuffGroups": 22421,
+  "linearPreconditioner": {
+    "method": "Smoothed-aggregation algebraic multigrid V-cycle",
+    "pyamgVersion": "5.3.0",
+    "levels": 4,
+    "operatorComplexity": 1.228980197504797
+  },
+  "solves": [
+    {
+      "joint": "Hips",
+      "residual": 5.044973521069655e-07
+    },
+    {
+      "joint": "Spine",
+      "residual": 6.923245924611185e-07
+    },
+    {
+      "joint": "Spine2",
+      "residual": 9.277819192553823e-07
+    },
+    {
+      "joint": "Neck",
+      "residual": 4.818178066720322e-07
+    },
+    {
+      "joint": "Head",
+      "residual": 8.841845120983758e-07
+    },
+    {
+      "joint": "LeftArm",
+      "residual": 5.627880002397605e-07
+    },
+    {
+      "joint": "LeftForeArm",
+      "residual": 4.57464792652643e-07
+    },
+    {
+      "joint": "LeftHand",
+      "residual": 8.428946628074606e-07
+    },
+    {
+      "joint": "RightArm",
+      "residual": 5.683386950885773e-07
+    },
+    {
+      "joint": "RightForeArm",
+      "residual": 6.257273579032628e-07
+    },
+    {
+      "joint": "RightHand",
+      "residual": 8.022701192158846e-07
+    },
+    {
+      "joint": "LeftUpLeg",
+      "residual": 8.110846638672794e-07
+    },
+    {
+      "joint": "LeftLeg",
+      "residual": 4.5418771106474887e-07
+    },
+    {
+      "joint": "LeftFoot",
+      "residual": 7.342740992019792e-07
+    },
+    {
+      "joint": "LeftToeBase",
+      "residual": 8.464536516242357e-07
+    },
+    {
+      "joint": "RightUpLeg",
+      "residual": 6.393223601419018e-07
+    },
+    {
+      "joint": "RightLeg",
+      "residual": 5.055929852870207e-07
+    },
+    {
+      "joint": "RightFoot",
+      "residual": 8.72558609960094e-07
+    },
+    {
+      "joint": "RightToeBase",
+      "residual": 4.293006470053518e-07
+    }
+  ],
+  "status": "Candidate; independent multi-pose/contact/volume and visual checks required"
+}

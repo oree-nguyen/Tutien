@@ -8,6 +8,12 @@ const hand = params.get("hand") ?? "R";
 const full = params.get("view") === "full";
 const candidate = params.get("candidate");
 const candidates = [
+  "semantic-garment",
+  "semantic-garment-v2",
+  "semantic-garment-v3",
+  "semantic-garment-v4",
+  "semantic-garment-v5",
+  "semantic-garment-v6",
   "robe-panels",
   "robe-repaired",
   "garment-separated",

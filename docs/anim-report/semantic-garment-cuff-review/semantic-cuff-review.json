@@ -1,0 +1,79 @@
+{
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "sourcePatchManifestSha256": "e6984b8a920b5b4583491676055b355ece808d58e214f97f8560a1aee85e4b06",
+  "candidateSha256": "0f5da3713cbd1d524e1b0902652a953b01baa4039ea8d729be924412a011aa8f",
+  "totalOriginalFaces": 1499726,
+  "sourceFacesWithChangedSemanticLabel": 39088,
+  "labelTransitions": [
+    {
+      "from": "Remaining_Source",
+      "to": "Sleeve_Left",
+      "sourceFaces": 128
+    },
+    {
+      "from": "Remaining_Source",
+      "to": "Sleeve_Right",
+      "sourceFaces": 56
+    },
+    {
+      "from": "Robe_Left",
+      "to": "Sleeve_Left",
+      "sourceFaces": 16094
+    },
+    {
+      "from": "Robe_Right",
+      "to": "Sleeve_Right",
+      "sourceFaces": 22810
+    }
+  ],
+  "v4AndV5FaceLabelsIdentical": true,
+  "allCuffSourceFacesOwnExpectedSleeve": true,
+  "v3AndV4SupportArraysByteIdentical": true,
+  "reviewedImages": [
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-H01_Sleeve_Left-front.png",
+      "sha256": "fcf52dda435b7e324beed831a8787dc4e3880010c1814b2ff179d9f182c6c30b"
+    },
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-H01_Sleeve_Left-side.png",
+      "sha256": "aa6997ed84e9861e950203d4f3252d5672edfb3aded511d0ec70e2bae08b1851"
+    },
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-H01_Sleeve_Left-back.png",
+      "sha256": "1f9385630dfc75950572e20fff72871b9d1c099b087f387efb4815a8b5eeaeb9"
+    },
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-H01_Sleeve_Right-front.png",
+      "sha256": "ef2085da49f1ca3ee952541e49eeb3e067e1c3abc717faed29bdf1bc5542c12c"
+    },
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-H01_Sleeve_Right-side.png",
+      "sha256": "efceef2595b9b8a3c5d2e4fdd9f37056c037155b7da037a650f491141ccc8522"
+    },
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-H01_Sleeve_Right-back.png",
+      "sha256": "5da161ce962eec24cdee453a64e68558a336bca3f58e6c624e74773eabd62355"
+    },
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-two-panels-front.png",
+      "sha256": "d66b89ea4e8008fb4d78fe22fa339bf9944056f89894020a7571ac06f680d418"
+    },
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-two-panels-side.png",
+      "sha256": "680d49d7f565e36df874e33db93a168972df70a11b9086a103ec24a4a2a7d7ad"
+    },
+    {
+      "path": "docs/anim-report/semantic-garment-v4/semantic-garment-v4-isolated-bind-two-panels-back.png",
+      "sha256": "8d2267bbbdefea20acfce4114bc21b4a3202839a1a05f93787491196ce9323c3"
+    }
+  ],
+  "visualFindings": [
+    "Gold cuff tails remain on the isolated left/right sleeve surfaces in front, side and back views.",
+    "The two lower-panel isolates no longer contain the hanging gold cuff appendages.",
+    "The source partition still has rough albedo-derived cuts, multiple lower-panel layers/components and waist tassel/trim fragments. It is not a final clothing pattern."
+  ],
+  "seedUseReview": "Cuff source-face ownership correction observed on the isolated original surfaces; provisional until the full pattern is reviewed",
+  "garmentPatternAccepted": false,
+  "strainAccepted": false,
+  "runtimeActivationAuthorizedByThisReview": false
+}

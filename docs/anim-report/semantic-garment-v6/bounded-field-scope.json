@@ -1,0 +1,66 @@
+{
+  "assetSha256": "c24b7cdbe874b745ad54d9e951ebeedd85db465f759c91dcc768c58871eae143",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "sourceAreaSquareMeters": 5.552993381262736,
+  "fieldCount": 19,
+  "maximumInitialFieldResidual": 9.872748492968262e-07,
+  "boundFieldSolves": [
+    {
+      "joint": "Hips",
+      "residual": 9.872748492968262e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 8.493585478266155e-07,
+        "minimumWeight": 0,
+        "minimumActiveGradient": 3.0401809974393626e-05,
+        "dualTolerance": 0.0004916832459367708
+      }
+    },
+    {
+      "joint": "Spine",
+      "residual": 9.716531922488756e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 9.41451665098274e-07,
+        "minimumWeight": 0,
+        "minimumActiveGradient": 1.1888001709598651e-05,
+        "dualTolerance": 1.6250371235339703e-08
+      }
+    },
+    {
+      "joint": "LeftArm",
+      "residual": 9.83819765173212e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 2,
+        "zeroBoundSourceGroups": 56087,
+        "freeResidual": 9.463137367701828e-07,
+        "minimumWeight": -2.5319528479757047e-11,
+        "minimumActiveGradient": -2.013604240536091e-09,
+        "dualTolerance": 9.748313632421336e-09
+      }
+    },
+    {
+      "joint": "LeftToeBase",
+      "residual": 9.091771739218063e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 2,
+        "zeroBoundSourceGroups": 1988,
+        "freeResidual": 8.717655715568857e-07,
+        "minimumWeight": -2.1342992211471924e-07,
+        "minimumActiveGradient": -2.676461475383743e-06,
+        "dualTolerance": 3.0246014731963474e-05
+      }
+    }
+  ],
+  "minimumFieldValueBeforeNumericalNonnegativeCleanup": -6.04993082658165e-07,
+  "maximumPartitionOfUnityErrorBeforeNormalization": 0.009119001334063404,
+  "kktScope": "Each independently bounded bone field before partition normalization and four-influence reduction. No coupled simplex or post-sparsification optimum is claimed.",
+  "remainingExportedWeightRule": "Each mapped source group receives at most four nonnegative normalized influences; protected groups retain exact parent arrays.",
+  "fullGarmentAccepted": false
+}

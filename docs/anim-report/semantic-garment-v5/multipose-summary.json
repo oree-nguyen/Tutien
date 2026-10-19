@@ -1,0 +1,299 @@
+{
+  "assetSha256": "04ff3ac0cf6845e2868894cd076dc33569e9bed5b50fba8b0faa5240ef402295",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "activated": false,
+  "passed": false,
+  "limits": {
+    "p999": 1.5,
+    "maximum": 2,
+    "seamMillimetres": 0.001
+  },
+  "scope": "All exported primitives at bind, persisted midpoint and held pose; no full-animation, contact, collision, cross-section, garment-pattern or device acceptance",
+  "reports": [
+    {
+      "pose": "bind",
+      "report": "docs/anim-report/semantic-garment-v5/bind-all-mesh.json",
+      "reportSha256": "4c8080f3e34655c1b1c427db2b5fad1dc3f78420526ae489af7e7d624ecddd5d",
+      "exitCode": 0,
+      "assetSha256": "04ff3ac0cf6845e2868894cd076dc33569e9bed5b50fba8b0faa5240ef402295",
+      "poseFile": null,
+      "poseSha256": null,
+      "passed": true,
+      "edgeStrainPassed": true,
+      "provenancePassed": true,
+      "appliedPoseChannels": {
+        "rotations": 0,
+        "translations": 0
+      },
+      "errors": [],
+      "sourceCoverage": {
+        "passed": true,
+        "sources": [
+          {
+            "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+            "sourceNodeIndex": 0,
+            "sourcePrimitiveIndex": 0,
+            "sourceTriangles": 1499726,
+            "measuredTriangles": 1499726,
+            "missingTriangles": 0,
+            "duplicatedTriangles": 0,
+            "validatedOutputPrimitives": 6,
+            "passed": true
+          }
+        ]
+      },
+      "seams": {
+        "passed": true,
+        "pairs": 146771,
+        "maximumMillimetres": 0,
+        "numericalToleranceMillimetres": 0.001
+      },
+      "meshes": [
+        {
+          "node": "H01_Remaining_Source",
+          "sourceTriangles": 580068,
+          "passed": true,
+          "p999": 1.0000379528026149,
+          "maximum": 1.0001835822271636,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Left",
+          "sourceTriangles": 181682,
+          "passed": true,
+          "p999": 1.0000282576607595,
+          "maximum": 1.0000881978890253,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Right",
+          "sourceTriangles": 162022,
+          "passed": true,
+          "p999": 1.0000283037996283,
+          "maximum": 1.0000787584798678,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Torso",
+          "sourceTriangles": 279272,
+          "passed": true,
+          "p999": 1.000057384125438,
+          "maximum": 1.0001902293309988,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Sleeve_Left",
+          "sourceTriangles": 145786,
+          "passed": true,
+          "p999": 1.000048704926435,
+          "maximum": 1.0002000748151507,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Sleeve_Right",
+          "sourceTriangles": 150896,
+          "passed": true,
+          "p999": 1.00004804063758,
+          "maximum": 1.0001228006603504,
+          "issueCounts": {},
+          "skinErrors": []
+        }
+      ]
+    },
+    {
+      "pose": "midpoint",
+      "report": "docs/anim-report/semantic-garment-v5/midpoint-all-mesh.json",
+      "reportSha256": "66a67957b209dbfd1dc28917439d09854bdcae3599ba5af6b6ca48dd631aa78e",
+      "exitCode": 1,
+      "assetSha256": "04ff3ac0cf6845e2868894cd076dc33569e9bed5b50fba8b0faa5240ef402295",
+      "poseFile": "docs/anim-report/conver10-redo/validation/semantic-midpoint-pose.json",
+      "poseSha256": "211ae8de760ebf14b50425782bf51f1fb123e4271edda75206a359b6fde40b24",
+      "passed": false,
+      "edgeStrainPassed": false,
+      "provenancePassed": true,
+      "appliedPoseChannels": {
+        "rotations": 52,
+        "translations": 0
+      },
+      "errors": [],
+      "sourceCoverage": {
+        "passed": true,
+        "sources": [
+          {
+            "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+            "sourceNodeIndex": 0,
+            "sourcePrimitiveIndex": 0,
+            "sourceTriangles": 1499726,
+            "measuredTriangles": 1499726,
+            "missingTriangles": 0,
+            "duplicatedTriangles": 0,
+            "validatedOutputPrimitives": 6,
+            "passed": true
+          }
+        ]
+      },
+      "seams": {
+        "passed": true,
+        "pairs": 146771,
+        "maximumMillimetres": 0,
+        "numericalToleranceMillimetres": 0.001
+      },
+      "meshes": [
+        {
+          "node": "H01_Remaining_Source",
+          "sourceTriangles": 580068,
+          "passed": true,
+          "p999": 1.2493273491648644,
+          "maximum": 1.4569728360015224,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Left",
+          "sourceTriangles": 181682,
+          "passed": false,
+          "p999": 1.5306046925752426,
+          "maximum": 3.154794205961912,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Right",
+          "sourceTriangles": 162022,
+          "passed": false,
+          "p999": 2.5412168232247283,
+          "maximum": 4.712588533999777,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Torso",
+          "sourceTriangles": 279272,
+          "passed": true,
+          "p999": 1.4039328906470783,
+          "maximum": 1.8294077536922648,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Sleeve_Left",
+          "sourceTriangles": 145786,
+          "passed": false,
+          "p999": 1.246749494870703,
+          "maximum": 2.1426295148384114,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Sleeve_Right",
+          "sourceTriangles": 150896,
+          "passed": false,
+          "p999": 3.6489827904867935,
+          "maximum": 7.872700996821626,
+          "issueCounts": {},
+          "skinErrors": []
+        }
+      ]
+    },
+    {
+      "pose": "held",
+      "report": "docs/anim-report/semantic-garment-v5/held-all-mesh.json",
+      "reportSha256": "93a9d7b80b7b883840b6eb354abef20bd87c8bd506aa34e6a35e0aeeec983f73",
+      "exitCode": 1,
+      "assetSha256": "04ff3ac0cf6845e2868894cd076dc33569e9bed5b50fba8b0faa5240ef402295",
+      "poseFile": "docs/anim-report/harmonic-held/H01-reference-idle-solve.json",
+      "poseSha256": "f546c092e1bb660fa0dd3d796618980de143cadaa4980a254d00103d65d1feb5",
+      "passed": false,
+      "edgeStrainPassed": false,
+      "provenancePassed": true,
+      "appliedPoseChannels": {
+        "rotations": 52,
+        "translations": 0
+      },
+      "errors": [],
+      "sourceCoverage": {
+        "passed": true,
+        "sources": [
+          {
+            "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+            "sourceNodeIndex": 0,
+            "sourcePrimitiveIndex": 0,
+            "sourceTriangles": 1499726,
+            "measuredTriangles": 1499726,
+            "missingTriangles": 0,
+            "duplicatedTriangles": 0,
+            "validatedOutputPrimitives": 6,
+            "passed": true
+          }
+        ]
+      },
+      "seams": {
+        "passed": true,
+        "pairs": 146771,
+        "maximumMillimetres": 0,
+        "numericalToleranceMillimetres": 0.001
+      },
+      "meshes": [
+        {
+          "node": "H01_Remaining_Source",
+          "sourceTriangles": 580068,
+          "passed": true,
+          "p999": 1.449992633251963,
+          "maximum": 1.6378180062887355,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Left",
+          "sourceTriangles": 181682,
+          "passed": false,
+          "p999": 2.3760680602702857,
+          "maximum": 5.268533198649297,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Right",
+          "sourceTriangles": 162022,
+          "passed": false,
+          "p999": 4.015033989838222,
+          "maximum": 8.425512906564032,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Robe_Torso",
+          "sourceTriangles": 279272,
+          "passed": false,
+          "p999": 1.7777675499487484,
+          "maximum": 2.7566906648532283,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Sleeve_Left",
+          "sourceTriangles": 145786,
+          "passed": false,
+          "p999": 1.799837386031639,
+          "maximum": 4.168509681161927,
+          "issueCounts": {},
+          "skinErrors": []
+        },
+        {
+          "node": "H01_Sleeve_Right",
+          "sourceTriangles": 150896,
+          "passed": false,
+          "p999": 5.900281244670047,
+          "maximum": 13.359177943479597,
+          "issueCounts": {},
+          "skinErrors": []
+        }
+      ]
+    }
+  ]
+}
