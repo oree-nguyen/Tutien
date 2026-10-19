@@ -1,119 +1,314 @@
 import fs from "node:fs/promises";
+import path from "node:path";
 import { NodeIO } from "@gltf-transform/core";
 import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
 import { Matrix4, Vector3 } from "three";
 import { createHash } from "node:crypto";
 import { handStrain } from "./hand-strain.mjs";
+import { SeamAccumulator } from "./mesh-seams.mjs";
+import { SourceProvenanceValidator } from "./source-provenance.mjs";
+
 const input =
   process.env.RIG_FILE ?? "assets/rigged/H01-C0-robe-panels-diagnostic.glb";
-const bytes = await fs.readFile(input),
-  doc = await new NodeIO().registerExtensions(ALL_EXTENSIONS).readBinary(bytes);
+const bytes = await fs.readFile(input);
+const doc = await new NodeIO()
+  .registerExtensions(ALL_EXTENSIONS)
+  .readBinary(bytes);
+const nodes = doc.getRoot().listNodes();
+const errors = [];
+let poseSha256 = null;
+const appliedPoseChannels = { rotations: 0, translations: 0 };
 if (process.env.REFERENCE_POSE) {
-  const pose = JSON.parse(await fs.readFile(process.env.REFERENCE_POSE));
-  if (!pose.passed) throw Error("Reference pose is not validated");
-  for (const node of doc.getRoot().listNodes())
-    if (pose.rotations[node.getName()])
-      node.setRotation(pose.rotations[node.getName()]);
-}
-const meshes = [],
-  shared = new Map();
-let maxSeamGap = 0,
-  seamPairs = 0,
-  worstSeam;
-for (const node of doc
-  .getRoot()
-  .listNodes()
-  .filter((n) => n.getMesh())) {
-  const skin = node.getSkin();
-  if (!skin) throw Error("Unskinned mesh " + node.getName());
-  const matrices = skin
-    .listJoints()
-    .map((j, i) =>
-      new Matrix4()
-        .fromArray(j.getWorldMatrix())
-        .multiply(
-          new Matrix4().fromArray(
-            skin.getInverseBindMatrices().getElement(i, []),
-          ),
-        ),
-    );
-  for (const p of node.getMesh().listPrimitives()) {
-    const source = p.getAttribute("POSITION").getArray(),
-      ids = p.getAttribute("JOINTS_0").getArray(),
-      weights = p.getAttribute("WEIGHTS_0").getArray(),
-      count = source.length / 3,
-      posed = new Float64Array(source.length);
-    const value = new Vector3(),
-      q = new Vector3();
-    for (let i = 0; i < count; i++) {
-      value.set(0, 0, 0);
-      for (let k = 0; k < 4; k++)
-        if (weights[i * 4 + k]) {
-          q.fromArray(source, i * 3).applyMatrix4(matrices[ids[i * 4 + k]]);
-          value.addScaledVector(q, weights[i * 4 + k]);
-        }
-      value.toArray(posed, i * 3);
-      const key =
-          source[i * 3] + "," + source[i * 3 + 1] + "," + source[i * 3 + 2],
-        prev = shared.get(key);
-      if (prev && prev.node !== node.getName()) {
-        const gap = value.distanceTo(new Vector3(...prev.point));
-        seamPairs++;
-        if (gap > maxSeamGap) {
-          maxSeamGap = gap;
-          worstSeam = {
-            firstMesh: prev.node,
-            secondMesh: node.getName(),
-            bind: [...source.slice(i * 3, i * 3 + 3)],
-            gapMillimetres: gap * 1000,
-          };
-        }
-      } else if (!prev)
-        shared.set(key, { node: node.getName(), point: value.toArray() });
+  const poseBytes = await fs.readFile(process.env.REFERENCE_POSE);
+  poseSha256 = createHash("sha256").update(poseBytes).digest("hex");
+  const pose = JSON.parse(poseBytes);
+  if (
+    pose.passed !== true ||
+    !pose.rotations ||
+    typeof pose.rotations !== "object" ||
+    Array.isArray(pose.rotations) ||
+    !Object.keys(pose.rotations).length
+  )
+    errors.push("Reference pose is not validated");
+  else
+    for (const [name, rotation] of Object.entries(pose.rotations)) {
+      const matches = nodes.filter((node) => node.getName() === name);
+      if (
+        matches.length !== 1 ||
+        !Array.isArray(rotation) ||
+        rotation.length !== 4 ||
+        !rotation.every(Number.isFinite) ||
+        Math.abs(Math.hypot(...rotation) - 1) > 1e-5
+      )
+        errors.push(
+          "Missing, ambiguous, nonfinite or unnormalized pose target: " + name,
+        );
+      else {
+        matches[0].setRotation(rotation);
+        appliedPoseChannels.rotations++;
+      }
     }
-    const report = handStrain({
-      primitive: p,
-      mask: new Uint8Array(count).fill(1),
+  if (pose.scales !== undefined)
+    errors.push("Scale pose channels are not supported");
+  if (pose.translations !== undefined) {
+    if (
+      !pose.translations ||
+      typeof pose.translations !== "object" ||
+      Array.isArray(pose.translations)
+    )
+      errors.push("Invalid pose translations map");
+    else
+      for (const [name, translation] of Object.entries(pose.translations)) {
+        const matches = nodes.filter((node) => node.getName() === name);
+        const isJoint =
+          matches.length === 1 &&
+          doc
+            .getRoot()
+            .listSkins()
+            .some((skin) => skin.listJoints().includes(matches[0]));
+        if (
+          name !== "Hips" ||
+          !isJoint ||
+          !Array.isArray(translation) ||
+          translation.length !== 3 ||
+          !translation.every(Number.isFinite)
+        )
+          errors.push(
+            "Missing, ambiguous, unsupported or nonfinite translation target (only Hips joint local translation is supported): " +
+              name,
+          );
+        else {
+          matches[0].setTranslation(translation);
+          appliedPoseChannels.translations++;
+        }
+      }
+  }
+}
+const provenance = new SourceProvenanceValidator(input);
+const exactSeams = new SeamAccumulator(),
+  inferredSeams = new SeamAccumulator();
+const meshes = [];
+let referencedVertices = 0,
+  verifiedVertices = 0,
+  mechanicallyVerifiedWeldPrimitives = 0;
+for (const [nodeIndex, node] of nodes.entries()) {
+  if (!node.getMesh()) continue;
+  const skin = node.getSkin();
+  const joints = skin?.listJoints(),
+    inverseBind = skin?.getInverseBindMatrices();
+  const matrices =
+    joints && inverseBind && inverseBind.getCount() === joints.length
+      ? joints.map((joint, i) =>
+          new Matrix4()
+            .fromArray(joint.getWorldMatrix())
+            .multiply(new Matrix4().fromArray(inverseBind.getElement(i, []))),
+        )
+      : null;
+  for (const [primitiveIndex, primitive] of node
+    .getMesh()
+    .listPrimitives()
+    .entries()) {
+    const identity = {
+      nodeIndex,
+      meshIndex: doc.getRoot().listMeshes().indexOf(node.getMesh()),
+      primitiveIndex,
+      node: node.getName(),
+      mesh: node.getMesh().getName(),
+    };
+    const source = primitive.getAttribute("POSITION")?.getArray();
+    const count = source?.length / 3;
+    const jointAttribute = primitive.getAttribute("JOINTS_0"),
+      weightAttribute = primitive.getAttribute("WEIGHTS_0");
+    const ids = jointAttribute?.getArray();
+    const skinErrors = [];
+    const skinError = (message) => {
+      if (skinErrors.length < 20) skinErrors.push(message);
+    };
+    const posed = new Float64Array(source?.length ?? 0).fill(NaN);
+    if (
+      !Number.isInteger(count) ||
+      !count ||
+      primitive.getMode() !== 4 ||
+      primitive.getAttribute("POSITION").getType() !== "VEC3" ||
+      primitive.getAttribute("POSITION").getNormalized() ||
+      !(source instanceof Float32Array)
+    )
+      skinError("Missing/unsupported triangle POSITION");
+    else if (
+      !matrices ||
+      matrices.some((m) => !m.elements.every(Number.isFinite))
+    )
+      skinError(
+        "Missing skin, inverse bind matrices, or nonfinite joint transform",
+      );
+    else if (
+      jointAttribute?.getElementSize() !== 4 ||
+      weightAttribute?.getElementSize() !== 4 ||
+      jointAttribute.getNormalized() ||
+      !(ids instanceof Uint8Array || ids instanceof Uint16Array) ||
+      primitive.getAttribute("JOINTS_1") ||
+      primitive.getAttribute("WEIGHTS_1") ||
+      ids.length !== count * 4 ||
+      weightAttribute.getCount() !== count
+    )
+      skinError("Invalid four-influence JOINTS_0/WEIGHTS_0 layout");
+    else {
+      const value = new Vector3(),
+        transformed = new Vector3(),
+        weights = [];
+      for (let i = 0; i < count; i++) {
+        weightAttribute.getElement(i, weights);
+        if (
+          weights.some((w) => !Number.isFinite(w) || w < 0 || w > 1) ||
+          Math.abs(weights.reduce((a, b) => a + b, 0) - 1) > 1e-3 ||
+          [0, 1, 2, 3].some(
+            (k) =>
+              !Number.isInteger(ids[i * 4 + k]) ||
+              ids[i * 4 + k] < 0 ||
+              ids[i * 4 + k] >= matrices.length,
+          )
+        ) {
+          skinError("Invalid skin influences at vertex " + i);
+          continue;
+        }
+        value.set(0, 0, 0);
+        for (let k = 0; k < 4; k++)
+          if (weights[k]) {
+            transformed
+              .fromArray(source, i * 3)
+              .applyMatrix4(matrices[ids[i * 4 + k]]);
+            value.addScaledVector(transformed, weights[k]);
+          }
+        value.toArray(posed, i * 3);
+      }
+    }
+    const mapped = await provenance.validate(primitive);
+    const indices = primitive.getIndices()?.getArray();
+    const used = new Uint8Array(Number.isInteger(count) ? count : 0);
+    for (const i of indices ?? []) if (i < used.length) used[i] = 1;
+    for (let i = 0; i < used.length; i++) {
+      if (!used[i]) continue;
+      referencedVertices++;
+      const record = {
+        identity: { ...identity, vertexIndex: i },
+        bind: [...source.subarray(i * 3, i * 3 + 3)],
+        position: [...posed.subarray(i * 3, i * 3 + 3)],
+      };
+      inferredSeams.add(record.bind.join(","), record);
+      if (mapped.verified) {
+        verifiedVertices++;
+        record.sourceVertexId = mapped.vertexIds[i];
+        const sourceId = mapped.weldIds
+          ? mapped.weldIds[i]
+          : mapped.vertexIds[i];
+        exactSeams.add(mapped.source.namespace + ":" + sourceId, record);
+      }
+    }
+    if (mapped.verified && mapped.weldIds) mechanicallyVerifiedWeldPrimitives++;
+    const strain = handStrain({
+      primitive,
+      mask: new Uint8Array(Number.isInteger(count) ? count : 0).fill(1),
       position: (i) => new Vector3().fromArray(posed, i * 3),
     });
     meshes.push({
-      node: node.getName(),
-      vertices: count,
-      triangles: p.getIndices().getCount() / 3,
-      ...report,
+      ...identity,
+      vertices: count ?? 0,
+      sourceTriangles: (indices?.length ?? 0) / 3,
+      ...strain,
+      passed: strain.passed && skinErrors.length === 0,
+      skinErrors,
+      sourceProvenance: {
+        verified: mapped.verified,
+        errors: mapped.errors,
+        sourceSha256: mapped.source?.sha256,
+        sourceNodeIndex: mapped.source?.nodeIndex,
+        sourcePrimitiveIndex: mapped.source?.primitiveIndex,
+        triangleMap: mapped.triangleMap,
+        weldStatus: mapped.weldStatus,
+        weldProof: mapped.weldProof,
+      },
     });
   }
 }
+const exact = exactSeams.measure(),
+  inferred = inferredSeams.measure();
+const sourceCoverage = provenance.coverage();
+const provenancePassed =
+  meshes.length > 0 &&
+  meshes.every((m) => m.sourceProvenance.verified) &&
+  sourceCoverage.passed;
+const edgeStrainPassed = meshes.length > 0 && meshes.every((m) => m.passed);
+const seamsPassed =
+  provenancePassed &&
+  exact.pairs > 0 &&
+  exact.invalidPositions === 0 &&
+  exact.maximumMillimetres <= 0.001;
 const report = {
   input,
   sha256: createHash("sha256").update(bytes).digest("hex"),
-  pose: process.env.REFERENCE_POSE ?? "bind",
-  edgeStrainPassed: meshes.length > 0 && meshes.every((m) => m.passed),
-  passed:
-    meshes.length > 0 && meshes.every((m) => m.passed) && maxSeamGap <= 1e-6,
+  pose: process.env.REFERENCE_POSE || "bind",
+  poseSha256,
+  appliedPoseChannels,
+  passed: errors.length === 0 && edgeStrainPassed && seamsPassed,
+  edgeStrainPassed,
+  provenancePassed,
+  errors,
   scope:
-    "Every mesh/primitive at one pose; unchanged edge-strain thresholds plus identical-source seam continuity (1 micrometre numerical tolerance). Intentional free seams require explicit reviewed mapping. Not full-animation or cloth-volume approval.",
+    "Every node/primitive at one pose; unchanged p99.9 1.5 / maximum 2.0 edge-stretch limits, fail-closed newly collapsed/nonfinite checks and provenance-bound source-copy seams. Existing source degeneracy is diagnostic. Not full-animation, volume, cross-section, semantic segmentation or phone acceptance.",
   meshes,
+  sourceCoverage,
   seams: {
-    passed: maxSeamGap <= 1e-6,
+    passed: seamsPassed,
+    status: !provenancePassed
+      ? "unverified-source-provenance-or-coverage"
+      : exact.pairs === 0
+        ? "unmeasured-no-source-copy-pairs"
+        : seamsPassed
+          ? "measured-within-tolerance"
+          : "failed",
+    identityMode: mechanicallyVerifiedWeldPrimitives
+      ? "source IDs plus hash-bound independently reconstructed opposite source boundary halfedges"
+      : "verified exact source vertex IDs only; distinct original UV-seam IDs are not certified",
     numericalToleranceMillimetres: 0.001,
-    pairs: seamPairs,
-    maximumMillimetres: maxSeamGap * 1000,
-    worst: worstSeam,
+    referencedVertices,
+    verifiedVertices,
+    mechanicallyVerifiedWeldPrimitives,
+    ...exact,
+    inferredXYZDiagnostic: {
+      acceptedAsSourceIdentity: false,
+      scope:
+        "Coincident bind XYZ only; may join unrelated/free surfaces and cannot certify source identity.",
+      ...inferred,
+    },
   },
 };
 const output =
   process.env.RIG_REPORT_FILE ??
   "docs/anim-report/robe-panels/all-mesh-strain.json";
-await fs.mkdir(output.slice(0, output.lastIndexOf("/")), { recursive: true });
+await fs.mkdir(path.dirname(output), { recursive: true });
 await fs.writeFile(output, JSON.stringify(report, null, 2) + "\n");
 console.log(
-  meshes.map((m) => ({
-    node: m.node,
-    p999: m.p999,
-    maximum: m.maximum,
-    passed: m.passed,
-  })),
-  report.seams,
+  JSON.stringify(
+    {
+      passed: report.passed,
+      edgeStrainPassed,
+      provenancePassed,
+      meshes: meshes.map((m) => ({
+        nodeIndex: m.nodeIndex,
+        primitiveIndex: m.primitiveIndex,
+        node: m.node,
+        p999: m.p999,
+        maximum: m.maximum,
+        passed: m.passed,
+        issueCounts: m.issueCounts,
+        skinErrors: m.skinErrors,
+        provenanceErrors: m.sourceProvenance.errors,
+      })),
+      sourceCoverage,
+      seams: report.seams,
+    },
+    null,
+    2,
+  ),
 );
 if (!report.passed) process.exitCode = 1;
