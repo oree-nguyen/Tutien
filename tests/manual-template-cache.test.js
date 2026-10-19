@@ -207,3 +207,72 @@ test('late compressed failure does not reacquire a released owner while a live o
     releaseManualAssets(releasedOwner);releaseManualAssets(liveOwner);
   }
 });
+
+test('a cold staff prefab and its clones do not acquire hidden template leases',async()=>{
+ const {createHunyuanStaffGroup}=await import('../src/manual-staff.js');
+ const {manualTemplateMetrics}=await import('../src/manual-asset-cache.js');
+ const original=globalThis.document,before=manualTemplateMetrics();
+ globalThis.document={};
+ try{
+  const prefab=createHunyuanStaffGroup('medium'),one=prefab.clone(true),two=prefab.clone(true);
+  await Promise.resolve();
+  assert.equal(prefab.userData.status,'pending');assert.equal(one.userData.status,'pending');assert.equal(two.userData.status,'pending');
+  assert.deepEqual(manualTemplateMetrics(),before);
+ }finally{globalThis.document=original;}
+});
+
+test('disposed pending staff cannot reacquire a lease from a late animation update',async()=>{
+ const {createHunyuanStaffGroup,hydrateHunyuanStaff}=await import('../src/manual-staff.js');
+ const {animateSoulWeapons}=await import('../src/weapons.js');
+ const {manualTemplateMetrics}=await import('../src/manual-asset-cache.js');
+ const original=globalThis.document,before=manualTemplateMetrics();
+ globalThis.document={};
+ try{
+  const staff=createHunyuanStaffGroup('medium');staff.userData.disposed=true;
+  hydrateHunyuanStaff(staff);animateSoulWeapons(staff,1);await Promise.resolve();
+  assert.equal(staff.userData.status,'pending');
+  assert.deepEqual(manualTemplateMetrics(),before);
+ }finally{globalThis.document=original;}
+});
+
+test('world release reaches standalone staff owners nested below a procedural hero LOD', async () => {
+  const THREE=await import('three');
+  const {World}=await import('../src/world.js');
+  const {createHunyuanStaffGroup}=await import('../src/manual-staff.js');
+  const {manualHeroAssetUrls}=await import('../src/model-asset-registry.js');
+  const {loadManualAsset,releaseManualAssets,manualTemplateMetrics}=await import('../src/manual-asset-cache.js');
+  const bytes=await triangleFixture(),originalFetch=globalThis.fetch,key='source-test-nested-staff-owner';
+  const firstStaff=createHunyuanStaffGroup('medium'),secondStaff=createHunyuanStaffGroup('medium');
+  const modelFor=staff=>{
+    const visual=new THREE.Group(),lod=new THREE.LOD();
+    visual.add(staff);lod.addLevel(visual,0);
+    return {lod};
+  };
+  const firstModel=modelFor(firstStaff),secondModel=modelFor(secondStaff);
+  let requests=0,disposed=0;
+  manualHeroAssetUrls[key]='/models/test-nested-staff-owner.glb';
+  globalThis.fetch=async()=>{requests++;return {ok:true,arrayBuffer:async()=>bytes.slice(0)};};
+  try {
+    const template=await loadManualAsset(key,false,firstStaff);
+    assert.equal(await loadManualAsset(key,false,secondStaff),template);
+    template.scene.traverse(node=>node.geometry?.addEventListener('dispose',()=>disposed++));
+    firstStaff.add(template.scene.clone(true));secondStaff.add(template.scene.clone(true));
+    assert.equal(requests,1);
+    assert.deepEqual(manualTemplateMetrics(),{templates:1,referenced:1,leases:2});
+    World.prototype.releaseModelRings.call({},firstModel);
+    await Promise.resolve();
+    assert.equal(firstStaff.userData.disposed,true);
+    assert.equal(disposed,0,'another standalone staff still owns the template');
+    assert.deepEqual(manualTemplateMetrics(),{templates:1,referenced:1,leases:1});
+    World.prototype.releaseModelRings.call({},secondModel);
+    World.prototype.releaseModelRings.call({},secondModel);
+    await Promise.resolve();
+    assert.equal(secondStaff.userData.disposed,true);
+    assert.equal(disposed,1);
+    assert.deepEqual(manualTemplateMetrics(),{templates:0,referenced:0,leases:0});
+  } finally {
+    globalThis.fetch=originalFetch;
+    delete manualHeroAssetUrls[key];
+    releaseManualAssets(firstStaff);releaseManualAssets(secondStaff);
+  }
+});

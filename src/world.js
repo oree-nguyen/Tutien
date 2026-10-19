@@ -358,14 +358,14 @@ export class World {
     });
   }
   releaseModelRings(model) {
-    releaseManualAssets(model.lod);
     if(!model||model.released)return;model.released=true;
+    releaseManualAssets(model.lod);
     for(const mesh of [model.bar,model.barBg]){mesh?.geometry.dispose();mesh?.material.dispose();}
     model.lod.traverse(node=>{if(node.userData.ownConcealmentMaterial&&!node.userData.soulRing)node.material?.dispose();});
     for (const level of model.lod.levels) {
       disposeSoulRingVisuals(level.object);
       disposeManualH01(level.object);
-      level.object.traverse(node=>{if(node.userData.hunyuanStaff)node.userData.disposed=true;});
+      level.object.traverse(node=>{if(node.userData.hunyuanStaff){node.userData.disposed=true;releaseManualAssets(node);}});
     }
   }
   setQuality(value) {

@@ -113,13 +113,15 @@ export function replayManualH01Entrance(root){
  if(root.userData.manualH02)return replayManualH02(root);
  const s=states.get(root);if(!s?.preview)return;
  s.introStart=performance.now();delete s.forcedTime;s.gripped=false;s.impact=false;
+ root.userData.manualAsset.entrance={time:0,complete:false};root.userData.manualAsset.animation='Entrance';
  if(s.sourceBody)s.sourceBody.visible=false;if(s.sourceStaff)s.sourceStaff.visible=false;s.body.visible=true;
  s.body.attach(s.staff);s.staff.position.set(-.38,1.45,.12);s.staff.quaternion.identity();s.current=null;s.mixer.stopAllAction();
  if(!s.vfx){s.vfx=createH01EntranceVfx();s.body.add(s.vfx.root);}
 }
 // Deterministic art review of frame 183/213 without modifying gameplay time.
 export function seekManualH01Entrance(root,seconds){
- if(root.userData.manualH02)return seekManualH02(root,seconds);const state=states.get(root);if(state?.preview){replayManualH01Entrance(root);state.forcedTime=Math.max(0,seconds);}}
+ if(!Number.isFinite(seconds))throw Error('Entrance seek time must be finite');
+ if(root.userData.manualH02)return seekManualH02(root,seconds);const state=states.get(root);if(state?.preview){replayManualH01Entrance(root);state.forcedTime=Math.max(0,seconds);updateManualH01Animation(root,{cooldowns:state.cooldowns},0,0);}}
 function updateEntrance(root,state,t){
  const f=entranceFrame(t,state.frame);
  if(state.current!=='Entrance'){state.mixer.stopAllAction();state.actions.Entrance.reset().play();state.current='Entrance';}

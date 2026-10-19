@@ -12,7 +12,7 @@ const report = {
   settings: { viewport: { width: 960, height: 432 }, deviceScaleFactor: 1, quality: 'balanced', renderer: 'main' },
   states: [], ownership: [], screenshots: [], errors: [], consoleErrors: [],
 };
-const server = await createServer({ server: { host: '127.0.0.1', port: 5198, strictPort: true } });
+const server = await createServer({ server: { host: '127.0.0.1', port: 5198, strictPort: true, watch: null, hmr: false } });
 let browser;
 try {
   await server.listen();
@@ -34,7 +34,13 @@ try {
   async function ownership(label) {
     const data = await page.evaluate(async label => {
       const { manualTemplateMetrics } = await import('/src/manual-asset-cache.js');
-      return { label, metrics: manualTemplateMetrics(), tracked: structuredClone(window.__sourceLifecycleQa ?? {}) };
+      const standaloneStaffOwners = [];
+      window.__HON_GIOI__.world.preview?.traverse(node => {
+        if (node.userData.hunyuanStaff && node.userData.status)
+          standaloneStaffOwners.push({ uuid: node.uuid, status: node.userData.status, detail: node.userData.detail, disposed: node.userData.disposed === true });
+      });
+      const app=window.__HON_GIOI__;
+      return { label, hero:app.loadout.hero, costume:app.loadout.costume, previewHero:app.world.previewHero, metrics: manualTemplateMetrics(), standaloneStaffOwners, tracked: structuredClone(window.__sourceLifecycleQa ?? {}) };
     }, label);
     report.ownership.push(data);
     return data;
@@ -158,10 +164,41 @@ try {
   assertLive(released.tracked['H01-driver']);
   assertLive(released.tracked['H02-driver']);
   assert.deepEqual(released.metrics, { templates: 4, referenced: 0, leases: 0 });
+
+  await page.locator('[data-hero="0"]').tap();
+  await page.locator('#costume').selectOption('1');
+  await page.waitForFunction(() => {
+    const app = window.__HON_GIOI__;
+    if (app.loadout.hero !== 0 || app.loadout.costume !== 1 || app.world.preview?.getObjectByName('manualHero_H01_C0')) return false;
+    let loadedStaff = false;
+    app.world.preview?.traverse(node => { if (node.userData.hunyuanStaff && node.userData.status === 'loaded') loadedStaff = true; });
+    return loadedStaff;
+  }, null, { timeout: 180000 });
+  const standaloneLive = await ownership('H01 extra costume owns its standalone Hunyuan staff');
+  assert.deepEqual(standaloneLive.metrics, { templates: 5, referenced: 1, leases: 1 });
+  assert.equal(standaloneLive.standaloneStaffOwners.length, 1);
+  assert.equal(standaloneLive.standaloneStaffOwners[0].status, 'loaded');
+  assert.equal(standaloneLive.standaloneStaffOwners[0].disposed, false);
+
+  await page.locator('[data-hero="1"]').tap();
+  await page.locator('#costume').selectOption('1');
+  await page.evaluate(async () => {
+    window.__sourceLifecycleMetrics=(await import('/src/manual-asset-cache.js')).manualTemplateMetrics;
+  });
+  await page.waitForFunction(() => {
+    const app = window.__HON_GIOI__;
+    return app.loadout.hero === 1 && app.loadout.costume === 1 && app.world.previewHero.startsWith('1:0:1:') && window.__sourceLifecycleMetrics().leases === 0;
+  }, null, { timeout: 180000 });
+  const standaloneReleased = await ownership('Left H01 extra costume; standalone staff lease released');
+  assert.equal(standaloneReleased.hero,1);
+  assert.equal(standaloneReleased.costume,1);
+  assert.ok(standaloneReleased.previewHero.startsWith('1:0:1:'));
+  assert.deepEqual(standaloneReleased.metrics, { templates: 5, referenced: 0, leases: 0 });
+  assert.deepEqual(standaloneReleased.standaloneStaffOwners, []);
   assert.deepEqual(report.errors, []);
   assert.deepEqual(report.consoleErrors, []);
   report.passed = true;
-  console.log('PASS: H01/H02 source → driver seek → source, original 4096 maps, DPR1, source GPU resource disposal and retained gameplay templates.');
+  console.log('PASS: H01/H02 source → driver seek → source, original 4096 maps, DPR1, source GPU resource disposal, standalone staff owner release and retained gameplay templates.');
 } catch (error) {
   report.failure = error.stack ?? String(error);
   throw error;

@@ -12,15 +12,13 @@ export function cloneHunyuanStaff(gltf){
 export function createHunyuanStaffGroup(detail,skin=0){
  const root=new THREE.Group();root.name='soulWeapon';
  root.userData={weaponType:'hunyuan-moc-tinh-truong',hunyuanStaff:true,status:'pending',detail,skin,metricLength:2.0384};
- // CPU-only art inspection validates the actual GLB separately. It must not
- // invent a geometric replacement when browser texture decoding is unavailable.
- if(typeof document==='undefined')return root;
- hydrateHunyuanStaff(root);
+ // Prefabs stay cold. animateSoulWeapons hydrates only a displayed instance,
+ // so a cached procedural template cannot acquire a permanent hidden lease.
  return root;
 }
 
 export function hydrateHunyuanStaff(root){
- if(!['pending','loading'].includes(root.userData.status)||inFlight.has(root)||typeof document==='undefined')return;
+ if(root.userData.disposed||!['pending','loading'].includes(root.userData.status)||inFlight.has(root)||typeof document==='undefined')return;
  inFlight.add(root);
  root.userData.status='loading';
  loadManualAsset('staff-'+root.userData.detail,true,root).then(gltf=>{
