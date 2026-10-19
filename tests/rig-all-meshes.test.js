@@ -473,6 +473,67 @@ test("sampled Hips translation is applied before skinning instead of silently ig
   assert.match(report.poseSha256, /^[0-9a-f]{64}$/);
 });
 
+test("upstream-failed diagnostic pose applies validated rotations and translation", async () => {
+  const { child, report } = await fixture({
+    referencePose: {
+      passed: false,
+      poseDataValid: true,
+      reason: "Ground support constraints failed",
+      rotations: {
+        Hips: [0, 0, 0, 1],
+        Joint1: [0, 0, Math.SQRT1_2, Math.SQRT1_2],
+      },
+      translations: { Hips: [0.1, 0, 0] },
+    },
+  });
+  assert.equal(child.status, 1);
+  assert.equal(report.passed, false);
+  assert.deepEqual(report.appliedPoseChannels, { rotations: 2, translations: 1 });
+  assert.equal(report.poseValidation.poseDataValid, true);
+  assert.equal(report.poseValidation.upstreamPassed, false);
+  assert.equal(report.poseValidation.diagnosticOnly, true);
+  assert.equal(
+    report.poseValidation.upstreamReasons.reason,
+    "Ground support constraints failed",
+  );
+  assert.match(report.errors.join(" "), /upstream acceptance failed/);
+  assert.ok(
+    Math.abs(report.seams.maximumMillimetres - Math.hypot(1.1, 1) * 1000) < 1e-9,
+  );
+  assert.equal(report.edgeStrainPassed, true);
+});
+
+test("passing mesh diagnostics cannot certify an upstream-failed pose", async () => {
+  const { child, report } = await fixture({
+    referencePose: {
+      passed: false,
+      poseDataValid: true,
+      violations: [{ joint: "Hips", reason: "Ground support constraints failed" }],
+      rotations: { Hips: [0, 0, 0, 1] },
+    },
+  });
+  assert.equal(child.status, 1);
+  assert.equal(report.edgeStrainPassed, true);
+  assert.equal(report.seams.passed, true);
+  assert.equal(report.passed, false);
+  assert.equal(report.poseValidation.upstreamReasons.violations[0].joint, "Hips");
+});
+
+test("upstream-failed pose requires an explicit diagnostic declaration before applying channels", async () => {
+  const { child, report } = await fixture({
+    referencePose: {
+      passed: false,
+      rotations: { Hips: [0, 0, 0, 1] },
+      translations: { Hips: [0.1, 0, 0] },
+    },
+  });
+  assert.equal(child.status, 1);
+  assert.equal(report.passed, false);
+  assert.equal(report.poseValidation.poseDataValid, false);
+  assert.deepEqual(report.appliedPoseChannels, { rotations: 0, translations: 0 });
+  assert.equal(report.seams.maximumMillimetres, 0);
+});
+
 for (const referencePose of [
   { passed: true, rotations: { Unknown: [0, 0, 0, 1] } },
   { passed: true, rotations: { Hips: [0, 0, 0, 0] } },
@@ -491,7 +552,7 @@ for (const referencePose of [
     rotations: { Hips: [0, 0, 0, 1] },
     scales: { Hips: [1, 1, 1] },
   },
-]) {
+].flatMap((pose) => [pose, { ...pose, passed: false, poseDataValid: true }])) {
   test(
     "invalid or unsupported sampled pose fails closed: " +
       JSON.stringify(referencePose),
@@ -500,6 +561,8 @@ for (const referencePose of [
       assert.equal(child.status, 1);
       assert.equal(report.passed, false);
       assert.ok(report.errors.length > 0);
+      assert.equal(report.poseValidation.poseDataValid, false);
+      assert.deepEqual(report.appliedPoseChannels, { rotations: 0, translations: 0 });
     },
   );
 }

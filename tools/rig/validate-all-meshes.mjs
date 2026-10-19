@@ -17,19 +17,30 @@ const doc = await new NodeIO()
 const nodes = doc.getRoot().listNodes();
 const errors = [];
 let poseSha256 = null;
+let poseValidation = null;
 const appliedPoseChannels = { rotations: 0, translations: 0 };
 if (process.env.REFERENCE_POSE) {
   const poseBytes = await fs.readFile(process.env.REFERENCE_POSE);
   poseSha256 = createHash("sha256").update(poseBytes).digest("hex");
   const pose = JSON.parse(poseBytes);
+  const poseErrors = [];
+  const pendingRotations = [],
+    pendingTranslations = [];
+  const upstreamPassed = pose.passed === true;
+  const diagnosticOnly = !upstreamPassed && pose.poseDataValid === true;
+  if (!upstreamPassed)
+    errors.push("Reference pose upstream acceptance failed");
+  if (!upstreamPassed && !diagnosticOnly)
+    poseErrors.push(
+      "Reference pose is not validated and has no explicit poseDataValid diagnostic declaration",
+    );
   if (
-    pose.passed !== true ||
     !pose.rotations ||
     typeof pose.rotations !== "object" ||
     Array.isArray(pose.rotations) ||
     !Object.keys(pose.rotations).length
   )
-    errors.push("Reference pose is not validated");
+    poseErrors.push("Reference pose has no valid rotations map");
   else
     for (const [name, rotation] of Object.entries(pose.rotations)) {
       const matches = nodes.filter((node) => node.getName() === name);
@@ -40,23 +51,22 @@ if (process.env.REFERENCE_POSE) {
         !rotation.every(Number.isFinite) ||
         Math.abs(Math.hypot(...rotation) - 1) > 1e-5
       )
-        errors.push(
+        poseErrors.push(
           "Missing, ambiguous, nonfinite or unnormalized pose target: " + name,
         );
       else {
-        matches[0].setRotation(rotation);
-        appliedPoseChannels.rotations++;
+        pendingRotations.push([matches[0], rotation]);
       }
     }
   if (pose.scales !== undefined)
-    errors.push("Scale pose channels are not supported");
+    poseErrors.push("Scale pose channels are not supported");
   if (pose.translations !== undefined) {
     if (
       !pose.translations ||
       typeof pose.translations !== "object" ||
       Array.isArray(pose.translations)
     )
-      errors.push("Invalid pose translations map");
+      poseErrors.push("Invalid pose translations map");
     else
       for (const [name, translation] of Object.entries(pose.translations)) {
         const matches = nodes.filter((node) => node.getName() === name);
@@ -73,16 +83,36 @@ if (process.env.REFERENCE_POSE) {
           translation.length !== 3 ||
           !translation.every(Number.isFinite)
         )
-          errors.push(
+          poseErrors.push(
             "Missing, ambiguous, unsupported or nonfinite translation target (only Hips joint local translation is supported): " +
               name,
           );
         else {
-          matches[0].setTranslation(translation);
-          appliedPoseChannels.translations++;
+          pendingTranslations.push([matches[0], translation]);
         }
       }
   }
+  // A failed upstream solve may still be inspected with an explicit diagnostic
+  // declaration. Validate every channel before applying any, and retain the
+  // upstream rejection independently of the resulting mesh measurements.
+  if (!poseErrors.length) {
+    for (const [node, rotation] of pendingRotations) node.setRotation(rotation);
+    for (const [node, translation] of pendingTranslations)
+      node.setTranslation(translation);
+    appliedPoseChannels.rotations = pendingRotations.length;
+    appliedPoseChannels.translations = pendingTranslations.length;
+  }
+  errors.push(...poseErrors);
+  poseValidation = {
+    upstreamPassed,
+    poseDataValid: poseErrors.length === 0,
+    diagnosticOnly,
+    upstreamReasons: Object.fromEntries(
+      ["reason", "reasons", "errors", "violations", "scope"]
+        .filter((key) => pose[key] !== undefined)
+        .map((key) => [key, pose[key]]),
+    ),
+  };
 }
 const provenance = new SourceProvenanceValidator(input);
 const exactSeams = new SeamAccumulator(),
@@ -248,6 +278,7 @@ const report = {
   sha256: createHash("sha256").update(bytes).digest("hex"),
   pose: process.env.REFERENCE_POSE || "bind",
   poseSha256,
+  poseValidation,
   appliedPoseChannels,
   passed: errors.length === 0 && edgeStrainPassed && seamsPassed,
   edgeStrainPassed,
@@ -291,6 +322,9 @@ console.log(
   JSON.stringify(
     {
       passed: report.passed,
+      poseValidation,
+      appliedPoseChannels,
+      errors,
       edgeStrainPassed,
       provenancePassed,
       meshes: meshes.map((m) => ({
