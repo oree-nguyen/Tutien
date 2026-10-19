@@ -9,6 +9,7 @@ import {AdaptiveResolution,nextPaint,renderPixelRatio} from "./runtime-performan
 import {pooledGeometry} from "./geometry-pool.js";
 import { disposeManualH01,configureManualH01,replayManualH01Entrance,seekManualH01Entrance,usesManualHero } from "./manual-hero.js";
 import { releaseManualAssets } from "./manual-asset-cache.js";
+import { ensureBakedCharacter } from "./baked-character-pbr.js";
 import { perfBeginAppearance } from "./perf-debug.js";
 import { configureGpuTextures } from "./gpu-textures.js";
 import { prepareEnvironmentAssets } from "./environment-assets.js";

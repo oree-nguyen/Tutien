@@ -3,8 +3,23 @@ import {getGpuTextureLoader,gpuTextureMetrics} from './gpu-textures.js';
 import {getModelLoader} from './model-loader.js';
 import { threadedMeshoptDecoder as MeshoptDecoder,meshoptWorkerMetrics } from './meshopt-worker-bridge.js';
 import { manualHeroAssetUrls, manualHeroAssetHashes } from './model-asset-registry.js';
+import {createManualTemplateCache} from './manual-template-cache.js';
 
-const loaded=new Map();
+function disposeTemplate(gltf){
+ const geometries=new Set(),materials=new Set(),textures=new Set();
+ gltf.scene.traverse(node=>{
+  if(node.geometry)geometries.add(node.geometry);
+  for(const material of Array.isArray(node.material)?node.material:node.material?[node.material]:[]){
+   materials.add(material);
+   for(const value of Object.values(material))if(value?.isTexture)textures.add(value);
+  }
+ });
+ for(const texture of textures)texture.dispose();
+ for(const material of materials)material.dispose();
+ for(const geometry of geometries)geometry.dispose();
+}
+const loaded=createManualTemplateCache(disposeTemplate);
+const ownerReleaseGenerations=new WeakMap();
 let decodeQueue=Promise.resolve(),database;
 export const manualAssetMetrics={hits:0,misses:0,bytes:0,decoded:0};
 const yieldFrame=()=>new Promise(resolve=>setTimeout(resolve,0));
@@ -57,13 +72,14 @@ export async function manualAssetBuffer(key,persist=true){
  if(persist)void stored(cacheKey,buffer);
  return buffer;
 }
-export function loadManualAsset(key,allowGpu=true){
+export function loadManualAsset(key,allowGpu=true,owner){
  const originalKey=key;
+ const ownerGeneration=owner?ownerReleaseGenerations.get(owner)??0:0;
  const gpu=getGpuTextureLoader();
  if(allowGpu&&gpu&&manualHeroAssetUrls[key+'-gpu'])key+='-gpu';
  const url=manualHeroAssetUrls[key];
- if(!loaded.has(url)){
-  const promise=manualAssetBuffer(key,!key.startsWith('source-')).then(buffer=>{
+ if(!url)return Promise.reject(Error('Unknown manual asset '+key));
+ return loaded.acquire(localAssetUrl(url),()=>manualAssetBuffer(key,!key.startsWith('source-')).then(buffer=>{
    const job=decodeQueue.catch(()=>{}).then(async()=>{
     await yieldFrame();
     const loader=getModelLoader();
@@ -72,35 +88,18 @@ export function loadManualAsset(key,allowGpu=true){
     manualAssetMetrics.gpu={...gpuTextureMetrics};manualAssetMetrics.decoded++;manualAssetMetrics.lastDecodeMs=performance.now()-start;manualAssetMetrics.worker={...meshoptWorkerMetrics};
     return gltf;
    });
-   decodeQueue=job;return job;
-  }).catch(error=>{loaded.delete(url);if(key!==originalKey){console.warn('Compressed GLB fallback:',originalKey,error.message);manualAssetMetrics.gpuFallbacks=(manualAssetMetrics.gpuFallbacks??0)+1;return loadManualAsset(originalKey,false);}throw error;});
-  loaded.set(url,promise);
- }
- return loaded.get(url);
+   decodeQueue=job.then(()=>undefined,()=>undefined);return job;
+  }),{owner,retain:!key.startsWith('source-')}).catch(error=>{if(key!==originalKey){if(owner&&(ownerReleaseGenerations.get(owner)??0)!==ownerGeneration)throw error;console.warn('Compressed GLB fallback:',originalKey,error.message);manualAssetMetrics.gpuFallbacks=(manualAssetMetrics.gpuFallbacks??0)+1;return loadManualAsset(originalKey,false,owner);}throw error;});
 }
 
-export function releaseManualSourceAsset(key){
+export function releaseManualSourceAsset(key,owner){
  const url=manualHeroAssetUrls[key]&&localAssetUrl(manualHeroAssetUrls[key]);
  if(!url)return;
- const pending=loaded.get(url);loaded.delete(url);
- if(!pending)return;
- Promise.resolve(pending).then(gltf=>{
-  const geometries=new Set(),materials=new Set(),textures=new Set();
-  gltf.scene.traverse(node=>{
-   if(node.geometry)geometries.add(node.geometry);
-   for(const material of Array.isArray(node.material)?node.material:node.material?[node.material]:[]){
-    materials.add(material);
-    for(const value of Object.values(material))if(value?.isTexture)textures.add(value);
-   }
-  });
-  for(const texture of textures)texture.dispose();
-  for(const material of materials)material.dispose();
-  for(const geometry of geometries)geometry.dispose();
- }).catch(()=>{});
+ return loaded.releaseUrl(url,owner);
 }
 
 if(typeof indexedDB!=='undefined')void db();
 
-// Decoded templates stay cached across preview and battle transitions.
-export function releaseManualAssets() {}
-export const manualTemplateMetrics=()=>({templates:loaded.size,referenced:loaded.size,leases:loaded.size});
+// Gameplay templates stay warm; full source previews leave when their last clone does.
+export function releaseManualAssets(owner) {if(owner)ownerReleaseGenerations.set(owner,(ownerReleaseGenerations.get(owner)??0)+1);loaded.release(owner);}
+export const manualTemplateMetrics=()=>loaded.metrics();

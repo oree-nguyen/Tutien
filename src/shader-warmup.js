@@ -1,8 +1,9 @@
 import{nextPaint}from'./runtime-performance.js';
 import{perfEvent}from'./perf-debug.js';
-/** Compile and upload one visible material at a time with input/paint opportunities. */
-export async function warmSceneMaterials(renderer,root,camera,scene,includeHidden=false){
+/** Compile/upload in slices; cancellation skips later work after the current await settles. */
+export async function warmSceneMaterials(renderer,root,camera,scene,includeHidden=false,isCancelled=()=>false){
  const meshes=[],seen=new Set(),textures=new Set(),timings=[];
+ if(isCancelled())return timings;
  root[includeHidden?'traverse':'traverseVisible'](node=>{
   if(!node.isMesh)return;
   for(const material of Array.isArray(node.material)?node.material:[node.material]){
@@ -17,16 +18,19 @@ export async function warmSceneMaterials(renderer,root,camera,scene,includeHidde
  // Upload all images, including those skipped by program deduplication.
  let uploadSliceStart=performance.now();
  for(const texture of textures){
+  if(isCancelled())return timings;
   const start=performance.now();renderer.initTexture(texture);
   const timing={kind:'texture',name:texture.name||texture.uuid,ms:performance.now()-start};
   timings.push(timing);perfEvent('warmup:texture',{texture:timing.name,ms:timing.ms});
-  if(performance.now()-uploadSliceStart>=4){await nextPaint();uploadSliceStart=performance.now();}
+  if(performance.now()-uploadSliceStart>=4){await nextPaint();if(isCancelled())return timings;uploadSliceStart=performance.now();}
  }
- if(textures.size)await nextPaint();
+ if(textures.size){await nextPaint();if(isCancelled())return timings;}
  for(const mesh of meshes){
+  if(isCancelled())return timings;
   const start=performance.now();
   if(renderer.compileAsync)await renderer.compileAsync(mesh,camera,scene);else renderer.compile(mesh,camera,scene);
-  const timing={kind:'program',name:mesh.name||mesh.type,ms:performance.now()-start};timings.push(timing);perfEvent('warmup:program',{mesh:timing.name,ms:timing.ms});await nextPaint();
+  if(isCancelled())return timings;
+  const timing={kind:'program',name:mesh.name||mesh.type,ms:performance.now()-start};timings.push(timing);perfEvent('warmup:program',{mesh:timing.name,ms:timing.ms});await nextPaint();if(isCancelled())return timings;
  }
  return timings;
 }

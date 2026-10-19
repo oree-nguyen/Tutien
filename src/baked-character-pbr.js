@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import {bakedCharacterAssets} from './baked-character-assets.js';
 import {characterPBR} from './character-pbr.js';
 import {getGpuTextureLoader} from './gpu-textures.js';
-import {compressedModelsSupported} from './model-loader.js';
+import {compressedFidelityAssetsApproved} from './fidelity-policy.js';
 import {loadImageTexture} from './texture-image.js';
 import {localAssetUrl} from './local-asset-url.js';
 import {perfAsync,perfEvent} from './perf-debug.js';
@@ -17,7 +17,7 @@ export function ensureBakedCharacter(actor,detail){
    try{
     for(const [channel,asset] of Object.entries(spec.channels)){
      let texture;
-     if(compressedModelsSupported())try{texture=await getGpuTextureLoader().loadAsync(localAssetUrl(asset.ktx2));}catch(error){perfEvent('texture:baked-fallback',{id,channel,reason:error.message});}
+     if(compressedFidelityAssetsApproved&&getGpuTextureLoader())try{texture=await getGpuTextureLoader().loadAsync(localAssetUrl(asset.ktx2));}catch(error){perfEvent('texture:baked-fallback',{id,channel,reason:error.message});}
      texture??=await loadImageTexture(localAssetUrl(asset.png));
      texture.colorSpace=['albedo','emissive'].includes(channel)?THREE.SRGBColorSpace:THREE.NoColorSpace;
      texture.wrapS=texture.wrapT=THREE.ClampToEdgeWrapping;texture.anisotropy=4;

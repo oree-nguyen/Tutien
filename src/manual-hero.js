@@ -26,15 +26,15 @@ function cloneMaterials(body){body.traverse(node=>{
 function cloneTencentSource(gltf,name){const source=gltf.scene.clone(true);source.name=name;source.traverse(node=>{if(!node.isMesh)return;node.geometry.userData.sharedArt=true;node.userData.tencentSource=true;node.material=Array.isArray(node.material)?node.material.map(material=>material.clone()):node.material.clone();});return source;}
 function syncTencentPreview(state){if(!state.sourceReady||!state.preview)return;state.body.visible=false;state.sourceBody.visible=true;state.staff.visible=false;state.root.updateWorldMatrix(true,true);state.staff.updateWorldMatrix(true,true);state.sourceMatrix.copy(state.root.matrixWorld).invert().multiply(state.staff.matrixWorld);state.sourceMatrix.decompose(state.sourceStaff.position,state.sourceStaff.quaternion,state.sourceStaff.scale);state.sourceStaff.visible=true;}
 function prepareTencentPreview(state){
- Promise.all([loadManualAsset('source-h01-body',false),loadManualAsset('source-h01-staff',false)]).then(([bodyGltf,staffGltf])=>{
-  if(state.root.userData.manualAsset.disposed){releaseManualSourceAsset('source-h01-body');releaseManualSourceAsset('source-h01-staff');return;}
+ Promise.all([loadManualAsset('source-h01-body',false,state.root),loadManualAsset('source-h01-staff',false,state.root)]).then(([bodyGltf,staffGltf])=>{
+  if(state.root.userData.manualAsset.disposed){releaseManualSourceAsset('source-h01-body',state.root);releaseManualSourceAsset('source-h01-staff',state.root);return;}
   const sourceBody=cloneTencentSource(bodyGltf,'H01_Tencent_Original_Body');sourceBody.rotation.y=Math.PI;sourceBody.visible=false;
   const head=new THREE.Object3D();head.name='TencentSourceHead';head.position.y=1.68;sourceBody.add(head);
   const sourceStaff=cloneHunyuanStaff(staffGltf);sourceStaff.userData.tencentSource=true;sourceStaff.traverse(node=>{if(node.isMesh)node.userData.tencentSource=true;});sourceStaff.visible=false;
   state.root.add(sourceBody,sourceStaff);state.sourceBody=sourceBody;state.sourceStaff=sourceStaff;state.sourceReady=true;
   Object.assign(state.root.userData.manualAsset.sourceFidelity,{status:'loaded',bodyTriangles:1499726,weaponTriangles:619640,textureResolution:4096});
   state.root.userData.modelLoadRevision=(state.root.userData.modelLoadRevision??0)+1;
- }).catch(error=>{if(!state.root.userData.manualAsset.disposed){state.root.userData.manualAsset.sourceFidelity={status:'failed',error:error.message};console.error('H01 Tencent original preview failed',error);}});
+ }).catch(error=>{releaseManualSourceAsset('source-h01-body',state.root);releaseManualSourceAsset('source-h01-staff',state.root);if(!state.root.userData.manualAsset.disposed){state.root.userData.manualAsset.sourceFidelity={status:'failed',error:error.message};console.error('H01 Tencent original preview failed',error);}});
 }
 function applyStaffReveal(staff,pulse){staff.traverse(node=>{
  if(!node.isMesh)return;
@@ -65,6 +65,7 @@ export function createManualH01(actor,detail){
  Promise.all([loadManualAsset(detail,true,root),loadManualAsset('staff-'+(detail==='mobile'?'medium':detail),true,root)]).then(async([gltf,staffGltf])=>{
   if(root.userData.manualAsset.disposed){releaseManualAssets(root);return;}
   if(actor.id==='preview')await prepareH01EntranceAssets();
+  if(root.userData.manualAsset.disposed){releaseManualAssets(root);return;}
   const body=cloneSkeleton(gltf.scene);body.name='HunyuanBody';body.visible=false;body.rotation.y=Math.PI;cloneMaterials(body);root.add(body);
   const staff=cloneHunyuanStaff(staffGltf),staffPulse={value:0};body.add(staff);applyStaffReveal(staff,staffPulse);
   body.updateWorldMatrix(true,true);
@@ -83,7 +84,7 @@ export function createManualH01(actor,detail){
   root.userData.manualAsset.status='preparing';
   if(context){
    enhanceCharacterVisualFidelity(body,context.renderer,context.scene);
-   root.userData.manualAsset.shaderWarmup=await warmSceneMaterials(context.renderer,body,context.camera,context.scene,true);
+   root.userData.manualAsset.shaderWarmup=await warmSceneMaterials(context.renderer,body,context.camera,context.scene,true,()=>root.userData.manualAsset.disposed);
   }
   if(root.userData.manualAsset.disposed){mixer.stopAllAction();state.vfx&&disposeH01EntranceVfx(state.vfx);return;}
   state.introStart=performance.now();states.set(root,state);body.visible=true;root.visible=true;
@@ -118,7 +119,7 @@ export function replayManualH01Entrance(root){
 }
 // Deterministic art review of frame 183/213 without modifying gameplay time.
 export function seekManualH01Entrance(root,seconds){
- if(root.userData.manualH02)return seekManualH02(root,seconds);const state=states.get(root);if(state?.preview){if(!state.vfx){state.vfx=createH01EntranceVfx();state.body.add(state.vfx.root);}state.forcedTime=Math.max(0,seconds);}}
+ if(root.userData.manualH02)return seekManualH02(root,seconds);const state=states.get(root);if(state?.preview){replayManualH01Entrance(root);state.forcedTime=Math.max(0,seconds);}}
 function updateEntrance(root,state,t){
  const f=entranceFrame(t,state.frame);
  if(state.current!=='Entrance'){state.mixer.stopAllAction();state.actions.Entrance.reset().play();state.current='Entrance';}
@@ -187,6 +188,5 @@ export function disposeManualH01(root){
  const materials=new Set(),skeletons=new Set();
  root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh)for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);});
  const sourceKeys=root.userData.manualAsset?.sourceFidelity?['source-h01-body','source-h01-staff']:[];
- root.traverse(node=>{if(node.userData.tencentSource)node.geometry?.dispose();});
- for(const s of skeletons)s.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);for(const key of sourceKeys)releaseManualSourceAsset(key);
+ for(const s of skeletons)s.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);for(const key of sourceKeys)releaseManualSourceAsset(key,root);
 }
