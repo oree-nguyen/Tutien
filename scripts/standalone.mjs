@@ -17,6 +17,8 @@ const result = await build({
   minify: true,
   define: {
     "import.meta.env.HG_BUILD_ID":JSON.stringify(await fingerprint()),
+    // The single-file export has no separate diagnostic review route.
+    "import.meta.env.HG_INCLUDE_RIG_REVIEW":"false",
     "import.meta.env.PROD": "false",
     "import.meta.env.DEV": "false",
     "import.meta.env.HG_STANDALONE":"true",

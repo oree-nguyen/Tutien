@@ -6,6 +6,7 @@ const sdk = process.env.ANDROID_HOME ?? "/workspace/android-sdk",
   jdk = process.env.JAVA_HOME ?? "/workspace/jdk21/jdk-21.0.8+9",
   cache = process.env.GRADLE_USER_HOME ?? "/workspace/.gradle",
   prefs = process.env.ANDROID_USER_HOME ?? "/workspace/android-user";
+const includeRigReview = process.env.HG_INCLUDE_RIG_REVIEW === "1";
 await access(sdk + "/platforms/android-35/android.jar");
 await access(jdk + "/bin/javac");
 await mkdir(prefs, { recursive: true });
@@ -27,6 +28,18 @@ await run("npm", ["run", "android:sync"], {
   HG_ANDROID_BUILD_ID: buildId,
   HG_SKIP_STANDALONE: "1",
 });
+async function exists(path) {
+  try { await access(path); return true; }
+  catch (error) { if (error.code === "ENOENT") return false; throw error; }
+}
+const reviewFiles = [
+  "rig-review.html", "models/rig-review/H01.glb", "models/rig-review/H02.glb",
+  "models/rig-review/H01-held.json", "models/rig-review/manifest.json",
+];
+const includedReviewFiles = await Promise.all(reviewFiles.map(path => exists("dist/" + path)));
+if (includedReviewFiles.some(included => included !== includeRigReview))
+  throw Error("Built rig-review files do not match HG_INCLUDE_RIG_REVIEW; refusing APK build");
+const rigReviewIncluded = includedReviewFiles.every(Boolean);
 await run(
   "./android/gradlew",
   [
@@ -72,7 +85,7 @@ await writeFile(
       buildType: "debug",
       versionCode,
       versionName,
-      rigReviewIncluded: true,
+      rigReviewIncluded,
       runtimeRigReplaced: false,
       signed: true,
       recordedAt: new Date().toISOString(),
