@@ -19,6 +19,7 @@ export async function fingerprint() {
     "public",
     "android-webview",
     "tools",
+    "data",
   ])
     await walk(dir);
   for (const p of [

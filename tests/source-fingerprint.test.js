@@ -8,7 +8,7 @@ const script=new URL('../scripts/fingerprint.mjs',import.meta.url).href;
 test('source fingerprint ignores Python caches but still detects real code changes',async()=>{
  const directory=await fs.mkdtemp(path.join(os.tmpdir(),'hg-fingerprint-'));
  try{
-  for(const dir of ['src','server','tests','scripts','public','android-webview','tools'])await fs.mkdir(path.join(directory,dir),{recursive:true});
+  for(const dir of ['src','server','tests','scripts','public','android-webview','tools','data'])await fs.mkdir(path.join(directory,dir),{recursive:true});
   for(const name of ['package.json','package-lock.json','capacitor.config.json','index.html','rig-review.html','vite.config.js','acceptance/requirements.json','acceptance/visual-requirements.json','docs/requests/AI-Studio-Android-V2.5.md','docs/requests/MASTER-ENGINEERING-ART-V2.5.md','docs/requests/PBR-SKILLSHOT-AUTOFARM-V2.5.md','acceptance/master-requirements.json','acceptance/overhaul-requirements.json']){
    await fs.mkdir(path.dirname(path.join(directory,name)),{recursive:true});await fs.writeFile(path.join(directory,name),'fixture');
   }
@@ -19,5 +19,9 @@ test('source fingerprint ignores Python caches but still detects real code chang
   assert.equal(fingerprint(),first);
   await fs.writeFile(path.join(directory,'src/main.js'),'changed source');
   assert.notEqual(fingerprint(),first);
+  const beforeData=fingerprint();
+  await fs.mkdir(path.join(directory,'data/hero-entrance'));
+  await fs.writeFile(path.join(directory,'data/hero-entrance/H01.json'),JSON.stringify({gripHand:'right'}));
+  assert.notEqual(fingerprint(),beforeData,'entrance and rig configuration changes must change build identity');
  }finally{await fs.rm(directory,{recursive:true});}
 });
