@@ -5,7 +5,10 @@ if(process.env.HG_SKIP_STANDALONE === "1"){
 }
 import {fingerprint} from './fingerprint.mjs';
 import { build } from "esbuild";
-import { readFile, writeFile, readdir, mkdir } from "node:fs/promises";
+import { readFile, readdir, mkdir, open, rename, unlink } from "node:fs/promises";
+import {entryStyles,embeddedModelModule,embeddedModelBlocks} from './standalone-payload.mjs';
+const css=await entryStyles('dist');
+const {manualHeroAssetUrls,manualHeroAssetHashes}=await import('../src/model-asset-registry.js');
 const workerBuild=await build({entryPoints:['src/meshopt-worker.js'],bundle:true,write:false,format:'iife',target:'es2022',minify:true});
 const workerSource=workerBuild.outputFiles[0].text;
 const result = await build({
@@ -39,13 +42,7 @@ const result = await build({
       name: "inline-manual-hunyuan-models",
       setup(build) {
         build.onLoad({ filter: /model-asset-registry\.js$/ }, async () => {
-          const assets = {};
-          const {manualHeroAssetUrls,manualHeroAssetHashes}=await import('../src/model-asset-registry.js?build='+Date.now());
-          for (const [key,url] of Object.entries(manualHeroAssetUrls)) {
-            const bytes=await readFile('public'+url.split('?')[0]);
-            assets[key]='data:model/gltf-binary;base64,'+bytes.toString('base64');
-          }
-          return {contents:'export const manualHeroAssetUrls='+JSON.stringify(assets)+';export const manualHeroAssetHashes='+JSON.stringify(manualHeroAssetHashes)+';',loader:'js'};
+          return {contents:embeddedModelModule(Object.keys(manualHeroAssetUrls),manualHeroAssetHashes),loader:'js'};
         });
       },
     },
@@ -60,22 +57,23 @@ const result = await build({
     },
   ],
 });
-const builtHtml = await readFile("dist/index.html", "utf8");
-const cssLinks = [...builtHtml.matchAll(/<link[^>]*rel="stylesheet"[^>]*href="([^"]+)"[^>]*>/g)].map(match=>match[1]);
-if(!cssLinks.length) throw Error("Main entry has no built stylesheet");
-const css = (await Promise.all(cssLinks.map(url=>readFile("dist/"+url.replace(/^\.\//,""),"utf8")))).join("\n");
 let html = await readFile("index.html", "utf8");
 html = html
   .replace(/<link[^>]*>/g, "")
   .replace(/<script[^>]*src="\/src\/boot\.js"[^>]*><\/script>/g, "");
 const js = result.outputFiles[0].text.replace(/<\/script/gi, "<\\/script");
-html = html
-  .replace("</head>", () => `<style>${css}</style></head>`)
-  .replace("</body>", () => `<script>${js}</script></body>`);
+html = html.replace("</head>", () => `<style>${css}</style></head>`);
 await mkdir("release", { recursive: true });
-await writeFile("release/Hon-Gioi-Sinh-Ton.html", html);
-console.log(
-  "Standalone HTML created:",
-  Buffer.byteLength(html),
-  "bytes, no external resources.",
-);
+const destination='release/Hon-Gioi-Sinh-Ton.html',temporary=destination+'.building';
+const file=await open(temporary,'w');
+let size=0;
+async function append(value){await file.writeFile(value);size+=Buffer.byteLength(value);}
+try{
+ const end=html.indexOf('</body>');
+ if(end<0)throw Error('Standalone HTML body is missing');
+ await append(html.slice(0,end));
+ for await(const block of embeddedModelBlocks(manualHeroAssetUrls,manualHeroAssetHashes))await append(block);
+ await append(`<script>${js}</script>`+html.slice(end));
+ await file.close();await rename(temporary,destination);
+}catch(error){await file.close();await unlink(temporary).catch(()=>{});throw error;}
+console.log('Standalone HTML created:',size,'bytes, no external resources. Source GLBs are embedded byte-for-byte outside the JavaScript optimizer.');

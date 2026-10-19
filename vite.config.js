@@ -9,7 +9,7 @@ export default defineConfig({
   base: "./",
   define:{"import.meta.env.HG_BUILD_ID":JSON.stringify(sourceHash),"import.meta.env.HG_INCLUDE_RIG_REVIEW":JSON.stringify(includeRigReview)},
   worker:{format:"es"},
-  build: { rollupOptions: { input: includeRigReview ? { main:"index.html", rigReview:"rig-review.html" } : { main:"index.html" }, output: { manualChunks: { three: ["three"] } } } },
+  build: { manifest: true, rollupOptions: { input: includeRigReview ? { main:"index.html", rigReview:"rig-review.html" } : { main:"index.html" }, output: { manualChunks: { three: ["three"] } } } },
   server: {
     host: "0.0.0.0",
     proxy: {
