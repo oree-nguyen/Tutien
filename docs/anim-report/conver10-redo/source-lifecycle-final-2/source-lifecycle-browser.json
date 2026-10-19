@@ -1,0 +1,228 @@
+{
+  "passed": false,
+  "startedAt": "2026-10-19T02:20:15.301Z",
+  "scope": "Functional source-preview visibility and shared-resource ownership in cloud Chromium ANGLE SwiftShader, main renderer, DPR 1. This is not a phone FPS, Android memory, rig-completion or art-acceptance test.",
+  "settings": {
+    "viewport": {
+      "width": 960,
+      "height": 432
+    },
+    "deviceScaleFactor": 1,
+    "quality": "balanced",
+    "renderer": "main"
+  },
+  "states": [
+    {
+      "hero": "H01",
+      "label": "source-6-before",
+      "requestedTime": 6,
+      "backend": "main",
+      "pixelRatio": 1,
+      "sourceBodyVisible": true,
+      "sourceWeaponVisible": true,
+      "visibleSkinnedMeshes": [],
+      "bodyTextureSizes": [
+        "4096x4096"
+      ],
+      "weaponTextureSizes": [
+        "4096x4096"
+      ],
+      "fidelity": {
+        "status": "loaded",
+        "mesh": "Tencent Hunyuan original",
+        "bodyTriangles": 1499726,
+        "weaponTriangles": 619640,
+        "textureResolution": 4096
+      },
+      "entrance": {
+        "time": 6,
+        "complete": true
+      },
+      "sourceCache": {
+        "templates": 4,
+        "referenced": 4,
+        "leases": 4
+      },
+      "rendererMemoryCounters": {
+        "geometries": 13,
+        "textures": 28
+      },
+      "tracked": {
+        "H01-source": {
+          "geometryCount": 2,
+          "textureCount": 6,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        },
+        "H01-driver": {
+          "geometryCount": 1,
+          "textureCount": 3,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        }
+      }
+    },
+    {
+      "hero": "H01",
+      "label": "driver-2_1",
+      "requestedTime": 2.1,
+      "backend": "main",
+      "pixelRatio": 1,
+      "sourceBodyVisible": false,
+      "sourceWeaponVisible": false,
+      "visibleSkinnedMeshes": [
+        "H01_C0_Hunyuan_StaticTrial"
+      ],
+      "bodyTextureSizes": [
+        "4096x4096"
+      ],
+      "weaponTextureSizes": [
+        "4096x4096"
+      ],
+      "fidelity": {
+        "status": "loaded",
+        "mesh": "Tencent Hunyuan original",
+        "bodyTriangles": 1499726,
+        "weaponTriangles": 619640,
+        "textureResolution": 4096
+      },
+      "entrance": {
+        "time": 2.1,
+        "visible": true,
+        "emerge": 1,
+        "open": 1,
+        "morph": 0.2319335937500001,
+        "staff": 0,
+        "crouch": 1,
+        "reach": 0,
+        "gripped": false,
+        "plant": 0,
+        "impact": false,
+        "complete": false,
+        "shake": 0,
+        "leftGroundError": 2.7912371032967523e-8,
+        "rightGripError": 1.2743413530430097e-7
+      },
+      "sourceCache": {
+        "templates": 4,
+        "referenced": 4,
+        "leases": 4
+      },
+      "rendererMemoryCounters": {
+        "geometries": 16,
+        "textures": 28
+      },
+      "tracked": {
+        "H01-source": {
+          "geometryCount": 2,
+          "textureCount": 6,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        },
+        "H01-driver": {
+          "geometryCount": 1,
+          "textureCount": 3,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        }
+      }
+    },
+    {
+      "hero": "H01",
+      "label": "source-6-after",
+      "requestedTime": 6,
+      "backend": "main",
+      "pixelRatio": 1,
+      "sourceBodyVisible": true,
+      "sourceWeaponVisible": true,
+      "visibleSkinnedMeshes": [],
+      "bodyTextureSizes": [
+        "4096x4096"
+      ],
+      "weaponTextureSizes": [
+        "4096x4096"
+      ],
+      "fidelity": {
+        "status": "loaded",
+        "mesh": "Tencent Hunyuan original",
+        "bodyTriangles": 1499726,
+        "weaponTriangles": 619640,
+        "textureResolution": 4096
+      },
+      "entrance": {
+        "time": 6,
+        "complete": true
+      },
+      "sourceCache": {
+        "templates": 4,
+        "referenced": 4,
+        "leases": 4
+      },
+      "rendererMemoryCounters": {
+        "geometries": 13,
+        "textures": 28
+      },
+      "tracked": {
+        "H01-source": {
+          "geometryCount": 2,
+          "textureCount": 6,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        },
+        "H01-driver": {
+          "geometryCount": 1,
+          "textureCount": 3,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        }
+      }
+    }
+  ],
+  "ownership": [
+    {
+      "label": "H01 live",
+      "metrics": {
+        "templates": 4,
+        "referenced": 4,
+        "leases": 4
+      },
+      "standaloneStaffOwners": [],
+      "tracked": {
+        "H01-source": {
+          "geometryCount": 2,
+          "textureCount": 6,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        },
+        "H01-driver": {
+          "geometryCount": 1,
+          "textureCount": 3,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        }
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "path": "docs/anim-report/conver10-redo/source-lifecycle-final-2/lifecycle-h01-source-6-before.png",
+      "captureCompletedAt": "2026-10-19T02:20:54.961Z",
+      "preservation": "Original Playwright PNG; no resize or recompression."
+    },
+    {
+      "path": "docs/anim-report/conver10-redo/source-lifecycle-final-2/lifecycle-h01-driver-2_1.png",
+      "captureCompletedAt": "2026-10-19T02:21:02.279Z",
+      "preservation": "Original Playwright PNG; no resize or recompression."
+    },
+    {
+      "path": "docs/anim-report/conver10-redo/source-lifecycle-final-2/lifecycle-h01-source-6-after.png",
+      "captureCompletedAt": "2026-10-19T02:21:09.205Z",
+      "preservation": "Original Playwright PNG; no resize or recompression."
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "browserVersion": "154.0.8037.57",
+  "failure": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\nfalse !== true\n\n    at state (file:///workspace/Tutien/tests/manual-source-lifecycle-browser.mjs:111:12)\n    at async file:///workspace/Tutien/tests/manual-source-lifecycle-browser.mjs:146:3",
+  "finishedAt": "2026-10-19T02:21:34.011Z"
+}

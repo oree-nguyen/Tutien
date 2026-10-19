@@ -1346,7 +1346,7 @@ Nguồn: `h02-rig.png`, `docs/anim-report/apk-review/h02-rig.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:49 UTC+07:00**
 
-Nguồn: `apk-current-h01-t2_1.png`
+Nguồn: `apk-current-h01-t2_1.png`, `docs/review-conver10/apk-current-h01-t2_1.png`
 
 ## Ảnh 144
 
@@ -1354,7 +1354,7 @@ Nguồn: `apk-current-h01-t2_1.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:50 UTC+07:00**
 
-Nguồn: `apk-current-h01-t6.png`
+Nguồn: `apk-current-h01-t6.png`, `docs/review-conver10/apk-current-h01-t6.png`
 
 ## Ảnh 145
 
@@ -1362,7 +1362,7 @@ Nguồn: `apk-current-h01-t6.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:50 UTC+07:00**
 
-Nguồn: `apk-current-h02-match.png`
+Nguồn: `apk-current-h02-match.png`, `docs/review-conver10/apk-current-h02-match.png`
 
 ## Ảnh 146
 
@@ -1370,7 +1370,7 @@ Nguồn: `apk-current-h02-match.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:50 UTC+07:00**
 
-Nguồn: `apk-current-h02-t2_1.png`
+Nguồn: `apk-current-h02-t2_1.png`, `docs/review-conver10/apk-current-h02-t2_1.png`
 
 ## Ảnh 147
 
@@ -1378,7 +1378,7 @@ Nguồn: `apk-current-h02-t2_1.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:51 UTC+07:00**
 
-Nguồn: `apk-current-h02-t6.png`
+Nguồn: `apk-current-h02-t6.png`, `docs/review-conver10/apk-current-h02-t6.png`
 
 ## Ảnh 148
 
@@ -1386,7 +1386,7 @@ Nguồn: `apk-current-h02-t6.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:51 UTC+07:00**
 
-Nguồn: `apk-previous-h01-t2_1.png`
+Nguồn: `apk-previous-h01-t2_1.png`, `docs/review-conver10/apk-previous-h01-t2_1.png`
 
 ## Ảnh 149
 
@@ -1394,7 +1394,7 @@ Nguồn: `apk-previous-h01-t2_1.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:51 UTC+07:00**
 
-Nguồn: `apk-previous-h01-t6.png`
+Nguồn: `apk-previous-h01-t6.png`, `docs/review-conver10/apk-previous-h01-t6.png`
 
 ## Ảnh 150
 
@@ -1402,7 +1402,7 @@ Nguồn: `apk-previous-h01-t6.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:51 UTC+07:00**
 
-Nguồn: `apk-previous-h02-match.png`
+Nguồn: `apk-previous-h02-match.png`, `docs/review-conver10/apk-previous-h02-match.png`
 
 ## Ảnh 151
 
@@ -1410,7 +1410,7 @@ Nguồn: `apk-previous-h02-match.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:52 UTC+07:00**
 
-Nguồn: `apk-previous-h02-t2_1.png`
+Nguồn: `apk-previous-h02-t2_1.png`, `docs/review-conver10/apk-previous-h02-t2_1.png`
 
 ## Ảnh 152
 
@@ -1418,7 +1418,7 @@ Nguồn: `apk-previous-h02-t2_1.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:52 UTC+07:00**
 
-Nguồn: `apk-previous-h02-t6.png`
+Nguồn: `apk-previous-h02-t6.png`, `docs/review-conver10/apk-previous-h02-t6.png`
 
 ## Ảnh 153
 
@@ -1426,7 +1426,7 @@ Nguồn: `apk-previous-h02-t6.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:52 UTC+07:00**
 
-Nguồn: `coverage-01.png`
+Nguồn: `coverage-01.png`, `docs/review-conver10/coverage-01.png`
 
 ## Ảnh 154
 
@@ -1434,7 +1434,7 @@ Nguồn: `coverage-01.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:52 UTC+07:00**
 
-Nguồn: `coverage-02.png`
+Nguồn: `coverage-02.png`, `docs/review-conver10/coverage-02.png`
 
 ## Ảnh 155
 
@@ -1442,7 +1442,7 @@ Nguồn: `coverage-02.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
 
-Nguồn: `coverage-03.png`
+Nguồn: `coverage-03.png`, `docs/review-conver10/coverage-03.png`
 
 ## Ảnh 156
 
@@ -1450,7 +1450,7 @@ Nguồn: `coverage-03.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
 
-Nguồn: `coverage-04.png`
+Nguồn: `coverage-04.png`, `docs/review-conver10/coverage-04.png`
 
 ## Ảnh 157
 
@@ -1458,7 +1458,7 @@ Nguồn: `coverage-04.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
 
-Nguồn: `coverage-05.png`
+Nguồn: `coverage-05.png`, `docs/review-conver10/coverage-05.png`
 
 ## Ảnh 158
 
@@ -1466,7 +1466,7 @@ Nguồn: `coverage-05.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
 
-Nguồn: `coverage-06.png`
+Nguồn: `coverage-06.png`, `docs/review-conver10/coverage-06.png`
 
 ## Ảnh 159
 
@@ -1474,7 +1474,7 @@ Nguồn: `coverage-06.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:53 UTC+07:00**
 
-Nguồn: `coverage-07.png`
+Nguồn: `coverage-07.png`, `docs/review-conver10/coverage-07.png`
 
 ## Ảnh 160
 
@@ -1482,7 +1482,7 @@ Nguồn: `coverage-07.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:54 UTC+07:00**
 
-Nguồn: `coverage-08.png`
+Nguồn: `coverage-08.png`, `docs/review-conver10/coverage-08.png`
 
 ## Ảnh 161
 
@@ -1490,7 +1490,7 @@ Nguồn: `coverage-08.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:54 UTC+07:00**
 
-Nguồn: `coverage-09.png`
+Nguồn: `coverage-09.png`, `docs/review-conver10/coverage-09.png`
 
 ## Ảnh 162
 
@@ -1498,7 +1498,7 @@ Nguồn: `coverage-09.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:54 UTC+07:00**
 
-Nguồn: `coverage-10.png`
+Nguồn: `coverage-10.png`, `docs/review-conver10/coverage-10.png`
 
 ## Ảnh 163
 
@@ -1506,7 +1506,7 @@ Nguồn: `coverage-10.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:54 UTC+07:00**
 
-Nguồn: `coverage-11.png`
+Nguồn: `coverage-11.png`, `docs/review-conver10/coverage-11.png`
 
 ## Ảnh 164
 
@@ -1514,7 +1514,7 @@ Nguồn: `coverage-11.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:55 UTC+07:00**
 
-Nguồn: `coverage-12.png`
+Nguồn: `coverage-12.png`, `docs/review-conver10/coverage-12.png`
 
 ## Ảnh 165
 
@@ -1522,7 +1522,7 @@ Nguồn: `coverage-12.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:55 UTC+07:00**
 
-Nguồn: `coverage-13.png`
+Nguồn: `coverage-13.png`, `docs/review-conver10/coverage-13.png`
 
 ## Ảnh 166
 
@@ -1530,7 +1530,7 @@ Nguồn: `coverage-13.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:55 UTC+07:00**
 
-Nguồn: `coverage-14.png`
+Nguồn: `coverage-14.png`, `docs/review-conver10/coverage-14.png`
 
 ## Ảnh 167
 
@@ -1538,7 +1538,7 @@ Nguồn: `coverage-14.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:55 UTC+07:00**
 
-Nguồn: `coverage-15.png`
+Nguồn: `coverage-15.png`, `docs/review-conver10/coverage-15.png`
 
 ## Ảnh 168
 
@@ -1546,4 +1546,1396 @@ Nguồn: `coverage-15.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 04:27:56 UTC+07:00**
 
-Nguồn: `coverage-16.png`
+Nguồn: `coverage-16.png`, `docs/review-conver10/coverage-16.png`
+
+## Ảnh 169
+
+![H01-fk-0.0-back.png](../media/72b4c536cc31d4d71afffba18ff5c2e0d9ffb323.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:50 UTC+07:00**
+
+Nguồn: `H01-fk-0.0-back.png`
+
+## Ảnh 170
+
+![H01-fk-0.0-front.png](../media/769ca2b174b023f29afa3159cb1c268d50e45531.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:51 UTC+07:00**
+
+Nguồn: `H01-fk-0.0-front.png`
+
+## Ảnh 171
+
+![H01-fk-0.3-back.png](../media/b2a009ecfda3e0d5bf68cfcad38a44e601d2591f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:52 UTC+07:00**
+
+Nguồn: `H01-fk-0.3-back.png`
+
+## Ảnh 172
+
+![H01-fk-0.3-front.png](../media/dc8d99e237aab2cee41a0ce5ce7a447d47d6196c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:52 UTC+07:00**
+
+Nguồn: `H01-fk-0.3-front.png`
+
+## Ảnh 173
+
+![H01-fk-0.6-back.png](../media/3d887dd72a7e7a33bff511194197b80bb41f1a97.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:53 UTC+07:00**
+
+Nguồn: `H01-fk-0.6-back.png`
+
+## Ảnh 174
+
+![H01-fk-0.6-front.png](../media/ff093beb70c339686aa173d77989f71179932c43.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:53 UTC+07:00**
+
+Nguồn: `H01-fk-0.6-front.png`
+
+## Ảnh 175
+
+![H01-fk-1.6-back.png](../media/a645953e89aa873069c30dcfd5542db693febeef.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:54 UTC+07:00**
+
+Nguồn: `H01-fk-1.6-back.png`
+
+## Ảnh 176
+
+![H01-fk-1.6-front.png](../media/be607f98ac1d76022d2081c8665b533f98faba2f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:54 UTC+07:00**
+
+Nguồn: `H01-fk-1.6-front.png`
+
+## Ảnh 177
+
+![H01-fk-14.6-back.png](../media/f490112f7623006dbc65c43a1b5d516fd341d6d6.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:55 UTC+07:00**
+
+Nguồn: `H01-fk-14.6-back.png`
+
+## Ảnh 178
+
+![H01-fk-14.6-front.png](../media/3acc195019bc14feb84ba83f929e75c6b9144858.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:55 UTC+07:00**
+
+Nguồn: `H01-fk-14.6-front.png`
+
+## Ảnh 179
+
+![H01-fk-3.6-back.png](../media/c34c31ec8fbec4866c2b86a375c47f01a54037e0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:55 UTC+07:00**
+
+Nguồn: `H01-fk-3.6-back.png`
+
+## Ảnh 180
+
+![H01-fk-3.6-front.png](../media/248af26f180ac914411641c02ab54bc2f530c5e8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:56 UTC+07:00**
+
+Nguồn: `H01-fk-3.6-front.png`
+
+## Ảnh 181
+
+![lifecycle-h01-driver-2_1.png](../media/dba2a83a426261d09fe64c831b682662dc8d3613.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:56 UTC+07:00**
+
+Nguồn: `lifecycle-h01-driver-2_1.png`
+
+## Ảnh 182
+
+![lifecycle-h01-source-6-after.png](../media/88998fe52bdbbde302a7d8baec43bafd43e0078f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:57 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-after.png`
+
+## Ảnh 183
+
+![lifecycle-h01-source-6-before.png](../media/5bba9b74d4afc02ade54e0b29911647f38bf208e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:57 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-before.png`
+
+## Ảnh 184
+
+![lifecycle-h02-source-6-before.png](../media/d559a0b9b3867bf941f2feb2457edbd0b39e7f82.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:57 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-before.png`
+
+## Ảnh 185
+
+![lifecycle-h01-driver-2_1.png](../media/6fe4d3d3581a4efc8c2d7c0477a0d084fe122c9c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:58 UTC+07:00**
+
+Nguồn: `lifecycle-h01-driver-2_1.png`
+
+## Ảnh 186
+
+![lifecycle-h01-source-6-after.png](../media/e310616968d5f421a156b7ae8e7b23619c37a327.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:58 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-after.png`
+
+## Ảnh 187
+
+![lifecycle-h01-source-6-before.png](../media/db7c864897d728af82853d87408a0f6004c5c167.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:59 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-before.png`
+
+## Ảnh 188
+
+![lifecycle-h02-driver-3.png](../media/fa69f3bbfd55421f4b1c2f8744e49e824ad207c4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:59 UTC+07:00**
+
+Nguồn: `lifecycle-h02-driver-3.png`
+
+## Ảnh 189
+
+![lifecycle-h02-source-6-after.png](../media/624d54834ffca898be1d94b4ec37a55218e2791b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:00:59 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-after.png`
+
+## Ảnh 190
+
+![lifecycle-h02-source-6-before.png](../media/e5965bbc6b09bb6355465bf97f51e97382fb1fbf.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:01:00 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-before.png`
+
+## Ảnh 191
+
+![lifecycle-h01-driver-2_1.png](../media/ba3bb5cf84408741059b9b5b154cf26f0510fef4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:36 UTC+07:00**
+
+Nguồn: `lifecycle-h01-driver-2_1.png`
+
+## Ảnh 192
+
+![lifecycle-h01-source-6-after.png](../media/c9bcb0aea601c2a0056dd28a4a22dbca85eb841e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:37 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-after.png`
+
+## Ảnh 193
+
+![lifecycle-h01-source-6-before.png](../media/b2ba3477c4b49e1f18c73b5b31b459b1663a1894.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:37 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-before.png`
+
+## Ảnh 194
+
+![lifecycle-h02-driver-3.png](../media/1cb7a6b25b08a7eb8861762a00050b4eac1e888b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:38 UTC+07:00**
+
+Nguồn: `lifecycle-h02-driver-3.png`
+
+## Ảnh 195
+
+![lifecycle-h02-source-6-after.png](../media/33037c43414c973edbd28b8834874e5d9b878ddc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:38 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-after.png`
+
+## Ảnh 196
+
+![lifecycle-h02-source-6-before.png](../media/dd9b0ab4c7198c179cfaa56de965127aefd17637.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:39 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-before.png`
+
+## Ảnh 197
+
+![harmonic-projected-held-back.png](../media/5c9ac90567b7304adb1cf8f33f1e86ff642c1a52.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:41 UTC+07:00**
+
+Nguồn: `harmonic-projected-held-back.png`
+
+## Ảnh 198
+
+![harmonic-projected-held-front.png](../media/d2b512ec98b7c69cabd49e31f27f5b92ddc4b443.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:42 UTC+07:00**
+
+Nguồn: `harmonic-projected-held-front.png`
+
+## Ảnh 199
+
+![harmonic-projected-held-side.png](../media/7a31f26f27f058b7af4cba76652865b0eebbc991.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:42 UTC+07:00**
+
+Nguồn: `harmonic-projected-held-side.png`
+
+## Ảnh 200
+
+![semantic-garment-bind-front.png](../media/536e500a4a5a3f0a5d7a5a4f495d71fc121db5c0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:42 UTC+07:00**
+
+Nguồn: `semantic-garment-bind-front.png`
+
+## Ảnh 201
+
+![semantic-garment-held-back.png](../media/c38989bf88040d1ea6e4ec68221886adca87f2c8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:43 UTC+07:00**
+
+Nguồn: `semantic-garment-held-back.png`
+
+## Ảnh 202
+
+![semantic-garment-held-front.png](../media/553107de105b7011daf6bfeecefe39038781ad72.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:43 UTC+07:00**
+
+Nguồn: `semantic-garment-held-front.png`
+
+## Ảnh 203
+
+![semantic-garment-held-side.png](../media/cfd4e936214681f3092f3c881666d70f514cbb71.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:43 UTC+07:00**
+
+Nguồn: `semantic-garment-held-side.png`
+
+## Ảnh 204
+
+![semantic-garment-isolated-bind-H01_Remaining_Source-front.png](../media/809dad7575930b83466a2af4eb39e9845c694bf1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:44 UTC+07:00**
+
+Nguồn: `semantic-garment-isolated-bind-H01_Remaining_Source-front.png`
+
+## Ảnh 205
+
+![semantic-garment-isolated-bind-H01_Robe_Left-front.png](../media/6abddb26e821f2f5a5406db6f313dd5b9639a101.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:44 UTC+07:00**
+
+Nguồn: `semantic-garment-isolated-bind-H01_Robe_Left-front.png`
+
+## Ảnh 206
+
+![semantic-garment-isolated-bind-H01_Robe_Right-front.png](../media/6ba5c766374adbbfa6f1244cbaf6b2efc4ac8cf1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:44 UTC+07:00**
+
+Nguồn: `semantic-garment-isolated-bind-H01_Robe_Right-front.png`
+
+## Ảnh 207
+
+![semantic-garment-isolated-bind-H01_Robe_Torso-front.png](../media/1a4fd7bede5b243d611bad8b13010c7828d429ae.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:45 UTC+07:00**
+
+Nguồn: `semantic-garment-isolated-bind-H01_Robe_Torso-front.png`
+
+## Ảnh 208
+
+![semantic-garment-isolated-bind-H01_Sleeve_Left-front.png](../media/9d48cdd42f13b3fd8b4f543bb6a40e4c143ace11.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:45 UTC+07:00**
+
+Nguồn: `semantic-garment-isolated-bind-H01_Sleeve_Left-front.png`
+
+## Ảnh 209
+
+![semantic-garment-isolated-bind-H01_Sleeve_Right-front.png](../media/b76d6d89ebbf4d83998b6266a67bce5971e2b3f2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:45 UTC+07:00**
+
+Nguồn: `semantic-garment-isolated-bind-H01_Sleeve_Right-front.png`
+
+## Ảnh 210
+
+![semantic-garment-review-sheet.png](../media/a0d03c3e2e3303f2528434a938128c9946f120f3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 09:05:46 UTC+07:00**
+
+Nguồn: `semantic-garment-review-sheet.png`
+
+## Ảnh 211
+
+![H01-full-1.90-back.png](../media/285e385231194ef775c7213d3cb73a7d8dda650d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:33 UTC+07:00**
+
+Nguồn: `H01-full-1.90-back.png`
+
+## Ảnh 212
+
+![H01-full-1.90-front.png](../media/1b32eb1091f3284c0210cd406ded4216e515208b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:35 UTC+07:00**
+
+Nguồn: `H01-full-1.90-front.png`
+
+## Ảnh 213
+
+![H01-full-1.90-side.png](../media/481e0486bf962c20b8ae524cefe48ac7a32201a5.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:36 UTC+07:00**
+
+Nguồn: `H01-full-1.90-side.png`
+
+## Ảnh 214
+
+![H01-full-2.60-back.png](../media/32877e89e9574cea71e6d537b8cf4f273dc1452a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:37 UTC+07:00**
+
+Nguồn: `H01-full-2.60-back.png`
+
+## Ảnh 215
+
+![H01-full-2.60-front.png](../media/2a6bbd83b7631527967df628e4eee1569f4305d4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:37 UTC+07:00**
+
+Nguồn: `H01-full-2.60-front.png`
+
+## Ảnh 216
+
+![H01-full-2.60-side.png](../media/8ef111bd539f035d86f71f67c7495d2824e73cb8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:38 UTC+07:00**
+
+Nguồn: `H01-full-2.60-side.png`
+
+## Ảnh 217
+
+![H01-full-3.10-back.png](../media/dea6fe0c101ae1c64cab6f67a581fb8f42cb0609.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:38 UTC+07:00**
+
+Nguồn: `H01-full-3.10-back.png`
+
+## Ảnh 218
+
+![H01-full-3.10-front.png](../media/b36c2567fec8e6b3c87655797babdd8bfe3907d4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:39 UTC+07:00**
+
+Nguồn: `H01-full-3.10-front.png`
+
+## Ảnh 219
+
+![H01-full-3.10-side.png](../media/dd35f3e16777bb13c69d4f27d9daf216d378575b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:40 UTC+07:00**
+
+Nguồn: `H01-full-3.10-side.png`
+
+## Ảnh 220
+
+![H01-full-3.55-front.png](../media/5146545dd52ac8ff4db6fddb95b135a475624997.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:40 UTC+07:00**
+
+Nguồn: `H01-full-3.55-front.png`
+
+## Ảnh 221
+
+![H01-full-3.55-side.png](../media/0c81fd5a7805935f859d8f3436eb40a7a0f8edc1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:41 UTC+07:00**
+
+Nguồn: `H01-full-3.55-side.png`
+
+## Ảnh 222
+
+![lifecycle-h01-driver-2_1.png](../media/762bebf034aa72b3586dc2381d5295ab837ffad7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:42 UTC+07:00**
+
+Nguồn: `lifecycle-h01-driver-2_1.png`
+
+## Ảnh 223
+
+![lifecycle-h01-source-6-after.png](../media/062a392f63b31dd188f6df9320bf018948165918.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:42 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-after.png`
+
+## Ảnh 224
+
+![lifecycle-h01-source-6-before.png](../media/37eac4f29cff993c172d4147113739c27424eeff.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:43 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-before.png`
+
+## Ảnh 225
+
+![lifecycle-h01-driver-2_1.png](../media/5e9615e912eb51e6bdd156ec231350dd5047f5ce.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:44 UTC+07:00**
+
+Nguồn: `lifecycle-h01-driver-2_1.png`
+
+## Ảnh 226
+
+![lifecycle-h01-source-6-after.png](../media/0d3535511d684574ba908c2653bfc0cbc9b19e21.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:44 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-after.png`
+
+## Ảnh 227
+
+![lifecycle-h01-source-6-before.png](../media/b3394ba1b136b642d1bbb286114920d124d4d4e4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:45 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-before.png`
+
+## Ảnh 228
+
+![semantic-garment-review-sheet.png](../media/e333a2712ea950448b243cd8e37e5b12f7c0d67a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:46 UTC+07:00**
+
+Nguồn: `semantic-garment-review-sheet.png`
+
+## Ảnh 229
+
+![semantic-garment-v3-bind-front.png](../media/008a5440f3341ef79e32d61256fa79d0e6ce4b2a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:46 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-bind-front.png`
+
+## Ảnh 230
+
+![semantic-garment-v3-held-back.png](../media/290ae8744a8bbe179d8b29fd629add9d1f7b1a01.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:47 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-held-back.png`
+
+## Ảnh 231
+
+![semantic-garment-v3-held-front.png](../media/3fe3ca96ae7aa934835bf2d0867826935531b022.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:47 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-held-front.png`
+
+## Ảnh 232
+
+![semantic-garment-v3-held-side.png](../media/1c1fc48331eb7277143e125715477bbbf7002425.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:48 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-held-side.png`
+
+## Ảnh 233
+
+![semantic-garment-v3-isolated-bind-H01_Remaining_Source-front.png](../media/8e55e809763f195ccbff8eeb50d5be7e7b95bea7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:49 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-isolated-bind-H01_Remaining_Source-front.png`
+
+## Ảnh 234
+
+![semantic-garment-v3-isolated-bind-H01_Robe_Left-front.png](../media/c8a704d6878e079256231f920f14c38c311a3396.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:49 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-isolated-bind-H01_Robe_Left-front.png`
+
+## Ảnh 235
+
+![semantic-garment-v3-isolated-bind-H01_Robe_Right-front.png](../media/6fa6fe3643543947bf1ce6542af9a2837abe2a09.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:50 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-isolated-bind-H01_Robe_Right-front.png`
+
+## Ảnh 236
+
+![semantic-garment-v3-isolated-bind-H01_Robe_Torso-front.png](../media/fdc1f54cdde43b89b99472297985d42889455fcd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:51 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-isolated-bind-H01_Robe_Torso-front.png`
+
+## Ảnh 237
+
+![semantic-garment-v3-isolated-bind-H01_Sleeve_Left-front.png](../media/8ca3b436bc6267db2ab51c4d94fb06199b0fda83.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:52 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-isolated-bind-H01_Sleeve_Left-front.png`
+
+## Ảnh 238
+
+![semantic-garment-v3-isolated-bind-H01_Sleeve_Right-front.png](../media/e03976cabd7f4ef22f82b7e03e07dbae520d5e80.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:52 UTC+07:00**
+
+Nguồn: `semantic-garment-v3-isolated-bind-H01_Sleeve_Right-front.png`
+
+## Ảnh 239
+
+![left-cuff-source-ray-picks.png](../media/72613fa5578c3b0d1658fba552b7b6b8c9b5f051.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:53 UTC+07:00**
+
+Nguồn: `left-cuff-source-ray-picks.png`
+
+## Ảnh 240
+
+![right-cuff-source-ray-picks.png](../media/33e70a2fe49c8aedf8f76b982b93404a17b27195.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:54 UTC+07:00**
+
+Nguồn: `right-cuff-source-ray-picks.png`
+
+## Ảnh 241
+
+![semantic-garment-v5-bind-back.png](../media/b5dd05e350a6ec9ca57c0b614afe2c6c1cd55ff8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:54 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-bind-back.png`
+
+## Ảnh 242
+
+![semantic-garment-v5-bind-front.png](../media/de8ae1392c26e77a24044655fbef9f41eadc513e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:55 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-bind-front.png`
+
+## Ảnh 243
+
+![semantic-garment-v5-bind-side.png](../media/60d7e58190ed9461f4f7aac65724403531d15257.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:55 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-bind-side.png`
+
+## Ảnh 244
+
+![semantic-garment-v5-held-front.png](../media/1b18df76f08e4578210d0951326426c653175ef8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:56 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-held-front.png`
+
+## Ảnh 245
+
+![semantic-garment-review-sheet.png](../media/4fb6c1c40320fc3e9b919a5cbcc57e27c977d590.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:56 UTC+07:00**
+
+Nguồn: `semantic-garment-review-sheet.png`
+
+## Ảnh 246
+
+![semantic-garment-v2-bind-front.png](../media/4efa043a730c0a9f138e81cae612a37340ec98a0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:57 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-bind-front.png`
+
+## Ảnh 247
+
+![semantic-garment-v2-held-back.png](../media/3d8af265ae1905f095700779e5c5812833d266ab.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:57 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-held-back.png`
+
+## Ảnh 248
+
+![semantic-garment-v2-held-front.png](../media/218b642690c0f417ae37ffb809dfd5741d4ca6c1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:58 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-held-front.png`
+
+## Ảnh 249
+
+![semantic-garment-v2-held-side.png](../media/9b385495a4a942fd4a9d7aff5e2cb5149043eb1b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:58 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-held-side.png`
+
+## Ảnh 250
+
+![semantic-garment-v2-isolated-bind-H01_Remaining_Source-front.png](../media/b8a40b6c3076a1d9c56e94ea5962a0374be2cabc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:59 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-isolated-bind-H01_Remaining_Source-front.png`
+
+## Ảnh 251
+
+![semantic-garment-v2-isolated-bind-H01_Robe_Left-front.png](../media/1a986050f50f421fe3f952f667e4ecc16ce90506.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:05:59 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-isolated-bind-H01_Robe_Left-front.png`
+
+## Ảnh 252
+
+![semantic-garment-v2-isolated-bind-H01_Robe_Right-front.png](../media/98510bd6ea32a8dd4e87c2211b9390258414d709.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:00 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-isolated-bind-H01_Robe_Right-front.png`
+
+## Ảnh 253
+
+![semantic-garment-v2-isolated-bind-H01_Robe_Torso-front.png](../media/75a9387fc54f056347f166a5892e68694dff0893.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:00 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-isolated-bind-H01_Robe_Torso-front.png`
+
+## Ảnh 254
+
+![semantic-garment-v2-isolated-bind-H01_Sleeve_Left-front.png](../media/4cfa4148bc829994b86582051e33adf8d0922b87.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:01 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-isolated-bind-H01_Sleeve_Left-front.png`
+
+## Ảnh 255
+
+![semantic-garment-v2-isolated-bind-H01_Sleeve_Right-front.png](../media/5b937219f55f4c67ce5910541c76564843228317.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:02 UTC+07:00**
+
+Nguồn: `semantic-garment-v2-isolated-bind-H01_Sleeve_Right-front.png`
+
+## Ảnh 256
+
+![semantic-garment-review-sheet.png](../media/04a83c79d1e1f838ddb0fb595740c9814d429d30.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:02 UTC+07:00**
+
+Nguồn: `semantic-garment-review-sheet.png`
+
+## Ảnh 257
+
+![semantic-garment-v4-bind-back.png](../media/0062dade9bb97c879d81390d8293960159a41dec.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:03 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-bind-back.png`
+
+## Ảnh 258
+
+![semantic-garment-v4-bind-front.png](../media/7217d22073b91d84d78221b5b27a7eb6423cfa14.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:03 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-bind-front.png`
+
+## Ảnh 259
+
+![semantic-garment-v4-bind-side.png](../media/f6fe9cb944aab3f12e090c2ee16d00fa8dbd034c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:04 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-bind-side.png`
+
+## Ảnh 260
+
+![semantic-garment-v4-held-back.png](../media/083ae51fcb1bedb2041364bfa21ba0c4b3c40a59.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:04 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-held-back.png`
+
+## Ảnh 261
+
+![semantic-garment-v4-held-front.png](../media/baf1838365289054ce92d831f10c0d688d061af2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:05 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-held-front.png`
+
+## Ảnh 262
+
+![semantic-garment-v4-held-side.png](../media/8337aa5bcd16b4ac5e9b2beb117f8084b832f6f6.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:05 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-held-side.png`
+
+## Ảnh 263
+
+![semantic-garment-v4-isolated-bind-H01_Remaining_Source-back.png](../media/6f4c1135d203baf0b05cc3d1cc5e87fc3b3d3e3f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:06 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Remaining_Source-back.png`
+
+## Ảnh 264
+
+![semantic-garment-v4-isolated-bind-H01_Remaining_Source-front.png](../media/abc188f93fda048c2d5de5657b0ab499a6a00b77.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:06 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Remaining_Source-front.png`
+
+## Ảnh 265
+
+![semantic-garment-v4-isolated-bind-H01_Remaining_Source-side.png](../media/f2891b5f6665c537db49001ae77f390504471406.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:07 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Remaining_Source-side.png`
+
+## Ảnh 266
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Left-back.png](../media/75c94b66f2508c846315ce3264e903c54edcbf55.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:07 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Left-back.png`
+
+## Ảnh 267
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Left-front.png](../media/c32945744493ab6d5c2d8d0b4a9efe6a058bfc85.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:08 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Left-front.png`
+
+## Ảnh 268
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Left-side.png](../media/d64e090e28e0532a711195bbe7a121805ec37ab2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:08 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Left-side.png`
+
+## Ảnh 269
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Right-back.png](../media/9d39e577215be0ff31767db6e9c6806f8e8dd70d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:09 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Right-back.png`
+
+## Ảnh 270
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Right-front.png](../media/be6f984fbcfb359bf1df8037fe21265c85868c44.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:09 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Right-front.png`
+
+## Ảnh 271
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Right-side.png](../media/dd5ff86109ebbc73723dd2df6e3c5383a30e4961.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:10 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Right-side.png`
+
+## Ảnh 272
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Torso-back.png](../media/eb84d396c4560ee3ffb9834d178ae664711e551f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:10 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Torso-back.png`
+
+## Ảnh 273
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Torso-front.png](../media/3007954237a0fd7fb15fbc6741f7d1364b0af7b6.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:11 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Torso-front.png`
+
+## Ảnh 274
+
+![semantic-garment-v4-isolated-bind-H01_Robe_Torso-side.png](../media/8d26cf89bc22be86453cc6084d64ad4481e56691.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:11 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Robe_Torso-side.png`
+
+## Ảnh 275
+
+![semantic-garment-v4-isolated-bind-H01_Sleeve_Left-back.png](../media/10ea176adae8acd3221880753130bcc2fa1e9ff9.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:12 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Sleeve_Left-back.png`
+
+## Ảnh 276
+
+![semantic-garment-v4-isolated-bind-H01_Sleeve_Left-front.png](../media/27a6a5135049858d7d4c723950165412ffaf922c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:12 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Sleeve_Left-front.png`
+
+## Ảnh 277
+
+![semantic-garment-v4-isolated-bind-H01_Sleeve_Left-side.png](../media/fad543ebd6c0c02a61c570986d7a8eb62bcbc859.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:13 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Sleeve_Left-side.png`
+
+## Ảnh 278
+
+![semantic-garment-v4-isolated-bind-H01_Sleeve_Right-back.png](../media/a2d97ff3a8486bfd38a0820b837c179cc2934fa4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:14 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Sleeve_Right-back.png`
+
+## Ảnh 279
+
+![semantic-garment-v4-isolated-bind-H01_Sleeve_Right-front.png](../media/dde8329e1cee9c03824fbdf7165f18c682b4ad5f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:14 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Sleeve_Right-front.png`
+
+## Ảnh 280
+
+![semantic-garment-v4-isolated-bind-H01_Sleeve_Right-side.png](../media/809973654303cc522778ca25176218c0705cabc9.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:15 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-H01_Sleeve_Right-side.png`
+
+## Ảnh 281
+
+![semantic-garment-v4-isolated-bind-two-panels-back.png](../media/77184ed077f7837d7401c1d08d7a1e5ae783814f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:15 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-two-panels-back.png`
+
+## Ảnh 282
+
+![semantic-garment-v4-isolated-bind-two-panels-front.png](../media/23253349f42cb3994cd709fcc224be19ea53a02c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:16 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-two-panels-front.png`
+
+## Ảnh 283
+
+![semantic-garment-v4-isolated-bind-two-panels-side.png](../media/f69d78aae52c6ff17f8df5381e7054d8f54928e2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:06:16 UTC+07:00**
+
+Nguồn: `semantic-garment-v4-isolated-bind-two-panels-side.png`
+
+## Ảnh 284
+
+![H01-lower-context-back.png](../media/12d062b7efccca32bd88c1457faf22ca7b6c9501.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:34 UTC+07:00**
+
+Nguồn: `H01-lower-context-back.png`
+
+## Ảnh 285
+
+![H01-lower-context-front.png](../media/8bd99e59bae19f64264d66a2efeb53b0a37e02fc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:36 UTC+07:00**
+
+Nguồn: `H01-lower-context-front.png`
+
+## Ảnh 286
+
+![H01-lower-context-side.png](../media/53b68321e8005e38c50d90e9943732a9f7995aea.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:37 UTC+07:00**
+
+Nguồn: `H01-lower-context-side.png`
+
+## Ảnh 287
+
+![H01-isolated-boots-back.png](../media/e2720d1ab5b1ddc4ee196bd3661a8fcb33b29e95.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:38 UTC+07:00**
+
+Nguồn: `H01-isolated-boots-back.png`
+
+## Ảnh 288
+
+![H01-isolated-boots-front.png](../media/bb9663643e0e028870a9929f47a2d2fa890a52dd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:38 UTC+07:00**
+
+Nguồn: `H01-isolated-boots-front.png`
+
+## Ảnh 289
+
+![H01-isolated-boots-side.png](../media/d6ba452671dd5a6acb932ca4bdbc883326775792.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:39 UTC+07:00**
+
+Nguồn: `H01-isolated-boots-side.png`
+
+## Ảnh 290
+
+![H02-lower-context-back.png](../media/e8fc636269d8b1e627d3fda5330e7ea8f3bc8404.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:40 UTC+07:00**
+
+Nguồn: `H02-lower-context-back.png`
+
+## Ảnh 291
+
+![H02-lower-context-front.png](../media/f062a4e5eb54a4a4b1f242b140952810de8b648c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:41 UTC+07:00**
+
+Nguồn: `H02-lower-context-front.png`
+
+## Ảnh 292
+
+![H02-lower-context-side.png](../media/46a60bbef339cdf972589f3f463d29fdbb3f819a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:42 UTC+07:00**
+
+Nguồn: `H02-lower-context-side.png`
+
+## Ảnh 293
+
+![source-bind-back.png](../media/0b126fb0bf2b757292135d58a3c8725a28b755a4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:43 UTC+07:00**
+
+Nguồn: `source-bind-back.png`
+
+## Ảnh 294
+
+![source-bind-palm.png](../media/007edeafb903cbc05866031f3640d29b08cccc3b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:44 UTC+07:00**
+
+Nguồn: `source-bind-palm.png`
+
+## Ảnh 295
+
+![source-bind-side.png](../media/5b2e58c6af4fa404bae8220cf8c6c3f22caa6e71.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:45 UTC+07:00**
+
+Nguồn: `source-bind-side.png`
+
+## Ảnh 296
+
+![lifecycle-h02-driver-3.png](../media/2b5a9bcf104afca78674ebfba613d77e20313ffc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:46 UTC+07:00**
+
+Nguồn: `lifecycle-h02-driver-3.png`
+
+## Ảnh 297
+
+![lifecycle-h02-source-6-after.png](../media/29e69ff1a750577494fa7079ef9017b366bcf413.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:46 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-after.png`
+
+## Ảnh 298
+
+![lifecycle-h02-source-6-before.png](../media/453bd8ef119773e9e417f19735ac40e828fc3e51.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:47 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-before.png`
+
+## Ảnh 299
+
+![lifecycle-h01-driver-2_1.png](../media/4f796a409de8e48195ce5a5214f48e600b6dbb38.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:47 UTC+07:00**
+
+Nguồn: `lifecycle-h01-driver-2_1.png`
+
+## Ảnh 300
+
+![lifecycle-h01-source-6-after.png](../media/6edf6717c985a00e5d9b4478c3a0c5f33cd9b769.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:48 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-after.png`
+
+## Ảnh 301
+
+![lifecycle-h01-source-6-before.png](../media/200deaa26a10317f691c861cbab25d84d512e323.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:48 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-before.png`
+
+## Ảnh 302
+
+![lifecycle-h02-driver-3.png](../media/7863ad0b15ae99e93e85a870cbf8812465b0201e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:49 UTC+07:00**
+
+Nguồn: `lifecycle-h02-driver-3.png`
+
+## Ảnh 303
+
+![lifecycle-h02-source-6-after.png](../media/647e36cfca024ed7cb117c1d00cbf13092af1f12.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:50 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-after.png`
+
+## Ảnh 304
+
+![lifecycle-h02-source-6-before.png](../media/91bfca501d6c1e1518ccdcafde61fac21ef0fb99.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:51 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-before.png`
+
+## Ảnh 305
+
+![semantic-garment-review-sheet.png](../media/864155a47b53b7e459e3ca8ebb190dd4f4b0b196.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:51 UTC+07:00**
+
+Nguồn: `semantic-garment-review-sheet.png`
+
+## Ảnh 306
+
+![semantic-garment-v5-held-back.png](../media/4d5c59d69963086c0ac197090a37da5351a3de59.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:52 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-held-back.png`
+
+## Ảnh 307
+
+![semantic-garment-v5-held-side.png](../media/ddab587e5ded347590752f5029a0a261c982afbd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:53 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-held-side.png`
+
+## Ảnh 308
+
+![semantic-garment-v5-isolated-bind-H01_Remaining_Source-back.png](../media/0160ed81a2115add370b49828be9b475e00428a7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:53 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Remaining_Source-back.png`
+
+## Ảnh 309
+
+![semantic-garment-v5-isolated-bind-H01_Remaining_Source-front.png](../media/70594053d5c565d2976bee9b8aae053008e6e1d0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:55 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Remaining_Source-front.png`
+
+## Ảnh 310
+
+![semantic-garment-v5-isolated-bind-H01_Remaining_Source-side.png](../media/1102ede61a929a4e4900a20fbbb9a5ca9ae78dd7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:56 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Remaining_Source-side.png`
+
+## Ảnh 311
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Left-back.png](../media/bf98ebfeef984bd566cca547dc68dfbde0a88a09.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:57 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Left-back.png`
+
+## Ảnh 312
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Left-front.png](../media/89de5cbd343b90662cd55a8452632565c10e7d3f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:58 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Left-front.png`
+
+## Ảnh 313
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Left-side.png](../media/202346b3450c7749cfda968eef029d22e4a1333d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:21:59 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Left-side.png`
+
+## Ảnh 314
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Right-back.png](../media/7a0b5c27e5975e38d74334ee33f61ac57f8ef479.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:01 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Right-back.png`
+
+## Ảnh 315
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Right-front.png](../media/32108bbf8da60166c0d9f2eb841250b205ac8c07.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:02 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Right-front.png`
+
+## Ảnh 316
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Right-side.png](../media/828086c394f22584428ec7a0e59ceda00241a690.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:02 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Right-side.png`
+
+## Ảnh 317
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Torso-back.png](../media/3ce29d8b6135d8d3adf986a238ff76f5bd8d8b9f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:03 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Torso-back.png`
+
+## Ảnh 318
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Torso-front.png](../media/8bc240c5cd1935b2c403e4e24e628c1cd3f5e77d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:04 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Torso-front.png`
+
+## Ảnh 319
+
+![semantic-garment-v5-isolated-bind-H01_Robe_Torso-side.png](../media/660d129072144a709d766b1c5ba5614b05e8698e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:04 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Robe_Torso-side.png`
+
+## Ảnh 320
+
+![semantic-garment-v5-isolated-bind-H01_Sleeve_Left-back.png](../media/ee8ac503753b1729ae08e8ff67ff75486cd44ebd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:05 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Sleeve_Left-back.png`
+
+## Ảnh 321
+
+![semantic-garment-v5-isolated-bind-H01_Sleeve_Left-front.png](../media/0e0a517b4b9c32cf8007c3fe1a80a06caca0b2c3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:06 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Sleeve_Left-front.png`
+
+## Ảnh 322
+
+![semantic-garment-v5-isolated-bind-H01_Sleeve_Left-side.png](../media/06d94b40945fdf780e1c1f4b3bc472249851e1e1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:07 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Sleeve_Left-side.png`
+
+## Ảnh 323
+
+![semantic-garment-v5-isolated-bind-H01_Sleeve_Right-back.png](../media/de219a085c9512c85d2679278d7fc4235d445148.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:07 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Sleeve_Right-back.png`
+
+## Ảnh 324
+
+![semantic-garment-v5-isolated-bind-H01_Sleeve_Right-front.png](../media/7d95b4aa7b6f41c50463e66c30674e5eb8f020f5.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:08 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Sleeve_Right-front.png`
+
+## Ảnh 325
+
+![semantic-garment-v5-isolated-bind-H01_Sleeve_Right-side.png](../media/c1ab2f05ff7b555f14fecf675f3cc763a918aafa.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:09 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-H01_Sleeve_Right-side.png`
+
+## Ảnh 326
+
+![semantic-garment-v5-isolated-bind-two-panels-back.png](../media/6950aaa08b075b5df68a5564c86baaf8901811f4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:09 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-two-panels-back.png`
+
+## Ảnh 327
+
+![semantic-garment-v5-isolated-bind-two-panels-front.png](../media/0f593c97e04712a8cdbaa278673956160e563394.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:10 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-two-panels-front.png`
+
+## Ảnh 328
+
+![semantic-garment-v5-isolated-bind-two-panels-side.png](../media/69587bf4fb9c1c1335c47c714a5953f0ba559151.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:10 UTC+07:00**
+
+Nguồn: `semantic-garment-v5-isolated-bind-two-panels-side.png`
+
+## Ảnh 329
+
+![semantic-garment-v6-bind-front.png](../media/4f1fd4784bc837fad7cd7ebe533b6c0692976eb8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:11 UTC+07:00**
+
+Nguồn: `semantic-garment-v6-bind-front.png`
+
+## Ảnh 330
+
+![semantic-garment-v6-bind-side.png](../media/44daf3561ee257f48539a594ced89c8416258f5f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 15:22:12 UTC+07:00**
+
+Nguồn: `semantic-garment-v6-bind-side.png`
+
+## Ảnh 331
+
+![lifecycle-h01-driver-2_1.png](../media/97f28a7f11fdeb86bc071b0c1a0de3d14f58b77f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:17 UTC+07:00**
+
+Nguồn: `lifecycle-h01-driver-2_1.png`
+
+## Ảnh 332
+
+![lifecycle-h01-source-6-after.png](../media/d86282e974f99d9b78eab6a836bfffa02aebf0c3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:18 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-after.png`
+
+## Ảnh 333
+
+![lifecycle-h01-source-6-before.png](../media/7ee1daf4de6f0f5dd102eec2cd8d2f0dcccf1d63.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:18 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-before.png`
+
+## Ảnh 334
+
+![lifecycle-h02-driver-3.png](../media/b9223ed7ff88ef1efe0551903a9d575981e2d662.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:19 UTC+07:00**
+
+Nguồn: `lifecycle-h02-driver-3.png`
+
+## Ảnh 335
+
+![lifecycle-h02-source-6-after.png](../media/98333dbbb0063f6cd7fe201f39b78227a767d539.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:19 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-after.png`
+
+## Ảnh 336
+
+![lifecycle-h02-source-6-before.png](../media/6ced63118e79ed1eae57d3e059b622be59d95522.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:20 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-before.png`
+
+## Ảnh 337
+
+![lifecycle-h01-driver-2_1.png](../media/ea11c7fadbefa6b9b8018f2efab49677ef29088c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:20 UTC+07:00**
+
+Nguồn: `lifecycle-h01-driver-2_1.png`
+
+## Ảnh 338
+
+![lifecycle-h01-source-6-after.png](../media/4a87de1bd995fd855d773f756223d948ef08a1ce.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:20 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-after.png`
+
+## Ảnh 339
+
+![lifecycle-h01-source-6-before.png](../media/4f65e8a89dc1b9864aef613007bdc748db33bf9f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:21 UTC+07:00**
+
+Nguồn: `lifecycle-h01-source-6-before.png`
+
+## Ảnh 340
+
+![lifecycle-h02-driver-3.png](../media/fc1aa2daa32b3e7da1ce1d77abb9c5cd457eedb3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:21 UTC+07:00**
+
+Nguồn: `lifecycle-h02-driver-3.png`
+
+## Ảnh 341
+
+![lifecycle-h02-source-6-after.png](../media/6f552d72816b1f8934207b606984d5401b86ce94.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:22 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-after.png`
+
+## Ảnh 342
+
+![lifecycle-h02-source-6-before.png](../media/1246bb96dd82737fcc93556b63a825e69d4a076c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-19 21:21:22 UTC+07:00**
+
+Nguồn: `lifecycle-h02-source-6-before.png`

@@ -1,0 +1,73 @@
+{
+  "passed": false,
+  "startedAt": "2026-10-19T08:18:19.777Z",
+  "scope": "Functional source-preview visibility and shared-resource ownership in cloud Chromium ANGLE SwiftShader, main renderer, DPR 1. This is not a phone FPS, Android memory, rig-completion or art-acceptance test.",
+  "settings": {
+    "viewport": {
+      "width": 960,
+      "height": 432
+    },
+    "deviceScaleFactor": 1,
+    "quality": "balanced",
+    "renderer": "main"
+  },
+  "states": [
+    {
+      "hero": "H01",
+      "label": "source-6-before",
+      "requestedTime": 6,
+      "backend": "main",
+      "pixelRatio": 1,
+      "sourceBodyVisible": true,
+      "sourceWeaponVisible": true,
+      "visibleSkinnedMeshes": [],
+      "bodyTextureSizes": [
+        "4096x4096"
+      ],
+      "weaponTextureSizes": [
+        "4096x4096"
+      ],
+      "fidelity": {
+        "status": "loaded",
+        "mesh": "Tencent Hunyuan original",
+        "bodyTriangles": 1499726,
+        "weaponTriangles": 619640,
+        "textureResolution": 4096
+      },
+      "entrance": {
+        "time": 6,
+        "complete": true
+      },
+      "sourceCache": {
+        "templates": 4,
+        "referenced": 4,
+        "leases": 4
+      },
+      "rendererMemoryCounters": {
+        "geometries": 13,
+        "textures": 28
+      },
+      "tracked": {
+        "H01-source": {
+          "geometryCount": 2,
+          "textureCount": 6,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        },
+        "H01-driver": {
+          "geometryCount": 1,
+          "textureCount": 3,
+          "geometryDisposes": 0,
+          "textureDisposes": 0
+        }
+      }
+    }
+  ],
+  "ownership": [],
+  "screenshots": [],
+  "errors": [],
+  "consoleErrors": [],
+  "browserVersion": "154.0.8037.57",
+  "failure": "page.screenshot: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - taking page screenshot\u001b[22m\n\u001b[2m  - waiting for fonts to load...\u001b[22m\n\u001b[2m  - fonts loaded\u001b[22m\n\n    at state (/workspace/Tutien/tests/manual-source-lifecycle-browser.mjs:118:18)\n    at async file:///workspace/Tutien/tests/manual-source-lifecycle-browser.mjs:136:3",
+  "finishedAt": "2026-10-19T08:19:56.645Z"
+}
