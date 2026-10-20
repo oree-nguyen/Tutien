@@ -1,0 +1,40 @@
+{
+  "recordedAt": "2026-10-20T10:23:24.245081+00:00",
+  "scope": "Cloud Linux; raw command logs copied byte-for-byte. No physical Android verification.",
+  "sourceHash": "138f6857fcb57fd16c1cbab9ce24a105345b1a39b73eb9e156a360242f878ad3",
+  "checks": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "result": "267/267 pass",
+      "log": "npm-test-latest-267.txt",
+      "sha256": "13c80220f13d4f72976b0fd8a8ba54dbf4e7a7d84d04a2338afa217db6172289",
+      "bytes": 24069
+    },
+    {
+      "command": "npm run test:master",
+      "exitCode": 0,
+      "result": "215/215 pass",
+      "log": "test-master-latest-215.txt",
+      "sha256": "e4834b5a8e9cbdf7fef10a4d855dbc3bcf163777c6f79fe6fb601bcf81082112",
+      "bytes": 21962
+    },
+    {
+      "command": "npm run verify:master",
+      "exitCode": 1,
+      "result": "BLOCKED 0/37",
+      "log": "verify-master-latest-blocked.txt",
+      "sha256": "b772acbf56c047f63bf4cd4c07460761f4704fa4ff1d3c8c79e23131411c80b4",
+      "bytes": 585
+    },
+    {
+      "command": "npm run goal:rig",
+      "exitCode": 1,
+      "result": "BLOCKED; no new accepted APK",
+      "log": "rig-goal-latest-blocked.txt",
+      "sha256": "dbdc6b689ece3b1c2d1984a4b0ff835fed25477d4e59c3beb81ac233d1f674e6",
+      "bytes": 315
+    }
+  ],
+  "newApkProduced": false
+}
