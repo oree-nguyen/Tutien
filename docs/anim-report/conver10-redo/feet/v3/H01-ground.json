@@ -1,0 +1,242 @@
+{
+  "hero": "H01",
+  "input": ".local/rig-candidates/foot-correction-v3/H01-C0-rigged.glb",
+  "inputSha256": "3c94268751c3680757207c81bd8c1d78fe789bd3eeeff04368743bbc32e1746f",
+  "selection": ".local/rig-candidates/foot-source-v3/H01/selection.json",
+  "selectionSha256": "d1b2b1250aa4b7bd2be34ca450a77a255cdb552115915fd70b5482e81cf4f82c",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "accepted": false,
+  "activated": false,
+  "scope": "Exact graph-selected lower boot source vertices and underside patch skinned at frozen diagnostic FK poses; 5mm ground criteria and unchanged1.5/2.0 edge limits. Upstream failures retained; no complete animation or semantic acceptance inferred.",
+  "samples": [
+    {
+      "poseFile": "docs/anim-report/conver10-redo/animation/stances/H01-ground.json",
+      "poseSha256": "411784ed4745551eeb82b9a15d760715c42d61311cadc55b5a9186d2762252fd",
+      "clip": null,
+      "time": null,
+      "upstreamPassed": true,
+      "sourcePoseRigSha256": null,
+      "sides": {
+        "Left": {
+          "vertices": 30395,
+          "soleVertices": 661,
+          "minimumY": -0.35051677734171105,
+          "maximumY": 0.37304241524382,
+          "soleMinimumY": -0.0011119170898873708,
+          "soleMaximumY": 0.002458801401952706,
+          "minimumSource": {
+            "nodeIndex": 55,
+            "primitiveIndex": 0,
+            "vertex": 15905,
+            "sourceVertexId": 219565,
+            "bind": [
+              0.15922844409942627,
+              0.3586941063404083,
+              -0.11768561601638794
+            ],
+            "posed": [
+              0.32942913622727665,
+              -0.35051677734171105,
+              -0.16677785409726617
+            ]
+          }
+        },
+        "Right": {
+          "vertices": 30165,
+          "soleVertices": 621,
+          "minimumY": -0.3263911226191557,
+          "maximumY": 0.1935800014203985,
+          "soleMinimumY": 0.09953127964431957,
+          "soleMaximumY": 0.19336206981968218,
+          "minimumSource": {
+            "nodeIndex": 56,
+            "primitiveIndex": 0,
+            "vertex": 45223,
+            "sourceVertexId": 444599,
+            "bind": [
+              -0.12404521554708481,
+              0.42157983779907227,
+              -0.09958265721797943
+            ],
+            "posed": [
+              0.043915965548173404,
+              -0.3263911226191557,
+              -0.21946643464069693
+            ]
+          }
+        }
+      },
+      "edgeStrainPassed": false,
+      "strains": [
+        {
+          "nodeIndex": 54,
+          "primitiveIndex": 0,
+          "node": "H01_Remaining_Source",
+          "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+          "passed": false,
+          "p999": 1.58771171455447,
+          "maximum": 1.6296315161215504,
+          "minimum": 0.6936003793752714,
+          "edges": 120590,
+          "triangles": 76089,
+          "selectedTriangles": 76089,
+          "areaRatios": {
+            "minimum": 0.5033891412308198,
+            "maximum": 100.27793810222134,
+            "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+          },
+          "sourceDiagnostics": {},
+          "thresholds": {
+            "p999": 1.5,
+            "maximum": 2
+          },
+          "numerical": {
+            "minimumSourceEdgeMeters": 1e-12,
+            "minimumSourceDoubleAreaSquareMeters": 1e-24,
+            "collapseRatio": 1e-12
+          },
+          "worst": {
+            "a": 155514,
+            "b": 155508,
+            "bindLength": 0.003849356756104023,
+            "posedLength": 0.006273033086542533,
+            "sourceA": [
+              -0.15768195688724518,
+              0.22348563373088837,
+              -0.10106661915779114
+            ],
+            "sourceB": [
+              -0.15872494876384735,
+              0.22718064486980438,
+              -0.10134340077638626
+            ],
+            "posedA": [
+              -0.04090248102470896,
+              0.13537059994495673,
+              -0.17559190664516516
+            ],
+            "posedB": [
+              -0.04382479978594298,
+              0.13740089097310176,
+              -0.17042577506499507
+            ]
+          },
+          "issues": [],
+          "issueCounts": {}
+        },
+        {
+          "nodeIndex": 55,
+          "primitiveIndex": 0,
+          "node": "H01_Robe_Left",
+          "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+          "passed": false,
+          "p999": 26.042333678345464,
+          "maximum": 26.58960267522384,
+          "minimum": 0.1145756783615327,
+          "edges": 26650,
+          "triangles": 17037,
+          "selectedTriangles": 17037,
+          "areaRatios": {
+            "minimum": 0.06596770561461848,
+            "maximum": 163.38987959194898,
+            "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+          },
+          "sourceDiagnostics": {},
+          "thresholds": {
+            "p999": 1.5,
+            "maximum": 2
+          },
+          "numerical": {
+            "minimumSourceEdgeMeters": 1e-12,
+            "minimumSourceDoubleAreaSquareMeters": 1e-24,
+            "collapseRatio": 1e-12
+          },
+          "worst": {
+            "a": 23061,
+            "b": 23067,
+            "bindLength": 0.0027133561899096853,
+            "posedLength": 0.07214706300605774,
+            "sourceA": [
+              0.0851653516292572,
+              0.4155033230781555,
+              -0.028076207265257835
+            ],
+            "sourceB": [
+              0.08613015711307526,
+              0.41375038027763367,
+              -0.0262435469776392
+            ],
+            "posedA": [
+              0.2731319826915484,
+              -0.03625758878021756,
+              -0.05302819960529653
+            ],
+            "posedB": [
+              0.2817296071187915,
+              0.03298083439067925,
+              -0.03466191768935189
+            ]
+          },
+          "issues": [],
+          "issueCounts": {}
+        },
+        {
+          "nodeIndex": 56,
+          "primitiveIndex": 0,
+          "node": "H01_Robe_Right",
+          "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+          "passed": false,
+          "p999": 20.323233666317215,
+          "maximum": 20.901825349841307,
+          "minimum": 0.06834601631851939,
+          "edges": 17488,
+          "triangles": 11291,
+          "selectedTriangles": 11291,
+          "areaRatios": {
+            "minimum": 0.08409175799349991,
+            "maximum": 52.9499521468064,
+            "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+          },
+          "sourceDiagnostics": {},
+          "thresholds": {
+            "p999": 1.5,
+            "maximum": 2
+          },
+          "numerical": {
+            "minimumSourceEdgeMeters": 1e-12,
+            "minimumSourceDoubleAreaSquareMeters": 1e-24,
+            "collapseRatio": 1e-12
+          },
+          "worst": {
+            "a": 48081,
+            "b": 44006,
+            "bindLength": 0.0019805244242903555,
+            "posedLength": 0.04139657561761201,
+            "sourceA": [
+              -0.17479197680950165,
+              0.4111749827861786,
+              -0.08846474438905716
+            ],
+            "sourceB": [
+              -0.17357540130615234,
+              0.41262924671173096,
+              -0.08903705328702927
+            ],
+            "posedA": [
+              -0.08281730548550975,
+              -0.047212549951786746,
+              -0.08544216889422677
+            ],
+            "posedB": [
+              -0.07219888784285373,
+              -0.08378036960907669,
+              -0.10168163456101274
+            ]
+          },
+          "issues": [],
+          "issueCounts": {}
+        }
+      ]
+    }
+  ]
+}
