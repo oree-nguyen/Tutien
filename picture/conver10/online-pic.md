@@ -3762,7 +3762,7 @@ Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-closed-p
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:42:39 UTC+07:00**
 
-Nguồn: `historical-stance-front.png`
+Nguồn: `historical-stance-front.png`, `docs/anim-report/conver10-redo/animation/forward-stance/historical-stance-front.png`
 
 ## Ảnh 446
 
@@ -3770,7 +3770,7 @@ Nguồn: `historical-stance-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:42:40 UTC+07:00**
 
-Nguồn: `historical-stance-side.png`
+Nguồn: `historical-stance-side.png`, `docs/anim-report/conver10-redo/animation/forward-stance/historical-stance-side.png`
 
 ## Ảnh 447
 
@@ -3778,7 +3778,7 @@ Nguồn: `historical-stance-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:42:40 UTC+07:00**
 
-Nguồn: `historical-stance-back.png`
+Nguồn: `historical-stance-back.png`, `docs/anim-report/conver10-redo/animation/forward-stance/historical-stance-back.png`
 
 ## Ảnh 448
 
@@ -3786,7 +3786,7 @@ Nguồn: `historical-stance-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:42:41 UTC+07:00**
 
-Nguồn: `forward-stance-front.png`
+Nguồn: `forward-stance-front.png`, `docs/anim-report/conver10-redo/animation/forward-stance/forward-stance-front.png`
 
 ## Ảnh 449
 
@@ -3794,7 +3794,7 @@ Nguồn: `forward-stance-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:42:41 UTC+07:00**
 
-Nguồn: `forward-stance-side.png`
+Nguồn: `forward-stance-side.png`, `docs/anim-report/conver10-redo/animation/forward-stance/forward-stance-side.png`
 
 ## Ảnh 450
 
@@ -3802,7 +3802,7 @@ Nguồn: `forward-stance-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:42:41 UTC+07:00**
 
-Nguồn: `forward-stance-back.png`
+Nguồn: `forward-stance-back.png`, `docs/anim-report/conver10-redo/animation/forward-stance/forward-stance-back.png`
 
 ## Ảnh 451
 
@@ -3810,7 +3810,7 @@ Nguồn: `forward-stance-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:42:42 UTC+07:00**
 
-Nguồn: `stance-sheet.png`
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/animation/forward-stance/stance-sheet.png`
 
 ## Ảnh 452
 
@@ -3818,7 +3818,7 @@ Nguồn: `stance-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:32:27 UTC+07:00**
 
-Nguồn: `leg-support-back.png`
+Nguồn: `leg-support-back.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v1/preview/leg-support-back.png`
 
 ## Ảnh 453
 
@@ -3826,7 +3826,7 @@ Nguồn: `leg-support-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:32:28 UTC+07:00**
 
-Nguồn: `leg-support-front.png`
+Nguồn: `leg-support-front.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v1/preview/leg-support-front.png`
 
 ## Ảnh 454
 
@@ -3834,7 +3834,7 @@ Nguồn: `leg-support-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:32:29 UTC+07:00**
 
-Nguồn: `leg-support-side.png`
+Nguồn: `leg-support-side.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v1/preview/leg-support-side.png`
 
 ## Ảnh 455
 
@@ -3842,7 +3842,7 @@ Nguồn: `leg-support-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:32:29 UTC+07:00**
 
-Nguồn: `stance-sheet.png`
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v1/preview/stance-sheet.png`
 
 ## Ảnh 456
 
@@ -3850,7 +3850,7 @@ Nguồn: `stance-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:36:14 UTC+07:00**
 
-Nguồn: `leg-support-back.png`
+Nguồn: `leg-support-back.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v2/preview/leg-support-back.png`
 
 ## Ảnh 457
 
@@ -3858,7 +3858,7 @@ Nguồn: `leg-support-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:36:15 UTC+07:00**
 
-Nguồn: `leg-support-front.png`
+Nguồn: `leg-support-front.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v2/preview/leg-support-front.png`
 
 ## Ảnh 458
 
@@ -3866,7 +3866,7 @@ Nguồn: `leg-support-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:36:15 UTC+07:00**
 
-Nguồn: `leg-support-side.png`
+Nguồn: `leg-support-side.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v2/preview/leg-support-side.png`
 
 ## Ảnh 459
 
@@ -3874,7 +3874,7 @@ Nguồn: `leg-support-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:36:16 UTC+07:00**
 
-Nguồn: `stance-sheet.png`
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v2/preview/stance-sheet.png`
 
 ## Ảnh 460
 
@@ -3882,7 +3882,7 @@ Nguồn: `stance-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:39:45 UTC+07:00**
 
-Nguồn: `leg-support-back.png`
+Nguồn: `leg-support-back.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v3/preview/leg-support-back.png`
 
 ## Ảnh 461
 
@@ -3890,7 +3890,7 @@ Nguồn: `leg-support-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:39:45 UTC+07:00**
 
-Nguồn: `leg-support-front.png`
+Nguồn: `leg-support-front.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v3/preview/leg-support-front.png`
 
 ## Ảnh 462
 
@@ -3898,7 +3898,7 @@ Nguồn: `leg-support-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:39:46 UTC+07:00**
 
-Nguồn: `leg-support-side.png`
+Nguồn: `leg-support-side.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v3/preview/leg-support-side.png`
 
 ## Ảnh 463
 
@@ -3906,7 +3906,7 @@ Nguồn: `leg-support-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:39:46 UTC+07:00**
 
-Nguồn: `stance-sheet.png`
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v3/preview/stance-sheet.png`
 
 ## Ảnh 464
 
@@ -3914,7 +3914,7 @@ Nguồn: `stance-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:47:58 UTC+07:00**
 
-Nguồn: `leg-support-back.png`
+Nguồn: `leg-support-back.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v3/head-aligned/leg-support-back.png`
 
 ## Ảnh 465
 
@@ -3922,7 +3922,7 @@ Nguồn: `leg-support-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:47:59 UTC+07:00**
 
-Nguồn: `leg-support-front.png`
+Nguồn: `leg-support-front.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v3/head-aligned/leg-support-front.png`
 
 ## Ảnh 466
 
@@ -3930,7 +3930,7 @@ Nguồn: `leg-support-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:48:00 UTC+07:00**
 
-Nguồn: `leg-support-side.png`
+Nguồn: `leg-support-side.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v3/head-aligned/leg-support-side.png`
 
 ## Ảnh 467
 
@@ -3938,7 +3938,7 @@ Nguồn: `leg-support-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:48:00 UTC+07:00**
 
-Nguồn: `stance-sheet.png`
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/feet/lower-leg-v3/head-aligned/stance-sheet.png`
 
 ## Ảnh 468
 
@@ -3946,7 +3946,7 @@ Nguồn: `stance-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:48:07 UTC+07:00**
 
-Nguồn: `H02-full-1e48c1b5-1.25-front.png`
+Nguồn: `H02-full-1e48c1b5-1.25-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v5/H02-full-1e48c1b5-1.25-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v6/H02-full-2fb7a83d-1.25-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-full-2fb7a83d-1.25-front.png`
 
 ## Ảnh 469
 
@@ -3954,7 +3954,7 @@ Nguồn: `H02-full-1e48c1b5-1.25-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:48:07 UTC+07:00**
 
-Nguồn: `H02-full-1e48c1b5-13.50-front.png`
+Nguồn: `H02-full-1e48c1b5-13.50-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v5/H02-full-1e48c1b5-13.50-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v6/H02-full-2fb7a83d-13.50-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-full-2fb7a83d-13.50-front.png`
 
 ## Ảnh 470
 
@@ -3962,7 +3962,7 @@ Nguồn: `H02-full-1e48c1b5-13.50-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:48:07 UTC+07:00**
 
-Nguồn: `H02-full-1e48c1b5-2.40-front.png`
+Nguồn: `H02-full-1e48c1b5-2.40-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v5/H02-full-1e48c1b5-2.40-front.png`
 
 ## Ảnh 471
 
@@ -3970,7 +3970,7 @@ Nguồn: `H02-full-1e48c1b5-2.40-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:48:08 UTC+07:00**
 
-Nguồn: `H02-full-1e48c1b5-3.50-front.png`
+Nguồn: `H02-full-1e48c1b5-3.50-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v5/H02-full-1e48c1b5-3.50-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v6/H02-full-2fb7a83d-3.50-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-full-2fb7a83d-3.50-front.png`
 
 ## Ảnh 472
 
@@ -3978,7 +3978,7 @@ Nguồn: `H02-full-1e48c1b5-3.50-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:50:08 UTC+07:00**
 
-Nguồn: `forward-stance-back.png`
+Nguồn: `forward-stance-back.png`, `docs/anim-report/conver10-redo/animation/forward-h01/forward-stance-back.png`
 
 ## Ảnh 473
 
@@ -3986,7 +3986,7 @@ Nguồn: `forward-stance-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:50:08 UTC+07:00**
 
-Nguồn: `forward-stance-front.png`
+Nguồn: `forward-stance-front.png`, `docs/anim-report/conver10-redo/animation/forward-h01/forward-stance-front.png`
 
 ## Ảnh 474
 
@@ -3994,7 +3994,7 @@ Nguồn: `forward-stance-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:50:09 UTC+07:00**
 
-Nguồn: `forward-stance-side.png`
+Nguồn: `forward-stance-side.png`, `docs/anim-report/conver10-redo/animation/forward-h01/forward-stance-side.png`
 
 ## Ảnh 475
 
@@ -4002,7 +4002,7 @@ Nguồn: `forward-stance-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:50:09 UTC+07:00**
 
-Nguồn: `historical-stance-back.png`
+Nguồn: `historical-stance-back.png`, `docs/anim-report/conver10-redo/animation/forward-h01/historical-stance-back.png`
 
 ## Ảnh 476
 
@@ -4010,7 +4010,7 @@ Nguồn: `historical-stance-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:50:10 UTC+07:00**
 
-Nguồn: `historical-stance-front.png`
+Nguồn: `historical-stance-front.png`, `docs/anim-report/conver10-redo/animation/forward-h01/historical-stance-front.png`
 
 ## Ảnh 477
 
@@ -4018,7 +4018,7 @@ Nguồn: `historical-stance-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:50:10 UTC+07:00**
 
-Nguồn: `historical-stance-side.png`
+Nguồn: `historical-stance-side.png`, `docs/anim-report/conver10-redo/animation/forward-h01/historical-stance-side.png`
 
 ## Ảnh 478
 
@@ -4026,7 +4026,7 @@ Nguồn: `historical-stance-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:50:10 UTC+07:00**
 
-Nguồn: `stance-sheet.png`
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/animation/forward-h01/stance-sheet.png`
 
 ## Ảnh 479
 
@@ -4034,7 +4034,7 @@ Nguồn: `stance-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:51:51 UTC+07:00**
 
-Nguồn: `H02-full-2fb7a83d-1.25-side.png`
+Nguồn: `H02-full-2fb7a83d-1.25-side.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v6/H02-full-2fb7a83d-1.25-side.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-full-2fb7a83d-1.25-side.png`
 
 ## Ảnh 480
 
@@ -4042,7 +4042,7 @@ Nguồn: `H02-full-2fb7a83d-1.25-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:51:52 UTC+07:00**
 
-Nguồn: `H02-full-2fb7a83d-13.50-side.png`
+Nguồn: `H02-full-2fb7a83d-13.50-side.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v6/H02-full-2fb7a83d-13.50-side.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-full-2fb7a83d-13.50-side.png`
 
 ## Ảnh 481
 
@@ -4050,7 +4050,7 @@ Nguồn: `H02-full-2fb7a83d-13.50-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:51:52 UTC+07:00**
 
-Nguồn: `H02-full-2fb7a83d-2.40-front.png`
+Nguồn: `H02-full-2fb7a83d-2.40-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v6/H02-full-2fb7a83d-2.40-front.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-full-2fb7a83d-2.40-front.png`
 
 ## Ảnh 482
 
@@ -4058,7 +4058,7 @@ Nguồn: `H02-full-2fb7a83d-2.40-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:51:52 UTC+07:00**
 
-Nguồn: `H02-full-2fb7a83d-2.40-side.png`
+Nguồn: `H02-full-2fb7a83d-2.40-side.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v6/H02-full-2fb7a83d-2.40-side.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-full-2fb7a83d-2.40-side.png`
 
 ## Ảnh 483
 
@@ -4066,7 +4066,7 @@ Nguồn: `H02-full-2fb7a83d-2.40-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 02:51:53 UTC+07:00**
 
-Nguồn: `H02-full-2fb7a83d-3.50-side.png`
+Nguồn: `H02-full-2fb7a83d-3.50-side.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v6/H02-full-2fb7a83d-3.50-side.png`, `docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-full-2fb7a83d-3.50-side.png`
 
 ## Ảnh 484
 
@@ -4074,7 +4074,7 @@ Nguồn: `H02-full-2fb7a83d-3.50-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 03:01:32 UTC+07:00**
 
-Nguồn: `leg-support-front.png`
+Nguồn: `leg-support-front.png`, `docs/anim-report/conver10-redo/animation/forward-h01/coat-crouch-retry/leg-support-front.png`, `docs/anim-report/conver10-redo/animation/forward-h01/coat-crouch/leg-support-front.png`
 
 ## Ảnh 485
 
@@ -4082,7 +4082,7 @@ Nguồn: `leg-support-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 03:03:17 UTC+07:00**
 
-Nguồn: `leg-support-back.png`
+Nguồn: `leg-support-back.png`, `docs/anim-report/conver10-redo/animation/forward-h01/coat-crouch-retry/leg-support-back.png`
 
 ## Ảnh 486
 
@@ -4090,7 +4090,7 @@ Nguồn: `leg-support-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 03:03:18 UTC+07:00**
 
-Nguồn: `leg-support-side.png`
+Nguồn: `leg-support-side.png`, `docs/anim-report/conver10-redo/animation/forward-h01/coat-crouch-retry/leg-support-side.png`
 
 ## Ảnh 487
 
@@ -4098,4 +4098,380 @@ Nguồn: `leg-support-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 03:03:19 UTC+07:00**
 
-Nguồn: `stance-sheet.png`
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/animation/forward-h01/coat-crouch-retry/stance-sheet.png`
+
+## Ảnh 488
+
+![leg-support-back.png](../media/f32c84cac111d6d168722a4173249a7d37da7df1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:50:29 UTC+07:00**
+
+Nguồn: `leg-support-back.png`, `docs/anim-report/conver10-redo/secondary-cloth-v1/preview/leg-support-back.png`
+
+## Ảnh 489
+
+![leg-support-front.png](../media/dbaeed92b0ce3831e0c2da19b9f02c6f9e5c0a26.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:23 UTC+07:00**
+
+Nguồn: `leg-support-front.png`, `docs/anim-report/conver10-redo/secondary-cloth-v1/preview/leg-support-front.png`
+
+## Ảnh 490
+
+![leg-support-side.png](../media/39b724d284eec6a900085ae6168ae6d910f0074d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:24 UTC+07:00**
+
+Nguồn: `leg-support-side.png`, `docs/anim-report/conver10-redo/secondary-cloth-v1/preview/leg-support-side.png`
+
+## Ảnh 491
+
+![stance-sheet.png](../media/e63378fcc175bb337fc7545ac5a19f1a6d49eb96.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:24 UTC+07:00**
+
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/secondary-cloth-v1/preview/stance-sheet.png`
+
+## Ảnh 492
+
+![H01-full-8008d9bb-2.60-back.png](../media/d0b3466d804d82a2334b7ca960b5e8264794b25a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:56 UTC+07:00**
+
+Nguồn: `H01-full-8008d9bb-2.60-back.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v1/H01-full-8008d9bb-2.60-back.png`
+
+## Ảnh 493
+
+![H01-full-8008d9bb-2.60-front.png](../media/a5e98a08dbd1dbc77f679628da2128c8cfe79562.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:57 UTC+07:00**
+
+Nguồn: `H01-full-8008d9bb-2.60-front.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v1/H01-full-8008d9bb-2.60-front.png`
+
+## Ảnh 494
+
+![H01-full-8008d9bb-2.60-side.png](../media/73a9acb2c382cd01f2415e6262b8a4ad5738562e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:57 UTC+07:00**
+
+Nguồn: `H01-full-8008d9bb-2.60-side.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v1/H01-full-8008d9bb-2.60-side.png`
+
+## Ảnh 495
+
+![H01-full-8008d9bb-4.10-back.png](../media/e6aa024d6655267c0f61e79f2e78decb11ed27dd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:58 UTC+07:00**
+
+Nguồn: `H01-full-8008d9bb-4.10-back.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v1/H01-full-8008d9bb-4.10-back.png`
+
+## Ảnh 496
+
+![H01-full-8008d9bb-4.10-front.png](../media/eafd8194deccbe9739a03e037f3376d22a82f87e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:58 UTC+07:00**
+
+Nguồn: `H01-full-8008d9bb-4.10-front.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v1/H01-full-8008d9bb-4.10-front.png`
+
+## Ảnh 497
+
+![H01-full-8008d9bb-4.10-side.png](../media/643761d27e03ed053e4c4db3088bd93b711bbf25.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 05:54:58 UTC+07:00**
+
+Nguồn: `H01-full-8008d9bb-4.10-side.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v1/H01-full-8008d9bb-4.10-side.png`
+
+## Ảnh 498
+
+![leg-support-back.png](../media/38c5e2a8d3586f47cc9bf3a1dbc65eee08c23b0d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:33 UTC+07:00**
+
+Nguồn: `leg-support-back.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/preview/leg-support-back.png`
+
+## Ảnh 499
+
+![leg-support-front.png](../media/708ab444d4f287a8573dcf154a4734937ef0f490.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:35 UTC+07:00**
+
+Nguồn: `leg-support-front.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/preview/leg-support-front.png`
+
+## Ảnh 500
+
+![leg-support-side.png](../media/34b326125ee8f80dd0858d07e9c7c478e12eec39.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:35 UTC+07:00**
+
+Nguồn: `leg-support-side.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/preview/leg-support-side.png`
+
+## Ảnh 501
+
+![stance-sheet.png](../media/dcfd0a9597049e45b2ce2b359b54506b6272a32f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:36 UTC+07:00**
+
+Nguồn: `stance-sheet.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/preview/stance-sheet.png`
+
+## Ảnh 502
+
+![H01-isolated-boots-back.png](../media/ca9566092fdc026bc48506dc8e28c087c4740516.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:36 UTC+07:00**
+
+Nguồn: `H01-isolated-boots-back.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/isolated/H01-isolated-boots-back.png`
+
+## Ảnh 503
+
+![H01-isolated-boots-front.png](../media/b0f75fd11114c37f4c31ce7624603daed367cc27.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:37 UTC+07:00**
+
+Nguồn: `H01-isolated-boots-front.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/isolated/H01-isolated-boots-front.png`
+
+## Ảnh 504
+
+![H01-isolated-boots-side.png](../media/d7fcb15de54cb21402fdc01f4c3545b3e390fda5.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:37 UTC+07:00**
+
+Nguồn: `H01-isolated-boots-side.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/isolated/H01-isolated-boots-side.png`
+
+## Ảnh 505
+
+![H01-lower-context-back.png](../media/94e6646e39dd8c3911a65b64bc440ad20c402948.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:38 UTC+07:00**
+
+Nguồn: `H01-lower-context-back.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/isolated/H01-lower-context-back.png`
+
+## Ảnh 506
+
+![H01-lower-context-front.png](../media/d6b7e4ce82908af19e37ccc74afd78473fb422ba.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:38 UTC+07:00**
+
+Nguồn: `H01-lower-context-front.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/isolated/H01-lower-context-front.png`
+
+## Ảnh 507
+
+![H01-lower-context-side.png](../media/de8cedcf10a118ddf93fea7044ee617d8199fcb6.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:04:39 UTC+07:00**
+
+Nguồn: `H01-lower-context-side.png`, `docs/anim-report/conver10-redo/feet/lower-leg-h01-v1/isolated/H01-lower-context-side.png`
+
+## Ảnh 508
+
+![bind-left-back.png](../media/17f6d62b434d164282208d2f202319cf3c6df5e8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:13 UTC+07:00**
+
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/bind-left-back.png`
+
+## Ảnh 509
+
+![bind-left-front.png](../media/49c541d72d2460b52e707136d96a7afc411684fd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:14 UTC+07:00**
+
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/bind-left-front.png`
+
+## Ảnh 510
+
+![bind-right-back.png](../media/c3669f1b4cb25dca98e8b53bfd7a4f3909892ede.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:15 UTC+07:00**
+
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/bind-right-back.png`
+
+## Ảnh 511
+
+![bind-right-front.png](../media/6fb0ace2755a1faddf98e2c00acdd9273e57fe7c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:15 UTC+07:00**
+
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/bind-right-front.png`
+
+## Ảnh 512
+
+![cut-boundary-sheet.png](../media/854e415f357a0accf92001bd7727ae037647aacb.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:15 UTC+07:00**
+
+Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/cut-boundary-sheet.png`
+
+## Ảnh 513
+
+![held-left-back.png](../media/75ca6e8691b2c613d8110ffb0f4ab323964c996a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:16 UTC+07:00**
+
+Nguồn: `held-left-back.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/held-left-back.png`
+
+## Ảnh 514
+
+![held-left-front.png](../media/026bb3a3f8dd4479cec228fe1c24e6eb06e566d3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:16 UTC+07:00**
+
+Nguồn: `held-left-front.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/held-left-front.png`
+
+## Ảnh 515
+
+![held-right-back.png](../media/d124557d976ba4d129ba842a516809bb1a472ee8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:16 UTC+07:00**
+
+Nguồn: `held-right-back.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/held-right-back.png`
+
+## Ảnh 516
+
+![held-right-front.png](../media/755beab90b19a3c5143e90c685f0d400851a6e3f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:06:17 UTC+07:00**
+
+Nguồn: `held-right-front.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v1/preview/held-right-front.png`
+
+## Ảnh 517
+
+![bind-left-back.png](../media/48814d8c8d9733800fcde93e440fb18e8621d168.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:50 UTC+07:00**
+
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/bind-left-back.png`
+
+## Ảnh 518
+
+![bind-left-front.png](../media/f39580fcbff16e08f90b51a2b72baeb34da648db.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:52 UTC+07:00**
+
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/bind-left-front.png`
+
+## Ảnh 519
+
+![bind-right-back.png](../media/d40099439f58c996cf9c3c5b0762529a18608eeb.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:52 UTC+07:00**
+
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/bind-right-back.png`
+
+## Ảnh 520
+
+![bind-right-front.png](../media/a5bcb195b01ae23f54722f3fc5973663c9cbc8f0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:53 UTC+07:00**
+
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/bind-right-front.png`
+
+## Ảnh 521
+
+![cut-boundary-sheet.png](../media/bd077fd0773ff858cdd8cb235f2cbe418003cde2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:53 UTC+07:00**
+
+Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/cut-boundary-sheet.png`
+
+## Ảnh 522
+
+![held-left-back.png](../media/36071c62e4ee54f410f49dbb9f1956054ae762d6.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:54 UTC+07:00**
+
+Nguồn: `held-left-back.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/held-left-back.png`
+
+## Ảnh 523
+
+![held-left-front.png](../media/9438ff2be00877a9de1f3be7db58fa5a1fbec9cb.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:54 UTC+07:00**
+
+Nguồn: `held-left-front.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/held-left-front.png`
+
+## Ảnh 524
+
+![held-right-back.png](../media/9843752ec3312a62c8054374de5e50e0f6c55eed.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:55 UTC+07:00**
+
+Nguồn: `held-right-back.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/held-right-back.png`
+
+## Ảnh 525
+
+![held-right-front.png](../media/c1e09cd0516512561c217f9926b2ccac0b791bcc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:11:56 UTC+07:00**
+
+Nguồn: `held-right-front.png`, `docs/anim-report/conver10-redo/coat-boot-cut-v2/preview/held-right-front.png`
+
+## Ảnh 526
+
+![H01-full-dcb658dd-2.60-back.png](../media/f26fca5c95129dd49dd85ddcb662ec39f1eae51a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:52 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-2.60-back.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-2.60-back.png`
+
+## Ảnh 527
+
+![H01-full-dcb658dd-2.60-front.png](../media/35b4c806d7ca225aae8589e6440d07d3cd73e8cb.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:53 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-2.60-front.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-2.60-front.png`
+
+## Ảnh 528
+
+![H01-full-dcb658dd-2.60-side.png](../media/7e955c405b2b28595dd48560d1bde6bae3a16e30.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:54 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-2.60-side.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-2.60-side.png`
+
+## Ảnh 529
+
+![H01-full-dcb658dd-3.00-back.png](../media/75dd7e85258db42b05115710bc92dd44488b6fba.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:54 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-3.00-back.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-3.00-back.png`
+
+## Ảnh 530
+
+![H01-full-dcb658dd-3.00-front.png](../media/52a962c0bf7d81c5ac38ba8d30f136b4c87b4faa.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:55 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-3.00-front.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-3.00-front.png`
+
+## Ảnh 531
+
+![H01-full-dcb658dd-3.00-side.png](../media/3db03e3d879fa2e02612d009de98cd68adc641c0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:55 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-3.00-side.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-3.00-side.png`
+
+## Ảnh 532
+
+![H01-full-dcb658dd-4.10-back.png](../media/42e1576f08457797f72b64adaf46bd9955adb7b3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:55 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-4.10-back.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-4.10-back.png`
+
+## Ảnh 533
+
+![H01-full-dcb658dd-4.10-front.png](../media/307b073afef82ff8fa73fff4b448cf9c482dda0c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:56 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-4.10-front.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-4.10-front.png`
+
+## Ảnh 534
+
+![H01-full-dcb658dd-4.10-side.png](../media/d704a7b65f3c4fa38441924c7337149e655fa37f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 06:13:56 UTC+07:00**
+
+Nguồn: `H01-full-dcb658dd-4.10-side.png`, `docs/anim-report/conver10-redo/animation/h01-keys-v6/H01-full-dcb658dd-4.10-side.png`
