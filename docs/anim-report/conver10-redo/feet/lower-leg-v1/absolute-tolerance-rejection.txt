@@ -1,0 +1,13 @@
+{"freeGroups": 275342, "protectedSourceVertices": 37122, "cores": {"Left": {"sourceVertices": 69027, "hardSourceVertices": 65956, "bounds": [[0.039743680506944656, 2.562004010542296e-05, -0.12830907106399536], [0.2891896665096283, 0.599998414516449, 0.18887953460216522]]}, "Right": {"sourceVertices": 69275, "hardSourceVertices": 66460, "bounds": [[-0.2882001996040344, 0.0, -0.12859682738780975], [-0.03780623897910118, 0.5998899340629578, 0.18927764892578125]]}}}
+{'joint': 'Hips', 'residual': 9.321651572956221e-07}
+{'joint': 'Spine', 'residual': 8.793556695717992e-07}
+Traceback (most recent call last):
+  File "/workspace/Tutien/tools/rig/lower_leg_supports.py", line 77, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/Tutien/tools/rig/lower_leg_supports.py", line 63, in main
+    solved,details=solve_support_fields(matrix,rhs,dense[free],joint_names,hierarchy.aspreconditioner(cycle='V'),nonnegative=True)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/Tutien/tools/rig/source_garment_graph.py", line 113, in solve_support_fields
+    raise RuntimeError(f'Dirichlet solve rejected: {joint_names[joint]} info={info} residual={residual}')
+RuntimeError: Dirichlet solve rejected: LeftArm info=0 residual=5.550277537593612e-05

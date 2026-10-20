@@ -7,25 +7,25 @@
       "id": "garment",
       "condition": "Hai vạt H01 độc lập; biên áo/tay/thân hợp lý, không giả phần thân bị thiếu",
       "status": "in_progress",
-      "note": "Explicit948-edge source cuts; independent4,499,178corner proof. Derived1884cloth closure faces and same-piece4096PBR transfer implemented in staging. Ragged rims, loose strips and crossings476→754 still block review. No pattern registry approval or activation."
+      "note": "H01 source-corner cuts and4096PBR closure remain staging. Collision-guided retriangulation tried4times:746/779/749/774crossings versus476withoutclosures. No pattern approval or activation; new crouch still breaks and penetrates floor."
     },
     {
       "id": "skin",
       "condition": "Kiểm toàn bộ mesh, không chỉ mesh đầu: p99.9 <= 1.5 và maximum <= 2.0; không đổi ngưỡng",
       "status": "blocked",
-      "note": "Source-cut pose fit passes8/8primitives; derived closures14/14 at one held pose, unchanged1.5/2.0limits. Kept seams0mm. Full animation, sections, source-pattern/derived-face approval and actual boot-floor contact remain blocked."
+      "note": "H02 actual boot support fixed at source graph. Frozen crouch boot minimum−0.849/−1.759mm, kept seams0mm; wholemesh p9994.221529/max8.482240 still fails1.5/2.0. Entire garment can reach−552.256mm. H01 crouch remains rejected."
     },
     {
       "id": "contact",
       "condition": "H01/H02 qua kiểm tiếp xúc mesh vũ khí và giới hạn khớp hiện có",
       "status": "blocked",
-      "note": "H02 thumb-plane and seven palm-grid trials still fail full grip. Static historical palm-only proof cannot certify these candidates or whole animation."
+      "note": "H02 FK attachment error0 is rigid hand/weapon bookkeeping, not actual finger-surface acceptance. Existing thumb/pinky grip failures remain unresolved; no old static palm proof reused for new rig."
     },
     {
       "id": "animation",
       "condition": "Entrance và IDLE_HOLD đúng reference; kiểm hoạt ảnh và chuyển tiếp, không mất UV/texture",
       "status": "blocked",
-      "note": "Experimental velocity-aware H02 bake452frames: zero joint-bound violations, but201failedIKframes and max postgrab140.962mm. Independentv2 mesh-floor170failedframes;v3 rejected by idle-loop continuity. All remain inactive."
+      "note": "H02 joint-rise-v7 exports452frames; independentThree FK/controller pass narrow checks:0joint/stance/foot/velocity failures, footslide0.231mm, footpenetration1.759mm, bodymax7.999997deg/frame. Full cloth/grip/clearance acceptance still fails; H01 controller rejects RightArm Entrance/idle discontinuity. Neither activated."
     },
     {
       "id": "runtime",
@@ -37,7 +37,7 @@
       "id": "tests",
       "condition": "npm test, test:master và verify:master báo kết quả thật; không hạ điều kiện",
       "status": "blocked",
-      "note": "Cloud latest source ed8cf998: npm test284/284 and test:master215/215 pass. verify:master remains BLOCKED0/37 and rig goal BLOCKED. Raw logs, exit codes and hashes are retained; no threshold changes."
+      "note": "Cloud source535ab0d046eae89668f44050013e8ea1e7996c108b57b41405ec860080a10d49: npm test299/299 and test:master215/215 pass. verify:master BLOCKED0/37; rig goal BLOCKED. Raw logs/exit codes retained, thresholds unchanged."
     },
     {
       "id": "apk",
@@ -49,7 +49,7 @@
       "id": "publish",
       "condition": "Mã nguồn, ảnh và APK lên GitHub; xác minh remote",
       "status": "in_progress",
-      "note": "Source corrections and failed experiments are published as progress; new pictures remain in conver10. No accepted runtime rig or new APK has been published."
+      "note": "Source and photographs are being published to main as conver10 progress. No accepted runtime rig or new APK in this phase."
     }
   ],
   "limitations": [

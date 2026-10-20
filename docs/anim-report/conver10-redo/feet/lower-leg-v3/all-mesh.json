@@ -1,0 +1,177 @@
+{
+  "input": ".local/rig-candidates/lower-leg-v3/H02-C0-rigged.glb",
+  "sha256": "d887ee7e0c5d86fc349f66b4a8cc91ec48e73a3fc8ab2f35f625dce3dc8d0849",
+  "pose": ".local/rig-candidates/stance-forward-v3/H02-ground.json",
+  "poseSha256": "0cb052acbb6351f4972783f3bc4f8e14a3a368ca493bfb022b4db301564059de",
+  "poseValidation": {
+    "upstreamPassed": true,
+    "poseDataValid": true,
+    "diagnosticOnly": false,
+    "upstreamReasons": {
+      "scope": "Bounded calibrated FK stance; source mesh/sole/strain acceptance not inferred"
+    }
+  },
+  "appliedPoseChannels": {
+    "rotations": 13,
+    "translations": 1
+  },
+  "passed": false,
+  "edgeStrainPassed": false,
+  "provenancePassed": true,
+  "errors": [],
+  "scope": "Every node/primitive at one pose; unchanged p99.9 1.5 / maximum 2.0 edge-stretch limits, fail-closed newly collapsed/nonfinite checks and provenance-bound source-copy seams. Existing source degeneracy is diagnostic. Not full-animation, volume, cross-section, semantic segmentation or phone acceptance.",
+  "meshes": [
+    {
+      "nodeIndex": 0,
+      "meshIndex": 0,
+      "primitiveIndex": 0,
+      "node": "H02_Tencent_Original_Body",
+      "mesh": "node_0",
+      "vertices": 895581,
+      "sourceTriangles": 1499746,
+      "posedBounds": {
+        "usedVertices": 895581,
+        "minimum": [
+          -0.5841912312261182,
+          -0.5522556642945333,
+          -0.6996704669403297
+        ],
+        "maximum": [
+          0.678572096001604,
+          1.392061047676333,
+          0.26870382782870694
+        ],
+        "minimumYVertex": {
+          "vertex": 327266,
+          "sourceVertex": 327266,
+          "position": [
+            0.029398385116395122,
+            -0.5522556642945333,
+            -0.3082550960635882
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 4.221529059466448,
+      "maximum": 8.482239846521997,
+      "minimum": 0.023523851861822428,
+      "edges": 2390975,
+      "triangles": 1499746,
+      "selectedTriangles": 1499746,
+      "areaRatios": {
+        "minimum": 0.0016488286728905874,
+        "maximum": 255.44693263657973,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 654929,
+        "b": 654921,
+        "bindLength": 0.0019304448667091874,
+        "posedLength": 0.016374496369914514,
+        "sourceA": [
+          0.045270148664712906,
+          0.5517146587371826,
+          -0.039004500955343246
+        ],
+        "sourceB": [
+          0.04551650956273079,
+          0.5498029589653015,
+          -0.0391109324991703
+        ],
+        "posedA": [
+          0.19070172492937562,
+          0.42725155968073647,
+          0.04281673788551139
+        ],
+        "posedB": [
+          0.1941500323353266,
+          0.4422097376011814,
+          0.04851640635856505
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": true,
+        "errors": [],
+        "sourceSha256": "eec6ac7815030ebc06052c2a662582bb0f114c2bd1e96b88e35936c716fc781a",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "triangleMap": {
+          "sha256": "2454eae2ef51919243a9aead1a6e7464fa792a2dd2cadd39c18b6c6e416649b0",
+          "count": 1499746,
+          "offsetBytes": 0
+        },
+        "weldStatus": "hash-bound independently reconstructed opposite source boundary halfedges; garment pattern unreviewed",
+        "weldProof": {
+          "method": "paired-opposite-source-boundary-halfedges",
+          "rawNonmanifoldEdges": 0,
+          "boundaryHalfedges": 282712,
+          "uniqueOppositePairs": 141356,
+          "ambiguousPairs": 0,
+          "orientationDisagreements": 0,
+          "coordinateMismatch": 0,
+          "sourceVertices": 895581,
+          "sewnCopies": 145724
+        }
+      }
+    }
+  ],
+  "sourceCoverage": {
+    "passed": true,
+    "sources": [
+      {
+        "sourceSha256": "eec6ac7815030ebc06052c2a662582bb0f114c2bd1e96b88e35936c716fc781a",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "sourceTriangles": 1499746,
+        "measuredTriangles": 1499746,
+        "missingTriangles": 0,
+        "duplicatedTriangles": 0,
+        "validatedOutputPrimitives": 1,
+        "passed": true
+      }
+    ]
+  },
+  "seams": {
+    "passed": true,
+    "status": "measured-within-tolerance",
+    "identityMode": "source IDs plus hash-bound independently reconstructed opposite source boundary halfedges",
+    "numericalToleranceMillimetres": 0.001,
+    "referencedVertices": 895581,
+    "verifiedVertices": 895581,
+    "mechanicallyVerifiedWeldPrimitives": 1,
+    "groups": 136173,
+    "pairs": 156477,
+    "maximumMillimetres": 0,
+    "invalidPositions": 0,
+    "originalBeforePatternDiagnostic": {
+      "scope": "Original sewn-source identity including explicitly reviewed opened cut edges. Kept-seam identity is independently reconstructed above; original gaps remain visible here.",
+      "groups": 136173,
+      "pairs": 156477,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    },
+    "inferredXYZDiagnostic": {
+      "acceptedAsSourceIdentity": false,
+      "scope": "Coincident bind XYZ only; may join unrelated/free surfaces and cannot certify source identity.",
+      "groups": 136173,
+      "pairs": 156477,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    }
+  }
+}

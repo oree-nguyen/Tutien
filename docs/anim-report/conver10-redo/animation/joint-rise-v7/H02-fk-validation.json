@@ -1,0 +1,86 @@
+{
+  "hero": "H02",
+  "input": ".local/rig-candidates/fk-joint-rise-v7/H02-C0-rigged.glb",
+  "sha256": "2fb7a83dc919170475963b62b2137d7869cbe03663cf8bad959b57fa7a83a688",
+  "passed": false,
+  "activated": false,
+  "scope": "Independent Three AnimationMixer FK from actual GLB at every 60Hz key, complete Entrance and idle; narrow FK result below, no whole-mesh/contact certificate",
+  "exportPreservationPassed": true,
+  "clips": [
+    {
+      "name": "Entrance",
+      "duration": 3.5,
+      "tracks": 53,
+      "samples": 211
+    },
+    {
+      "name": "IDLE_HOLD",
+      "duration": 4,
+      "tracks": 53,
+      "samples": 241
+    }
+  ],
+  "sampledFrames": 452,
+  "metrics": {
+    "maximumAngularStepDegrees": 13.132357446297059,
+    "maximumBodyAngularStepDegrees": 7.999996883780317,
+    "maximumFingerAngularStepDegrees": 13.132357446297059,
+    "maximumPlantedFootSlide": 0.00023099440341716002,
+    "maximumGroundPalmHeight": 0.0031720551787859375,
+    "worstGroundFacingUpDot": -0.9850415311204932,
+    "maximumGroundElbowFlex": 0.06718554783150285,
+    "maximumGroundWristExtension": 79.99999977483044,
+    "maximumHoldAnchorDrift": 0.000041680528512698335,
+    "maximumBlendAnchorStep": 0.0000023060309270508335,
+    "maximumFootPenetration": 0.0017591198517652033,
+    "maximumLowerSourcePenetration": 0.0017591198517652033,
+    "maximumPlantedFootGap": 0.00004661681554480568,
+    "maximumPlantedFlatSoleHeight": 0.010073146470181238,
+    "maximumPlantedFlatSoleVerticalError": 0.0017912255451198959,
+    "maximumSupportTorsoTiltDegrees": 25.00242769160425,
+    "minimumSupportTorsoForwardLeanDegrees": 18.75666108873871,
+    "maximumSupportTorsoForwardLeanDegrees": 18.75666108873871,
+    "maximumSupportPelvisTiltDegrees": 14.9999005937423,
+    "maximumSupportRightKneeHeight": 0.4925821967648516,
+    "minimumSupportRightKneeHeight": 0.4925821967648516,
+    "maximumSourceHeadOrientationErrorDegrees": 0.0000024148365394514667
+  },
+  "violatingFrames": 0,
+  "violations": [],
+  "groundFailureFrames": 0,
+  "groundFailures": [],
+  "meshGroundFailureFrames": 0,
+  "meshGroundFailures": [],
+  "referenceStanceFailureFrames": 0,
+  "stanceFailures": [],
+  "angularStepFailures": [],
+  "sourceFootSelection": {
+    "path": "docs/anim-report/conver10-redo/animation/joint-rise-v7/H02-foot-source-vertices.json",
+    "method": "Automatic lower-source region: every unchanged source vertex with bind world y <= 150 mm and abs(x) >= 40 mm, includes residual cloth; side follows character x sign. Separate bind-bottom subset y <= 10 mm is provisional, not a certified semantic sole.",
+    "visuallyVerified": false,
+    "sides": {
+      "Left": {
+        "vertices": 27830,
+        "soleVertices": 2216
+      },
+      "Right": {
+        "vertices": 27749,
+        "soleVertices": 2345
+      }
+    }
+  },
+  "fkCriteriaPassed": true,
+  "controllerPassed": true,
+  "seekError": 2.8785957662940594e-16,
+  "replayCount": 10,
+  "idleRunning": true,
+  "state": "IDLE_HOLD",
+  "unverified": [
+    "adaptive source-triangle weapon contact on every frame",
+    "independent visual approval of the automatic source-foot regions",
+    "joint cross-sections, garment/body collision and strain",
+    "hammer/head distance",
+    "reference visual acceptance",
+    "physical Android"
+  ]
+}

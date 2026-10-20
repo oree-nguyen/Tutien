@@ -1,0 +1,340 @@
+{
+  "hero": "H02",
+  "base": ".local/rig-candidates/foot-source/H02",
+  "input": "assets/rigged/H02-C0-rigged.glb",
+  "inputSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+  "source": "public/models/hunyuan-original/H02-C0-source.glb",
+  "sourceSha256": "eec6ac7815030ebc06052c2a662582bb0f114c2bd1e96b88e35936c716fc781a",
+  "cores": {
+    "Left": {
+      "sourceVertices": 69027,
+      "hardSourceVertices": 65956,
+      "bounds": [
+        [
+          0.039743680506944656,
+          2.562004010542296e-05,
+          -0.12830907106399536
+        ],
+        [
+          0.2891896665096283,
+          0.599998414516449,
+          0.18887953460216522
+        ]
+      ]
+    },
+    "Right": {
+      "sourceVertices": 69275,
+      "hardSourceVertices": 66460,
+      "bounds": [
+        [
+          -0.2882001996040344,
+          0.0,
+          -0.12859682738780975
+        ],
+        [
+          -0.03780623897910118,
+          0.5998899340629578,
+          0.18927764892578125
+        ]
+      ]
+    }
+  },
+  "protectedSourceVertices": 37122,
+  "changedSourceVertices": 797601,
+  "freeGroups": 552719,
+  "operator": {
+    "method": "Original triangle cotangent FEM stiffness with lumped source-area mass",
+    "stiffnessUnits": "dimensionless",
+    "massUnits": "square metres",
+    "zeroAreaSourceTrianglesExcludedFromOperator": 0,
+    "sourceTrianglesPreservedInExport": true,
+    "negativeTriangleCotangents": 854652,
+    "sourceAreaSquareMeters": 6.655818954080849,
+    "minimumGroupMassSquareMeters": 1.8817326292472395e-07
+  },
+  "lowerFields": [
+    "Hips",
+    "Spine",
+    "Spine1",
+    "Spine2",
+    "Neck",
+    "Head",
+    "LeftShoulder",
+    "LeftArm",
+    "LeftForeArm",
+    "LeftHand",
+    "LeftHandThumb1",
+    "LeftHandThumb2",
+    "LeftHandThumb3",
+    "LeftHandIndex1",
+    "LeftHandIndex2",
+    "LeftHandIndex3",
+    "LeftHandMiddle1",
+    "LeftHandMiddle2",
+    "LeftHandMiddle3",
+    "LeftHandRing1",
+    "LeftHandRing2",
+    "LeftHandRing3",
+    "LeftHandPinky1",
+    "LeftHandPinky2",
+    "LeftHandPinky3",
+    "RightShoulder",
+    "RightArm",
+    "RightForeArm",
+    "RightHand",
+    "RightHandThumb1",
+    "RightHandThumb2",
+    "RightHandThumb3",
+    "RightHandIndex1",
+    "RightHandIndex2",
+    "RightHandIndex3",
+    "RightHandMiddle1",
+    "RightHandMiddle2",
+    "RightHandMiddle3",
+    "RightHandRing1",
+    "RightHandRing2",
+    "RightHandRing3",
+    "RightHandPinky1",
+    "RightHandPinky2",
+    "RightHandPinky3",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase"
+  ],
+  "nonLowerFieldsRetainedBeforeProjection": false,
+  "nonnegativeMethod": "projected-newton",
+  "wholeBody": true,
+  "upperBoundaryMetres": 1.66,
+  "screenMetres": 0.1,
+  "solves": [
+    {
+      "joint": "Hips",
+      "residual": 8.329458960691882e-07
+    },
+    {
+      "joint": "Spine",
+      "residual": 9.4465412539635e-07
+    },
+    {
+      "joint": "Spine1",
+      "residual": 9.087212736029942e-07
+    },
+    {
+      "joint": "Spine2",
+      "residual": 7.219114868282577e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 7.219112036232646e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -8.19770997746938e-10,
+        "dualTolerance": 1.5142843599266862e-06,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -1.4466116213054294e-10,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Neck",
+      "residual": 8.898159436758524e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 8.895103354412021e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -1.166963500138467e-08,
+        "dualTolerance": 6.320854467363053e-06,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -6.563111954970855e-09,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Head",
+      "residual": 6.40865998226695e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 6.40610423460493e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -2.3222394660732275e-07,
+        "dualTolerance": 1.3584070597191949e-05,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -2.484861735982095e-07,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftArm",
+      "residual": 8.926296422180326e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 8.926295746148829e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -2.7867673907304316e-11,
+        "dualTolerance": 4.032448888557512e-08,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -1.0031008153712156e-11,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftForeArm",
+      "residual": 7.129547124965494e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 7.127988897549035e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -3.040730152094123e-08,
+        "dualTolerance": 1.0509703817525311e-05,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -1.6976619920304548e-08,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftHand",
+      "residual": 9.602119495453098e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 9.60205300155835e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -1.1728259186892791e-08,
+        "dualTolerance": 4.839330119835825e-06,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -5.091173429631894e-09,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightArm",
+      "residual": 9.668261454265265e-07
+    },
+    {
+      "joint": "RightForeArm",
+      "residual": 6.741370259353239e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 6.741345371615469e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -7.117404360432967e-09,
+        "dualTolerance": 1.5568989446254822e-05,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -4.416023614923217e-09,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightHand",
+      "residual": 9.814841210383062e-07
+    },
+    {
+      "joint": "LeftUpLeg",
+      "residual": 8.302154571320398e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 8.302140351775442e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -2.139050286852626e-08,
+        "dualTolerance": 9.506690520435826e-06,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -2.7114251455588517e-09,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftLeg",
+      "residual": 7.508338925513591e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 7.508297283132827e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -1.3669727699992026e-09,
+        "dualTolerance": 2.935109125475409e-06,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -2.21872839679708e-09,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftFoot",
+      "residual": 9.857643969356046e-07
+    },
+    {
+      "joint": "RightUpLeg",
+      "residual": 8.105720215560829e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 8.105707465406727e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -7.249501716549162e-09,
+        "dualTolerance": 9.616981236361238e-06,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -8.280745269035436e-09,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightLeg",
+      "residual": 9.643712641659905e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 9.64371263531423e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -1.6455934753091082e-10,
+        "dualTolerance": 2.951271153747421e-06,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -6.97358970149925e-11,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightFoot",
+      "residual": 8.167965583465222e-07,
+      "nonnegativeFEM": {
+        "method": "Feasible projected Newton with energy line search and unchanged primal/dual KKT checks",
+        "activeSetSolves": 0,
+        "freeResidual": 8.167965532709069e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -2.5453814257422075e-13,
+        "dualTolerance": 1.1829346765116186e-09,
+        "history": []
+      },
+      "unconstrainedMinimumWeight": -9.593834017920924e-14,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    }
+  ],
+  "maximumDiscardedInfluence": 0.24354550310136547,
+  "elapsedSeconds": 137.06897788800416,
+  "inputHashes": {
+    "positions.bin": "6a0ed81d0843c617af633b2de159f0fa93c369dd2bc75bebc1706e4199b77fba",
+    "triangles.bin": "adbd323a377176a0ac942b6b4e648578c95d0b4f6aecc1a01f8ffbd1c849bee7",
+    "source-welds.u32bin": "dc27113f08ec5dd967f8a56bfad923b893d97753e95eb2cd0647a1da506643be",
+    "ids.bin": "412529c46196528b8b5dc89767968b341a4eef97a8e784d73f26a2eb50ffdc80",
+    "weights.bin": "0522e5a757da462f39bc65f0f2a108bf4f615f8faa3cac92b5152896d14588e0",
+    "input.json": "ba03f8bd1d279a78dcd98407ac3627696405b6699d57f105405e1f8bf04604ea",
+    "selection.json": "6dbedd61ddb9d5bb08ffaece76cddeadeee6ce2cad0f6f8525cd3a1b0460ac2b"
+  },
+  "outputHashes": {
+    "result-ids.bin": "229924a5295ba497757164fc53f98245529314d476d1a69d5a686facc82d2948",
+    "result-weights.bin": "7db3ecb47db714a61d21a7cae1ba629fb3cacebf64ecad43b173721822a50b6f",
+    "protected.bin": "bb7bc2a1281bcb848ca1ad22e00dda91d49ba6cff7cab80a960c3e7052c31d9a",
+    "leg-core-domain.bin": "e553b44f4e34e7d91b62ac3b48344e6e3013238997eb4e2f0794ef35a934b640"
+  },
+  "accepted": false,
+  "activated": false,
+  "scope": "Source-connected lower leg cores, anatomical Foot/Leg/UpLeg targets and bounded FEM continuation to unchanged waist. Original geometry/UV/images/bones/clips unchanged. Floor, all-mesh, volume, collision, animation and visual checks remain required."
+}

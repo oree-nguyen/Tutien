@@ -1,0 +1,10 @@
+file:///workspace/Tutien/src/rig/hero-pose-controller.js:119
+            throw new Error("IDLE_HOLD loop is not closed: " + track.name);
+                  ^
+
+Error: IDLE_HOLD loop is not closed: LeftArm.quaternion
+    at HeroPoseController.validateTracks (file:///workspace/Tutien/src/rig/hero-pose-controller.js:119:19)
+    at new HeroPoseController (file:///workspace/Tutien/src/rig/hero-pose-controller.js:33:10)
+    at file:///workspace/Tutien/tools/rig/validate-fk-animation.mjs:18:32
+
+Node.js v24.19.0

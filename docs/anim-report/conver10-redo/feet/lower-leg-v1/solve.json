@@ -1,0 +1,109 @@
+{
+  "hero": "H02",
+  "base": ".local/rig-candidates/foot-source/H02",
+  "input": "assets/rigged/H02-C0-rigged.glb",
+  "inputSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+  "source": "public/models/hunyuan-original/H02-C0-source.glb",
+  "sourceSha256": "eec6ac7815030ebc06052c2a662582bb0f114c2bd1e96b88e35936c716fc781a",
+  "cores": {
+    "Left": {
+      "sourceVertices": 69027,
+      "hardSourceVertices": 65956,
+      "bounds": [
+        [
+          0.039743680506944656,
+          2.562004010542296e-05,
+          -0.12830907106399536
+        ],
+        [
+          0.2891896665096283,
+          0.599998414516449,
+          0.18887953460216522
+        ]
+      ]
+    },
+    "Right": {
+      "sourceVertices": 69275,
+      "hardSourceVertices": 66460,
+      "bounds": [
+        [
+          -0.2882001996040344,
+          0.0,
+          -0.12859682738780975
+        ],
+        [
+          -0.03780623897910118,
+          0.5998899340629578,
+          0.18927764892578125
+        ]
+      ]
+    }
+  },
+  "protectedSourceVertices": 37122,
+  "changedSourceVertices": 462784,
+  "freeGroups": 275342,
+  "operator": {
+    "method": "Original triangle cotangent FEM stiffness with lumped source-area mass",
+    "stiffnessUnits": "dimensionless",
+    "massUnits": "square metres",
+    "zeroAreaSourceTrianglesExcludedFromOperator": 0,
+    "sourceTrianglesPreservedInExport": true,
+    "negativeTriangleCotangents": 854652,
+    "sourceAreaSquareMeters": 6.655818954080849,
+    "minimumGroupMassSquareMeters": 1.8817326292472395e-07
+  },
+  "lowerFields": [
+    "Hips",
+    "LeftUpLeg",
+    "LeftLeg",
+    "LeftFoot",
+    "LeftToeBase",
+    "RightUpLeg",
+    "RightLeg",
+    "RightFoot",
+    "RightToeBase"
+  ],
+  "nonLowerFieldsRetainedBeforeProjection": true,
+  "solves": [
+    {
+      "joint": "Hips",
+      "residual": 9.322996419212525e-07
+    },
+    {
+      "joint": "LeftUpLeg",
+      "residual": 9.918531005965358e-07
+    },
+    {
+      "joint": "LeftLeg",
+      "residual": 9.303812887991129e-07
+    },
+    {
+      "joint": "RightUpLeg",
+      "residual": 9.64461929112915e-07
+    },
+    {
+      "joint": "RightLeg",
+      "residual": 8.196441580693954e-07
+    }
+  ],
+  "maximumDiscardedInfluence": 0.18694091464324558,
+  "elapsedSeconds": 22.969661300012376,
+  "inputHashes": {
+    "positions.bin": "6a0ed81d0843c617af633b2de159f0fa93c369dd2bc75bebc1706e4199b77fba",
+    "triangles.bin": "adbd323a377176a0ac942b6b4e648578c95d0b4f6aecc1a01f8ffbd1c849bee7",
+    "source-welds.u32bin": "dc27113f08ec5dd967f8a56bfad923b893d97753e95eb2cd0647a1da506643be",
+    "ids.bin": "412529c46196528b8b5dc89767968b341a4eef97a8e784d73f26a2eb50ffdc80",
+    "weights.bin": "0522e5a757da462f39bc65f0f2a108bf4f615f8faa3cac92b5152896d14588e0",
+    "input.json": "ba03f8bd1d279a78dcd98407ac3627696405b6699d57f105405e1f8bf04604ea",
+    "selection.json": "6dbedd61ddb9d5bb08ffaece76cddeadeee6ce2cad0f6f8525cd3a1b0460ac2b"
+  },
+  "outputHashes": {
+    "result-ids.bin": "d87dfd25481c5e2cc4255376c2d0f06508fbf694616d8f3d1741ca32e342efc8",
+    "result-weights.bin": "5c99c73d583252f5cf19b5088c61049ea7ed1b1221498863efa7992f9111a18f",
+    "protected.bin": "bb7bc2a1281bcb848ca1ad22e00dda91d49ba6cff7cab80a960c3e7052c31d9a",
+    "leg-core-domain.bin": "e553b44f4e34e7d91b62ac3b48344e6e3013238997eb4e2f0794ef35a934b640"
+  },
+  "accepted": false,
+  "activated": false,
+  "scope": "Source-connected lower leg cores, anatomical Foot/Leg/UpLeg targets and bounded FEM continuation to unchanged waist. Original geometry/UV/images/bones/clips unchanged. Floor, all-mesh, volume, collision, animation and visual checks remain required."
+}

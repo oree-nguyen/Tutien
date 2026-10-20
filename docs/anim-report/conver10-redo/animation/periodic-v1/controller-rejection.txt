@@ -1,0 +1,10 @@
+file:///workspace/Tutien/src/rig/hero-pose-controller.js:145
+        throw new Error("Entrance/idle discontinuity: " + bone.name);
+              ^
+
+Error: Entrance/idle discontinuity: LeftArm
+    at HeroPoseController.validateTracks (file:///workspace/Tutien/src/rig/hero-pose-controller.js:145:15)
+    at new HeroPoseController (file:///workspace/Tutien/src/rig/hero-pose-controller.js:33:10)
+    at file:///workspace/Tutien/tools/rig/validate-fk-animation.mjs:18:32
+
+Node.js v24.19.0

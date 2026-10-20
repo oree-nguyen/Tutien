@@ -1,0 +1,147 @@
+{
+  "input": "assets/rigged/H02-C0-rigged.glb",
+  "sha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+  "pose": ".local/rig-candidates/stance-forward-v3/H02-ground.json",
+  "poseSha256": "0cb052acbb6351f4972783f3bc4f8e14a3a368ca493bfb022b4db301564059de",
+  "poseValidation": {
+    "upstreamPassed": true,
+    "poseDataValid": true,
+    "diagnosticOnly": false,
+    "upstreamReasons": {
+      "scope": "Bounded calibrated FK stance; source mesh/sole/strain acceptance not inferred"
+    }
+  },
+  "appliedPoseChannels": {
+    "rotations": 13,
+    "translations": 1
+  },
+  "passed": false,
+  "edgeStrainPassed": false,
+  "provenancePassed": false,
+  "errors": [],
+  "scope": "Every node/primitive at one pose; unchanged p99.9 1.5 / maximum 2.0 edge-stretch limits, fail-closed newly collapsed/nonfinite checks and provenance-bound source-copy seams. Existing source degeneracy is diagnostic. Not full-animation, volume, cross-section, semantic segmentation or phone acceptance.",
+  "meshes": [
+    {
+      "nodeIndex": 0,
+      "meshIndex": 0,
+      "primitiveIndex": 0,
+      "node": "H02_Tencent_Original_Body",
+      "mesh": "node_0",
+      "vertices": 895581,
+      "sourceTriangles": 1499746,
+      "posedBounds": {
+        "usedVertices": 895581,
+        "minimum": [
+          -0.5841912312261182,
+          -0.5831134354260001,
+          -0.6996704669403297
+        ],
+        "maximum": [
+          0.678572096001604,
+          1.392061047676333,
+          0.2687038320658404
+        ],
+        "minimumYVertex": {
+          "vertex": 327397,
+          "sourceVertex": null,
+          "position": [
+            0.03236301836222578,
+            -0.5831134354260001,
+            -0.3149361262280048
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 24.985740731768047,
+      "maximum": 149.07539453735765,
+      "minimum": 0.013103621582093942,
+      "edges": 2390975,
+      "triangles": 1499746,
+      "selectedTriangles": 1499746,
+      "areaRatios": {
+        "minimum": 0.0011468193425862362,
+        "maximum": 2160.152810930035,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 675964,
+        "b": 675834,
+        "bindLength": 0.0008463803847861758,
+        "posedLength": 0.12617448979067974,
+        "sourceA": [
+          -0.21246354281902313,
+          0.17614932358264923,
+          -0.010114755481481552
+        ],
+        "sourceB": [
+          -0.2120240479707718,
+          0.17614932358264923,
+          -0.009391427040100098
+        ],
+        "posedA": [
+          -0.3750676532506616,
+          -0.07331877549270469,
+          -0.0013544294161634447
+        ],
+        "posedB": [
+          -0.41437081336689563,
+          0.04569544232304573,
+          0.013167259071100394
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Missing sourceProvenance version 1; XYZ coincidence is diagnostic only"
+        ]
+      }
+    }
+  ],
+  "sourceCoverage": {
+    "passed": false,
+    "sources": []
+  },
+  "seams": {
+    "passed": false,
+    "status": "unverified-source-provenance-or-coverage",
+    "identityMode": "verified exact source vertex IDs only; distinct original UV-seam IDs are not certified",
+    "numericalToleranceMillimetres": 0.001,
+    "referencedVertices": 895581,
+    "verifiedVertices": 0,
+    "mechanicallyVerifiedWeldPrimitives": 0,
+    "groups": 0,
+    "pairs": 0,
+    "maximumMillimetres": 0,
+    "invalidPositions": 0,
+    "originalBeforePatternDiagnostic": {
+      "scope": "Original sewn-source identity including explicitly reviewed opened cut edges. Kept-seam identity is independently reconstructed above; original gaps remain visible here.",
+      "groups": 0,
+      "pairs": 0,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    },
+    "inferredXYZDiagnostic": {
+      "acceptedAsSourceIdentity": false,
+      "scope": "Coincident bind XYZ only; may join unrelated/free surfaces and cannot certify source identity.",
+      "groups": 136173,
+      "pairs": 156477,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    }
+  }
+}

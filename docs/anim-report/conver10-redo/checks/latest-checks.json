@@ -1,44 +1,45 @@
 {
-  "recordedAt": "2026-10-20T15:08:17.610965+00:00",
+  "recordedAt": "2026-10-20T19:58:51.408482+00:00",
   "scope": "Cloud Linux; raw logs preserved byte-for-byte. No physical Android verification.",
-  "sourceHash": "ed8cf9984a68b5398b5a175f0fcf583bc30223d01670489367fc1957f4bdd9aa",
+  "sourceHash": "535ab0d046eae89668f44050013e8ea1e7996c108b57b41405ec860080a10d49",
   "checks": [
     {
       "command": "npm test",
       "exitCode": 0,
-      "result": "284/284 pass",
+      "seconds": 39.08393910501036,
+      "result": "299/299 pass",
       "log": "npm-test-current.txt",
-      "sha256": "9f90f705dfa581b8826d79435a58f6a12e22bab7947607795d1f6086da923cc4",
-      "bytes": 25639,
-      "seconds": 23.270146866998402
+      "sha256": "a9972ad3e6973760ee70387b0555499b1914d9cf9a440c44d4aea9a8207f258c",
+      "bytes": 27241
     },
     {
       "command": "npm run test:master",
       "exitCode": 0,
+      "seconds": 53.6317837620154,
       "result": "215/215 pass",
       "log": "test-master-current.txt",
-      "sha256": "9877aaf212be41144577eb71f5b6534ab08c3d323668f91d99888458ae8ef3b7",
-      "bytes": 21933,
-      "seconds": 54.86409708799329
+      "sha256": "89199e42a0a34733ec4aa178199bd173adde2e1f394a9e9f292232c0a3c7b2ac",
+      "bytes": 21976
     },
     {
       "command": "npm run verify:master",
       "exitCode": 1,
-      "result": "BLOCKED",
+      "seconds": 1.0888450850034133,
+      "result": "BLOCKED0/37",
       "log": "verify-master-current.txt",
       "sha256": "b772acbf56c047f63bf4cd4c07460761f4704fa4ff1d3c8c79e23131411c80b4",
-      "bytes": 585,
-      "seconds": 1.4346016609924845
+      "bytes": 585
     },
     {
       "command": "npm run goal:rig",
       "exitCode": 1,
+      "seconds": 0.3552067859855015,
       "result": "BLOCKED",
       "log": "rig-goal-current.txt",
       "sha256": "dbdc6b689ece3b1c2d1984a4b0ff835fed25477d4e59c3beb81ac233d1f674e6",
-      "bytes": 315,
-      "seconds": 0.17936709101195447
+      "bytes": 315
     }
   ],
-  "newApkProduced": false
+  "sourceHashAfter": "535ab0d046eae89668f44050013e8ea1e7996c108b57b41405ec860080a10d49",
+  "sourceUnchangedDuringChecks": true
 }

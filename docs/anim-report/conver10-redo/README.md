@@ -1,5 +1,7 @@
 # Thực hiện lại conver10 sau báo cáo 445/303 MB
 
+**Cập nhật 21/10/2026 (UTC+7):** H02 đã qua kiểm định FK độc lập đủ 452 frame, giới hạn khớp, neo chân và nối Entrance/Idle. Áo vẫn biến dạng/xuyên sàn, full grip chưa đạt; H01 chưa nối được tay phải sang Idle. Chưa kích hoạt rig mới hoặc tạo APK mới. Xem [báo cáo và số đo mới](STANCE-AND-FK-2026-10-21.md); các số liệu lịch sử bên dưới giữ nguyên phạm vi của chúng.
+
 Mốc trước sửa đã đăng `main` tại `813b5ef`: [baocao445-300.md](../../../baocao445-300.md). Đây là nhật ký sửa tiếp theo, không viết lại kết quả audit. Các GLB thử nghiệm không đạt được lưu trong `.local/rig-candidates/`, không đóng thêm vào APK mặc định và không thay actor đang chạy.
 
 ## Đã sửa trong mã nguồn
