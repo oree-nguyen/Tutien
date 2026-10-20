@@ -1,0 +1,76 @@
+{
+  "heroId": "H01",
+  "gripHand": "right",
+  "groundHand": "right",
+  "relaxedHand": "left",
+  "reference": "docs/requests/H01-H02-ENTRANCE-PROMPT-2.md",
+  "entranceDuration": 4.1,
+  "sampleRateHz": 60,
+  "blendDuration": 0.3,
+  "idleDuration": 4,
+  "breathingDegreesPerSpine": 0.3,
+  "phases": [
+    {
+      "start": 0,
+      "end": 0.9,
+      "name": "vines_emerge",
+      "characterVisible": false
+    },
+    {
+      "start": 0.9,
+      "end": 1.9,
+      "name": "asymmetric_ground_support",
+      "weaponHeld": false
+    },
+    {
+      "start": 1.9,
+      "end": 2.6,
+      "name": "staff_forms",
+      "weaponHeld": false
+    },
+    {
+      "start": 2.6,
+      "end": 3.7,
+      "name": "rise_and_right_grip"
+    },
+    {
+      "start": 3.7,
+      "end": 4.1,
+      "name": "upright_reference_hold"
+    }
+  ],
+  "events": [
+    {
+      "time": 1.9,
+      "type": "land"
+    },
+    {
+      "time": 2.6,
+      "type": "staff_formed"
+    },
+    {
+      "time": 3.55,
+      "type": "grab"
+    },
+    {
+      "time": 3.7,
+      "type": "vine_hide"
+    }
+  ],
+  "staging": {
+    "scope": "full-reference-choreography-attempt",
+    "referencePose": "data/hero-entrance/H01-upright-staging.json",
+    "contactEvidence": "docs/anim-report/harmonic-held/H01-reference-contact.json",
+    "activationAllowed": false,
+    "missing": [
+      "asymmetric right knee uses 150-degree flex instead of general 120-140-degree crouch interval; independent reference visual acceptance required",
+      "planted-foot motion and sole clearance from actual source mesh",
+      "all-mesh strain/seam/cross-section and collision acceptance",
+      "all-frame exact grip and weapon/body/head clearance",
+      "source hand-frame independent visual certification",
+      "physical Android validation"
+    ],
+    "previousPartialEvidence": "docs/anim-report/conver10-redo/animation/H01-bake.json",
+    "stancePose": "docs/anim-report/conver10-redo/animation/stances/H01-ground.json"
+  }
+}

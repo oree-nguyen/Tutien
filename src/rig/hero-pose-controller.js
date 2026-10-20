@@ -4,6 +4,7 @@ import {
   LoopRepeat,
   PropertyBinding,
   Quaternion,
+  Vector3,
 } from "three";
 
 /** Persistent FK playback. Clips must be baked and accepted before constructing this controller. */
@@ -18,7 +19,7 @@ export class HeroPoseController {
       onState = () => {},
     } = {},
   ) {
-    if (blendDuration < 0.25 || blendDuration > 0.35)
+    if (!Number.isFinite(blendDuration) || blendDuration < 0.25 || blendDuration > 0.35)
       throw new Error("Entrance blend must be 0.25–0.35 seconds");
     this.root = root;
     this.entranceClip = clips.find((c) => c.name === "Entrance");
@@ -60,6 +61,65 @@ export class HeroPoseController {
     this.silent = false;
   }
   validateTracks(bones) {
+    const names = new Set();
+    for (const bone of bones) {
+      if (!bone.name || names.has(bone.name))
+        throw new Error("Baked bone names must be unique: " + bone.name);
+      names.add(bone.name);
+    }
+    for (const clip of [this.entranceClip, this.idleClip]) {
+      if (!Number.isFinite(clip.duration) || clip.duration <= 0)
+        throw new Error("Baked clip duration must be finite and positive");
+      const targets = new Set();
+      for (const track of clip.tracks) {
+        const target = PropertyBinding.parseTrackName(track.name),
+          property = target.propertyName,
+          key = target.nodeName + "." + property;
+        if (target.objectName || target.objectIndex || target.propertyIndex)
+          throw new Error("Baked tracks must address bones directly: " + track.name);
+        if (!["quaternion", "position"].includes(property))
+          throw new Error("Only quaternion and Hips position tracks may be baked");
+        if (property === "position" && target.nodeName !== "Hips")
+          throw new Error("Only Hips translation may be baked");
+        const node = PropertyBinding.findNode(this.root, target.nodeName);
+        if (!node?.isBone || !names.has(target.nodeName))
+          throw new Error("Unbound baked track: " + track.name);
+        if (targets.has(key)) throw new Error("Duplicate baked track: " + key);
+        targets.add(key);
+        const size = property === "quaternion" ? 4 : 3;
+        if (track.times.length < 2 || track.values.length !== track.times.length * size)
+          throw new Error("Malformed baked track: " + track.name);
+        if (Math.abs(track.times[0]) > 1e-6 ||
+            Math.abs(track.times.at(-1) - clip.duration) > 1e-5)
+          throw new Error("Baked track must cover the entire clip: " + track.name);
+        for (let k = 0; k < track.times.length; k++) {
+          if (!Number.isFinite(track.times[k]) || track.times[k] < 0 ||
+              (k > 0 && track.times[k] <= track.times[k - 1]))
+            throw new Error("Baked key times must be finite and increasing: " + track.name);
+          let norm = 0, dot = 0;
+          for (let j = 0; j < size; j++) {
+            const value = track.values[k * size + j];
+            if (!Number.isFinite(value))
+              throw new Error("Non-finite baked value: " + track.name);
+            norm += value * value;
+            if (k) dot += value * track.values[(k - 1) * size + j];
+          }
+          if (size === 4 && Math.abs(norm - 1) > 1e-4)
+            throw new Error("Baked quaternion must be normalized: " + track.name);
+          if (size === 4 && k && dot < -1e-7)
+            throw new Error("Baked quaternion signs must be continuous: " + track.name);
+        }
+        if (clip === this.idleClip) {
+          const first = Array.from(track.values.slice(0, size)),
+            last = Array.from(track.values.slice(-size));
+          const error = size === 4
+            ? new Quaternion(...first).normalize().angleTo(new Quaternion(...last).normalize())
+            : Math.hypot(...first.map((v, k) => v - last[k]));
+          if (error > (size === 4 ? 1e-5 : 1e-6))
+            throw new Error("IDLE_HOLD loop is not closed: " + track.name);
+        }
+      }
+    }
     const tracks = (clip) =>
       new Map(
         clip.tracks
@@ -84,18 +144,6 @@ export class HeroPoseController {
       if (a.angleTo(b) > (0.5 * Math.PI) / 180 + 1e-7)
         throw new Error("Entrance/idle discontinuity: " + bone.name);
     }
-    for (const clip of [this.entranceClip, this.idleClip])
-      for (const track of clip.tracks) {
-        const target = PropertyBinding.parseTrackName(track.name);
-        if (!["quaternion", "position"].includes(target.propertyName))
-          throw new Error(
-            "Only quaternion and Hips position tracks may be baked",
-          );
-        if (target.propertyName === "position" && target.nodeName !== "Hips")
-          throw new Error("Only Hips translation may be baked");
-        if (!this.root.getObjectByName(target.nodeName))
-          throw new Error("Unbound baked track: " + track.name);
-      }
     const hipsTrack = (clip) =>
       clip.tracks.find((t) => {
         const p = PropertyBinding.parseTrackName(t.name);
@@ -114,6 +162,25 @@ export class HeroPoseController {
       ) > 0.005
     )
       throw new Error("Entrance/idle Hips discontinuity");
+    // Small local angular errors can accumulate into a large endpoint jump.
+    // Evaluate actual hierarchy FK without modifying the actor being validated.
+    const copy = this.root.clone(true),
+      endpoints = (clip, end) => {
+        for (const track of clip.tracks) {
+          const target = PropertyBinding.parseTrackName(track.name),
+            node = PropertyBinding.findNode(copy, target.nodeName),
+            size = target.propertyName === "quaternion" ? 4 : 3;
+          node[target.propertyName].fromArray(track.values, end ? track.values.length - size : 0);
+        }
+        copy.updateWorldMatrix(true, true);
+        return new Map(bones.map((bone) => [bone.name,
+          PropertyBinding.findNode(copy, bone.name).getWorldPosition(new Vector3())]));
+      },
+      end = endpoints(this.entranceClip, true),
+      start = endpoints(this.idleClip, false);
+    for (const bone of bones)
+      if (end.get(bone.name).distanceTo(start.get(bone.name)) > 0.005 + 1e-8)
+        throw new Error("Entrance/idle FK discontinuity: " + bone.name);
   }
   changeState(state) {
     this.state = state;

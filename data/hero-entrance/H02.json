@@ -1,0 +1,66 @@
+{
+  "heroId": "H02",
+  "gripHand": "left",
+  "groundHand": "right",
+  "relaxedHand": "right",
+  "reference": "docs/requests/H01-H02-ENTRANCE-PROMPT-2.md",
+  "entranceDuration": 3.5,
+  "sampleRateHz": 60,
+  "blendDuration": 0.3,
+  "idleDuration": 4,
+  "breathingDegreesPerSpine": 0.3,
+  "phases": [
+    {
+      "start": 0,
+      "end": 0.55,
+      "name": "hammer_drop",
+      "characterVisible": false
+    },
+    {
+      "start": 0.55,
+      "end": 1.25,
+      "name": "wide_squat_right_ground_support"
+    },
+    {
+      "start": 1.25,
+      "end": 1.75,
+      "name": "left_grip_tilted_hammer"
+    },
+    {
+      "start": 1.75,
+      "end": 3,
+      "name": "rise_and_lift_hammer"
+    },
+    {
+      "start": 3,
+      "end": 3.5,
+      "name": "upright_reference_hold"
+    }
+  ],
+  "events": [
+    {
+      "time": 0.55,
+      "type": "impact_hammer"
+    },
+    {
+      "time": 1.25,
+      "type": "land"
+    },
+    {
+      "time": 1.6,
+      "type": "grab"
+    }
+  ],
+  "staging": {
+    "scope": "full-reference-choreography-attempt",
+    "activationAllowed": false,
+    "missing": [
+      "planted-foot motion and sole clearance from actual source mesh",
+      "all-mesh strain/seam/cross-section and collision acceptance",
+      "all-frame exact grip and weapon/body/head clearance",
+      "source hand-frame independent visual certification",
+      "physical Android validation"
+    ],
+    "stancePose": "docs/anim-report/conver10-redo/animation/stances/H02-ground.json"
+  }
+}
