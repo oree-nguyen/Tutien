@@ -1,0 +1,224 @@
+{
+  "hero": "H01",
+  "scope": "full-reference-choreography-attempt",
+  "passed": false,
+  "exportPassed": true,
+  "activated": false,
+  "pipelineInputs": {
+    "tools/bake-entrance-anim.mjs": "3af8f9b41d3f1739284fa4d31d3492128773a46872c1a43f5aa31d2407e7a59d",
+    "tools/rig/copy-provenance.mjs": "0b733170918b7516c0605fdc4def6febfb2d2d0c62ca948c362aab69b48b6a9a",
+    "tools/rig/full-entrance-sequence.mjs": "fb2d319b0968a7c4e0299aa1716ce3ad3487acb07cd93835c5c24d69af2ae515",
+    "tools/rig/offline-entrance-ik.mjs": "03aa7e5b49dc6ba751377cb1901477ffb973f50546e3cc6f5f4a975590f5f8fe",
+    "tools/rig/bounded-chain-fit.mjs": "edd83a5b0baa798ad3b2e68ca978ae8cda08cf86dd3cb51f218a3187d5af828e",
+    "tools/rig/reference-pose.mjs": "aceabf117791875ec6065c4883775d18ac096c831ff7342d9635bb4c3bf19537",
+    "tools/rig/upright-head.mjs": "7ef3e06a601f7c8ea4faf98f4ec7f5624f8ce426599c0d7329531d41b56f12ec",
+    "data/rig/bind-frames.json": "70ffb6c3ed995c59aec3d0aaf35174c7a2844a9ffa3084cc97e8610529d8a2e1",
+    "data/rig/hand-frames.json": "c687b8afbc18a7673c1b5ec2e5d6d18e123cd2f63f0de92ad4b8f6bb34bc7618",
+    "data/rig/joint-limits.json": "17540a56f19504e60db4be1b801321f6f41fa3b95c59b4a9f34e8204f3885edf",
+    "data/weapons/H01.json": "90f552954b6715c9128d9e58981facbc26bb3f8942796a4d1b7b75bf3f5c5a1f"
+  },
+  "input": ".local/rig-candidates/lower-leg-h01-v1/H01-C0-rigged.glb",
+  "inputSha256": "0302edfc9a90db50daccee192ff27fc83ce7e3851b59f66a28be90837f59f046",
+  "output": ".local/rig-candidates/fk-h01-keys-v2/H01-C0-rigged.glb",
+  "outputSha256": "f83c02bf54d6d7128d9fd9338887ab3f04520b11b932e762dda4fe3189f9b598",
+  "provenanceFiles": {
+    "source-triangles.u32bin": "2b241cc478658e8025f21017eb56d69e5be20093c419088f1b2679016eb2cca1",
+    "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+    "source-boundary-proof.json": "ee6f918ad1d8f9b498243bcfe83da527492e6157a192df491702c6fa53006a08"
+  },
+  "specSha256": "dd4e419943722844bba26f2a1358b175869f2842829f93d1727499aa42a6e1bc",
+  "gripProofPath": "docs/hand-frames/H01-exact-grip-search.json",
+  "gripProofSha256": "a9b1cb30d4c35c076a5a4ac04169069f8f3c26212d66ff840af87a2a575d280f",
+  "stancePose": "docs/anim-report/conver10-redo/animation/stances-forward/H01-forward-head-aligned.json",
+  "stancePoseSha256": "e689e907b390dc84bbde7238561a465b6ba48b180ae92a6f2b2e6dbd7a739286",
+  "weaponSha256": "0984acdf12b0a5b09ce8580e9e309ee94d2f94ec88e4e4dc3067f4a3e16a4be1",
+  "referencePose": "data/hero-entrance/H01-upright-staging.json",
+  "referencePoseSha256": "f546c092e1bb660fa0dd3d796618980de143cadaa4980a254d00103d65d1feb5",
+  "gripHand": "right",
+  "groundHand": "right",
+  "sampleRateHz": 60,
+  "runtimeIK": false,
+  "immutablePayloadPreserved": true,
+  "legacyClipsPreserved": true,
+  "preservedClips": [
+    {
+      "originalName": "Attack",
+      "name": "Attack"
+    },
+    {
+      "originalName": "Cast",
+      "name": "Cast"
+    },
+    {
+      "originalName": "Dash",
+      "name": "Dash"
+    },
+    {
+      "originalName": "Entrance",
+      "name": "Entrance_LEGACY_C10"
+    },
+    {
+      "originalName": "Idle",
+      "name": "Idle"
+    },
+    {
+      "originalName": "Run",
+      "name": "Run"
+    }
+  ],
+  "clips": [
+    {
+      "name": "Entrance",
+      "duration": 4.1,
+      "rotationTracks": 52,
+      "translationTracks": 1,
+      "samples": 247
+    },
+    {
+      "name": "IDLE_HOLD",
+      "duration": 4,
+      "rotationTracks": 52,
+      "translationTracks": 1,
+      "samples": 241
+    }
+  ],
+  "events": [
+    {
+      "time": 1.9,
+      "type": "land"
+    },
+    {
+      "time": 2.6,
+      "type": "staff_formed"
+    },
+    {
+      "time": 3.55,
+      "type": "grab"
+    },
+    {
+      "time": 3.7,
+      "type": "vine_hide"
+    }
+  ],
+  "metrics": {
+    "sampledFrames": 488,
+    "violatingFrames": 0,
+    "failedIKFrames": 19,
+    "maximumGroundPalmHeight": 0.014999908807341988,
+    "worstGroundFacingUpDot": -0.9573297594147011,
+    "maximumGroundElbowFlex": 4.418051931791311,
+    "maximumPostGrabOffsetError": 0.00012869052535059025,
+    "maximumIKEndpointError": 0.014128132466255784,
+    "maximumUprightWeaponTiltDegrees": 0,
+    "finalWeaponMinimumY": 0,
+    "minimumVisibleWeaponY": 0
+  },
+  "provenance": {
+    "boundedFitExperiment": true,
+    "velocityAware": true,
+    "jointRise": true,
+    "releaseKeyMeasurement": {
+      "passed": false,
+      "target": [
+        -0.17304818387057846,
+        0.03516331001046344,
+        -0.15250132731617985
+      ],
+      "targetQuaternion": [
+        -0.32765155332443474,
+        0.38972317963005987,
+        0.7297970149352723,
+        0.4562418436034635
+      ],
+      "positionError": 0.0022024813865022283,
+      "orientationErrorDegrees": 1.2221478781684707,
+      "requestedDistance": 0.49435741931955085,
+      "maximumReach": 0.5022648404370029,
+      "flex": 5.521948296287662,
+      "elbow": [
+        -0.15672788500015056,
+        0.26176596230695187,
+        -0.1800278195099959
+      ],
+      "violations": [],
+      "boundedFitAttempted": true,
+      "maximumStepDegrees": null
+    },
+    "staffGrabKeyMeasurement": {
+      "passed": true,
+      "target": [
+        -0.531825275395385,
+        1.6377199090374415,
+        0.1408082814912064
+      ],
+      "targetQuaternion": [
+        -0.4463960122834471,
+        0.8464533268856986,
+        0.27307574701466064,
+        -0.09837175414698218
+      ],
+      "positionError": 2.7790784897634524e-9,
+      "orientationErrorDegrees": 0.21703244287764228,
+      "requestedDistance": 0.48332831447902763,
+      "maximumReach": 0.5022648404370029,
+      "flex": 23.21625501918607,
+      "elbow": [
+        -0.40938004339553113,
+        1.4649385329228526,
+        0.048727733143656506
+      ],
+      "violations": [],
+      "boundedFitAttempted": false,
+      "maximumStepDegrees": null
+    },
+    "gripProofPassed": true,
+    "stancePassed": true,
+    "stanceMetrics": {
+      "stanceWidthInShoulders": 1.069113007444407,
+      "footPositionErrors": {
+        "Left": 0.004999899999998874,
+        "Right": 0.004999900000000028
+      },
+      "footRotationErrorsDegrees": {
+        "Left": 0.9998764116577893
+      },
+      "groundPalmHeight": 0.014999899999999834,
+      "groundPalmUpDot": -0.9940889257590854,
+      "torsoTiltDegrees": 25.842258337852666,
+      "torsoForwardLeanDegrees": 18.734042800003404,
+      "torsoLateralLeanDegrees": -19.073802860038597,
+      "pelvisTiltDegrees": 13.270694450600901,
+      "rightKneeHeight": 0.07999985417231488,
+      "hipFlexDegrees": {
+        "Left": 120,
+        "Right": 59.33538448196101
+      },
+      "kneeFlexDegrees": {
+        "Left": 121.26960301692313,
+        "Right": 150
+      }
+    },
+    "weaponSourceVertices": 357203,
+    "hammerGroundTiltFromDownDegrees": null,
+    "groundHammerFit": null,
+    "angularVelocityLimit": {
+      "bodyDegreesPerFrame": 8,
+      "fingerDegreesPerFrame": 16,
+      "endpointErrorsMeasuredAfterFilter": true
+    },
+    "handFramesVerified": {
+      "Right": "auto; visual/open-close pending",
+      "Left": "auto; visual/open-close pending"
+    },
+    "note": "Complete-duration attempted choreography; VFX/visibility use phase data. Mesh contact and hand-frame verification are independent acceptance gates."
+  },
+  "blockers": [
+    "asymmetric right knee uses 150-degree flex instead of general 120-140-degree crouch interval; independent reference visual acceptance required",
+    "planted-foot motion and sole clearance from actual source mesh",
+    "all-mesh strain/seam/cross-section and collision acceptance",
+    "all-frame exact grip and weapon/body/head clearance",
+    "source hand-frame independent visual certification",
+    "physical Android validation"
+  ],
+  "note": "Complete-duration FK exported for actual review, not activated. Numeric local/FK checks cannot certify full-mesh contact, clothing, head clearance, ground sole or visual reference acceptance."
+}

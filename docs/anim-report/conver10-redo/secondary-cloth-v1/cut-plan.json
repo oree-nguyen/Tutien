@@ -1,0 +1,46 @@
+{
+  "parentRig": ".local/rig-candidates/semantic-garment-v7/H01-C0-rigged.glb",
+  "parentRigSha256": "5fcf74580c7bcb9d48adcaebbdb1c379712f89ad2e34d0d55a18d7a6a6902db4",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "operation": "Separate only sleeve-to-lower-robe interfaces on original source edges. Upper shoulder, wrist and waist-to-torso interfaces stay sewn.",
+  "diagnostics": {
+    "sourceFaces": 1499726,
+    "sourceCorners": 4499178,
+    "pairedEdges": 2249589,
+    "cutEdges": 948,
+    "fanUnionIterations": 3,
+    "unpairedNonzeroEdges": 0
+  },
+  "bounds": [
+    [
+      -0.3417028784751892,
+      0.6333267688751221,
+      -0.10229013860225677
+    ],
+    [
+      0.34510233998298645,
+      0.9168662428855896,
+      0.0050727082416415215
+    ]
+  ],
+  "leftEdges": 450,
+  "rightEdges": 498,
+  "files": {
+    "cut-edges.u32bin": {
+      "sha256": "857647acc204639df1483134000c1294fa4f8a86f038330b87b05b78e35120fa",
+      "bytes": 7584
+    },
+    "corner-components.u32bin": {
+      "sha256": "e2f77ca2b1bb923592513d3a1397ef107e5c57a280b67b637caa1619c5b27a46",
+      "bytes": 17996712
+    },
+    "face-roles.u8bin": {
+      "sha256": "2c0f878c76e366dd29795da361cee9edf5c8354107fcf27358572d7ba5be7f62",
+      "bytes": 1499726
+    }
+  },
+  "patternApproved": false,
+  "accepted": false,
+  "activated": false,
+  "scope": "Exact source-edge pattern proposal. No geometry removed/generated, no texture change, no exemption in current seam verifier. Requires isolated boundary and deformed mesh review."
+}

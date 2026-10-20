@@ -1,0 +1,130 @@
+{
+  "hero": "H01",
+  "input": ".local/rig-candidates/lower-leg-h01-v1/H01-C0-rigged.glb",
+  "inputSha256": "0302edfc9a90db50daccee192ff27fc83ce7e3851b59f66a28be90837f59f046",
+  "selection": ".local/rig-candidates/foot-source/H01/selection.json",
+  "selectionSha256": "e7e7b1c56dbcbe695446dc17a5a52b91841351729e2706b68cc1d6ff77d302fa",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "accepted": false,
+  "activated": false,
+  "scope": "Exact graph-selected lower boot source vertices and underside patch skinned at frozen diagnostic FK poses; 5mm ground criteria and unchanged1.5/2.0 edge limits. Upstream failures retained; no complete animation or semantic acceptance inferred.",
+  "samples": [
+    {
+      "poseFile": "docs/anim-report/conver10-redo/animation/stances-forward/H01-mesh-foot-head-aligned.json",
+      "poseSha256": "a3005a6b786a8f36fd41b7201ffb8b93cef545234f86c5a23a020568554fe881",
+      "clip": null,
+      "time": null,
+      "upstreamPassed": true,
+      "sourcePoseRigSha256": null,
+      "sides": {
+        "Left": {
+          "vertices": 19676,
+          "soleVertices": 661,
+          "minimumY": -0.0028058330259426827,
+          "maximumY": 0.1976005130277379,
+          "soleMinimumY": -0.0028058330259426827,
+          "soleMaximumY": 0.00021332441498504977,
+          "minimumSource": {
+            "nodeIndex": 0,
+            "primitiveIndex": 0,
+            "vertex": 50408,
+            "sourceVertexId": 50408,
+            "bind": [
+              0.18620696663856506,
+              0,
+              0.05197111889719963
+            ],
+            "posed": [
+              0.2440639368809061,
+              -0.0028058330259426827,
+              0.2000374412865888
+            ]
+          }
+        },
+        "Right": {
+          "vertices": 20638,
+          "soleVertices": 621,
+          "minimumY": 0.0000484270082641215,
+          "maximumY": 0.10145649212673635,
+          "soleMinimumY": 0.007891355924946497,
+          "soleMaximumY": 0.10145649212673635,
+          "minimumSource": {
+            "nodeIndex": 0,
+            "primitiveIndex": 0,
+            "vertex": 23622,
+            "sourceVertexId": 23622,
+            "bind": [
+              -0.10405173897743225,
+              0.08704495429992676,
+              -0.048036884516477585
+            ],
+            "posed": [
+              -0.09579070806537354,
+              0.0000484270082641215,
+              -0.3164907674546629
+            ]
+          }
+        }
+      },
+      "edgeStrainPassed": true,
+      "strains": [
+        {
+          "nodeIndex": 0,
+          "primitiveIndex": 0,
+          "node": "H01_Tencent_Original_Body",
+          "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+          "passed": true,
+          "p999": 1.1651867385452659,
+          "maximum": 1.2025692169698876,
+          "minimum": 0.567437855991697,
+          "edges": 108704,
+          "triangles": 68573,
+          "selectedTriangles": 68573,
+          "areaRatios": {
+            "minimum": 0.33785327239164914,
+            "maximum": 24.087970820367435,
+            "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+          },
+          "sourceDiagnostics": {},
+          "thresholds": {
+            "p999": 1.5,
+            "maximum": 2
+          },
+          "numerical": {
+            "minimumSourceEdgeMeters": 1e-12,
+            "minimumSourceDoubleAreaSquareMeters": 1e-24,
+            "collapseRatio": 1e-12
+          },
+          "worst": {
+            "a": 444654,
+            "b": 438493,
+            "bindLength": 0.002068167037230243,
+            "posedLength": 0.0024871140145249055,
+            "sourceA": [
+              -0.1477915495634079,
+              0.18776601552963257,
+              -0.0973309576511383
+            ],
+            "sourceB": [
+              -0.14890646934509277,
+              0.18950171768665314,
+              -0.09747795015573502
+            ],
+            "posedA": [
+              -0.08346968596144655,
+              0.05892770356820774,
+              -0.2038509250699973
+            ],
+            "posedB": [
+              -0.08456467211293661,
+              0.06036539687785348,
+              -0.20214218887131388
+            ]
+          },
+          "issues": [],
+          "issueCounts": {}
+        }
+      ]
+    }
+  ]
+}

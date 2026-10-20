@@ -1,0 +1,815 @@
+{
+  "input": ".local/rig-candidates/secondary-cloth-v2/H01-C0-rigged.glb",
+  "sha256": "77d6bdd184c3b8d1638ee88102453ff23b27ea75af6b1084c4da5f1f57fdd089",
+  "pose": ".local/rig-candidates/secondary-cloth-v2/crouch-pose.json",
+  "poseSha256": "df228cd21e42aafabbc71d096809ffee908398ccbc786251cec276c13091d0d3",
+  "poseValidation": {
+    "upstreamPassed": false,
+    "poseDataValid": true,
+    "diagnosticOnly": true,
+    "upstreamReasons": {
+      "scope": "One-pose secondary-cloth source experiment. All original geometry/UV/images and52core joints preserved; extra32cloth joints, no runtime activation or animation acceptance."
+    }
+  },
+  "appliedPoseChannels": {
+    "rotations": 49,
+    "translations": 1
+  },
+  "passed": false,
+  "edgeStrainPassed": false,
+  "provenancePassed": false,
+  "errors": [
+    "Reference pose upstream acceptance failed"
+  ],
+  "scope": "Every node/primitive at one pose; unchanged p99.9 1.5 / maximum 2.0 edge-stretch limits, fail-closed newly collapsed/nonfinite checks and provenance-bound source-copy seams. Existing source degeneracy is diagnostic. Not full-animation, volume, cross-section, semantic segmentation or phone acceptance.",
+  "meshes": [
+    {
+      "nodeIndex": 54,
+      "meshIndex": 0,
+      "primitiveIndex": 0,
+      "node": "H01_Remaining_Source",
+      "mesh": "H01_Remaining_Source",
+      "vertices": 136602,
+      "sourceTriangles": 231679,
+      "posedBounds": {
+        "usedVertices": 136602,
+        "minimum": [
+          -0.44375006147505985,
+          -0.5017767956248641,
+          -0.40788821851540363
+        ],
+        "maximum": [
+          0.4301747395814307,
+          0.9801532065236973,
+          0.2901118306836216
+        ],
+        "minimumYVertex": {
+          "vertex": 87587,
+          "sourceVertex": null,
+          "position": [
+            0.17988773802382124,
+            -0.5017767956248641,
+            -0.27258117210274313
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 16.599236356167967,
+      "maximum": 58.63661281205459,
+      "minimum": 0.06004634607166662,
+      "edges": 367668,
+      "triangles": 231679,
+      "selectedTriangles": 231679,
+      "areaRatios": {
+        "minimum": 0.012548262338414724,
+        "maximum": 10431.34199119777,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 55012,
+        "b": 55002,
+        "bindLength": 0.0006146807213578162,
+        "posedLength": 0.03604279546129268,
+        "sourceA": [
+          0.11270211637020111,
+          0.15574613213539124,
+          -0.05494685843586922
+        ],
+        "sourceB": [
+          0.11256606876850128,
+          0.1561417430639267,
+          -0.05539720878005028
+        ],
+        "posedA": [
+          0.20170982350142333,
+          0.026218445297672754,
+          0.061359825307197344
+        ],
+        "posedB": [
+          0.20888358124752124,
+          -0.007906597942274982,
+          0.052243810369924704
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Source-corner cuts require a reviewed pattern declaration"
+        ]
+      }
+    },
+    {
+      "nodeIndex": 55,
+      "meshIndex": 1,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Left",
+      "mesh": "H01_Robe_Left",
+      "vertices": 108064,
+      "sourceTriangles": 181682,
+      "posedBounds": {
+        "usedVertices": 108064,
+        "minimum": [
+          -0.004437176200753243,
+          -0.0008074919333632446,
+          -1.1283480593037616
+        ],
+        "maximum": [
+          0.557204317584683,
+          0.41570089745589955,
+          0.7142695241385949
+        ],
+        "minimumYVertex": {
+          "vertex": 74247,
+          "sourceVertex": null,
+          "position": [
+            0.20976398656826947,
+            -0.0008074919333632446,
+            -0.04942396307974906
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 38.62441187932796,
+      "maximum": 52.440313157694455,
+      "minimum": 0.018773491996317074,
+      "edges": 289150,
+      "triangles": 181682,
+      "selectedTriangles": 181682,
+      "areaRatios": {
+        "minimum": 0.003372367631976116,
+        "maximum": 923.6601406380164,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 97566,
+        "b": 97567,
+        "bindLength": 0.0017106925833261784,
+        "posedLength": 0.0897092547861701,
+        "sourceA": [
+          0.2032841295003891,
+          0.7891400456428528,
+          -0.00006871958612464368
+        ],
+        "sourceB": [
+          0.20235060155391693,
+          0.789029061794281,
+          0.0013605030253529549
+        ],
+        "posedA": [
+          0.33201162246649224,
+          0.06033162706351151,
+          -0.1671846771464239
+        ],
+        "posedB": [
+          0.3147152090825013,
+          0.07648980840158122,
+          -0.08065434920190413
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Source-corner cuts require a reviewed pattern declaration"
+        ]
+      }
+    },
+    {
+      "nodeIndex": 55,
+      "meshIndex": 1,
+      "primitiveIndex": 1,
+      "node": "H01_Robe_Left",
+      "mesh": "H01_Robe_Left",
+      "vertices": 95010,
+      "sourceTriangles": 160265,
+      "posedBounds": {
+        "usedVertices": 95010,
+        "minimum": [
+          -0.12220662673882904,
+          -0.020261281920178977,
+          -1.1621831851719144
+        ],
+        "maximum": [
+          0.5619394521344716,
+          0.4265063529810865,
+          0.7555432148654686
+        ],
+        "minimumYVertex": {
+          "vertex": 70277,
+          "sourceVertex": null,
+          "position": [
+            0.5447440649982397,
+            -0.020261281920178977,
+            -1.0703375753937412
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 41.444175481151596,
+      "maximum": 47.261130402127094,
+      "minimum": 0.01057195742232074,
+      "edges": 254764,
+      "triangles": 160265,
+      "selectedTriangles": 160265,
+      "areaRatios": {
+        "minimum": 0.025125545824422293,
+        "maximum": 135647.32214112612,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 60891,
+        "b": 60832,
+        "bindLength": 0.0011978779500728598,
+        "posedLength": 0.056613066004226116,
+        "sourceA": [
+          0.2125428020954132,
+          0.1254369020462036,
+          0.001393251703120768
+        ],
+        "sourceB": [
+          0.2125428020954132,
+          0.12542283535003662,
+          0.00019545634859241545
+        ],
+        "posedA": [
+          0.3214442804968012,
+          0.11301589764796915,
+          -0.09357786694018039
+        ],
+        "posedB": [
+          0.3316855183972579,
+          0.10352207502966701,
+          -0.14844154910568333
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Source-corner cuts require a reviewed pattern declaration"
+        ]
+      }
+    },
+    {
+      "nodeIndex": 56,
+      "meshIndex": 2,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Right",
+      "mesh": "H01_Robe_Right",
+      "vertices": 100352,
+      "sourceTriangles": 162022,
+      "posedBounds": {
+        "usedVertices": 100352,
+        "minimum": [
+          -0.29846132474766496,
+          -0.08345976170864144,
+          -1.1476937842947237
+        ],
+        "maximum": [
+          0.2766506246832483,
+          0.4147963349458319,
+          0.6205967228762196
+        ],
+        "minimumYVertex": {
+          "vertex": 97647,
+          "sourceVertex": null,
+          "position": [
+            0.014427866428220295,
+            -0.08345976170864144,
+            -1.0954258530463101
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 38.374987892255746,
+      "maximum": 56.00950745557676,
+      "minimum": 0.030914187815481928,
+      "edges": 261629,
+      "triangles": 162022,
+      "selectedTriangles": 162022,
+      "areaRatios": {
+        "minimum": 0.0028829018236473584,
+        "maximum": 326.042908005864,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 17667,
+        "b": 17668,
+        "bindLength": 0.0026839866384621453,
+        "posedLength": 0.15032876963761393,
+        "sourceA": [
+          -0.20358125865459442,
+          0.7876467704772949,
+          -0.0017278059385716915
+        ],
+        "sourceB": [
+          -0.202039435505867,
+          0.7878313064575195,
+          0.0004613747587427497
+        ],
+        "posedA": [
+          -0.05149850843928479,
+          0.018336111247787407,
+          -0.33565327689958246
+        ],
+        "posedB": [
+          -0.07571028838509516,
+          0.0326737245867653,
+          -0.18798147344219793
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Source-corner cuts require a reviewed pattern declaration"
+        ]
+      }
+    },
+    {
+      "nodeIndex": 56,
+      "meshIndex": 2,
+      "primitiveIndex": 1,
+      "node": "H01_Robe_Right",
+      "mesh": "H01_Robe_Right",
+      "vertices": 112533,
+      "sourceTriangles": 188124,
+      "posedBounds": {
+        "usedVertices": 112533,
+        "minimum": [
+          -0.3026971418291972,
+          -0.10064135804073542,
+          -1.1944077565054203
+        ],
+        "maximum": [
+          0.3178533105079686,
+          0.4172581393265147,
+          0.7152585410005494
+        ],
+        "minimumYVertex": {
+          "vertex": 93058,
+          "sourceVertex": null,
+          "position": [
+            0.03427018058020084,
+            -0.10064135804073542,
+            -1.1479093001954623
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 40.597006897035975,
+      "maximum": 46.71480666123924,
+      "minimum": 0.012096238791818781,
+      "edges": 299888,
+      "triangles": 188124,
+      "selectedTriangles": 188124,
+      "areaRatios": {
+        "minimum": 0.00941574765938994,
+        "maximum": 1496.2279131995358,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 97233,
+        "b": 97256,
+        "bindLength": 0.0011981638321500487,
+        "posedLength": 0.05597199176737903,
+        "sourceA": [
+          -0.2124364823102951,
+          0.12531493604183197,
+          0.00019545634859241545
+        ],
+        "sourceB": [
+          -0.2124364823102951,
+          0.1253446489572525,
+          0.001393251703120768
+        ],
+        "posedA": [
+          -0.08255406688216993,
+          0.04849457520910696,
+          -0.2276131850831067
+        ],
+        "posedB": [
+          -0.09277227839018906,
+          0.0586204735009354,
+          -0.17352142785736596
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Source-corner cuts require a reviewed pattern declaration"
+        ]
+      }
+    },
+    {
+      "nodeIndex": 57,
+      "meshIndex": 3,
+      "primitiveIndex": 0,
+      "node": "H01_Robe_Torso",
+      "mesh": "H01_Robe_Torso",
+      "vertices": 165243,
+      "sourceTriangles": 279272,
+      "posedBounds": {
+        "usedVertices": 165243,
+        "minimum": [
+          -0.2415944052126575,
+          0.041526647423046306,
+          -0.40264127101738856
+        ],
+        "maximum": [
+          0.44683546643617933,
+          0.7105463884220883,
+          -0.003998503160950559
+        ],
+        "minimumYVertex": {
+          "vertex": 49786,
+          "sourceVertex": null,
+          "position": [
+            -0.03296975622167545,
+            0.041526647423046306,
+            -0.1842354066078083
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 1.6239180985830743,
+      "maximum": 2.04129810504143,
+      "minimum": 0.4057474067318986,
+      "edges": 443822,
+      "triangles": 279272,
+      "selectedTriangles": 279272,
+      "areaRatios": {
+        "minimum": 0.0788110137278366,
+        "maximum": 4.881250394725361,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 56726,
+        "b": 56700,
+        "bindLength": 0.0011986887167708131,
+        "posedLength": 0.0024468810060788043,
+        "sourceA": [
+          0.18500916659832,
+          1.2294390201568604,
+          -0.03751302883028984
+        ],
+        "sourceB": [
+          0.1838129311800003,
+          1.2295156717300415,
+          -0.03751302883028984
+        ],
+        "posedA": [
+          0.30451150284347167,
+          0.4973743623847926,
+          -0.1958939390376675
+        ],
+        "posedB": [
+          0.30219614883686857,
+          0.496743784169842,
+          -0.1963722000509708
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Source-corner cuts require a reviewed pattern declaration"
+        ]
+      }
+    },
+    {
+      "nodeIndex": 58,
+      "meshIndex": 4,
+      "primitiveIndex": 0,
+      "node": "H01_Sleeve_Left",
+      "mesh": "H01_Sleeve_Left",
+      "vertices": 81409,
+      "sourceTriangles": 145786,
+      "posedBounds": {
+        "usedVertices": 81409,
+        "minimum": [
+          0.23180720444893438,
+          -0.03121816174749672,
+          -0.22772950423348007
+        ],
+        "maximum": [
+          0.49668981765825043,
+          0.681786653190749,
+          0.1761267743600855
+        ],
+        "minimumYVertex": {
+          "vertex": 37790,
+          "sourceVertex": null,
+          "position": [
+            0.37968823835609344,
+            -0.03121816174749672,
+            0.00387395584857151
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 2.049807523267063,
+      "maximum": 3.8876728456361014,
+      "minimum": 0.2508169525355765,
+      "edges": 227053,
+      "triangles": 145786,
+      "selectedTriangles": 145786,
+      "areaRatios": {
+        "minimum": 0.052818338847194474,
+        "maximum": 50.82003383777242,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 76448,
+        "b": 76444,
+        "bindLength": 0.002548640496999738,
+        "posedLength": 0.009908280453474378,
+        "sourceA": [
+          0.49343183636665344,
+          1.0846856832504272,
+          0.03676740452647209
+        ],
+        "sourceB": [
+          0.4920448064804077,
+          1.0864652395248413,
+          0.03558212146162987
+        ],
+        "posedA": [
+          0.35526420602959136,
+          0.5039146288649418,
+          0.12432353892074847
+        ],
+        "posedB": [
+          0.363845488688337,
+          0.5056080672863966,
+          0.11966866236082185
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Source-corner cuts require a reviewed pattern declaration"
+        ]
+      }
+    },
+    {
+      "nodeIndex": 59,
+      "meshIndex": 5,
+      "primitiveIndex": 0,
+      "node": "H01_Sleeve_Right",
+      "mesh": "H01_Sleeve_Right",
+      "vertices": 85967,
+      "sourceTriangles": 150896,
+      "posedBounds": {
+        "usedVertices": 85967,
+        "minimum": [
+          -0.3592164802977702,
+          -0.13427765642083794,
+          -0.406618955154068
+        ],
+        "maximum": [
+          -0.056969895872732025,
+          0.48969131983943054,
+          -0.04516881429627789
+        ],
+        "minimumYVertex": {
+          "vertex": 57749,
+          "sourceVertex": null,
+          "position": [
+            -0.2865020491633999,
+            -0.13427765642083794,
+            -0.3766241094573129
+          ]
+        },
+        "scope": "All rendered source surfaces after exact FK skinning; includes garments, not just boot/sole selection. Diagnostic bounds do not waive any phase-specific floor test."
+      },
+      "passed": false,
+      "p999": 2.1743066598472423,
+      "maximum": 5.808644765171507,
+      "minimum": 0.12363245303281101,
+      "edges": 236575,
+      "triangles": 150896,
+      "selectedTriangles": 150896,
+      "areaRatios": {
+        "minimum": 0.028581517457077734,
+        "maximum": 35.97270225714347,
+        "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+      },
+      "sourceDiagnostics": {},
+      "thresholds": {
+        "p999": 1.5,
+        "maximum": 2
+      },
+      "numerical": {
+        "minimumSourceEdgeMeters": 1e-12,
+        "minimumSourceDoubleAreaSquareMeters": 1e-24,
+        "collapseRatio": 1e-12
+      },
+      "worst": {
+        "a": 46983,
+        "b": 47031,
+        "bindLength": 0.0011425612810296512,
+        "posedLength": 0.006636732603940534,
+        "sourceA": [
+          -0.46435636281967163,
+          0.9665011763572693,
+          0.077121801674366
+        ],
+        "sourceB": [
+          -0.46498969197273254,
+          0.9656036496162415,
+          0.07743610441684723
+        ],
+        "posedA": [
+          -0.2847823062036529,
+          0.006405198197978005,
+          -0.1581586257383827
+        ],
+        "posedB": [
+          -0.28598398935141917,
+          0.0007871844705164085,
+          -0.1548359612914915
+        ]
+      },
+      "issues": [],
+      "issueCounts": {},
+      "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+      "skinErrors": [],
+      "sourceProvenance": {
+        "verified": false,
+        "errors": [
+          "Source-corner cuts require a reviewed pattern declaration"
+        ]
+      }
+    }
+  ],
+  "sourceCoverage": {
+    "passed": false,
+    "sources": [
+      {
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "sourceNodeIndex": 0,
+        "sourcePrimitiveIndex": 0,
+        "sourceTriangles": 1499726,
+        "measuredTriangles": 0,
+        "missingTriangles": 1499726,
+        "duplicatedTriangles": 0,
+        "validatedOutputPrimitives": 0,
+        "passed": false
+      }
+    ]
+  },
+  "seams": {
+    "passed": false,
+    "status": "unverified-source-provenance-or-coverage",
+    "identityMode": "verified exact source vertex IDs only; distinct original UV-seam IDs are not certified",
+    "numericalToleranceMillimetres": 0.001,
+    "referencedVertices": 885180,
+    "verifiedVertices": 0,
+    "mechanicallyVerifiedWeldPrimitives": 0,
+    "groups": 0,
+    "pairs": 0,
+    "maximumMillimetres": 0,
+    "invalidPositions": 0,
+    "originalBeforePatternDiagnostic": {
+      "scope": "Original sewn-source identity including explicitly reviewed opened cut edges. Kept-seam identity is independently reconstructed above; original gaps remain visible here.",
+      "groups": 0,
+      "pairs": 0,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    },
+    "inferredXYZDiagnostic": {
+      "acceptedAsSourceIdentity": false,
+      "scope": "Coincident bind XYZ only; may join unrelated/free surfaces and cannot certify source identity.",
+      "groups": 124295,
+      "pairs": 148038,
+      "maximumMillimetres": 991.7684254049851,
+      "invalidPositions": 0,
+      "worst": {
+        "first": {
+          "nodeIndex": 54,
+          "meshIndex": 0,
+          "primitiveIndex": 0,
+          "node": "H01_Remaining_Source",
+          "mesh": "H01_Remaining_Source",
+          "vertexIndex": 41600
+        },
+        "second": {
+          "nodeIndex": 55,
+          "meshIndex": 1,
+          "primitiveIndex": 0,
+          "node": "H01_Robe_Left",
+          "mesh": "H01_Robe_Left",
+          "vertexIndex": 18645
+        },
+        "bind": [
+          0.1156371682882309,
+          0.24340717494487762,
+          -0.09550610929727554
+        ],
+        "gapMillimetres": 991.7684254049851
+      }
+    }
+  }
+}

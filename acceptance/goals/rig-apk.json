@@ -7,25 +7,25 @@
       "id": "garment",
       "condition": "Hai vạt H01 độc lập; biên áo/tay/thân hợp lý, không giả phần thân bị thiếu",
       "status": "in_progress",
-      "note": "H01 source-corner cuts and4096PBR closure remain staging. Collision-guided retriangulation tried4times:746/779/749/774crossings versus476withoutclosures. No pattern approval or activation; new crouch still breaks and penetrates floor."
+      "note": "H01 proposes1558 source-edge cuts:948 sleeve cuts plus610 actual boot-connected edges. Thirty source fabric faces in10 small components are returned to lining. Independent source-corner graph agrees; pattern registry remains empty. Secondary cloth84-joint prototypes fail floor/strain; no activation."
     },
     {
       "id": "skin",
       "condition": "Kiểm toàn bộ mesh, không chỉ mesh đầu: p99.9 <= 1.5 và maximum <= 2.0; không đổi ngưỡng",
       "status": "blocked",
-      "note": "H02 actual boot support fixed at source graph. Frozen crouch boot minimum−0.849/−1.759mm, kept seams0mm; wholemesh p9994.221529/max8.482240 still fails1.5/2.0. Entire garment can reach−552.256mm. H01 crouch remains rejected."
+      "note": "H01 corrected source boot fields preserve all geometry/UV/images/core52binds/legacyclips and38037 protected hand vertices. In the same new crouch boot edgep999/maximum improves26.889459/58.636613 to1.165187/1.202569. All graph-selected boot vertices pass5mm floor over374post-land/idle frames; H02 passes377. H01 wholemesh still fails3.225667/10.255410 and garment reaches−628.182mm."
     },
     {
       "id": "contact",
       "condition": "H01/H02 qua kiểm tiếp xúc mesh vũ khí và giới hạn khớp hiện có",
       "status": "blocked",
-      "note": "H02 FK attachment error0 is rigid hand/weapon bookkeeping, not actual finger-surface acceptance. Existing thumb/pinky grip failures remain unresolved; no old static palm proof reused for new rig."
+      "note": "Actual source boot floor checks pass narrow scope for both heroes. Hand/weapon offset is not full finger-surface acceptance; thumb/pinky grip issues and whole-clip clearance remain unresolved."
     },
     {
       "id": "animation",
       "condition": "Entrance và IDLE_HOLD đúng reference; kiểm hoạt ảnh và chuyển tiếp, không mất UV/texture",
       "status": "blocked",
-      "note": "H02 joint-rise-v7 exports452frames; independentThree FK/controller pass narrow checks:0joint/stance/foot/velocity failures, footslide0.231mm, footpenetration1.759mm, bodymax7.999997deg/frame. Full cloth/grip/clearance acceptance still fails; H01 controller rejects RightArm Entrance/idle discontinuity. Neither activated."
+      "note": "H01 keys-v6 exports488frames with0joint/stance/angular/IK failures and controllerPassed:true. Boot penetration2.806mm, footslide0.010691mm; original lower-source gate retains177failures due cloth. H02 regression GLB unchanged2fb7a83d...,452frames FK/controller pass. Full cloth, surface grip, cross-sections and clearance remain unaccepted."
     },
     {
       "id": "runtime",
@@ -37,7 +37,7 @@
       "id": "tests",
       "condition": "npm test, test:master và verify:master báo kết quả thật; không hạ điều kiện",
       "status": "blocked",
-      "note": "Cloud source535ab0d046eae89668f44050013e8ea1e7996c108b57b41405ec860080a10d49: npm test299/299 and test:master215/215 pass. verify:master BLOCKED0/37; rig goal BLOCKED. Raw logs/exit codes retained, thresholds unchanged."
+      "note": "Cloud source4c39b156b369b3b19c7b1a9f27f873f7123781c18410dc0d1706b1c6dfc6aeb7: npm test308/308 and test:master215/215 pass. verify:master exit1 BLOCKED0/37; rig goal exit1 BLOCKED. Raw logs/exit codes/checksums retained under checks/h01-boot-pass-2026-10-21; no threshold changes."
     },
     {
       "id": "apk",
@@ -49,7 +49,7 @@
       "id": "publish",
       "condition": "Mã nguồn, ảnh và APK lên GitHub; xác minh remote",
       "status": "in_progress",
-      "note": "Source and photographs are being published to main as conver10 progress. No accepted runtime rig or new APK in this phase."
+      "note": "Conver10 source, receipts, original-resolution images and current failed/pass checks published as progress on main. Accepted production rig and new APK remain outstanding."
     }
   ],
   "limitations": [

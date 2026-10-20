@@ -1,0 +1,633 @@
+{
+  "hero": "H01",
+  "profile": "reference",
+  "scope": "Bounded calibrated FK stance; source mesh/sole/strain acceptance not inferred",
+  "passed": true,
+  "activated": false,
+  "fitConfiguration": {
+    "meshFootSource": ".local/rig-candidates/lower-leg-h01-v1",
+    "meshFootSolveSha256": "3b37c858f54a06cc4dc6173b84930bdd51a923301efb89f689696ade23a0b581",
+    "warmStart": ".local/rig-candidates/stance-forward-h01-v3/H01-ground.json",
+    "warmStartSha256": "e689e907b390dc84bbde7238561a465b6ba48b180ae92a6f2b2e6dbd7a739286",
+    "hardReference": false,
+    "hardWorldStance": true,
+    "hardFeasibilityOnly": true,
+    "interiorContactMargins": false,
+    "variables": [
+      [
+        "Hips",
+        "tx",
+        -0.24,
+        0.24
+      ],
+      [
+        "Hips",
+        "ty",
+        0.035,
+        0.8500000238418579
+      ],
+      [
+        "Hips",
+        "tz",
+        -0.55,
+        0.4
+      ],
+      [
+        "LeftAnchor",
+        "tx",
+        0.12,
+        0.4
+      ],
+      [
+        "LeftAnchor",
+        "tz",
+        0.1,
+        0.5
+      ],
+      [
+        "LeftAnchor",
+        "ty",
+        -0.12,
+        0.2
+      ],
+      [
+        "RightAnchor",
+        "tx",
+        -0.3,
+        -0.08
+      ],
+      [
+        "RightAnchor",
+        "tz",
+        -0.52,
+        -0.16
+      ],
+      [
+        "RightAnchor",
+        "ty",
+        -0.12,
+        0.2
+      ],
+      [
+        "Hips",
+        "flex",
+        -15,
+        15
+      ],
+      [
+        "Hips",
+        "lateral",
+        -15,
+        15
+      ],
+      [
+        "Hips",
+        "twist",
+        -10,
+        10
+      ],
+      [
+        "Spine",
+        "flex",
+        -15,
+        25
+      ],
+      [
+        "Spine1",
+        "flex",
+        -15,
+        25
+      ],
+      [
+        "Spine2",
+        "flex",
+        -15,
+        25
+      ],
+      [
+        "Spine2",
+        "lateral",
+        -15,
+        15
+      ],
+      [
+        "Spine2",
+        "twist",
+        -20,
+        20
+      ],
+      [
+        "LeftUpLeg",
+        "flex",
+        -20,
+        120
+      ],
+      [
+        "LeftUpLeg",
+        "lateral",
+        -30,
+        45
+      ],
+      [
+        "LeftUpLeg",
+        "twist",
+        -45,
+        40
+      ],
+      [
+        "LeftLeg",
+        "flex",
+        -3,
+        150
+      ],
+      [
+        "LeftLeg",
+        "lateral",
+        -6,
+        6
+      ],
+      [
+        "LeftLeg",
+        "twist",
+        -5,
+        5
+      ],
+      [
+        "LeftFoot",
+        "flex",
+        -45,
+        20
+      ],
+      [
+        "LeftFoot",
+        "lateral",
+        -15,
+        30
+      ],
+      [
+        "LeftFoot",
+        "twist",
+        -10,
+        10
+      ],
+      [
+        "RightUpLeg",
+        "flex",
+        -20,
+        120
+      ],
+      [
+        "RightUpLeg",
+        "lateral",
+        -30,
+        45
+      ],
+      [
+        "RightUpLeg",
+        "twist",
+        -45,
+        40
+      ],
+      [
+        "RightLeg",
+        "flex",
+        -3,
+        150
+      ],
+      [
+        "RightLeg",
+        "lateral",
+        -6,
+        6
+      ],
+      [
+        "RightLeg",
+        "twist",
+        -5,
+        5
+      ],
+      [
+        "RightFoot",
+        "flex",
+        -45,
+        20
+      ],
+      [
+        "RightFoot",
+        "lateral",
+        -15,
+        30
+      ],
+      [
+        "RightFoot",
+        "twist",
+        -10,
+        10
+      ],
+      [
+        "RightArm",
+        "flex",
+        -60,
+        180
+      ],
+      [
+        "RightArm",
+        "lateral",
+        -30,
+        180
+      ],
+      [
+        "RightArm",
+        "twist",
+        -90,
+        70
+      ],
+      [
+        "RightForeArm",
+        "flex",
+        0,
+        10
+      ],
+      [
+        "RightHand",
+        "flex",
+        -80,
+        80
+      ],
+      [
+        "RightHand",
+        "lateral",
+        -30,
+        20
+      ],
+      [
+        "RightHand",
+        "twist",
+        -10,
+        10
+      ],
+      [
+        "LeftArm",
+        "flex",
+        -60,
+        180
+      ],
+      [
+        "LeftArm",
+        "lateral",
+        -30,
+        180
+      ],
+      [
+        "LeftArm",
+        "twist",
+        -90,
+        70
+      ],
+      [
+        "LeftForeArm",
+        "flex",
+        60,
+        90
+      ],
+      [
+        "LeftHand",
+        "flex",
+        -70,
+        80
+      ],
+      [
+        "LeftHand",
+        "lateral",
+        -30,
+        20
+      ],
+      [
+        "LeftHand",
+        "twist",
+        -10,
+        10
+      ]
+    ]
+  },
+  "attempts": [
+    {
+      "initialHip": [
+        0.12,
+        -0.15
+      ],
+      "cost": 1.0503298571119164,
+      "success": false,
+      "nfev": 80,
+      "message": "The maximum number of function evaluations is exceeded."
+    },
+    {
+      "method": "SLSQP hard world-forward torso, pelvis, exact hand/foot and hero-specific stance constraints",
+      "success": true,
+      "message": "Optimization terminated successfully",
+      "iterations": 1,
+      "minimumConstraint": 1.110861974729187e-9
+    }
+  ],
+  "solverConverged": true,
+  "cost": 0,
+  "metrics": {
+    "stanceWidthInShoulders": 0.8987117882397073,
+    "footPositionErrors": {
+      "Left": 0.000053290073205967926,
+      "Right": 0.00006911444467850854
+    },
+    "footRotationErrorsDegrees": {
+      "Left": 0.038343326739165656
+    },
+    "groundPalmHeight": 0.0055552967447130095,
+    "groundPalmUpDot": -0.9999996257134698,
+    "torsoTiltDegrees": 25.011278404017677,
+    "torsoForwardLeanDegrees": 15.008817401261425,
+    "torsoLateralLeanDegrees": -20.897509637275824,
+    "pelvisTiltDegrees": 14.999899991135806,
+    "rightKneeHeight": 1.0111086197472918e-7,
+    "hipFlexDegrees": {
+      "Left": 119.99999999999777,
+      "Right": 59.24954664115439
+    },
+    "kneeFlexDegrees": {
+      "Left": 121.35881433173134,
+      "Right": 149.98026448145143
+    }
+  },
+  "groundPalm": [
+    -0.3085839800836332,
+    0.0055552967447130095,
+    -0.08373253265842892
+  ],
+  "anchors": {
+    "Left": [
+      0.16283122923762836,
+      0.11720388327189818,
+      0.14799126425794037
+    ],
+    "Right": [
+      -0.25902983385275846,
+      -0.03667031735585051,
+      -0.34377879229714636
+    ]
+  },
+  "anchorJoints": {
+    "Left": "LeftFoot",
+    "Right": "RightToeBase"
+  },
+  "meshFoot": {
+    "Left": {
+      "minimumY": -0.002805833025942464,
+      "maximumY": 0.197600513027738,
+      "soleMinimumY": -0.002805833025942464,
+      "soleMaximumY": 0.0002133244149852831,
+      "soleMaximumVerticalError": 0.0028460699013535262
+    },
+    "Right": {
+      "minimumY": 0.00004842700826417526,
+      "maximumY": 0.10145649212673641,
+      "soleMinimumY": 0.00789135592494655,
+      "soleMaximumY": 0.10145649212673641,
+      "soleMaximumVerticalError": 0.0991463592424541
+    }
+  },
+  "footPositions": {
+    "Left": [
+      0.16283596871869288,
+      0.1171516837532443,
+      0.14800088608073236
+    ],
+    "Right": [
+      -0.14272598272064863,
+      -0.014751841377214815,
+      -0.28532336854952856
+    ]
+  },
+  "footRotations": {
+    "Left": [
+      0.8414479902380156,
+      0.00008632391547669309,
+      -0.00003070847391491336,
+      0.5403381083447433
+    ],
+    "Right": [
+      0.7576315509745126,
+      -0.6083353588187992,
+      0.09361773563991896,
+      -0.21715948920646178
+    ]
+  },
+  "angles": {
+    "Hips": {
+      "flex": -13.412936206861861,
+      "lateral": 6.714919363233634,
+      "twist": -9.997220650692102
+    },
+    "Spine": {
+      "flex": 24.999999001750382,
+      "lateral": 0,
+      "twist": 0
+    },
+    "Spine1": {
+      "flex": 19.624099590569774,
+      "lateral": 0,
+      "twist": 0
+    },
+    "Spine2": {
+      "flex": -14.999999058223116,
+      "lateral": 9.315692014480067,
+      "twist": 19.99999994741537
+    },
+    "LeftUpLeg": {
+      "flex": 119.99999999999777,
+      "lateral": 44.99999994854599,
+      "twist": -44.9999958471967
+    },
+    "LeftLeg": {
+      "flex": 121.35881433173134,
+      "lateral": 5.999977155208199,
+      "twist": -3.3004801507547388
+    },
+    "LeftFoot": {
+      "flex": 19.999999999999996,
+      "lateral": -14.998884185652336,
+      "twist": 9.99999999999987
+    },
+    "RightUpLeg": {
+      "flex": 59.24954664115439,
+      "lateral": 44.94285061897212,
+      "twist": 39.97790668817866
+    },
+    "RightLeg": {
+      "flex": 149.98026448145143,
+      "lateral": -5.993587409864647,
+      "twist": -2.884816158370263
+    },
+    "RightFoot": {
+      "flex": -14.741135519609625,
+      "lateral": -12.997431505774035,
+      "twist": 9.952409640499196
+    },
+    "RightArm": {
+      "flex": -3.810644594058973,
+      "lateral": 0.17765820886826023,
+      "twist": 55.3209439938788
+    },
+    "RightForeArm": {
+      "flex": 2.1225038718936735e-10,
+      "lateral": 0,
+      "twist": 0
+    },
+    "RightHand": {
+      "flex": -79.99999999999997,
+      "lateral": 18.978659456564674,
+      "twist": 9.99999982201795
+    },
+    "LeftArm": {
+      "flex": 26.41455063236015,
+      "lateral": 10.854920057826055,
+      "twist": 27.721680467094615
+    },
+    "LeftForeArm": {
+      "flex": 89.99999999999999,
+      "lateral": 0,
+      "twist": 0
+    },
+    "LeftHand": {
+      "flex": 0,
+      "lateral": 0,
+      "twist": 0
+    }
+  },
+  "rotations": {
+    "Hips": [
+      -0.11118084639671857,
+      -0.08638616779379542,
+      0.06837894682184559,
+      0.9876743233677521
+    ],
+    "Spine": [
+      0.21643960543322588,
+      0,
+      0,
+      0.9762960090054192
+    ],
+    "Spine1": [
+      0.1704167351577903,
+      0,
+      0,
+      0.9853720801698004
+    ],
+    "Spine2": [
+      -0.1424623839263391,
+      0.17159073966432886,
+      0.057102609726633384,
+      0.9731394448843806
+    ],
+    "LeftUpLeg": [
+      0.39835368369847796,
+      -0.03152886865326124,
+      -0.1670876622860473,
+      0.901333448972733
+    ],
+    "LeftLeg": [
+      0.8787300833935887,
+      -0.014306524303422935,
+      0.01778285069929942,
+      0.4767730425710525
+    ],
+    "LeftFoot": [
+      -0.3771068381351177,
+      0.008885298283759327,
+      -0.1421925347189717,
+      0.9151463091639155
+    ],
+    "RightUpLeg": [
+      0.7467004458629578,
+      -0.5094924782918757,
+      -0.2692439738934801,
+      0.332210085990943
+    ],
+    "RightLeg": [
+      0.9674335345908337,
+      0.005660918873154151,
+      0.06294794330843131,
+      0.24510786723366562
+    ],
+    "RightFoot": [
+      -0.6346596619229344,
+      -0.00413663108906214,
+      0.1501727150707206,
+      0.758048914951659
+    ],
+    "RightArm": [
+      -0.3787883158546296,
+      -0.0774775325954715,
+      0.013647444825351912,
+      0.9221336079791638
+    ],
+    "RightForeArm": [
+      -0.039368471618839926,
+      -0.033862809398454013,
+      0.07086785635145329,
+      0.9961331138548655
+    ],
+    "RightHand": [
+      0.6155370206780256,
+      -0.19988458187292077,
+      -0.14600355060863693,
+      0.7482267659700357
+    ],
+    "LeftArm": [
+      -0.33318168641563034,
+      -0.2458942091923627,
+      -0.17902771176704044,
+      0.8924545255318932
+    ],
+    "LeftForeArm": [
+      -0.565138187245609,
+      0.04229828038678356,
+      -0.5062055761062116,
+      0.6500658424437069
+    ],
+    "LeftHand": [
+      0.003559866844186942,
+      0.07125122411053536,
+      -0.07057223032018743,
+      0.994952335902799
+    ],
+    "Neck": [
+      -0.10905686624583498,
+      -0.08229815139223723,
+      -0.18706766260217708,
+      0.9727997244092006
+    ]
+  },
+  "translations": {
+    "Hips": [
+      0.13209952956352575,
+      0.06140605018370683,
+      -0.22116736018724498
+    ]
+  },
+  "jointLimitsSha256": "17540a56f19504e60db4be1b801321f6f41fa3b95c59b4a9f34e8204f3885edf",
+  "bindFramesSha256": "70ffb6c3ed995c59aec3d0aaf35174c7a2844a9ffa3084cc97e8610529d8a2e1",
+  "handFramesSha256": "c687b8afbc18a7673c1b5ec2e5d6d18e123cd2f63f0de92ad4b8f6bb34bc7618",
+  "headAlignment": {
+    "input": ".local/rig-candidates/stance-mesh-h01-v1/H01-ground.json",
+    "inputSha256": "b71edd697d743306c82322f07dce3914e054ad0e443ef1b09829ae8dadf4dd58",
+    "rigFile": "assets/rigged/H01-C0-rigged.glb",
+    "rigSha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
+    "beforeDegrees": 26.788206307140186,
+    "sourceHeadOrientationErrorDegrees": 0,
+    "neckAngles": {
+      "flex": -10.730463592885316,
+      "lateral": -22.592503147837398,
+      "twist": -9.67133398467979
+    },
+    "violations": [],
+    "scope": "Neck-only source head orientation; no feet/palm/torso changes and no whole-mesh acceptance inferred"
+  }
+}

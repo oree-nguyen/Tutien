@@ -1,0 +1,41 @@
+{
+  "recordedAt": "2026-10-20T23:13:51.236603+00:00",
+  "scope": "Cloud Linux. No physical Android verification. Raw logs and exit codes retained; no threshold changes.",
+  "sourceHash": "4c39b156b369b3b19c7b1a9f27f873f7123781c18410dc0d1706b1c6dfc6aeb7",
+  "checks": [
+    {
+      "command": "npm test",
+      "exitCode": 0,
+      "seconds": 23.092591671011178,
+      "log": "docs/anim-report/conver10-redo/checks/h01-boot-pass-2026-10-21/npm-test.txt",
+      "sha256": "6c52a83814c25f3e88e58969fe106cc5358def726addf8a4f4e762a8de3189ad",
+      "bytes": 28164
+    },
+    {
+      "command": "npm run test:master",
+      "exitCode": 0,
+      "seconds": 52.91480991800199,
+      "log": "docs/anim-report/conver10-redo/checks/h01-boot-pass-2026-10-21/test-master.txt",
+      "sha256": "05627c3e8814e2503f74f6b8da6614cca05227679df72ba24144a47dedb47578",
+      "bytes": 21931
+    },
+    {
+      "command": "npm run verify:master",
+      "exitCode": 1,
+      "seconds": 1.0451290319906548,
+      "log": "docs/anim-report/conver10-redo/checks/h01-boot-pass-2026-10-21/verify-master.txt",
+      "sha256": "b772acbf56c047f63bf4cd4c07460761f4704fa4ff1d3c8c79e23131411c80b4",
+      "bytes": 585
+    },
+    {
+      "command": "npm run goal:rig",
+      "exitCode": 1,
+      "seconds": 0.17516889900434762,
+      "log": "docs/anim-report/conver10-redo/checks/h01-boot-pass-2026-10-21/rig-goal.txt",
+      "sha256": "dbdc6b689ece3b1c2d1984a4b0ff835fed25477d4e59c3beb81ac233d1f674e6",
+      "bytes": 315
+    }
+  ],
+  "sourceHashAfter": "4c39b156b369b3b19c7b1a9f27f873f7123781c18410dc0d1706b1c6dfc6aeb7",
+  "sourceUnchangedDuringChecks": true
+}

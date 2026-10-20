@@ -1,0 +1,80 @@
+{
+  "parentRig": ".local/rig-candidates/semantic-garment-v7/H01-C0-rigged.glb",
+  "parentRigSha256": "5fcf74580c7bcb9d48adcaebbdb1c379712f89ad2e34d0d55a18d7a6a6902db4",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "operation": "Retain original sleeve cuts; detach lower robe from residual source boot/body junctions below500mm. Waist, upper torso and source faces unchanged. No leg or body surface invented.",
+  "diagnostics": {
+    "sourceFaces": 1499726,
+    "sourceCorners": 4499178,
+    "pairedEdges": 2249589,
+    "cutEdges": 1608,
+    "fanUnionIterations": 3,
+    "unpairedNonzeroEdges": 0
+  },
+  "bounds": [
+    [
+      -0.3417028784751892,
+      0.6333267688751221,
+      -0.10229013860225677
+    ],
+    [
+      0.34510233998298645,
+      0.9168662428855896,
+      0.0050727082416415215
+    ]
+  ],
+  "leftEdges": 450,
+  "rightEdges": 498,
+  "files": {
+    "cut-edges.u32bin": {
+      "sha256": "1dd8fd8d9f4ad3445e4e1fadd740e84d3412e067e425a2fc4b9264c26c7762a0",
+      "bytes": 12864
+    },
+    "corner-components.u32bin": {
+      "sha256": "9c45dd25554a4a31dca911ec735b681cf9a65843adb0f76a96bbb19de430fe12",
+      "bytes": 17996712
+    },
+    "face-roles.u8bin": {
+      "sha256": "2c0f878c76e366dd29795da361cee9edf5c8354107fcf27358572d7ba5be7f62",
+      "bytes": 1499726
+    }
+  },
+  "patternApproved": false,
+  "accepted": false,
+  "activated": false,
+  "scope": "Exact source-edge pattern proposal. No geometry removed/generated, no texture change, no exemption in current seam verifier. Requires isolated boundary and deformed mesh review.",
+  "previousPlan": ".local/rig-candidates/coat-cut-v1/cut-plan.json",
+  "previousPlanSha256": "268cf33e5d67eaf1637f144b1a56cbc598db2c42235fae7ac3bb3b6d77a9ffb2",
+  "additionalLowerJunctionEdges": 660,
+  "additionalBounds": [
+    [
+      -0.19966340065002441,
+      0.19048839807510376,
+      -0.1894242912530899
+    ],
+    [
+      0.271819531917572,
+      0.3768986463546753,
+      0.11613760143518448
+    ]
+  ],
+  "independentCornerGraphPassed": true,
+  "sourceInputs": {
+    "positions.bin": {
+      "file": ".local/rig-candidates/semantic-garment-v6/positions.bin",
+      "sha256": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc"
+    },
+    "triangles.bin": {
+      "file": ".local/rig-candidates/semantic-garment-v6/triangles.bin",
+      "sha256": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132"
+    },
+    "source-welds.u32bin": {
+      "file": ".local/rig-candidates/semantic-garment-v6/source-welds.u32bin",
+      "sha256": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25"
+    },
+    "protected.bin": {
+      "file": ".local/rig-candidates/semantic-garment-v6/protected.bin",
+      "sha256": "42c11892831127626dba90e7e82c08ff89f98dae34228a2c50e2801d07b68ef0"
+    }
+  }
+}
