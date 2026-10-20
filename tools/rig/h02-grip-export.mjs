@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
-import { Matrix4, Vector3, Triangle } from 'three';
+import { Matrix4, Vector3, Triangle, Ray, DoubleSide } from 'three';
 import { MeshContact } from './mesh-contact.mjs';
 
 // Isolated H02 experiment. Every exported contact vertex carries its original
@@ -38,7 +38,23 @@ const included=new Set(faces.flatMap(f=>f.vertices));
 const sourceIds=[...included].sort((a,b)=>a-b), remap=new Map(sourceIds.map((v,i)=>[v,i]));
 const mesh=new MeshContact(pos,indices), tri=new Triangle();
 const extras=JSON.parse(await fs.readFile('docs/hand-frames/H02-distal-contact-probe.json')).palmCandidates;
-const patches=[...frame.palmCandidates,...extras].map(p=> {
+const grid=[];
+if(process.argv.includes('--palm-grid')) {
+  for(const lateral of [-.025,-.015,-.005,.005,.015,.025,.035])for(const distal of [.025,.035,.045,.055]) {
+    const origin=new Vector3(...frame.wrist).addScaledVector(new Vector3(...frame.u),lateral).addScaledVector(new Vector3(...frame.f),distal).addScaledVector(new Vector3(...frame.n),.12);
+    const ray=new Ray(origin,new Vector3(...frame.n).negate());
+    const hits=mesh.bvh.raycast(ray,DoubleSide).sort((a,b)=>a.distance-b.distance);
+    const hit=hits.find(h=>h.distance>=.055&&h.distance<=.125);
+    if(!hit)continue;
+    const vs=[0,1,2].map(k=>mesh.geometry.index.getX(hit.faceIndex*3+k));
+    const triangle=new Triangle(...vs.map(i=>new Vector3().fromArray(pos,i*3)));
+    const normal=triangle.getNormal(new Vector3());
+    if(normal.dot(new Vector3(...frame.n))<.45)continue;
+    if(vs.some(i=>!remap.has(i)))continue;
+    grid.push({ratio:100+grid.length,center:hit.point.toArray(),normal:normal.toArray(),lateral,distal,scope:'Source palm-grid sample; semantic and visual check required.'});
+  }
+}
+const patches=[...frame.palmCandidates,...extras,...grid].map(p=> {
   const q=mesh.distance(new Vector3(...p.center));
   if(q.distance>1e-5)throw Error('Palm patch is not source geometry');
   const vs=[0,1,2].map(k=>mesh.geometry.index.getX(q.face*3+k));

@@ -26,3 +26,13 @@ test("linked limb smoothing keeps knee and ankle at the same transition progress
  assert.ok(Math.max(...progress)-Math.min(...progress)<1e-12);
  assert.ok(progress[0]>0&&progress[0]<1);
 });
+test('bounded offline refinement recovers an attainable off-axis hinge contact without stretching bones',()=>{
+ const pose=fixture();pose.limits.hinge.lateral=[-8,8];pose.limits.hinge.twist=[0,0];
+ const upper=pose.nodes.get('upper'),middle=pose.nodes.get('middle'),end=pose.nodes.get('end');
+ upper.setRotation(new Quaternion().setFromAxisAngle(new Vector3(0,1,0),.3).toArray());
+ const swing=new Vector3(Math.PI/3,0,6*Math.PI/180),a=swing.length();middle.setRotation(new Quaternion().setFromAxisAngle(swing.divideScalar(a),a).toArray());
+ const target=pose.position(end),orientation=pose.rotation(end),original=pose.joints.map(n=>[n.getTranslation(),n.getScale()]);pose.reset();
+ const result=solveOfflineChain(pose,['upper','middle','end'],{target,orientation,pole:new Vector3(0,.7,-.4),endLimits:{flex:[0,0],lateral:[0,0],twist:[0,0]},boundedFit:true});
+ assert.equal(result.boundedFitAttempted,true);assert.equal(result.passed,true);assert.ok(result.positionError<.005);assert.ok(result.orientationErrorDegrees<1);
+ assert.deepEqual(pose.joints.map(n=>[n.getTranslation(),n.getScale()]),original);
+});

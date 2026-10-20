@@ -1,6 +1,6 @@
 import { Quaternion, Vector3, MathUtils } from "three";
 import { handOrientation } from "../../src/rig/hand-frame.js";
-import { solveOfflineChain, limitAngularStep,limitAngularChain } from "./offline-entrance-ik.mjs";
+import { solveOfflineChain as solveChain, limitAngularStep,limitAngularChain } from "./offline-entrance-ik.mjs";
 import {inspectJoint,clampJoint} from "../../src/rig/joint-limits.js";
 
 const smooth = (a, b, t) => { const x = MathUtils.clamp((t-a)/(b-a),0,1); return x*x*(3-2*x); };
@@ -9,7 +9,8 @@ const sideName = s => s[0].toUpperCase()+s.slice(1);
 
 /** Offline complete-duration choreography attempt. Failure measurements are retained;
  * exporting sampled FK never implies acceptance of contacts, skin or visual pose. */
-export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,gripProof,weapon,heldContact,stance,weaponFloorCheck}) {
+export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,gripProof,weapon,heldContact,stance,weaponFloorCheck,boundedFit=false}) {
+  const solveOfflineChain=(pose,names,options)=>solveChain(pose,names,{...options,boundedFit});
   const joints=pose.joints, frames=pose.frames,
     bind=Object.fromEntries(joints.map(n=>[n.getName(),{position:pose.position(n),rotation:pose.rotation(n)}])),
     gripSide=sideName(spec.gripHand), groundSide=sideName(spec.groundHand),
@@ -158,6 +159,10 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
       for(const name of ["Spine","Spine1","Spine2"])anatomical(name,Math.sin(time/spec.idleDuration*Math.PI*2)*spec.breathingDegreesPerSpine);
       for(const side of ["Left","Right"])pose.solveArm(side,uprightHands[side].position,uprightHands[side].rotation);
     }
+    for(const solution of solutions){
+      const end=solution.chain.replace(/UpLeg$/,"Foot").replace(/Arm$/,"Hand");
+      solution.beforeVelocityLimit={positionError:pose.position(pose.nodes.get(end)).distanceTo(V(solution.target)),orientationErrorDegrees:solution.targetQuaternion?MathUtils.radToDeg(pose.rotation(pose.nodes.get(end)).angleTo(Q(solution.targetQuaternion))):0};
+    }
     if(previousClip!==clip){exportedPrevious.clear();previousClip=clip;}
     const linked=new Map();
     for(const side of ["Left","Right"])for(const chain of [["UpLeg","Leg","Foot"],["Arm","ForeArm","Hand"]]){
@@ -215,6 +220,6 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
     frameReports.push(report);return report;
   };
   return {sample,frameReports,upright,localPalm:Object.fromEntries(Object.entries(localPalm).map(([s,p])=>[s,p.toArray()])),
-    provenance:{gripProofPassed:!!gripProof.passed,stancePassed:stance?.passed??false,stanceMetrics:stance?.metrics??null,weaponSourceVertices:weaponFloorCheck.vertices,hammerGroundTiltFromDownDegrees:hero==="H02"?20:null,groundHammerFit:groundHammerFit?{yaw:groundHammerFit.yaw,spin:groundHammerFit.spin,x:groundHammerFit.x,z:groundHammerFit.z,positionError:groundHammerFit.positionError,orientationErrorDegrees:groundHammerFit.orientationErrorDegrees}:null,angularVelocityLimit:{bodyDegreesPerFrame:8,fingerDegreesPerFrame:16,endpointErrorsMeasuredAfterFilter:true},handFramesVerified:Object.fromEntries(Object.entries(handFrames).map(([s,f])=>[s,f.verified])),
+    provenance:{boundedFitExperiment:boundedFit,gripProofPassed:!!gripProof.passed,stancePassed:stance?.passed??false,stanceMetrics:stance?.metrics??null,weaponSourceVertices:weaponFloorCheck.vertices,hammerGroundTiltFromDownDegrees:hero==="H02"?20:null,groundHammerFit:groundHammerFit?{yaw:groundHammerFit.yaw,spin:groundHammerFit.spin,x:groundHammerFit.x,z:groundHammerFit.z,positionError:groundHammerFit.positionError,orientationErrorDegrees:groundHammerFit.orientationErrorDegrees}:null,angularVelocityLimit:{bodyDegreesPerFrame:8,fingerDegreesPerFrame:16,endpointErrorsMeasuredAfterFilter:true},handFramesVerified:Object.fromEntries(Object.entries(handFrames).map(([s,f])=>[s,f.verified])),
       note:"Complete-duration attempted choreography; VFX/visibility use phase data. Mesh contact and hand-frame verification are independent acceptance gates."}};
 }

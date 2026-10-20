@@ -2,10 +2,12 @@
 import json, os, time
 from pathlib import Path
 import numpy as np
-from scipy.optimize import least_squares
+from scipy.optimize import least_squares, minimize
 from scipy.spatial.transform import Rotation
 
 DIR=Path('.local/rig-candidates/h02-left-grip')
+OUT=Path(os.environ.get('GRIP_SEARCH_DIR',str(DIR)))
+OUT.mkdir(parents=True,exist_ok=True)
 data=json.loads((DIR/'input.json').read_text())
 pos=np.array(data['positions']); ids=np.array(data['ids']); weights=np.array(data['weights'])
 joints=data['joints']; names=[j['name'] for j in joints]
@@ -79,10 +81,10 @@ def evaluate(x,patch,report=False):
     residual=np.r_[
         np.maximum(0,radius-.0025-radial)*3000,
         np.maximum(0,capsule-.0028).ravel()*float(os.environ.get('CAPSULE_WEIGHT','2500')),
-        np.maximum(0,150.2-total)*.5,
-        np.maximum(0,total-259.8)*.5,
-        np.maximum(0,100.2-wraps[1:])*.5,
-        np.maximum(0,90.2+wraps[:1])*.5,
+        np.maximum(0,150.2-total)*float(os.environ.get('ANGLE_WEIGHT','.5')),
+        np.maximum(0,total-259.8)*float(os.environ.get('ANGLE_WEIGHT','.5')),
+        np.maximum(0,100.2-wraps[1:])*float(os.environ.get('ANGLE_WEIGHT','.5')),
+        np.maximum(0,90.2+wraps[:1])*float(os.environ.get('ANGLE_WEIGHT','.5')),
         np.maximum(0,np.abs(distance[:1])-.0245)*3000,
         max(0,.805-pn@normal)*100,
         max(0,.805-n@normal)*100,
@@ -105,18 +107,43 @@ ratios=[float(v) for v in os.environ.get('PATCHES','0.95,1,1.02,1.1,0.8,0.65,0.5
 for ratio in ratios:
     patch=next(p for p in data['patches'] if p['ratio']==ratio)
     seed=x0.copy()
-    prior=DIR/f'patch-{ratio:g}.json'
-    if prior.exists():
-        seed=np.array(json.loads(prior.read_text())['parameters'])
+    prior=OUT/f'patch-{ratio:g}.json'
+    seedfile=Path(os.environ.get('GRIP_SEED_FILE',str(prior)))
+    if seedfile.exists():
+        seed=np.array(json.loads(seedfile.read_text())['parameters'])
         if len(seed)==38:seed=np.r_[seed[:-2],0,seed[-2:]]
+    if 'START_PHI' in os.environ:seed[-3]=float(os.environ['START_PHI'])
+    if 'START_ROLL' in os.environ:seed[-2]=float(os.environ['START_ROLL'])
+    if 'START_THUMB_OPPOSITION' in os.environ:seed[3]=float(os.environ['START_THUMB_OPPOSITION'])
+    seed=np.clip(seed,lower+1e-7,upper-1e-7)
     initialReport=evaluate(seed,patch,True)
     print('START',ratio,'cost',initialReport['cost'],'intrusion',initialReport['maximumCylinderIntrusion'],flush=True)
-    solved=least_squares(evaluate,seed,args=(patch,),bounds=(lower,upper),max_nfev=int(os.environ.get('MAX_NFEV','100')),ftol=1e-6,xtol=1e-7,gtol=1e-5,x_scale='jac',diff_step=1e-4)
+    method=os.environ.get('GRIP_SOLVER','least-squares')
+    if method=='slsqp':
+        cached={}
+        def measured(x):
+            key=x.tobytes()
+            if cached.get('key')!=key:
+                cached['key']=key;cached['report']=evaluate(x,patch,True)
+            return cached['report']
+        def constraints(x):
+            r=measured(x);total=np.asarray(r['totalFlex']);wrap=np.asarray(r['signedWrap'])
+            return np.r_[total-150.05,259.95-total,wrap[1:]-100.05,-90.05-wrap[:1],
+                .0026-r['maximumCylinderIntrusion'],.0028-r['maximumCapsuleIntrusion'],
+                r['facingDot']-.805,r['anatomicalFacingDot']-.805,24.8-r['gripAxisErrorDeg']]
+        # Keep C2 requirements as constraints instead of allowing a soft cost to
+        # exchange a failed finger wrap for a small source-surface improvement.
+        solved=minimize(lambda x: measured(x)['cost'],seed,method='SLSQP',bounds=list(zip(lower,upper)),
+            constraints=[{'type':'ineq','fun':constraints}],options={'maxiter':int(os.environ.get('MAX_NFEV','150')),'ftol':1e-8})
+    elif method=='least-squares':
+        solved=least_squares(evaluate,seed,args=(patch,),bounds=(lower,upper),max_nfev=int(os.environ.get('MAX_NFEV','100')),ftol=1e-6,xtol=1e-7,gtol=1e-5,x_scale='jac',diff_step=1e-4)
+    else:
+        raise ValueError('Unknown staging grip solver: '+method)
     report=evaluate(solved.x,patch,True)
-    report.update(nfev=solved.nfev,elapsedSeconds=time.time()-started,rigSha256=data['rigSha256'],message=solved.message,
+    report.update(nfev=solved.nfev,elapsedSeconds=time.time()-started,rigSha256=data['rigSha256'],message=solved.message,solver=method,optimizerSuccess=bool(solved.success),
         scope='Cylinder and actual-skinned-source-vertex optimization only; requires independent exact weapon triangle proof before acceptance.',passed=False)
     prior.write_text(json.dumps(report,indent=2)+'\n');reports.append(report)
     print('RESULT',ratio,{k:report[k] for k in ['cost','maximumCylinderIntrusion','maximumCapsuleIntrusion','facingDot','anatomicalFacingDot','totalFlex','signedWrap','tipDistance','nfev','elapsedSeconds']},flush=True)
     x0=solved.x.copy()
 reports.sort(key=lambda r:r['cost'])
-(DIR/'search.json').write_text(json.dumps(dict(rigSha256=data['rigSha256'],reports=reports,passed=False),indent=2)+'\n')
+(OUT/'search.json').write_text(json.dumps(dict(rigSha256=data['rigSha256'],reports=reports,passed=False),indent=2)+'\n')

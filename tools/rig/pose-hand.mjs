@@ -103,5 +103,12 @@ export function posedHand(
       sourceIds.push(i);
       mask[i] = 1;
     }
-  return { vertices, sourceIds, mask, position, primitive: p };
+  const fingerPoints=Object.fromEntries(Object.entries(frame.fingers).map(([name,data])=>{
+    const nodes=[1,2,3].map(i=>joints.find(j=>j.getName()===side+'Hand'+name+i));
+    if(nodes.some(n=>!n))throw Error('Missing actual source finger chain: '+side+name);
+    const points=nodes.map(n=>new Vector3().setFromMatrixPosition(world(n))),index=joints.indexOf(nodes[2]);
+    points.push(new Vector3(...data.points[3]).applyMatrix4(matrices[index]));
+    return[name,points];
+  }));
+  return { vertices, sourceIds, mask, position, primitive: p, fingerPoints };
 }

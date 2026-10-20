@@ -6,6 +6,7 @@ strain/contact checks pass. Boundary distance blends back to the parent rig.
 import hashlib
 import json
 import sys
+import argparse
 from pathlib import Path
 import numpy as np
 from source_garment_graph import sparsify_four_influences
@@ -17,7 +18,13 @@ def smooth(x):
 
 
 def main():
-    directory = Path(sys.argv[1])
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('directory',type=Path)
+    parser.add_argument('--boundary-blend',type=float,default=.04)
+    parser.add_argument('--rigid-sole',action='store_true')
+    args=parser.parse_args()
+    assert np.isfinite(args.boundary_blend) and args.boundary_blend>=0
+    directory = args.directory
     meta = json.loads((directory/'input.json').read_text())
     domain = json.loads((directory/'boot-domain.json').read_text())
     assert domain['sourceSha256'] == meta['sourceSha256']
@@ -39,10 +46,14 @@ def main():
         ankle = np.asarray(meta['jointPositions'][side+'Foot'])
         toe_joint = np.asarray(meta['jointPositions'][side+'ToeBase'])
         point = positions[vertices]
-        alpha = smooth(boundary[vertices]/.04)
+        alpha = smooth(boundary[vertices]/args.boundary_blend) if args.boundary_blend else np.ones(len(vertices))
         alpha[point[:, 1] <= ankle[1]-.03] = 1
         leg = smooth((point[:, 1]-(ankle[1]-.02))/.18)
         toe = smooth((point[:, 2]-(toe_joint[2]-.04))/.08)*(1-leg)*.7
+        if args.rigid_sole:
+            sole=point[:,1]<=.01
+            leg[sole]=0
+            toe[sole]=0
         dense = np.zeros((len(vertices), len(meta['joints'])))
         for k in range(4):
             dense[np.arange(len(vertices)), ids[vertices, k]] += weights[vertices, k]*(1-alpha)
@@ -69,9 +80,9 @@ def main():
     result = {
         'hero': meta['hero'], 'source': meta['source'], 'sourceSha256': meta['sourceSha256'],
         'parentRig': meta['input'], 'parentRigSha256': meta['inputSha256'],
-        'method': 'Original surface-graph boot domains with source-color inspection. Leg/Foot/Toe fields follow calibrated ankle/toe landmarks; 40mm graph-boundary return to parent weights. Geometry and UV unchanged.',
+        'method': 'Original surface-graph boot domains with source-color inspection. Leg/Foot/Toe fields follow calibrated ankle/toe landmarks; boundary blend and rigid-sole trial options reported explicitly. Geometry and UV unchanged.',
         'visuallyVerified': False, 'accepted': False, 'changedVertices': int(mask.sum()),
-        'supportTrial': {'boundaryBlendMetres': .04, 'ankleTransitionMetres': .18, 'accepted': False},
+        'supportTrial': {'boundaryBlendMetres': args.boundary_blend, 'rigidSole':args.rigid_sole,'ankleTransitionMetres': .18, 'accepted': False},
         'sides': sides,
         'files': {name: {'sha256': hashlib.sha256((directory/name).read_bytes()).hexdigest(), 'bytes': (directory/name).stat().st_size}
                   for name in ['result-ids.bin', 'result-weights.bin', 'patch-mask.bin']},

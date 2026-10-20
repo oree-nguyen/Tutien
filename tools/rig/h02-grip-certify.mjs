@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import path from 'node:path';
 import {createHash} from 'node:crypto';
 import {NodeIO} from '@gltf-transform/core';
 import {ALL_EXTENSIONS} from '@gltf-transform/extensions';
@@ -11,6 +12,8 @@ import {fingerContactMetrics} from '../../src/rig/grip-solver.js';
 const dir='.local/rig-candidates/h02-left-grip';
 const input=JSON.parse(await fs.readFile(`${dir}/input.json`));
 const poseFile=process.env.GRIP_POSE??`${dir}/patch-0.5.json`;
+const outputPose=process.env.GRIP_STATIC_POSE??`${dir}/static-pose.json`;
+const outputReport=process.env.GRIP_REPORT_FILE??'docs/anim-report/conver10-redo/h02-left-grip/exact-contact.json';
 const candidate=JSON.parse(await fs.readFile(poseFile));
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS),bytes=await fs.readFile(input.file),hash=b=>createHash('sha256').update(b).digest('hex');
 if(hash(bytes)!==input.rigSha256||candidate.rigSha256!==input.rigSha256)throw Error('H02 contact candidate has stale source skin');
@@ -32,20 +35,17 @@ const indices=wp.getIndices().getArray().slice();
 if(mat.determinant()<0)for(let i=0;i<indices.length;i+=3)[indices[i+1],indices[i+2]]=[indices[i+2],indices[i+1]];
 const topology=auditSurface(positions,indices);
 if(!topology.closedOrientedParityChain)throw Error('Weapon source is not an oriented closed parity chain');
-const mesh=new MeshContact(positions,indices),finger={};
+const mesh=new MeshContact(positions,indices),finger={},independentTipErrors={};
 const sign=axis.clone().cross(contactNormal.clone().negate()).dot(new Vector3(...frame.f))>=0?1:-1;
 for(const[name,p]of Object.entries(candidate.fingers)) {
- const metrics=fingerContactMetrics(p.points.map(p=>new Vector3(...p)),contactNormal,center,axis,input.weapon.shaftRadius,frame.fingers[name].thickness);
+ const actual=hand.fingerPoints[name];
+ if(!actual||p.points.length!==4)throw Error('Missing independent actual-source finger chain '+name);
+ const maximumFkPointError=Math.max(...actual.map((point,i)=>point.distanceTo(new Vector3(...p.points[i]))));
+ independentTipErrors[name]=maximumFkPointError;
+ const metrics=fingerContactMetrics(actual,contactNormal,center,axis,input.weapon.shaftRadius,frame.fingers[name].thickness);
  const total=p.angles.reduce((s,v)=>s+v,0);
- const valid=total>=150-1e-6&&total<=260+1e-6&&metrics.penetration<=.003+1e-6&&(name==='Thumb'?metrics.tipSurfaceDistance<=.025&&metrics.signedWrapDeg*sign<=-90:metrics.signedWrapDeg*sign>=100);
- finger[name]={...p,...metrics,totalFlexDeg:total,valid};
-}
-const independentTipErrors={};
-for(const[name,p]of Object.entries(candidate.fingers)) {
- const skin=doc.getRoot().listSkins()[0],joints=skin.listJoints(),j=joints.find(j=>j.getName()===`LeftHand${name}3`);
- // The browser preview additionally compares all four FK points. Here retain
- // Python-vs-Node palm agreement before the triangle contact calculation.
- independentTipErrors[name]=p.points.length===4?null:'missing';
+ const valid=maximumFkPointError<=1e-6&&total>=150-1e-6&&total<=260+1e-6&&metrics.penetration<=.003+1e-6&&(name==='Thumb'?metrics.tipSurfaceDistance<=.025&&metrics.signedWrapDeg*sign<=-90:metrics.signedWrapDeg*sign>=100);
+ finger[name]={...p,points:actual.map(p=>p.toArray()),...metrics,maximumFkPointError,totalFlexDeg:total,valid};
 }
 const evaluated=[];
 try {
@@ -74,9 +74,12 @@ try {
   rotations[j.getName()]=new Quaternion(...j.getRotation()).multiply(new Quaternion().setFromAxisAngle(a?swing.divideScalar(a):new Vector3(1,0,0),a)).multiply(new Quaternion().setFromAxisAngle(new Vector3(0,1,0),MathUtils.degToRad(p.twists[i]))).toArray();
  }
  const pose={hero:'H02',hand:'Left',rigFile:input.file,rigSha256:input.rigSha256,weaponSha256:hash(weaponBytes),rotations,fingerParameters:finger,shaftCenter:center.toArray(),shaftAxis:axis.toArray(),weaponQuaternion:best.weaponQuaternion,weaponGripPivot:pivot.toArray(),palmSource: candidate.patch,palm:palm.toArray(),palmNormal:normal.toArray(),passed:exactPassed&&fingerPassed};
- await fs.writeFile(`${dir}/static-pose.json`,JSON.stringify(pose,null,2)+'\n');
- const report={hero:'H02',hand:'Left',rigFile:input.file,rigSha256:input.rigSha256,weaponSha256:hash(weaponBytes),poseSha256:hash(Buffer.from(JSON.stringify(pose))),candidateFile:poseFile,passed:pose.passed,exactPassed,fingerPassed,scope:'Actual source weapon and all source hand/cuff triangles touched by the legacy crop or left-finger skin influences. No runtime activation or animation acceptance.',sourceVertexCount:input.sourceIds.length,selectedVertexCount:input.mask.filter(Boolean).length,pythonNodePalmError:palm.distanceTo(new Vector3(...candidate.palm)),topology,finger,selected:{...best,surface},evaluated};
- await fs.writeFile('docs/anim-report/conver10-redo/h02-left-grip/exact-contact.json',JSON.stringify(report,null,2)+'\n');
+ const poseBytes=Buffer.from(JSON.stringify(pose,null,2)+'\n');
+ await fs.mkdir(path.dirname(outputPose),{recursive:true});
+ await fs.mkdir(path.dirname(outputReport),{recursive:true});
+ await fs.writeFile(outputPose,poseBytes);
+ const report={hero:'H02',hand:'Left',rigFile:input.file,rigSha256:input.rigSha256,weaponSha256:hash(weaponBytes),poseFile:outputPose,poseSha256:hash(poseBytes),candidateFile:poseFile,passed:pose.passed,exactPassed,fingerPassed,scope:'Actual source weapon and all source hand/cuff triangles touched by the legacy crop or left-finger skin influences. Finger geometry independently reconstructed from actual node FK and inverse-bind matrices. No runtime activation or animation acceptance.',sourceVertexCount:input.sourceIds.length,selectedVertexCount:input.mask.filter(Boolean).length,pythonNodePalmError:palm.distanceTo(new Vector3(...candidate.palm)),independentTipErrors,topology,finger,selected:{...best,surface},evaluated};
+ await fs.writeFile(outputReport,JSON.stringify(report,null,2)+'\n');
  console.log({passed:report.passed,exactPassed,fingerPassed,pythonNodePalmError:report.pythonNodePalmError,selected:{...best,worst:best.worst?.sourceId,surface},finger:Object.fromEntries(Object.entries(finger).map(([f,p])=>[f,{valid:p.valid,total:p.totalFlexDeg,wrap:p.signedWrapDeg*sign,penetration:p.penetration}]))});
  if(!report.passed)process.exitCode=1;
 }finally{mesh.dispose();}
