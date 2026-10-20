@@ -1,0 +1,135 @@
+{
+  "base": ".local/rig-candidates/semantic-garment-v6",
+  "assetSha256": "c24b7cdbe874b745ad54d9e951ebeedd85db465f759c91dcc768c58871eae143",
+  "poseFile": "docs/anim-report/harmonic-held/H01-reference-idle-solve.json",
+  "poseSha256": "f546c092e1bb660fa0dd3d796618980de143cadaa4980a254d00103d65d1feb5",
+  "inputHashes": {
+    "positions.bin": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc",
+    "triangles.bin": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132",
+    "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+    "protected.bin": "42c11892831127626dba90e7e82c08ff89f98dae34228a2c50e2801d07b68ef0",
+    "result-ids.bin": "c5dd313465b57c296dd828c1ceea5499cd411958468c9a7a8af7b680a5f54486",
+    "result-weights.bin": "1f90ca983d51c633d4c303e41aafd994b07ff90a1e61734aea03e1aa56ccab52",
+    "feasibility-matrices.bin": "cc65191a760b750e17812be8f507ddc5191c0d4c495d7638d35aed51f1433f64"
+  },
+  "outputWeightsSha256": "4ee169acdd32e2d24ccd879ba1331fb9f854878a945f8e0746160ed98155d01c",
+  "jointIdsChanged": false,
+  "protectedWeightsPreserved": true,
+  "initial": {
+    "p999": 3.4806570721292505,
+    "maximum": 15.897468945149475,
+    "edgesOverTarget": 60580,
+    "immutableEdgesOverTarget": 29
+  },
+  "final": {
+    "p999": 2.175680421831359,
+    "maximum": 4.628803062509131,
+    "edgesOverTarget": 62557,
+    "immutableEdgesOverTarget": 29
+  },
+  "history": [
+    {
+      "iteration": 25,
+      "elapsedSeconds": 19.563141780003207,
+      "p999": 3.191208226145534,
+      "maximum": 7.175648576708755,
+      "edgesOverTarget": 62150,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 50,
+      "elapsedSeconds": 31.632974208012456,
+      "p999": 2.979198755870129,
+      "maximum": 6.700100452425131,
+      "edgesOverTarget": 63967,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 75,
+      "elapsedSeconds": 44.10245147199021,
+      "p999": 2.8850699714385013,
+      "maximum": 5.98273768302933,
+      "edgesOverTarget": 65508,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 100,
+      "elapsedSeconds": 57.58908928299206,
+      "p999": 2.795115756795915,
+      "maximum": 6.634155916545563,
+      "edgesOverTarget": 66861,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 125,
+      "elapsedSeconds": 70.00660433899611,
+      "p999": 2.6565406277956294,
+      "maximum": 6.424367717840471,
+      "edgesOverTarget": 67091,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 150,
+      "elapsedSeconds": 82.06383054101025,
+      "p999": 2.5596295772931383,
+      "maximum": 5.519712513321022,
+      "edgesOverTarget": 66607,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 175,
+      "elapsedSeconds": 95.51572036600555,
+      "p999": 2.478203937441535,
+      "maximum": 5.315902553080184,
+      "edgesOverTarget": 65637,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 200,
+      "elapsedSeconds": 107.65716815201449,
+      "p999": 2.404358769891028,
+      "maximum": 5.105870550786185,
+      "edgesOverTarget": 65047,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 225,
+      "elapsedSeconds": 121.56477395800175,
+      "p999": 2.3469465745348046,
+      "maximum": 5.604776752812698,
+      "edgesOverTarget": 64381,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 250,
+      "elapsedSeconds": 134.4491322269896,
+      "p999": 2.278537170251696,
+      "maximum": 4.951533898073706,
+      "edgesOverTarget": 63518,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 275,
+      "elapsedSeconds": 146.54523094400065,
+      "p999": 2.2304260600697776,
+      "maximum": 4.3577676802457255,
+      "edgesOverTarget": 62985,
+      "immutableEdgesOverTarget": 29
+    },
+    {
+      "iteration": 300,
+      "elapsedSeconds": 158.39194982801564,
+      "p999": 2.175680421831359,
+      "maximum": 4.628803062509131,
+      "edgesOverTarget": 62557,
+      "immutableEdgesOverTarget": 29
+    }
+  ],
+  "parameters": {
+    "iterations": 300,
+    "ratio": 1.49
+  },
+  "accepted": false,
+  "activated": false,
+  "scope": "One-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+}

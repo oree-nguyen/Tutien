@@ -1554,7 +1554,7 @@ Nguồn: `coverage-16.png`, `docs/review-conver10/coverage-16.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:50 UTC+07:00**
 
-Nguồn: `H01-fk-0.0-back.png`
+Nguồn: `H01-fk-0.0-back.png`, `docs/anim-report/conver10-redo/animation/H01-fk-0.0-back.png`
 
 ## Ảnh 170
 
@@ -1562,7 +1562,7 @@ Nguồn: `H01-fk-0.0-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:51 UTC+07:00**
 
-Nguồn: `H01-fk-0.0-front.png`
+Nguồn: `H01-fk-0.0-front.png`, `docs/anim-report/conver10-redo/animation/H01-fk-0.0-front.png`
 
 ## Ảnh 171
 
@@ -1570,7 +1570,7 @@ Nguồn: `H01-fk-0.0-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:52 UTC+07:00**
 
-Nguồn: `H01-fk-0.3-back.png`
+Nguồn: `H01-fk-0.3-back.png`, `docs/anim-report/conver10-redo/animation/H01-fk-0.3-back.png`
 
 ## Ảnh 172
 
@@ -1578,7 +1578,7 @@ Nguồn: `H01-fk-0.3-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:52 UTC+07:00**
 
-Nguồn: `H01-fk-0.3-front.png`
+Nguồn: `H01-fk-0.3-front.png`, `docs/anim-report/conver10-redo/animation/H01-fk-0.3-front.png`
 
 ## Ảnh 173
 
@@ -1586,7 +1586,7 @@ Nguồn: `H01-fk-0.3-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:53 UTC+07:00**
 
-Nguồn: `H01-fk-0.6-back.png`
+Nguồn: `H01-fk-0.6-back.png`, `docs/anim-report/conver10-redo/animation/H01-fk-0.6-back.png`
 
 ## Ảnh 174
 
@@ -1594,7 +1594,7 @@ Nguồn: `H01-fk-0.6-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:53 UTC+07:00**
 
-Nguồn: `H01-fk-0.6-front.png`
+Nguồn: `H01-fk-0.6-front.png`, `docs/anim-report/conver10-redo/animation/H01-fk-0.6-front.png`
 
 ## Ảnh 175
 
@@ -1602,7 +1602,7 @@ Nguồn: `H01-fk-0.6-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:54 UTC+07:00**
 
-Nguồn: `H01-fk-1.6-back.png`
+Nguồn: `H01-fk-1.6-back.png`, `docs/anim-report/conver10-redo/animation/H01-fk-1.6-back.png`
 
 ## Ảnh 176
 
@@ -1610,7 +1610,7 @@ Nguồn: `H01-fk-1.6-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:54 UTC+07:00**
 
-Nguồn: `H01-fk-1.6-front.png`
+Nguồn: `H01-fk-1.6-front.png`, `docs/anim-report/conver10-redo/animation/H01-fk-1.6-front.png`
 
 ## Ảnh 177
 
@@ -1618,7 +1618,7 @@ Nguồn: `H01-fk-1.6-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:55 UTC+07:00**
 
-Nguồn: `H01-fk-14.6-back.png`
+Nguồn: `H01-fk-14.6-back.png`, `docs/anim-report/conver10-redo/animation/H01-fk-14.6-back.png`
 
 ## Ảnh 178
 
@@ -1626,7 +1626,7 @@ Nguồn: `H01-fk-14.6-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:55 UTC+07:00**
 
-Nguồn: `H01-fk-14.6-front.png`
+Nguồn: `H01-fk-14.6-front.png`, `docs/anim-report/conver10-redo/animation/H01-fk-14.6-front.png`
 
 ## Ảnh 179
 
@@ -1634,7 +1634,7 @@ Nguồn: `H01-fk-14.6-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:55 UTC+07:00**
 
-Nguồn: `H01-fk-3.6-back.png`
+Nguồn: `H01-fk-3.6-back.png`, `docs/anim-report/conver10-redo/animation/H01-fk-3.6-back.png`
 
 ## Ảnh 180
 
@@ -1642,7 +1642,7 @@ Nguồn: `H01-fk-3.6-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:56 UTC+07:00**
 
-Nguồn: `H01-fk-3.6-front.png`
+Nguồn: `H01-fk-3.6-front.png`, `docs/anim-report/conver10-redo/animation/H01-fk-3.6-front.png`
 
 ## Ảnh 181
 
@@ -1650,7 +1650,7 @@ Nguồn: `H01-fk-3.6-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:56 UTC+07:00**
 
-Nguồn: `lifecycle-h01-driver-2_1.png`
+Nguồn: `lifecycle-h01-driver-2_1.png`, `docs/anim-report/conver10-redo/lifecycle-h01-driver-2_1.png`
 
 ## Ảnh 182
 
@@ -1658,7 +1658,7 @@ Nguồn: `lifecycle-h01-driver-2_1.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:57 UTC+07:00**
 
-Nguồn: `lifecycle-h01-source-6-after.png`
+Nguồn: `lifecycle-h01-source-6-after.png`, `docs/anim-report/conver10-redo/lifecycle-h01-source-6-after.png`
 
 ## Ảnh 183
 
@@ -1666,7 +1666,7 @@ Nguồn: `lifecycle-h01-source-6-after.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:57 UTC+07:00**
 
-Nguồn: `lifecycle-h01-source-6-before.png`
+Nguồn: `lifecycle-h01-source-6-before.png`, `docs/anim-report/conver10-redo/lifecycle-h01-source-6-before.png`
 
 ## Ảnh 184
 
@@ -1674,7 +1674,7 @@ Nguồn: `lifecycle-h01-source-6-before.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 09:00:57 UTC+07:00**
 
-Nguồn: `lifecycle-h02-source-6-before.png`
+Nguồn: `lifecycle-h02-source-6-before.png`, `docs/anim-report/conver10-redo/lifecycle-h02-source-6-before.png`
 
 ## Ảnh 185
 
@@ -1890,7 +1890,7 @@ Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/semantic-garment
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:33 UTC+07:00**
 
-Nguồn: `H01-full-1.90-back.png`
+Nguồn: `H01-full-1.90-back.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-1.90-back.png`
 
 ## Ảnh 212
 
@@ -1898,7 +1898,7 @@ Nguồn: `H01-full-1.90-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:35 UTC+07:00**
 
-Nguồn: `H01-full-1.90-front.png`
+Nguồn: `H01-full-1.90-front.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-1.90-front.png`
 
 ## Ảnh 213
 
@@ -1906,7 +1906,7 @@ Nguồn: `H01-full-1.90-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:36 UTC+07:00**
 
-Nguồn: `H01-full-1.90-side.png`
+Nguồn: `H01-full-1.90-side.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-1.90-side.png`
 
 ## Ảnh 214
 
@@ -1914,7 +1914,7 @@ Nguồn: `H01-full-1.90-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:37 UTC+07:00**
 
-Nguồn: `H01-full-2.60-back.png`
+Nguồn: `H01-full-2.60-back.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-2.60-back.png`
 
 ## Ảnh 215
 
@@ -1922,7 +1922,7 @@ Nguồn: `H01-full-2.60-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:37 UTC+07:00**
 
-Nguồn: `H01-full-2.60-front.png`
+Nguồn: `H01-full-2.60-front.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-2.60-front.png`
 
 ## Ảnh 216
 
@@ -1930,7 +1930,7 @@ Nguồn: `H01-full-2.60-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:38 UTC+07:00**
 
-Nguồn: `H01-full-2.60-side.png`
+Nguồn: `H01-full-2.60-side.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-2.60-side.png`
 
 ## Ảnh 217
 
@@ -1938,7 +1938,7 @@ Nguồn: `H01-full-2.60-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:38 UTC+07:00**
 
-Nguồn: `H01-full-3.10-back.png`
+Nguồn: `H01-full-3.10-back.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-3.10-back.png`
 
 ## Ảnh 218
 
@@ -1946,7 +1946,7 @@ Nguồn: `H01-full-3.10-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:39 UTC+07:00**
 
-Nguồn: `H01-full-3.10-front.png`
+Nguồn: `H01-full-3.10-front.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-3.10-front.png`
 
 ## Ảnh 219
 
@@ -1954,7 +1954,7 @@ Nguồn: `H01-full-3.10-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:40 UTC+07:00**
 
-Nguồn: `H01-full-3.10-side.png`
+Nguồn: `H01-full-3.10-side.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-3.10-side.png`
 
 ## Ảnh 220
 
@@ -1962,7 +1962,7 @@ Nguồn: `H01-full-3.10-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:40 UTC+07:00**
 
-Nguồn: `H01-full-3.55-front.png`
+Nguồn: `H01-full-3.55-front.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-3.55-front.png`
 
 ## Ảnh 221
 
@@ -1970,7 +1970,7 @@ Nguồn: `H01-full-3.55-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-19 15:05:41 UTC+07:00**
 
-Nguồn: `H01-full-3.55-side.png`
+Nguồn: `H01-full-3.55-side.png`, `docs/anim-report/conver10-redo/animation/full/H01-full-3.55-side.png`
 
 ## Ảnh 222
 
@@ -2978,7 +2978,7 @@ Nguồn: `h02-full-source.png`, `docs/anim-report/conver10-redo/standalone-curre
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:31:39 UTC+07:00**
 
-Nguồn: `semantic-garment-review-sheet.png`
+Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/semantic-garment-v6/semantic-garment-review-sheet.png`
 
 ## Ảnh 348
 
@@ -2986,7 +2986,7 @@ Nguồn: `semantic-garment-review-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:31:39 UTC+07:00**
 
-Nguồn: `semantic-garment-v6-held-back.png`
+Nguồn: `semantic-garment-v6-held-back.png`, `docs/anim-report/semantic-garment-v6/semantic-garment-v6-held-back.png`
 
 ## Ảnh 349
 
@@ -2994,7 +2994,7 @@ Nguồn: `semantic-garment-v6-held-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:31:39 UTC+07:00**
 
-Nguồn: `semantic-garment-v6-held-front.png`
+Nguồn: `semantic-garment-v6-held-front.png`, `docs/anim-report/semantic-garment-v6/semantic-garment-v6-held-front.png`
 
 ## Ảnh 350
 
@@ -3002,7 +3002,7 @@ Nguồn: `semantic-garment-v6-held-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:31:40 UTC+07:00**
 
-Nguồn: `semantic-garment-v6-isolated-held-H01_Robe_Right-back.png`
+Nguồn: `semantic-garment-v6-isolated-held-H01_Robe_Right-back.png`, `docs/anim-report/semantic-garment-v6/semantic-garment-v6-isolated-held-H01_Robe_Right-back.png`
 
 ## Ảnh 351
 
@@ -3010,7 +3010,7 @@ Nguồn: `semantic-garment-v6-isolated-held-H01_Robe_Right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:31:40 UTC+07:00**
 
-Nguồn: `semantic-garment-v6-isolated-held-H01_Sleeve_Right-front.png`
+Nguồn: `semantic-garment-v6-isolated-held-H01_Sleeve_Right-front.png`, `docs/anim-report/semantic-garment-v6/semantic-garment-v6-isolated-held-H01_Sleeve_Right-front.png`
 
 ## Ảnh 352
 
@@ -3018,7 +3018,7 @@ Nguồn: `semantic-garment-v6-isolated-held-H01_Sleeve_Right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:31:41 UTC+07:00**
 
-Nguồn: `semantic-garment-v6-isolated-held-two-panels-back.png`
+Nguồn: `semantic-garment-v6-isolated-held-two-panels-back.png`, `docs/anim-report/semantic-garment-v6/semantic-garment-v6-isolated-held-two-panels-back.png`
 
 ## Ảnh 353
 
@@ -3026,7 +3026,7 @@ Nguồn: `semantic-garment-v6-isolated-held-two-panels-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:49:24 UTC+07:00**
 
-Nguồn: `cloth-corrective-held-held-morph0-back.png`
+Nguồn: `cloth-corrective-held-held-morph0-back.png`, `docs/anim-report/conver10-redo/cloth-corrective/morph0/cloth-corrective-held-held-morph0-back.png`
 
 ## Ảnh 354
 
@@ -3034,7 +3034,7 @@ Nguồn: `cloth-corrective-held-held-morph0-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:49:25 UTC+07:00**
 
-Nguồn: `cloth-corrective-held-held-morph0-front.png`
+Nguồn: `cloth-corrective-held-held-morph0-front.png`, `docs/anim-report/conver10-redo/cloth-corrective/morph0/cloth-corrective-held-held-morph0-front.png`
 
 ## Ảnh 355
 
@@ -3042,7 +3042,7 @@ Nguồn: `cloth-corrective-held-held-morph0-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:49:25 UTC+07:00**
 
-Nguồn: `semantic-garment-review-sheet.png`
+Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/conver10-redo/cloth-corrective/morph0/semantic-garment-review-sheet.png`
 
 ## Ảnh 356
 
@@ -3050,7 +3050,7 @@ Nguồn: `semantic-garment-review-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:49:25 UTC+07:00**
 
-Nguồn: `cloth-corrective-held-held-morph1-back.png`
+Nguồn: `cloth-corrective-held-held-morph1-back.png`, `docs/anim-report/conver10-redo/cloth-corrective/morph1/cloth-corrective-held-held-morph1-back.png`
 
 ## Ảnh 357
 
@@ -3058,7 +3058,7 @@ Nguồn: `cloth-corrective-held-held-morph1-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:49:25 UTC+07:00**
 
-Nguồn: `cloth-corrective-held-held-morph1-front.png`
+Nguồn: `cloth-corrective-held-held-morph1-front.png`, `docs/anim-report/conver10-redo/cloth-corrective/morph1/cloth-corrective-held-held-morph1-front.png`
 
 ## Ảnh 358
 
@@ -3066,7 +3066,7 @@ Nguồn: `cloth-corrective-held-held-morph1-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 15:49:26 UTC+07:00**
 
-Nguồn: `semantic-garment-review-sheet.png`
+Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/conver10-redo/cloth-corrective/morph1/semantic-garment-review-sheet.png`
 
 ## Ảnh 359
 
@@ -3074,7 +3074,7 @@ Nguồn: `semantic-garment-review-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:07:56 UTC+07:00**
 
-Nguồn: `cloth-corrective-held-p1000-held-morph1-front.png`
+Nguồn: `cloth-corrective-held-p1000-held-morph1-front.png`, `docs/anim-report/conver10-redo/cloth-corrective/normal-morph1/cloth-corrective-held-p1000-held-morph1-front.png`
 
 ## Ảnh 360
 
@@ -3082,7 +3082,7 @@ Nguồn: `cloth-corrective-held-p1000-held-morph1-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:07:57 UTC+07:00**
 
-Nguồn: `cloth-corrective-held-p1000-held-morph1-back.png`
+Nguồn: `cloth-corrective-held-p1000-held-morph1-back.png`, `docs/anim-report/conver10-redo/cloth-corrective/normal-morph1/cloth-corrective-held-p1000-held-morph1-back.png`
 
 ## Ảnh 361
 
@@ -3090,7 +3090,7 @@ Nguồn: `cloth-corrective-held-p1000-held-morph1-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:23:26 UTC+07:00**
 
-Nguồn: `largest-remaining-front.png`
+Nguồn: `largest-remaining-front.png`, `docs/anim-report/conver10-redo/remaining-source-review/corrected-label/largest-remaining-front.png`
 
 ## Ảnh 362
 
@@ -3098,7 +3098,7 @@ Nguồn: `largest-remaining-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:23:27 UTC+07:00**
 
-Nguồn: `largest-remaining-back.png`
+Nguồn: `largest-remaining-back.png`, `docs/anim-report/conver10-redo/remaining-source-review/corrected-label/largest-remaining-back.png`
 
 ## Ảnh 363
 
@@ -3106,7 +3106,7 @@ Nguồn: `largest-remaining-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:35 UTC+07:00**
 
-Nguồn: `semantic-garment-review-sheet.png`
+Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/conver10-redo/cloth-corrective/normal-morph1/semantic-garment-review-sheet.png`
 
 ## Ảnh 364
 
@@ -3114,7 +3114,7 @@ Nguồn: `semantic-garment-review-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:36 UTC+07:00**
 
-Nguồn: `largest-remaining-back.png`
+Nguồn: `largest-remaining-back.png`, `docs/anim-report/conver10-redo/remaining-source-review/largest-remaining-back.png`
 
 ## Ảnh 365
 
@@ -3122,7 +3122,7 @@ Nguồn: `largest-remaining-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:36 UTC+07:00**
 
-Nguồn: `largest-remaining-front.png`
+Nguồn: `largest-remaining-front.png`, `docs/anim-report/conver10-redo/remaining-source-review/largest-remaining-front.png`
 
 ## Ảnh 366
 
@@ -3130,7 +3130,7 @@ Nguồn: `largest-remaining-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:36 UTC+07:00**
 
-Nguồn: `semantic-garment-review-sheet.png`
+Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-review-sheet.png`
 
 ## Ảnh 367
 
@@ -3138,7 +3138,7 @@ Nguồn: `semantic-garment-review-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:37 UTC+07:00**
 
-Nguồn: `semantic-garment-v7-bind-back.png`
+Nguồn: `semantic-garment-v7-bind-back.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-v7-bind-back.png`
 
 ## Ảnh 368
 
@@ -3146,7 +3146,7 @@ Nguồn: `semantic-garment-v7-bind-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:37 UTC+07:00**
 
-Nguồn: `semantic-garment-v7-bind-front.png`
+Nguồn: `semantic-garment-v7-bind-front.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-v7-bind-front.png`
 
 ## Ảnh 369
 
@@ -3154,7 +3154,7 @@ Nguồn: `semantic-garment-v7-bind-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:37 UTC+07:00**
 
-Nguồn: `semantic-garment-v7-isolated-bind-H01_Remaining_Source-back.png`
+Nguồn: `semantic-garment-v7-isolated-bind-H01_Remaining_Source-back.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-v7-isolated-bind-H01_Remaining_Source-back.png`
 
 ## Ảnh 370
 
@@ -3162,7 +3162,7 @@ Nguồn: `semantic-garment-v7-isolated-bind-H01_Remaining_Source-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:38 UTC+07:00**
 
-Nguồn: `semantic-garment-v7-isolated-bind-H01_Remaining_Source-front.png`
+Nguồn: `semantic-garment-v7-isolated-bind-H01_Remaining_Source-front.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-v7-isolated-bind-H01_Remaining_Source-front.png`
 
 ## Ảnh 371
 
@@ -3170,7 +3170,7 @@ Nguồn: `semantic-garment-v7-isolated-bind-H01_Remaining_Source-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:38 UTC+07:00**
 
-Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Left-back.png`
+Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Left-back.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-v7-isolated-bind-H01_Robe_Left-back.png`
 
 ## Ảnh 372
 
@@ -3178,7 +3178,7 @@ Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:38 UTC+07:00**
 
-Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Left-front.png`
+Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Left-front.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-v7-isolated-bind-H01_Robe_Left-front.png`
 
 ## Ảnh 373
 
@@ -3186,7 +3186,7 @@ Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:38 UTC+07:00**
 
-Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Right-back.png`
+Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Right-back.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-v7-isolated-bind-H01_Robe_Right-back.png`
 
 ## Ảnh 374
 
@@ -3194,4 +3194,76 @@ Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 16:46:39 UTC+07:00**
 
-Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Right-front.png`
+Nguồn: `semantic-garment-v7-isolated-bind-H01_Robe_Right-front.png`, `docs/anim-report/semantic-garment-v7/semantic-garment-v7-isolated-bind-H01_Robe_Right-front.png`
+
+## Ảnh 375
+
+![semantic-garment-review-sheet.png](../media/cbf3808d3523a07d41165b0376b0401237e041a8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:14:00 UTC+07:00**
+
+Nguồn: `semantic-garment-review-sheet.png`
+
+## Ảnh 376
+
+![semantic-garment-wide-held-back.png](../media/65a5e13d4923626f6cfcc46a15b4a31d87df2226.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:14:02 UTC+07:00**
+
+Nguồn: `semantic-garment-wide-held-back.png`
+
+## Ảnh 377
+
+![semantic-garment-wide-held-front.png](../media/34a8b116e1f3fdc16eada31d7ab9a652b3880b72.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:14:02 UTC+07:00**
+
+Nguồn: `semantic-garment-wide-held-front.png`
+
+## Ảnh 378
+
+![pose-weight-held-held-back.png](../media/4ef104ba4b1106e9da0f2895cdf1bdc76e25c9e6.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:15:40 UTC+07:00**
+
+Nguồn: `pose-weight-held-held-back.png`
+
+## Ảnh 379
+
+![pose-weight-held-held-front.png](../media/e2ef6f626398c14e2105e94a6b89a7f78e8b52ae.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:15:40 UTC+07:00**
+
+Nguồn: `pose-weight-held-held-front.png`
+
+## Ảnh 380
+
+![semantic-garment-review-sheet.png](../media/81e976850cca597345ab17cdfc57e2238b2e3645.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:15:41 UTC+07:00**
+
+Nguồn: `semantic-garment-review-sheet.png`
+
+## Ảnh 381
+
+![detached-coat-trial-held-back.png](../media/af6cfe7432ec9cad59b4a5d66f58e755ad84ca71.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:19:03 UTC+07:00**
+
+Nguồn: `detached-coat-trial-held-back.png`
+
+## Ảnh 382
+
+![detached-coat-trial-held-front.png](../media/83bdaebc107f6fc21cf1f5b2e4e31daf26a4f611.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:19:04 UTC+07:00**
+
+Nguồn: `detached-coat-trial-held-front.png`
+
+## Ảnh 383
+
+![semantic-garment-review-sheet.png](../media/573f28f08cb5d99438e285e0e08a50ce623a28ef.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 17:19:04 UTC+07:00**
+
+Nguồn: `semantic-garment-review-sheet.png`

@@ -1,0 +1,375 @@
+{
+  "sourceContinuity": {
+    "method": "paired-opposite-source-boundary-halfedges",
+    "rawNonmanifoldEdges": 0,
+    "boundaryHalfedges": 232156,
+    "uniqueOppositePairs": 116078,
+    "ambiguousPairs": 0,
+    "orientationDisagreements": 0,
+    "coordinateMismatch": 0,
+    "sourceVertices": 869627,
+    "sewnCopies": 119782,
+    "scope": "Original UV chart continuity only; no inferred free garment cuts or near-surface stitching"
+  },
+  "algorithm": "Source-edge albedo seeds + surface geodesic semantic regions; full-joint screened source-Laplacian supports with anatomical pelvis/spine targets and protected hands",
+  "semanticSourceFacePatches": [
+    {
+      "side": "Left",
+      "semanticRegion": "H01_Sleeve_Left",
+      "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+      "rayPickedSourceFaces": [
+        477597,
+        225087,
+        477434,
+        476985,
+        222671
+      ],
+      "sourceFaceMap": {
+        "file": "Left-Cuff-source-face-seeds.u32bin",
+        "count": 61346,
+        "sha256": "6650ce40a0dec9008c907f956824c778550b5144d793caa750c5e57577df5869"
+      },
+      "sourceBoundsMin": [
+        0.26256710290908813,
+        0.6337943077087402,
+        -0.05905619636178017
+      ],
+      "sourceBoundsMax": [
+        0.5336189270019531,
+        1.1021100282669067,
+        0.12782792747020721
+      ],
+      "selection": "Source-edge gold components reached from exact original source-ray face picks; anatomical window limits search, never forces box labels",
+      "reviewStatus": "pending-isolated-front-side-back-patch-review",
+      "manifestFile": "docs/anim-report/semantic-garment-cuff-review/source-cuff-patches.json",
+      "manifestSha256": "e6984b8a920b5b4583491676055b355ece808d58e214f97f8560a1aee85e4b06",
+      "hardSourceGroups": 31554,
+      "role": "Hard source-face ownership and source-edge semantic seeds; no weight constraint"
+    },
+    {
+      "side": "Right",
+      "semanticRegion": "H01_Sleeve_Right",
+      "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+      "rayPickedSourceFaces": [
+        1288900,
+        1288610,
+        1288910,
+        1286945,
+        1291877
+      ],
+      "sourceFaceMap": {
+        "file": "Right-Cuff-source-face-seeds.u32bin",
+        "count": 62026,
+        "sha256": "622ac68aa1c1b9c24228b39306ddf5484a194092684b3f1dea0696acde82a8ed"
+      },
+      "sourceBoundsMin": [
+        -0.5329809188842773,
+        0.6346715688705444,
+        -0.059872448444366455
+      ],
+      "sourceBoundsMax": [
+        -0.2545875906944275,
+        1.103872299194336,
+        0.12779508531093597
+      ],
+      "selection": "Source-edge gold components reached from exact original source-ray face picks; anatomical window limits search, never forces box labels",
+      "reviewStatus": "pending-isolated-front-side-back-patch-review",
+      "manifestFile": "docs/anim-report/semantic-garment-cuff-review/source-cuff-patches.json",
+      "manifestSha256": "e6984b8a920b5b4583491676055b355ece808d58e214f97f8560a1aee85e4b06",
+      "hardSourceGroups": 31819,
+      "role": "Hard source-face ownership and source-edge semantic seeds; no weight constraint"
+    }
+  ],
+  "spatialNearestNeighborUsed": false,
+  "sourceWeldGroups": 749845,
+  "parts": [
+    {
+      "id": 0,
+      "triangles": 580068
+    },
+    {
+      "id": 1,
+      "triangles": 181682
+    },
+    {
+      "id": 2,
+      "triangles": 162022
+    },
+    {
+      "id": 3,
+      "triangles": 279272
+    },
+    {
+      "id": 4,
+      "triangles": 145786
+    },
+    {
+      "id": 5,
+      "triangles": 150896
+    }
+  ],
+  "supportFreeGroups": 594596,
+  "lowerPelvisAnchors": 220925,
+  "waistSpineAnchors": 23282,
+  "torsoSpineAnchors": 63618,
+  "armAnchors": [
+    {
+      "segment": "LeftArm",
+      "groups": 10881
+    },
+    {
+      "segment": "LeftForeArm",
+      "groups": 7949
+    },
+    {
+      "segment": "RightArm",
+      "groups": 10989
+    },
+    {
+      "segment": "RightForeArm",
+      "groups": 8175
+    }
+  ],
+  "changedSourceVertices": 697671,
+  "protectedSourceVertices": 38037,
+  "maximumDiscardedInfluenceBeforeFourWeightNormalization": 0.3591393804927828,
+  "fourInfluenceReduction": "Continuous subtract-fifth sparsification; equal-top-five singularities rejected",
+  "anatomicalTargetMode": "Soft screened source-Laplacian targets; measured original cuff/hand and domain boundary remain fixed",
+  "targetRegularizationRadiusMeters": 0.3,
+  "targetStrength": 11.11111111111111,
+  "supportOperator": {
+    "method": "Original triangle cotangent FEM stiffness with lumped source-area mass",
+    "stiffnessUnits": "dimensionless",
+    "massUnits": "square metres",
+    "zeroAreaSourceTrianglesExcludedFromOperator": 0,
+    "sourceTrianglesPreservedInExport": true,
+    "negativeTriangleCotangents": 944555,
+    "sourceAreaSquareMeters": 5.552993381262736,
+    "minimumGroupMassSquareMeters": 8.071198684853084e-08
+  },
+  "nonnegativeProjection": {
+    "minimumBeforeNonnegativeProjection": -5.083467492039045e-07,
+    "negativeEntriesBelowMinus1e_6": 0,
+    "maximumPartitionOfUnityErrorBeforeNormalization": 0.00852476040742367,
+    "scope": "Fieldwise FEM KKT precedes numerical nonnegative cleanup, partition normalization and four-influence reduction; independent bone solves are not a coupled simplex optimum"
+  },
+  "homogeneousJointFields": "Zero RHS fields are solved as zero; original weights are initial guesses only",
+  "fixedCuffGroups": 22421,
+  "linearPreconditioner": {
+    "method": "Smoothed-aggregation algebraic multigrid V-cycle",
+    "pyamgVersion": "5.3.0",
+    "levels": 4,
+    "operatorComplexity": 1.2289804180702038
+  },
+  "solves": [
+    {
+      "joint": "Hips",
+      "residual": 9.127623905853259e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 7.104889004661259e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": 1.8579732390607592e-05,
+        "dualTolerance": 0.0004916807513351706
+      },
+      "unconstrainedMinimumWeight": -4.2568550670578326e-05,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Spine",
+      "residual": 8.968157775645019e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 8.240303624858617e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": 5.098979979597998e-06,
+        "dualTolerance": 1.1555819545130454e-09
+      },
+      "unconstrainedMinimumWeight": -1.0324942729560636e-05,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Spine2",
+      "residual": 9.2494660123708e-07
+    },
+    {
+      "joint": "Neck",
+      "residual": 9.488371728139276e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 8.955855042622355e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": 1.0879357171965958e-06,
+        "dualTolerance": 5.477118022423522e-06
+      },
+      "unconstrainedMinimumWeight": -2.1932995219133024e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Head",
+      "residual": 9.63330504035919e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 9.072926974736626e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": 4.759859216485128e-06,
+        "dualTolerance": 1.3304611286762108e-05
+      },
+      "unconstrainedMinimumWeight": -9.593688486048376e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftArm",
+      "residual": 9.391661137266177e-07
+    },
+    {
+      "joint": "LeftForeArm",
+      "residual": 8.899513792883732e-07
+    },
+    {
+      "joint": "LeftHand",
+      "residual": 9.603728993916818e-07
+    },
+    {
+      "joint": "RightArm",
+      "residual": 9.978431820027373e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 50359,
+        "freeResidual": 8.955261342590899e-07,
+        "minimumWeight": -7.222981912234145e-10,
+        "minimumActiveGradient": -2.5889131519197428e-08,
+        "dualTolerance": 1.5157660855063432e-07
+      },
+      "unconstrainedMinimumWeight": -0.00010230716224689762,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightForeArm",
+      "residual": 9.429430985836564e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 80795,
+        "freeResidual": 8.861424142994511e-07,
+        "minimumWeight": -4.104350046892091e-12,
+        "minimumActiveGradient": -2.419241241037853e-07,
+        "dualTolerance": 1.4612301710650212e-05
+      },
+      "unconstrainedMinimumWeight": -4.186023480863439e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightHand",
+      "residual": 9.347177143734262e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 92908,
+        "freeResidual": 8.871337389236734e-07,
+        "minimumWeight": -6.332293993005304e-12,
+        "minimumActiveGradient": -2.4552617393455e-10,
+        "dualTolerance": 1.1359720084380333e-05
+      },
+      "unconstrainedMinimumWeight": -2.436139072559234e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftUpLeg",
+      "residual": 8.889004394645174e-07
+    },
+    {
+      "joint": "LeftLeg",
+      "residual": 8.684374903976671e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 8.872208914515845e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": 8.678524795016156e-07,
+        "dualTolerance": 3.4768342067634157e-05
+      },
+      "unconstrainedMinimumWeight": -2.1380152996435526e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftFoot",
+      "residual": 8.114772147976382e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 8.384925910520787e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": 8.626200358408527e-07,
+        "dualTolerance": 2.9335319250806966e-05
+      },
+      "unconstrainedMinimumWeight": -2.12612202054159e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftToeBase",
+      "residual": 8.484662063162356e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 2,
+        "zeroBoundSourceGroups": 3,
+        "freeResidual": 9.984728905716439e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -8.670984016464408e-06,
+        "dualTolerance": 3.0246014731963474e-05
+      },
+      "unconstrainedMinimumWeight": -0.008524599257284143,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightUpLeg",
+      "residual": 9.65041529680559e-07
+    },
+    {
+      "joint": "RightLeg",
+      "residual": 9.76473377199804e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 9.812168508697546e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": 4.635608882642094e-07,
+        "dualTolerance": 3.011433403699074e-05
+      },
+      "unconstrainedMinimumWeight": -1.1301501627781097e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightFoot",
+      "residual": 9.716663531173231e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2,
+        "freeResidual": 9.788564675411395e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": 4.781305119493094e-07,
+        "dualTolerance": 2.6659059113879797e-05
+      },
+      "unconstrainedMinimumWeight": -1.1785634039328638e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightToeBase",
+      "residual": 8.805392855531298e-07
+    }
+  ],
+  "status": "Candidate; independent multi-pose/contact/volume and visual checks required"
+}

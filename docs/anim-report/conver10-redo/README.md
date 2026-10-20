@@ -49,7 +49,7 @@ Tư thế, bộ frame, ảnh và kết quả FK lưu trong `animation/`, sửa b
 
 | Lệnh / phạm vi | Kết quả đã ghi nhận |
 | --- | --- |
-| `npm test`, lượt 20/10/2026 | 266/266 pass |
+| `npm test`, lượt 20/10/2026 | 267/267 pass |
 | `npm run test:master` | 215/215 pass |
 | `npm run verify:master` | BLOCKED 0/37, không đổi ngưỡng |
 | Cache/warmup regression mới nhất | 13/13 pass |
@@ -70,3 +70,13 @@ Sổ ảnh nguyên bản, thời gian đăng ký ngay bên dưới và đường
 `h02-left-grip/exact-contact-independent-fk.json` tính lại bốn mốc mỗi ngón từ **node/xương thật và inverse bind**, không dùng tọa độ thắng do solver báo làm chứng minh. Sai số Python–Node lớn nhất khoảng 3,77e-9 m. Contact lòng bàn tay đạt riêng; wrap/tổng gập của ngón cái và út còn fail, vì vậy toàn grip vẫn fail.
 
 [Báo cáo bounded IK](animation/bounded-fit-experiment.md) giữ cả kết quả kém hơn: sai số sau lọc có thể lớn hơn trước lọc. Thử nghiệm này mặc định tắt và chưa sửa được quỹ đạo liên tục. [Boot v4](feet/v4/README.md) chạm sàn tốt hơn nhưng kéo hỏng cạnh biên, cũng bị loại. Không dùng một phép đo riêng để gọi rig hoàn thành.
+
+
+## Thử trực tiếp độ giãn cạnh và vùng dính tay áo–eo
+
+[Giải trọng số theo pose](pose-weight-held/README.md) giảm kéo giãn lớn nhất khoảng15,90 →4,63 trên cạnh duy nhất nhưng vẫn fail kiểm từng primitive; giao cắt tăng2.169 →4.098. [Thử support độc lập ở vùng dính](detached-coat-trial/README.md) làm mất dải kéo ở eo trong ảnh, nhưng mở đường nối và làm hỏng cổ tay. Cả hai bị loại, không đổi checker và chưa có đường cắt nào được duyệt. Ảnh, hash và số đo đều lưu; không chuyển thử nghiệm thành tuyên bố rig đã sửa.
+
+Lượt FEM radius0,30m cũng [thất bại](../semantic-garment-wide/README.md). Các lượt này không phải thay đổi ánh sáng/texture/độ phân giải và không được đóng vào APK.
+
+
+Kiểm tra cuối lượt này: `npm test` **267/267**, `test:master` **215/215**; `verify:master` **BLOCKED0/37**, rig goal **BLOCKED**. Log nguyên bản trong `checks/*latest*`. Sổ conver10 có **383 ảnh nguyên byte**, đã đối chiếu bản sao trên Git. Kết quả vẫn chưa đạt100%; APK lịch sử445MB chưa được thay bằng một rig được nghiệm thu.

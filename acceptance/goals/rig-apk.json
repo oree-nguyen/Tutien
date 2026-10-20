@@ -13,7 +13,7 @@
       "id": "skin",
       "condition": "Kiểm toàn bộ mesh, không chỉ mesh đầu: p99.9 <= 1.5 và maximum <= 2.0; không đổi ngưỡng",
       "status": "blocked",
-      "note": "V7 retains original failing panel regions separately to prevent metric dilution; held right outer panel p9995.178130/max15.897433. Corrective variants remain rejected: strain incomplete and penalty1000 increases actual surface crossings2169to9825. No threshold change or activation."
+      "note": "Pose-aware four-ID weight-only trial reduces unique-edge max15.897469to4.628803, but independent per-primitive checks still fail and crossings increase2169to4098. Independent support trial opens1062.781mm source seams and is rejected. No seam exemption or activation."
     },
     {
       "id": "contact",
@@ -37,7 +37,7 @@
       "id": "tests",
       "condition": "npm test, test:master và verify:master báo kết quả thật; không hạ điều kiện",
       "status": "blocked",
-      "note": "npm test266/266 and test:master215/215 passed in cloud. verify:master remains blocked. No acceptance threshold changed."
+      "note": "npm test267/267 and test:master215/215 pass in cloud; verify:master and rig goal remain blocked. No threshold changes."
     },
     {
       "id": "apk",
