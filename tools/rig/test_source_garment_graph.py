@@ -110,6 +110,22 @@ class SemanticSourcePatchTests(unittest.TestCase):
 
 
 class ScreenedSupportSolveTests(unittest.TestCase):
+    def test_tiny_nonzero_rhs_is_solved_to_the_same_relative_accuracy(self):
+        matrix=csr_matrix([[2.,-1.],[-1.,2.]])
+        rhs=np.array([[1e-10],[0.]])
+        solved,report=solve_support_fields(matrix,rhs,np.zeros((2,1)),['tiny'])
+        np.testing.assert_allclose(solved[:,0],[2e-10/3,1e-10/3],rtol=1e-6,atol=0)
+        self.assertLessEqual(report[0]['residual'],2e-6)
+
+    def test_bounded_tiny_rhs_keeps_the_primal_dual_check_instead_of_accepting_absolute_error(self):
+        matrix=csr_matrix([[1.,.25],[.25,1.]])
+        rhs=np.array([1e-10,0.])
+        initial=spsolve(matrix,rhs)
+        solved,report=nonnegative_fem_field(matrix,rhs,initial)
+        np.testing.assert_allclose(solved,[1e-10,0],rtol=1e-6,atol=0)
+        self.assertLessEqual(report['freeResidual'],2e-6)
+        self.assertGreaterEqual(report['minimumActiveGradient'],-report['dualTolerance'])
+
     def test_obtuse_fem_field_solves_nonnegative_energy_with_kkt_checks(self):
         # SPD non-M-matrices occur on obtuse source triangles. Clipping the
         # unconstrained answer [-2,1] would leave the other value incorrect.

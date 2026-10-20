@@ -79,7 +79,7 @@ def nonnegative_fem_field(matrix, rhs, initial, preconditioner=None):
                 return (preconditioner@full)[free]
             reduced_preconditioner = LinearOperator(reduced.shape, matvec=apply, dtype=float)
         value, info = cg(reduced, rhs[free], x0=np.maximum(solution[free], 0), M=reduced_preconditioner,
-                         rtol=1e-6, atol=1e-9, maxiter=1200)
+                         rtol=1e-6, atol=0, maxiter=1200)
         residual = np.linalg.norm(reduced@value-rhs[free])/max(1e-12, np.linalg.norm(rhs[free]))
         if info or residual > 2e-6:
             raise RuntimeError(f'Bounded FEM reduced solve rejected: info={info} residual={residual}')
@@ -101,20 +101,24 @@ def nonnegative_fem_field(matrix, rhs, initial, preconditioner=None):
     raise RuntimeError('Bounded FEM did not satisfy nonnegative KKT conditions within32 active-set solves')
 
 
-def solve_support_fields(matrix, rhs, initial, joint_names, preconditioner=None, nonnegative=False):
+def solve_support_fields(matrix, rhs, initial, joint_names, preconditioner=None, nonnegative=False, nonnegative_method='active-set'):
     """Zero-RHS joints solve to zero; an initial guess is never a constraint."""
     solved = np.zeros_like(initial)
     solves = []
     for joint in np.flatnonzero(np.abs(rhs).max(axis=0) > 0):
         solution, info = cg(matrix, rhs[:, joint], x0=initial[:, joint], M=preconditioner,
-                            rtol=1e-6, atol=1e-9, maxiter=1200)
+                            rtol=1e-6, atol=0, maxiter=1200)
         residual = np.linalg.norm(matrix@solution-rhs[:, joint])/max(1e-12, np.linalg.norm(rhs[:, joint]))
         if info or residual > 2e-6:
             raise RuntimeError(f'Dirichlet solve rejected: {joint_names[joint]} info={info} residual={residual}')
         bounded = None
         unconstrained_minimum = float(solution.min())
-        if nonnegative and solution.min() < -1e-6:
-            solution, bounded = nonnegative_fem_field(matrix, rhs[:, joint], solution, preconditioner)
+        if nonnegative and solution.min() < (-1e-6 if nonnegative_method=='active-set' else 0):
+            if nonnegative_method=='active-set':solution, bounded = nonnegative_fem_field(matrix, rhs[:, joint], solution, preconditioner)
+            elif nonnegative_method=='projected-newton':
+                from bounded_fem_newton import projected_newton_field
+                solution,bounded=projected_newton_field(matrix,rhs[:,joint],solution,preconditioner)
+            else:raise ValueError('Unknown bounded FEM method')
         solved[:, joint] = solution
         solves.append({'joint': joint_names[joint], 'residual': float(residual)})
         if bounded is not None:

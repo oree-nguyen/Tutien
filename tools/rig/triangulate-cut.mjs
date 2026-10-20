@@ -5,14 +5,15 @@ const key=(a,b)=>Math.min(a,b)+':'+Math.max(a,b);
 /** Keep every original cut corner, including corners Earcut omits as collinear.
  * Independent directed boundary checks reject incomplete or crossed disks.
  */
-export function triangulateCut(points,{method='projected',posedPoints,maxEdgeRatio}={}){
+export function triangulateCut(points,{method='projected',posedPoints,maxEdgeRatio,forbiddenTriangles=new Set()}={}){
  assert(['projected','minimum-area'].includes(method));
+ assert(forbiddenTriangles instanceof Set);assert(method==='minimum-area'||!forbiddenTriangles.size,'Collision exclusions require the constrained disk solver');
  if(posedPoints){assert.equal(method,'minimum-area');assert.equal(posedPoints.length,points.length);assert(Number.isFinite(maxEdgeRatio)&&maxEdgeRatio>0);}
  assert(points.length>=3&&points.every(p=>p.toArray().every(Number.isFinite)));
  const normal=new Vector3();for(let i=0;i<points.length;i++)normal.add(new Vector3().crossVectors(points[i],points[(i+1)%points.length]));
  assert(normal.length()>1e-10,'Degenerate garment cut cross-section');normal.normalize();
  const tangent=points[1].clone().sub(points[0]).projectOnPlane(normal).normalize(),bitangent=normal.clone().cross(tangent).normalize();assert(tangent.length()>.99);
- const contour=points.map(p=>{const v=p.clone().sub(points[0]);return new Vector2(v.dot(tangent),v.dot(bitangent));}),triangles=method==='projected'?ShapeUtils.triangulateShape(contour,[]):minimumAreaDisk(points,posedPoints,maxEdgeRatio);
+ const contour=points.map(p=>{const v=p.clone().sub(points[0]);return new Vector2(v.dot(tangent),v.dot(bitangent));}),triangles=method==='projected'?ShapeUtils.triangulateShape(contour,[]):minimumAreaDisk(points,posedPoints,maxEdgeRatio,forbiddenTriangles);
  assert(triangles.length,'No closure triangulation');
  const signed=triangles.reduce((sum,[a,b,c])=>sum+new Vector3().subVectors(points[b],points[a]).cross(new Vector3().subVectors(points[c],points[a])).dot(normal),0);
  if(signed<0)for(const t of triangles)[t[1],t[2]]=[t[2],t[1]];
@@ -39,7 +40,7 @@ export function triangulateCut(points,{method='projected',posedPoints,maxEdgeRat
  * flattening a folded cross-section into a self-overlapping 2D outline. Actual
  * geometric intersections still require a separate surface audit.
  */
-function minimumAreaDisk(points,posedPoints,maxEdgeRatio){
+function minimumAreaDisk(points,posedPoints,maxEdgeRatio,forbiddenTriangles){
  const n=points.length,cost=new Float64Array(n*n).fill(Infinity),split=new Int32Array(n*n).fill(-1);
  const allowed=posedPoints?new Uint8Array(n*n):null;
  if(allowed)for(let i=0;i<n;i++)for(let j=i+1;j<n;j++){
@@ -49,6 +50,7 @@ function minimumAreaDisk(points,posedPoints,maxEdgeRatio){
  for(let span=2;span<n;span++)for(let i=0;i+span<n;i++){
   const j=i+span,a=points[i],c=points[j],cx=c.x-a.x,cy=c.y-a.y,cz=c.z-a.z;
   for(let k=i+1;k<j;k++){
+   if(forbiddenTriangles.has(i+':'+k+':'+j))continue;
    if(allowed&&(!allowed[i*n+k]||!allowed[k*n+j]||!allowed[i*n+j]))continue;
    const b=points[k],bx=b.x-a.x,by=b.y-a.y,bz=b.z-a.z,
     area=Math.hypot(by*cz-bz*cy,bz*cx-bx*cz,bx*cy-by*cx);if(area<=1e-12)continue;

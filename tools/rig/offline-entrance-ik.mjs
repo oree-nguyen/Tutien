@@ -8,6 +8,8 @@ export function solveOfflineChain(pose, names, {target, orientation, pole, flexR
   if(maxStepDegrees!==undefined&&(!boundedFit||!previousRotations))throw Error('A velocity limit requires bounded fitting and previous rotations');
   const [upper,middle,end]=names.map((n)=>pose.nodes.get(n));
   if(!upper||!middle||!end)throw Error("Incomplete offline IK chain: "+names.join("/"));
+  const sourceRotations=[upper,middle,end].map(n=>new Quaternion(...n.getRotation())),sourcePositionError=pose.position(end).distanceTo(target),
+    sourceOrientationError=orientation?pose.rotation(end).angleTo(orientation):0;
   const offset=new Vector3(...pose.bind.get(middle).position),endOffset=new Vector3(...pose.bind.get(end).position),
     bind=new Quaternion(...pose.bind.get(middle).rotation),frame=new Quaternion(...pose.frames[middle.getName()].canonicalLocal),
     root=pose.position(upper),parentInverse=pose.rotation(upper.getParentNode()).invert(),
@@ -27,6 +29,17 @@ export function solveOfflineChain(pose, names, {target, orientation, pole, flexR
   const inspect=(node,q,override)=>{const f=pose.frames[node.getName()];return inspectJoint(q,new Quaternion(...pose.bind.get(node).rotation),new Quaternion(...f.canonicalLocal),override??pose.limits[f.type],{...f,tolerance:pose.limits.tolerance});},
     bounded=(node,q,override)=>{const f=pose.frames[node.getName()];clampJoint(q,new Quaternion(...pose.bind.get(node).rotation),new Quaternion(...f.canonicalLocal),override??pose.limits[f.type],f);return q;},
     parentQ=parentInverse.clone().invert();
+  if(boundedFit){
+    const current=[upper,middle,end].map(n=>new Quaternion(...n.getRotation())),positionError=pose.position(end).distanceTo(target),
+      orientationErrorDegrees=orientation?MathUtils.radToDeg(pose.rotation(end).angleTo(orientation)):0,
+      violations=[...inspect(upper,current[0]),...inspect(middle,current[1]),...inspect(end,current[2],endLimits)],flex=pose.angles(middle).flex,
+      step=previousRotations?Math.max(...current.map((q,i)=>MathUtils.radToDeg(q.angleTo(previousRotations[i])))):0;
+    // Keep an exact feasible source pose. In particular, a straight planted leg
+    // must not be bent merely to satisfy the analytic seed's 0.999 reach margin.
+    // This is checked against actual FK, joint bounds and the velocity budget.
+    if(positionError<=1e-8&&orientationErrorDegrees<=1e-6&&!violations.length&&(!flexRange||(flex>=flexRange[0]&&flex<=flexRange[1]))&&(maxStepDegrees===undefined||step<=maxStepDegrees))
+      return{passed:true,method:'already-exact-feasible-source-FK',target:target.toArray(),targetQuaternion:orientation?.toArray()??null,positionError,orientationErrorDegrees,requestedDistance:distance,maximumReach,flex,elbow:pose.position(middle).toArray(),violations,boundedFitAttempted:false,maximumStepDegrees:previousRotations?step:null};
+  }
   let best;
   for(let roll=0;roll<360;roll++){
     const desiredWorldUpper=new Quaternion().setFromAxisAngle(direction,MathUtils.degToRad(roll)).multiply(align),
@@ -43,11 +56,16 @@ export function solveOfflineChain(pose, names, {target, orientation, pole, flexR
   }
   const analytic=[best.upperQ,best.middleQ,best.endQ],analyticPosition=root.clone().add(offset.clone().applyQuaternion(parentQ.clone().multiply(best.upperQ))).add(endOffset.clone().applyQuaternion(parentQ.clone().multiply(best.upperQ).multiply(best.middleQ))),
     analyticOrientation=parentQ.clone().multiply(best.upperQ).multiply(best.middleQ).multiply(best.endQ),
-    needsFit=!!previousRotations||analyticPosition.distanceTo(target)>.001||(orientation&&analyticOrientation.angleTo(orientation)>.004);
+    needsFit=!!previousRotations||analyticPosition.distanceTo(target)>.001||(orientation&&analyticOrientation.angleTo(orientation)>.004)||
+      sourcePositionError<analyticPosition.distanceTo(target)||(orientation&&sourceOrientationError<analyticOrientation.angleTo(orientation));
   let fitted=null;
   if(boundedFit&&needsFit){
-    fitted=fitBoundedChain(pose,names,{target,orientation,pole,seeds:[...(previousRotations?[previousRotations]:[]),analytic],endLimits,flexRange,previousRotations,maxStepDegrees});
-    const originalCost=analyticPosition.distanceToSquared(target)*400+(orientation?analyticOrientation.angleTo(orientation)**2*4:0)+(previousRotations?analytic.reduce((s,q,i)=>s+q.angleTo(previousRotations[i])**2*.015**2,0):0);
+    // Without history, retain the caller's current source pose as the weak
+    // null-space preference. A pole tie-break alone can add knee/twist motion
+    // even when both candidates have virtually identical endpoint contact.
+    const continuityReference=previousRotations??sourceRotations;
+    fitted=fitBoundedChain(pose,names,{target,orientation,pole,seeds:[...(previousRotations?[previousRotations]:[]),sourceRotations,analytic],endLimits,flexRange,previousRotations:continuityReference,maxStepDegrees});
+    const originalCost=analyticPosition.distanceToSquared(target)*400+(orientation?analyticOrientation.angleTo(orientation)**2*4:0)+analytic.reduce((s,q,i)=>s+q.angleTo(continuityReference[i])**2*.015**2,0);
     const analyticVelocityInvalid=maxStepDegrees!==undefined&&previousRotations&&analytic.some((r,i)=>MathUtils.radToDeg(r.angleTo(previousRotations[i]))>maxStepDegrees+1e-8);
     if(fitted.objective<originalCost||analyticVelocityInvalid){[best.upperQ,best.middleQ,best.endQ]=fitted.rotations;}
   }

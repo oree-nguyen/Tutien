@@ -28,6 +28,12 @@ if(process.env.CLOSURE_POSE){
  posedPosition=ref=>{const {p,index}=ref,ids=p.getAttribute('JOINTS_0').getElement(index,[]),weights=p.getAttribute('WEIGHTS_0').getElement(index,[]),point=new Vector3(...p.getAttribute('POSITION').getElement(index,[])),out=new Vector3();
   for(let k=0;k<4;k++)if(weights[k])out.addScaledVector(point.clone().applyMatrix4(transforms.get(p)[ids[k]]),weights[k]);return out;};
 }
+let forbidden=null,forbiddenSha256=null;
+if(process.env.CLOSURE_FORBIDDEN){
+ const raw=await fs.readFile(process.env.CLOSURE_FORBIDDEN);forbidden=JSON.parse(raw);forbiddenSha256=sha256(raw);
+ assert.equal(forbidden.baseSha256,sha256(bytes));assert.equal(forbidden.poseSha256,poseSha256);assert.equal(forbidden.cutEdgesSha256,sha256(cutBytes));
+ assert.equal(forbidden.kind,'measured-derived-closure-crossing-exclusions');
+}
 await fs.mkdir(output,{recursive:true});
 for(const node of doc.getRoot().listNodes())if(node.getMesh()){
  const originals=node.getMesh().listPrimitives(),next=new Map(),vertex=new Map();
@@ -46,7 +52,8 @@ for(const node of doc.getRoot().listNodes())if(node.getMesh()){
   const forward=[];let at=start;
   do{assert(next.has(at)&&!visited.has(at),'Open or branching garment cut');visited.add(at);forward.push(at);at=next.get(at);}while(at!==start);
   assert(forward.length>=3);const loop=forward.toReversed(),points=loop.map(id=>{const ref=vertex.get(id);return new Vector3(...ref.p.getAttribute('POSITION').getElement(ref.index,[]));}),
-   {triangles,normal}=triangulateCut(points,{method:closureMethod,posedPoints:posedPosition?loop.map(id=>posedPosition(vertex.get(id))):undefined,maxEdgeRatio:1.49});
+   lookup=new Map(loop.map((id,i)=>[id,i])),forbiddenTriangles=new Set((forbidden?.nodes[node.getName()]??[]).filter(t=>t.every(id=>lookup.has(id))).map(t=>t.map(id=>lookup.get(id)).sort((a,b)=>a-b).join(':'))),
+   {triangles,normal}=triangulateCut(points,{method:closureMethod,posedPoints:posedPosition?loop.map(id=>posedPosition(vertex.get(id))):undefined,maxEdgeRatio:1.49,forbiddenTriangles});
   const halfedges=new Map();for(const triangle of triangles)for(let k=0;k<3;k++){const a=triangle[k],b=triangle[(k+1)%3],id=key(a,b),group=halfedges.get(id)??[];group.push([a,b]);halfedges.set(id,group);}
   let boundary=0;for(const pairs of halfedges.values()){
    if(pairs.length===2)assert(pairs[0][0]===pairs[1][1]&&pairs[0][1]===pairs[1][0],'Closure winding disagrees');
@@ -73,5 +80,5 @@ const after=immutablePayload(result);for(let i=0;i<original.meshes.length;i++)af
 assert.deepEqual(after,original,'Original mesh/material/images/skin must remain unchanged');
 for(const name of ['cut-plan.json','cut-edges.u32bin','corner-components.u32bin','face-roles.u8bin'])await fs.copyFile(base+'/'+name,output+'/'+name);
 const report={base,inputSha256:sha256(bytes),output:file,sha256:sha256(await fs.readFile(file)),originalPayloadPreserved:true,sourceImagesAndClipsPreserved:true,poseFile:process.env.CLOSURE_POSE??null,poseSha256,maximumDesignEdgeRatio:posedPosition?1.49:null,
- addedClosureTriangles:patches.reduce((n,p)=>n+p.triangles,0),patches,accepted:false,activated:false,scope:'Derived garment closure staging experiment. New faces explicitly declared, not passed off as original source triangles. Source-provenance acceptance remains blocked pending independent closure proof, deformation/collision and visual review.'};
+ forbiddenFile:process.env.CLOSURE_FORBIDDEN??null,forbiddenSha256,addedClosureTriangles:patches.reduce((n,p)=>n+p.triangles,0),patches,accepted:false,activated:false,scope:'Derived garment closure staging experiment. New faces explicitly declared, not passed off as original source triangles. Source-provenance acceptance remains blocked pending independent closure proof, deformation/collision and visual review.'};
 await fs.writeFile(output+'/receipt.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify({file,closures:patches.length,triangles:report.addedClosureTriangles,accepted:false}));

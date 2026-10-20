@@ -4,6 +4,7 @@ import {Document} from "@gltf-transform/core";
 import {Vector3,Quaternion} from "three";
 import {ReferencePose} from "../tools/rig/reference-pose.mjs";
 import {solveOfflineChain,limitAngularStep,limitAngularChain} from "../tools/rig/offline-entrance-ik.mjs";
+import fs from 'node:fs/promises';
 function fixture(){const d=new Document(),root=d.createNode("root"),a=d.createNode("upper").setTranslation([0,1,0]),b=d.createNode("middle").setTranslation([0,-.4,0]),c=d.createNode("end").setTranslation([0,-.35,0]);root.addChild(a);a.addChild(b);b.addChild(c);const skin=d.createSkin();for(const n of[root,a,b,c])skin.addJoint(n);const frames=Object.fromEntries([root,a,b,c].map(n=>[n.getName(),{bindRotation:[0,0,0,1],canonicalLocal:[0,0,0,1],type:n===b?"hinge":"broad"}])),broad={flex:[-180,180],lateral:[-180,180],twist:[-180,180]};return new ReferencePose(d,frames,{tolerance:1,broad,hinge:{...broad,flex:[0,150]}});}
 test("offline two-link solver preserves source bone lengths and follows its pole",()=>{const pose=fixture(),before=pose.joints.map(n=>[n.getTranslation(),n.getScale()]),target=new Vector3(.2,.55,.1),r=solveOfflineChain(pose,["upper","middle","end"],{target,orientation:new Quaternion(),pole:new Vector3(0,.7,-.4)});assert.equal(r.passed,true);assert.ok(pose.position(pose.nodes.get("end")).distanceTo(target)<1e-7);assert.ok(r.elbow[2]<0);assert.deepEqual(pose.joints.map(n=>[n.getTranslation(),n.getScale()]),before);});
 test("offline solver records unreachable ground target and never claims contact",()=>{const pose=fixture(),r=solveOfflineChain(pose,["upper","middle","end"],{target:new Vector3(0,0,0),orientation:new Quaternion(),pole:new Vector3(0,.5,-.4),flexRange:[0,10]});assert.equal(r.passed,false);assert.ok(r.positionError>.2);assert.ok(r.maximumReach<.75);});
@@ -52,4 +53,30 @@ test('velocity-constrained fit keeps a distant target visibly unfulfilled instea
  const r=solveOfflineChain(pose,names,{target,orientation:new Quaternion(),pole:new Vector3(0,.6,-.2),previousRotations:previous,boundedFit:true,maxStepDegrees:8});
  assert.equal(r.passed,false);assert(r.maximumStepDegrees<=8+1e-6);assert(r.positionError>.2);assert.deepEqual(pose.report(),[]);
  assert(Math.abs(r.positionError-pose.position(pose.nodes.get('end')).distanceTo(target))<1e-12);
+});
+
+test('an exact feasible straight-foot source pose is not bent by the analytic reach seed margin',()=>{
+ const pose=fixture(),names=['upper','middle','end'],target=pose.position(pose.nodes.get('end')),orientation=pose.rotation(pose.nodes.get('end')),
+  before=names.map(n=>pose.nodes.get(n).getRotation()),r=solveOfflineChain(pose,names,{target,orientation,pole:new Vector3(0,.7,-.4),boundedFit:true});
+ assert.equal(r.passed,true);assert.equal(r.method,'already-exact-feasible-source-FK');assert.equal(r.positionError,0);assert.equal(r.orientationErrorDegrees,0);
+ assert.deepEqual(names.map(n=>pose.nodes.get(n).getRotation()),before);assert(r.requestedDistance>r.maximumReach,'The 0.999 margin belongs to the analytic seed, not the actual bone chain');
+});
+
+test('exact current FK cannot bypass the per-frame velocity constraint',()=>{
+ const pose=fixture(),names=['upper','middle','end'],previous=names.map(()=>new Quaternion());
+ pose.nodes.get('upper').setRotation(new Quaternion().setFromAxisAngle(new Vector3(0,0,1),Math.PI/3).toArray());
+ const target=pose.position(pose.nodes.get('end')),orientation=pose.rotation(pose.nodes.get('end')),
+  r=solveOfflineChain(pose,names,{target,orientation,pole:new Vector3(0,.7,-.4),boundedFit:true,previousRotations:previous,maxStepDegrees:8});
+ assert.notEqual(r.method,'already-exact-feasible-source-FK');assert(r.maximumStepDegrees<=8+1e-6);assert.equal(r.passed,false);
+});
+
+test('the real H02 bind hierarchy retains its straight-foot contact after quaternion normalization',async()=>{
+ const frames=JSON.parse(await fs.readFile('data/rig/bind-frames.json')).heroes.H02.joints,limits=JSON.parse(await fs.readFile('data/rig/joint-limits.json')),
+  doc=new Document(),skin=doc.createSkin(),nodes=new Map(Object.entries(frames).map(([name,f])=>[name,doc.createNode(name).setTranslation(f.bindPosition).setRotation(f.bindRotation)]));
+ for(const[name,n]of nodes){skin.addJoint(n);if(nodes.has(frames[name].parent))nodes.get(frames[name].parent).addChild(n);}
+ const pose=new ReferencePose(doc,frames,limits),names=['LeftUpLeg','LeftLeg','LeftFoot'],target=pose.position(nodes.get('LeftFoot')),orientation=pose.rotation(nodes.get('LeftFoot')),before=names.map(n=>new Quaternion(...nodes.get(n).getRotation()).normalize());
+ for(const name of names)nodes.get(name).setRotation(new Quaternion(...nodes.get(name).getRotation()).normalize().toArray());
+ const r=solveOfflineChain(pose,names,{target,orientation,pole:new Vector3(.34,.35,.55),boundedFit:true});
+ assert.equal(r.passed,true);assert(r.positionError<1e-6);assert(r.orientationErrorDegrees<.001);
+ assert(names.every((n,i)=>new Quaternion(...nodes.get(n).getRotation()).normalize().angleTo(before[i])*180/Math.PI<.01),'An existing exact contact must not acquire several degrees of knee flex');
 });

@@ -27,3 +27,12 @@ test('pose-constrained closure rejects an impossible boundary instead of reporti
  assert.throws(()=>triangulateCut(points,{method:'minimum-area',posedPoints,maxEdgeRatio:1.49}),/No nondegenerate source-corner disk/);
  const rigid=points.map(p=>p.clone().add(new Vector3(2,3,4))),r=triangulateCut(points,{method:'minimum-area',posedPoints:rigid,maxEdgeRatio:1.49});assert.equal(r.triangles.length,2);
 });
+test('a measured crossing exclusion forces another disk without changing any rim corner',()=>{
+ const points=[[0,0,0],[2,0,0],[2,1,0],[0,1,0]].map(p=>new Vector3(...p)),before=points.map(p=>p.toArray()),initial=triangulateCut(points,{method:'minimum-area'}),
+  forbiddenTriangles=new Set([initial.triangles[0].slice().sort((a,b)=>a-b).join(':')]),result=triangulateCut(points,{method:'minimum-area',forbiddenTriangles});
+ assert(result.triangles.every(t=>!forbiddenTriangles.has(t.slice().sort((a,b)=>a-b).join(':'))));assert.deepEqual(points.map(p=>p.toArray()),before);assert.equal(result.triangles.length,2);
+});
+test('an unavoidable excluded source-rim triangle fails instead of reusing its measured crossing',()=>{
+ const points=[[0,0,0],[1,0,0],[0,1,0]].map(p=>new Vector3(...p));
+ assert.throws(()=>triangulateCut(points,{method:'minimum-area',forbiddenTriangles:new Set(['0:1:2'])}),/No nondegenerate source-corner disk/);
+});

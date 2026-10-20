@@ -7,6 +7,7 @@ import { createHash } from "node:crypto";
 import { handStrain } from "./hand-strain.mjs";
 import { SeamAccumulator } from "./mesh-seams.mjs";
 import { SourceProvenanceValidator } from "./source-provenance.mjs";
+import {posedMeshBounds} from './posed-mesh-bounds.mjs';
 
 const input =
   process.env.RIG_FILE ?? "assets/rigged/H01-C0-robe-panels-diagnostic.glb";
@@ -245,10 +246,14 @@ for (const [nodeIndex, node] of nodes.entries()) {
       mask: new Uint8Array(Number.isInteger(count) ? count : 0).fill(1),
       position: (i) => new Vector3().fromArray(posed, i * 3),
     });
+    let posedBounds=null;
+    try{posedBounds=posedMeshBounds(posed,used,mapped.verified?mapped.vertexIds:null);}
+    catch(error){skinError(error.message);}
     meshes.push({
       ...identity,
       vertices: count ?? 0,
       sourceTriangles: (indices?.length ?? 0) / 3,
+      posedBounds,
       ...strain,
       passed: strain.passed && skinErrors.length === 0,
       skinErrors,

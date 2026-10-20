@@ -12,3 +12,8 @@ test('explicit source-edge cuts match an independent sparse corner-fan oracle an
  const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_coat_cut_topology.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
  assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 4 tests/);
 });
+
+test('bounded FEM projected Newton matches an independent NNLS optimum without a small-field tolerance escape',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_bounded_fem_newton.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 2 tests/);
+});

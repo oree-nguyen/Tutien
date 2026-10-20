@@ -6,6 +6,7 @@ from pathlib import Path
 import numpy as np
 from scipy.optimize import least_squares,minimize
 from scipy.spatial.transform import Rotation
+from stance_direction import measure_torso,reference_torso_valid
 
 hero=os.environ.get('HERO','H01')
 profile=os.environ.get('FIT_PROFILE','reference')
@@ -96,8 +97,10 @@ def evaluate(x,regularize=True):
         residual.extend([max(0,-p[s+'Leg'][2])*.5,max(0,(-1 if s=='Left' else 1)*p[s+'Leg'][0])*.5])
     residual.extend([palm[1]*position_weight,normal[0]*orientation_weight,(normal[1]+1)*orientation_weight,normal[2]*orientation_weight])
     residual.extend([max(0,palm[0]+.12)*5,max(0,-palm[0]-.65)*5,max(0,-palm[2])*.5,max(0,palm[2]-.6)*.5])
-    torso_up=w['Spine2']@np.array([0,1,0]);tilt=np.degrees(np.arccos(np.clip(torso_up[1],-1,1)))
+    torso=measure_torso(w['Spine2']);tilt=torso['tilt'];pelvis=measure_torso(w['Hips'])['tilt']
     residual.append(max(0,tilt-25)*torso_weight)
+    residual.append(max(0,15-torso['forwardLean'],torso['forwardLean']-25)*torso_weight)
+    residual.append(max(0,pelvis-15)*torso_weight)
     if hero=='H01':residual.extend([max(0,p['RightLeg'][1]-.08)*knee_weight,max(0,-p['RightLeg'][1])*knee_weight])
     if hero=='H01':
         residual.extend((p['LeftHand']-p['LeftLeg']-np.array([0,.07,.03]))*5)
@@ -105,7 +108,7 @@ def evaluate(x,regularize=True):
     if regularize:
         residual.extend((x-np.clip(np.zeros(len(x)),low,high))*.00008)
         residual.append((tilt-22)*.0005)
-    return np.array(residual),{'p':p,'w':w,'palm':palm,'normal':normal,'tilt':tilt,'hip':hip,'angles':a,'rotations':r,'activeAnchors':active_anchors}
+    return np.array(residual),{'p':p,'w':w,'palm':palm,'normal':normal,'tilt':tilt,'pelvisTilt':pelvis,'forwardLean':torso['forwardLean'],'lateralLean':torso['lateralLean'],'hip':hip,'angles':a,'rotations':r,'activeAnchors':active_anchors}
 
 best=None;attempts=[]
 warm=json.loads(Path(os.environ['FIT_WARM_START']).read_text()) if os.environ.get('FIT_WARM_START') else None
@@ -127,6 +130,23 @@ for hy,hz in starts:
     attempts.append({'initialHip':[hy,hz],'cost':float(result.cost),'success':bool(result.success),'nfev':int(result.nfev),'message':result.message})
     if best is None or result.cost<best.cost:best=result
 _,e=evaluate(best.x)
+if os.environ.get('FIT_HARD_STANCE','0')=='1':
+    def physical_constraints(x):
+        _,k=evaluate(x)
+        # Aim strictly inside the unchanged acceptance bounds. A solution on a
+        # boundary must not require an outward numerical tolerance to pass.
+        angular_margin=1e-4;position_margin=1e-7
+        values=[26-angular_margin-k['tilt'],k['forwardLean']-15-angular_margin,25-angular_margin-k['forwardLean'],15-angular_margin-k['pelvisTilt'],.015-position_margin-abs(k['palm'][1]),-.85-1e-6-k['normal'][1]]
+        for side in anchors:
+            values.append(.005-position_margin-np.linalg.norm(k['p'][anchor_joints[side]]-k['activeAnchors'][side]))
+            if anchor_joints[side].endswith('Foot'):values.append(1-angular_margin-np.degrees(Rotation.from_matrix(br[side+'Foot'].T@k['w'][side+'Foot']).magnitude()))
+        if hero=='H01':values.extend([k['p']['RightLeg'][1]-position_margin,.08-position_margin-k['p']['RightLeg'][1]])
+        else:
+            width=abs(k['p']['LeftFoot'][0]-k['p']['RightFoot'][0])/np.linalg.norm(bp['LeftArm']-bp['RightArm']);values.extend([width-1.5-1e-4,2-1e-4-width])
+        return np.asarray(values)
+    hard=minimize((lambda x:0.) if os.environ.get('FIT_HARD_FEASIBLE')=='1' else (lambda x:float(np.sum(evaluate(x)[0]**2))),best.x,method='SLSQP',bounds=list(zip(low,high)),constraints=[{'type':'ineq','fun':physical_constraints}],options={'maxiter':int(os.environ.get('FIT_HARD_ITER','600')),'ftol':1e-10})
+    attempts.append({'method':'SLSQP hard world-forward torso, pelvis, exact hand/foot and hero-specific stance constraints','success':bool(hard.success),'message':hard.message,'iterations':int(hard.nit),'minimumConstraint':float(np.min(physical_constraints(hard.x)))})
+    best.x=hard.x;best.success=hard.success;best.cost=float(hard.fun/2);_,e=evaluate(best.x)
 if os.environ.get('FIT_HARD_REFERENCE','0')=='1':
     def constraints(x):
         _,k=evaluate(x)
@@ -134,7 +154,7 @@ if os.environ.get('FIT_HARD_REFERENCE','0')=='1':
         flat=np.degrees(Rotation.from_matrix(br['LeftFoot'].T@k['w']['LeftFoot']).magnitude())
         toe=np.linalg.norm(k['p'][anchor_joints['Right']]-k['activeAnchors']['Right'])
         margin=os.environ.get('FIT_MARGIN','0')=='1'
-        return np.array([k['p']['RightLeg'][1],(.075 if margin else .08)-k['p']['RightLeg'][1],(25.8 if margin else 26)-k['tilt'],(.002 if margin else .005)-foot,(.002 if margin else .005)-toe,(.8 if margin else 1)-flat,(.01 if margin else .015)-abs(k['palm'][1]),(-0.87 if margin else -0.85)-k['normal'][1]])
+        return np.array([k['p']['RightLeg'][1],(.075 if margin else .08)-k['p']['RightLeg'][1],(25.8 if margin else 26)-k['tilt'],k['forwardLean']-15,25-k['forwardLean'],(.002 if margin else .005)-foot,(.002 if margin else .005)-toe,(.8 if margin else 1)-flat,(.01 if margin else .015)-abs(k['palm'][1]),(-0.87 if margin else -0.85)-k['normal'][1]])
     hard=minimize((lambda x:0.) if os.environ.get('FIT_HARD_FEASIBLE')=='1' else (lambda x:float(np.sum(evaluate(x)[0]**2))),best.x,method='SLSQP',bounds=list(zip(low,high)),constraints=[{'type':'ineq','fun':constraints}],options={'maxiter':int(os.environ.get('FIT_HARD_ITER','600')),'ftol':1e-9})
     attempts.append({'method':'SLSQP hard knee/torso/left-foot constraints','success':bool(hard.success),'message':hard.message,'iterations':int(hard.nit),'minimumConstraint':float(min(constraints(hard.x)))})
     # Keep this distinct even on failure; acceptance checks below retain all residuals.
@@ -143,11 +163,11 @@ if os.environ.get('FIT_HARD_REFERENCE','0')=='1':
 foot_errors={s:float(np.linalg.norm(e['p'][anchor_joints[s]]-e['activeAnchors'][s])) for s in anchors}
 foot_angle={s:float(np.degrees(Rotation.from_matrix(br[s+'Foot'].T@e['w'][s+'Foot']).magnitude())) for s in anchors if anchor_joints[s].endswith('Foot')}
 stance_width=float(abs(e['p']['LeftFoot'][0]-e['p']['RightFoot'][0])/np.linalg.norm(bp['LeftArm']-bp['RightArm']))
-passed=(hero!='H02' or 1.5<=stance_width<=2) and max(foot_errors.values())<=.005 and max(foot_angle.values())<=1 and abs(e['palm'][1])<=.015 and e['normal'][1]<=-.85 and e['tilt']<=26 and (hero!='H01' or 0<=e['p']['RightLeg'][1]<=.08)
+passed=(hero!='H02' or 1.5<=stance_width<=2) and max(foot_errors.values())<=.005 and max(foot_angle.values())<=1 and abs(e['palm'][1])<=.015 and e['normal'][1]<=-.85 and reference_torso_valid(e['w']['Spine2']) and e['pelvisTilt']<=15 and (hero!='H01' or 0<=e['p']['RightLeg'][1]<=.08)
 output={'hero':hero,'profile':profile,'scope':'Bounded calibrated FK stance; source mesh/sole/strain acceptance not inferred','passed':bool(passed),'activated':False,
-        'fitConfiguration':{'warmStart':os.environ.get('FIT_WARM_START'),'warmStartSha256':hashlib.sha256(Path(os.environ['FIT_WARM_START']).read_bytes()).hexdigest() if os.environ.get('FIT_WARM_START') else None,'hardReference':os.environ.get('FIT_HARD_REFERENCE')=='1','hardFeasibilityOnly':os.environ.get('FIT_HARD_FEASIBLE')=='1','interiorContactMargins':os.environ.get('FIT_MARGIN')=='1','variables':variables},
+        'fitConfiguration':{'warmStart':os.environ.get('FIT_WARM_START'),'warmStartSha256':hashlib.sha256(Path(os.environ['FIT_WARM_START']).read_bytes()).hexdigest() if os.environ.get('FIT_WARM_START') else None,'hardReference':os.environ.get('FIT_HARD_REFERENCE')=='1','hardWorldStance':os.environ.get('FIT_HARD_STANCE')=='1','hardFeasibilityOnly':os.environ.get('FIT_HARD_FEASIBLE')=='1','interiorContactMargins':os.environ.get('FIT_MARGIN')=='1','variables':variables},
         'attempts':attempts,'solverConverged':bool(best.success),'cost':float(best.cost),
-        'metrics':{'stanceWidthInShoulders':float(abs(e['p']['LeftFoot'][0]-e['p']['RightFoot'][0])/np.linalg.norm(bp['LeftArm']-bp['RightArm'])),'footPositionErrors':foot_errors,'footRotationErrorsDegrees':foot_angle,'groundPalmHeight':float(e['palm'][1]),'groundPalmUpDot':float(e['normal'][1]),'torsoTiltDegrees':float(e['tilt']),'rightKneeHeight':float(e['p']['RightLeg'][1]),'hipFlexDegrees':{side:float(e['angles'][side+'UpLeg']['flex']) for side in ('Left','Right')},'kneeFlexDegrees':{side:float(e['angles'][side+'Leg']['flex']) for side in ('Left','Right')}},
+        'metrics':{'stanceWidthInShoulders':float(abs(e['p']['LeftFoot'][0]-e['p']['RightFoot'][0])/np.linalg.norm(bp['LeftArm']-bp['RightArm'])),'footPositionErrors':foot_errors,'footRotationErrorsDegrees':foot_angle,'groundPalmHeight':float(e['palm'][1]),'groundPalmUpDot':float(e['normal'][1]),'torsoTiltDegrees':float(e['tilt']),'torsoForwardLeanDegrees':e['forwardLean'],'torsoLateralLeanDegrees':e['lateralLean'],'pelvisTiltDegrees':e['pelvisTilt'],'rightKneeHeight':float(e['p']['RightLeg'][1]),'hipFlexDegrees':{side:float(e['angles'][side+'UpLeg']['flex']) for side in ('Left','Right')},'kneeFlexDegrees':{side:float(e['angles'][side+'Leg']['flex']) for side in ('Left','Right')}},
         'groundPalm':e['palm'].tolist(),'anchors':{s:a.tolist() for s,a in e['activeAnchors'].items()},'anchorJoints':anchor_joints,
         'footPositions':{s:e['p'][s+'Foot'].tolist() for s in anchors},'footRotations':{s:Rotation.from_matrix(e['w'][s+'Foot']).as_quat().tolist() for s in anchors},
         'angles':e['angles'],'rotations':{n:Rotation.from_matrix(r).as_quat().tolist() for n,r in e['rotations'].items()},'translations':{'Hips':e['hip'].tolist()},
