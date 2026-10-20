@@ -17,3 +17,13 @@ test('bounded FEM projected Newton matches an independent NNLS optimum without a
  const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_bounded_fem_newton.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
  assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 2 tests/);
 });
+
+test('source boot graph refuses attached clothing and invalid sole domains',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_lower_leg_domains.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 3 tests/);
+});
+
+test('offline mesh-floor residual agrees with independent source-vertex matrix skinning',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_mesh_foot_constraints.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 2 tests/);
+});

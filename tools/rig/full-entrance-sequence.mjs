@@ -12,7 +12,7 @@ const sideName = s => s[0].toUpperCase()+s.slice(1);
  * exporting sampled FK never implies acceptance of contacts, skin or visual pose. */
 export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,gripProof,weapon,heldContact,stance,weaponFloorCheck,boundedFit=false,velocityAware=false,jointRise=false}) {
   if(velocityAware&&!boundedFit)throw Error('Velocity-aware solve requires bounded refinement');
-  if(jointRise&&(!velocityAware||hero!=='H02'||!stance))throw Error('Joint-rise staging requires H02, a stance and velocity-aware bounded refinement');
+  if(jointRise&&(!velocityAware||!['H01','H02'].includes(hero)||!stance))throw Error('Joint-rise staging requires H01/H02, a stance and velocity-aware bounded refinement');
   const solveOfflineChain=(pose,names,options)=>solveChain(pose,names,{...options,boundedFit,maxStepDegrees:velocityAware&&options.previousRotations?8:undefined});
   const joints=pose.joints, frames=pose.frames,
     bind=Object.fromEntries(joints.map(n=>[n.getName(),{position:pose.position(n),rotation:pose.rotation(n)}])),
@@ -119,6 +119,18 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
     releaseKeyMeasurement=solveOfflineChain(pose,names,{target,orientation:releaseGroundOrientation,pole:V([groundSide==='Left'?.4:-.4,crouchHips.y+.25,.3])});
     releasedGroundArm=Object.fromEntries(names.map(n=>[n,pose.nodes.get(n).getRotation()]));apply(upright);
   }
+  let staffGrabArm,staffGrabKeyMeasurement;
+  if(jointRise&&hero==='H01'){
+    const grab=spec.events.find(e=>e.type==='grab').time,amount=smooth(2.6,3.7,grab);
+    apply(upright);pose.nodes.get('Hips').setTranslation(crouchHips.clone().lerp(uprightHips,amount).toArray());
+    for(const[name,r]of Object.entries(stance.rotations)){
+      const node=pose.nodes.get(name),a=pose.angles(node,Q(r)),b=pose.angles(node,Q(upright[name]));
+      setAngles(node,Object.fromEntries(['flex','lateral','twist'].map(axis=>[axis,MathUtils.lerp(a[axis],b[axis],amount)])));
+    }
+    const names=['Arm','ForeArm','Hand'].map(s=>gripSide+s);
+    staffGrabKeyMeasurement=solveOfflineChain(pose,names,{target:uprightHands[gripSide].position,orientation:uprightHands[gripSide].rotation,pole:V([gripSide==='Left'?.4:-.4,1.3,.3])});
+    staffGrabArm=Object.fromEntries(names.map(n=>[n,pose.nodes.get(n).getRotation()]));apply(upright);
+  }
   const sample=(clip,time)=>{
     const idle=clip==="IDLE_HOLD", start=hero==="H01"?.9:.55, land=hero==="H01"?1.9:1.25,
       riseStart=hero==="H01"?2.6:1.75, riseEnd=hero==="H01"?3.7:3,
@@ -147,11 +159,11 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
     const solutions=[];
     const footContacts={};
     for(const side of ["Left","Right"]) {
-      const step=hero==="H01"?(side==="Right"?[2.7,3.25]:[3.25,3.65]):jointRise?(side==="Left"?[2.15,2.55]:[2.6,2.98]):(side==="Left"?[2.0,2.35]:[2.4,2.8]),
+      const step=hero==="H01"?(side==="Right"?[2.65,3.30]:[3.25,3.65]):jointRise?(side==="Left"?[2.15,2.55]:[2.6,2.98]):(side==="Left"?[2.0,2.35]:[2.4,2.8]),
         stepProgress=idle?1:smooth(step[0],step[1],time),inSwing=!idle&&time>step[0]&&time<step[1],
         target=crouchFeet[side].clone().lerp(uprightFeet[side].position,stepProgress),
         orientation=Q(stance?.footRotations?.[side]??uprightFeet[side].rotation.toArray()).slerp(uprightFeet[side].rotation,stepProgress);
-      if(inSwing)target.y+=.08*Math.sin(Math.PI*(time-step[0])/(step[1]-step[0]))**2;
+      if(inSwing)target.y+=(hero==='H01'&&side==='Right'?.052:.08)*Math.sin(Math.PI*(time-step[0])/(step[1]-step[0]))**2;
       if(!idle&&time<land)target.y+=hips.y-crouchHips.y;
       footContacts[side]={planted:(idle||time>=land)&&!inSwing,anchorJoint:hero==="H01"&&side==="Right"&&stepProgress===0?"RightToeBase":side+"Foot",step:inSwing,stepProgress};
       const names=[side+"UpLeg",side+"Leg",side+"Foot"];
@@ -176,10 +188,14 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
       if(hero==="H01"&&side===gripSide&&rise>0){target=groundTarget.clone().lerp(heldTarget,rise);orientation=groundOrientation.clone().slerp(heldOrientation,rise);}
       if(hero==="H01"&&side==="Left"&&rise<.9)orientation=undefined;
       const names=[side+"Arm",side+"ForeArm",side+"Hand"];
-      if(jointRise&&rise>0&&!idle){
-        const start=side===gripSide?groundHammerFit.rotations:releasedGroundArm;
-        for(const name of names){const node=pose.nodes.get(name),a=pose.angles(node,Q(start[name])),b=pose.angles(node,Q(upright[name]));
-          setAngles(node,Object.fromEntries(['flex','lateral','twist'].map(axis=>[axis,MathUtils.lerp(a[axis],b[axis],rise)])));}
+      if(jointRise&&rise>0&&!idle&&(hero==='H02'||side!==gripSide||time<grab)){
+        const start=hero==='H02'?(side===gripSide?groundHammerFit.rotations:releasedGroundArm):(side===groundSide?releasedGroundArm:stance.rotations),
+          finish=hero==='H01'&&side===gripSide?staffGrabArm:upright,progress=hero==='H01'&&side===gripSide?smooth(riseStart,grab,time):rise;
+        for(const name of names){const node=pose.nodes.get(name),a=pose.angles(node,Q(start[name])),b=pose.angles(node,Q(finish[name]));
+          setAngles(node,Object.fromEntries(['flex','lateral','twist'].map(axis=>[axis,MathUtils.lerp(a[axis],b[axis],progress)])));}
+      }else if(jointRise&&hero==='H01'&&side===gripSide&&!idle&&time>=grab){
+        const result=solveOfflineChain(pose,names,{target:uprightHands[side].position,orientation:uprightHands[side].rotation,pole:V([side==='Left'?.4:-.4,hips.y+.25,.3]),previousRotations:previous.get(names[0])});
+        solutions.push({chain:names[0],...result});previous.set(names[0],names.map(n=>Q(pose.nodes.get(n).getRotation())));
       }else if(!stance||rise>0||idle||side!==groundSide||groundRelease>0){const result=solveOfflineChain(pose,names,{target,orientation,pole:V([side==="Left"?.4:-.4,hips.y+.25,.3]),flexRange:side===groundSide&&support?[0,10]:undefined,endLimits:side===groundSide&&support?{...pose.limits.wristGround,flex:[MathUtils.lerp(pose.limits.wristGround.flex[0],pose.limits.wrist.flex[0],groundRelease),pose.limits.wristGround.flex[1]]}:undefined,previousRotations:idle&&velocityAware?undefined:previous.get(names[0])});solutions.push({chain:names[0],...result});previous.set(names[0],names.map(n=>Q(pose.nodes.get(n).getRotation())));}
       setFingers(side,side===gripSide?close:0);
     }
@@ -244,7 +260,7 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
       center=hero==="H01"?gripCenter.clone():gripOffset.clone().applyQuaternion(heldOrientation).add(heldTarget);
     } else {rotation=hammerGroundQ.clone();center=hammerGroundCenter.clone();if(time<.55)center.y+=2*(1-smooth(0,.55,time));}
     const plannedCenter=center.clone(),plannedRotation=rotation.clone();
-    if(jointRise&&(idle||time>=riseStart)){
+    if(jointRise&&hero==='H02'&&(idle||time>=riseStart)){
       // The alternative keyframed lift moves the rigid source hammer with the
       // actual hand. Its independent source-mesh floor/head/finger checks still
       // reject a colliding or falsely gripped path. Retain deviation from the
@@ -266,6 +282,6 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
     frameReports.push(report);return report;
   };
   return {sample,frameReports,upright,localPalm:Object.fromEntries(Object.entries(localPalm).map(([s,p])=>[s,p.toArray()])),
-    provenance:{boundedFitExperiment:boundedFit,velocityAware,jointRise,releaseKeyMeasurement:releaseKeyMeasurement??null,gripProofPassed:!!gripProof.passed,stancePassed:stance?.passed??false,stanceMetrics:stance?.metrics??null,weaponSourceVertices:weaponFloorCheck.vertices,hammerGroundTiltFromDownDegrees:hero==="H02"?20:null,groundHammerFit:groundHammerFit?{yaw:groundHammerFit.yaw,spin:groundHammerFit.spin,x:groundHammerFit.x,z:groundHammerFit.z,positionError:groundHammerFit.positionError,orientationErrorDegrees:groundHammerFit.orientationErrorDegrees}:null,angularVelocityLimit:{bodyDegreesPerFrame:8,fingerDegreesPerFrame:16,endpointErrorsMeasuredAfterFilter:true},handFramesVerified:Object.fromEntries(Object.entries(handFrames).map(([s,f])=>[s,f.verified])),
+    provenance:{boundedFitExperiment:boundedFit,velocityAware,jointRise,releaseKeyMeasurement:releaseKeyMeasurement??null,staffGrabKeyMeasurement:staffGrabKeyMeasurement??null,gripProofPassed:!!gripProof.passed,stancePassed:stance?.passed??false,stanceMetrics:stance?.metrics??null,weaponSourceVertices:weaponFloorCheck.vertices,hammerGroundTiltFromDownDegrees:hero==="H02"?20:null,groundHammerFit:groundHammerFit?{yaw:groundHammerFit.yaw,spin:groundHammerFit.spin,x:groundHammerFit.x,z:groundHammerFit.z,positionError:groundHammerFit.positionError,orientationErrorDegrees:groundHammerFit.orientationErrorDegrees}:null,angularVelocityLimit:{bodyDegreesPerFrame:8,fingerDegreesPerFrame:16,endpointErrorsMeasuredAfterFilter:true},handFramesVerified:Object.fromEntries(Object.entries(handFrames).map(([s,f])=>[s,f.verified])),
       note:"Complete-duration attempted choreography; VFX/visibility use phase data. Mesh contact and hand-frame verification are independent acceptance gates."}};
 }

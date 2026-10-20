@@ -21,7 +21,7 @@ const raw=a=>Buffer.from(a.buffer,a.byteOffset,a.byteLength),
  positionChunks=[],jointChunks=[],weightChunks=[],groupChunks=[],sourceChunks=[],protectionChunks=[],indexChunks=[],roleChunks=[],parts=[];
 let vertexOffset=0,triangles=0;
 let repartitionMap;
-if(plan.smoothing){
+if(plan.smoothing||plan.repartition){
  const verifier=new SourceProvenanceValidator(plan.parentRig),instances=doc.getRoot().listNodes().flatMap(node=>(node.getMesh()?.listPrimitives()??[]).map((p,pi)=>({node,p,pi}))),
   mapped=[];
  for(const{p}of instances){const m=await verifier.validate(p);assert(m.verified,m.errors.join(';'));mapped.push(m);}
@@ -41,6 +41,7 @@ if(plan.smoothing){
    for(let i=0;i<m.count;i++)lining[b.readUInt32LE(m.offsetBytes+i*4)]=1;
   }
  }
+ for(const face of plan.additionalLiningFaces??[]){assert(Number.isInteger(face)&&face>=0&&face<lining.length);lining[face]=1;}
  assert(seen.every(Boolean));const accessors={};for(const semantic of semantics){const original=template.getAttribute(semantic);accessors[semantic]=doc.createAccessor('',buffer).setType(original.getType()).setNormalized(original.getNormalized()).setArray(full[semantic]);}
  const roles={H01_Remaining_Source:0,H01_Robe_Left:1,H01_Robe_Right:2,H01_Robe_Torso:3,H01_Sleeve_Left:4,H01_Sleeve_Right:5},partitions=[];
  for(const node of doc.getRoot().listNodes())if(node.getMesh()){

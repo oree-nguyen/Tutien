@@ -7,7 +7,7 @@ import {immutablePayload,animationSignature,sha256} from './animation-payload.mj
 import {sourceBoundaryProof} from './source-provenance.mjs';
 
 const directory=process.argv[2];assert(/^\.local\/rig-candidates\/[a-z0-9-]+$/.test(directory));
-const solve=JSON.parse(await fs.readFile(directory+'/solve.json')),bytes=await fs.readFile(solve.input);assert.equal(sha256(bytes),solve.inputSha256);
+const solve=JSON.parse(await fs.readFile(directory+'/solve.json')),bytes=await fs.readFile(solve.input);assert(['H01','H02'].includes(solve.hero));assert.equal(sha256(bytes),solve.inputSha256);
 for(const[file,hash]of Object.entries(solve.inputHashes))assert.equal(sha256(await fs.readFile(solve.base+'/'+file)),hash);
 for(const[file,hash]of Object.entries(solve.outputHashes))assert.equal(sha256(await fs.readFile(directory+'/'+file)),hash);
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS),doc=await io.readBinary(bytes),sourceBytes=await fs.readFile(solve.source);assert.equal(sha256(sourceBytes),solve.sourceSha256);
@@ -34,7 +34,7 @@ p.setAttribute('_SOURCE_WELD',doc.createAccessor('',buffer).setType('SCALAR').se
 p.setExtras({...p.getExtras(),sourceProvenance:{version:1,sourceFile:solve.source,sourceSha256:solve.sourceSha256,sourceNodeIndex,sourcePrimitiveIndex:0,vertexAccessor:'_SOURCE_VERTEX',
  triangleMap:{file:'source-triangles.u32bin',sha256:sha256(mapBytes),count:faces.length,offsetBytes:0},
  weldMap:{file:'source-welds.u32bin',sha256:sha256(weldBytes),count,method:proof.method,review:{file:'source-boundary-proof.json',sha256:sha256(review)}}}});
-const file=directory+'/H02-C0-rigged.glb';await io.write(file,doc);const result=await io.read(file),strip=payload=>{
+const file=directory+'/'+solve.hero+'-C0-rigged.glb';await io.write(file,doc);const result=await io.read(file),strip=payload=>{
  for(const m of payload.meshes)for(const q of m.primitives)for(const semantic of Object.keys(q.attributes))if(/^JOINTS_|^WEIGHTS_|^_SOURCE_/.test(semantic))delete q.attributes[semantic];return payload;
 };assert.deepEqual(strip(immutablePayload(result)),strip(original));assert.deepEqual(result.getRoot().listAnimations().map(animationSignature),clips);
 const receipt={input:solve.input,inputSha256:sha256(bytes),output:file,sha256:sha256(await fs.readFile(file)),sourceSha256:solve.sourceSha256,solveSha256:sha256(await fs.readFile(directory+'/solve.json')),

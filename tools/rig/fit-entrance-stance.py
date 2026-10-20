@@ -7,8 +7,10 @@ import numpy as np
 from scipy.optimize import least_squares,minimize
 from scipy.spatial.transform import Rotation
 from stance_direction import measure_torso,reference_torso_valid
+from mesh_foot_constraints import load_source_foot_constraints
 
 hero=os.environ.get('HERO','H01')
+mesh_foot=load_source_foot_constraints(os.environ['FIT_MESH_FOOT_SOURCE']) if os.environ.get('FIT_MESH_FOOT_SOURCE') else None
 profile=os.environ.get('FIT_PROFILE','reference')
 position_weight=200 if profile=='reference' else 40
 orientation_weight=200 if profile=='reference' else 4
@@ -47,6 +49,7 @@ if hero in ('H01','H02'):
     anchor_bounds=[('Left',(.12,.40),(.10,.50)),('Right',(-.30,-.08),(-.52,-.16))] if hero=='H01' else [('Left',(.37525,.50),(-.08,.08)),('Right',(-.50,-.37525),(-.08,.08))]
     for side,xb,zb in anchor_bounds:
         variables.extend([(side+'Anchor','tx',*xb),(side+'Anchor','tz',*zb)])
+        if mesh_foot:variables.append((side+'Anchor','ty',-.12,.20))
 for axis,bounds in [('flex',[-15,15]),('lateral',[-15,15]),('twist',[-10,10])]:variables.append(('Hips',axis,*bounds))
 for n in ('Spine','Spine1','Spine2'):variables.append((n,'flex',-15,25))
 for axis in ('lateral','twist'):variables.append(('Spine2',axis,*limits['spine'][axis]))
@@ -105,10 +108,14 @@ def evaluate(x,regularize=True):
     if hero=='H01':
         residual.extend((p['LeftHand']-p['LeftLeg']-np.array([0,.07,.03]))*5)
         for s in anchors:residual.extend((active_anchors[s]-anchors[s])*.2)
+    mesh_contact=mesh_foot.measure(p,w) if mesh_foot else None
+    if mesh_contact:
+        for side in anchors:residual.append(mesh_contact[side]['minimumY']*position_weight)
+        residual.append(mesh_contact['Left']['soleMaximumVerticalError']*position_weight)
     if regularize:
         residual.extend((x-np.clip(np.zeros(len(x)),low,high))*.00008)
         residual.append((tilt-22)*.0005)
-    return np.array(residual),{'p':p,'w':w,'palm':palm,'normal':normal,'tilt':tilt,'pelvisTilt':pelvis,'forwardLean':torso['forwardLean'],'lateralLean':torso['lateralLean'],'hip':hip,'angles':a,'rotations':r,'activeAnchors':active_anchors}
+    return np.array(residual),{'p':p,'w':w,'palm':palm,'normal':normal,'tilt':tilt,'pelvisTilt':pelvis,'forwardLean':torso['forwardLean'],'lateralLean':torso['lateralLean'],'hip':hip,'angles':a,'rotations':r,'activeAnchors':active_anchors,'meshFoot':mesh_contact}
 
 best=None;attempts=[]
 warm=json.loads(Path(os.environ['FIT_WARM_START']).read_text()) if os.environ.get('FIT_WARM_START') else None
@@ -140,6 +147,9 @@ if os.environ.get('FIT_HARD_STANCE','0')=='1':
         for side in anchors:
             values.append(.005-position_margin-np.linalg.norm(k['p'][anchor_joints[side]]-k['activeAnchors'][side]))
             if anchor_joints[side].endswith('Foot'):values.append(1-angular_margin-np.degrees(Rotation.from_matrix(br[side+'Foot'].T@k['w'][side+'Foot']).magnitude()))
+        if mesh_foot:
+            for side in anchors:values.extend([k['meshFoot'][side]['minimumY']+.004,.004-k['meshFoot'][side]['minimumY']])
+            values.append(.004-k['meshFoot']['Left']['soleMaximumVerticalError'])
         if hero=='H01':values.extend([k['p']['RightLeg'][1]-position_margin,.08-position_margin-k['p']['RightLeg'][1]])
         else:
             width=abs(k['p']['LeftFoot'][0]-k['p']['RightFoot'][0])/np.linalg.norm(bp['LeftArm']-bp['RightArm']);values.extend([width-1.5-1e-4,2-1e-4-width])
@@ -164,11 +174,12 @@ foot_errors={s:float(np.linalg.norm(e['p'][anchor_joints[s]]-e['activeAnchors'][
 foot_angle={s:float(np.degrees(Rotation.from_matrix(br[s+'Foot'].T@e['w'][s+'Foot']).magnitude())) for s in anchors if anchor_joints[s].endswith('Foot')}
 stance_width=float(abs(e['p']['LeftFoot'][0]-e['p']['RightFoot'][0])/np.linalg.norm(bp['LeftArm']-bp['RightArm']))
 passed=(hero!='H02' or 1.5<=stance_width<=2) and max(foot_errors.values())<=.005 and max(foot_angle.values())<=1 and abs(e['palm'][1])<=.015 and e['normal'][1]<=-.85 and reference_torso_valid(e['w']['Spine2']) and e['pelvisTilt']<=15 and (hero!='H01' or 0<=e['p']['RightLeg'][1]<=.08)
+if mesh_foot:passed=passed and all(abs(e['meshFoot'][s]['minimumY'])<=.005 for s in anchors) and e['meshFoot']['Left']['soleMaximumVerticalError']<=.005
 output={'hero':hero,'profile':profile,'scope':'Bounded calibrated FK stance; source mesh/sole/strain acceptance not inferred','passed':bool(passed),'activated':False,
-        'fitConfiguration':{'warmStart':os.environ.get('FIT_WARM_START'),'warmStartSha256':hashlib.sha256(Path(os.environ['FIT_WARM_START']).read_bytes()).hexdigest() if os.environ.get('FIT_WARM_START') else None,'hardReference':os.environ.get('FIT_HARD_REFERENCE')=='1','hardWorldStance':os.environ.get('FIT_HARD_STANCE')=='1','hardFeasibilityOnly':os.environ.get('FIT_HARD_FEASIBLE')=='1','interiorContactMargins':os.environ.get('FIT_MARGIN')=='1','variables':variables},
+        'fitConfiguration':{'meshFootSource':os.environ.get('FIT_MESH_FOOT_SOURCE'),'meshFootSolveSha256':hashlib.sha256(Path(os.environ['FIT_MESH_FOOT_SOURCE'],'solve.json').read_bytes()).hexdigest() if mesh_foot else None,'warmStart':os.environ.get('FIT_WARM_START'),'warmStartSha256':hashlib.sha256(Path(os.environ['FIT_WARM_START']).read_bytes()).hexdigest() if os.environ.get('FIT_WARM_START') else None,'hardReference':os.environ.get('FIT_HARD_REFERENCE')=='1','hardWorldStance':os.environ.get('FIT_HARD_STANCE')=='1','hardFeasibilityOnly':os.environ.get('FIT_HARD_FEASIBLE')=='1','interiorContactMargins':os.environ.get('FIT_MARGIN')=='1','variables':variables},
         'attempts':attempts,'solverConverged':bool(best.success),'cost':float(best.cost),
         'metrics':{'stanceWidthInShoulders':float(abs(e['p']['LeftFoot'][0]-e['p']['RightFoot'][0])/np.linalg.norm(bp['LeftArm']-bp['RightArm'])),'footPositionErrors':foot_errors,'footRotationErrorsDegrees':foot_angle,'groundPalmHeight':float(e['palm'][1]),'groundPalmUpDot':float(e['normal'][1]),'torsoTiltDegrees':float(e['tilt']),'torsoForwardLeanDegrees':e['forwardLean'],'torsoLateralLeanDegrees':e['lateralLean'],'pelvisTiltDegrees':e['pelvisTilt'],'rightKneeHeight':float(e['p']['RightLeg'][1]),'hipFlexDegrees':{side:float(e['angles'][side+'UpLeg']['flex']) for side in ('Left','Right')},'kneeFlexDegrees':{side:float(e['angles'][side+'Leg']['flex']) for side in ('Left','Right')}},
-        'groundPalm':e['palm'].tolist(),'anchors':{s:a.tolist() for s,a in e['activeAnchors'].items()},'anchorJoints':anchor_joints,
+        'groundPalm':e['palm'].tolist(),'anchors':{s:a.tolist() for s,a in e['activeAnchors'].items()},'anchorJoints':anchor_joints,'meshFoot':e['meshFoot'],
         'footPositions':{s:e['p'][s+'Foot'].tolist() for s in anchors},'footRotations':{s:Rotation.from_matrix(e['w'][s+'Foot']).as_quat().tolist() for s in anchors},
         'angles':e['angles'],'rotations':{n:Rotation.from_matrix(r).as_quat().tolist() for n,r in e['rotations'].items()},'translations':{'Hips':e['hip'].tolist()},
         'jointLimitsSha256':hashlib.sha256(Path('data/rig/joint-limits.json').read_bytes()).hexdigest(),

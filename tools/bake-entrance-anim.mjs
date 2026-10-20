@@ -9,6 +9,7 @@ import { immutablePayload, animationSignature, sha256 } from "./rig/animation-pa
 import { createFullEntranceSequence } from "./rig/full-entrance-sequence.mjs";
 import { weaponFloor } from "./rig/weapon-floor.mjs";
 import {inspectJoint} from "../src/rig/joint-limits.js";
+import {copyProvenance} from "./rig/copy-provenance.mjs";
 
 const json=async file=>JSON.parse(await fs.readFile(file,"utf8"));
 const save=async(file,value)=>{await fs.mkdir(path.dirname(file),{recursive:true});await fs.writeFile(file,JSON.stringify(value,null,2)+"\n");};
@@ -66,7 +67,7 @@ export async function bakeEntrance({hero="H01",input,output=".local/rig-candidat
     add(pose.nodes.get("Hips"),curve.translations,"VEC3","translation");
     animation.setExtras({hero,scope:"full-reference-choreography-attempt",accepted:false,sampleRateHz:spec.sampleRateHz,events:curve.name==="Entrance"?spec.events:[]});
   }
-  await fs.mkdir(output,{recursive:true});const outputFile=`${output}/${hero}-C0-rigged.glb`;await io.write(outputFile,doc);
+  await fs.mkdir(output,{recursive:true});const provenanceFiles=await copyProvenance(doc,path.dirname(input),output),outputFile=`${output}/${hero}-C0-rigged.glb`;await io.write(outputFile,doc);
   const outputBytes=await fs.readFile(outputFile),reread=await io.readBinary(outputBytes),payloadPreserved=JSON.stringify(original)===JSON.stringify(immutablePayload(reread)),
     oldClipsPreserved=preserved.every(a=>JSON.stringify(a.signature)===JSON.stringify(animationSignature(reread.getRoot().listAnimations().find(b=>b.getName()===a.name)))),
     support=samples.filter(s=>s.support),postGrab=samples.filter(s=>s.afterGrab),violating=samples.filter(s=>s.violations.length),
@@ -82,10 +83,10 @@ export async function bakeEntrance({hero="H01",input,output=".local/rig-candidat
     maximumUprightWeaponTiltDegrees:Math.max(...samples.filter(s=>s.clip==="IDLE_HOLD"||s.time>=spec.phases.at(-1).start).map(s=>s.weaponShaftTiltDegrees)),
     finalWeaponMinimumY:samples.findLast(s=>s.clip==="Entrance").weaponMinimumY,
     minimumVisibleWeaponY:Math.min(...samples.filter(s=>hero==="H02"||s.clip==="IDLE_HOLD"||s.time>=spec.events.find(e=>e.type==="staff_formed").time).map(s=>s.weaponMinimumY))};
-  const pipelineFiles=['tools/bake-entrance-anim.mjs','tools/rig/full-entrance-sequence.mjs','tools/rig/offline-entrance-ik.mjs','tools/rig/bounded-chain-fit.mjs','tools/rig/reference-pose.mjs','tools/rig/upright-head.mjs','data/rig/bind-frames.json','data/rig/hand-frames.json','data/rig/joint-limits.json',`data/weapons/${hero}.json`],
+  const pipelineFiles=['tools/bake-entrance-anim.mjs','tools/rig/copy-provenance.mjs','tools/rig/full-entrance-sequence.mjs','tools/rig/offline-entrance-ik.mjs','tools/rig/bounded-chain-fit.mjs','tools/rig/reference-pose.mjs','tools/rig/upright-head.mjs','data/rig/bind-frames.json','data/rig/hand-frames.json','data/rig/joint-limits.json',`data/weapons/${hero}.json`],
     pipelineInputs=Object.fromEntries(await Promise.all(pipelineFiles.map(async file=>[file,sha256(await fs.readFile(file))])));
   const receipt={hero,scope:"full-reference-choreography-attempt",passed:false,exportPassed:payloadPreserved&&oldClipsPreserved,activated:false,pipelineInputs,
-    input,inputSha256:sha256(bytes),output:outputFile,outputSha256:sha256(outputBytes),
+    input,inputSha256:sha256(bytes),output:outputFile,outputSha256:sha256(outputBytes),provenanceFiles,
     specSha256:sha256(await fs.readFile(`data/hero-entrance/${hero}.json`)),gripProofPath,gripProofSha256:sha256(await fs.readFile(gripProofPath)),
     stancePose:actualStanceFile??null,stancePoseSha256:actualStanceFile?sha256(await fs.readFile(actualStanceFile)):null,weaponSha256:sha256(weaponBytes),
     referencePose:spec.staging.referencePose??null,referencePoseSha256:spec.staging.referencePose?sha256(await fs.readFile(spec.staging.referencePose)):null,
