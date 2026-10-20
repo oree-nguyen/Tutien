@@ -1,0 +1,873 @@
+{
+  "passed": true,
+  "startedAt": "2026-10-20T08:29:41.977Z",
+  "scope": "Exact exported single-file HTML, cloud Chromium ANGLE SwiftShader, DPR 1, original 4096 source textures. Network disabled except this one streamed local document. This is not Android FPS, rig acceptance, or gameplay completion evidence.",
+  "input": {
+    "path": ".local/build-checkpoints/Hon-Gioi-Sinh-Ton-current-20261019.html",
+    "sha256": "d0f48d14033a340f7ac7b284d4f09a5efb11365b72ffb4d90b830725a0850977",
+    "bytes": 465242752
+  },
+  "settings": {
+    "viewport": {
+      "width": 960,
+      "height": 432
+    },
+    "deviceScaleFactor": 1,
+    "quality": "balanced",
+    "renderer": "main"
+  },
+  "documentRequests": 1,
+  "blockedRequests": [],
+  "missingRequests": [],
+  "requestFailures": [],
+  "pageErrors": [],
+  "consoleErrors": [],
+  "screenshots": [
+    {
+      "path": "docs/anim-report/conver10-redo/standalone-current/h01-full-source.png",
+      "captureCompletedAt": "2026-10-20T08:30:23.364Z",
+      "preservation": "Original Playwright PNG, no resize/recompression."
+    },
+    {
+      "path": "docs/anim-report/conver10-redo/standalone-current/h02-full-source.png",
+      "captureCompletedAt": "2026-10-20T08:30:57.491Z",
+      "preservation": "Original Playwright PNG, no resize/recompression."
+    }
+  ],
+  "states": [
+    {
+      "hero": "H01",
+      "phase": "LOBBY_HON_THANH",
+      "matchIsNull": true,
+      "sourceBodyVisible": true,
+      "sourceWeaponVisible": true,
+      "bodyTextureSizes": [
+        "4096x4096"
+      ],
+      "weaponTextureSizes": [
+        "4096x4096"
+      ],
+      "sourceFidelity": {
+        "status": "loaded",
+        "mesh": "Tencent Hunyuan original",
+        "bodyTriangles": 1499726,
+        "weaponTriangles": 619640,
+        "textureResolution": 4096
+      },
+      "entrance": {
+        "time": 6,
+        "complete": true
+      },
+      "backend": "main",
+      "pixelRatio": 1,
+      "bodyVisibilityChain": [
+        {
+          "name": "H01_Tencent_Original_Body",
+          "visible": true
+        },
+        {
+          "name": "manualHero_H01_C0",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        }
+      ],
+      "weaponVisibilityChain": [
+        {
+          "name": "Staff_Root",
+          "visible": true
+        },
+        {
+          "name": "manualHero_H01_C0",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        }
+      ],
+      "rendererCounters": {
+        "memory": {
+          "geometries": 13,
+          "textures": 28
+        },
+        "render": {
+          "frame": 32,
+          "calls": 54,
+          "triangles": 2138398,
+          "points": 0,
+          "lines": 0
+        }
+      },
+      "pendingOfflineSnapshot": true,
+      "boot": {
+        "started": 204.40000000596046,
+        "longTasks": [
+          {
+            "start": 784.5,
+            "duration": 104
+          },
+          {
+            "start": 1039.300000011921,
+            "duration": 178
+          },
+          {
+            "start": 1357.9000000059605,
+            "duration": 72
+          },
+          {
+            "start": 1554.9000000059605,
+            "duration": 318
+          },
+          {
+            "start": 1967.7000000178814,
+            "duration": 81
+          },
+          {
+            "start": 2120.5,
+            "duration": 78
+          },
+          {
+            "start": 2252.2000000178814,
+            "duration": 156
+          },
+          {
+            "start": 2414.4000000059605,
+            "duration": 541
+          },
+          {
+            "start": 3147.5999999940395,
+            "duration": 55
+          },
+          {
+            "start": 3203.4000000059605,
+            "duration": 122
+          },
+          {
+            "start": 3461.0999999940395,
+            "duration": 205
+          },
+          {
+            "start": 3787.5,
+            "duration": 64
+          },
+          {
+            "start": 3879.9000000059605,
+            "duration": 317
+          },
+          {
+            "start": 4306.300000011921,
+            "duration": 159
+          },
+          {
+            "start": 4466.700000017881,
+            "duration": 263
+          },
+          {
+            "start": 4945.700000017881,
+            "duration": 67
+          },
+          {
+            "start": 5156.5,
+            "duration": 712
+          },
+          {
+            "start": 5959.200000017881,
+            "duration": 125
+          },
+          {
+            "start": 6147.5,
+            "duration": 74
+          },
+          {
+            "start": 6291,
+            "duration": 65
+          },
+          {
+            "start": 6389.5,
+            "duration": 351
+          },
+          {
+            "start": 6882.4000000059605,
+            "duration": 569
+          },
+          {
+            "start": 7709.5,
+            "duration": 146
+          },
+          {
+            "start": 7971,
+            "duration": 190
+          },
+          {
+            "start": 8258.90000000596,
+            "duration": 82
+          },
+          {
+            "start": 8492.09999999404,
+            "duration": 333
+          },
+          {
+            "start": 9161.5,
+            "duration": 120
+          },
+          {
+            "start": 9334.700000017881,
+            "duration": 704
+          },
+          {
+            "start": 10292.300000011921,
+            "duration": 138
+          },
+          {
+            "start": 10540.59999999404,
+            "duration": 673
+          },
+          {
+            "start": 11215.59999999404,
+            "duration": 85
+          },
+          {
+            "start": 11339.700000017881,
+            "duration": 61
+          },
+          {
+            "start": 11403.90000000596,
+            "duration": 646
+          },
+          {
+            "start": 12514.09999999404,
+            "duration": 355
+          },
+          {
+            "start": 13190.300000011921,
+            "duration": 734
+          },
+          {
+            "start": 14433.5,
+            "duration": 526
+          },
+          {
+            "start": 15538.90000000596,
+            "duration": 523
+          },
+          {
+            "start": 16066.09999999404,
+            "duration": 602
+          },
+          {
+            "start": 18548.90000000596,
+            "duration": 1789
+          },
+          {
+            "start": 21959,
+            "duration": 87
+          },
+          {
+            "start": 22047,
+            "duration": 1021
+          },
+          {
+            "start": 23830,
+            "duration": 272
+          },
+          {
+            "start": 24428.70000001788,
+            "duration": 175
+          },
+          {
+            "start": 24613.90000000596,
+            "duration": 318
+          },
+          {
+            "start": 24936.5,
+            "duration": 277
+          },
+          {
+            "start": 25214.90000000596,
+            "duration": 92
+          },
+          {
+            "start": 25314.40000000596,
+            "duration": 874
+          },
+          {
+            "start": 26515.09999999404,
+            "duration": 215
+          },
+          {
+            "start": 26746.59999999404,
+            "duration": 144
+          },
+          {
+            "start": 26890.80000001192,
+            "duration": 70
+          },
+          {
+            "start": 26961.40000000596,
+            "duration": 543
+          },
+          {
+            "start": 27784,
+            "duration": 63
+          },
+          {
+            "start": 28097.20000001788,
+            "duration": 529
+          },
+          {
+            "start": 28626.20000001788,
+            "duration": 66
+          },
+          {
+            "start": 28692.70000001788,
+            "duration": 103
+          },
+          {
+            "start": 28869.59999999404,
+            "duration": 4703
+          }
+        ],
+        "marks": {
+          "shellDOM": 204.40000000596046,
+          "shellFrame": 485.5,
+          "lobbyUI": 11333.200000017881,
+          "worldReady": 13174
+        },
+        "sourceHash": "9c33f54bc0548acfae66210c238a6c16a52a556bff60d0d65377e82ad9a27ef6"
+      },
+      "remainingEmbeddedPayloadBlocks": 13,
+      "paints": [
+        {
+          "name": "first-paint",
+          "startTime": 804
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 804
+        }
+      ],
+      "observedAfterNavigationMs": 33619
+    },
+    {
+      "hero": "H02",
+      "phase": "LOBBY_HON_THANH",
+      "matchIsNull": true,
+      "sourceBodyVisible": true,
+      "sourceWeaponVisible": true,
+      "bodyTextureSizes": [
+        "4096x4096"
+      ],
+      "weaponTextureSizes": [
+        "4096x4096"
+      ],
+      "sourceFidelity": {
+        "status": "loaded",
+        "mesh": "Tencent Hunyuan original",
+        "bodyTriangles": 1499746,
+        "weaponTriangles": 1500000,
+        "textureResolution": 4096
+      },
+      "entrance": {
+        "time": 6,
+        "complete": true
+      },
+      "backend": "main",
+      "pixelRatio": 1,
+      "bodyVisibilityChain": [
+        {
+          "name": "H02_Tencent_Original_Body",
+          "visible": true
+        },
+        {
+          "name": "H02_Entrance_Stage",
+          "visible": true
+        },
+        {
+          "name": "manualHero_H02_C0",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        }
+      ],
+      "weaponVisibilityChain": [
+        {
+          "name": "Hammer_Root",
+          "visible": true
+        },
+        {
+          "name": "RightHand_WeaponSocket",
+          "visible": true
+        },
+        {
+          "name": "RightHand",
+          "visible": true
+        },
+        {
+          "name": "RightForeArm",
+          "visible": true
+        },
+        {
+          "name": "RightArm",
+          "visible": true
+        },
+        {
+          "name": "RightShoulder",
+          "visible": true
+        },
+        {
+          "name": "Spine2",
+          "visible": true
+        },
+        {
+          "name": "Spine1",
+          "visible": true
+        },
+        {
+          "name": "Spine",
+          "visible": true
+        },
+        {
+          "name": "Hips",
+          "visible": true
+        },
+        {
+          "name": "H02Rig",
+          "visible": true
+        },
+        {
+          "name": "HunyuanBody",
+          "visible": true
+        },
+        {
+          "name": "H02_Entrance_Stage",
+          "visible": true
+        },
+        {
+          "name": "manualHero_H02_C0",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        },
+        {
+          "name": "",
+          "visible": true
+        }
+      ],
+      "rendererCounters": {
+        "memory": {
+          "geometries": 21,
+          "textures": 34
+        },
+        "render": {
+          "frame": 76,
+          "calls": 49,
+          "triangles": 3018762,
+          "points": 32,
+          "lines": 144
+        }
+      },
+      "pendingOfflineSnapshot": true,
+      "boot": {
+        "started": 204.40000000596046,
+        "longTasks": [
+          {
+            "start": 784.5,
+            "duration": 104
+          },
+          {
+            "start": 1039.300000011921,
+            "duration": 178
+          },
+          {
+            "start": 1357.9000000059605,
+            "duration": 72
+          },
+          {
+            "start": 1554.9000000059605,
+            "duration": 318
+          },
+          {
+            "start": 1967.7000000178814,
+            "duration": 81
+          },
+          {
+            "start": 2120.5,
+            "duration": 78
+          },
+          {
+            "start": 2252.2000000178814,
+            "duration": 156
+          },
+          {
+            "start": 2414.4000000059605,
+            "duration": 541
+          },
+          {
+            "start": 3147.5999999940395,
+            "duration": 55
+          },
+          {
+            "start": 3203.4000000059605,
+            "duration": 122
+          },
+          {
+            "start": 3461.0999999940395,
+            "duration": 205
+          },
+          {
+            "start": 3787.5,
+            "duration": 64
+          },
+          {
+            "start": 3879.9000000059605,
+            "duration": 317
+          },
+          {
+            "start": 4306.300000011921,
+            "duration": 159
+          },
+          {
+            "start": 4466.700000017881,
+            "duration": 263
+          },
+          {
+            "start": 4945.700000017881,
+            "duration": 67
+          },
+          {
+            "start": 5156.5,
+            "duration": 712
+          },
+          {
+            "start": 5959.200000017881,
+            "duration": 125
+          },
+          {
+            "start": 6147.5,
+            "duration": 74
+          },
+          {
+            "start": 6291,
+            "duration": 65
+          },
+          {
+            "start": 6389.5,
+            "duration": 351
+          },
+          {
+            "start": 6882.4000000059605,
+            "duration": 569
+          },
+          {
+            "start": 7709.5,
+            "duration": 146
+          },
+          {
+            "start": 7971,
+            "duration": 190
+          },
+          {
+            "start": 8258.90000000596,
+            "duration": 82
+          },
+          {
+            "start": 8492.09999999404,
+            "duration": 333
+          },
+          {
+            "start": 9161.5,
+            "duration": 120
+          },
+          {
+            "start": 9334.700000017881,
+            "duration": 704
+          },
+          {
+            "start": 10292.300000011921,
+            "duration": 138
+          },
+          {
+            "start": 10540.59999999404,
+            "duration": 673
+          },
+          {
+            "start": 11215.59999999404,
+            "duration": 85
+          },
+          {
+            "start": 11339.700000017881,
+            "duration": 61
+          },
+          {
+            "start": 11403.90000000596,
+            "duration": 646
+          },
+          {
+            "start": 12514.09999999404,
+            "duration": 355
+          },
+          {
+            "start": 13190.300000011921,
+            "duration": 734
+          },
+          {
+            "start": 14433.5,
+            "duration": 526
+          },
+          {
+            "start": 15538.90000000596,
+            "duration": 523
+          },
+          {
+            "start": 16066.09999999404,
+            "duration": 602
+          },
+          {
+            "start": 18548.90000000596,
+            "duration": 1789
+          },
+          {
+            "start": 21959,
+            "duration": 87
+          },
+          {
+            "start": 22047,
+            "duration": 1021
+          },
+          {
+            "start": 23830,
+            "duration": 272
+          },
+          {
+            "start": 24428.70000001788,
+            "duration": 175
+          },
+          {
+            "start": 24613.90000000596,
+            "duration": 318
+          },
+          {
+            "start": 24936.5,
+            "duration": 277
+          },
+          {
+            "start": 25214.90000000596,
+            "duration": 92
+          },
+          {
+            "start": 25314.40000000596,
+            "duration": 874
+          },
+          {
+            "start": 26515.09999999404,
+            "duration": 215
+          },
+          {
+            "start": 26746.59999999404,
+            "duration": 144
+          },
+          {
+            "start": 26890.80000001192,
+            "duration": 70
+          },
+          {
+            "start": 26961.40000000596,
+            "duration": 543
+          },
+          {
+            "start": 27784,
+            "duration": 63
+          },
+          {
+            "start": 28097.20000001788,
+            "duration": 529
+          },
+          {
+            "start": 28626.20000001788,
+            "duration": 66
+          },
+          {
+            "start": 28692.70000001788,
+            "duration": 103
+          },
+          {
+            "start": 28869.59999999404,
+            "duration": 4703
+          },
+          {
+            "start": 50768.40000000596,
+            "duration": 355
+          },
+          {
+            "start": 51765.59999999404,
+            "duration": 62
+          },
+          {
+            "start": 51870.70000001788,
+            "duration": 181
+          },
+          {
+            "start": 52080.80000001192,
+            "duration": 123
+          },
+          {
+            "start": 52204.59999999404,
+            "duration": 78
+          },
+          {
+            "start": 54058.70000001788,
+            "duration": 1123
+          },
+          {
+            "start": 55712,
+            "duration": 1672
+          },
+          {
+            "start": 58448.90000000596,
+            "duration": 493
+          },
+          {
+            "start": 59441.59999999404,
+            "duration": 570
+          },
+          {
+            "start": 60533.20000001788,
+            "duration": 292
+          },
+          {
+            "start": 60889.70000001788,
+            "duration": 409
+          },
+          {
+            "start": 61303.09999999404,
+            "duration": 211
+          },
+          {
+            "start": 61519.59999999404,
+            "duration": 239
+          },
+          {
+            "start": 61789.5,
+            "duration": 932
+          },
+          {
+            "start": 63112.59999999404,
+            "duration": 135
+          },
+          {
+            "start": 63404.70000001788,
+            "duration": 107
+          },
+          {
+            "start": 63515.20000001788,
+            "duration": 60
+          },
+          {
+            "start": 63598.20000001788,
+            "duration": 219
+          },
+          {
+            "start": 64271.09999999404,
+            "duration": 72
+          },
+          {
+            "start": 64486,
+            "duration": 190
+          },
+          {
+            "start": 64676,
+            "duration": 66
+          },
+          {
+            "start": 65650.90000000596,
+            "duration": 2941
+          }
+        ],
+        "marks": {
+          "shellDOM": 204.40000000596046,
+          "shellFrame": 485.5,
+          "lobbyUI": 11333.200000017881,
+          "worldReady": 13174
+        },
+        "sourceHash": "9c33f54bc0548acfae66210c238a6c16a52a556bff60d0d65377e82ad9a27ef6"
+      },
+      "remainingEmbeddedPayloadBlocks": 9,
+      "paints": [
+        {
+          "name": "first-paint",
+          "startTime": 804
+        },
+        {
+          "name": "first-contentful-paint",
+          "startTime": 804
+        }
+      ],
+      "observedAfterNavigationMs": 68625
+    }
+  ],
+  "checks": {
+    "completeLobbyAndExplicitResumeVisible": true,
+    "stillLobbyAfterTenSecondsWithSavedMatch": true,
+    "noExternalOrMissingAssets": true,
+    "originalSourceBodyWeaponAnd4096Textures": true
+  },
+  "browserVersion": "154.0.8037.57",
+  "timings": {
+    "shellObservedAfterNavigationMs": 347,
+    "interactiveLobbyMs": 12076,
+    "h01SourceReadyMs": 33619,
+    "h02SourceReadyCumulativeMs": 68625
+  },
+  "finishedAt": "2026-10-20T08:31:00.215Z"
+}
