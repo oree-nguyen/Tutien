@@ -3274,7 +3274,7 @@ Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/conver10-redo/de
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:02:58 UTC+07:00**
 
-Nguồn: `coat-cut-fit-v1-held-back.png`
+Nguồn: `coat-cut-fit-v1-held-back.png`, `docs/anim-report/conver10-redo/coat-cut-fit-v1/coat-cut-fit-v1-held-back.png`
 
 ## Ảnh 385
 
@@ -3282,7 +3282,7 @@ Nguồn: `coat-cut-fit-v1-held-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:02:59 UTC+07:00**
 
-Nguồn: `coat-cut-fit-v1-held-front.png`
+Nguồn: `coat-cut-fit-v1-held-front.png`, `docs/anim-report/conver10-redo/coat-cut-fit-v1/coat-cut-fit-v1-held-front.png`
 
 ## Ảnh 386
 
@@ -3290,7 +3290,7 @@ Nguồn: `coat-cut-fit-v1-held-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:02:59 UTC+07:00**
 
-Nguồn: `semantic-garment-review-sheet.png`
+Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/conver10-redo/coat-cut-fit-v1/semantic-garment-review-sheet.png`
 
 ## Ảnh 387
 
@@ -3298,7 +3298,7 @@ Nguồn: `semantic-garment-review-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:11 UTC+07:00**
 
-Nguồn: `bind-left-front.png`
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/bind-left-front.png`
 
 ## Ảnh 388
 
@@ -3306,7 +3306,7 @@ Nguồn: `bind-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:12 UTC+07:00**
 
-Nguồn: `bind-left-back.png`
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/bind-left-back.png`
 
 ## Ảnh 389
 
@@ -3314,7 +3314,7 @@ Nguồn: `bind-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:12 UTC+07:00**
 
-Nguồn: `held-left-front.png`
+Nguồn: `held-left-front.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/held-left-front.png`
 
 ## Ảnh 390
 
@@ -3322,7 +3322,7 @@ Nguồn: `held-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:13 UTC+07:00**
 
-Nguồn: `held-left-back.png`
+Nguồn: `held-left-back.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/held-left-back.png`
 
 ## Ảnh 391
 
@@ -3330,7 +3330,7 @@ Nguồn: `held-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:14 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/bind-right-front.png`
 
 ## Ảnh 392
 
@@ -3338,7 +3338,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:14 UTC+07:00**
 
-Nguồn: `bind-right-back.png`
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/bind-right-back.png`
 
 ## Ảnh 393
 
@@ -3346,7 +3346,7 @@ Nguồn: `bind-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:15 UTC+07:00**
 
-Nguồn: `held-right-front.png`
+Nguồn: `held-right-front.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/held-right-front.png`
 
 ## Ảnh 394
 
@@ -3354,7 +3354,7 @@ Nguồn: `held-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:15 UTC+07:00**
 
-Nguồn: `held-right-back.png`
+Nguồn: `held-right-back.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/held-right-back.png`
 
 ## Ảnh 395
 
@@ -3362,7 +3362,7 @@ Nguồn: `held-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:14:15 UTC+07:00**
 
-Nguồn: `cut-boundary-sheet.png`
+Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v1/cut-boundary-sheet.png`
 
 ## Ảnh 396
 
@@ -3370,7 +3370,7 @@ Nguồn: `cut-boundary-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:20:50 UTC+07:00**
 
-Nguồn: `coat-cut-pose-v1-held-front.png`
+Nguồn: `coat-cut-pose-v1-held-front.png`, `docs/anim-report/conver10-redo/coat-cut-pose-v1/coat-cut-pose-v1-held-front.png`
 
 ## Ảnh 397
 
@@ -3378,7 +3378,7 @@ Nguồn: `coat-cut-pose-v1-held-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:20:51 UTC+07:00**
 
-Nguồn: `coat-cut-pose-v1-held-back.png`
+Nguồn: `coat-cut-pose-v1-held-back.png`, `docs/anim-report/conver10-redo/coat-cut-pose-v1/coat-cut-pose-v1-held-back.png`
 
 ## Ảnh 398
 
@@ -3386,7 +3386,7 @@ Nguồn: `coat-cut-pose-v1-held-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:20:51 UTC+07:00**
 
-Nguồn: `semantic-garment-review-sheet.png`
+Nguồn: `semantic-garment-review-sheet.png`, `docs/anim-report/conver10-redo/coat-cut-pose-v1/semantic-garment-review-sheet.png`
 
 ## Ảnh 399
 
@@ -3394,7 +3394,7 @@ Nguồn: `semantic-garment-review-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:21 UTC+07:00**
 
-Nguồn: `bind-left-front.png`
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/bind-left-front.png`
 
 ## Ảnh 400
 
@@ -3402,7 +3402,7 @@ Nguồn: `bind-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:24 UTC+07:00**
 
-Nguồn: `bind-left-back.png`
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/bind-left-back.png`
 
 ## Ảnh 401
 
@@ -3410,7 +3410,7 @@ Nguồn: `bind-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:25 UTC+07:00**
 
-Nguồn: `held-left-front.png`
+Nguồn: `held-left-front.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/held-left-front.png`
 
 ## Ảnh 402
 
@@ -3418,7 +3418,7 @@ Nguồn: `held-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:26 UTC+07:00**
 
-Nguồn: `held-left-back.png`
+Nguồn: `held-left-back.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/held-left-back.png`
 
 ## Ảnh 403
 
@@ -3426,7 +3426,7 @@ Nguồn: `held-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:26 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/bind-right-front.png`
 
 ## Ảnh 404
 
@@ -3434,7 +3434,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:27 UTC+07:00**
 
-Nguồn: `bind-right-back.png`
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/bind-right-back.png`
 
 ## Ảnh 405
 
@@ -3442,7 +3442,7 @@ Nguồn: `bind-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:28 UTC+07:00**
 
-Nguồn: `held-right-front.png`
+Nguồn: `held-right-front.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/held-right-front.png`
 
 ## Ảnh 406
 
@@ -3450,7 +3450,7 @@ Nguồn: `held-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:28 UTC+07:00**
 
-Nguồn: `held-right-back.png`
+Nguồn: `held-right-back.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/held-right-back.png`
 
 ## Ảnh 407
 
@@ -3458,7 +3458,7 @@ Nguồn: `held-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:32:29 UTC+07:00**
 
-Nguồn: `cut-boundary-sheet.png`
+Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-cut-boundaries-v2/cut-boundary-sheet.png`
 
 ## Ảnh 408
 
@@ -3466,7 +3466,7 @@ Nguồn: `cut-boundary-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:40:04 UTC+07:00**
 
-Nguồn: `H02-full-5365d2cc-1.25-front.png`
+Nguồn: `H02-full-5365d2cc-1.25-front.png`, `docs/anim-report/conver10-redo/animation/velocity-v2/H02-full-5365d2cc-1.25-front.png`
 
 ## Ảnh 409
 
@@ -3474,7 +3474,7 @@ Nguồn: `H02-full-5365d2cc-1.25-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:40:05 UTC+07:00**
 
-Nguồn: `H02-full-5365d2cc-1.25-side.png`
+Nguồn: `H02-full-5365d2cc-1.25-side.png`, `docs/anim-report/conver10-redo/animation/velocity-v2/H02-full-5365d2cc-1.25-side.png`
 
 ## Ảnh 410
 
@@ -3482,7 +3482,7 @@ Nguồn: `H02-full-5365d2cc-1.25-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:40:06 UTC+07:00**
 
-Nguồn: `H02-full-5365d2cc-2.40-front.png`
+Nguồn: `H02-full-5365d2cc-2.40-front.png`, `docs/anim-report/conver10-redo/animation/velocity-v2/H02-full-5365d2cc-2.40-front.png`
 
 ## Ảnh 411
 
@@ -3490,7 +3490,7 @@ Nguồn: `H02-full-5365d2cc-2.40-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:40:06 UTC+07:00**
 
-Nguồn: `H02-full-5365d2cc-2.40-side.png`
+Nguồn: `H02-full-5365d2cc-2.40-side.png`, `docs/anim-report/conver10-redo/animation/velocity-v2/H02-full-5365d2cc-2.40-side.png`
 
 ## Ảnh 412
 
@@ -3498,7 +3498,7 @@ Nguồn: `H02-full-5365d2cc-2.40-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:40:06 UTC+07:00**
 
-Nguồn: `H02-full-5365d2cc-3.50-front.png`
+Nguồn: `H02-full-5365d2cc-3.50-front.png`, `docs/anim-report/conver10-redo/animation/velocity-v2/H02-full-5365d2cc-3.50-front.png`
 
 ## Ảnh 413
 
@@ -3506,7 +3506,7 @@ Nguồn: `H02-full-5365d2cc-3.50-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:40:07 UTC+07:00**
 
-Nguồn: `H02-full-5365d2cc-3.50-side.png`
+Nguồn: `H02-full-5365d2cc-3.50-side.png`, `docs/anim-report/conver10-redo/animation/velocity-v2/H02-full-5365d2cc-3.50-side.png`
 
 ## Ảnh 414
 
@@ -3514,7 +3514,7 @@ Nguồn: `H02-full-5365d2cc-3.50-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:41:08 UTC+07:00**
 
-Nguồn: `H02-motion-sheet.png`
+Nguồn: `H02-motion-sheet.png`, `docs/anim-report/conver10-redo/animation/velocity-v2/H02-motion-sheet.png`
 
 ## Ảnh 415
 
@@ -3522,7 +3522,7 @@ Nguồn: `H02-motion-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:30 UTC+07:00**
 
-Nguồn: `bind-left-front.png`
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/bind-left-front.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/bind-left-front.png`
 
 ## Ảnh 416
 
@@ -3530,7 +3530,7 @@ Nguồn: `bind-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:31 UTC+07:00**
 
-Nguồn: `bind-left-back.png`
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/bind-left-back.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/bind-left-back.png`
 
 ## Ảnh 417
 
@@ -3538,7 +3538,7 @@ Nguồn: `bind-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:32 UTC+07:00**
 
-Nguồn: `held-left-front.png`
+Nguồn: `held-left-front.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/held-left-front.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/held-left-front.png`
 
 ## Ảnh 418
 
@@ -3546,7 +3546,7 @@ Nguồn: `held-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:32 UTC+07:00**
 
-Nguồn: `held-left-back.png`
+Nguồn: `held-left-back.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/held-left-back.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/held-left-back.png`
 
 ## Ảnh 419
 
@@ -3554,7 +3554,7 @@ Nguồn: `held-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:32 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/bind-right-front.png`
 
 ## Ảnh 420
 
@@ -3562,7 +3562,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:33 UTC+07:00**
 
-Nguồn: `bind-right-back.png`
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/bind-right-back.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/bind-right-back.png`
 
 ## Ảnh 421
 
@@ -3570,7 +3570,7 @@ Nguồn: `bind-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:33 UTC+07:00**
 
-Nguồn: `held-right-front.png`
+Nguồn: `held-right-front.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/held-right-front.png`
 
 ## Ảnh 422
 
@@ -3578,7 +3578,7 @@ Nguồn: `held-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:33 UTC+07:00**
 
-Nguồn: `held-right-back.png`
+Nguồn: `held-right-back.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/held-right-back.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/held-right-back.png`
 
 ## Ảnh 423
 
@@ -3586,7 +3586,7 @@ Nguồn: `held-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:34 UTC+07:00**
 
-Nguồn: `cut-boundary-sheet.png`
+Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-closed-v2/boundaries/cut-boundary-sheet.png`
 
 ## Ảnh 424
 
@@ -3594,7 +3594,7 @@ Nguồn: `cut-boundary-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:45 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/bind-right-front.png`
 
 ## Ảnh 425
 
@@ -3602,7 +3602,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:46 UTC+07:00**
 
-Nguồn: `held-right-front.png`
+Nguồn: `held-right-front.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/held-right-front.png`
 
 ## Ảnh 426
 
@@ -3610,7 +3610,7 @@ Nguồn: `held-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:47:47 UTC+07:00**
 
-Nguồn: `cut-boundary-sheet.png`
+Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-closed-v3/boundaries/cut-boundary-sheet.png`
 
 ## Ảnh 427
 
@@ -3618,7 +3618,7 @@ Nguồn: `cut-boundary-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:19 UTC+07:00**
 
-Nguồn: `bind-left-front.png`
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/bind-left-front.png`
 
 ## Ảnh 428
 
@@ -3626,7 +3626,7 @@ Nguồn: `bind-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:21 UTC+07:00**
 
-Nguồn: `bind-left-back.png`
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/bind-left-back.png`
 
 ## Ảnh 429
 
@@ -3634,7 +3634,7 @@ Nguồn: `bind-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:21 UTC+07:00**
 
-Nguồn: `held-left-front.png`
+Nguồn: `held-left-front.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/held-left-front.png`
 
 ## Ảnh 430
 
@@ -3642,7 +3642,7 @@ Nguồn: `held-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:21 UTC+07:00**
 
-Nguồn: `held-left-back.png`
+Nguồn: `held-left-back.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/held-left-back.png`
 
 ## Ảnh 431
 
@@ -3650,7 +3650,7 @@ Nguồn: `held-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:22 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/bind-right-front.png`
 
 ## Ảnh 432
 
@@ -3658,7 +3658,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:22 UTC+07:00**
 
-Nguồn: `bind-right-back.png`
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/bind-right-back.png`
 
 ## Ảnh 433
 
@@ -3666,7 +3666,7 @@ Nguồn: `bind-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:22 UTC+07:00**
 
-Nguồn: `held-right-front.png`
+Nguồn: `held-right-front.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/held-right-front.png`
 
 ## Ảnh 434
 
@@ -3674,7 +3674,7 @@ Nguồn: `held-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:23 UTC+07:00**
 
-Nguồn: `held-right-back.png`
+Nguồn: `held-right-back.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/held-right-back.png`
 
 ## Ảnh 435
 
@@ -3682,7 +3682,7 @@ Nguồn: `held-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 21:57:23 UTC+07:00**
 
-Nguồn: `cut-boundary-sheet.png`
+Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v1/boundaries/cut-boundary-sheet.png`
 
 ## Ảnh 436
 
@@ -3690,7 +3690,7 @@ Nguồn: `cut-boundary-sheet.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:01 UTC+07:00**
 
-Nguồn: `bind-left-front.png`
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/bind-left-front.png`
 
 ## Ảnh 437
 
@@ -3698,7 +3698,7 @@ Nguồn: `bind-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:02 UTC+07:00**
 
-Nguồn: `bind-left-back.png`
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/bind-left-back.png`
 
 ## Ảnh 438
 
@@ -3706,7 +3706,7 @@ Nguồn: `bind-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:02 UTC+07:00**
 
-Nguồn: `held-left-front.png`
+Nguồn: `held-left-front.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/held-left-front.png`
 
 ## Ảnh 439
 
@@ -3714,7 +3714,7 @@ Nguồn: `held-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:03 UTC+07:00**
 
-Nguồn: `held-left-back.png`
+Nguồn: `held-left-back.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/held-left-back.png`
 
 ## Ảnh 440
 
@@ -3722,7 +3722,7 @@ Nguồn: `held-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:03 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/bind-right-front.png`
 
 ## Ảnh 441
 
@@ -3730,7 +3730,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:03 UTC+07:00**
 
-Nguồn: `bind-right-back.png`
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/bind-right-back.png`
 
 ## Ảnh 442
 
@@ -3738,7 +3738,7 @@ Nguồn: `bind-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:04 UTC+07:00**
 
-Nguồn: `held-right-front.png`
+Nguồn: `held-right-front.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/held-right-front.png`
 
 ## Ảnh 443
 
@@ -3746,7 +3746,7 @@ Nguồn: `held-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:04 UTC+07:00**
 
-Nguồn: `held-right-back.png`
+Nguồn: `held-right-back.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/held-right-back.png`
 
 ## Ảnh 444
 
@@ -3754,4 +3754,348 @@ Nguồn: `held-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-20 22:03:05 UTC+07:00**
 
-Nguồn: `cut-boundary-sheet.png`
+Nguồn: `cut-boundary-sheet.png`, `docs/anim-report/conver10-redo/coat-closed-pbr-v3/boundaries/cut-boundary-sheet.png`
+
+## Ảnh 445
+
+![historical-stance-front.png](../media/5439e12fe23e82e054d2cba8dbf729ee51f42335.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 22:42:39 UTC+07:00**
+
+Nguồn: `historical-stance-front.png`
+
+## Ảnh 446
+
+![historical-stance-side.png](../media/6e31955af8e6db9c465f17f529dcdfbf77ccf815.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 22:42:40 UTC+07:00**
+
+Nguồn: `historical-stance-side.png`
+
+## Ảnh 447
+
+![historical-stance-back.png](../media/025699a603391a5131a08c815a1dadd79df73e9c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 22:42:40 UTC+07:00**
+
+Nguồn: `historical-stance-back.png`
+
+## Ảnh 448
+
+![forward-stance-front.png](../media/834432cae5e0a56a3caa5acbba76bc38997dd1df.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 22:42:41 UTC+07:00**
+
+Nguồn: `forward-stance-front.png`
+
+## Ảnh 449
+
+![forward-stance-side.png](../media/bd7a5e84bc0c56012226d86491dbc85b77af7391.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 22:42:41 UTC+07:00**
+
+Nguồn: `forward-stance-side.png`
+
+## Ảnh 450
+
+![forward-stance-back.png](../media/cb0108d38fba518b8c9864c3f448bcbbc4ac7224.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 22:42:41 UTC+07:00**
+
+Nguồn: `forward-stance-back.png`
+
+## Ảnh 451
+
+![stance-sheet.png](../media/1d152b13f57485cf9a25145fe5e21c2948d09002.png)
+
+**Thời gian đăng ký ảnh: 2026-10-20 22:42:42 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 452
+
+![leg-support-back.png](../media/4cafbde024e64b6908e0c11a0a29db38e5a67eb0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:32:27 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 453
+
+![leg-support-front.png](../media/0d2f8bbaf301c9d873754072ee9c3b7361e9bdc2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:32:28 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 454
+
+![leg-support-side.png](../media/4c1ad488d007f4f59d0bdfe0828ef721eca0fc5b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:32:29 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 455
+
+![stance-sheet.png](../media/fa8194eb094d08af6c16cce3400b3be7299303f8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:32:29 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 456
+
+![leg-support-back.png](../media/493db66d124cd5ba4d9855dca3e19fd1c703c01b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:36:14 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 457
+
+![leg-support-front.png](../media/284140ca183c04ebbedba3b0ce0abafcb94d9782.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:36:15 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 458
+
+![leg-support-side.png](../media/ed003e8e1816fc9e80cf78b4685e6db1d67204cb.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:36:15 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 459
+
+![stance-sheet.png](../media/ca0f2b0e234dc0ab172d13a48641057d8b205e01.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:36:16 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 460
+
+![leg-support-back.png](../media/b80e3abf321609f88013cd773bf42f4656f2401f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:39:45 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 461
+
+![leg-support-front.png](../media/3d5fd5bcd7024c9117db5784bf9195362e614f94.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:39:45 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 462
+
+![leg-support-side.png](../media/ac6890577f4525678579c69b3ace17fb0d8fea68.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:39:46 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 463
+
+![stance-sheet.png](../media/43cfd031cd666a356cc769794e314e3e4d17acd4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:39:46 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 464
+
+![leg-support-back.png](../media/58db30b2bf3a8154be71b48f08a2dbf17c196092.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:47:58 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 465
+
+![leg-support-front.png](../media/6748bfbd58c0a27c7871f0bfac9714cb5d30f3ef.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:47:59 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 466
+
+![leg-support-side.png](../media/34a22eb81cbef561e31452256d8543ad8f58bd2d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:48:00 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 467
+
+![stance-sheet.png](../media/3c7e9d9a6d51d1d645a805d462b9d8132e6bcf51.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:48:00 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 468
+
+![H02-full-1e48c1b5-1.25-front.png](../media/f723aaef762e1b03dacedb82b1e71e07d9149250.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:48:07 UTC+07:00**
+
+Nguồn: `H02-full-1e48c1b5-1.25-front.png`
+
+## Ảnh 469
+
+![H02-full-1e48c1b5-13.50-front.png](../media/9ef132ee5584afac03b8b078351591ce0124387d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:48:07 UTC+07:00**
+
+Nguồn: `H02-full-1e48c1b5-13.50-front.png`
+
+## Ảnh 470
+
+![H02-full-1e48c1b5-2.40-front.png](../media/f4fc40d0066df1484818087f1ada67c502124e12.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:48:07 UTC+07:00**
+
+Nguồn: `H02-full-1e48c1b5-2.40-front.png`
+
+## Ảnh 471
+
+![H02-full-1e48c1b5-3.50-front.png](../media/dbfbc1f8166e2c6e2fcbafaaae335a940326e731.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:48:08 UTC+07:00**
+
+Nguồn: `H02-full-1e48c1b5-3.50-front.png`
+
+## Ảnh 472
+
+![forward-stance-back.png](../media/751b727735b9530e22a574ff29528889743ecccb.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:50:08 UTC+07:00**
+
+Nguồn: `forward-stance-back.png`
+
+## Ảnh 473
+
+![forward-stance-front.png](../media/1a6ce4923cb1e3b7e857e5b0fc99846c8a34b3fd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:50:08 UTC+07:00**
+
+Nguồn: `forward-stance-front.png`
+
+## Ảnh 474
+
+![forward-stance-side.png](../media/6c419856bd0392177d8f5370419b31033d0935ed.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:50:09 UTC+07:00**
+
+Nguồn: `forward-stance-side.png`
+
+## Ảnh 475
+
+![historical-stance-back.png](../media/bbe05d901813d076b2c1f71a69eb5aecbb183a4f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:50:09 UTC+07:00**
+
+Nguồn: `historical-stance-back.png`
+
+## Ảnh 476
+
+![historical-stance-front.png](../media/9c6fa478e850eeb12d7f3d7ac8159ee1be25cc92.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:50:10 UTC+07:00**
+
+Nguồn: `historical-stance-front.png`
+
+## Ảnh 477
+
+![historical-stance-side.png](../media/ad585a18ea14d3b3a69f9b78f95501f5c5e7d638.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:50:10 UTC+07:00**
+
+Nguồn: `historical-stance-side.png`
+
+## Ảnh 478
+
+![stance-sheet.png](../media/5cd9ecaf2122ac652d2db6e1f4e0f1ab6b464f2b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:50:10 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 479
+
+![H02-full-2fb7a83d-1.25-side.png](../media/f37134ae34f06eaed909bfa0d3be7e02e5b5b98f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:51:51 UTC+07:00**
+
+Nguồn: `H02-full-2fb7a83d-1.25-side.png`
+
+## Ảnh 480
+
+![H02-full-2fb7a83d-13.50-side.png](../media/8c56c2e48e97840fa9c71a5e1a0f72164758614d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:51:52 UTC+07:00**
+
+Nguồn: `H02-full-2fb7a83d-13.50-side.png`
+
+## Ảnh 481
+
+![H02-full-2fb7a83d-2.40-front.png](../media/de6abb74a3ed18d8c0a7b4bb76a50c2da23a7040.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:51:52 UTC+07:00**
+
+Nguồn: `H02-full-2fb7a83d-2.40-front.png`
+
+## Ảnh 482
+
+![H02-full-2fb7a83d-2.40-side.png](../media/9f1a8cf6bc24bbf7aeebc2847b3c3e4e3b442c13.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:51:52 UTC+07:00**
+
+Nguồn: `H02-full-2fb7a83d-2.40-side.png`
+
+## Ảnh 483
+
+![H02-full-2fb7a83d-3.50-side.png](../media/04f3ce62892877e42856409f24b4ed210317013d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 02:51:53 UTC+07:00**
+
+Nguồn: `H02-full-2fb7a83d-3.50-side.png`
+
+## Ảnh 484
+
+![leg-support-front.png](../media/ebd570d2860b986354e0c2afbb8bf9ba25d13d69.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 03:01:32 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 485
+
+![leg-support-back.png](../media/4661da5dc7738300956fb2982f0ebc02837ea797.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 03:03:17 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 486
+
+![leg-support-side.png](../media/46f998e99c7c9a6c25eb4e3f65fe8c246a93036f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 03:03:18 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 487
+
+![stance-sheet.png](../media/20c94fd7675216c4193994ee4986769de4b25bdc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 03:03:19 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
