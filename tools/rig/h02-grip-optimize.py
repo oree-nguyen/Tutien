@@ -5,7 +5,7 @@ import numpy as np
 from scipy.optimize import least_squares, minimize
 from scipy.spatial.transform import Rotation
 
-DIR=Path('.local/rig-candidates/h02-left-grip')
+DIR=Path(os.environ.get('GRIP_SOURCE_DIR','.local/rig-candidates/h02-left-grip'))
 OUT=Path(os.environ.get('GRIP_SEARCH_DIR',str(DIR)))
 OUT.mkdir(parents=True,exist_ok=True)
 data=json.loads((DIR/'input.json').read_text())
@@ -16,6 +16,9 @@ bindworld=np.array([np.array(j['world']).reshape(4,4).T for j in joints])
 ibm=np.array([np.array(j['inverse']).reshape(4,4).T for j in joints])
 fingers=['Thumb','Index','Middle','Ring','Pinky']
 fj=np.array([[names.index('LeftHand'+f+str(i+1)) for i in range(3)] for f in fingers])
+calibration=data.get('fingerFrameCalibration')
+frame_quaternions=np.array([[calibration['canonicalLocal'].get('LeftHand'+f+str(i+1),[0,0,0,1]) if calibration else [0,0,0,1] for i in range(3)] for f in fingers])
+frame_basis=Rotation.from_quat(frame_quaternions.reshape(-1,4)).as_matrix().reshape(5,3,3,3)
 frame=data['frame']; f=np.array(frame['f']); u=np.array(frame['u']); n=np.array(frame['n'])
 radius=data['weapon']['shaftRadius']
 ph=np.c_[pos,np.ones(len(pos))]
@@ -33,6 +36,7 @@ x0=np.array([v for finger in fingers for v in (initial[finger]['angles']+[initia
 lower=np.array(([-30,-5,-5,-20,-10,-10,-10]*5)+[-10,-25,-35,.003])
 upper=np.array(([90,100,80,20,10,10,10]*5)+[20,25,35,.005])
 x0=np.clip(x0,lower+1e-8,upper-1e-8)
+if calibration:x0[:3]=[20,75,60]
 
 def normalized(a): return a/np.maximum(1e-14,np.linalg.norm(a,axis=-1,keepdims=True))
 
@@ -43,7 +47,7 @@ def forward(x):
         for q,j in enumerate(fj[k]):
             rv=np.radians([angles[k,q],0,angles[k,3] if q==0 else 0])
             rot=Rotation.from_rotvec(rv).as_matrix()@Rotation.from_rotvec([0,np.radians(angles[k,q+4]),0]).as_matrix()
-            loc=local[j].copy();loc[:3,:3]=loc[:3,:3]@rot
+            loc=local[j].copy();loc[:3,:3]=loc[:3,:3]@frame_basis[k,q]@rot@frame_basis[k,q].T
             world[j]=world[joints[j]['parent']]@loc
     posed=base.copy()
     for j,sel,weight,p in active:
@@ -99,7 +103,7 @@ def evaluate(x,patch,report=False):
         totalFlex=total.tolist(),signedWrap=wraps.tolist(),tipDistance=distance.tolist(),
         palm=palm.tolist(),palmNormal=pn.tolist(),shaftCenter=center.tolist(),shaftAxis=axis.tolist(),
         parameters=x.tolist(),patch=patch,gripAxisErrorDeg=float(np.degrees(np.arccos(np.clip(axis@np.array(frame['gripAxis']),-1,1)))),
-        fingers={finger:dict(angles=x[k*7:k*7+3].tolist(),opposition=float(x[k*7+3]),twists=x[k*7+4:k*7+7].tolist(),points=points[k].tolist()) for k,finger in enumerate(fingers)},
+        fingers={finger:dict(angles=x[k*7:k*7+3].tolist(),opposition=float(x[k*7+3]),twists=x[k*7+4:k*7+7].tolist(),canonicalLocal=frame_quaternions[k].tolist(),points=points[k].tolist()) for k,finger in enumerate(fingers)},
         worstVertex=int(data['sourceIds'][np.argmin(radial)]))
 
 started=time.time(); reports=[]
@@ -140,7 +144,7 @@ for ratio in ratios:
     else:
         raise ValueError('Unknown staging grip solver: '+method)
     report=evaluate(solved.x,patch,True)
-    report.update(nfev=solved.nfev,elapsedSeconds=time.time()-started,rigSha256=data['rigSha256'],message=solved.message,solver=method,optimizerSuccess=bool(solved.success),
+    report.update(nfev=solved.nfev,elapsedSeconds=time.time()-started,rigSha256=data['rigSha256'],fingerFrameCalibration=calibration,message=solved.message,solver=method,optimizerSuccess=bool(solved.success),
         scope='Cylinder and actual-skinned-source-vertex optimization only; requires independent exact weapon triangle proof before acceptance.',passed=False)
     prior.write_text(json.dumps(report,indent=2)+'\n');reports.append(report)
     print('RESULT',ratio,{k:report[k] for k in ['cost','maximumCylinderIntrusion','maximumCapsuleIntrusion','facingDot','anatomicalFacingDot','totalFlex','signedWrap','tipDistance','nfev','elapsedSeconds']},flush=True)

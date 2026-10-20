@@ -1,13 +1,14 @@
 import fs from 'node:fs/promises';
+import assert from 'node:assert/strict';
 import { createHash } from 'node:crypto';
 import { NodeIO } from '@gltf-transform/core';
 import { ALL_EXTENSIONS } from '@gltf-transform/extensions';
-import { Matrix4, Vector3, Triangle, Ray, DoubleSide } from 'three';
+import { Matrix4, Quaternion, Vector3, Triangle, Ray, DoubleSide } from 'three';
 import { MeshContact } from './mesh-contact.mjs';
 
 // Isolated H02 experiment. Every exported contact vertex carries its original
 // source vertex ID. No source geometry, skin, material or frame is modified.
-const dir = '.local/rig-candidates/h02-left-grip';
+const dir = process.env.GRIP_SOURCE_DIR??'.local/rig-candidates/h02-left-grip';
 await fs.mkdir(dir, {recursive:true});
 const file = process.env.RIG_FILE ?? 'assets/rigged/H02-C0-rigged.glb';
 const bytes = await fs.readFile(file);
@@ -20,6 +21,20 @@ const node=instances[0], skin=node.getSkin(), joints=skin.listJoints();
 const prim=node.getMesh().listPrimitives()[0];
 const pos=prim.getAttribute('POSITION').getArray(), ids=prim.getAttribute('JOINTS_0').getArray(), ws=prim.getAttribute('WEIGHTS_0').getArray(), indices=prim.getIndices().getArray();
 const frame=JSON.parse(await fs.readFile('data/rig/hand-frames.json')).heroes.H02.hands.Left;
+let fingerFrameCalibration=null;
+if(process.argv.includes('--thumb-palm-plane')){
+ const name='LeftHandThumb1',joint=joints.find(j=>j.getName()===name),world=new Matrix4().fromArray(joint.getWorldMatrix()),
+  y=new Vector3(...frame.fingers.Thumb.points[1]).sub(new Vector3(...frame.fingers.Thumb.points[0])).normalize(),
+  curl=new Vector3(...frame.palmCenter).sub(new Vector3(...frame.fingers.Thumb.points[0])).projectOnPlane(y).normalize(),
+  normal=new Vector3(...frame.n).projectOnPlane(y).normalize();
+ assert(curl.dot(normal)>.2,'Measured thumb-to-palm flex plane faces the wrong side');
+ const x=y.clone().cross(curl).normalize(),z=x.clone().cross(y).normalize(),
+  basis=new Quaternion().setFromRotationMatrix(new Matrix4().makeBasis(x,y,z)),
+  correction=new Quaternion().setFromRotationMatrix(world).invert().multiply(basis).normalize();
+ fingerFrameCalibration={method:'Thumb metacarpal positive flex plane from unchanged source CMC/MCP landmarks and measured palm center; all positions, bind rotations and skin weights remain unchanged',
+  rigSha256:createHash('sha256').update(bytes).digest('hex'),canonicalLocal:{[name]:correction.toArray()},
+  positiveFlexPalmDot:curl.dot(new Vector3(...frame.n)),sourcePalm:frame.palmCenter,sourcePoints:frame.fingers.Thumb.points,reviewed:false,accepted:false};
+}
 const landmarks=[frame.wrist,...Object.values(frame.fingers).flatMap(f=>f.points)];
 const low=[0,1,2].map(k=>Math.min(...landmarks.map(p=>p[k]))-.022);
 const high=[0,1,2].map(k=>Math.max(...landmarks.map(p=>p[k]))+.022);
@@ -62,7 +77,7 @@ const patches=[...frame.palmCandidates,...extras,...grid].map(p=> {
   return {...p,vertices:vs.map(i=>remap.get(i)),sourceVertices:vs,bary:tri.getBarycoord(new Vector3(...q.closest),new Vector3()).toArray()};
 });
 mesh.dispose();
-const out={file,rigSha256:createHash('sha256').update(bytes).digest('hex'),frame,
+const out={file,rigSha256:createHash('sha256').update(bytes).digest('hex'),frame,fingerFrameCalibration,
   joints:joints.map((j,i)=>({name:j.getName(),parent:joints.indexOf(j.getParentNode()),local:j.getMatrix(),world:j.getWorldMatrix(),inverse:skin.getInverseBindMatrices().getElement(i,[])})),
   sourceIds,positions:sourceIds.map(i=>[...pos.slice(i*3,i*3+3)]),
   ids:sourceIds.map(i=>[...ids.slice(i*4,i*4+4)]),weights:sourceIds.map(i=>[...ws.slice(i*4,i*4+4)]),

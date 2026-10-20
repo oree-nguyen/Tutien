@@ -18,7 +18,8 @@ function linearSolve(matrix,rhs){
 /** Build-time bounded fit in the same anatomical coordinates as the validator.
  * The analytic hinge solve supplies seeds, not hard constraints on elbow flex.
  * Parent transforms and bind lengths remain fixed. There is no runtime IK. */
-export function fitBoundedChain(pose,names,{target,orientation,pole,seeds,endLimits,flexRange,previousRotations}){
+export function fitBoundedChain(pose,names,{target,orientation,pole,seeds,endLimits,flexRange,previousRotations,maxStepDegrees}){
+  if(maxStepDegrees!==undefined&&(!previousRotations||!Number.isFinite(maxStepDegrees)||maxStepDegrees<=0))throw Error('Velocity-constrained fitting requires previous rotations and a positive step');
   const nodes=names.map(n=>pose.nodes.get(n)),root=pose.position(nodes[0]),
     parent=pose.rotation(nodes[0].getParentNode()),
     offsets=nodes.slice(1).map(n=>new Vector3(...pose.bind.get(n).position)),
@@ -47,11 +48,13 @@ export function fitBoundedChain(pose,names,{target,orientation,pole,seeds,endLim
         if(len>1e-12)a.multiplyScalar(2*Math.atan2(len,change.w)/len);
         residual.push(...a.multiplyScalar(.015).toArray());
       }
-      return{rotations,position,elbow,residual,contactCost,objective:residual.reduce((s,v)=>s+v*v,0)};
+      const maximumStep=previousRotations?Math.max(...rotations.map((r,i)=>r.angleTo(previousRotations[i]))):0;
+      return{rotations,position,elbow,residual,contactCost,maximumStep,velocityFeasible:maxStepDegrees===undefined||maximumStep<=MathUtils.degToRad(maxStepDegrees)+1e-10,objective:residual.reduce((s,v)=>s+v*v,0)};
     };
   let best;
   for(const seed of seeds){
     const start=encode(seed);let values=start,measurement=evaluate(values),lambda=1e-3;
+    if(!measurement.velocityFeasible)continue;
     for(let iteration=0;iteration<90;iteration++){
       const jacobian=active.map(j=>{
         const shifted=values.slice(),step=values[j]+.01<=bounds[j][1]?.01:-.01;shifted[j]+=step;
@@ -59,7 +62,14 @@ export function fitBoundedChain(pose,names,{target,orientation,pole,seeds,endLim
       }),matrix=active.map((_,i)=>active.map((_,j)=>jacobian[i].reduce((s,v,k)=>s+v*jacobian[j][k],0)+(i===j?lambda:0))),
         rhs=jacobian.map(column=>-column.reduce((s,v,k)=>s+v*measurement.residual[k],0)),step=linearSolve(matrix,rhs);
       if(!step)break;
-      const scale=Math.min(1,12/Math.max(1e-12,...step.map(Math.abs))),trial=clamp(values.map((v,j)=>v+(active.includes(j)?step[active.indexOf(j)]*scale:0))),candidate=evaluate(trial);
+      let scale=Math.min(1,12/Math.max(1e-12,...step.map(Math.abs))),trial,candidate;
+      // The velocity ball is a solve constraint. A post-solve low-pass can move
+      // a valid hand/foot away from contact while retaining a misleading fit.
+      for(let search=0;search<30;search++){
+        trial=clamp(values.map((v,j)=>v+(active.includes(j)?step[active.indexOf(j)]*scale:0)));candidate=evaluate(trial);
+        if(candidate.velocityFeasible)break;scale*=.5;
+      }
+      if(!candidate.velocityFeasible)break;
       if(candidate.objective<measurement.objective){
         const gain=measurement.objective-candidate.objective;values=trial;measurement=candidate;lambda=Math.max(1e-10,lambda*.35);
         if(candidate.objective<1e-14||gain<1e-15)break;
@@ -68,6 +78,11 @@ export function fitBoundedChain(pose,names,{target,orientation,pole,seeds,endLim
     const poleError=pole?measurement.elbow.distanceToSquared(pole):0,
       cost=measurement.objective+poleError*1e-10;
     if(!best||cost<best.cost)best={...measurement,cost,values};
+  }
+  if(!best){
+    const error=Error('No velocity-feasible bounded chain seed: '+names.join('/')+'; previous coordinate-clamp step '+(previousRotations?MathUtils.radToDeg(evaluate(encode(previousRotations)).maximumStep).toFixed(6):'missing')+' degrees');
+    error.chain=names;error.previousRotations=previousRotations?.map(r=>r.toArray());error.bounds=bounds;
+    error.previousCoordinates=previousRotations?.map((r,i)=>pose.angles(nodes[i],r));throw error;
   }
   return best;
 }

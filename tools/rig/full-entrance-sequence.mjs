@@ -9,8 +9,9 @@ const sideName = s => s[0].toUpperCase()+s.slice(1);
 
 /** Offline complete-duration choreography attempt. Failure measurements are retained;
  * exporting sampled FK never implies acceptance of contacts, skin or visual pose. */
-export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,gripProof,weapon,heldContact,stance,weaponFloorCheck,boundedFit=false}) {
-  const solveOfflineChain=(pose,names,options)=>solveChain(pose,names,{...options,boundedFit});
+export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,gripProof,weapon,heldContact,stance,weaponFloorCheck,boundedFit=false,velocityAware=false}) {
+  if(velocityAware&&!boundedFit)throw Error('Velocity-aware solve requires bounded refinement');
+  const solveOfflineChain=(pose,names,options)=>solveChain(pose,names,{...options,boundedFit,maxStepDegrees:velocityAware&&options.previousRotations?8:undefined});
   const joints=pose.joints, frames=pose.frames,
     bind=Object.fromEntries(joints.map(n=>[n.getName(),{position:pose.position(n),rotation:pose.rotation(n)}])),
     gripSide=sideName(spec.gripHand), groundSide=sideName(spec.groundHand),
@@ -100,12 +101,23 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
       node.setRotation(Q(pose.bind.get(node).rotation).multiply(f).multiply(new Quaternion().setFromAxisAngle(angle?axis.divideScalar(angle):V([1,0,0]),angle)).multiply(new Quaternion().setFromAxisAngle(V([0,1,0]),MathUtils.degToRad(twist))).multiply(f.invert()).normalize().toArray());
     }
   };
+  let releaseGroundOrientation=groundOrientation.clone();
+  if(velocityAware&&stance){
+    const saved=Object.fromEntries(joints.map(n=>[n.getName(),n.getRotation()]));
+    for(const[name,rotation]of Object.entries(stance.rotations))pose.nodes.get(name).setRotation(rotation);
+    const hand=pose.nodes.get(groundSide+'Hand'),frame=frames[hand.getName()],local=Q(hand.getRotation());
+    clampJoint(local,Q(pose.bind.get(hand).rotation),Q(frame.canonicalLocal),pose.limits.wrist,frame);
+    releaseGroundOrientation=pose.rotation(hand.getParentNode()).multiply(local).normalize();
+    for(const[name,rotation]of Object.entries(saved))pose.nodes.get(name).setRotation(rotation);
+  }
   const sample=(clip,time)=>{
     const idle=clip==="IDLE_HOLD", start=hero==="H01"?.9:.55, land=hero==="H01"?1.9:1.25,
       riseStart=hero==="H01"?2.6:1.75, riseEnd=hero==="H01"?3.7:3,
       rise=idle?1:smooth(riseStart,riseEnd,time),arrival=idle?1:smooth(start,land,time),
       visible=idle||time>=start, support=!idle&&time>=land&&time<=riseStart,
-      grab=spec.events.find(e=>e.type==="grab").time,close=idle?1:smooth(grab,grab+.15,time);
+      grab=spec.events.find(e=>e.type==="grab").time,close=idle?1:smooth(grab,grab+.15,time),
+      groundRelease=velocityAware?(idle?1:smooth(riseStart-.15,riseStart,time)):0,
+      movingGroundOrientation=groundOrientation.clone().slerp(releaseGroundOrientation,groundRelease);
     apply(upright);
     const hips=crouchHips.clone().lerp(uprightHips,rise);
     if(!idle&&time<land)hips.y+=(hero==="H01"?-.5:1.5)*(1-arrival);
@@ -129,7 +141,7 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
       const names=[side+"UpLeg",side+"Leg",side+"Foot"];
       if(!stance||rise>0||idle){const result=solveOfflineChain(pose,names,{target,orientation,pole:V([side==="Left"?.34:-.34,.35,.55]),previousRotations:previous.get(names[0])});solutions.push({chain:names[0],...result});previous.set(names[0],names.map(n=>Q(pose.nodes.get(n).getRotation())));}
     }
-    const groundTarget=groundWrist.clone();if(!idle&&time<land)groundTarget.y+=hips.y-crouchHips.y;
+    const groundTarget=groundRelease>0?groundPalm.clone().sub(localPalm[groundSide].clone().applyQuaternion(movingGroundOrientation)):groundWrist.clone();if(!idle&&time<land)groundTarget.y+=hips.y-crouchHips.y;
     const freeSide=groundSide==="Left"?"Right":"Left",knee=pose.position(pose.nodes.get(freeSide+"Leg")),freeTarget=knee.add(V([0,.08,.03])),
       heldOrientation=hero==="H02"?hammerGroundHandQ.clone().slerp(uprightHands[gripSide].rotation,rise):uprightHands[gripSide].rotation.clone(),
       heldTarget=hero==="H02"?hammerGroundWrist.clone().lerp(uprightHands[gripSide].position,rise):uprightHands[gripSide].position.clone();
@@ -142,22 +154,29 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
     }
     for(const side of ["Left","Right"]) {
       let target,orientation;
-      if(side===groundSide){target=groundTarget.clone().lerp(uprightHands[side].position,rise);orientation=groundOrientation.clone().slerp(uprightHands[side].rotation,rise);}
+      if(side===groundSide){target=groundTarget.clone().lerp(uprightHands[side].position,rise);orientation=movingGroundOrientation.clone().slerp(uprightHands[side].rotation,rise);}
       else {target=freeTarget.clone().lerp(uprightHands[side].position,rise);orientation=uprightHands[side].rotation.clone();}
       if(hero==="H02"&&side===gripSide){target=heldTarget;orientation=heldOrientation;}
       if(hero==="H01"&&side===gripSide&&rise>0){target=groundTarget.clone().lerp(heldTarget,rise);orientation=groundOrientation.clone().slerp(heldOrientation,rise);}
       if(hero==="H01"&&side==="Left"&&rise<.9)orientation=undefined;
       const names=[side+"Arm",side+"ForeArm",side+"Hand"];
-      if(!stance||rise>0||idle||side!==groundSide){const result=solveOfflineChain(pose,names,{target,orientation,pole:V([side==="Left"?.4:-.4,hips.y+.25,.3]),flexRange:side===groundSide&&support?[0,10]:undefined,endLimits:side===groundSide&&support?pose.limits.wristGround:undefined,previousRotations:previous.get(names[0])});solutions.push({chain:names[0],...result});previous.set(names[0],names.map(n=>Q(pose.nodes.get(n).getRotation())));}
+      if(!stance||rise>0||idle||side!==groundSide||groundRelease>0){const result=solveOfflineChain(pose,names,{target,orientation,pole:V([side==="Left"?.4:-.4,hips.y+.25,.3]),flexRange:side===groundSide&&support?[0,10]:undefined,endLimits:side===groundSide&&support?{...pose.limits.wristGround,flex:[MathUtils.lerp(pose.limits.wristGround.flex[0],pose.limits.wrist.flex[0],groundRelease),pose.limits.wristGround.flex[1]]}:undefined,previousRotations:previous.get(names[0])});solutions.push({chain:names[0],...result});previous.set(names[0],names.map(n=>Q(pose.nodes.get(n).getRotation())));}
       setFingers(side,side===gripSide?close:0);
     }
     // Keep every planted-chain solve authoritative throughout the rise. Once the
     // hips reach the upright endpoint, the hold keys settle the 0.999 reach margin.
-    const settle=rise===1?1:0;
+    const settle=rise===1&&!velocityAware?1:0;
     if(settle)for(const joint of joints)if(!/Hand(Thumb|Index|Middle|Ring|Pinky)/.test(joint.getName()))joint.setRotation(Q(joint.getRotation()).slerp(Q(upright[joint.getName()]),settle).normalize().toArray());
     if(idle&&time!==0&&time!==spec.idleDuration) {
       for(const name of ["Spine","Spine1","Spine2"])anatomical(name,Math.sin(time/spec.idleDuration*Math.PI*2)*spec.breathingDegreesPerSpine);
-      for(const side of ["Left","Right"])pose.solveArm(side,uprightHands[side].position,uprightHands[side].rotation);
+      for(const side of ["Left","Right"]){
+        if(!velocityAware)pose.solveArm(side,uprightHands[side].position,uprightHands[side].rotation);
+        else{
+          const names=[side+'Arm',side+'ForeArm',side+'Hand'],result=solveOfflineChain(pose,names,{target:uprightHands[side].position,orientation:uprightHands[side].rotation,pole:V([side==='Left'?.4:-.4,hips.y+.25,.3]),previousRotations:previous.get(names[0])});
+          const index=solutions.findIndex(s=>s.chain===names[0]);assertSolutionIndex(index);solutions[index]={chain:names[0],...result};
+          previous.set(names[0],names.map(n=>Q(pose.nodes.get(n).getRotation())));
+        }
+      }
     }
     for(const solution of solutions){
       const end=solution.chain.replace(/UpLeg$/,"Foot").replace(/Arm$/,"Hand");
@@ -220,6 +239,8 @@ export function createFullEntranceSequence({hero,spec,pose,handFrames,reference,
     frameReports.push(report);return report;
   };
   return {sample,frameReports,upright,localPalm:Object.fromEntries(Object.entries(localPalm).map(([s,p])=>[s,p.toArray()])),
-    provenance:{boundedFitExperiment:boundedFit,gripProofPassed:!!gripProof.passed,stancePassed:stance?.passed??false,stanceMetrics:stance?.metrics??null,weaponSourceVertices:weaponFloorCheck.vertices,hammerGroundTiltFromDownDegrees:hero==="H02"?20:null,groundHammerFit:groundHammerFit?{yaw:groundHammerFit.yaw,spin:groundHammerFit.spin,x:groundHammerFit.x,z:groundHammerFit.z,positionError:groundHammerFit.positionError,orientationErrorDegrees:groundHammerFit.orientationErrorDegrees}:null,angularVelocityLimit:{bodyDegreesPerFrame:8,fingerDegreesPerFrame:16,endpointErrorsMeasuredAfterFilter:true},handFramesVerified:Object.fromEntries(Object.entries(handFrames).map(([s,f])=>[s,f.verified])),
+    provenance:{boundedFitExperiment:boundedFit,velocityAware,gripProofPassed:!!gripProof.passed,stancePassed:stance?.passed??false,stanceMetrics:stance?.metrics??null,weaponSourceVertices:weaponFloorCheck.vertices,hammerGroundTiltFromDownDegrees:hero==="H02"?20:null,groundHammerFit:groundHammerFit?{yaw:groundHammerFit.yaw,spin:groundHammerFit.spin,x:groundHammerFit.x,z:groundHammerFit.z,positionError:groundHammerFit.positionError,orientationErrorDegrees:groundHammerFit.orientationErrorDegrees}:null,angularVelocityLimit:{bodyDegreesPerFrame:8,fingerDegreesPerFrame:16,endpointErrorsMeasuredAfterFilter:true},handFramesVerified:Object.fromEntries(Object.entries(handFrames).map(([s,f])=>[s,f.verified])),
       note:"Complete-duration attempted choreography; VFX/visibility use phase data. Mesh contact and hand-frame verification are independent acceptance gates."}};
 }
+
+function assertSolutionIndex(index){if(index<0)throw Error('Missing pre-breathing chain solution');}

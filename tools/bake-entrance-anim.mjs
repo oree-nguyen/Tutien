@@ -15,7 +15,7 @@ const save=async(file,value)=>{await fs.mkdir(path.dirname(file),{recursive:true
 
 /** Export all source channels plus attempted full Entrance/IDLE_HOLD, even when
  * constraints fail. Only a separate certificate may authorize activation. */
-export async function bakeEntrance({hero="H01",input,output=".local/rig-candidates/fk-full-staging",report="docs/anim-report/conver10-redo/animation/full",boundedFit=false}={}) {
+export async function bakeEntrance({hero="H01",input,output=".local/rig-candidates/fk-full-staging",report="docs/anim-report/conver10-redo/animation/full",boundedFit=false,velocityAware=false}={}) {
   if(!["H01","H02"].includes(hero))throw Error("Unsupported hero");
   const spec=await json(`data/hero-entrance/${hero}.json`);
   input??=hero==="H01"?".local/rig-candidates/semantic-garment-v3/H01-C0-rigged.glb":"assets/rigged/H02-C0-rigged.glb";
@@ -39,7 +39,7 @@ export async function bakeEntrance({hero="H01",input,output=".local/rig-candidat
     stance.footRotations=Object.fromEntries(["Left","Right"].map(s=>[s,pose.rotation(pose.nodes.get(s+"Foot")).toArray()]));
     pose.reset();
   }
-  const sequence=createFullEntranceSequence({hero,spec,pose,handFrames,reference,gripProof,weapon,heldContact,stance,weaponFloorCheck,boundedFit}),
+  const sequence=createFullEntranceSequence({hero,spec,pose,handFrames,reference,gripProof,weapon,heldContact,stance,weaponFloorCheck,boundedFit,velocityAware}),
     preserved=doc.getRoot().listAnimations().map(a=>({originalName:a.getName(),name:a.getName()==="Entrance"?"Entrance_LEGACY_C10":a.getName(),signature:animationSignature(a)}));
   if(preserved.some(a=>["IDLE_HOLD","Entrance_LEGACY_C10"].includes(a.originalName)))throw Error("Use the immutable pre-bake source");
   const curves=[],samples=[],selected=[];
@@ -97,4 +97,4 @@ export async function bakeEntrance({hero="H01",input,output=".local/rig-candidat
   if(!receipt.exportPassed)throw Error("Export changed immutable source payload or legacy animation data");
   return receipt;
 }
-if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const receipt=await bakeEntrance({hero:process.env.HERO??"H01",input:process.env.RIG_FILE,output:process.env.FK_OUTPUT_DIR,report:process.env.FK_REPORT_DIR,boundedFit:process.env.FK_BOUNDED_FIT==='1'});console.log(JSON.stringify(receipt,null,2));if(!receipt.passed)process.exitCode=1;}
+if(process.argv[1]&&import.meta.url===pathToFileURL(process.argv[1]).href){const receipt=await bakeEntrance({hero:process.env.HERO??"H01",input:process.env.RIG_FILE,output:process.env.FK_OUTPUT_DIR,report:process.env.FK_REPORT_DIR,boundedFit:process.env.FK_BOUNDED_FIT==='1',velocityAware:process.env.FK_VELOCITY_AWARE==='1'});console.log(JSON.stringify(receipt,null,2));if(!receipt.passed)process.exitCode=1;}

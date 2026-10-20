@@ -4,7 +4,8 @@ import {fitBoundedChain} from './bounded-chain-fit.mjs';
 
 /** Build-time two-link IK in calibrated bind frames. No translations or scales change.
  * A rejected result still exports the nearest measured attempt for review. */
-export function solveOfflineChain(pose, names, {target, orientation, pole, flexRange, previousRotations,endLimits,boundedFit=false}) {
+export function solveOfflineChain(pose, names, {target, orientation, pole, flexRange, previousRotations,endLimits,boundedFit=false,maxStepDegrees}) {
+  if(maxStepDegrees!==undefined&&(!boundedFit||!previousRotations))throw Error('A velocity limit requires bounded fitting and previous rotations');
   const [upper,middle,end]=names.map((n)=>pose.nodes.get(n));
   if(!upper||!middle||!end)throw Error("Incomplete offline IK chain: "+names.join("/"));
   const offset=new Vector3(...pose.bind.get(middle).position),endOffset=new Vector3(...pose.bind.get(end).position),
@@ -45,15 +46,16 @@ export function solveOfflineChain(pose, names, {target, orientation, pole, flexR
     needsFit=!!previousRotations||analyticPosition.distanceTo(target)>.001||(orientation&&analyticOrientation.angleTo(orientation)>.004);
   let fitted=null;
   if(boundedFit&&needsFit){
-    fitted=fitBoundedChain(pose,names,{target,orientation,pole,seeds:[...(previousRotations?[previousRotations]:[]),analytic],endLimits,flexRange,previousRotations});
+    fitted=fitBoundedChain(pose,names,{target,orientation,pole,seeds:[...(previousRotations?[previousRotations]:[]),analytic],endLimits,flexRange,previousRotations,maxStepDegrees});
     const originalCost=analyticPosition.distanceToSquared(target)*400+(orientation?analyticOrientation.angleTo(orientation)**2*4:0)+(previousRotations?analytic.reduce((s,q,i)=>s+q.angleTo(previousRotations[i])**2*.015**2,0):0);
-    if(fitted.objective<originalCost){[best.upperQ,best.middleQ,best.endQ]=fitted.rotations;}
+    const analyticVelocityInvalid=maxStepDegrees!==undefined&&previousRotations&&analytic.some((r,i)=>MathUtils.radToDeg(r.angleTo(previousRotations[i]))>maxStepDegrees+1e-8);
+    if(fitted.objective<originalCost||analyticVelocityInvalid){[best.upperQ,best.middleQ,best.endQ]=fitted.rotations;}
   }
   best.violations=[...inspect(upper,best.upperQ),...inspect(middle,best.middleQ),...inspect(end,best.endQ,endLimits)];
   upper.setRotation(best.upperQ.toArray());middle.setRotation(best.middleQ.toArray());end.setRotation(best.endQ.toArray());
   const positionError=pose.position(end).distanceTo(target);
   const orientationErrorDegrees=orientation?MathUtils.radToDeg(pose.rotation(end).angleTo(orientation)):0;
-  return{passed:best.violations.length===0&&positionError<=0.005&&orientationErrorDegrees<=1,target:target.toArray(),targetQuaternion:orientation?.toArray()??null,positionError,orientationErrorDegrees,requestedDistance:distance,maximumReach,flex:pose.angles(middle).flex,elbow:pose.position(middle).toArray(),violations:best.violations,boundedFitAttempted:!!fitted};
+  return{passed:best.violations.length===0&&positionError<=0.005&&orientationErrorDegrees<=1,target:target.toArray(),targetQuaternion:orientation?.toArray()??null,positionError,orientationErrorDegrees,requestedDistance:distance,maximumReach,flex:pose.angles(middle).flex,elbow:pose.position(middle).toArray(),violations:best.violations,boundedFitAttempted:!!fitted,maximumStepDegrees:previousRotations?Math.max(...[best.upperQ,best.middleQ,best.endQ].map((r,i)=>MathUtils.radToDeg(r.angleTo(previousRotations[i])))):null};
 }
 
 /** Build-time angular velocity limit. Any resulting endpoint error must be measured

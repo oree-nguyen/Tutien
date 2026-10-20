@@ -9,7 +9,7 @@ import {auditSurface} from './audit-surface.mjs';
 import {verifyContactSurface} from './contact-surface.mjs';
 import {posedHand} from './pose-hand.mjs';
 import {fingerContactMetrics} from '../../src/rig/grip-solver.js';
-const dir='.local/rig-candidates/h02-left-grip';
+const dir=process.env.GRIP_SOURCE_DIR??'.local/rig-candidates/h02-left-grip';
 const input=JSON.parse(await fs.readFile(`${dir}/input.json`));
 const poseFile=process.env.GRIP_POSE??`${dir}/patch-0.5.json`;
 const outputPose=process.env.GRIP_STATIC_POSE??`${dir}/static-pose.json`;
@@ -18,6 +18,11 @@ const candidate=JSON.parse(await fs.readFile(poseFile));
 const io=new NodeIO().registerExtensions(ALL_EXTENSIONS),bytes=await fs.readFile(input.file),hash=b=>createHash('sha256').update(b).digest('hex');
 if(hash(bytes)!==input.rigSha256||candidate.rigSha256!==input.rigSha256)throw Error('H02 contact candidate has stale source skin');
 const doc=await io.readBinary(bytes),frame=input.frame;
+if(JSON.stringify(candidate.fingerFrameCalibration??null)!==JSON.stringify(input.fingerFrameCalibration??null))throw Error('Search finger calibration differs from measured source input');
+for(const[name,f]of Object.entries(candidate.fingers))if(f.canonicalLocal){
+ const expected=[1,2,3].map(i=>input.fingerFrameCalibration?.canonicalLocal['LeftHand'+name+i]??[0,0,0,1]);
+ if(JSON.stringify(f.canonicalLocal)!==JSON.stringify(expected))throw Error('Unbound finger axes '+name);
+}
 const hand=posedHand(doc,frame,'Left',candidate);
 // Strict union: legacy measured hand/cuff crop plus every vertex with any
 // nonzero left-finger influence, and every source triangle touching that union.
@@ -71,7 +76,8 @@ try {
  for(const j of doc.getRoot().listSkins()[0].listJoints()) {
   const match=j.getName().match(/^LeftHand(Thumb|Index|Middle|Ring|Pinky)([123])$/);if(!match)continue;
   const p=candidate.fingers[match[1]],i=Number(match[2])-1,swing=new Vector3(MathUtils.degToRad(p.angles[i]),0,i===0?MathUtils.degToRad(p.opposition):0),a=swing.length();
-  rotations[j.getName()]=new Quaternion(...j.getRotation()).multiply(new Quaternion().setFromAxisAngle(a?swing.divideScalar(a):new Vector3(1,0,0),a)).multiply(new Quaternion().setFromAxisAngle(new Vector3(0,1,0),MathUtils.degToRad(p.twists[i]))).toArray();
+  const basis=new Quaternion(...(p.canonicalLocal?.[i]??[0,0,0,1]));
+  rotations[j.getName()]=new Quaternion(...j.getRotation()).multiply(basis).multiply(new Quaternion().setFromAxisAngle(a?swing.divideScalar(a):new Vector3(1,0,0),a)).multiply(new Quaternion().setFromAxisAngle(new Vector3(0,1,0),MathUtils.degToRad(p.twists[i]))).multiply(basis.clone().invert()).toArray();
  }
  const pose={hero:'H02',hand:'Left',rigFile:input.file,rigSha256:input.rigSha256,weaponSha256:hash(weaponBytes),rotations,fingerParameters:finger,shaftCenter:center.toArray(),shaftAxis:axis.toArray(),weaponQuaternion:best.weaponQuaternion,weaponGripPivot:pivot.toArray(),palmSource: candidate.patch,palm:palm.toArray(),palmNormal:normal.toArray(),passed:exactPassed&&fingerPassed};
  const poseBytes=Buffer.from(JSON.stringify(pose,null,2)+'\n');

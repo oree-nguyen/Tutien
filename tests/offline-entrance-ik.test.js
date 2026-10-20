@@ -36,3 +36,20 @@ test('bounded offline refinement recovers an attainable off-axis hinge contact w
  assert.equal(result.boundedFitAttempted,true);assert.equal(result.passed,true);assert.ok(result.positionError<.005);assert.ok(result.orientationErrorDegrees<1);
  assert.deepEqual(pose.joints.map(n=>[n.getTranslation(),n.getScale()]),original);
 });
+
+test('velocity-constrained offline fit reaches a nearby contact inside the per-frame angular budget',()=>{
+ const pose=fixture(),names=['upper','middle','end'],previous=names.map(()=>new Quaternion()),lengths=pose.joints.map(n=>[n.getTranslation(),n.getScale()]);
+ pose.nodes.get('upper').setRotation(new Quaternion().setFromAxisAngle(new Vector3(0,0,1),.02).toArray());
+ pose.nodes.get('middle').setRotation(new Quaternion().setFromAxisAngle(new Vector3(1,0,0),.08).toArray());
+ const target=pose.position(pose.nodes.get('end')),orientation=pose.rotation(pose.nodes.get('end'));pose.reset();
+ const r=solveOfflineChain(pose,names,{target,orientation,pole:new Vector3(0,.6,-.2),previousRotations:previous,boundedFit:true,maxStepDegrees:8});
+ assert.equal(r.passed,true);assert(r.maximumStepDegrees<=8+1e-6);assert(r.positionError<.005);assert(r.orientationErrorDegrees<=1);assert.deepEqual(pose.report(),[]);
+ assert.deepEqual(pose.joints.map(n=>[n.getTranslation(),n.getScale()]),lengths);
+});
+
+test('velocity-constrained fit keeps a distant target visibly unfulfilled instead of jumping to it',()=>{
+ const pose=fixture(),names=['upper','middle','end'],previous=names.map(()=>new Quaternion()),target=new Vector3(.7,1,0);
+ const r=solveOfflineChain(pose,names,{target,orientation:new Quaternion(),pole:new Vector3(0,.6,-.2),previousRotations:previous,boundedFit:true,maxStepDegrees:8});
+ assert.equal(r.passed,false);assert(r.maximumStepDegrees<=8+1e-6);assert(r.positionError>.2);assert.deepEqual(pose.report(),[]);
+ assert(Math.abs(r.positionError-pose.position(pose.nodes.get('end')).distanceTo(target))<1e-12);
+});

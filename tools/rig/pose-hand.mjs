@@ -29,7 +29,9 @@ export function posedHand(
           0,
           i === 0 ? MathUtils.degToRad(pose.opposition) : 0,
         ),
-        angle = swing.length();
+        angle = swing.length(),basis=new Quaternion(...(pose.canonicalLocal?.[i]??[0,0,0,1]));
+      if(!basis.toArray().every(Number.isFinite)||Math.abs(basis.length()-1)>1e-6)throw Error('Invalid measured finger frame');
+      q.multiply(basis);
       q.multiply(
         new Quaternion().setFromAxisAngle(
           angle ? swing.divideScalar(angle) : new Vector3(1, 0, 0),
@@ -41,6 +43,7 @@ export function posedHand(
           MathUtils.degToRad(pose.twists[i]),
         ),
       );
+      q.multiply(basis.clone().invert());
     }
     const matrix = new Matrix4().compose(
       new Vector3(...node.getTranslation()),

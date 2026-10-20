@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {Document} from '@gltf-transform/core';
-import {Matrix4,Vector3} from 'three';
+import {Matrix4,Vector3,Quaternion} from 'three';
 import {posedHand} from '../tools/rig/pose-hand.mjs';
 
 function fixture(){
@@ -25,4 +25,15 @@ test('independent finger measurements use the actual posed hierarchy rather than
  const {doc,frame}=fixture(),result=posedHand(doc,frame,'Left',{fingers:{Thumb:{angles:[90,0,0],opposition:0,twists:[0,0,0],points:Array(4).fill([999,999,999])}}});
  assert.ok(result.fingerPoints.Thumb[3].distanceTo(new Vector3(0,.03,.09))<1e-7);
  assert.ok(result.position(2).distanceTo(new Vector3(0,.03,.06))<1e-7);
+});
+test('measured flex basis is conjugated into the actual source hierarchy and skin matrices',()=>{
+ const {doc,frame}=fixture(),basis=new Quaternion().setFromAxisAngle(new Vector3(0,1,0),Math.PI/2).toArray(),
+  result=posedHand(doc,frame,'Left',{fingers:{Thumb:{angles:[90,0,0],opposition:0,twists:[0,0,0],canonicalLocal:[basis,[0,0,0,1],[0,0,0,1]]}}});
+ assert(result.fingerPoints.Thumb[3].distanceTo(new Vector3(.09,.03,0))<1e-7);
+ assert(result.position(2).distanceTo(new Vector3(.06,.03,0))<1e-7);
+});
+test('nonfinite and nonunit finger frames reject instead of producing false FK contact',()=>{
+ for(const basis of [[0,0,0,2],[0,NaN,0,1]]){
+  const {doc,frame}=fixture();assert.throws(()=>posedHand(doc,frame,'Left',{fingers:{Thumb:{angles:[90,0,0],opposition:0,twists:[0,0,0],canonicalLocal:[basis]}}}),/Invalid measured finger frame/);
+ }
 });
