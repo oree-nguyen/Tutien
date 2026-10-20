@@ -1,0 +1,49 @@
+{
+  "base": ".local/rig-candidates/semantic-garment-v6",
+  "candidateSha256": "c24b7cdbe874b745ad54d9e951ebeedd85db465f759c91dcc768c58871eae143",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "selection": "Existing vertex-connected source lower lining/fabric/trim, seeded by source face12616 and visually inspected as the348289edge-connected main surface plus100point-connected source faces. No head, hands, boots or fabricated body.",
+  "reviewImages": [
+    "docs/anim-report/conver10-redo/remaining-source-review/corrected-label/largest-remaining-front.png",
+    "docs/anim-report/conver10-redo/remaining-source-review/corrected-label/largest-remaining-back.png"
+  ],
+  "method": "Original source triangle edges and validated UV welds; intrinsic distances from lining to original left/right outer-panel boundary seeds. Color never removes fabric from a panel.",
+  "selectedSourceFaces": 348389,
+  "sourceBounds": [
+    [
+      -0.28436511754989624,
+      0.12021569907665253,
+      -0.20249603688716888
+    ],
+    [
+      0.28497493267059326,
+      1.0267709493637085,
+      0.20249603688716888
+    ]
+  ],
+  "boundarySeedGroups": [
+    2787,
+    2111
+  ],
+  "leftFaces": 160265,
+  "rightFaces": 188124,
+  "sourceArraysUnchanged": true,
+  "weightsUnchanged": true,
+  "runtimeActivated": false,
+  "garmentPatternAccepted": false,
+  "metricDilutionGuard": "Original v6 panel regions must remain separate output primitives; adding lining cannot hide existing region strain failures.",
+  "files": {
+    "lining-left.u32bin": {
+      "sha256": "a4064c68f4b9eacd892667e11fbe3abc90d41834ba8edd6c041c6c3d51606681",
+      "count": 160265
+    },
+    "lining-right.u32bin": {
+      "sha256": "55c23b7af3e73b4032a933187455859f2b6ffec3f34c6308533da7d409d793d5",
+      "count": 188124
+    },
+    "lower-fabric-source-faces.u32bin": {
+      "sha256": "f83070c2bc540ebcb63d68cd23b65c17232648e0be1177e141f911043e28303f",
+      "count": 348389
+    }
+  }
+}

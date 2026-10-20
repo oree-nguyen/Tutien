@@ -1,0 +1,5200 @@
+{
+  "hero": "H01",
+  "input": ".local/rig-candidates/fk-full-staging-v4/H01-C0-rigged.glb",
+  "sha256": "fdb8e9884aeb37082ccf2042befe8ea16ee11214cfdd7ab1fa49eb60d8d4ecfd",
+  "passed": false,
+  "activated": false,
+  "scope": "Independent Three AnimationMixer FK from actual GLB at every 60Hz key, complete Entrance and idle; constraints rejected, no mesh/contact certificate",
+  "exportPreservationPassed": true,
+  "clips": [
+    {
+      "name": "Entrance",
+      "duration": 4.099999904632568,
+      "tracks": 53,
+      "samples": 247
+    },
+    {
+      "name": "IDLE_HOLD",
+      "duration": 4,
+      "tracks": 53,
+      "samples": 241
+    }
+  ],
+  "sampledFrames": 488,
+  "metrics": {
+    "maximumAngularStepDegrees": 15.029482160443546,
+    "maximumPlantedFootSlide": 0.00208180644125673,
+    "maximumGroundPalmHeight": 0.009999985263725968,
+    "worstGroundFacingUpDot": -0.869999962227689,
+    "maximumGroundElbowFlex": 0.000005757245401805163,
+    "maximumGroundWristExtension": 67.7661513061978,
+    "maximumHoldAnchorDrift": 6.211633133799277e-8,
+    "maximumBlendAnchorStep": 0.000004131242888154219,
+    "maximumFootPenetration": 0.04934344195649621,
+    "maximumLowerSourcePenetration": 0.585277616329737,
+    "maximumPlantedFootGap": 0.00013376743964552438,
+    "maximumPlantedFlatSoleHeight": 0.060608553128858045,
+    "maximumPlantedFlatSoleVerticalError": 0.05819426022077672,
+    "maximumSupportTorsoTiltDegrees": 25.799960413819438,
+    "maximumSupportRightKneeHeight": 0.07452891855566385,
+    "minimumSupportRightKneeHeight": 0.07452891097776128
+  },
+  "violatingFrames": 0,
+  "violations": [],
+  "groundFailureFrames": 0,
+  "groundFailures": [],
+  "meshGroundFailureFrames": 197,
+  "meshGroundFailures": [
+    {
+      "clip": "Entrance",
+      "time": 1.9,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9166666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9166666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9333333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9333333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.95,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.95,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9666666666666666,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9666666666666666,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9833333333333334,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 1.9833333333333334,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.0166666666666666,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.0166666666666666,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.033333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.033333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.05,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.05,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.066666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.066666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.0833333333333335,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.0833333333333335,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.1,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.1,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.1166666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.1166666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.1333333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.1333333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.15,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.15,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.1666666666666665,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.1666666666666665,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.183333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.183333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.2,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.2,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.216666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.216666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.2333333333333334,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.2333333333333334,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.25,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.25,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.2666666666666666,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.2666666666666666,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.283333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.283333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.3,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.3,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.316666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.316666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.3333333333333335,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.3333333333333335,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.35,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.35,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.3666666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.3666666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.3833333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.3833333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.4,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.4,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.4166666666666665,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.4166666666666665,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.433333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.433333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.45,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.45,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.466666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.466666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.4833333333333334,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.4833333333333334,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.5,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.5,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.5166666666666666,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.5166666666666666,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.533333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.533333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.55,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.55,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.566666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.566666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.5833333333333335,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815563597596,
+      "minimumY": -0.5783815563597596,
+      "soleMinimumY": -0.04934344062787016,
+      "soleMaximumY": 0.015850960168059047,
+      "soleMaximumVerticalError": 0.05819425890692688,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.5833333333333335,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.585277616329737,
+      "minimumY": -0.585277616329737,
+      "soleMinimumY": 0.019963757447726,
+      "soleMaximumY": 0.1796913017986372,
+      "soleMaximumVerticalError": 0.17648939094820212,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.6,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5783815533995196,
+      "minimumY": -0.5783815533995196,
+      "soleMinimumY": -0.04934344195649621,
+      "soleMaximumY": 0.015850955583772957,
+      "soleMaximumVerticalError": 0.05819426022077672,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.6,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5852776111619075,
+      "minimumY": -0.5852776111619075,
+      "soleMinimumY": 0.01996374167915454,
+      "soleMaximumY": 0.17969121460773158,
+      "soleMaximumVerticalError": 0.17648930796736537,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.6166666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5778869955403332,
+      "minimumY": -0.5778869955403332,
+      "soleMinimumY": -0.04923415349037096,
+      "soleMaximumY": 0.015567524516657499,
+      "soleMaximumVerticalError": 0.05808327872353782,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.6166666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.584390849880781,
+      "minimumY": -0.584390849880781,
+      "soleMinimumY": 0.017041792237930932,
+      "soleMaximumY": 0.16429287799947964,
+      "soleMaximumVerticalError": 0.16170560014013532,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.6333333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5764751769026673,
+      "minimumY": -0.5764751769026673,
+      "soleMinimumY": -0.049080167238416336,
+      "soleMaximumY": 0.015340314223171862,
+      "soleMaximumVerticalError": 0.057926698497889645,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.6333333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5828864985307077,
+      "minimumY": -0.5828864985307077,
+      "soleMinimumY": 0.01938894015203701,
+      "soleMaximumY": 0.16618511293359628,
+      "soleMaximumVerticalError": 0.16362403133227327,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.65,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5741574948157129,
+      "minimumY": -0.5741574948157129,
+      "soleMinimumY": -0.048824653377584314,
+      "soleMaximumY": 0.014969020542429413,
+      "soleMaximumVerticalError": 0.05766695497132026,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.65,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5804579160925304,
+      "minimumY": -0.5804579160925304,
+      "soleMinimumY": 0.021524557181757706,
+      "soleMaximumY": 0.16758028026474595,
+      "soleMaximumVerticalError": 0.16503613848176835,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.6666666666666665,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5710111348782899,
+      "minimumY": -0.5710111348782899,
+      "soleMinimumY": -0.04861697238549048,
+      "soleMaximumY": 0.015265731342751013,
+      "soleMaximumVerticalError": 0.05745332325097541,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.6666666666666665,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5771726138763873,
+      "minimumY": -0.5771726138763873,
+      "soleMinimumY": 0.022500708738344637,
+      "soleMaximumY": 0.16617765604048262,
+      "soleMaximumVerticalError": 0.16365574656051904,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.683333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5670128849006355,
+      "minimumY": -0.5670128849006355,
+      "soleMinimumY": -0.04828812046828228,
+      "soleMaximumY": 0.015314813888642009,
+      "soleMaximumVerticalError": 0.05711714479999294,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.683333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5730181650817711,
+      "minimumY": -0.5730181650817711,
+      "soleMinimumY": 0.02377836702495799,
+      "soleMaximumY": 0.1643354687872233,
+      "soleMaximumVerticalError": 0.1618440954461705,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.7,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5621950916661375,
+      "minimumY": -0.5621950916661375,
+      "soleMinimumY": -0.047835219817400625,
+      "soleMaximumY": 0.015277790453714678,
+      "soleMaximumVerticalError": 0.05665574420001919,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.7,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightToeBase",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5680333696249823,
+      "minimumY": -0.5680333696249823,
+      "soleMinimumY": 0.024616027691106768,
+      "soleMaximumY": 0.16151915935930183,
+      "soleMaximumVerticalError": 0.15903169660601746,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.716666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.556586198820127,
+      "minimumY": -0.556586198820127,
+      "soleMinimumY": -0.047255223880252384,
+      "soleMaximumY": 0.015163274426402484,
+      "soleMaximumVerticalError": 0.05606620826874,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.716666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.0026991679884241695
+      },
+      "lowerSourceMinimumY": -0.562205654954335,
+      "minimumY": -0.562205654954335,
+      "soleMinimumY": 0.026344417025040916,
+      "soleMaximumY": 0.15955650524734816,
+      "soleMaximumVerticalError": 0.15704031010285585,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.7333333333333334,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.550214593681984,
+      "minimumY": -0.550214593681984,
+      "soleMinimumY": -0.04654480031539158,
+      "soleMaximumY": 0.014987327862424788,
+      "soleMaximumVerticalError": 0.05534535034260649,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.7333333333333334,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.010574060160836955
+      },
+      "lowerSourceMinimumY": -0.5555417445304303,
+      "minimumY": -0.5555417445304303,
+      "soleMinimumY": 0.02884227577612581,
+      "soleMaximumY": 0.15910190349835374,
+      "soleMaximumVerticalError": 0.1565399808477855,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.75,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5431086508541842,
+      "minimumY": -0.5431086508541842,
+      "soleMinimumY": -0.04570071313687487,
+      "soleMaximumY": 0.014781675072149196,
+      "soleMaximumVerticalError": 0.05449009102417086,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.75,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.02329075882794877
+      },
+      "lowerSourceMinimumY": -0.5480514098440303,
+      "minimumY": -0.5480514098440303,
+      "soleMinimumY": 0.03344563119042482,
+      "soleMaximumY": 0.16154064793474526,
+      "soleMaximumVerticalError": 0.15838787795388698,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.7666666666666666,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.5352967736578735,
+      "minimumY": -0.5352967736578735,
+      "soleMinimumY": -0.044720111985930136,
+      "soleMaximumY": 0.014529032984156236,
+      "soleMaximumVerticalError": 0.05349774546613558,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.7666666666666666,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.04051534630047002
+      },
+      "lowerSourceMinimumY": -0.5397812731336267,
+      "minimumY": -0.5397812731336267,
+      "soleMinimumY": 0.03922999824795972,
+      "soleMaximumY": 0.1666665187901209,
+      "soleMaximumVerticalError": 0.16168907604685728,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.783333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.526807412962952,
+      "minimumY": -0.526807412962952,
+      "soleMinimumY": -0.043601282620137315,
+      "soleMaximumY": 0.014241326271291627,
+      "soleMaximumVerticalError": 0.05236677002490091,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.783333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.061913904889111124
+      },
+      "lowerSourceMinimumY": -0.5307640881983379,
+      "minimumY": -0.5307640881983379,
+      "soleMinimumY": 0.04611431947174784,
+      "soleMaximumY": 0.17294104586964504,
+      "soleMaximumVerticalError": 0.16626001781317495,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.8,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.51766909727557,
+      "minimumY": -0.51766909727557,
+      "soleMinimumY": -0.04234383302871105,
+      "soleMaximumY": 0.013930698379413443,
+      "soleMaximumVerticalError": 0.051096946110553675,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.8,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.08715251690458252
+      },
+      "lowerSourceMinimumY": -0.5210513463630793,
+      "minimumY": -0.5210513463630793,
+      "soleMinimumY": 0.052881058954578904,
+      "soleMaximumY": 0.17901986390459812,
+      "soleMaximumVerticalError": 0.17139174533321566,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.816666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.507910405340381,
+      "minimumY": -0.507910405340381,
+      "soleMinimumY": -0.04094889489506504,
+      "soleMaximumY": 0.013609453522612652,
+      "soleMaximumVerticalError": 0.04968957794303613,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.816666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.11589726465759535
+      },
+      "lowerSourceMinimumY": -0.5106882689565702,
+      "minimumY": -0.5106882689565702,
+      "soleMinimumY": 0.06107703626948245,
+      "soleMaximumY": 0.18656851031837135,
+      "soleMaximumVerticalError": 0.1789478069258511,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.8333333333333335,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.49755999131894607,
+      "minimumY": -0.49755999131894607,
+      "soleMinimumY": -0.039419857783765506,
+      "soleMaximumY": 0.013289202440272721,
+      "soleMaximumVerticalError": 0.04814822078026408,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.8333333333333335,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.1478142304588586
+      },
+      "lowerSourceMinimumY": -0.4997552759457663,
+      "minimumY": -0.4997552759457663,
+      "soleMinimumY": 0.06849854995204654,
+      "soleMaximumY": 0.19316760782856446,
+      "soleMaximumVerticalError": 0.18553427141599363,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.85,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.4866466248522056,
+      "minimumY": -0.4866466248522056,
+      "soleMinimumY": -0.03776254476739077,
+      "soleMaximumY": 0.012980717540228781,
+      "soleMaximumVerticalError": 0.04647885239899291,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.85,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.1825694966190833
+      },
+      "lowerSourceMinimumY": -0.48823076123725967,
+      "minimumY": -0.48823076123725967,
+      "soleMinimumY": 0.07643434585594047,
+      "soleMaximumY": 0.20017300269035415,
+      "soleMaximumVerticalError": 0.19251146848875422,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.8666666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.47519912060541253,
+      "minimumY": -0.47519912060541253,
+      "soleMinimumY": -0.035985140403638816,
+      "soleMaximumY": 0.0126938619916106,
+      "soleMaximumVerticalError": 0.04468979647632571,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.8666666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.21982914544898
+      },
+      "lowerSourceMinimumY": -0.4761394643566074,
+      "minimumY": -0.4761394643566074,
+      "soleMinimumY": 0.08481099093737812,
+      "soleMaximumY": 0.20739173741339686,
+      "soleMaximumVerticalError": 0.1997295124436698,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.8833333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.463246551272333,
+      "minimumY": -0.463246551272333,
+      "soleMinimumY": -0.034098703370443524,
+      "soleMaximumY": 0.012436709676152879,
+      "soleMaximumVerticalError": 0.04279222942927095,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30270
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.8833333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.25925925925925886
+      },
+      "lowerSourceMinimumY": -0.4635100627970794,
+      "minimumY": -0.4635100627970794,
+      "soleMinimumY": 0.09304606911947293,
+      "soleMaximumY": 0.21412196281206614,
+      "soleMaximumVerticalError": 0.20643075973134634,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.9,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.4507833108244908,
+      "minimumY": -0.4507833108244908,
+      "soleMinimumY": -0.03223394604410198,
+      "soleMaximumY": 0.012215910394438905,
+      "soleMaximumVerticalError": 0.04089903428893411,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.9,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.3005259203606306
+      },
+      "lowerSourceMinimumY": -0.4503765162155078,
+      "minimumY": -0.4503765162155078,
+      "soleMinimumY": 0.10064039684742009,
+      "soleMaximumY": 0.2198364545914837,
+      "soleMaximumVerticalError": 0.2121276298247793,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        13623
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.9166666666666665,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.437907858353072,
+      "minimumY": -0.437907858353072,
+      "soleMinimumY": -0.030220894402883128,
+      "soleMaximumY": 0.013700108280004302,
+      "soleMaximumVerticalError": 0.038843440120214776,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.9166666666666665,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.3432952110638054
+      },
+      "lowerSourceMinimumY": -0.43675613699828053,
+      "minimumY": -0.43675613699828053,
+      "soleMinimumY": 0.10040889965889861,
+      "soleMaximumY": 0.224964132038795,
+      "soleMaximumVerticalError": 0.21723711892014846,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16081
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.933333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.4245816456269849,
+      "minimumY": -0.4245816456269849,
+      "soleMinimumY": -0.02826449356087596,
+      "soleMaximumY": 0.015347365619715043,
+      "soleMaximumVerticalError": 0.03684222566098477,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.933333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.3872332136794939
+      },
+      "lowerSourceMinimumY": -0.4226903748818429,
+      "minimumY": -0.4226903748818429,
+      "soleMinimumY": 0.10118839253463294,
+      "soleMaximumY": 0.2297649140186408,
+      "soleMaximumVerticalError": 0.22200765813504109,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16196
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.95,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.4108679186498801,
+      "minimumY": -0.4108679186498801,
+      "soleMinimumY": -0.026279457023698362,
+      "soleMaximumY": 0.01697869444065203,
+      "soleMaximumVerticalError": 0.03481372438470587,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.95,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.4320060105184075
+      },
+      "lowerSourceMinimumY": -0.4082200353571479,
+      "minimumY": -0.4082200353571479,
+      "soleMinimumY": 0.10090111847322765,
+      "soleMaximumY": 0.23123868027783928,
+      "soleMaximumVerticalError": 0.22337284601417934,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16196
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.966666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.3968264923651609,
+      "minimumY": -0.3968264923651609,
+      "soleMinimumY": -0.024163012845020006,
+      "soleMaximumY": 0.01911045568439222,
+      "soleMaximumVerticalError": 0.032658612514008284,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.966666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.4772796838912543
+      },
+      "lowerSourceMinimumY": -0.39364603976335744,
+      "minimumY": -0.39364603976335744,
+      "soleMinimumY": 0.09577359946490656,
+      "soleMaximumY": 0.2280959731332521,
+      "soleMaximumVerticalError": 0.22014139025265672,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16202
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.9833333333333334,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.3824239728753874,
+      "minimumY": -0.3824239728753874,
+      "soleMinimumY": -0.022175424468267514,
+      "soleMaximumY": 0.020633804380135977,
+      "soleMaximumVerticalError": 0.03063061827495974,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 2.9833333333333334,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.5227203161087459
+      },
+      "lowerSourceMinimumY": -0.37885015333372823,
+      "minimumY": -0.37885015333372823,
+      "soleMinimumY": 0.08974355434991438,
+      "soleMaximumY": 0.22297977103096436,
+      "soleMaximumVerticalError": 0.2146955306011471,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        17956
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.3677493748319387,
+      "minimumY": -0.3677493748319387,
+      "soleMinimumY": -0.02007649794249587,
+      "soleMaximumY": 0.02261286655640975,
+      "soleMaximumVerticalError": 0.028496193715698035,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.5679939894815925
+      },
+      "lowerSourceMinimumY": -0.3638669729564048,
+      "minimumY": -0.3638669729564048,
+      "soleMinimumY": 0.0827214090499961,
+      "soleMaximumY": 0.2156975032984655,
+      "soleMaximumVerticalError": 0.2070321671138723,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        17956
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.0166666666666666,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.35277367317298497,
+      "minimumY": -0.35277367317298497,
+      "soleMinimumY": -0.0181572329724208,
+      "soleMaximumY": 0.023943749261878325,
+      "soleMaximumVerticalError": 0.02653981063719553,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.0166666666666666,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.6127667863205049
+      },
+      "lowerSourceMinimumY": -0.34872379802435055,
+      "minimumY": -0.34872379802435055,
+      "soleMinimumY": 0.07476539357408127,
+      "soleMaximumY": 0.20610598235215669,
+      "soleMaximumVerticalError": 0.1972779323634136,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        17956
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.033333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.33755509910493636,
+      "minimumY": -0.33755509910493636,
+      "soleMinimumY": -0.01629575359108628,
+      "soleMaximumY": 0.025156825409133686,
+      "soleMaximumVerticalError": 0.024642901468753246,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.033333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.6567047889361934
+      },
+      "lowerSourceMinimumY": -0.33347272507274506,
+      "minimumY": -0.33347272507274506,
+      "soleMinimumY": 0.06715313081410718,
+      "soleMaximumY": 0.19596466361278125,
+      "soleMaximumVerticalError": 0.1870447157993394,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        17956
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.05,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.32214737559146683,
+      "minimumY": -0.32214737559146683,
+      "soleMinimumY": -0.014353795157133819,
+      "soleMaximumY": 0.026760866362149315,
+      "soleMaximumVerticalError": 0.022670159411023374,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.05,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.6994740796393683
+      },
+      "lowerSourceMinimumY": -0.31810668618441523,
+      "minimumY": -0.31810668618441523,
+      "soleMinimumY": 0.058753816709147984,
+      "soleMaximumY": 0.18410281825283004,
+      "soleMaximumVerticalError": 0.1750841514420498,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16199
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.066666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.30652842877280506,
+      "minimumY": -0.30652842877280506,
+      "soleMinimumY": -0.01264635517771127,
+      "soleMaximumY": 0.02768794870299705,
+      "soleMaximumVerticalError": 0.020930422275324448,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.066666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.7407407407407411
+      },
+      "lowerSourceMinimumY": -0.3026751202279649,
+      "minimumY": -0.3026751202279649,
+      "soleMinimumY": 0.050884614195108424,
+      "soleMaximumY": 0.17218203829840462,
+      "soleMaximumVerticalError": 0.16309607307106846,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16199
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.0833333333333335,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.2907754037547428,
+      "minimumY": -0.2907754037547428,
+      "soleMinimumY": -0.010867597181509096,
+      "soleMaximumY": 0.028978001733087268,
+      "soleMaximumVerticalError": 0.019334328836406588,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.0833333333333335,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.7801708545510201
+      },
+      "lowerSourceMinimumY": -0.2871595639050125,
+      "minimumY": -0.2871595639050125,
+      "soleMinimumY": 0.04268024397206806,
+      "soleMaximumY": 0.1591977495497623,
+      "soleMaximumVerticalError": 0.15001917757971425,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16199
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.1,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.2748714785186035,
+      "minimumY": -0.2748714785186035,
+      "soleMinimumY": -0.009352717005417666,
+      "soleMaximumY": 0.02958291682819489,
+      "soleMaximumVerticalError": 0.01993452911223944,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.1,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.8174305033809166
+      },
+      "lowerSourceMinimumY": -0.2706348728007325,
+      "minimumY": -0.2706348728007325,
+      "soleMinimumY": 0.04665834809544757,
+      "soleMaximumY": 0.16071020070338782,
+      "soleMaximumVerticalError": 0.1514272139234892,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16199
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.1166666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.2588887298539536,
+      "minimumY": -0.2588887298539536,
+      "soleMinimumY": -0.007770304909758361,
+      "soleMaximumY": 0.030530915567753537,
+      "soleMaximumVerticalError": 0.020891931315511373,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.1166666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.8521857695411413
+      },
+      "lowerSourceMinimumY": -0.2548570014367291,
+      "minimumY": -0.2548570014367291,
+      "soleMinimumY": 0.03970078990764454,
+      "soleMaximumY": 0.14538997607455356,
+      "soleMaximumVerticalError": 0.13605330913123892,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16130
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.1333333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.2428160773531248,
+      "minimumY": -0.2428160773531248,
+      "soleMinimumY": -0.006471931589991462,
+      "soleMaximumY": 0.030796570706421476,
+      "soleMaximumVerticalError": 0.021153905260879707,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.1333333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.8841027353424046
+      },
+      "lowerSourceMinimumY": -0.24022595286834067,
+      "minimumY": -0.24022595286834067,
+      "soleMinimumY": 0.01994393060501174,
+      "soleMaximumY": 0.11043694350800769,
+      "soleMaximumVerticalError": 0.10094872528109959,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16128
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.15,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.22672011776001808,
+      "minimumY": -0.22672011776001808,
+      "soleMinimumY": -0.005105631526431818,
+      "soleMaximumY": 0.03139193416323819,
+      "soleMaximumVerticalError": 0.021758381945134048,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.15,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.9128474830954169
+      },
+      "lowerSourceMinimumY": -0.2245829685304673,
+      "minimumY": -0.2245829685304673,
+      "soleMinimumY": 0.014811528478442484,
+      "soleMaximumY": 0.09869461106533992,
+      "soleMaximumVerticalError": 0.08912144033532673,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16054
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.1666666666666665,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.21061089208863376,
+      "minimumY": -0.21061089208863376,
+      "soleMinimumY": -0.0038477162369659965,
+      "soleMaximumY": 0.031810761116172905,
+      "soleMaximumVerticalError": 0.022186163346250794,
+      "minimumSource": [
+        54,
+        0,
+        290295
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.1666666666666665,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.9380860951108883
+      },
+      "lowerSourceMinimumY": -0.2089152170200003,
+      "minimumY": -0.2089152170200003,
+      "soleMinimumY": 0.010329802492782491,
+      "soleMaximumY": 0.08848413236302995,
+      "soleMaximumVerticalError": 0.0788792070509556,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        16058
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.183333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.19453796264390205,
+      "minimumY": -0.19453796264390205,
+      "soleMinimumY": -0.0028940503413134658,
+      "soleMaximumY": 0.03156147179814062,
+      "soleMaximumVerticalError": 0.02193344429285474,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        30291
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.183333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.9594846536995294
+      },
+      "lowerSourceMinimumY": -0.19317204982522193,
+      "minimumY": -0.19317204982522193,
+      "soleMinimumY": 0.0055623267639554885,
+      "soleMaximumY": 0.07948206643160118,
+      "soleMaximumVerticalError": 0.06986245626466253,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        15277
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.2,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.17866476563265207,
+      "minimumY": -0.17866476563265207,
+      "soleMinimumY": -0.0022321874359288525,
+      "soleMaximumY": 0.03163361582893772,
+      "soleMaximumVerticalError": 0.022015681657144136,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        21602
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.2,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.9767092411720513
+      },
+      "lowerSourceMinimumY": -0.17742675792283272,
+      "minimumY": -0.17742675792283272,
+      "soleMinimumY": 0.0015586640219528317,
+      "soleMaximumY": 0.07221281367545827,
+      "soleMaximumVerticalError": 0.06257738132467075,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8914
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.216666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.1628676732588907,
+      "minimumY": -0.1628676732588907,
+      "soleMinimumY": -0.0020990452241520883,
+      "soleMaximumY": 0.031535745437310046,
+      "soleMaximumVerticalError": 0.021927724656969304,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        21602
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.216666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.989425939839163
+      },
+      "lowerSourceMinimumY": -0.16167874352363767,
+      "minimumY": -0.16167874352363767,
+      "soleMinimumY": -0.0016488848536800951,
+      "soleMaximumY": 0.0663085982773145,
+      "soleMaximumVerticalError": 0.05668383618460229,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8914
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.2333333333333334,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.14717652927719044,
+      "minimumY": -0.14717652927719044,
+      "soleMinimumY": -0.001959301720777242,
+      "soleMaximumY": 0.0312705790816618,
+      "soleMaximumVerticalError": 0.021672266419760423,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        21602
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.2333333333333334,
+      "side": "Right",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "RightFoot",
+        "step": true,
+        "stepProgress": 0.9973008320115759
+      },
+      "lowerSourceMinimumY": -0.14597010397454455,
+      "minimumY": -0.14597010397454455,
+      "soleMinimumY": -0.003554171738456769,
+      "soleMaximumY": 0.06244091271118419,
+      "soleMaximumVerticalError": 0.05281834879789307,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8912
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.25,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 0
+      },
+      "lowerSourceMinimumY": -0.1316214067446585,
+      "minimumY": -0.1316214067446585,
+      "soleMinimumY": -0.001811579589103494,
+      "soleMaximumY": 0.03084111437456199,
+      "soleMaximumVerticalError": 0.021252362934274963,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        21602
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.25,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.13032099080117554,
+      "minimumY": -0.13032099080117554,
+      "soleMinimumY": -0.004194017384665891,
+      "soleMaximumY": 0.060608553128858045,
+      "soleMaximumVerticalError": 0.05098505585246841,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8908
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.2666666666666666,
+      "side": "Left",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "LeftFoot",
+        "step": true,
+        "stepProgress": 0.0050636574074073735
+      },
+      "lowerSourceMinimumY": -0.11609406098672195,
+      "minimumY": -0.11609406098672195,
+      "soleMinimumY": -0.00044299573498237375,
+      "soleMaximumY": 0.03150680176583521,
+      "soleMaximumVerticalError": 0.02191508273301633,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        21602
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.2666666666666666,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.11478609808299761,
+      "minimumY": -0.11478609808299761,
+      "soleMinimumY": -0.004424324086849481,
+      "soleMaximumY": 0.0594367318044142,
+      "soleMaximumVerticalError": 0.04980646094678931,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8831
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.283333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "LeftFoot",
+        "step": true,
+        "stepProgress": 0.019675925925925795
+      },
+      "lowerSourceMinimumY": -0.10051446221383908,
+      "minimumY": -0.10051446221383908,
+      "soleMinimumY": 0.003505876587706424,
+      "soleMaximumY": 0.03538622830531123,
+      "soleMaximumVerticalError": 0.02578881821967874,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        21602
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.283333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.09944778476856918,
+      "minimumY": -0.09944778476856918,
+      "soleMinimumY": -0.004753937454305346,
+      "soleMaximumY": 0.05814156450259425,
+      "soleMaximumVerticalError": 0.04850145871008775,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8831
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.3,
+      "side": "Left",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "LeftFoot",
+        "step": true,
+        "stepProgress": 0.04296874999999973
+      },
+      "lowerSourceMinimumY": -0.08493487059676486,
+      "minimumY": -0.08493487059676486,
+      "soleMinimumY": 0.0097622637086039,
+      "soleMaximumY": 0.04219341302702743,
+      "soleMaximumVerticalError": 0.03258763191608198,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        21602
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.3,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.0843468076445831,
+      "minimumY": -0.0843468076445831,
+      "soleMinimumY": -0.004840634403432038,
+      "soleMaximumY": 0.056910728796439554,
+      "soleMaximumVerticalError": 0.04726574851638418,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8831
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.316666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "LeftFoot",
+        "step": true,
+        "stepProgress": 0.07407407407407453
+      },
+      "lowerSourceMinimumY": -0.06942219740002387,
+      "minimumY": -0.06942219740002387,
+      "soleMinimumY": 0.017900275539346738,
+      "soleMaximumY": 0.0514512067248176,
+      "soleMaximumVerticalError": 0.04183452740614497,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        21602
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.316666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.06949910585909279,
+      "minimumY": -0.06949910585909279,
+      "soleMinimumY": -0.005067010388940014,
+      "soleMaximumY": 0.055428287094907866,
+      "soleMaximumVerticalError": 0.04577503384388934,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8810
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.3333333333333335,
+      "side": "Left",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "LeftFoot",
+        "step": true,
+        "stepProgress": 0.11212384259259302
+      },
+      "lowerSourceMinimumY": -0.054048569372298516,
+      "minimumY": -0.054048569372298516,
+      "soleMinimumY": 0.027269081789311957,
+      "soleMaximumY": 0.06211170102168698,
+      "soleMaximumVerticalError": 0.05247605407583162,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        22277
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.3333333333333335,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.054935748090282406,
+      "minimumY": -0.054935748090282406,
+      "soleMinimumY": -0.005471634047073381,
+      "soleMaximumY": 0.05381054730882312,
+      "soleMaximumVerticalError": 0.04414710220427057,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8808
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.35,
+      "side": "Left",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "LeftFoot",
+        "step": true,
+        "stepProgress": 0.1562500000000003
+      },
+      "lowerSourceMinimumY": -0.03890981684844776,
+      "minimumY": -0.03890981684844776,
+      "soleMinimumY": 0.037315413274861375,
+      "soleMaximumY": 0.07385793814879632,
+      "soleMaximumVerticalError": 0.0642059353515013,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        22277
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.35,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.04070685005541698,
+      "minimumY": -0.04070685005541698,
+      "soleMinimumY": -0.005422888771841852,
+      "soleMaximumY": 0.05230563185501131,
+      "soleMaximumVerticalError": 0.04263892062898676,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8808
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.3666666666666667,
+      "side": "Left",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "LeftFoot",
+        "step": true,
+        "stepProgress": 0.2055844907407409
+      },
+      "lowerSourceMinimumY": -0.024098713025014352,
+      "minimumY": -0.024098713025014352,
+      "soleMinimumY": 0.047365969811373525,
+      "soleMaximumY": 0.08588516129327545,
+      "soleMaximumVerticalError": 0.0762227421745116,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        22277
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.3666666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.026820971587199538,
+      "minimumY": -0.026820971587199538,
+      "soleMinimumY": -0.005589304569407744,
+      "soleMaximumY": 0.050576535476387324,
+      "soleMaximumVerticalError": 0.040902621330177046,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8808
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.3833333333333333,
+      "side": "Left",
+      "contact": {
+        "planted": false,
+        "anchorJoint": "LeftFoot",
+        "step": true,
+        "stepProgress": 0.25925925925925924
+      },
+      "lowerSourceMinimumY": -0.009702760387342833,
+      "minimumY": -0.009702760387342833,
+      "soleMinimumY": 0.05664283098710572,
+      "soleMaximumY": 0.09702641488157454,
+      "soleMaximumVerticalError": 0.08733900550534665,
+      "minimumSource": [
+        54,
+        0,
+        290221
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        22280
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.3833333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.013319260052024254,
+      "minimumY": -0.013319260052024254,
+      "soleMinimumY": -0.0056675893110280234,
+      "soleMaximumY": 0.04885549584621586,
+      "soleMaximumVerticalError": 0.039176325328471436,
+      "minimumSource": [
+        54,
+        0,
+        285019
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8808
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.4,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.005761218197840488,
+      "minimumY": -0.005761218197840488,
+      "soleMinimumY": -0.005761218197840488,
+      "soleMaximumY": 0.04699196496195186,
+      "soleMaximumVerticalError": 0.03730638236614469,
+      "minimumSource": [
+        54,
+        0,
+        8808
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8808
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.4166666666666665,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.005846678955118639,
+      "minimumY": -0.005846678955118639,
+      "soleMinimumY": -0.005846678955118639,
+      "soleMaximumY": 0.04506916011553858,
+      "soleMaximumVerticalError": 0.0353774234820972,
+      "minimumSource": [
+        54,
+        0,
+        8817
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8817
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.433333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.0058314296778700205,
+      "minimumY": -0.0058314296778700205,
+      "soleMinimumY": -0.0058314296778700205,
+      "soleMaximumY": 0.043158415205658315,
+      "soleMaximumVerticalError": 0.033462567739006986,
+      "minimumSource": [
+        54,
+        0,
+        8812
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8812
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.45,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.00582724102385367,
+      "minimumY": -0.00582724102385367,
+      "soleMinimumY": -0.00582724102385367,
+      "soleMaximumY": 0.041141352537088505,
+      "soleMaximumVerticalError": 0.03144054163300063,
+      "minimumSource": [
+        54,
+        0,
+        8812
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8812
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.466666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.005772423563164836,
+      "minimumY": -0.005772423563164836,
+      "soleMinimumY": -0.005772423563164836,
+      "soleMaximumY": 0.03908788126255376,
+      "soleMaximumVerticalError": 0.02938666280652387,
+      "minimumSource": [
+        54,
+        0,
+        8812
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8812
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.4833333333333334,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.0056667125196195895,
+      "minimumY": -0.0056667125196195895,
+      "soleMinimumY": -0.0056667125196195895,
+      "soleMaximumY": 0.03703142072461008,
+      "soleMaximumVerticalError": 0.02733020226858019,
+      "minimumSource": [
+        54,
+        0,
+        8806
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8806
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.5,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.005538383663425461,
+      "minimumY": -0.005538383663425461,
+      "soleMinimumY": -0.005538383663425461,
+      "soleMaximumY": 0.0349096996381137,
+      "soleMaximumVerticalError": 0.02520848118208381,
+      "minimumSource": [
+        54,
+        0,
+        8802
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8802
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.5166666666666666,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.005369682981107942,
+      "minimumY": -0.005369682981107942,
+      "soleMinimumY": -0.005369682981107942,
+      "soleMaximumY": 0.032763844368487484,
+      "soleMaximumVerticalError": 0.023062625912457592,
+      "minimumSource": [
+        54,
+        0,
+        8802
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8802
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.533333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.005138334789516744,
+      "minimumY": -0.005138334789516744,
+      "soleMinimumY": -0.005138334789516744,
+      "soleMaximumY": 0.030598540575622363,
+      "soleMaximumVerticalError": 0.02089732211959247,
+      "minimumSource": [
+        54,
+        0,
+        8802
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8802
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.55,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.0049321064759252535,
+      "minimumY": -0.0049321064759252535,
+      "soleMinimumY": -0.0049321064759252535,
+      "soleMaximumY": 0.028393863125782123,
+      "soleMaximumVerticalError": 0.01869264466975223,
+      "minimumSource": [
+        54,
+        0,
+        8802
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8802
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.566666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.004469076426451018,
+      "minimumY": -0.004469076426451018,
+      "soleMinimumY": -0.004469076426451018,
+      "soleMaximumY": 0.026240001890610903,
+      "soleMaximumVerticalError": 0.01653878343458101,
+      "minimumSource": [
+        54,
+        0,
+        8802
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8802
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.5833333333333335,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.0040569574951376764,
+      "minimumY": -0.0040569574951376764,
+      "soleMinimumY": -0.0040569574951376764,
+      "soleMaximumY": 0.02404341668994138,
+      "soleMaximumVerticalError": 0.014342198233911488,
+      "minimumSource": [
+        54,
+        0,
+        8804
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8804
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.6,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.003584640842632582,
+      "minimumY": -0.003584640842632582,
+      "soleMinimumY": -0.003584640842632582,
+      "soleMaximumY": 0.021848451747601978,
+      "soleMaximumVerticalError": 0.012147233291572086,
+      "minimumSource": [
+        54,
+        0,
+        8804
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8804
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.6166666666666667,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.0030646523304360775,
+      "minimumY": -0.0030646523304360775,
+      "soleMinimumY": -0.0030646523304360775,
+      "soleMaximumY": 0.01966036543172456,
+      "soleMaximumVerticalError": 0.00995914697569467,
+      "minimumSource": [
+        54,
+        0,
+        8762
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8762
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.6333333333333333,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.002489011122291064,
+      "minimumY": -0.002489011122291064,
+      "soleMinimumY": -0.002489011122291064,
+      "soleMaximumY": 0.017486199827161805,
+      "soleMaximumVerticalError": 0.007784981371131913,
+      "minimumSource": [
+        54,
+        0,
+        8753
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8753
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.65,
+      "side": "Left",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "LeftFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.002000798602018045,
+      "minimumY": -0.002000798602018045,
+      "soleMinimumY": -0.002000798602018045,
+      "soleMaximumY": 0.01540261195471838,
+      "soleMaximumVerticalError": 0.005701393498688489,
+      "minimumSource": [
+        54,
+        0,
+        22350
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        22350
+      ]
+    },
+    {
+      "clip": "Entrance",
+      "time": 3.65,
+      "side": "Right",
+      "contact": {
+        "planted": true,
+        "anchorJoint": "RightFoot",
+        "step": false,
+        "stepProgress": 1
+      },
+      "lowerSourceMinimumY": -0.0018715997939145507,
+      "minimumY": -0.0018715997939145507,
+      "soleMinimumY": -0.0018715997939145507,
+      "soleMaximumY": 0.015333577400564933,
+      "soleMaximumVerticalError": 0.005632358944535041,
+      "minimumSource": [
+        54,
+        0,
+        8758
+      ],
+      "soleMinimumSource": [
+        54,
+        0,
+        8758
+      ]
+    }
+  ],
+  "sourceFootSelection": {
+    "path": "docs/anim-report/conver10-redo/animation/full-v4/H01-foot-source-vertices.json",
+    "method": "Automatic lower-source region: every unchanged source vertex with bind world y <= 150 mm and abs(x) >= 40 mm, includes residual cloth; side follows character x sign. Separate bind-bottom subset y <= 10 mm is provisional, not a certified semantic sole.",
+    "visuallyVerified": false,
+    "sides": {
+      "Left": {
+        "vertices": 30129,
+        "soleVertices": 2972
+      },
+      "Right": {
+        "vertices": 30854,
+        "soleVertices": 3024
+      }
+    }
+  },
+  "fkCriteriaPassed": false,
+  "controllerPassed": true,
+  "seekError": 4.449557262054371e-16,
+  "replayCount": 10,
+  "idleRunning": true,
+  "state": "IDLE_HOLD",
+  "unverified": [
+    "adaptive source-triangle weapon contact on every frame",
+    "independent visual approval of the automatic source-foot regions",
+    "joint cross-sections, garment/body collision and strain",
+    "hammer/head distance",
+    "reference visual acceptance",
+    "physical Android"
+  ]
+}

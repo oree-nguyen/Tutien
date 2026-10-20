@@ -1,0 +1,22 @@
+✔ shared source stays alive until every actor releases, then disposes once (7.889411ms)
+✔ disposing during decode cannot leak source or dispose a replacement entry (26.387162ms)
+✔ failed decode clears owner references and permits a fresh retry (1.279185ms)
+✔ normal gameplay templates remain warm after clone disposal and share one owner lease (0.382919ms)
+✔ real manual asset adapter uses one URL identity for load/release and releases shared GPU resources once (311.776592ms)
+Compressed GLB fallback: source-test-late-fallback Model HTTP 502
+✔ failed source pair releases its pending sibling without evicting another preview owner (30.094704ms)
+✔ late compressed failure does not reacquire a released owner while a live owner can fall back (23.995081ms)
+✔ a cold staff prefab and its clones do not acquire hidden template leases (27.178601ms)
+✔ disposed pending staff cannot reacquire a lease from a late animation update (12.996905ms)
+✔ world release reaches standalone staff owners nested below a procedural hero LOD (188.625135ms)
+✔ all unique images upload even when meshes share the same shader program (28.51318ms)
+✔ cancelling during a texture yield prevents remaining uploads and program compilation (4.225298ms)
+✔ cancelling while the first program compiles prevents later program work (1.520529ms)
+ℹ tests 13
+ℹ suites 0
+ℹ pass 13
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 941.342928

@@ -1,0 +1,748 @@
+{
+  "input": ".local/rig-candidates/cloth-corrective-full-fabric/H01-C0-rigged.glb",
+  "sha256": "7dd1708749122e7044ea433185cca3f4b0cbe35f263f4a23fd4e981a4688c4e5",
+  "parentSha256": "c24b7cdbe874b745ad54d9e951ebeedd85db465f759c91dcc768c58871eae143",
+  "sourceAttributesAndImagesPreserved": true,
+  "normalMorphEnabled": true,
+  "normalMorphMethod": "Authored normal rotated with original-to-corrected geometric surface normals, then inverse exact blended skin; protected hand normal deltas remain zero",
+  "defaultMorphWeight": 0,
+  "bind": {
+    "pose": "bind",
+    "poseSha256": null,
+    "morphWeight": 0,
+    "sourceCoverage": {
+      "passed": true,
+      "sources": [
+        {
+          "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+          "sourceNodeIndex": 0,
+          "sourcePrimitiveIndex": 0,
+          "sourceTriangles": 1499726,
+          "measuredTriangles": 1499726,
+          "missingTriangles": 0,
+          "duplicatedTriangles": 0,
+          "validatedOutputPrimitives": 6,
+          "passed": true
+        }
+      ]
+    },
+    "seams": {
+      "groups": 123287,
+      "pairs": 146771,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    },
+    "protectedMorphMaximumMetres": 0,
+    "meshes": [
+      {
+        "node": "H01_Remaining_Source",
+        "vertices": 343021,
+        "passed": true,
+        "p999": 1.0000387518044995,
+        "maximum": 1.0001525755618506,
+        "minimum": 0.9997627961610568,
+        "edges": 921243,
+        "triangles": 580068,
+        "selectedTriangles": 580068,
+        "areaRatios": {
+          "minimum": 0.9030683092401414,
+          "maximum": 1.0098919332667942,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 301629,
+          "b": 301630,
+          "bindLength": 0.00030803680419921875,
+          "posedLength": 0.0003080838030876901,
+          "sourceA": [
+            -0.5241507291793823,
+            1.0542716979980469,
+            0.09154851734638214
+          ],
+          "sourceB": [
+            -0.5241507291793823,
+            1.0539636611938477,
+            0.09154851734638214
+          ],
+          "posedA": [
+            -0.524150744225588,
+            1.0542717103888948,
+            0.09154850915477888
+          ],
+          "posedB": [
+            -0.524150720852182,
+            1.0539636265867207,
+            0.0915485050767017
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Robe_Left",
+        "vertices": 108063,
+        "passed": true,
+        "p999": 1.0000274502480564,
+        "maximum": 1.0002301415081334,
+        "minimum": 0.999920793247962,
+        "edges": 289150,
+        "triangles": 181682,
+        "selectedTriangles": 181682,
+        "areaRatios": {
+          "minimum": 0.9986081478882558,
+          "maximum": 1.0026602342286388,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 39710,
+          "b": 39709,
+          "bindLength": 0.0002205371856689453,
+          "posedLength": 0.00022058794042945467,
+          "sourceA": [
+            0.18677301704883575,
+            0.8016934990882874,
+            -0.07817710936069489
+          ],
+          "sourceB": [
+            0.18677301704883575,
+            0.8014729619026184,
+            -0.07817710936069489
+          ],
+          "posedA": [
+            0.1867730230802647,
+            0.8016935195672614,
+            -0.07817711401178219
+          ],
+          "posedB": [
+            0.18677301125202198,
+            0.8014729316272048,
+            -0.07817710905492586
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Robe_Right",
+        "vertices": 100351,
+        "passed": true,
+        "p999": 1.0000285287273285,
+        "maximum": 1.0000856044685211,
+        "minimum": 0.9999383872945926,
+        "edges": 261629,
+        "triangles": 162022,
+        "selectedTriangles": 162022,
+        "areaRatios": {
+          "minimum": 0.9920395902250962,
+          "maximum": 1.0022259626870067,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 67534,
+          "b": 67545,
+          "bindLength": 0.00034862756729125977,
+          "posedLength": 0.0003486574113688695,
+          "sourceA": [
+            -0.18544545769691467,
+            0.8013776540756226,
+            -0.07696212083101273
+          ],
+          "sourceB": [
+            -0.18544545769691467,
+            0.8017262816429138,
+            -0.07696212083101273
+          ],
+          "posedA": [
+            -0.185445456734014,
+            0.8013776445273088,
+            -0.07696212267600294
+          ],
+          "posedB": [
+            -0.18544546364245634,
+            0.8017263019385973,
+            -0.07696212555578524
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Robe_Torso",
+        "vertices": 165243,
+        "passed": true,
+        "p999": 1.000058356049031,
+        "maximum": 1.0002222929829527,
+        "minimum": 0.9996641754583135,
+        "edges": 443822,
+        "triangles": 279272,
+        "selectedTriangles": 279272,
+        "areaRatios": {
+          "minimum": 0.9949849412625204,
+          "maximum": 1.0026588377622327,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 39945,
+          "b": 39948,
+          "bindLength": 0.00020802021026611328,
+          "posedLength": 0.00020806645169916778,
+          "sourceA": [
+            -0.1433897465467453,
+            1.12855064868927,
+            0.06525803357362747
+          ],
+          "sourceB": [
+            -0.1433897465467453,
+            1.128342628479004,
+            0.06525803357362747
+          ],
+          "posedA": [
+            -0.14338974773140772,
+            1.1285506696498824,
+            0.0652580351640883
+          ],
+          "posedB": [
+            -0.14338974185888145,
+            1.1283426031982833,
+            0.06525803248907527
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Sleeve_Left",
+        "vertices": 81409,
+        "passed": true,
+        "p999": 1.000048189659853,
+        "maximum": 1.0002000748151507,
+        "minimum": 0.9998531974783823,
+        "edges": 227053,
+        "triangles": 145786,
+        "selectedTriangles": 145786,
+        "areaRatios": {
+          "minimum": 0.9970665256170659,
+          "maximum": 1.0018650868312007,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 79699,
+          "b": 79720,
+          "bindLength": 0.00015947222709655762,
+          "posedLength": 0.00015950413347291562,
+          "sourceA": [
+            0.4574260115623474,
+            0.997979998588562,
+            0.07511401921510696
+          ],
+          "sourceB": [
+            0.45726653933525085,
+            0.997979998588562,
+            0.07511401921510696
+          ],
+          "posedA": [
+            0.4574260228008719,
+            0.9979800064335739,
+            0.07511400970941844
+          ],
+          "posedB": [
+            0.4572665186826636,
+            0.9979799368484783,
+            0.07511400447014895
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Sleeve_Right",
+        "vertices": 85967,
+        "passed": true,
+        "p999": 1.0000466655005111,
+        "maximum": 1.0001228006603504,
+        "minimum": 0.9998576029599602,
+        "edges": 236575,
+        "triangles": 150896,
+        "selectedTriangles": 150896,
+        "areaRatios": {
+          "minimum": 0.9981793894677872,
+          "maximum": 1.0017389070610732,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 81225,
+          "b": 81223,
+          "bindLength": 0.00017560172740885532,
+          "posedLength": 0.00017562329141693978,
+          "sourceA": [
+            -0.5015192627906799,
+            1.0410819053649902,
+            0.12167945504188538
+          ],
+          "sourceB": [
+            -0.5015459060668945,
+            1.0409083366394043,
+            0.12167945504188538
+          ],
+          "posedA": [
+            -0.5015192674747297,
+            1.0410819013925385,
+            0.12167944624661503
+          ],
+          "posedB": [
+            -0.5015458993860229,
+            1.040908309106473,
+            0.12167944349979472
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      }
+    ],
+    "measuredGeometryGatesPassed": true,
+    "accepted": false,
+    "scope": "Original unchanged 1.5/2 strain limits, source coverage and source-copy seams at one pose. Full animation, collision, cross-section, normals and visual acceptance are unverified."
+  },
+  "held": {
+    "pose": "docs/anim-report/harmonic-held/H01-reference-idle-solve.json",
+    "poseSha256": "f546c092e1bb660fa0dd3d796618980de143cadaa4980a254d00103d65d1feb5",
+    "morphWeight": 1,
+    "sourceCoverage": {
+      "passed": true,
+      "sources": [
+        {
+          "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+          "sourceNodeIndex": 0,
+          "sourcePrimitiveIndex": 0,
+          "sourceTriangles": 1499726,
+          "measuredTriangles": 1499726,
+          "missingTriangles": 0,
+          "duplicatedTriangles": 0,
+          "validatedOutputPrimitives": 6,
+          "passed": true
+        }
+      ]
+    },
+    "seams": {
+      "groups": 123287,
+      "pairs": 146771,
+      "maximumMillimetres": 0,
+      "invalidPositions": 0
+    },
+    "protectedMorphMaximumMetres": 0,
+    "meshes": [
+      {
+        "node": "H01_Remaining_Source",
+        "vertices": 343021,
+        "passed": true,
+        "p999": 1.4499923294502564,
+        "maximum": 1.4820720320681469,
+        "minimum": 0.03463928841798587,
+        "edges": 921243,
+        "triangles": 580068,
+        "selectedTriangles": 580068,
+        "areaRatios": {
+          "minimum": 0.02678347240969928,
+          "maximum": 8.764310870234333,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 302236,
+          "b": 302234,
+          "bindLength": 0.0019320275918037672,
+          "posedLength": 0.0028634040589963373,
+          "sourceA": [
+            -0.582445502281189,
+            0.9937361478805542,
+            0.11392193287611008
+          ],
+          "sourceB": [
+            -0.5817245244979858,
+            0.9941896200180054,
+            0.11218778043985367
+          ],
+          "posedA": [
+            -0.5989566997887064,
+            1.7103628312599248,
+            0.1646642215286394
+          ],
+          "posedB": [
+            -0.5985309375885263,
+            1.7084714631433713,
+            0.16255696359434205
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Robe_Left",
+        "vertices": 108063,
+        "passed": true,
+        "p999": 1.4498759333411224,
+        "maximum": 1.4519127485109038,
+        "minimum": 0.6998551512243469,
+        "edges": 289150,
+        "triangles": 181682,
+        "selectedTriangles": 181682,
+        "areaRatios": {
+          "minimum": 0.002641123699930077,
+          "maximum": 76.65479887509547,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 51006,
+          "b": 50981,
+          "bindLength": 0.010411672418796628,
+          "posedLength": 0.015116839918170182,
+          "sourceA": [
+            0.04352401942014694,
+            0.5160461068153381,
+            -0.17789743840694427
+          ],
+          "sourceB": [
+            0.039558473974466324,
+            0.5256613492965698,
+            -0.1774236410856247
+          ],
+          "posedA": [
+            0.014210742059606308,
+            0.5382814945908669,
+            -0.16743046993353095
+          ],
+          "posedB": [
+            0.005704913429816548,
+            0.5505505937192978,
+            -0.16505582574776986
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Robe_Right",
+        "vertices": 100351,
+        "passed": false,
+        "p999": 1.5239288921283767,
+        "maximum": 1.7379043457421097,
+        "minimum": 0.19501498707795586,
+        "edges": 261629,
+        "triangles": 162022,
+        "selectedTriangles": 162022,
+        "areaRatios": {
+          "minimum": 0.002311465334655592,
+          "maximum": 299.36190722198813,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 30118,
+          "b": 30191,
+          "bindLength": 0.0023960496082267345,
+          "posedLength": 0.004164105026750921,
+          "sourceA": [
+            -0.15342088043689728,
+            0.2815411388874054,
+            -0.16495785117149353
+          ],
+          "sourceB": [
+            -0.15291111171245575,
+            0.27934569120407104,
+            -0.1657709926366806
+          ],
+          "posedA": [
+            -0.15383807175702513,
+            0.2832259525524603,
+            -0.1645776100953004
+          ],
+          "posedB": [
+            -0.1529111160659608,
+            0.2793457013157025,
+            -0.16577099777759624
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Robe_Torso",
+        "vertices": 165243,
+        "passed": true,
+        "p999": 1.4492531654772618,
+        "maximum": 1.4551396515766128,
+        "minimum": 0.20010517506224085,
+        "edges": 443822,
+        "triangles": 279272,
+        "selectedTriangles": 279272,
+        "areaRatios": {
+          "minimum": 0.026521246403224272,
+          "maximum": 483.3939632941239,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 146133,
+          "b": 146301,
+          "bindLength": 0.015806036044328942,
+          "posedLength": 0.022999989782352202,
+          "sourceA": [
+            -0.17873717844486237,
+            0.8895781636238098,
+            -0.04996950551867485
+          ],
+          "sourceB": [
+            -0.18154558539390564,
+            0.8742492198944092,
+            -0.05260903388261795
+          ],
+          "posedA": [
+            -0.2753815517831507,
+            1.0267736069407276,
+            0.01325174045060118
+          ],
+          "posedB": [
+            -0.29161103510090336,
+            1.0403397242707584,
+            0.022283011779430414
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Sleeve_Left",
+        "vertices": 81409,
+        "passed": true,
+        "p999": 1.449810406591189,
+        "maximum": 1.4503252182723527,
+        "minimum": 0.6993643243360544,
+        "edges": 227053,
+        "triangles": 145786,
+        "selectedTriangles": 145786,
+        "areaRatios": {
+          "minimum": 0.004503064010440521,
+          "maximum": 48.955027614236705,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 41927,
+          "b": 41609,
+          "bindLength": 0.00986785270759108,
+          "posedLength": 0.01431159563201646,
+          "sourceA": [
+            0.19974860548973083,
+            0.928220272064209,
+            -0.08871329575777054
+          ],
+          "sourceB": [
+            0.1980597972869873,
+            0.9186175465583801,
+            -0.08719339221715927
+          ],
+          "posedA": [
+            0.23959900955192748,
+            0.9688255988376477,
+            -0.19285263565580402
+          ],
+          "posedB": [
+            0.233505745450493,
+            0.9582995747910203,
+            -0.18530964421378684
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      },
+      {
+        "node": "H01_Sleeve_Right",
+        "vertices": 85967,
+        "passed": false,
+        "p999": 1.517835364852721,
+        "maximum": 1.8294089566200322,
+        "minimum": 0.07961712714505151,
+        "edges": 236575,
+        "triangles": 150896,
+        "selectedTriangles": 150896,
+        "areaRatios": {
+          "minimum": 0.004346823960919257,
+          "maximum": 324.9893397060401,
+          "scope": "Triangle area only; does not measure volume, orientation or joint cross-sections."
+        },
+        "sourceDiagnostics": {},
+        "thresholds": {
+          "p999": 1.5,
+          "maximum": 2
+        },
+        "numerical": {
+          "minimumSourceEdgeMeters": 1e-12,
+          "minimumSourceDoubleAreaSquareMeters": 1e-24,
+          "collapseRatio": 1e-12
+        },
+        "worst": {
+          "a": 80286,
+          "b": 80287,
+          "bindLength": 0.0012813485858170562,
+          "posedLength": 0.0023441105794461347,
+          "sourceA": [
+            -0.4720560312271118,
+            0.9769764542579651,
+            0.08402867615222931
+          ],
+          "sourceB": [
+            -0.47265803813934326,
+            0.9769404530525208,
+            0.08515922725200653
+          ],
+          "posedA": [
+            -0.5559627158783115,
+            1.605336296317887,
+            0.1741583345817469
+          ],
+          "posedB": [
+            -0.5557928731978112,
+            1.6075508702766157,
+            0.1749077810800858
+          ]
+        },
+        "issues": [],
+        "issueCounts": {},
+        "scope": "Selected source edges and triangles at one pose; newly collapsed/nonfinite geometry fails. Existing source degeneracy is diagnostic. No volume or cross-section measurement.",
+        "sourceProvenanceVerified": true
+      }
+    ],
+    "measuredGeometryGatesPassed": false,
+    "accepted": false,
+    "scope": "Original unchanged 1.5/2 strain limits, source coverage and source-copy seams at one pose. Full animation, collision, cross-section, normals and visual acceptance are unverified."
+  },
+  "accepted": false
+}

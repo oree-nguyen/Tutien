@@ -1,0 +1,2397 @@
+{
+  "method": "Offline source-edge ADMM, bounded edge vectors and closest pose surface with hard non-garment/hand pins; pre-skin morph by exact blended affine inverse",
+  "projectionConvex": false,
+  "additionalFlexibleFabric": {
+    "manifest": "docs/anim-report/conver10-redo/remaining-source-review/fabric-selection.json",
+    "manifestSha256": "780ed1594a4317b55cbfbbb92106342c34ef26aede640827ddb83b99c52d6866",
+    "sourceFaceSha256": "3d6539561e0ea987348d73298560b97cf3382738b6153e455bf1f06b833390c0",
+    "releasedFaces": 344169,
+    "pinBandAboveMetres": 0.98,
+    "scope": "Flexible-source selection for staging optimization only. Does not approve final partition, collision, animation or runtime activation."
+  },
+  "scope": "One exact held pose. No runtime simulation. Bind weight is zero. Collision, cross-section, semantic cut approval, animation interpolation and phone performance remain unverified.",
+  "assetSha256": "c24b7cdbe874b745ad54d9e951ebeedd85db465f759c91dcc768c58871eae143",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "poseFile": "docs/anim-report/harmonic-held/H01-reference-idle-solve.json",
+  "poseSha256": "f546c092e1bb660fa0dd3d796618980de143cadaa4980a254d00103d65d1feb5",
+  "matricesSha256": "cc65191a760b750e17812be8f507ddc5191c0d4c495d7638d35aed51f1433f64",
+  "base": ".local/rig-candidates/semantic-garment-v6",
+  "parameters": {
+    "base": ".local/rig-candidates/semantic-garment-v6",
+    "output": ".local/rig-candidates/cloth-corrective-full-fabric",
+    "iterations": 80,
+    "ratio": 1.45,
+    "screen_metres": 0.05,
+    "penalty": 1000.0,
+    "minimum_ratio": 0.7,
+    "resume": false,
+    "warm_start": ".local/rig-candidates/cloth-corrective-held-r145",
+    "flexible_faces": "docs/anim-report/conver10-redo/remaining-source-review/fabric-selection.json"
+  },
+  "resumedSolveSha256": null,
+  "warmStartSolveSha256": "5d56cbfc1245b37b22a04f65890c0519ff6486c057f4d95fa40c7d501dca0258",
+  "warmStart": ".local/rig-candidates/cloth-corrective-held-r145",
+  "inputHashes": {
+    "positions.bin": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc",
+    "triangles.bin": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132",
+    "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+    "protected.bin": "42c11892831127626dba90e7e82c08ff89f98dae34228a2c50e2801d07b68ef0",
+    "face-labels.bin": "6f4d3296fc9e43779311133a8bb898b5d98b0f5fb37ddc0b28d67916e77819a7",
+    "result-ids.bin": "c5dd313465b57c296dd828c1ceea5499cd411958468c9a7a8af7b680a5f54486",
+    "result-weights.bin": "1f90ca983d51c633d4c303e41aafd994b07ff90a1e61734aea03e1aa56ccab52",
+    "feasibility-matrices.bin": "cc65191a760b750e17812be8f507ddc5191c0d4c495d7638d35aed51f1433f64"
+  },
+  "sourceTriangles": 1499726,
+  "sourceVertices": 869627,
+  "weldedVertices": 749845,
+  "fixedVertices": 132829,
+  "freeVertices": 617016,
+  "before": {
+    "p999": 3.480542104972664,
+    "maximum": 15.897433208624722,
+    "minimum": 0.011647393227451496,
+    "edgesAbove1_5": 59294,
+    "edgesAbove2": 22798,
+    "worst": [
+      {
+        "sourceVertices": [
+          650350,
+          652067
+        ],
+        "ratio": 15.897433208624722,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          651990,
+          657692
+        ],
+        "ratio": 14.413331323013304,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          651700,
+          652067
+        ],
+        "ratio": 13.751985730708972,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          651912,
+          651990
+        ],
+        "ratio": 12.4353296226022,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          651990,
+          657693
+        ],
+        "ratio": 12.115506721580013,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          125496,
+          657354
+        ],
+        "ratio": 11.768013051782747,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          125475,
+          657345
+        ],
+        "ratio": 11.534145827945013,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          649809,
+          649812
+        ],
+        "ratio": 11.320111942109591,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          650340,
+          650341
+        ],
+        "ratio": 11.133816902005185,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          651700,
+          651990
+        ],
+        "ratio": 10.846436459435973,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      }
+    ]
+  },
+  "after": {
+    "p999": 1.4810125094165092,
+    "maximum": 1.8294089566200322,
+    "minimum": 0.03463928841798587,
+    "edgesAbove1_5": 1032,
+    "edgesAbove2": 0,
+    "worst": [
+      {
+        "sourceVertices": [
+          805094,
+          805120
+        ],
+        "ratio": 1.8294089566200322,
+        "fixedEndpoints": [
+          true,
+          true
+        ]
+      },
+      {
+        "sourceVertices": [
+          222077,
+          222078
+        ],
+        "ratio": 1.7379043457421308,
+        "fixedEndpoints": [
+          true,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          126733,
+          132573
+        ],
+        "ratio": 1.7330051518779432,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          805078,
+          805082
+        ],
+        "ratio": 1.7152097257373955,
+        "fixedEndpoints": [
+          true,
+          true
+        ]
+      },
+      {
+        "sourceVertices": [
+          127165,
+          127166
+        ],
+        "ratio": 1.701390235985624,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          748080,
+          748150
+        ],
+        "ratio": 1.699127715813265,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          127166,
+          127776
+        ],
+        "ratio": 1.69559495479944,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          757293,
+          757671
+        ],
+        "ratio": 1.6843210467604501,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      },
+      {
+        "sourceVertices": [
+          805074,
+          805075
+        ],
+        "ratio": 1.671032016343763,
+        "fixedEndpoints": [
+          true,
+          true
+        ]
+      },
+      {
+        "sourceVertices": [
+          754742,
+          754764
+        ],
+        "ratio": 1.6658663699155305,
+        "fixedEndpoints": [
+          false,
+          false
+        ]
+      }
+    ]
+  },
+  "triangles": {
+    "minimumAreaRatio": 0.0023114653345944016,
+    "newlyCollapsedTriangles": 0,
+    "nonfiniteTriangles": 0
+  },
+  "protectedMovementMetres": 0.0,
+  "correctionMetres": {
+    "maximum": 0.2576357303435884,
+    "p99": 0.17228680179411895,
+    "rms": 0.033940042988494866
+  },
+  "minimumSkinSingularValue": 0.46034962399648016,
+  "morphSha256": "0d7cc1136398b51f81bb2245a2992410c74a385635d8619a527faf449b3abff2",
+  "history": [
+    {
+      "iteration": 1,
+      "seconds": 16.161717956973007,
+      "primalMax": 0.6811240102993673,
+      "dualMax": 0.6961609477532438,
+      "p999": 1.520308672807082,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 3983,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.7758197322268174,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            755041,
+            755057
+          ],
+          "ratio": 1.772455177953207,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            757046,
+            757052
+          ],
+          "ratio": 1.7610194359082798,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            756990,
+            757007
+          ],
+          "ratio": 1.7594342330216874,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            270577,
+            271928
+          ],
+          "ratio": 1.7546945210118219,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            757143,
+            757144
+          ],
+          "ratio": 1.749506224099437,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.7493896718020367,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            755088,
+            755097
+          ],
+          "ratio": 1.7354117862988063,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754765,
+            754811
+          ],
+          "ratio": 1.7310832051203346,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 6,
+      "seconds": 50.837246101000346,
+      "primalMax": 1.1364839944835943,
+      "dualMax": 1.5825252343936969,
+      "p999": 1.5064317776818121,
+      "maximum": 1.83799061501736,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 2731,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.83799061501736,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            124443,
+            124445
+          ],
+          "ratio": 1.7789514731361085,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7545502658123597,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754825,
+            754828
+          ],
+          "ratio": 1.7544811405624288,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754764,
+            754809
+          ],
+          "ratio": 1.7540763082916817,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            749419,
+            749423
+          ],
+          "ratio": 1.750146753513359,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754739,
+            754744
+          ],
+          "ratio": 1.7439527400516919,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            759489,
+            759697
+          ],
+          "ratio": 1.7345715542682072,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754744,
+            754745
+          ],
+          "ratio": 1.733647661901038,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 11,
+      "seconds": 77.41441436499008,
+      "primalMax": 0.9908176321003065,
+      "dualMax": 1.6602815733363383,
+      "p999": 1.4948567419830745,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.0230662997309057,
+      "edgesAbove1_5": 1911,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.8293650458430577,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            749419,
+            749423
+          ],
+          "ratio": 1.7612955874561607,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.7601054218988483,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754765,
+            754811
+          ],
+          "ratio": 1.7495016629682214,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754744,
+            754745
+          ],
+          "ratio": 1.7242803383918885,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748490,
+            748657
+          ],
+          "ratio": 1.7197217161774123,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7197102124970047,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            755511,
+            755627
+          ],
+          "ratio": 1.692336071223165,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 16,
+      "seconds": 102.07566510298057,
+      "primalMax": 1.0985314729576607,
+      "dualMax": 1.7068111363927747,
+      "p999": 1.4912059722609672,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1630,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7530933884199331,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7456284479822206,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754742,
+            754756
+          ],
+          "ratio": 1.727595654313549,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            222078,
+            222241
+          ],
+          "ratio": 1.7169173189853633,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.712636616924366,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            124426,
+            124448
+          ],
+          "ratio": 1.7002820596287174,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126511,
+            126513
+          ],
+          "ratio": 1.6953174344780766,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.6918098944630842,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 21,
+      "seconds": 127.01908557399292,
+      "primalMax": 1.0725614558460204,
+      "dualMax": 1.7982187095640294,
+      "p999": 1.4876693599517616,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1455,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7922997027675749,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.72993476093623,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.7191249000148174,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.710131134720718,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.6996589220148142,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754744,
+            754745
+          ],
+          "ratio": 1.6887554190663425,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            755494,
+            755514
+          ],
+          "ratio": 1.6842392638618104,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126654,
+            126659
+          ],
+          "ratio": 1.6718495220497935,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 26,
+      "seconds": 150.21712520698202,
+      "primalMax": 1.1528891335325318,
+      "dualMax": 1.584490336913053,
+      "p999": 1.4859902936131644,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1338,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.75440593453423,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.729664183099929,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.7234906544933608,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754742,
+            754756
+          ],
+          "ratio": 1.7157504388856877,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.7134849995111323,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126654,
+            126659
+          ],
+          "ratio": 1.6939427608057926,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            222078,
+            222241
+          ],
+          "ratio": 1.6921013490146817,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.691942397466474,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 31,
+      "seconds": 170.92549788497854,
+      "primalMax": 0.9429040872732622,
+      "dualMax": 1.587565007268343,
+      "p999": 1.4844693878352153,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1242,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7806849315205584,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7261014958244054,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.710600953583324,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.7076746898632684,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.704677313354032,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754742,
+            754764
+          ],
+          "ratio": 1.6989437741524689,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126553,
+            137078
+          ],
+          "ratio": 1.6831066206854985,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126540,
+            126553
+          ],
+          "ratio": 1.6818055385895785,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 36,
+      "seconds": 190.97790973598603,
+      "primalMax": 1.043431486579216,
+      "dualMax": 1.6531607076131112,
+      "p999": 1.4835730984162634,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.024396576441962806,
+      "edgesAbove1_5": 1190,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7681618946198003,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7232485013779242,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.7070083315356384,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.7055049825760522,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.6905437463261483,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754742,
+            754756
+          ],
+          "ratio": 1.687050476727679,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            124426,
+            124448
+          ],
+          "ratio": 1.6771888445307777,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126553,
+            137078
+          ],
+          "ratio": 1.6769478786868424,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 41,
+      "seconds": 212.6969135159743,
+      "primalMax": 0.9441422410936053,
+      "dualMax": 1.5328928445621433,
+      "p999": 1.4831583611769716,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.014735772817983208,
+      "edgesAbove1_5": 1131,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.771116125495397,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.716154279834883,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.7002307569813029,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.6947776528598728,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            124426,
+            124448
+          ],
+          "ratio": 1.6845076374624266,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.682762833346985,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126553,
+            137078
+          ],
+          "ratio": 1.6753299157583885,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805074,
+            805075
+          ],
+          "ratio": 1.671032016343763,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 46,
+      "seconds": 231.76055312997778,
+      "primalMax": 0.9610919191168187,
+      "dualMax": 1.5329271842241128,
+      "p999": 1.4829087191431347,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.016672633284536647,
+      "edgesAbove1_5": 1125,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7593319737597175,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7141204056592885,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.6982133874195788,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.6940999450935281,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.6922637129672506,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126553,
+            137078
+          ],
+          "ratio": 1.6766407379458184,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126540,
+            126553
+          ],
+          "ratio": 1.6759451966188923,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            222078,
+            222241
+          ],
+          "ratio": 1.67153450680775,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 51,
+      "seconds": 250.29488604998915,
+      "primalMax": 0.8424502101586216,
+      "dualMax": 1.4520072120626737,
+      "p999": 1.4821318470615328,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1089,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            124443,
+            124445
+          ],
+          "ratio": 1.803333349878864,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            124446,
+            124447
+          ],
+          "ratio": 1.758228052739213,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.754466911287578,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7129019170144832,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.6978621842853392,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.6956412357489137,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.6894540001605496,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126540,
+            126553
+          ],
+          "ratio": 1.6800368689967222,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 56,
+      "seconds": 270.61856851898483,
+      "primalMax": 1.0221262709897438,
+      "dualMax": 1.4751012686487919,
+      "p999": 1.4818066798786125,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1091,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7487568405457747,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7257165347712837,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.70988879572139,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            757213,
+            757671
+          ],
+          "ratio": 1.7009777407845095,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.6981893419427811,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.694202666426086,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126553,
+            137078
+          ],
+          "ratio": 1.6815322312828098,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126540,
+            126553
+          ],
+          "ratio": 1.6778878489098104,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 61,
+      "seconds": 289.4323636199988,
+      "primalMax": 0.9340830141518899,
+      "dualMax": 1.5819218812166107,
+      "p999": 1.4819849041296376,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1059,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            124443,
+            124445
+          ],
+          "ratio": 1.7898924610808045,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            124446,
+            124447
+          ],
+          "ratio": 1.7719436883384214,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7502563253052856,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7118171128300295,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.7089123266050184,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.7024883695462039,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.695939366524713,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126553,
+            137078
+          ],
+          "ratio": 1.6714160330553318,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 66,
+      "seconds": 308.8019492669846,
+      "primalMax": 0.971632634047923,
+      "dualMax": 1.4791727097810008,
+      "p999": 1.481394242314398,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1057,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7501179924614905,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7136936145451434,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            754742,
+            754756
+          ],
+          "ratio": 1.7097843458299982,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.7082848408329399,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.705325925791392,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.6949943273208772,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            757293,
+            757671
+          ],
+          "ratio": 1.6922789271258243,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            124426,
+            124448
+          ],
+          "ratio": 1.6833664391962895,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 71,
+      "seconds": 328.8379758139781,
+      "primalMax": 0.9313785090863417,
+      "dualMax": 1.5041311239953632,
+      "p999": 1.4811697538244268,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1048,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7470974547554619,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7103210579730443,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.708386476311758,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.7042247944593543,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.7018400254615649,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805074,
+            805075
+          ],
+          "ratio": 1.671032016343763,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            748175,
+            748179
+          ],
+          "ratio": 1.6663938306209736,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126553,
+            137078
+          ],
+          "ratio": 1.666291095692366,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 76,
+      "seconds": 346.6922980079835,
+      "primalMax": 0.9993761319421782,
+      "dualMax": 1.534587562609233,
+      "p999": 1.481113280505086,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1024,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            757213,
+            757671
+          ],
+          "ratio": 1.7663233346112697,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7392580269814961,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.731719714903752,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            124426,
+            124448
+          ],
+          "ratio": 1.7046806590879775,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.7032137284064977,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.7005419507691482,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.6987773554757628,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            757292,
+            757293
+          ],
+          "ratio": 1.672655263691632,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    },
+    {
+      "iteration": 80,
+      "seconds": 360.8627334959747,
+      "primalMax": 0.9984096858161061,
+      "dualMax": 1.5027623719154348,
+      "p999": 1.4810119378298665,
+      "maximum": 1.8294089566200322,
+      "minimum": 0.03463928841798587,
+      "edgesAbove1_5": 1032,
+      "edgesAbove2": 0,
+      "worst": [
+        {
+          "sourceVertices": [
+            805094,
+            805120
+          ],
+          "ratio": 1.8294089566200322,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            222077,
+            222078
+          ],
+          "ratio": 1.7379043270070615,
+          "fixedEndpoints": [
+            true,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            126733,
+            132573
+          ],
+          "ratio": 1.7330054507509374,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805078,
+            805082
+          ],
+          "ratio": 1.7152097257373955,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            127165,
+            127166
+          ],
+          "ratio": 1.7013886124098663,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            748080,
+            748150
+          ],
+          "ratio": 1.6991267790391684,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            127166,
+            127776
+          ],
+          "ratio": 1.6955960670805996,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            757293,
+            757671
+          ],
+          "ratio": 1.684321609943691,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        },
+        {
+          "sourceVertices": [
+            805074,
+            805075
+          ],
+          "ratio": 1.671032016343763,
+          "fixedEndpoints": [
+            true,
+            true
+          ]
+        },
+        {
+          "sourceVertices": [
+            754742,
+            754764
+          ],
+          "ratio": 1.6658658843936822,
+          "fixedEndpoints": [
+            false,
+            false
+          ]
+        }
+      ]
+    }
+  ],
+  "seconds": 363.9368272179854,
+  "accepted": false,
+  "edgeThresholdsPassed": true,
+  "fullAcceptance": "fail-closed: single-pose prototype lacks collision/cross-section/full-animation/visual evidence"
+}

@@ -1,6 +1,6 @@
 # Sổ ảnh Hồn Giới
 
-10 nhiệm vụ · 599 mục ảnh · 597 file ảnh khác nhau.
+10 nhiệm vụ · 631 mục ảnh · 629 file ảnh khác nhau.
 
 Số `converN` là số nhiệm vụ trong sổ ảnh này, được giữ ổn định; tin nhắn “Tiếp” không tạo số mới. Không suy đoán số thứ tự toàn bộ nhiệm vụ trong lịch sử trò chuyện.
 
@@ -17,7 +17,7 @@ Thời gian hiển thị theo Việt Nam (UTC+7). Với ảnh cũ, chỉ xác mi
 - [Nhiệm vụ 7: Hoạt ảnh xuất hiện Hàn Trạch](conver7/online-pic.md) — 7 ảnh
 - [Nhiệm vụ 8: Sửa khởi động và kiểm tra hiệu năng](conver8/online-pic.md) — 10 ảnh
 - [Nhiệm vụ 9: Đối chiếu chất lượng với GLB gốc](conver9/online-pic.md) — 60 ảnh
-- [Nhiệm vụ 10: Kiểm tra và sửa rig H01 H02](conver10/online-pic.md) — 342 ảnh
+- [Nhiệm vụ 10: Kiểm tra và sửa rig H01 H02](conver10/online-pic.md) — 374 ảnh
 
 ## Thêm ảnh mới
 

@@ -1,0 +1,150 @@
+{
+  "hero": "H02",
+  "scope": "full-reference-choreography-attempt",
+  "passed": false,
+  "exportPassed": true,
+  "activated": false,
+  "input": "assets/rigged/H02-C0-rigged.glb",
+  "inputSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+  "output": ".local/rig-candidates/fk-full-staging-v4/H02-C0-rigged.glb",
+  "outputSha256": "13208bfa109b028346db47f69c270cbed65879c70c82dea675cb7b8a88737153",
+  "specSha256": "7d3b639933ea71cc20408ab80df36dfb191a3fd62beb19316c757c38062b910f",
+  "gripProofPath": "docs/hand-frames/H02-grip-patch-search.json",
+  "gripProofSha256": "e9884099d53be0b35b9efa78c3d3aa139fb5f875c8be538a593eb598ca9dcc05",
+  "stancePose": "docs/anim-report/conver10-redo/animation/stances/H02-ground.json",
+  "stancePoseSha256": "977b3eae1480880e024c236f550b5aa3f20d8062b732331250d257e5aa42c8d9",
+  "weaponSha256": "bf1bf4e377a19aac5fa3c737a588daf2f98e721ea194a4c96869a562fc213c72",
+  "referencePose": null,
+  "referencePoseSha256": null,
+  "gripHand": "left",
+  "groundHand": "right",
+  "sampleRateHz": 60,
+  "runtimeIK": false,
+  "immutablePayloadPreserved": true,
+  "legacyClipsPreserved": true,
+  "preservedClips": [
+    {
+      "originalName": "Attack",
+      "name": "Attack"
+    },
+    {
+      "originalName": "Cast",
+      "name": "Cast"
+    },
+    {
+      "originalName": "Dash",
+      "name": "Dash"
+    },
+    {
+      "originalName": "Entrance",
+      "name": "Entrance_LEGACY_C10"
+    },
+    {
+      "originalName": "Idle",
+      "name": "Idle"
+    },
+    {
+      "originalName": "Run",
+      "name": "Run"
+    }
+  ],
+  "clips": [
+    {
+      "name": "Entrance",
+      "duration": 3.5,
+      "rotationTracks": 52,
+      "translationTracks": 1,
+      "samples": 211
+    },
+    {
+      "name": "IDLE_HOLD",
+      "duration": 4,
+      "rotationTracks": 52,
+      "translationTracks": 1,
+      "samples": 241
+    }
+  ],
+  "events": [
+    {
+      "time": 0.55,
+      "type": "impact_hammer"
+    },
+    {
+      "time": 1.25,
+      "type": "land"
+    },
+    {
+      "time": 1.6,
+      "type": "grab"
+    }
+  ],
+  "metrics": {
+    "sampledFrames": 452,
+    "violatingFrames": 0,
+    "failedIKFrames": 174,
+    "maximumGroundPalmHeight": 0.0008149255384055087,
+    "worstGroundFacingUpDot": -0.9994197126822718,
+    "maximumGroundElbowFlex": 0.000015785391046979807,
+    "maximumPostGrabOffsetError": 0,
+    "maximumIKEndpointError": 0.5553948374007573,
+    "maximumUprightWeaponTiltDegrees": 0.000002561320938754782,
+    "finalWeaponMinimumY": 0.2750146334703758,
+    "minimumVisibleWeaponY": -0.0477001246628892
+  },
+  "provenance": {
+    "gripProofPassed": false,
+    "stancePassed": true,
+    "stanceMetrics": {
+      "stanceWidthInShoulders": 1.500996679889242,
+      "footPositionErrors": {
+        "Left": 8.521791047499879e-7,
+        "Right": 0.000003871662306425235
+      },
+      "footRotationErrorsDegrees": {
+        "Left": 0.000022572994508401124,
+        "Right": 0.000035290951579076586
+      },
+      "groundPalmHeight": 0.0000043235571618657764,
+      "groundPalmUpDot": -0.9999999999999218,
+      "torsoTiltDegrees": 24.99999570136077,
+      "rightKneeHeight": 0.49840887921238347,
+      "hipFlexDegrees": {
+        "Left": 108.48001006889956,
+        "Right": 119.9972911431217
+      },
+      "kneeFlexDegrees": {
+        "Left": 120.55692335088041,
+        "Right": 120.01048083836676
+      }
+    },
+    "weaponSourceVertices": 835100,
+    "hammerGroundTiltFromDownDegrees": 20,
+    "groundHammerFit": {
+      "yaw": 0,
+      "spin": -60,
+      "x": 0.42,
+      "z": -0.2,
+      "positionError": 5.2374679061499976e-8,
+      "orientationErrorDegrees": 9.098111893583413
+    },
+    "angularVelocityLimit": {
+      "bodyDegreesPerFrame": 8,
+      "fingerDegreesPerFrame": 16,
+      "endpointErrorsMeasuredAfterFilter": true
+    },
+    "handFramesVerified": {
+      "Right": "auto; visual/open-close pending",
+      "Left": "auto; visual/open-close pending"
+    },
+    "note": "Complete-duration attempted choreography; VFX/visibility use phase data. Mesh contact and hand-frame verification are independent acceptance gates."
+  },
+  "blockers": [
+    "Selected local grip is rejected; it is used only to expose the closest attempted left-hand choreography",
+    "planted-foot motion and sole clearance from actual source mesh",
+    "all-mesh strain/seam/cross-section and collision acceptance",
+    "all-frame exact grip and weapon/body/head clearance",
+    "source hand-frame independent visual certification",
+    "physical Android validation"
+  ],
+  "note": "Complete-duration FK exported for actual review, not activated. Numeric local/FK checks cannot certify full-mesh contact, clothing, head clearance, ground sole or visual reference acceptance."
+}

@@ -1,0 +1,67 @@
+{
+  "hero": "H01",
+  "scope": "upright-neighbor-transition-and-idle-only",
+  "passed": true,
+  "activated": false,
+  "note": "Entrance is a 0.6-second transition from an adjacent upright breathing pose, not the requested complete crouch/rise entrance. Full-spec events intentionally not attached to this partial clip.",
+  "input": ".local/rig-candidates/harmonic-projected/H01-C0-rigged.glb",
+  "inputSha256": "b51ff99d4371eba5bb535039524d6328c20da746e45ff9d08ba17119214c3a1c",
+  "output": ".local/rig-candidates/fk-staging/H01-C0-rigged.glb",
+  "outputSha256": "edd6b44edea9c1130eeeeb58405c1ba0886b7fd06b0a0e9a310df5fe054aa7ae",
+  "referencePose": ".local/rig-candidates/reference/heights/22.json",
+  "referencePoseSha256": "f546c092e1bb660fa0dd3d796618980de143cadaa4980a254d00103d65d1feb5",
+  "gripHand": "right",
+  "groundHand": "right",
+  "sampleRateHz": 60,
+  "runtimeIK": false,
+  "immutablePayloadPreserved": true,
+  "legacyClipsPreserved": true,
+  "preservedClips": [
+    {
+      "originalName": "Attack",
+      "name": "Attack"
+    },
+    {
+      "originalName": "Cast",
+      "name": "Cast"
+    },
+    {
+      "originalName": "Dash",
+      "name": "Dash"
+    },
+    {
+      "originalName": "Entrance",
+      "name": "Entrance_LEGACY_C10"
+    },
+    {
+      "originalName": "Idle",
+      "name": "Idle"
+    },
+    {
+      "originalName": "Run",
+      "name": "Run"
+    }
+  ],
+  "clips": [
+    {
+      "name": "Entrance",
+      "duration": 0.6,
+      "rotationTracks": 52,
+      "samples": 37
+    },
+    {
+      "name": "IDLE_HOLD",
+      "duration": 4,
+      "rotationTracks": 52,
+      "samples": 241
+    }
+  ],
+  "maximumOfflineWristPositionError": 8.518910289594036e-9,
+  "blockers": [
+    "reference crouch and ground-hand contact",
+    "full entrance IK and weapon trajectory",
+    "all-mesh strain/seam and cross-section acceptance",
+    "all-frame exact weapon contact",
+    "physical Android validation"
+  ]
+}

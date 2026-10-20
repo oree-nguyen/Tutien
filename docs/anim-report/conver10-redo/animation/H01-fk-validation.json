@@ -1,0 +1,35 @@
+{
+  "hero": "H01",
+  "input": ".local/rig-candidates/fk-staging/H01-C0-rigged.glb",
+  "sha256": "edd6b44edea9c1130eeeeb58405c1ba0886b7fd06b0a0e9a310df5fe054aa7ae",
+  "passed": true,
+  "scope": "Real source hierarchy + Three AnimationMixer FK at 60Hz, joint limits, anchors, replay/seek and >10s hold; mesh/contact/complete reference entrance NOT certified",
+  "activated": false,
+  "clips": [
+    {
+      "name": "Entrance",
+      "duration": 0.6000000238418579,
+      "tracks": 52,
+      "samples": 37
+    },
+    {
+      "name": "IDLE_HOLD",
+      "duration": 4,
+      "tracks": 52,
+      "samples": 241
+    }
+  ],
+  "metrics": {
+    "maximumWristDrift": 6.925455292468926e-8,
+    "maximumFootDrift": 0,
+    "maximumAngularStepDegrees": 0.993712794427618
+  },
+  "violatingFrames": 0,
+  "violations": [],
+  "seekError": 0,
+  "replayCount": 10,
+  "retainedMixer": true,
+  "retainedActions": true,
+  "idleRunning": true,
+  "state": "IDLE_HOLD"
+}

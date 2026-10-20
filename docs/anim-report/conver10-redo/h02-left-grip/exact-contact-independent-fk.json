@@ -1,0 +1,761 @@
+{
+  "hero": "H02",
+  "hand": "Left",
+  "rigFile": "assets/rigged/H02-C0-rigged.glb",
+  "rigSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+  "weaponSha256": "bf1bf4e377a19aac5fa3c737a588daf2f98e721ea194a4c96869a562fc213c72",
+  "poseFile": ".local/rig-candidates/h02-left-grip/static-pose-independent.json",
+  "poseSha256": "4858f511f61c1b802b86e43f69a90f616648225cab7a674c90d49446d5a23837",
+  "candidateFile": ".local/rig-candidates/h02-left-grip/patch-0.5.json",
+  "passed": false,
+  "exactPassed": true,
+  "fingerPassed": false,
+  "scope": "Actual source weapon and all source hand/cuff triangles touched by the legacy crop or left-finger skin influences. Finger geometry independently reconstructed from actual node FK and inverse-bind matrices. No runtime activation or animation acceptance.",
+  "sourceVertexCount": 18535,
+  "selectedVertexCount": 18286,
+  "pythonNodePalmError": 5.879262445735609e-10,
+  "independentTipErrors": {
+    "Thumb": 3.76837259762502e-9,
+    "Index": 3.6124099564547984e-11,
+    "Middle": 3.208460278383652e-11,
+    "Ring": 1.3547581279618398e-10,
+    "Pinky": 9.372962297540734e-11
+  },
+  "topology": {
+    "method": "Exact float-coordinate welding, undirected edge incidence and winding; source geometry unchanged",
+    "vertices": 835100,
+    "weldedVertices": 750002,
+    "triangles": 1500000,
+    "uniqueEdges": 2250000,
+    "degenerateEdges": 0,
+    "boundaryEdges": 0,
+    "nonManifoldEdges": 0,
+    "inconsistentWindingEdges": 0,
+    "oddIncidenceEdges": 0,
+    "unbalancedWindingEdges": 0,
+    "closedOrientedParityChain": true,
+    "closedOriented": true
+  },
+  "finger": {
+    "Thumb": {
+      "angles": [
+        89.9999583352274,
+        -4.9991979564397315,
+        63.686924877478305
+      ],
+      "opposition": 19.999934755389354,
+      "twists": [
+        3.639045428985864,
+        -6.478885730015268,
+        -9.999999999999998
+      ],
+      "points": [
+        [
+          0.5072502105132423,
+          1.0723055616063775,
+          0.14125485220393763
+        ],
+        [
+          0.442561210554413,
+          1.0866981881081774,
+          0.09994457286092101
+        ],
+        [
+          0.4292083166920723,
+          1.0748744979294336,
+          0.09659165208266009
+        ],
+        [
+          0.4228329418495498,
+          1.0757642728862484,
+          0.0845029379490797
+        ]
+      ],
+      "wrapDeg": 83.25118404490281,
+      "signedWrapDeg": 83.25118404490281,
+      "tipSurfaceDistance": 0.02455092209454439,
+      "penetration": 0.003355342517268059,
+      "segmentPenetrations": [
+        0.003355342517268059,
+        0,
+        0
+      ],
+      "maximumFkPointError": 3.76837259762502e-9,
+      "totalFlexDeg": 148.68768525626598,
+      "valid": false
+    },
+    "Index": {
+      "angles": [
+        36.19371615445167,
+        30.314211886900324,
+        79.99999999999999
+      ],
+      "opposition": 4.714410197181014,
+      "twists": [
+        9.999999999956248,
+        9.999999999991115,
+        9.999999999999945
+      ],
+      "points": [
+        [
+          0.5129205889586049,
+          1.0462396201479722,
+          0.17665369336601627
+        ],
+        [
+          0.5070548130100284,
+          1.012313817710006,
+          0.19004135664250132
+        ],
+        [
+          0.4820898243575068,
+          0.9857918124515707,
+          0.19277222953825723
+        ],
+        [
+          0.4655259504342763,
+          0.99896403462608,
+          0.1766118179542998
+        ]
+      ],
+      "wrapDeg": 97.74240420379948,
+      "signedWrapDeg": -97.74240420379948,
+      "tipSurfaceDistance": 0.009610757627353313,
+      "penetration": 0.0029609604656685093,
+      "segmentPenetrations": [
+        0,
+        0,
+        0.0029609604656685093
+      ],
+      "maximumFkPointError": 3.6124099564547984e-11,
+      "totalFlexDeg": 146.507928041352,
+      "valid": false
+    },
+    "Middle": {
+      "angles": [
+        30.77088343251416,
+        43.17478686138682,
+        76.26625470607341
+      ],
+      "opposition": -13.24094822010261,
+      "twists": [
+        -8.268696329203852,
+        6.736428911351166,
+        -9.615636221481925
+      ],
+      "points": [
+        [
+          0.5159958387257787,
+          1.0370341404207468,
+          0.15134391553565488
+        ],
+        [
+          0.5207255849495535,
+          0.9953001303451909,
+          0.14893191440877915
+        ],
+        [
+          0.48561850779505,
+          0.9707394935078354,
+          0.15564262489027667
+        ],
+        [
+          0.4689662225723547,
+          0.9940212828553212,
+          0.15491696507720373
+        ]
+      ],
+      "wrapDeg": 100.19998647989877,
+      "signedWrapDeg": -100.19998647989878,
+      "tipSurfaceDistance": 0.012168738935870643,
+      "penetration": 0,
+      "segmentPenetrations": [
+        0,
+        0,
+        0
+      ],
+      "maximumFkPointError": 3.208460278383652e-11,
+      "totalFlexDeg": 150.21192499997437,
+      "valid": true
+    },
+    "Ring": {
+      "angles": [
+        47.00548372299291,
+        26.055269217662737,
+        77.14032515497817
+      ],
+      "opposition": 9.910959713358455,
+      "twists": [
+        5.685187834969691,
+        9.970957515527518,
+        -4.815381970176709
+      ],
+      "points": [
+        [
+          0.5250271834571006,
+          1.0262630026154915,
+          0.12650960902304373
+        ],
+        [
+          0.5114198875841887,
+          0.9924220449616562,
+          0.1353783803810503
+        ],
+        [
+          0.4806916177202789,
+          0.9763483736443778,
+          0.1361469216926192
+        ],
+        [
+          0.47243629677214294,
+          0.9942597063771728,
+          0.12444976317700507
+        ]
+      ],
+      "wrapDeg": 100.19987726253862,
+      "signedWrapDeg": -100.19987726253862,
+      "tipSurfaceDistance": 0.009031601951356598,
+      "penetration": 0.0014625530082547147,
+      "segmentPenetrations": [
+        0,
+        0,
+        0.0014625530082547147
+      ],
+      "maximumFkPointError": 1.3547581279618398e-10,
+      "totalFlexDeg": 150.20107809563382,
+      "valid": true
+    },
+    "Pinky": {
+      "angles": [
+        49.31470736441127,
+        15.219361484772492,
+        79.99999999999999
+      ],
+      "opposition": 15.601989894662877,
+      "twists": [
+        9.999999999999998,
+        9.999999999999998,
+        -2.6388755600951566
+      ],
+      "points": [
+        [
+          0.5198881529872038,
+          1.02712631613876,
+          0.09797134669705412
+        ],
+        [
+          0.5098729609510422,
+          0.9983594410266361,
+          0.10560977756206753
+        ],
+        [
+          0.4861315278913269,
+          0.98193751953778,
+          0.10701635229812113
+        ],
+        [
+          0.4793121539606685,
+          0.9967259975441339,
+          0.09637501283689498
+        ]
+      ],
+      "wrapDeg": 94.01325538478409,
+      "signedWrapDeg": -94.0132553847841,
+      "tipSurfaceDistance": 0.006322295729447411,
+      "penetration": 0.00306250892449398,
+      "segmentPenetrations": [
+        0,
+        0,
+        0.00306250892449398
+      ],
+      "maximumFkPointError": 9.372962297540734e-11,
+      "totalFlexDeg": 144.53406884918377,
+      "valid": false
+    }
+  },
+  "selected": {
+    "roll": 0,
+    "weaponQuaternion": [
+      0.6689697331809423,
+      0,
+      0.1127660757022012,
+      0.7346858568521271
+    ],
+    "maximumIntrusion": 0.0024307097525807318,
+    "palmGap": 0.003141498166487778,
+    "facingDot": 0.8480191608376166,
+    "palmAmbiguous": false,
+    "score": 0,
+    "worst": {
+      "sourceId": 315,
+      "sourcePosition": [
+        0.47886738181114197,
+        1.0466392040252686,
+        0.08592255413532257
+      ],
+      "jointNames": [
+        "LeftHand",
+        "LeftForeArm",
+        "LeftHandPinky1",
+        "LeftHandThumb1"
+      ],
+      "weights": [
+        0.529293417930603,
+        0.4271637499332428,
+        0.04302208125591278,
+        0.0005207868525758386
+      ],
+      "distance": 0.0024307097525807318,
+      "inside": true,
+      "signedDistance": -0.0024307097525807318,
+      "face": 274503,
+      "closest": [
+        0.026526831112494046,
+        -0.18047006120359713,
+        -0.01895679344793165
+      ],
+      "normal": [
+        0.8686622817473307,
+        -0.0031832107968012857,
+        -0.49539449677862196
+      ],
+      "ambiguous": false
+    },
+    "surface": {
+      "passed": true,
+      "sourceTriangles": 30984,
+      "queries": 31812,
+      "subdivisions": 207,
+      "ambiguousQueries": 0,
+      "unresolvedTriangles": 0,
+      "maximumSampledIntrusion": 0.0024258303308124923,
+      "maximumCertifiedUpperBound": 0.0029993953346287,
+      "worst": {
+        "sourceTriangle": 21680,
+        "depth": 3,
+        "position": [
+          0.024272356705035254,
+          -0.18037295321508628,
+          -0.018013819039195633
+        ],
+        "distance": 0.0024258303308124923,
+        "inside": true,
+        "signedDistance": -0.0024258303308124923,
+        "face": 274503,
+        "closest": [
+          0.026379584015330717,
+          -0.18038067514438655,
+          -0.019215562035198804
+        ],
+        "normal": [
+          0.8686622817473307,
+          -0.0031832107968012857,
+          -0.49539449677862196
+        ],
+        "ambiguous": false,
+        "votes": [
+          true,
+          true,
+          true
+        ]
+      },
+      "limit": 0.003,
+      "maxDepth": 12,
+      "method": "Adaptive 1-Lipschitz signed-distance bounds over original deformed triangles; three-ray classification"
+    }
+  },
+  "evaluated": [
+    {
+      "roll": 0,
+      "weaponQuaternion": [
+        0.6689697331809423,
+        0,
+        0.1127660757022012,
+        0.7346858568521271
+      ],
+      "maximumIntrusion": 0.0024307097525807318,
+      "palmGap": 0.003141498166487778,
+      "facingDot": 0.8480191608376166,
+      "palmAmbiguous": false,
+      "score": 0,
+      "worst": {
+        "sourceId": 315,
+        "sourcePosition": [
+          0.47886738181114197,
+          1.0466392040252686,
+          0.08592255413532257
+        ],
+        "jointNames": [
+          "LeftHand",
+          "LeftForeArm",
+          "LeftHandPinky1",
+          "LeftHandThumb1"
+        ],
+        "weights": [
+          0.529293417930603,
+          0.4271637499332428,
+          0.04302208125591278,
+          0.0005207868525758386
+        ],
+        "distance": 0.0024307097525807318,
+        "inside": true,
+        "signedDistance": -0.0024307097525807318,
+        "face": 274503,
+        "closest": [
+          0.026526831112494046,
+          -0.18047006120359713,
+          -0.01895679344793165
+        ],
+        "normal": [
+          0.8686622817473307,
+          -0.0031832107968012857,
+          -0.49539449677862196
+        ],
+        "ambiguous": false
+      }
+    },
+    {
+      "roll": 45,
+      "weaponQuaternion": [
+        0.5748937354513494,
+        0.281152105410259,
+        0.3601859029449233,
+        0.6787612259711973
+      ],
+      "maximumIntrusion": 0.002423061439614713,
+      "palmGap": 0.0032410750577482723,
+      "facingDot": 0.8643868744279147,
+      "palmAmbiguous": false,
+      "score": 0,
+      "worst": {
+        "sourceId": 315,
+        "sourcePosition": [
+          0.47886738181114197,
+          1.0466392040252686,
+          0.08592255413532257
+        ],
+        "jointNames": [
+          "LeftHand",
+          "LeftForeArm",
+          "LeftHandPinky1",
+          "LeftHandThumb1"
+        ],
+        "weights": [
+          0.529293417930603,
+          0.4271637499332428,
+          0.04302208125591278,
+          0.0005207868525758386
+        ],
+        "distance": 0.002423061439614713,
+        "inside": true,
+        "signedDistance": -0.002423061439614713,
+        "face": 276728,
+        "closest": [
+          0.030161018635395397,
+          -0.18046770590953232,
+          0.0061797652608273365
+        ],
+        "normal": [
+          0.9714427293288823,
+          -0.0022212261626921035,
+          0.23726375574112868
+        ],
+        "ambiguous": false
+      }
+    },
+    {
+      "roll": 90,
+      "weaponQuaternion": [
+        0.3932953779239777,
+        0.5195013514219882,
+        0.5527706915576216,
+        0.5195013514219883
+      ],
+      "maximumIntrusion": 0.0025516562593894086,
+      "palmGap": 0.003025622414537538,
+      "facingDot": 0.8499334952179128,
+      "palmAmbiguous": false,
+      "score": 0,
+      "worst": {
+        "sourceId": 315,
+        "sourcePosition": [
+          0.47886738181114197,
+          1.0466392040252686,
+          0.08592255413532257
+        ],
+        "jointNames": [
+          "LeftHand",
+          "LeftForeArm",
+          "LeftHandPinky1",
+          "LeftHandThumb1"
+        ],
+        "weights": [
+          0.529293417930603,
+          0.4271637499332428,
+          0.04302208125591278,
+          0.0005207868525758386
+        ],
+        "distance": 0.0025516562593894086,
+        "inside": true,
+        "signedDistance": -0.0025516562593894086,
+        "face": 276417,
+        "closest": [
+          0.014936997976661181,
+          -0.18046265986041757,
+          0.026745243859370268
+        ],
+        "normal": [
+          0.48898856960674314,
+          -0.00013172555962353335,
+          0.8722901819018304
+        ],
+        "ambiguous": false
+      }
+    },
+    {
+      "roll": 135,
+      "weaponQuaternion": [
+        0.15182136433915933,
+        0.6787612259711973,
+        0.6612011532594692,
+        0.28115210541025903
+      ],
+      "maximumIntrusion": 0.002282452354089175,
+      "palmGap": 0.0032868277016007267,
+      "facingDot": 0.8544183357771507,
+      "palmAmbiguous": false,
+      "score": 0,
+      "worst": {
+        "sourceId": 315,
+        "sourcePosition": [
+          0.47886738181114197,
+          1.0466392040252686,
+          0.08592255413532257
+        ],
+        "jointNames": [
+          "LeftHand",
+          "LeftForeArm",
+          "LeftHandPinky1",
+          "LeftHandThumb1"
+        ],
+        "weights": [
+          0.529293417930603,
+          0.4271637499332428,
+          0.04302208125591278,
+          0.0005207868525758386
+        ],
+        "distance": 0.002282452354089175,
+        "inside": true,
+        "signedDistance": -0.002282452354089175,
+        "face": 275663,
+        "closest": [
+          -0.010246489105856134,
+          -0.1804628663861037,
+          0.030119232854674553
+        ],
+        "normal": [
+          -0.25335140975210935,
+          -0.00023774605148264171,
+          0.9673742846765329
+        ],
+        "ambiguous": false
+      }
+    },
+    {
+      "roll": 180,
+      "weaponQuaternion": [
+        -0.11276607570220115,
+        0.7346858568521271,
+        0.6689697331809423,
+        4.4986534148639396e-17
+      ],
+      "maximumIntrusion": 0.0022320166083062963,
+      "palmGap": 0.0033405303597268477,
+      "facingDot": 0.8570163518442125,
+      "palmAmbiguous": false,
+      "score": 0,
+      "worst": {
+        "sourceId": 315,
+        "sourcePosition": [
+          0.47886738181114197,
+          1.0466392040252686,
+          0.08592255413532257
+        ],
+        "jointNames": [
+          "LeftHand",
+          "LeftForeArm",
+          "LeftHandPinky1",
+          "LeftHandThumb1"
+        ],
+        "weights": [
+          0.529293417930603,
+          0.4271637499332428,
+          0.04302208125591278,
+          0.0005207868525758386
+        ],
+        "distance": 0.0022320166083062963,
+        "inside": true,
+        "signedDistance": -0.0022320166083062963,
+        "face": 275415,
+        "closest": [
+          -0.03050771865414935,
+          -0.1804657054439459,
+          0.014923260113926353
+        ],
+        "normal": [
+          -0.8624010723247654,
+          -0.0015150881335233314,
+          0.5062233646929413
+        ],
+        "ambiguous": false
+      }
+    },
+    {
+      "roll": 225,
+      "weaponQuaternion": [
+        -0.36018590294492325,
+        0.6787612259711973,
+        0.5748937354513494,
+        -0.281152105410259
+      ],
+      "maximumIntrusion": 0.002399448246188869,
+      "palmGap": 0.003324711700657617,
+      "facingDot": 0.8589470999875137,
+      "palmAmbiguous": false,
+      "score": 0,
+      "worst": {
+        "sourceId": 9584,
+        "sourcePosition": [
+          0.5390494465827942,
+          0.9450893998146057,
+          0.10549775511026382
+        ],
+        "jointNames": [
+          "LeftHandPinky3",
+          "Hips",
+          "Hips",
+          "Hips"
+        ],
+        "weights": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "distance": 0.002399448246188869,
+        "inside": true,
+        "signedDistance": -0.002399448246188869,
+        "face": 274230,
+        "closest": [
+          0.009279939959189316,
+          -0.17268462109610466,
+          -0.03335423361968771
+        ],
+        "normal": [
+          0.34560049444311813,
+          -0.005559239374140629,
+          -0.9383652770101063
+        ],
+        "ambiguous": false
+      }
+    },
+    {
+      "roll": 270,
+      "weaponQuaternion": [
+        -0.5527706915576216,
+        0.5195013514219883,
+        0.3932953779239777,
+        -0.5195013514219882
+      ],
+      "maximumIntrusion": 0.0022724174963554677,
+      "palmGap": 0.003377975152205862,
+      "facingDot": 0.8558741008805666,
+      "palmAmbiguous": false,
+      "score": 0,
+      "worst": {
+        "sourceId": 9584,
+        "sourcePosition": [
+          0.5390494465827942,
+          0.9450893998146057,
+          0.10549775511026382
+        ],
+        "jointNames": [
+          "LeftHandPinky3",
+          "Hips",
+          "Hips",
+          "Hips"
+        ],
+        "weights": [
+          1,
+          0,
+          0,
+          0
+        ],
+        "distance": 0.0022724174963554677,
+        "inside": true,
+        "signedDistance": -0.0022724174963554677,
+        "face": 274518,
+        "closest": [
+          0.02802836769569586,
+          -0.17268097980166866,
+          -0.01606117604378775
+        ],
+        "normal": [
+          0.9109418121338468,
+          -0.004267619284745513,
+          -0.4125127905070871
+        ],
+        "ambiguous": false
+      }
+    },
+    {
+      "roll": 315,
+      "weaponQuaternion": [
+        -0.6612011532594692,
+        0.2811521054102591,
+        0.15182136433915938,
+        -0.6787612259711973
+      ],
+      "maximumIntrusion": 0.002481550017349585,
+      "palmGap": 0.003069660813931129,
+      "facingDot": 0.8557401764068262,
+      "palmAmbiguous": false,
+      "score": 0,
+      "worst": {
+        "sourceId": 315,
+        "sourcePosition": [
+          0.47886738181114197,
+          1.0466392040252686,
+          0.08592255413532257
+        ],
+        "jointNames": [
+          "LeftHand",
+          "LeftForeArm",
+          "LeftHandPinky1",
+          "LeftHandThumb1"
+        ],
+        "weights": [
+          0.529293417930603,
+          0.4271637499332428,
+          0.04302208125591278,
+          0.0005207868525758386
+        ],
+        "distance": 0.002481550017349585,
+        "inside": true,
+        "signedDistance": -0.002481550017349585,
+        "face": 274201,
+        "closest": [
+          0.006087003551307883,
+          -0.18046647178513892,
+          -0.034281825817393335
+        ],
+        "normal": [
+          0.23623818504611294,
+          -0.001671553279631912,
+          -0.9716937407618471
+        ],
+        "ambiguous": false
+      }
+    }
+  ]
+}
