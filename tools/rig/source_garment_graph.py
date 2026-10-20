@@ -220,7 +220,9 @@ def source_welds(points, triangles):
                     'scope': 'Original UV chart continuity only; no inferred free garment cuts or near-surface stitching'}
 
 
-def run(base, seed_patches=None, reuse_supports=None, support_operator='edge-metric'):
+def run(base, seed_patches=None, reuse_supports=None, support_operator='edge-metric',regularization_radius=.08):
+    if not np.isfinite(regularization_radius) or not 0<regularization_radius<=2:
+        raise ValueError('Source support radius must be finite, positive and <=2 metres')
     meta = json.loads((base / 'input.json').read_text())
     points = np.fromfile(base / 'positions.bin', dtype='<f4').reshape(-1, 3).astype(np.float64)
     triangles = np.fromfile(base / 'triangles.bin', dtype='<u4').reshape(-1, 3)
@@ -370,7 +372,6 @@ def run(base, seed_patches=None, reuse_supports=None, support_operator='edge-met
     # Anatomical source patches express a preference, not an infinitely rigid
     # per-vertex boundary. A screened source Laplacian spreads the observed hip
     # and arm-target transitions over a spatial regularization scale.
-    regularization_radius = .08
     if support_operator == 'cotangent-fem':
         stiffness, mass, operator_report = source_fem_laplacian(p, inverse[triangles])
         target_strength = 1/regularization_radius**2
@@ -441,5 +442,6 @@ if __name__ == '__main__':
     parser.add_argument('--seed-patches', type=Path)
     parser.add_argument('--reuse-supports-from', type=Path)
     parser.add_argument('--support-operator', choices=['edge-metric', 'cotangent-fem'], default='edge-metric')
+    parser.add_argument('--support-radius',type=float,default=.08)
     args = parser.parse_args()
-    run(args.base, args.seed_patches, args.reuse_supports_from, args.support_operator)
+    run(args.base, args.seed_patches, args.reuse_supports_from, args.support_operator,args.support_radius)

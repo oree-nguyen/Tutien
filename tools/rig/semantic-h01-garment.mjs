@@ -20,6 +20,9 @@ const reuseSolve=process.argv.includes('--reuse-solve');
 const reuseSupports=option('--reuse-supports-from',null);
 const seedPatches=option('--seed-patches',null);
 const supportOperator=option('--support-operator','edge-metric');
+const supportRadius=Number(option('--support-radius','.08'));
+if(!Number.isFinite(supportRadius)||supportRadius<=0||supportRadius>2)throw Error('Source support radius must be positive and <=2 metres');
+if(reuseSupports&&supportRadius!==.08)throw Error('A new support radius cannot reuse an old solve');
 if(!['edge-metric','cotangent-fem'].includes(supportOperator))throw Error('Unknown source support operator');
 if(reuseSolve&&(reuseSupports||seedPatches))throw Error('--reuse-solve cannot reclassify or select different support arrays');
 if(!/^\.local\/rig-candidates\/[a-z0-9-]+$/.test(directory))throw Error('Output must be an isolated .local/rig-candidates/<name> directory');
@@ -34,6 +37,7 @@ if(reuseSolve){
   const cached=JSON.parse(await fs.readFile(directory+'/input.json'));
   assert.equal(cached.sourceSha256,sha(sourceBytes),'Cached source SHA differs');
   assert.equal(cached.parentRigSha256,sha(bytes),'Cached parent rig SHA differs');
+  assert.equal(cached.supportRadius??.08,supportRadius,'Cached support radius differs');
 }
 const doc = await io.readBinary(bytes), original = await io.readBinary(sourceBytes);
 const sourceNodes = original.getRoot().listNodes();
@@ -86,12 +90,13 @@ for(let i=0;i<indices.length;i+=3)for(let k=0;k<3;k++){
 const protectedMask={method:'Tracked H01 hand-frame bounds expanded22mm, every finger-influenced vertex, then one original triangle-edge ring',sourceSha256:sha(sourceBytes),parentRigSha256:sha(bytes),handFramesSha256:sha(framesBytes),sha256:sha(arrayBytes(protectedVertices)),count:protectedVertices.length,protectedCount:protectedVertices.reduce((a,b)=>a+b,0)};
 if(reuseSolve)assert.equal(sha(await fs.readFile(directory+'/protected.bin')),protectedMask.sha256,'Cached solve protected-mask SHA differs');
 await write('protected.bin',protectedVertices);
-await fs.writeFile(directory+'/input.json',JSON.stringify({source,sourceSha256:sha(sourceBytes),parentRigFile:input,parentRigSha256:sha(bytes),protectedMask,jointNames:joints.map(j=>j.getName()),jointPositions:Object.fromEntries(joints.map(j=>[j.getName(),[j.getWorldMatrix()[12],j.getWorldMatrix()[13],j.getWorldMatrix()[14]]]))},null,2)+'\n');
+await fs.writeFile(directory+'/input.json',JSON.stringify({source,sourceSha256:sha(sourceBytes),parentRigFile:input,parentRigSha256:sha(bytes),supportRadius,protectedMask,jointNames:joints.map(j=>j.getName()),jointPositions:Object.fromEntries(joints.map(j=>[j.getName(),[j.getWorldMatrix()[12],j.getWorldMatrix()[13],j.getWorldMatrix()[14]]]))},null,2)+'\n');
 if(!reuseSolve)await new Promise((resolve,reject)=>{
   const args=['tools/rig/source_garment_graph.py',directory];
   if(seedPatches)args.push('--seed-patches',seedPatches);
   if(reuseSupports)args.push('--reuse-supports-from',reuseSupports);
   args.push('--support-operator',supportOperator);
+  args.push('--support-radius',String(supportRadius));
   const process=spawn('python3',args,{stdio:'inherit',env:{...globalThis.process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'2'}});
   process.on('error',reject);process.on('exit',code=>code===0?resolve():reject(Error('Source graph solve rejected: '+code)));
 });
