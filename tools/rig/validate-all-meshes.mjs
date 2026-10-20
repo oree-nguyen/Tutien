@@ -116,6 +116,7 @@ if (process.env.REFERENCE_POSE) {
 }
 const provenance = new SourceProvenanceValidator(input);
 const exactSeams = new SeamAccumulator(),
+  originalSeams = new SeamAccumulator(),
   inferredSeams = new SeamAccumulator();
 const meshes = [];
 let referencedVertices = 0,
@@ -230,9 +231,11 @@ for (const [nodeIndex, node] of nodes.entries()) {
       if (mapped.verified) {
         verifiedVertices++;
         record.sourceVertexId = mapped.vertexIds[i];
-        const sourceId = mapped.weldIds
+        const originalSourceId = mapped.weldIds
           ? mapped.weldIds[i]
           : mapped.vertexIds[i];
+        const sourceId = mapped.seamIds ? 'fan:'+mapped.seamIds[i] : originalSourceId;
+        originalSeams.add(mapped.source.namespace+':'+originalSourceId,record);
         exactSeams.add(mapped.source.namespace + ":" + sourceId, record);
       }
     }
@@ -258,6 +261,7 @@ for (const [nodeIndex, node] of nodes.entries()) {
         triangleMap: mapped.triangleMap,
         weldStatus: mapped.weldStatus,
         weldProof: mapped.weldProof,
+        cutProof: mapped.cutProof,
       },
     });
   }
@@ -307,6 +311,10 @@ const report = {
     verifiedVertices,
     mechanicallyVerifiedWeldPrimitives,
     ...exact,
+    originalBeforePatternDiagnostic: {
+      scope: 'Original sewn-source identity including explicitly reviewed opened cut edges. Kept-seam identity is independently reconstructed above; original gaps remain visible here.',
+      ...originalSeams.measure(),
+    },
     inferredXYZDiagnostic: {
       acceptedAsSourceIdentity: false,
       scope:

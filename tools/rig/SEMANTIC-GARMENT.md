@@ -76,3 +76,97 @@ OPENBLAS_NUM_THREADS=1 python3 -m unittest discover -s tools/rig -p test_source_
 ```
 
 Every exported revision requires bind, upright, intermediate and full-animation measurements on every primitive, 1 µm source-copy continuity, garment boundary review, area/cross-section/collision checks and exact grip validation. Conver10 revisions are staging experiments until all relevant gates pass. A converged linear solve or preserved texture never authorizes activation.
+
+
+## Explicit source-corner cut experiment (conver10, 20 October)
+
+V7 node partitioning still joined the sleeve and lower robe through original
+source corners. The new experiments open an explicit original-edge list only.
+Every uncut corner fan is reconstructed independently by SciPy sparse connected
+components and compared with the compiler's union-find. All 4,499,178 source
+corners matched for the 948-edge proposal. This is a topology diagnostic, not
+a garment-pattern approval. The trusted pattern registry remains empty.
+
+Reproduce from the hash-bound v6/v7 inputs described above and the v7 lining
+regroup tool. These commands write staging outputs only:
+
+```bash
+OPENBLAS_NUM_THREADS=1 python3 tools/rig/coat_cut_topology.py .local/rig-candidates/semantic-garment-v7 .local/rig-candidates/coat-cut-v1
+node tools/rig/export-coat-cut.mjs .local/rig-candidates/coat-cut-v1
+PYTHONPATH=.local/rig-python OPENBLAS_NUM_THREADS=1 OMP_NUM_THREADS=2 python3 tools/rig/coat_cut_supports.py .local/rig-candidates/coat-cut-v1 .local/rig-candidates/coat-cut-fit-v1
+node tools/rig/export-coat-supports.mjs .local/rig-candidates/coat-cut-fit-v1
+node tools/rig/export-pose-matrices.mjs .local/rig-candidates/coat-cut-fit-v1
+OPENBLAS_NUM_THREADS=1 python3 tools/rig/pose_weight_fit.py .local/rig-candidates/coat-cut-fit-v1 .local/rig-candidates/coat-cut-pose-v1 --cut-fans --iterations 600
+node tools/rig/export-cut-pose-weights.mjs .local/rig-candidates/coat-cut-pose-v1
+node tools/rig/audit-cut-pose.mjs .local/rig-candidates/coat-cut-pose-v1 docs/anim-report/conver10-redo/coat-cut-pose-v1/cut-audit
+```
+
+The four-fixed-ID fit uses exported source-corner fan representatives, not
+original-vertex indices. It preserves protected hands, original positions,
+UVs, images, hierarchy and clips. Held edge limits pass on all eight primitives;
+kept seams measure zero and crossings remain 476 before/after. The audit is
+explicitly unapproved. Visible ragged cut edges, whole-animation and grip
+checks still reject activation. Original pre-cut gap measurements are retained.
+
+A separate source-dual length/area cut smoothing trial changes 4,133 face
+ownership labels within a 25mm surface band (948 to479 cut edges), retaining
+every original face. Repartitioning is explicit; the old vertex weights are
+reconstructed and hash/source-checked before the new solve. It still requires
+visual approval. It does not remove faces or create hidden anatomy.
+
+```bash
+OPENBLAS_NUM_THREADS=1 python3 tools/rig/smooth_coat_cut.py .local/rig-candidates/coat-cut-v1 .local/rig-candidates/coat-cut-v2
+node tools/rig/export-coat-cut.mjs .local/rig-candidates/coat-cut-v2
+```
+
+`close-coat-cut.mjs` is a separate derived-cloth-closure experiment. The projected
+Earcut attempt rejects its folded boundary instead of discarding source corners.
+An explicit `CLOSURE_METHOD=minimum-area` trial builds a 3D source-corner disk,
+checks every directed boundary/interior edge, and adds 1,884 declared closure
+faces to the first proposal. It leaves every original face/UV/image untouched.
+New closure faces are identified as derived surfaces, never falsely assigned
+original triangle provenance. They are **not accepted**: the right sleeve
+closure fails the unchanged stretch limits. A valid topological disk does not
+prove visual, collision, volume or animation quality.
+
+```bash
+CLOSURE_METHOD=minimum-area node tools/rig/close-coat-cut.mjs .local/rig-candidates/coat-cut-pose-v1 .local/rig-candidates/coat-closed-v2
+```
+
+`SourceProvenanceValidator` only recognizes cut fans when an exact source/edge
+entry exists in `data/rig/garment-patterns/index.json`. A declared boolean or
+self-authored sidecar cannot waive seams. Registry tests use isolated synthetic
+review records and assert that a 2µm kept-seam gap still fails the unchanged
+1µm tolerance. No real pattern entry or runtime replacement has been approved.
+
+
+The v3 closure trial constrains every chosen disk chord at the actual hash-bound
+held pose to 1.49 stretch, without changing source supports. All 14 primitives
+pass edge checks at that pose. The independent closure audit verifies that every
+new vertex position/UV/skin record comes from the actual same-node cut rim and
+every original cut halfedge is sealed exactly once. It also measures crossings
+476→754, so topology and held edge passes do **not** authorize activation. The
+smoothed-pattern closure trial increases475→785 and is also rejected.
+
+```bash
+CLOSURE_METHOD=minimum-area CLOSURE_POSE=docs/anim-report/harmonic-held/H01-reference-idle-solve.json node tools/rig/close-coat-cut.mjs .local/rig-candidates/coat-cut-pose-v1 .local/rig-candidates/coat-closed-v3
+node tools/rig/audit-coat-closure.mjs .local/rig-candidates/coat-closed-v3 docs/anim-report/conver10-redo/coat-closed-v3/closure-audit
+node tools/rig/bake-coat-closure-pbr.mjs .local/rig-candidates/coat-closed-v3 .local/rig-candidates/coat-closed-pbr-v3
+```
+
+New closure faces cannot interpolate across disconnected original UV islands.
+The PBR transfer tool unwraps only those derived faces and builds three 4096 × 4096 PNG
+atlases from the actual same-piece original cut-rim triangle neighborhood. It
+transports the sampled normal-map microdetail onto the closure's surface normal
+and new UV basis. The original source vertices/UVs, three original 4096 × 4096 images, bones and
+legacy clips remain exact; output comparison checks them. All 7,211,952 interior
+texels are baked offline. Atlases increase texture allocation; no Android
+performance or full-model material acceptance is inferred. Their staging PNGs
+and GLBs remain outside the default game build. No source-color multipliers,
+lighting changes or vertex-color overrides are applied.
+
+The initial global-nearest-surface projection was retained as a rejected
+cross-layer appearance trial. The current tool uses only original faces touching
+the actual same-piece rim, binds their selection hashes in its receipt, and
+never uses the newly generated closure as texture source. New atlas UVs are
+explicitly derived and are not asserted to be original-source UVs.

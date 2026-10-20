@@ -3,6 +3,7 @@ import path from "node:path";
 import { createHash } from "node:crypto";
 import { NodeIO, Accessor } from "@gltf-transform/core";
 import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
+import { sourceCutProof } from './source-cut-proof.mjs';
 
 const sha256 = (bytes) => createHash("sha256").update(bytes).digest("hex");
 /** Reconstruct original UV-chart seams from source topology, never XYZ alone. */
@@ -120,8 +121,9 @@ const validHash = (value) =>
 
 /** Source identity is independently checked against bytes, not inferred from XYZ. */
 export class SourceProvenanceValidator {
-  constructor(input) {
+  constructor(input, {cutRegistryFile} = {}) {
     this.directory = path.dirname(path.resolve(input));
+    this.cutRegistryFile = cutRegistryFile;
     this.documents = new Map();
     this.files = new Map();
     this.sources = new Map();
@@ -417,6 +419,21 @@ export class SourceProvenanceValidator {
             "hash-bound independently reconstructed opposite source boundary halfedges; garment pattern unreviewed";
         }
       }
+      let seamIds, cutProof;
+      if (metadata.cutPattern || primitive.getAttribute('_SOURCE_CUT_WELD')) {
+        if (!metadata.cutPattern) throw Error('Source-corner cuts require a reviewed pattern declaration');
+        const proof = await sourceCutProof(source,metadata,this.readFile.bind(this),
+          this.cutRegistryFile ? {registryFile:this.cutRegistryFile} : {});
+        const attribute = primitive.getAttribute('_SOURCE_CUT_WELD');
+        seamIds = attribute?.getArray();
+        if (attribute?.getType() !== Accessor.Type.SCALAR || attribute.getNormalized() ||
+          !(seamIds instanceof Uint32Array) || seamIds.length !== count)
+          throw Error('Invalid _SOURCE_CUT_WELD accessor');
+        for (let i=0;i<index.length;i++) if (seamIds[index[i]] !== proof.corners[triangleIds[Math.floor(i/3)]*3+i%3]) {
+          fail('Cut fan differs from independently reconstructed original corner at output corner '+i);break;
+        }
+        const {corners,...summary}=proof;cutProof=summary;
+      }
       if (!errors.length) {
         source.validatedOutputPrimitives++;
         for (const id of triangleIds) source.triangleCounts[id]++;
@@ -427,6 +444,8 @@ export class SourceProvenanceValidator {
         source,
         vertexIds,
         weldIds,
+        seamIds,
+        cutProof,
         weldProof,
         weldStatus,
         triangleMap: {

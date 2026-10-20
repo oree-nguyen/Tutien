@@ -32,6 +32,7 @@ def main():
     parser.add_argument('--ratio',type=float,default=1.49)
     parser.add_argument('--resume',action='store_true')
     parser.add_argument('--warm-start',type=Path)
+    parser.add_argument('--cut-fans',action='store_true',help='Use exact per-export-vertex source-corner fan layout')
     args=parser.parse_args()
     assert re.fullmatch(r'\.local/rig-candidates/[a-z0-9-]+',str(args.output))
     assert args.base.resolve()!=args.output.resolve() and 1<args.ratio<2 and args.iterations>0 and not(args.resume and args.warm_start)
@@ -41,16 +42,29 @@ def main():
     feasibility=json.loads((args.base/'feasibility-input.json').read_text())
     assert receipt['sha256']==feasibility['assetSha256']==digest(args.base/'H01-C0-rigged.glb')
     assert digest(args.base/'feasibility-matrices.bin')==feasibility['matricesSha256']
-    names=['positions.bin','triangles.bin','source-welds.u32bin','protected.bin','result-ids.bin','result-weights.bin','feasibility-matrices.bin']
-    hashes={name:digest(args.base/name) for name in names}
-    source=np.fromfile(args.base/'positions.bin','<f4').reshape(-1,3)
-    triangles=np.fromfile(args.base/'triangles.bin','<u4').reshape(-1,3)
-    weld=np.fromfile(args.base/'source-welds.u32bin','<u4');reps,inverse=np.unique(weld,return_inverse=True)
+    if args.cut_fans:
+        parent=json.loads((args.base/'solve.json').read_text())
+        layout=Path(parent['base'])
+        assert digest(layout/'H01-C0-rigged.glb')==parent['inputSha256']
+        files={name:layout/('solver-'+name) for name in ['positions.bin','triangles.bin','protected.bin']}
+        files['groups.bin']=layout/'solver-groups.bin'
+        files.update({name:args.base/name for name in ['result-ids.bin','result-weights.bin','feasibility-matrices.bin']})
+        for name,expected in parent['inputHashes'].items():assert digest(layout/name)==expected
+        for name,expected in parent['outputHashes'].items():assert digest(args.base/name)==expected
+    else:
+        files={name:args.base/name for name in ['positions.bin','triangles.bin','source-welds.u32bin','protected.bin','result-ids.bin','result-weights.bin','feasibility-matrices.bin']}
+    hashes={name:digest(file) for name,file in files.items()}
+    source=np.fromfile(files['positions.bin'],'<f4').reshape(-1,3)
+    triangles=np.fromfile(files['triangles.bin'],'<u4').reshape(-1,3)
+    weld=np.fromfile(files['groups.bin' if args.cut_fans else 'source-welds.u32bin'],'<u4');unique,reps,inverse=np.unique(weld,return_index=True,return_inverse=True)
     point=source[reps].astype(float);tri=inverse[triangles]
     ids=np.fromfile(args.base/'result-ids.bin','<u2').reshape(-1,4)
     original=np.fromfile(args.base/'result-weights.bin','<f4').reshape(-1,4)
     w0=original[reps].astype(float);w=w0.copy();extrapolated=w.copy()
-    fixed=np.zeros(len(reps),bool);np.logical_or.at(fixed,inverse,np.fromfile(args.base/'protected.bin','u1').astype(bool))
+    fixed=np.zeros(len(reps),bool);np.logical_or.at(fixed,inverse,np.fromfile(files['protected.bin'],'u1').astype(bool))
+    if args.cut_fans:
+        roles=np.fromfile(layout/'solver-roles.bin','u1')
+        np.logical_or.at(fixed,inverse,roles==0)
     # Preserve head and boots; the full torso/lining/sleeve domain is solved
     # together so a color label cannot hard-pin an internal fabric layer.
     free=(point[:,1]>.19)&(point[:,1]<1.55)&(np.abs(point[:,0])<.55)&~fixed
@@ -108,7 +122,7 @@ def main():
         if iteration%25==24 or iteration==args.iterations-1:
             status={'iteration':iteration+1,'elapsedSeconds':time.monotonic()-started,**measure(w)};history.append(status);print(json.dumps(status),flush=True)
     result=original.copy();result[free[inverse]]=w[inverse[free[inverse]]]
-    protected=np.fromfile(args.base/'protected.bin','u1').astype(bool)
+    protected=np.fromfile(files['protected.bin'],'u1').astype(bool)
     assert np.array_equal(result[protected],original[protected])
     assert np.isfinite(result).all() and result.min()>=0 and np.max(np.abs(result.sum(1)-1))<1e-5
     result.astype('<f4').tofile(args.output/'result-weights.bin')
@@ -116,7 +130,7 @@ def main():
     report={'base':str(args.base),'assetSha256':receipt['sha256'],'poseFile':feasibility['poseFile'],'poseSha256':feasibility['poseSha256'],
         'inputHashes':hashes,'outputWeightsSha256':digest(args.output/'result-weights.bin'),'jointIdsChanged':False,
         'protectedWeightsPreserved':True,'initial':initial,'final':measure(w),'history':history,
-        'parameters':{'iterations':args.iterations,'ratio':args.ratio},'continuation':continuation,
+        'parameters':{'iterations':args.iterations,'ratio':args.ratio,'cutFans':args.cut_fans},'continuation':continuation,
         'stateHashes':{name:digest(args.output/name) for name in ['state-weights.npy','state-extrapolated.npy','state-dual.npy']},'accepted':False,'activated':False,
         'scope':'One-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance.'}
     (args.output/'solve.json').write_text(json.dumps(report,indent=2)+'\n')
