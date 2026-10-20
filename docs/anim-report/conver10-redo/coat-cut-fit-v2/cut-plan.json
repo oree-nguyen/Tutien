@@ -1,0 +1,67 @@
+{
+  "parentRig": ".local/rig-candidates/semantic-garment-v7/H01-C0-rigged.glb",
+  "parentRigSha256": "5fcf74580c7bcb9d48adcaebbdb1c379712f89ad2e34d0d55a18d7a6a6902db4",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "operation": "Bounded source-dual length/area Potts cut smoothing, source face ownership only; no geometry/texture synthesis",
+  "diagnostics": {
+    "sourceFaces": 1499726,
+    "sourceCorners": 4499178,
+    "pairedEdges": 2249589,
+    "cutEdges": 479,
+    "fanUnionIterations": 3,
+    "unpairedNonzeroEdges": 0
+  },
+  "bounds": [
+    [
+      -0.31949207186698914,
+      0.6402360200881958,
+      -0.1017272025346756
+    ],
+    [
+      0.3179002106189728,
+      0.9115425944328308,
+      -0.010481417179107666
+    ]
+  ],
+  "leftEdges": 248,
+  "rightEdges": 231,
+  "files": {
+    "cut-edges.u32bin": {
+      "sha256": "0f621f6446c379ab21a9d6ec77b78cac7049672680818ad78a8f2181cb7fcdac",
+      "bytes": 3832
+    },
+    "corner-components.u32bin": {
+      "sha256": "9535c4297be79b1e76b3e2cdd173575e3cef6b15d7529cef213a400b95d5f4ea",
+      "bytes": 17996712
+    },
+    "face-roles.u8bin": {
+      "sha256": "835c3e8d3148a457f8f7b8734b0279a1b75f6596c079986cbc5441afc15eff1a",
+      "bytes": 1499726
+    }
+  },
+  "patternApproved": false,
+  "accepted": false,
+  "activated": false,
+  "scope": "Exact source-edge pattern proposal. No geometry removed/generated, no texture change, no exemption in current seam verifier. Requires isolated boundary and deformed mesh review.",
+  "previousPlan": ".local/rig-candidates/coat-cut-v1/cut-plan.json",
+  "previousPlanSha256": "268cf33e5d67eaf1637f144b1a56cbc598db2c42235fae7ac3bb3b6d77a9ffb2",
+  "smoothing": [
+    {
+      "lower": 1,
+      "sleeve": 4,
+      "bandMetres": 0.025,
+      "editableFaces": 11463,
+      "changedFaces": 1904,
+      "flowCapacity": 929004
+    },
+    {
+      "lower": 2,
+      "sleeve": 5,
+      "bandMetres": 0.025,
+      "editableFaces": 12212,
+      "changedFaces": 2229,
+      "flowCapacity": 807110
+    }
+  ],
+  "changedFaces": 4133
+}

@@ -1,0 +1,229 @@
+{
+  "base": ".local/rig-candidates/coat-cut-v1",
+  "inputSha256": "0c8e663df6aa85dd9d2d190951088ac77d5eab5fce972f0c9ab0e7e4ddbcea26",
+  "cutPlanSha256": "268cf33e5d67eaf1637f144b1a56cbc598db2c42235fae7ac3bb3b6d77a9ffb2",
+  "radius": 0.12,
+  "elapsedSeconds": 137.1799551639997,
+  "operator": {
+    "method": "Original triangle cotangent FEM stiffness with lumped source-area mass",
+    "stiffnessUnits": "dimensionless",
+    "massUnits": "square metres",
+    "zeroAreaSourceTrianglesExcludedFromOperator": 0,
+    "sourceTrianglesPreservedInExport": true,
+    "negativeTriangleCotangents": 944555,
+    "sourceAreaSquareMeters": 5.552993381262736,
+    "minimumGroupMassSquareMeters": 1.829203106823705e-08
+  },
+  "freeGroups": 620250,
+  "protectedSourceCopies": 38524,
+  "changedCopies": 728317,
+  "maximumDiscardedInfluence": 0.1247266019888571,
+  "solves": [
+    {
+      "joint": "Hips",
+      "residual": 9.449427420375395e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 693,
+        "freeResidual": 8.214614732056448e-07,
+        "minimumWeight": -1.5640005778141483e-08,
+        "minimumActiveGradient": -8.467745027997398e-09,
+        "dualTolerance": 3.0174719031004675e-05
+      },
+      "unconstrainedMinimumWeight": -1.6711601196845267e-05,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Spine",
+      "residual": 7.780601800940236e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 9,
+        "freeResidual": 6.815262691487141e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -2.3378970540664404e-09,
+        "dualTolerance": 4.617595584664103e-05
+      },
+      "unconstrainedMinimumWeight": -7.597413403111e-05,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Spine2",
+      "residual": 8.036319962444907e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 4930,
+        "freeResidual": 8.141020733829304e-07,
+        "minimumWeight": 0.0,
+        "minimumActiveGradient": -1.446133082033324e-05,
+        "dualTolerance": 0.00010310766738106743
+      },
+      "unconstrainedMinimumWeight": -0.00016586259290703284,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Neck",
+      "residual": 7.636766387567673e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 174414,
+        "freeResidual": 7.22597087087416e-07,
+        "minimumWeight": -4.958574515722158e-08,
+        "minimumActiveGradient": -3.631808974443815e-07,
+        "dualTolerance": 2.9901557912777713e-06
+      },
+      "unconstrainedMinimumWeight": -3.675488435486289e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "Head",
+      "residual": 8.149632176394924e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 191,
+        "freeResidual": 7.90346870025082e-07,
+        "minimumWeight": -3.960404144417142e-09,
+        "minimumActiveGradient": -5.804942113342808e-07,
+        "dualTolerance": 1.6137395378288203e-05
+      },
+      "unconstrainedMinimumWeight": -1.928869659965429e-05,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftArm",
+      "residual": 6.204954153437149e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2525,
+        "freeResidual": 5.926965917282799e-07,
+        "minimumWeight": -4.927749043823752e-10,
+        "minimumActiveGradient": -1.2398032129386657e-08,
+        "dualTolerance": 2.5669556890568696e-06
+      },
+      "unconstrainedMinimumWeight": -2.0593981190736866e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftForeArm",
+      "residual": 8.73517891252349e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 1772,
+        "freeResidual": 8.762362604602313e-07,
+        "minimumWeight": -2.4708135506960752e-08,
+        "minimumActiveGradient": -8.695088304325508e-08,
+        "dualTolerance": 2.1623031105568113e-05
+      },
+      "unconstrainedMinimumWeight": -0.00016284385774297127,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftHand",
+      "residual": 9.361570273127018e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 6760,
+        "freeResidual": 6.187774506911851e-07,
+        "minimumWeight": -1.818899910072448e-08,
+        "minimumActiveGradient": -2.4241929456112826e-08,
+        "dualTolerance": 9.494517023375053e-06
+      },
+      "unconstrainedMinimumWeight": -4.715863784006868e-05,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightArm",
+      "residual": 8.87570921632902e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 3049,
+        "freeResidual": 8.321260271002234e-07,
+        "minimumWeight": -5.592016728301054e-09,
+        "minimumActiveGradient": -1.6657753496014425e-07,
+        "dualTolerance": 2.48800721555464e-06
+      },
+      "unconstrainedMinimumWeight": -6.212605699351008e-05,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightForeArm",
+      "residual": 9.668238393267984e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 1254,
+        "freeResidual": 9.476262074493545e-07,
+        "minimumWeight": -7.809176324740238e-09,
+        "minimumActiveGradient": -1.3723903433434532e-06,
+        "dualTolerance": 2.117609935819899e-05
+      },
+      "unconstrainedMinimumWeight": -1.5976788425111938e-05,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "RightHand",
+      "residual": 9.020980558419924e-07,
+      "nonnegativeFEM": {
+        "method": "Nonnegative convex FEM energy active set; primal and dual KKT checked",
+        "activeSetSolves": 1,
+        "zeroBoundSourceGroups": 2504,
+        "freeResidual": 7.370768398482807e-07,
+        "minimumWeight": -4.742851235814398e-08,
+        "minimumActiveGradient": -6.807622472041039e-08,
+        "dualTolerance": 2.6778368107286765e-05
+      },
+      "unconstrainedMinimumWeight": -4.81394197293926e-06,
+      "residualScope": "Initial unconstrained field; bounded field free residual and active KKT are reported separately"
+    },
+    {
+      "joint": "LeftUpLeg",
+      "residual": 1.3873512289932236e-06
+    },
+    {
+      "joint": "LeftLeg",
+      "residual": 9.641668814837967e-07
+    },
+    {
+      "joint": "LeftFoot",
+      "residual": 9.118640175636596e-07
+    },
+    {
+      "joint": "RightUpLeg",
+      "residual": 7.177320407740367e-07
+    },
+    {
+      "joint": "RightLeg",
+      "residual": 9.962846054772085e-07
+    },
+    {
+      "joint": "RightFoot",
+      "residual": 9.74509181546931e-07
+    }
+  ],
+  "inputHashes": {
+    "solver-positions.bin": "4f384e72e1e2879a00fd2abf5b5b19686d76478aea8fce75f34becf6e62d6ad2",
+    "solver-triangles.bin": "bb0515991514a8662ad029fcb4686e41ef9384d4c174b09234e73a6cb0cac0bd",
+    "solver-groups.bin": "a1b6d4384da3f6e1b1f8c0ffdc3a6b8e6f7349e7de7c20aa61eaa434d7c313cd",
+    "solver-ids.bin": "7950ff1637dd71f4fa71a796ebfcc56b97f2613e34e11d4a01e4b790651ac05f",
+    "solver-weights.bin": "5f4d6ca39c6df5e4aaf7567a4c6aebced5c62231ddfc47c33cf7ac4e408f7947",
+    "solver-roles.bin": "9f1e7808de37f9cd91609bfbe3ef22de5a583d5b144522a51005d0f553f7a000",
+    "solver-protected.bin": "8ece084ef1a8d8edd892a3cdb722c507b53f803ad92d9f8a0945107a92372bac",
+    "solver-meta.json": "471c79c6d6aae67d96125e5b46012623410a6b69fc32f3fd98cc9a911684f196"
+  },
+  "outputHashes": {
+    "result-ids.bin": "c7d6c7cfcfc98b97fa045c0470390c6fdafe62441a17bb68c5f5f8b70afa680a",
+    "result-weights.bin": "da2e300b34359591e67c60473d293fe036c1de2fd3e94a2580843514be5440fb"
+  },
+  "accepted": false,
+  "activated": false,
+  "scope": "Support solve on explicit source-corner cut fans; no original face/UV/texture changes. Proposed pattern, all-pose skin/collision/contact and visual acceptance remain unverified."
+}

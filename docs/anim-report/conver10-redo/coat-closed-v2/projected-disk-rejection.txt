@@ -1,0 +1,16 @@
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Projected boundary crosses or skips an already used source corner
+    at triangulateCut (file:///workspace/Tutien/tools/rig/triangulate-cut.mjs:24:40)
+    at file:///workspace/Tutien/tools/rig/close-coat-cut.mjs:36:23 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: false,
+  expected: true,
+  operator: '==',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

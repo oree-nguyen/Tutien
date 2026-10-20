@@ -79,4 +79,11 @@ Sổ ảnh nguyên bản, thời gian đăng ký ngay bên dưới và đường
 Lượt FEM radius0,30m cũng [thất bại](../semantic-garment-wide/README.md). Các lượt này không phải thay đổi ánh sáng/texture/độ phân giải và không được đóng vào APK.
 
 
-Kiểm tra cuối lượt này: `npm test` **267/267**, `test:master` **215/215**; `verify:master` **BLOCKED0/37**, rig goal **BLOCKED**. Log nguyên bản trong `checks/*latest*`. Sổ conver10 có **383 ảnh nguyên byte**, đã đối chiếu bản sao trên Git. Kết quả vẫn chưa đạt100%; APK lịch sử445MB chưa được thay bằng một rig được nghiệm thu.
+Kiểm tra lượt trước tại b64dcb2: `npm test` **267/267**, `test:master` **215/215**; `verify:master` **BLOCKED0/37**, rig goal **BLOCKED**. Log nguyên bản trong `checks/*latest*`. Sổ conver10 có **383 ảnh nguyên byte**, đã đối chiếu bản sao trên Git. Kết quả vẫn chưa đạt100%; APK lịch sử445MB chưa được thay bằng một rig được nghiệm thu.
+
+
+## Cắt thật, khép mép và PBR — lượt 20/10 tiếp theo
+
+[Chi tiết và ảnh mới](CLOTH-CUT-2026-10-20.md): 8/8 primitive nguồn và 14/14 khi thêm mặt khép mép đạt kéo giãn ở một pose, nhưng biên áo/giao cắt/toàn hoạt ảnh còn bị chặn. Có bake PBR riêng cho mặt mới, giữ nguyên ba texture nguồn 4096. H02 thử chuyển động giảm lệch nắm lớn nhất 505→141 mm nhưng vẫn fail; chân thật và loop tiếp theo chưa đạt. Chưa thay rig trong runtime, chưa có APK mới. Mọi ảnh mới được đăng nguyên byte vào conver10.
+
+Kiểm thử hiện hành: **284/284** unit, **215/215** master; verify vẫn **BLOCKED 0/37** và goal rig vẫn **BLOCKED**. Sổ conver10 hiện **444 ảnh** nguyên byte. Xem raw logs và fingerprint trong `checks/latest-checks.json`.

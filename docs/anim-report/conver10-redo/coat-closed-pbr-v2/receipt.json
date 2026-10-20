@@ -1,0 +1,38 @@
+{
+  "base": ".local/rig-candidates/coat-closed-v4",
+  "inputSha256": "37f15bc5a0ef8c4b942a06e0d19f8efdcdb9a364daef9f4af465e5c44f016d19",
+  "sourceFile": "public/models/hunyuan-original/H01-C0-source.glb",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "output": ".local/rig-candidates/coat-closed-pbr-v2/H01-C0-rigged.glb",
+  "sha256": "61f0b0e00ea94d0a0a732c85537b7d76d103dc0213e6018cc911269b5d030855",
+  "originalSourcePayloadAndImagesPreserved": true,
+  "sourceImageResolution": [
+    4096,
+    4096
+  ],
+  "derivedAtlasResolution": [
+    4096,
+    4096
+  ],
+  "bakedTriangles": 938,
+  "bakedTexels": 7504938,
+  "maximumProjectionDistanceMetres": 0.03009262684143909,
+  "seconds": 52.884161849,
+  "files": {
+    "closure-albedo-4096.png": {
+      "sha256": "c8ed6afb4caae17959087008c2ecd702c60eacbe5ce914d0bf19316f43dd68c7",
+      "bytes": 997945
+    },
+    "closure-normal-4096.png": {
+      "sha256": "e46919322d6b19b26b68844fd0bdbbd3be0398b6a6a2948d0ed17e25ced0029d",
+      "bytes": 2882024
+    },
+    "closure-metalRough-4096.png": {
+      "sha256": "733a790eead995e69085baab413e01bfee0cb872930bad082cc91dfb90f7b0ee",
+      "bytes": 624364
+    }
+  },
+  "accepted": false,
+  "activated": false,
+  "scope": "Texture transfer for derived closure faces only. Original source geometry/UV/images, skeleton and clips remain exact. New UVs/PBR atlases explicitly derived; independent image/geometry/collision/full-animation review still required."
+}

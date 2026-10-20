@@ -1,0 +1,59 @@
+file:///workspace/Tutien/tools/rig/bounded-chain-fit.mjs:83
+    const error=Error('No velocity-feasible bounded chain seed: '+names.join('/')+'; previous coordinate-clamp step '+(previousRotations?MathUtils.radToDeg(evaluate(encode(previousRotations)).maximumStep).toFixed(6):'missing')+' degrees');
+                ^
+
+Error: No velocity-feasible bounded chain seed: RightArm/RightForeArm/RightHand; previous coordinate-clamp step 9.964737 degrees
+    at fitBoundedChain (file:///workspace/Tutien/tools/rig/bounded-chain-fit.mjs:83:17)
+    at solveOfflineChain (file:///workspace/Tutien/tools/rig/offline-entrance-ik.mjs:48:12)
+    at solveOfflineChain (file:///workspace/Tutien/tools/rig/full-entrance-sequence.mjs:14:49)
+    at Object.sample (file:///workspace/Tutien/tools/rig/full-entrance-sequence.mjs:152:65)
+    at bakeEntrance (file:///workspace/Tutien/tools/bake-entrance-anim.mjs:50:59)
+    at async file:///workspace/Tutien/tools/bake-entrance-anim.mjs:100:90 {
+  chain: [ 'RightArm', 'RightForeArm', 'RightHand' ],
+  previousRotations: [
+    [
+      -0.4073907698439833,
+      -0.1245908188068961,
+      0.07883712349030768,
+      0.9012738742883474
+    ],
+    [
+      -0.07111500427957829,
+      -0.017550590652312268,
+      0.06306551978010932,
+      0.9953177247235856
+    ],
+    [
+      0.508339521525001,
+      -0.1599249053128191,
+      0.48594875638154267,
+      0.6927256034590112
+    ]
+  ],
+  bounds: [
+    [ -60, 180 ], [ -30, 180 ],
+    [ -90, 70 ],  [ -5, 145 ],
+    [ -8, 8 ],    [ 0, 0 ],
+    [ -70, 80 ],  [ -30, 20 ],
+    [ -10, 10 ]
+  ],
+  previousCoordinates: [
+    {
+      flex: 1.9940535247433424,
+      lateral: 1.8457149919878095,
+      twist: 69.99999988726961
+    },
+    {
+      flex: 0.000015785391046979807,
+      lateral: 5.565969671284981e-15,
+      twist: -0
+    },
+    {
+      flex: -79.99714266631737,
+      lateral: -16.445858170612887,
+      twist: -9.798643080789248
+    }
+  ]
+}
+
+Node.js v24.19.0

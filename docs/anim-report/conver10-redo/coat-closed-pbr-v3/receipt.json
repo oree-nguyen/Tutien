@@ -1,0 +1,70 @@
+{
+  "base": ".local/rig-candidates/coat-closed-v3",
+  "inputSha256": "fb203c8297c9a2f4e59f04324ec3c3b66f4a33bf4688078e9f7faa9df050e5a0",
+  "sourceFile": "public/models/hunyuan-original/H01-C0-source.glb",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "output": ".local/rig-candidates/coat-closed-pbr-v3/H01-C0-rigged.glb",
+  "sha256": "c997bd0a7d97cd78a7a22e8b92283ab35eeadbbfabc10e51a70a4921b576c900",
+  "originalSourcePayloadAndImagesPreserved": true,
+  "sourceImageResolution": [
+    4096,
+    4096
+  ],
+  "derivedAtlasResolution": [
+    4096,
+    4096
+  ],
+  "bakedTriangles": 1884,
+  "bakedTexels": 7211952,
+  "maximumProjectionDistanceMetres": 0.03230790335296229,
+  "seconds": 24.795586559,
+  "neighborhoods": [
+    {
+      "node": "H01_Robe_Left",
+      "rimFaces": 659,
+      "sourceFacesSha256": "ed597340c92ad7d9fa57f2ca8375ab3d24a7609545f8dd413b7e6b5ffb701fa2"
+    },
+    {
+      "node": "H01_Robe_Left",
+      "rimFaces": 187,
+      "sourceFacesSha256": "e7e25a7a1c93e485aa4d7a68f87c27d0a2e24aa0068f03cf780da7ceadf50839"
+    },
+    {
+      "node": "H01_Robe_Right",
+      "rimFaces": 914,
+      "sourceFacesSha256": "f1d101b1b097a06dfb6fd99fae5a7b873dc96aed79c6372cd431115e771899c4"
+    },
+    {
+      "node": "H01_Sleeve_Left",
+      "rimFaces": 643,
+      "sourceFacesSha256": "d0d1e5438c7f18887f027dbd34b43b9d0b52b4d9f68793a97d00e1c8b0fa3234"
+    },
+    {
+      "node": "H01_Sleeve_Left",
+      "rimFaces": 193,
+      "sourceFacesSha256": "96da996662132211fbf30ea4864e7dc2d3441f638450b756a1b6067d2dc9c722"
+    },
+    {
+      "node": "H01_Sleeve_Right",
+      "rimFaces": 905,
+      "sourceFacesSha256": "9f0e5bee19ef65bb4ebd02dd2565028a90684f1e1d48f9dc1bfc4c31283ceafa"
+    }
+  ],
+  "files": {
+    "closure-albedo-4096.png": {
+      "sha256": "09ce6ea244bef292fbcb209ab0b3373dd563d1d48719162efeed09496eb02605",
+      "bytes": 1248484
+    },
+    "closure-normal-4096.png": {
+      "sha256": "5ca614c9773ce0498f55d9cca955ba3ee32ebedfdc7d53f7d67979f94413b50e",
+      "bytes": 599910
+    },
+    "closure-metalRough-4096.png": {
+      "sha256": "94ec5e021a5f61234565b320ff8482912c99482f2a1e678bcd5b703b2e67e846",
+      "bytes": 648066
+    }
+  },
+  "accepted": false,
+  "activated": false,
+  "scope": "Texture transfer for derived closure faces only. Original source geometry/UV/images, skeleton and clips remain exact. New UVs/PBR atlases explicitly derived; independent image/geometry/collision/full-animation review still required."
+}

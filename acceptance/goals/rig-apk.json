@@ -7,25 +7,25 @@
       "id": "garment",
       "condition": "Hai vạt H01 độc lập; biên áo/tay/thân hợp lý, không giả phần thân bị thiếu",
       "status": "in_progress",
-      "note": "V7 source-topology partition restores348389existing lining/fabric faces to left/right coat panels. Eight bind primitives pass; held pose3/8passes. Complete source coverage and148028seam pairs at0mm. Unaccepted skin unchanged; not activated."
+      "note": "Explicit948-edge source cuts; independent4,499,178corner proof. Derived1884cloth closure faces and same-piece4096PBR transfer implemented in staging. Ragged rims, loose strips and crossings476→754 still block review. No pattern registry approval or activation."
     },
     {
       "id": "skin",
       "condition": "Kiểm toàn bộ mesh, không chỉ mesh đầu: p99.9 <= 1.5 và maximum <= 2.0; không đổi ngưỡng",
       "status": "blocked",
-      "note": "Pose-aware four-ID weight-only trial reduces unique-edge max15.897469to4.628803, but independent per-primitive checks still fail and crossings increase2169to4098. Independent support trial opens1062.781mm source seams and is rejected. No seam exemption or activation."
+      "note": "Source-cut pose fit passes8/8primitives; derived closures14/14 at one held pose, unchanged1.5/2.0limits. Kept seams0mm. Full animation, sections, source-pattern/derived-face approval and actual boot-floor contact remain blocked."
     },
     {
       "id": "contact",
       "condition": "H01/H02 qua kiểm tiếp xúc mesh vũ khí và giới hạn khớp hiện có",
       "status": "blocked",
-      "note": "H02 isolated left-palm/source-triangle contact check now passes its narrow scope; complete finger wrap, static grip and whole-animation contact remain unaccepted. H01 historical passing grip cannot certify changed weights."
+      "note": "H02 thumb-plane and seven palm-grid trials still fail full grip. Static historical palm-only proof cannot certify these candidates or whole animation."
     },
     {
       "id": "animation",
       "condition": "Entrance và IDLE_HOLD đúng reference; kiểm hoạt ảnh và chuyển tiếp, không mất UV/texture",
       "status": "blocked",
-      "note": "Complete60Hz FK sequences now have zero joint-limit violating frames in intermediate staging checks; actual source boot support, garment deformation, reference pose and weapon contact still block activation. Neighbor blend checks alone are insufficient."
+      "note": "Experimental velocity-aware H02 bake452frames: zero joint-bound violations, but201failedIKframes and max postgrab140.962mm. Independentv2 mesh-floor170failedframes;v3 rejected by idle-loop continuity. All remain inactive."
     },
     {
       "id": "runtime",
@@ -37,7 +37,7 @@
       "id": "tests",
       "condition": "npm test, test:master và verify:master báo kết quả thật; không hạ điều kiện",
       "status": "blocked",
-      "note": "npm test267/267 and test:master215/215 pass in cloud; verify:master and rig goal remain blocked. No threshold changes."
+      "note": "Cloud latest source ed8cf998: npm test284/284 and test:master215/215 pass. verify:master remains BLOCKED0/37 and rig goal BLOCKED. Raw logs, exit codes and hashes are retained; no threshold changes."
     },
     {
       "id": "apk",
@@ -49,7 +49,7 @@
       "id": "publish",
       "condition": "Mã nguồn, ảnh và APK lên GitHub; xác minh remote",
       "status": "in_progress",
-      "note": "Baseline audit main813b5ef; current source repairs, failed rig evidence and all conver10 images are published as progress. APK/runtime replacement remains blocked until genuine rig acceptance."
+      "note": "Source corrections and failed experiments are published as progress; new pictures remain in conver10. No accepted runtime rig or new APK has been published."
     }
   ],
   "limitations": [
