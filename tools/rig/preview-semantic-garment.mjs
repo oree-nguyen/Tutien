@@ -12,6 +12,8 @@ await server.listen();
 let browser;
 const captures=process.env.GARMENT_PREVIEW_RESUME?JSON.parse(await fs.readFile(output+'/capture-manifest.json')).captures:[];
 const target=process.env.GARMENT_PREVIEW_CANDIDATE??'semantic-garment';
+const morph=process.env.GARMENT_PREVIEW_MORPH===undefined?null:Number(process.env.GARMENT_PREVIEW_MORPH);
+if(morph!==null&&![0,1].includes(morph))throw Error('Diagnostic morph weight must be zero or one');
 const sha=bytes=>createHash('sha256').update(bytes).digest('hex');
 try {
   browser=await chromium.launch({executablePath:'/usr/bin/chromium',headless:true,args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
@@ -24,7 +26,10 @@ try {
     const assetSha256=sha(await fs.readFile(`.local/rig-candidates/${candidate}/H01-C0-rigged.glb`));
     await page.goto(`http://127.0.0.1:5193/tools/rig-review.html?hero=H01&rigged=1&view=full&candidate=${candidate}`);
     await page.waitForFunction(()=>window.ready,null,{timeout:120000});
-    const cases=candidate==='harmonic-projected' ? [['held',null,0],['held',null,1],['held',null,2]] : process.env.GARMENT_PREVIEW_FOCUS==='failure' ? [
+    const cases=process.env.GARMENT_PREVIEW_FOCUS==='panels' ? [
+      ['bind',null,0],['bind',null,2],
+      ...['H01_Robe_Left','H01_Robe_Right','H01_Remaining_Source'].flatMap(name=>[0,2].map(view=>['isolated-bind',name,view]))
+    ] : process.env.GARMENT_PREVIEW_FOCUS==='comparison' ? [['held',null,0],['held',null,2]] : candidate==='harmonic-projected' ? [['held',null,0],['held',null,1],['held',null,2]] : process.env.GARMENT_PREVIEW_FOCUS==='failure' ? [
       ['held',null,0],['held',null,2],
       ['isolated-held','H01_Robe_Right',2],['isolated-held','two-panels',2],
       ['isolated-held','H01_Sleeve_Right',0]
@@ -39,7 +44,7 @@ try {
     ];
     for(const [state,solo,view] of cases) {
       const held=state==='held'||state==='isolated-held';
-      const name=`${candidate}-${state}${solo?'-'+solo:''}-${['front','side','back'][view]}`;
+      const name=`${candidate}-${state}${solo?'-'+solo:''}${morph===null?'':'-morph'+morph}-${['front','side','back'][view]}`;
       const path=`${output}/${name}.png`;
       const existing=captures.find(c=>c.path===path);
       if(existing){
@@ -47,14 +52,16 @@ try {
         if(held&&existing.poseSha256!==sha(poseBytes))throw Error('Cannot resume capture from a different pose SHA');
         await fs.access(path);continue;
       }
-      await page.evaluate(({held,solo,view,pose,name})=>{
+      await page.evaluate(({held,solo,view,pose,name,morph})=>{
         const r=window.review;r.bindPose();
-        r.model.traverse(n=>{if(n.isSkinnedMesh)n.visible=!solo||(solo==='two-panels'?['H01_Robe_Left','H01_Robe_Right'].includes(n.name):n.name===solo);if(held&&pose.rotations[n.name])n.quaternion.fromArray(pose.rotations[n.name]);});
+        const partMatches=n=>{for(let p=n;p;p=p.parent)if(solo==='two-panels'?['H01_Robe_Left','H01_Robe_Right'].includes(p.name):p.name===solo)return true;return false;};
+        r.model.traverse(n=>{if(n.isSkinnedMesh)n.visible=!solo||partMatches(n);if(held&&pose.rotations[n.name])n.quaternion.fromArray(pose.rotations[n.name]);});
+        if(morph!==null)r.model.traverse(n=>{if(n.morphTargetInfluences){if(n.morphTargetInfluences.length!==1)throw Error('Expected exactly one diagnostic corrective');n.morphTargetInfluences[0]=held?morph:0;}});
         r.setView(view);
         document.querySelector('#label').textContent=`H01 ${name} — SOURCE SURFACE DIAGNOSTIC, STAGING ONLY`;
-      },{held,solo,view,pose,name});
+      },{held,solo,view,pose,name,morph});
       await page.screenshot({path});
-      captures.push({path,capturedAt:new Date().toISOString(),candidate,assetSha256,poseSha256:held?sha(poseBytes):null,state,solo,view});
+      captures.push({path,capturedAt:new Date().toISOString(),candidate,assetSha256,poseSha256:held?sha(poseBytes):null,state,solo,view,morphWeight:held?morph:0});
       await fs.writeFile(output+'/capture-manifest.json',JSON.stringify({captures},null,2)+'\n');
     }
   }

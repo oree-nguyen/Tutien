@@ -170,6 +170,7 @@ async function fixture(options = {}) {
         .setIndices(
           attr(doc, buffer, Accessor.Type.SCALAR, new Uint32Array(indices)),
         );
+      if(options.morphTarget)primitive.addTarget(doc.createPrimitiveTarget().setAttribute('POSITION',attr(doc,buffer,Accessor.Type.VEC3,new Float32Array(positions.length))));
       if (options.provenance !== false) {
         primitive.setAttribute(
           "_SOURCE_VERTEX",
@@ -471,6 +472,13 @@ test("sampled Hips translation is applied before skinning instead of silently ig
   assert.ok(Math.abs(report.seams.maximumMillimetres - 100) < 1e-9);
   assert.equal(report.edgeStrainPassed, true);
   assert.match(report.poseSha256, /^[0-9a-f]{64}$/);
+});
+
+test('a zero-default morph cannot bypass a verifier that samples only base skin',async()=>{
+  const {child,report}=await fixture({morphTarget:true});
+  assert.equal(child.status,1);
+  assert.equal(report.passed,false);
+  assert.ok(report.meshes.every(m=>m.skinErrors.some(e=>/explicit posed-morph validator/.test(e))));
 });
 
 test("upstream-failed diagnostic pose applies validated rotations and translation", async () => {

@@ -154,6 +154,8 @@ for (const [nodeIndex, node] of nodes.entries()) {
     const skinError = (message) => {
       if (skinErrors.length < 20) skinErrors.push(message);
     };
+    if(primitive.listTargets().length)
+      skinError('Morph targets require an explicit posed-morph validator; base skin alone cannot certify them');
     const posed = new Float64Array(source?.length ?? 0).fill(NaN);
     if (
       !Number.isInteger(count) ||
