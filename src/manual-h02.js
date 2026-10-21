@@ -1,3 +1,4 @@
+import {loadReportEntrancePlayer} from './report-entrance.js';
 import{perfBeginAppearance}from'./perf-debug.js';
 import * as THREE from 'three';
 import {clone as cloneSkeleton}from'three/addons/utils/SkeletonUtils.js';
@@ -12,7 +13,7 @@ export function usesManualH02(a){return['hero','clone'].includes(a.kind)&&a.hero
 export function configureManualH02(root,renderer,scene,camera){contexts.set(root,{renderer,scene,camera});}
 function cloneMaterials(root){root.traverse(n=>{if(n.isMesh){n.geometry.userData.sharedArt=true;n.material=Array.isArray(n.material)?n.material.map(m=>m.clone()):n.material.clone();for(const m of Array.isArray(n.material)?n.material:[n.material])m.userData.sharedArt=true;}});}
 function cloneTencentSource(gltf,name){const source=gltf.scene.clone(true);source.name=name;source.traverse(node=>{if(!node.isMesh)return;node.geometry.userData.sharedArt=true;node.userData.tencentSource=true;node.material=Array.isArray(node.material)?node.material.map(material=>material.clone()):node.material.clone();});return source;}
-function syncTencentPreview(s){if(!s.preview||!s.sourceReady)return;s.body.traverse(node=>{if(node.isSkinnedMesh)node.visible=false;});s.sourceBody.position.copy(s.body.position);s.sourceBody.rotation.copy(s.body.rotation);s.sourceBody.visible=true;if(!s.sourceDisplayed){const driver=s.previewHammerDriver,source=s.sourceHammer,parent=driver.parent??s.stage;parent.add(source);source.position.copy(driver.position);source.quaternion.copy(driver.quaternion);source.scale.copy(driver.scale);source.visible=true;driver.visible=false;s.hammer=source;s.sourceDisplayed=true;}}
+function syncTencentPreview(s){if(!s.preview||!s.sourceReady||s.root.userData.previewAnimation)return;s.body.traverse(node=>{if(node.isSkinnedMesh)node.visible=false;});s.sourceBody.position.copy(s.body.position);s.sourceBody.rotation.copy(s.body.rotation);s.sourceBody.visible=true;if(!s.sourceDisplayed){const driver=s.previewHammerDriver,source=s.sourceHammer,parent=driver.parent??s.stage;parent.add(source);source.position.copy(driver.position);source.quaternion.copy(driver.quaternion);source.scale.copy(driver.scale);source.visible=true;driver.visible=false;s.hammer=source;s.sourceDisplayed=true;}}
 function prepareTencentPreview(s){
  Promise.all([loadManualAsset('source-h02-body',false,s.root),loadManualAsset('source-h02-hammer',false,s.root)]).then(([bodyGltf,hammerGltf])=>{
   if(s.root.userData.manualAsset.disposed){releaseManualSourceAsset('source-h02-body',s.root);releaseManualSourceAsset('source-h02-hammer',s.root);return;}
@@ -63,13 +64,17 @@ export function createManualH02(actor,detail){
   const context=contexts.get(root);root.userData.manualAsset.status='preparing';
   if(context){enhanceCharacterVisualFidelity(body,context.renderer,context.scene);enhanceCharacterVisualFidelity(hammer,context.renderer,context.scene);root.userData.manualAsset.shaderWarmup=await warmSceneMaterials(context.renderer,stage,context.camera,context.scene,true,()=>root.userData.manualAsset.disposed);}
   if(root.userData.manualAsset.disposed){mixer.stopAllAction();s.vfx&&disposeH02EntranceVfx(s.vfx);return;}
-  states.set(root,s);s.introStart=performance.now();body.visible=true;
+  s.reportPlayer=preview?await loadReportEntrancePlayer('H02',body).catch(error=>{console.error('H02 motion fallback',error);return null;}):null;if(root.userData.manualAsset.disposed){s.reportPlayer?.dispose();mixer.stopAllAction();s.vfx&&disposeH02EntranceVfx(s.vfx);return;}states.set(root,s);s.introStart=performance.now();body.visible=true;
   if(!preview){ik.socket.add(hammer);hammer.position.set(0,0,0);s.gripped=true;}
-  if(preview){perfBeginAppearance('model:H02:'+detail);root.userData.manualAsset.sourceFidelity={status:'loading',mesh:'Tencent Hunyuan original'};}Object.assign(root.userData.manualAsset,{status:'loaded',clips:gltf.animations.map(c=>c.name),loadMs:performance.now()-started,cache:{...manualAssetMetrics},weaponSource:'45b118bc-58ce-4000-94c6-8e09945aa9f1'});root.userData.modelLoadRevision=1;if(preview)prepareTencentPreview(s);
+  if(preview){perfBeginAppearance('model:H02:'+detail);root.userData.manualAsset.sourceFidelity={status:'loading',mesh:'Tencent Hunyuan original'};}Object.assign(root.userData.manualAsset,{status:'loaded',clips:gltf.animations.map(c=>c.name),loadMs:performance.now()-started,cache:{...manualAssetMetrics},weaponSource:'45b118bc-58ce-4000-94c6-8e09945aa9f1'});root.userData.modelLoadRevision=1;if(preview){root.userData.manualAsset.motion={revision:s.reportPlayer?'gemini-2026-10-21':'legacy-fallback',duration:s.reportPlayer?3:H02_ENTRANCE.duration,gripHand:s.reportPlayer?'left':'right',weightsReplaced:false,sourceSkinActivated:false};prepareTencentPreview(s);}
  }).catch(error=>{if(!root.userData.manualAsset.disposed){root.userData.manualAsset.status='failed';root.userData.manualAsset.error=error.message;console.error('H02 Hunyuan asset failed',error);}});
  return root;
 }
 function updateEntrance(root,s,t){
+ if(s.reportPlayer){
+  const f=s.reportPlayer.sample(t,s.hammer);s.body.visible=true;s.gripped=f.gripped;s.impact=t>=.3;s.stamp=t>=2.8;
+  updateH02EntranceVfx(s.vfx,f.vfxTime);root.userData.manualAsset.animation=f.complete?'IDLE_HOLD':'Entrance';root.userData.manualAsset.entrance=f;root.userData.manualAsset.cameraShake=0;return;
+ }
  const f=h02EntranceFrame(t,s.frame),k=H02_ENTRANCE;
  if(s.current!=='Entrance'){s.mixer.stopAllAction();s.actions.Entrance.reset().play();s.current='Entrance';}
  s.actions.Entrance.stopFading().setEffectiveWeight(1);s.actions.Entrance.time=Math.min(t,k.duration);s.mixer.update(0);
@@ -92,16 +97,16 @@ function updateEntrance(root,s,t){
 }
 export function updateManualH02(root,actor,speed,dt){
  const s=states.get(root);if(!s)return;
- if(s.preview){const t=s.forcedTime??(performance.now()-s.introStart)/1000;if(t<=H02_ENTRANCE.duration){updateEntrance(root,s,t);return;}if(!s.stamp||!s.gripped)updateEntrance(root,s,H02_ENTRANCE.duration);s.body.position.set(0,0,0);s.body.rotation.z=0;s.body.visible=true;updateH02EntranceVfx(s.vfx,t);root.userData.manualAsset.entrance={time:t,complete:true};root.userData.manualAsset.cameraShake=0;}
+ if(s.preview){const t=s.forcedTime??(performance.now()-s.introStart)/1000;if(s.reportPlayer){updateEntrance(root,s,t);if(t>=3)syncTencentPreview(s);return;}if(t<=H02_ENTRANCE.duration){updateEntrance(root,s,t);return;}if(!s.stamp||!s.gripped)updateEntrance(root,s,H02_ENTRANCE.duration);s.body.position.set(0,0,0);s.body.rotation.z=0;s.body.visible=true;updateH02EntranceVfx(s.vfx,t);root.userData.manualAsset.entrance={time:t,complete:true};root.userData.manualAsset.cameraShake=0;}
  const cds=actor.cooldowns??[];let requested=null;for(let i=0;i<6;i++)if((cds[i]??0)>(s.cooldowns[i]??0)+.08)requested=i===5?'Attack':i===4?'Dash':'Cast';for(let i=0;i<6;i++)s.cooldowns[i]=cds[i]??0;
  s.remaining=Math.max(0,s.remaining-dt);if(requested)s.remaining=requested==='Dash'?.5:requested==='Attack'?.8:1;
  const desired=requested??(s.remaining>0?s.current:speed>.06?'Run':'Idle');selectAction(s,desired,!!requested);s.mixer.update(Math.min(.1,Math.max(0,dt)));
  const p=s.v[6].set(-.43,1.15,H02_STANDING_HAMMER_Z);if(desired==='Run')p.y+=.06*Math.sin(s.actions.Run.time*8);else if(desired!=='Idle')p.y+=.12*Math.sin(Math.PI*Math.min(1,s.actions[desired].time/s.actions[desired].getClip().duration));
  s.body.userData.rightElbowPole[1]=1.05;s.body.userData.rightElbowPole[2]=-.12;poseRightHand(s.ik,p,true);poseLeftHip(s,0);s.hammer.position.set(0,0,0);orientHammer(s);syncTencentPreview(s);root.userData.manualAsset.animation=desired;root.userData.manualAsset.rightGripError=s.ik.lastError;
 }
-export function replayManualH02(root){const s=states.get(root);if(!s?.preview)return;delete s.forcedTime;s.introStart=performance.now();s.gripped=s.impact=s.stamp=false;s.sourceDisplayed=false;root.userData.manualAsset.entrance={time:0,complete:false};root.userData.manualAsset.animation='Entrance';if(s.sourceBody)s.sourceBody.visible=false;if(s.sourceHammer)s.sourceHammer.visible=false;s.body.visible=true;s.body.traverse(node=>{if(node.isSkinnedMesh)node.visible=true;});s.hammer=s.previewHammerDriver;s.hammer.visible=true;s.stage.attach(s.hammer);s.current=null;s.mixer.stopAllAction();}
+export function replayManualH02(root){const s=states.get(root);if(!s?.preview)return;s.reportPlayer?.replay();delete s.forcedTime;s.introStart=performance.now();s.gripped=s.impact=s.stamp=false;s.sourceDisplayed=false;root.userData.manualAsset.entrance={time:0,complete:false};root.userData.manualAsset.animation='Entrance';if(s.sourceBody)s.sourceBody.visible=false;if(s.sourceHammer)s.sourceHammer.visible=false;s.body.visible=true;s.body.traverse(node=>{if(node.isSkinnedMesh)node.visible=true;});s.hammer=s.previewHammerDriver;s.hammer.visible=true;s.stage.attach(s.hammer);s.current=null;s.mixer.stopAllAction();}
 export function seekManualH02(root,time){if(!Number.isFinite(time))throw Error('Entrance seek time must be finite');const s=states.get(root);if(s?.preview){replayManualH02(root);s.forcedTime=Math.max(0,time);updateManualH02(root,{cooldowns:s.cooldowns},0,0);}}
 export function disposeManualH02(root){
- root.userData.manualAsset.disposed=true;const s=states.get(root);if(s){s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);s.vfx&&disposeH02EntranceVfx(s.vfx);states.delete(root);}
+ root.userData.manualAsset.disposed=true;const s=states.get(root);if(s){s.reportPlayer?.dispose();s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);s.vfx&&disposeH02EntranceVfx(s.vfx);states.delete(root);}
  const sourceKeys=root.userData.manualAsset?.sourceFidelity?['source-h02-body','source-h02-hammer']:[];const materials=new Set(),skeletons=new Set();root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh){for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);}});for(const skeleton of skeletons)skeleton.dispose();for(const m of materials)m.dispose();contexts.delete(root);releaseManualAssets(root);for(const key of sourceKeys)releaseManualSourceAsset(key,root);
 }

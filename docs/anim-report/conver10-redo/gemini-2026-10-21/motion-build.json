@@ -1,0 +1,437 @@
+{
+  "scope": "Motion retarget on shipped legacy rigs; source-resolution skin replacement remains blocked",
+  "receipts": [
+    {
+      "hero": "H01",
+      "source": "assets/rigged/H01-C0-rigged.glb",
+      "sourceSha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
+      "donor": "public/models/h01-c0/h01-c0-high.glb",
+      "donorSha256": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
+      "sourceMotionOnly": true,
+      "sourceWeightBytesImported": 0,
+      "inputMotion": "data/hero-entrance/gemini-input/H01.bin",
+      "inputMotionSha256": "c98067f4d50ca1940c9b2725a1c9e4de4740ebf9e1c3b674a5aac40339c4024f",
+      "controllerPassed": true,
+      "preRetargetFootFk": {
+        "frames": 844,
+        "failed": 11,
+        "maximumEndpointError": 0.0026502898004247483,
+        "maximumOrientationError": 4.722019975292555
+      },
+      "finalGripArmSolve": {
+        "passed": true,
+        "cost": 0.13723105622172202,
+        "theta": 28.65043098998285,
+        "roll": 180,
+        "elbow": [
+          -0.41937174040192055,
+          1.5024273165467388,
+          -0.0349611494335902
+        ],
+        "violations": [],
+        "arm": [
+          -0.2049420686005093,
+          -0.6867808049242897,
+          -0.15147223086262981,
+          -0.6807253761854242
+        ],
+        "fore": [
+          -0.22615249522205896,
+          -0.03923208386166914,
+          0.22825746552970408,
+          0.9461577151461924
+        ],
+        "hand": [
+          -0.13824137243142445,
+          -0.0031731251522023477,
+          -0.13662059254544975,
+          0.980925108210395
+        ],
+        "anatomical": {
+          "arm": {
+            "flex": -12.300654357145474,
+            "lateral": 73.40755206685061,
+            "twist": -44.737698397532995
+          },
+          "fore": {
+            "flex": 28.650430989982855,
+            "lateral": 4.352102904189489e-15,
+            "twist": 0
+          },
+          "hand": {
+            "flex": 6.861776845734167,
+            "lateral": -28.141122141659494,
+            "twist": -7.649816769702397
+          }
+        },
+        "positionError": 4.520428733304487e-9,
+        "rotationErrorDegrees": 0
+      },
+      "crouchFits": [
+        {
+          "chain": "LeftFoot",
+          "passed": true,
+          "target": [
+            0.18,
+            0.12,
+            0.12
+          ],
+          "targetQuaternion": [
+            0.8416218284628609,
+            0,
+            0,
+            0.5400673086336838
+          ],
+          "positionError": 8.978363153517935e-10,
+          "orientationErrorDegrees": 0,
+          "requestedDistance": 0.39421180983827137,
+          "maximumReach": 0.7593060556948185,
+          "flex": 116.59252653480506,
+          "elbow": [
+            0.23031789710483558,
+            0.38210103830179687,
+            0.3464864744294511
+          ],
+          "violations": [],
+          "boundedFitAttempted": false,
+          "maximumStepDegrees": null
+        },
+        {
+          "chain": "RightFoot",
+          "passed": true,
+          "target": [
+            -0.18,
+            0.12,
+            0.12
+          ],
+          "targetQuaternion": [
+            0.8416218284628609,
+            0,
+            0,
+            0.5400673086336838
+          ],
+          "positionError": 5.754909872388562e-10,
+          "orientationErrorDegrees": 0,
+          "requestedDistance": 0.37849480760296145,
+          "maximumReach": 0.7593060556948185,
+          "flex": 119.37803829298355,
+          "elbow": [
+            -0.22623532050342463,
+            0.3990004026774368,
+            0.3262669108939773
+          ],
+          "violations": [],
+          "boundedFitAttempted": false,
+          "maximumStepDegrees": null
+        },
+        {
+          "chain": "RightArm",
+          "passed": true,
+          "cost": 0.036741305982677226,
+          "theta": 41.717101412861666,
+          "roll": 329,
+          "elbow": [
+            -0.23275191628415054,
+            0.6017715093757736,
+            0.05214127200030124
+          ],
+          "violations": [],
+          "arm": [
+            0.5375252455953461,
+            -0.2736669732160213,
+            0.218525472230609,
+            -0.7670851426698562
+          ],
+          "fore": [
+            -0.30734483462506823,
+            -0.040885463454329675,
+            0.29588869805318246,
+            0.9035028554862495
+          ],
+          "hand": [
+            0.3582193719238249,
+            -0.06095522244787391,
+            -0.12992422923260702,
+            0.9225416180818855
+          ],
+          "anatomical": {
+            "arm": {
+              "flex": -2.1192275100332685,
+              "lateral": -26.176623665462355,
+              "twist": 5.6700859941863655
+            },
+            "fore": {
+              "flex": 41.71710141286166,
+              "lateral": 3.4058992997939264e-15,
+              "twist": 0
+            },
+            "hand": {
+              "flex": -47.061650838061006,
+              "lateral": -4.628645274344279,
+              "twist": -7.019678741236476
+            }
+          },
+          "positionError": 8.367377915060601e-9,
+          "rotationErrorDegrees": 0.0012692510413908175
+        },
+        {
+          "chain": "LeftArm",
+          "passed": true,
+          "cost": 0.22205961155206175,
+          "theta": 62.0241881470065,
+          "roll": 248,
+          "elbow": [
+            0.1864946593366733,
+            0.7739990197564133,
+            0.005662883402493692
+          ],
+          "violations": [],
+          "arm": [
+            0.5669024120580898,
+            0.2007344818772201,
+            -0.15222167765932829,
+            -0.7843187386763009
+          ],
+          "fore": [
+            -0.42523416422386884,
+            0.042395431212153306,
+            -0.3930618501451118,
+            0.8141749903734854
+          ],
+          "hand": [
+            -0.4523639417578627,
+            0.040278242017847764,
+            -0.49928040196738804,
+            0.7378777728245541
+          ],
+          "anatomical": {
+            "arm": {
+              "flex": -0.26867128966598025,
+              "lateral": -27.005232089450953,
+              "twist": 17.03333693090292
+            },
+            "fore": {
+              "flex": 62.02418814700649,
+              "lateral": -5.825032734166312e-16,
+              "twist": 0
+            },
+            "hand": {
+              "flex": 76.72737402734292,
+              "lateral": 17.313558600974183,
+              "twist": 9.890799682804072
+            }
+          },
+          "positionError": 9.818575047954344e-9,
+          "rotationErrorDegrees": 0.0000024148365394514667
+        }
+      ],
+      "clips": [
+        {
+          "name": "Entrance",
+          "duration": 3,
+          "tracks": 53,
+          "samples": 181
+        },
+        {
+          "name": "IDLE_HOLD",
+          "duration": 4,
+          "tracks": 53,
+          "samples": 241
+        }
+      ],
+      "clothAcceptance": false,
+      "file": "public/animations/report-entrances/H01.bin",
+      "bytes": 382172,
+      "sha256": "bfa58f56e1785281186b6c8ad91335cdb50448b8b6c3cd29cb6ba605bc416c8b"
+    },
+    {
+      "hero": "H02",
+      "source": "assets/rigged/H02-C0-rigged.glb",
+      "sourceSha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+      "donor": "public/models/h02-body/h02-body-high.glb",
+      "donorSha256": "6ba32bc115ac5978eb55b9830828998aa942f5f5e7a4e5f4b2b89546b19b88e5",
+      "sourceMotionOnly": true,
+      "sourceWeightBytesImported": 0,
+      "inputMotion": "data/hero-entrance/gemini-input/H02.bin",
+      "inputMotionSha256": "cb075b4e86648728e31a10574cfc4b318331134d2449eb907d013db9b4b7fd38",
+      "controllerPassed": true,
+      "preRetargetFootFk": {
+        "frames": 844,
+        "failed": 24,
+        "maximumEndpointError": 0.007818181012360067,
+        "maximumOrientationError": 14.72947399631126
+      },
+      "finalGripArmSolve": {
+        "passed": true,
+        "cost": 0.23729332957089044,
+        "theta": 20.890331381226133,
+        "roll": 129,
+        "elbow": [
+          0.3303859382923832,
+          1.215770814957965,
+          0.06870993966965305
+        ],
+        "violations": [],
+        "arm": [
+          -0.3118111758267812,
+          -0.7455747627569088,
+          0.4488187020953502,
+          0.3813841061435892
+        ],
+        "fore": [
+          -0.22179203006650297,
+          0.019122374195269173,
+          -0.1595546747650197,
+          0.9617613716326647
+        ],
+        "hand": [
+          -0.5228287182531076,
+          -0.0200136013756166,
+          0.20439062684953768,
+          0.827329474143067
+        ],
+        "anatomical": {
+          "arm": {
+            "flex": 8.213960097342193,
+            "lateral": -14.679434598013993,
+            "twist": -69.05142525876079
+          },
+          "fore": {
+            "flex": 20.89033138122614,
+            "lateral": 2.798460038985599e-15,
+            "twist": 0
+          },
+          "hand": {
+            "flex": 72.36574732012605,
+            "lateral": 19.046967574756344,
+            "twist": 9.58312512730572
+          }
+        },
+        "positionError": 3.025255821351044e-8,
+        "rotationErrorDegrees": 0
+      },
+      "crouchFits": [
+        {
+          "chain": "LeftFoot",
+          "passed": true,
+          "target": [
+            0.34,
+            0.12,
+            0.06
+          ],
+          "targetQuaternion": [
+            0.8416218742018198,
+            0,
+            0,
+            0.5400672373556981
+          ],
+          "positionError": 0.00006676994774574062,
+          "orientationErrorDegrees": 0.20993171928659735,
+          "requestedDistance": 0.4222566327920279,
+          "maximumReach": 0.8694686416286824,
+          "flex": 121.06385009076286,
+          "elbow": [
+            0.33170954096393557,
+            0.3985622011249452,
+            0.34740167504015984
+          ],
+          "violations": [],
+          "boundedFitAttempted": true,
+          "maximumStepDegrees": null
+        },
+        {
+          "chain": "RightFoot",
+          "passed": true,
+          "target": [
+            -0.34,
+            0.12,
+            0.06
+          ],
+          "targetQuaternion": [
+            0.8416218742018198,
+            0,
+            0,
+            0.5400672373556981
+          ],
+          "positionError": 0.0001901019229189009,
+          "orientationErrorDegrees": 0.34744152397241135,
+          "requestedDistance": 0.3689885998714835,
+          "maximumReach": 0.8694686416286824,
+          "flex": 129.09179212219965,
+          "elbow": [
+            -0.4162420748234049,
+            0.3906399342160333,
+            0.34511380653696044
+          ],
+          "violations": [],
+          "boundedFitAttempted": true,
+          "maximumStepDegrees": null
+        },
+        {
+          "chain": "RightArm",
+          "passed": true,
+          "target": [
+            -0.22,
+            0.44,
+            0.2
+          ],
+          "targetQuaternion": null,
+          "positionError": 2.0358561669827374e-8,
+          "orientationErrorDegrees": 0,
+          "requestedDistance": 0.4344389719872462,
+          "maximumReach": 0.49923233165272385,
+          "flex": 38.38229305832646,
+          "elbow": [
+            -0.3730283557221045,
+            0.5774710497757407,
+            0.1370422457683358
+          ],
+          "violations": [],
+          "boundedFitAttempted": false,
+          "maximumStepDegrees": null
+        },
+        {
+          "chain": "LeftArm",
+          "passed": true,
+          "target": [
+            0.35,
+            0.84,
+            0.16
+          ],
+          "targetQuaternion": null,
+          "positionError": 2.833974975665184e-8,
+          "orientationErrorDegrees": 0,
+          "requestedDistance": 0.4356906018367263,
+          "maximumReach": 0.4992212136989339,
+          "flex": 37.78287238464691,
+          "elbow": [
+            0.24659642650575858,
+            0.7844750809174227,
+            -0.02027628575039589
+          ],
+          "violations": [],
+          "boundedFitAttempted": false,
+          "maximumStepDegrees": null
+        }
+      ],
+      "clips": [
+        {
+          "name": "Entrance",
+          "duration": 3,
+          "tracks": 53,
+          "samples": 181
+        },
+        {
+          "name": "IDLE_HOLD",
+          "duration": 4,
+          "tracks": 53,
+          "samples": 241
+        }
+      ],
+      "clothAcceptance": false,
+      "file": "public/animations/report-entrances/H02.bin",
+      "bytes": 382216,
+      "sha256": "9b19150cc36d16c5c039d46a19c0b119fb3a7929f2c9400138943120d302b7f1"
+    }
+  ]
+}

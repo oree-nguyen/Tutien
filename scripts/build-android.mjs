@@ -2,6 +2,11 @@ import { spawn } from "node:child_process";
 import { readFile, writeFile, copyFile, mkdir, access } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { fingerprint } from "./fingerprint.mjs";
+import {
+  reportEntranceUrls,
+  reportEntranceHashes,
+  reportEntranceRevision,
+} from "../src/report-entrance-assets.js";
 const sdk = process.env.ANDROID_HOME ?? "/workspace/android-sdk",
   jdk = process.env.JAVA_HOME ?? "/workspace/jdk21/jdk-21.0.8+9",
   cache = process.env.GRADLE_USER_HOME ?? "/workspace/.gradle",
@@ -29,17 +34,38 @@ await run("npm", ["run", "android:sync"], {
   HG_SKIP_STANDALONE: "1",
 });
 async function exists(path) {
-  try { await access(path); return true; }
-  catch (error) { if (error.code === "ENOENT") return false; throw error; }
+  try {
+    await access(path);
+    return true;
+  } catch (error) {
+    if (error.code === "ENOENT") return false;
+    throw error;
+  }
 }
 const reviewFiles = [
-  "rig-review.html", "models/rig-review/H01.glb", "models/rig-review/H02.glb",
-  "models/rig-review/H01-held.json", "models/rig-review/manifest.json",
+  "rig-review.html",
+  "models/rig-review/H01.glb",
+  "models/rig-review/H02.glb",
+  "models/rig-review/H01-held.json",
+  "models/rig-review/manifest.json",
 ];
-const includedReviewFiles = await Promise.all(reviewFiles.map(path => exists("dist/" + path)));
-if (includedReviewFiles.some(included => included !== includeRigReview))
-  throw Error("Built rig-review files do not match HG_INCLUDE_RIG_REVIEW; refusing APK build");
+const includedReviewFiles = await Promise.all(
+  reviewFiles.map((path) => exists("dist/" + path)),
+);
+if (includedReviewFiles.some((included) => included !== includeRigReview))
+  throw Error(
+    "Built rig-review files do not match HG_INCLUDE_RIG_REVIEW; refusing APK build",
+  );
 const rigReviewIncluded = includedReviewFiles.every(Boolean);
+const lobbyMotionAssets = [];
+for (const [hero, url] of Object.entries(reportEntranceUrls)) {
+  const file = url.split("?")[0].replace(/^\//, ""),
+    bytes = await readFile("dist/" + file);
+  const sha256 = createHash("sha256").update(bytes).digest("hex");
+  if (sha256 !== reportEntranceHashes[hero])
+    throw Error("Stale packaged entrance motion: " + hero);
+  lobbyMotionAssets.push({ hero, file, sha256, bytes: bytes.length });
+}
 await run(
   "./android/gradlew",
   [
@@ -87,6 +113,8 @@ await writeFile(
       versionName,
       rigReviewIncluded,
       runtimeRigReplaced: false,
+      lobbyEntranceRevision: reportEntranceRevision,
+      lobbyMotionAssets,
       signed: true,
       recordedAt: new Date().toISOString(),
     },

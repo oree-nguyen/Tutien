@@ -1,3 +1,4 @@
+import {loadReportEntrancePlayer} from './report-entrance.js';
 import{perfBeginAppearance}from'./perf-debug.js';
 import{usesManualH02,configureManualH02,updateManualH02,replayManualH02,seekManualH02,disposeManualH02}from'./manual-h02.js';
 import * as THREE from 'three';
@@ -24,7 +25,7 @@ function cloneMaterials(body){body.traverse(node=>{
  }
 });}
 function cloneTencentSource(gltf,name){const source=gltf.scene.clone(true);source.name=name;source.traverse(node=>{if(!node.isMesh)return;node.geometry.userData.sharedArt=true;node.userData.tencentSource=true;node.material=Array.isArray(node.material)?node.material.map(material=>material.clone()):node.material.clone();});return source;}
-function syncTencentPreview(state){if(!state.sourceReady||!state.preview)return;state.body.visible=false;state.sourceBody.visible=true;state.staff.visible=false;state.root.updateWorldMatrix(true,true);state.staff.updateWorldMatrix(true,true);state.sourceMatrix.copy(state.root.matrixWorld).invert().multiply(state.staff.matrixWorld);state.sourceMatrix.decompose(state.sourceStaff.position,state.sourceStaff.quaternion,state.sourceStaff.scale);state.sourceStaff.visible=true;}
+function syncTencentPreview(state){if(!state.sourceReady||!state.preview||state.root.userData.previewAnimation)return;state.body.visible=false;state.sourceBody.visible=true;state.staff.visible=false;state.root.updateWorldMatrix(true,true);state.staff.updateWorldMatrix(true,true);state.sourceMatrix.copy(state.root.matrixWorld).invert().multiply(state.staff.matrixWorld);state.sourceMatrix.decompose(state.sourceStaff.position,state.sourceStaff.quaternion,state.sourceStaff.scale);state.sourceStaff.visible=true;}
 function prepareTencentPreview(state){
  Promise.all([loadManualAsset('source-h01-body',false,state.root),loadManualAsset('source-h01-staff',false,state.root)]).then(([bodyGltf,staffGltf])=>{
   if(state.root.userData.manualAsset.disposed){releaseManualSourceAsset('source-h01-body',state.root);releaseManualSourceAsset('source-h01-staff',state.root);return;}
@@ -87,11 +88,11 @@ export function createManualH01(actor,detail){
    root.userData.manualAsset.shaderWarmup=await warmSceneMaterials(context.renderer,body,context.camera,context.scene,true,()=>root.userData.manualAsset.disposed);
   }
   if(root.userData.manualAsset.disposed){mixer.stopAllAction();state.vfx&&disposeH01EntranceVfx(state.vfx);return;}
-  state.introStart=performance.now();states.set(root,state);body.visible=true;root.visible=true;
+  state.reportPlayer=preview?await loadReportEntrancePlayer('H01',body).catch(error=>{console.error('H01 motion fallback',error);return null;}):null;if(root.userData.manualAsset.disposed){state.reportPlayer?.dispose();mixer.stopAllAction();state.vfx&&disposeH01EntranceVfx(state.vfx);return;}state.introStart=performance.now();states.set(root,state);body.visible=true;root.visible=true;
   if(!preview){ik.socket.add(staff);staff.position.set(0,0,0);state.gripped=true;}
   if(preview){perfBeginAppearance('model:H01:'+detail);root.userData.manualAsset.sourceFidelity={status:'loading',mesh:'Tencent Hunyuan original'};}root.userData.manualAsset.status='loaded';root.userData.manualAsset.clips=gltf.animations.map(c=>c.name);
   root.userData.manualAsset.loadMs=performance.now()-started;root.userData.manualAsset.cache={...manualAssetMetrics};
-  if(preview)prepareTencentPreview(state);
+  if(preview){root.userData.manualAsset.motion={revision:state.reportPlayer?'gemini-2026-10-21':'legacy-fallback',duration:state.reportPlayer?3:4.2,gripHand:'right',weightsReplaced:false,sourceSkinActivated:false};prepareTencentPreview(state);}
   root.userData.modelLoadRevision=1;
  }).catch(error=>{
   if(root.userData.manualAsset.disposed){releaseManualAssets(root);return;}
@@ -112,7 +113,7 @@ function staffReveal(state,amount){
 export function replayManualH01Entrance(root){
  if(root.userData.manualH02)return replayManualH02(root);
  const s=states.get(root);if(!s?.preview)return;
- s.introStart=performance.now();delete s.forcedTime;s.gripped=false;s.impact=false;
+ s.reportPlayer?.replay();s.introStart=performance.now();delete s.forcedTime;s.gripped=false;s.impact=false;
  root.userData.manualAsset.entrance={time:0,complete:false};root.userData.manualAsset.animation='Entrance';
  if(s.sourceBody)s.sourceBody.visible=false;if(s.sourceStaff)s.sourceStaff.visible=false;s.body.visible=true;
  s.body.attach(s.staff);s.staff.position.set(-.38,1.45,.12);s.staff.quaternion.identity();s.current=null;s.mixer.stopAllAction();
@@ -123,6 +124,12 @@ export function seekManualH01Entrance(root,seconds){
  if(!Number.isFinite(seconds))throw Error('Entrance seek time must be finite');
  if(root.userData.manualH02)return seekManualH02(root,seconds);const state=states.get(root);if(state?.preview){replayManualH01Entrance(root);state.forcedTime=Math.max(0,seconds);updateManualH01Animation(root,{cooldowns:state.cooldowns},0,0);}}
 function updateEntrance(root,state,t){
+ if(state.reportPlayer){
+  const f=state.reportPlayer.sample(t,state.staff),vfx=entranceFrame(f.vfxTime,state.frame);
+  updateH01EntranceVfx(state.vfx,vfx);staffReveal(state,f.time<1.6?0:Math.min(1,(f.time-1.6)/.6));
+  state.staffPulse.value=.2*Math.exp(-Math.abs(f.time-2.416666667)*45);state.gripped=f.gripped;state.impact=vfx.impact;
+  root.userData.manualAsset.entrance=f;root.userData.manualAsset.animation=f.complete?'IDLE_HOLD':'Entrance';root.userData.manualAsset.cameraShake=vfx.shake;return f;
+ }
  const f=entranceFrame(t,state.frame);
  if(state.current!=='Entrance'){state.mixer.stopAllAction();state.actions.Entrance.reset().play();state.current='Entrance';}
  state.actions.Entrance.stopFading().setEffectiveWeight(1);
@@ -159,6 +166,11 @@ export function updateManualH01Animation(root,actor,speed,dt){
  const s=states.get(root);if(!s)return;
  if(s.preview){
   const elapsed=s.forcedTime??((performance.now()-s.introStart)/1000);
+  if(s.reportPlayer){
+   updateEntrance(root,s,elapsed);
+   if(elapsed>=3){root.userData.manualAsset.cameraShake=0;syncTencentPreview(s);}
+   return;
+  }
   if(elapsed<=4.2){updateEntrance(root,s,elapsed);root.userData.manualAsset.animation='Entrance';return;}
   if(!s.gripped||!s.impact)updateEntrance(root,s,4.2);
   if(s.vfx){disposeH01EntranceVfx(s.vfx);s.vfx=null;}
@@ -186,7 +198,7 @@ export function disposeManualH01(root){
  if(root.userData.manualH02)return disposeManualH02(root);
  if(!root.userData.manualHunyuan)return;
  root.userData.manualAsset.disposed=true;const s=states.get(root);
- if(s){s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);if(s.vfx)disposeH01EntranceVfx(s.vfx);states.delete(root);}
+ if(s){s.reportPlayer?.dispose();s.mixer.stopAllAction();s.mixer.uncacheRoot(s.body);if(s.vfx)disposeH01EntranceVfx(s.vfx);states.delete(root);}
  const materials=new Set(),skeletons=new Set();
  root.traverse(n=>{if(n.isSkinnedMesh)skeletons.add(n.skeleton);if(n.isMesh)for(const m of Array.isArray(n.material)?n.material:[n.material])materials.add(m);});
  const sourceKeys=root.userData.manualAsset?.sourceFidelity?['source-h01-body','source-h01-staff']:[];

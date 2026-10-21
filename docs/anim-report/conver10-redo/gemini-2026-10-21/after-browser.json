@@ -1,0 +1,1738 @@
+{
+  "passed": true,
+  "scope": "Cloud Chromium/SwiftShader, not physical Android; verifies new motion playback on shipped rig, not full-resolution skin acceptance",
+  "production": false,
+  "states": [
+    {
+      "hero": 0,
+      "time": 1.3,
+      "label": "crouch",
+      "asset": {
+        "id": "H01-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 581.6999999880791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 4.699999988079071
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 3.5
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 3.0999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 440
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 268.80000001192093
+          },
+          {
+            "kind": "texture",
+            "name": "f80d4019-1f30-4fe4-ae48-63c76d4108f3",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "texture",
+            "name": "9ae9befb-77b1-47a6-a30b-507dd5b16812",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "d6fc7047-003d-4475-a423-6fd76985b9e1",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "program",
+            "name": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 22.80000001192093
+          },
+          {
+            "kind": "program",
+            "name": "MocTinhTruong_TexturedMesh",
+            "ms": 13.900000005960464
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 18.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 13.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 10.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 12.599999994039536
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499726,
+          "weaponTriangles": 619640,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5829.800000011921,
+        "cache": {
+          "hits": 0,
+          "misses": 2,
+          "bytes": 2277112,
+          "decoded": 2,
+          "cacheWrites": 2,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 74.5,
+          "worker": {
+            "decoded": 14,
+            "fallbacks": 0
+          }
+        },
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "right",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "entrance": {
+          "time": 1.3,
+          "visible": true,
+          "heroVisible": true,
+          "complete": false,
+          "gripped": false,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "right",
+          "groundHand": "right",
+          "state": "ENTRANCE",
+          "vfxTime": 2.1500000000000004
+        },
+        "animation": "Entrance",
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 0,
+      "time": 2.25,
+      "label": "rise",
+      "asset": {
+        "id": "H01-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 581.6999999880791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 4.699999988079071
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 3.5
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 3.0999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 440
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 268.80000001192093
+          },
+          {
+            "kind": "texture",
+            "name": "f80d4019-1f30-4fe4-ae48-63c76d4108f3",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "texture",
+            "name": "9ae9befb-77b1-47a6-a30b-507dd5b16812",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "d6fc7047-003d-4475-a423-6fd76985b9e1",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "program",
+            "name": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 22.80000001192093
+          },
+          {
+            "kind": "program",
+            "name": "MocTinhTruong_TexturedMesh",
+            "ms": 13.900000005960464
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 18.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 13.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 10.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 12.599999994039536
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499726,
+          "weaponTriangles": 619640,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5829.800000011921,
+        "cache": {
+          "hits": 0,
+          "misses": 2,
+          "bytes": 2277112,
+          "decoded": 2,
+          "cacheWrites": 2,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 74.5,
+          "worker": {
+            "decoded": 14,
+            "fallbacks": 0
+          }
+        },
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "right",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "entrance": {
+          "time": 2.25,
+          "visible": true,
+          "heroVisible": true,
+          "complete": false,
+          "gripped": true,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "right",
+          "groundHand": "right",
+          "state": "ENTRANCE",
+          "vfxTime": 3.1653846152071
+        },
+        "animation": "Entrance",
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 0,
+      "time": 3.5,
+      "label": "hold",
+      "asset": {
+        "id": "H01-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 581.6999999880791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 4.699999988079071
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 3.5
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 3.0999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 440
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 268.80000001192093
+          },
+          {
+            "kind": "texture",
+            "name": "f80d4019-1f30-4fe4-ae48-63c76d4108f3",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "texture",
+            "name": "9ae9befb-77b1-47a6-a30b-507dd5b16812",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "d6fc7047-003d-4475-a423-6fd76985b9e1",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "program",
+            "name": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 22.80000001192093
+          },
+          {
+            "kind": "program",
+            "name": "MocTinhTruong_TexturedMesh",
+            "ms": 13.900000005960464
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 18.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 13.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 10.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 12.599999994039536
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499726,
+          "weaponTriangles": 619640,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5829.800000011921,
+        "cache": {
+          "hits": 0,
+          "misses": 2,
+          "bytes": 2277112,
+          "decoded": 2,
+          "cacheWrites": 2,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 74.5,
+          "worker": {
+            "decoded": 14,
+            "fallbacks": 0
+          }
+        },
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "right",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "entrance": {
+          "time": 3.5,
+          "visible": true,
+          "heroVisible": true,
+          "complete": true,
+          "gripped": true,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "right",
+          "groundHand": "right",
+          "state": "IDLE_HOLD",
+          "vfxTime": 4.7
+        },
+        "animation": "IDLE_HOLD",
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 0,
+      "time": 7.5,
+      "label": "loop",
+      "asset": {
+        "id": "H01-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 581.6999999880791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 4.699999988079071
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 3.5
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 3.0999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 440
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 268.80000001192093
+          },
+          {
+            "kind": "texture",
+            "name": "f80d4019-1f30-4fe4-ae48-63c76d4108f3",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "texture",
+            "name": "9ae9befb-77b1-47a6-a30b-507dd5b16812",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "d6fc7047-003d-4475-a423-6fd76985b9e1",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "program",
+            "name": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 22.80000001192093
+          },
+          {
+            "kind": "program",
+            "name": "MocTinhTruong_TexturedMesh",
+            "ms": 13.900000005960464
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 18.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 13.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 10.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 12.599999994039536
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499726,
+          "weaponTriangles": 619640,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5829.800000011921,
+        "cache": {
+          "hits": 0,
+          "misses": 2,
+          "bytes": 2277112,
+          "decoded": 2,
+          "cacheWrites": 2,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 74.5,
+          "worker": {
+            "decoded": 14,
+            "fallbacks": 0
+          }
+        },
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "right",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "entrance": {
+          "time": 7.5,
+          "visible": true,
+          "heroVisible": true,
+          "complete": true,
+          "gripped": true,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "right",
+          "groundHand": "right",
+          "state": "IDLE_HOLD",
+          "vfxTime": 8.7
+        },
+        "animation": "IDLE_HOLD",
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 0,
+      "time": 3.5,
+      "label": "face",
+      "asset": {
+        "id": "H01-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 581.6999999880791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 4.699999988079071
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 3.5
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 3.0999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 440
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 268.80000001192093
+          },
+          {
+            "kind": "texture",
+            "name": "f80d4019-1f30-4fe4-ae48-63c76d4108f3",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "texture",
+            "name": "9ae9befb-77b1-47a6-a30b-507dd5b16812",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "d6fc7047-003d-4475-a423-6fd76985b9e1",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "program",
+            "name": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 22.80000001192093
+          },
+          {
+            "kind": "program",
+            "name": "MocTinhTruong_TexturedMesh",
+            "ms": 13.900000005960464
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 18.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 13.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 10.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 12.599999994039536
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499726,
+          "weaponTriangles": 619640,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5829.800000011921,
+        "cache": {
+          "hits": 0,
+          "misses": 2,
+          "bytes": 2277112,
+          "decoded": 2,
+          "cacheWrites": 2,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 74.5,
+          "worker": {
+            "decoded": 14,
+            "fallbacks": 0
+          }
+        },
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "right",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "entrance": {
+          "time": 3.5,
+          "visible": true,
+          "heroVisible": true,
+          "complete": true,
+          "gripped": true,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "right",
+          "groundHand": "right",
+          "state": "IDLE_HOLD",
+          "vfxTime": 4.7
+        },
+        "animation": "IDLE_HOLD",
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 0,
+      "time": 1.3,
+      "label": "replay",
+      "asset": {
+        "id": "H01-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 581.6999999880791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 4.699999988079071
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 3.5
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 3.0999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 440
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 268.80000001192093
+          },
+          {
+            "kind": "texture",
+            "name": "f80d4019-1f30-4fe4-ae48-63c76d4108f3",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "texture",
+            "name": "9ae9befb-77b1-47a6-a30b-507dd5b16812",
+            "ms": 0.09999999403953552
+          },
+          {
+            "kind": "texture",
+            "name": "d6fc7047-003d-4475-a423-6fd76985b9e1",
+            "ms": 0.4000000059604645
+          },
+          {
+            "kind": "program",
+            "name": "H01_C0_Hunyuan_StaticTrial",
+            "ms": 22.80000001192093
+          },
+          {
+            "kind": "program",
+            "name": "MocTinhTruong_TexturedMesh",
+            "ms": 13.900000005960464
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 18.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 13.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 10.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 12.599999994039536
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499726,
+          "weaponTriangles": 619640,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5829.800000011921,
+        "cache": {
+          "hits": 0,
+          "misses": 2,
+          "bytes": 2277112,
+          "decoded": 2,
+          "cacheWrites": 2,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 74.5,
+          "worker": {
+            "decoded": 14,
+            "fallbacks": 0
+          }
+        },
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "right",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "entrance": {
+          "time": 1.3,
+          "visible": true,
+          "heroVisible": true,
+          "complete": false,
+          "gripped": false,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "right",
+          "groundHand": "right",
+          "state": "ENTRANCE",
+          "vfxTime": 2.1500000000000004
+        },
+        "animation": "Entrance",
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 1,
+      "time": 1.3,
+      "label": "crouch",
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 3.899999976158142
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 4.600000023841858
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 5.5999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.10000002384185791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 10.799999982118607
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 19.19999998807907
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499746,
+          "weaponTriangles": 1500000,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5772.299999982119,
+        "cache": {
+          "hits": 0,
+          "misses": 6,
+          "bytes": 134880444,
+          "decoded": 6,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 48.80000001192093,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "left",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "animation": "Entrance",
+        "entrance": {
+          "time": 1.3,
+          "visible": true,
+          "heroVisible": true,
+          "complete": false,
+          "gripped": false,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "left",
+          "groundHand": "right",
+          "state": "ENTRANCE",
+          "vfxTime": 3.16
+        },
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 1,
+      "time": 2.25,
+      "label": "rise",
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 3.899999976158142
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 4.600000023841858
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 5.5999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.10000002384185791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 10.799999982118607
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 19.19999998807907
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499746,
+          "weaponTriangles": 1500000,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5772.299999982119,
+        "cache": {
+          "hits": 0,
+          "misses": 6,
+          "bytes": 134880444,
+          "decoded": 6,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 48.80000001192093,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "left",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "animation": "Entrance",
+        "entrance": {
+          "time": 2.25,
+          "visible": true,
+          "heroVisible": true,
+          "complete": false,
+          "gripped": true,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "left",
+          "groundHand": "right",
+          "state": "ENTRANCE",
+          "vfxTime": 4.4153061220753855
+        },
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 1,
+      "time": 3.5,
+      "label": "hold",
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 3.899999976158142
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 4.600000023841858
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 5.5999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.10000002384185791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 10.799999982118607
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 19.19999998807907
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499746,
+          "weaponTriangles": 1500000,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5772.299999982119,
+        "cache": {
+          "hits": 0,
+          "misses": 6,
+          "bytes": 134880444,
+          "decoded": 6,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 48.80000001192093,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "left",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "animation": "IDLE_HOLD",
+        "entrance": {
+          "time": 3.5,
+          "visible": true,
+          "heroVisible": true,
+          "complete": true,
+          "gripped": true,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "left",
+          "groundHand": "right",
+          "state": "IDLE_HOLD",
+          "vfxTime": 6.1
+        },
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 1,
+      "time": 7.5,
+      "label": "loop",
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 3.899999976158142
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 4.600000023841858
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 5.5999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.10000002384185791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 10.799999982118607
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 19.19999998807907
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499746,
+          "weaponTriangles": 1500000,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5772.299999982119,
+        "cache": {
+          "hits": 0,
+          "misses": 6,
+          "bytes": 134880444,
+          "decoded": 6,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 48.80000001192093,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "left",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "animation": "IDLE_HOLD",
+        "entrance": {
+          "time": 7.5,
+          "visible": true,
+          "heroVisible": true,
+          "complete": true,
+          "gripped": true,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "left",
+          "groundHand": "right",
+          "state": "IDLE_HOLD",
+          "vfxTime": 10.1
+        },
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 1,
+      "time": 3.5,
+      "label": "face",
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 3.899999976158142
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 4.600000023841858
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 5.5999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.10000002384185791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 10.799999982118607
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 19.19999998807907
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499746,
+          "weaponTriangles": 1500000,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5772.299999982119,
+        "cache": {
+          "hits": 0,
+          "misses": 6,
+          "bytes": 134880444,
+          "decoded": 6,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 48.80000001192093,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "left",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "animation": "IDLE_HOLD",
+        "entrance": {
+          "time": 3.5,
+          "visible": true,
+          "heroVisible": true,
+          "complete": true,
+          "gripped": true,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "left",
+          "groundHand": "right",
+          "state": "IDLE_HOLD",
+          "vfxTime": 6.1
+        },
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    },
+    {
+      "hero": 1,
+      "time": 1.3,
+      "label": "replay",
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 3.899999976158142
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 4.600000023841858
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 5.5999999940395355
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0.10000002384185791
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.599999994039536
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 10.799999982118607
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 19.19999998807907
+          }
+        ],
+        "sourceFidelity": {
+          "status": "loaded",
+          "mesh": "Tencent Hunyuan original",
+          "bodyTriangles": 1499746,
+          "weaponTriangles": 1500000,
+          "textureResolution": 4096
+        },
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 5772.299999982119,
+        "cache": {
+          "hits": 0,
+          "misses": 6,
+          "bytes": 134880444,
+          "decoded": 6,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 48.80000001192093,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "motion": {
+          "revision": "gemini-2026-10-21",
+          "duration": 3,
+          "gripHand": "left",
+          "weightsReplaced": false,
+          "sourceSkinActivated": false
+        },
+        "animation": "Entrance",
+        "entrance": {
+          "time": 1.3,
+          "visible": true,
+          "heroVisible": true,
+          "complete": false,
+          "gripped": false,
+          "landed": true,
+          "player": "gemini-motion-2026-10-21",
+          "gripHand": "left",
+          "groundHand": "right",
+          "state": "ENTRANCE",
+          "vfxTime": 3.16
+        },
+        "cameraShake": 0
+      },
+      "animationMode": true,
+      "visibleSkinned": 1,
+      "sourceVisible": 0,
+      "pixelRatio": 1
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-crouch.png",
+      "capturedAt": "2026-10-21T04:01:22.583Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-rise.png",
+      "capturedAt": "2026-10-21T04:01:24.440Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-hold.png",
+      "capturedAt": "2026-10-21T04:01:27.491Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-loop.png",
+      "capturedAt": "2026-10-21T04:01:29.543Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-face.png",
+      "capturedAt": "2026-10-21T04:01:32.355Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-crouch.png",
+      "capturedAt": "2026-10-21T04:01:58.167Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-rise.png",
+      "capturedAt": "2026-10-21T04:01:59.952Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-hold.png",
+      "capturedAt": "2026-10-21T04:02:02.438Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-loop.png",
+      "capturedAt": "2026-10-21T04:02:04.498Z"
+    },
+    {
+      "file": "docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-face.png",
+      "capturedAt": "2026-10-21T04:02:07.198Z"
+    }
+  ],
+  "errors": [],
+  "consoleErrors": [],
+  "externalRequests": []
+}

@@ -494,6 +494,7 @@ export class World {
       this.preview.position.set(0, 0.74, 0);
       const previewModel = this.models.get("preview"),
         visual = previewModel.lod.levels[0]?.object;
+      visual?.traverse(node=>{if(node.userData.manualHunyuan)node.userData.previewAnimation=!!this.showcaseAnimationMode;});
       const heroHeight =
         (visual?.userData.height ??
           visual?.userData.anatomy?.heightMeters ??
