@@ -1,0 +1,6252 @@
+{
+  "auditedCommit": "bb68cf31f1a574487f701c4fe7f1b846da0f43ec",
+  "auditScope": "Static file/production path audit; no runtime or APK edits, no phone FPS claim",
+  "apk": {
+    "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d",
+    "apkSha256": "52aeeea29c319b5f8b66224ed1c46ae74890254924de2cdcc8d2104ae92b4c7c",
+    "apkBytes": 303180784,
+    "buildType": "debug",
+    "versionCode": 214719383,
+    "versionName": "2.5.ba97bec3",
+    "rigReviewIncluded": false,
+    "runtimeRigReplaced": false,
+    "lobbyEntranceRevision": "gemini-2026-10-21",
+    "lobbyMotionAssets": [
+      {
+        "hero": "H01",
+        "file": "animations/report-entrances/H01.bin",
+        "sha256": "bfa58f56e1785281186b6c8ad91335cdb50448b8b6c3cd29cb6ba605bc416c8b",
+        "bytes": 382172
+      },
+      {
+        "hero": "H02",
+        "file": "animations/report-entrances/H02.bin",
+        "sha256": "9b19150cc36d16c5c039d46a19c0b119fb3a7929f2c9400138943120d302b7f1",
+        "bytes": 382216
+      }
+    ],
+    "signed": true,
+    "recordedAt": "2026-10-21T04:16:51.100Z"
+  },
+  "compressedFidelityAssetsApproved": false,
+  "assets": [
+    {
+      "file": "public/models/hunyuan-original/H01-C0-source.glb",
+      "sha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+      "bytes": 80809232,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 1499726,
+      "vertices": 869627,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "texture_pbr_20250901_normal",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 1,
+          "name": "texture_pbr_20250901",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 2,
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "KHR_materials_specular"
+      ],
+      "materialMaps": [
+        {
+          "name": "Material.001",
+          "baseColor": {
+            "textureIndex": 1,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "texture_pbr_20250901",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "normal": {
+            "textureIndex": 0,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "texture_pbr_20250901_normal",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/hunyuan-original/H01-W0-source.glb",
+      "sha256": "0984acdf12b0a5b09ce8580e9e309ee94d2f94ec88e4e4dc3067f4a3e16a4be1",
+      "bytes": 50437284,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 619640,
+      "vertices": 357203,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "texture_pbr_20250901_normal",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 1,
+          "name": "texture_pbr_20250901",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 2,
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "KHR_materials_specular"
+      ],
+      "materialMaps": [
+        {
+          "name": "Material.001",
+          "baseColor": {
+            "textureIndex": 1,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "texture_pbr_20250901",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "normal": {
+            "textureIndex": 0,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "texture_pbr_20250901_normal",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/hunyuan-original/H02-C0-source.glb",
+      "sha256": "eec6ac7815030ebc06052c2a662582bb0f114c2bd1e96b88e35936c716fc781a",
+      "bytes": 79048548,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 1499746,
+      "vertices": 895581,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "texture_pbr_20250901_normal",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 1,
+          "name": "texture_pbr_20250901",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 2,
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "KHR_materials_specular"
+      ],
+      "materialMaps": [
+        {
+          "name": "Material.001",
+          "baseColor": {
+            "textureIndex": 1,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "texture_pbr_20250901",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "normal": {
+            "textureIndex": 0,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "texture_pbr_20250901_normal",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/hunyuan-original/H02-W0-source.glb",
+      "sha256": "bf1bf4e377a19aac5fa3c737a588daf2f98e721ea194a4c96869a562fc213c72",
+      "bytes": 93615216,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 1500000,
+      "vertices": 835100,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "texture_pbr_20250901_normal",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 1,
+          "name": "texture_pbr_20250901",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 2,
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "KHR_materials_specular"
+      ],
+      "materialMaps": [
+        {
+          "name": "Material.001",
+          "baseColor": {
+            "textureIndex": 1,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "texture_pbr_20250901",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "normal": {
+            "textureIndex": 0,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "texture_pbr_20250901_normal",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "assets/rigged/H01-C0-rigged.glb",
+      "sha256": "9d6707cb1d113f4553f5c4a0920b92a7ba4e21e002bdcb354679fceccc3044dc",
+      "bytes": 98346352,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 1499726,
+      "vertices": 869627,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "texture_pbr_20250901_normal",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 1,
+          "name": "texture_pbr_20250901",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 2,
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "KHR_materials_specular"
+      ],
+      "materialMaps": [
+        {
+          "name": "Material.001",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "texture_pbr_20250901",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "texture_pbr_20250901_normal",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "assets/rigged/H02-C0-rigged.glb",
+      "sha256": "5859d3c542b3790ba310f5420a2e6002e779f0447821dbfa05f66fe16a59e50b",
+      "bytes": 97112948,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 1499746,
+      "vertices": 895581,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "texture_pbr_20250901_normal",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 1,
+          "name": "texture_pbr_20250901",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        },
+        {
+          "index": 2,
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "mime": "image/png",
+          "width": 4096,
+          "height": 4096,
+          "format": "png"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 53,
+          "translationTargets": [
+            "Hips"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "KHR_materials_specular"
+      ],
+      "materialMaps": [
+        {
+          "name": "Material.001",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "texture_pbr_20250901",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "texture_pbr_20250901_normal",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "mime": "image/png",
+              "width": 4096,
+              "height": 4096,
+              "format": "png"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h01-c0/h01-c0-high.glb",
+      "sha256": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
+      "bytes": 1529584,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 60000,
+      "vertices": 45257,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "high_normal",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "high_albedo",
+          "mime": "image/webp",
+          "width": 2048,
+          "height": 2048,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "high_metallic-high_roughness",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "high_albedo",
+              "mime": "image/webp",
+              "width": 2048,
+              "height": 2048,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "high_normal",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "high_metallic-high_roughness",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h01-c0/h01-c0-mobile.glb",
+      "sha256": "386f350da4b67949f46b515fcb8af96993baaf061fb386f57b305e1bf93ccf50",
+      "bytes": 849352,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 15000,
+      "vertices": 16604,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "high_normal",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "high_albedo",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "high_metallic-high_roughness",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "high_albedo",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "high_normal",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "high_metallic-high_roughness",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h01-c0/h01-c0-medium.glb",
+      "sha256": "7cb641211b1d89b8a35612eb0f4d55bb0446ff2052683b19bb4e0632b18b3341",
+      "bytes": 613836,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 9000,
+      "vertices": 9921,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "medium_normal",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "medium_albedo",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "medium_metallic-medium_roughness",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "medium_albedo",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "medium_normal",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "medium_metallic-medium_roughness",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h01-c0/h01-c0-low.glb",
+      "sha256": "c8f7666aaa45f2c3ba8ac529510a5bb06667d0e083e743ab72aa25dc536be3fe",
+      "bytes": 286836,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 900,
+      "vertices": 1244,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "low_normal",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "low_albedo",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "low_metallic-low_roughness",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "low_albedo",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "low_normal",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "low_metallic-low_roughness",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h02-body/h02-body-high.glb",
+      "sha256": "6ba32bc115ac5978eb55b9830828998aa942f5f5e7a4e5f4b2b89546b19b88e5",
+      "bytes": 1007776,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 30000,
+      "vertices": 31814,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "texture_pbr_20250901_normal",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "texture_pbr_20250901",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_materials_specular",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "Material.001",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "texture_pbr_20250901",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "texture_pbr_20250901_normal",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h01-staff/h01-staff-high.glb",
+      "sha256": "a0cb241905b1aec8b29e43be7aebfea7a48a29a0cb2d0cc268e02cd15328840a",
+      "bytes": 747528,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 12000,
+      "vertices": 10724,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "high_normal",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "high_albedo",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "high_metallic-high_roughness",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "high_albedo",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "high_normal",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "high_metallic-high_roughness",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h02-hammer/h02-hammer-high.glb",
+      "sha256": "d87a761b288aff2a8c412dca046f5dec5ac84dd9ce68141765a959d45510cdda",
+      "bytes": 349040,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 8000,
+      "vertices": 7795,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "high_normal",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "high_albedo",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "high_metallic-high_roughness",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "high_albedo",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "high_normal",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "high_metallic-high_roughness",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h02-body/h02-body-medium.glb",
+      "sha256": "4361622d2fd5d94449d351e951d60c6010fb4481c38ab8e9d673d9cae1d568c4",
+      "bytes": 816956,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 15000,
+      "vertices": 19982,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "texture_pbr_20250901_normal",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "texture_pbr_20250901",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+          "mime": "image/webp",
+          "width": 1024,
+          "height": 1024,
+          "format": "webp"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_materials_specular",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "Material.001",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "texture_pbr_20250901",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "texture_pbr_20250901_normal",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "mime": "image/webp",
+              "width": 1024,
+              "height": 1024,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h01-staff/h01-staff-medium.glb",
+      "sha256": "01f2755f9a7ea9bf7afabc594566f155938b547d55ae66335b66445b54b602d2",
+      "bytes": 305904,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 4000,
+      "vertices": 4636,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "medium_normal",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "medium_albedo",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "medium_metallic-medium_roughness",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "medium_albedo",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "medium_normal",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "medium_metallic-medium_roughness",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h02-hammer/h02-hammer-medium.glb",
+      "sha256": "c919a99e3d90842a916fc6168a79a505dbae6002e0b97c1b932a8a831d8122b1",
+      "bytes": 289072,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 3000,
+      "vertices": 3741,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "high_normal",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "high_albedo",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "high_metallic-high_roughness",
+          "mime": "image/webp",
+          "width": 512,
+          "height": 512,
+          "format": "webp"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "high_albedo",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "high_normal",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "high_metallic-high_roughness",
+              "mime": "image/webp",
+              "width": 512,
+              "height": 512,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h02-body/h02-body-low.glb",
+      "sha256": "973959437ff517d4944741bb9a4b94e8be5b05dcf0f537aa35e2a9d14da1aa1f",
+      "bytes": 257880,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 1000,
+      "vertices": 1512,
+      "skins": 1,
+      "bones": [
+        52
+      ],
+      "jointNames": [
+        [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase"
+        ]
+      ],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "low_normal",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "low_albedo",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "low_metallic-low_roughness",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        }
+      ],
+      "animations": [
+        {
+          "name": "Attack",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Cast",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Dash",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Entrance",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Idle",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        },
+        {
+          "name": "Run",
+          "channels": 156,
+          "translationTargets": [
+            "Hips",
+            "Spine",
+            "Spine1",
+            "Spine2",
+            "Neck",
+            "Head",
+            "LeftShoulder",
+            "LeftArm",
+            "LeftForeArm",
+            "LeftHand",
+            "LeftHandThumb1",
+            "LeftHandThumb2",
+            "LeftHandThumb3",
+            "LeftHandIndex1",
+            "LeftHandIndex2",
+            "LeftHandIndex3",
+            "LeftHandMiddle1",
+            "LeftHandMiddle2",
+            "LeftHandMiddle3",
+            "LeftHandRing1",
+            "LeftHandRing2",
+            "LeftHandRing3",
+            "LeftHandPinky1",
+            "LeftHandPinky2",
+            "LeftHandPinky3",
+            "RightShoulder",
+            "RightArm",
+            "RightForeArm",
+            "RightHand",
+            "RightHandThumb1",
+            "RightHandThumb2",
+            "RightHandThumb3",
+            "RightHandIndex1",
+            "RightHandIndex2",
+            "RightHandIndex3",
+            "RightHandMiddle1",
+            "RightHandMiddle2",
+            "RightHandMiddle3",
+            "RightHandRing1",
+            "RightHandRing2",
+            "RightHandRing3",
+            "RightHandPinky1",
+            "RightHandPinky2",
+            "RightHandPinky3",
+            "LeftUpLeg",
+            "LeftLeg",
+            "LeftFoot",
+            "LeftToeBase",
+            "RightUpLeg",
+            "RightLeg",
+            "RightFoot",
+            "RightToeBase"
+          ],
+          "morphChannels": 0
+        }
+      ],
+      "morphTargets": 0,
+      "skinnedPrimitives": 1,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "low_albedo",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "low_normal",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "low_metallic-low_roughness",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h01-staff/h01-staff-low.glb",
+      "sha256": "633edc5bb44b74f4416cdd86fcf883770e8dcdf79587301a01c22b576e067f57",
+      "bytes": 71468,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 795,
+      "vertices": 1125,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "low_normal",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "low_albedo",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "low_metallic-low_roughness",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "low_albedo",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "low_normal",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "low_metallic-low_roughness",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    },
+    {
+      "file": "public/models/h02-hammer/h02-hammer-low.glb",
+      "sha256": "7f62b928965b9f58e9e4ba1dbaa52b73fce54298687e3d0be17838b765122ec6",
+      "bytes": 87528,
+      "meshes": 1,
+      "primitives": 1,
+      "triangles": 600,
+      "vertices": 651,
+      "skins": 0,
+      "bones": [],
+      "jointNames": [],
+      "materials": 1,
+      "textures": [
+        {
+          "index": 0,
+          "name": "low_normal",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        },
+        {
+          "index": 1,
+          "name": "low_albedo",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        },
+        {
+          "index": 2,
+          "name": "low_metallic-low_roughness",
+          "mime": "image/webp",
+          "width": 256,
+          "height": 256,
+          "format": "webp"
+        }
+      ],
+      "animations": [],
+      "morphTargets": 0,
+      "skinnedPrimitives": 0,
+      "extensions": [
+        "EXT_meshopt_compression",
+        "EXT_texture_webp",
+        "KHR_mesh_quantization"
+      ],
+      "materialMaps": [
+        {
+          "name": "HunyuanBakedPBR",
+          "baseColor": {
+            "textureIndex": 0,
+            "imageIndex": 1,
+            "image": {
+              "index": 1,
+              "name": "low_albedo",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "normal": {
+            "textureIndex": 1,
+            "imageIndex": 0,
+            "image": {
+              "index": 0,
+              "name": "low_normal",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "metallicRoughness": {
+            "textureIndex": 2,
+            "imageIndex": 2,
+            "image": {
+              "index": 2,
+              "name": "low_metallic-low_roughness",
+              "mime": "image/webp",
+              "width": 256,
+              "height": 256,
+              "format": "webp"
+            }
+          },
+          "baseColorFactor": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "metallicFactor": 1,
+          "roughnessFactor": 1
+        }
+      ]
+    }
+  ],
+  "packaging": [
+    {
+      "source": "public/models/hunyuan-original/H01-C0-source.glb",
+      "apkEntry": "assets/public/models/hunyuan-original/H01-C0-source.glb",
+      "present": true,
+      "bytes": 80809232,
+      "sha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/hunyuan-original/H01-W0-source.glb",
+      "apkEntry": "assets/public/models/hunyuan-original/H01-W0-source.glb",
+      "present": true,
+      "bytes": 50437284,
+      "sha256": "0984acdf12b0a5b09ce8580e9e309ee94d2f94ec88e4e4dc3067f4a3e16a4be1",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/hunyuan-original/H02-C0-source.glb",
+      "apkEntry": "assets/public/models/hunyuan-original/H02-C0-source.glb",
+      "present": true,
+      "bytes": 79048548,
+      "sha256": "eec6ac7815030ebc06052c2a662582bb0f114c2bd1e96b88e35936c716fc781a",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/hunyuan-original/H02-W0-source.glb",
+      "apkEntry": "assets/public/models/hunyuan-original/H02-W0-source.glb",
+      "present": true,
+      "bytes": 93615216,
+      "sha256": "bf1bf4e377a19aac5fa3c737a588daf2f98e721ea194a4c96869a562fc213c72",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "assets/rigged/H01-C0-rigged.glb",
+      "apkEntry": "assets/public/assets/rigged/H01-C0-rigged.glb",
+      "present": false
+    },
+    {
+      "source": "assets/rigged/H02-C0-rigged.glb",
+      "apkEntry": "assets/public/assets/rigged/H02-C0-rigged.glb",
+      "present": false
+    },
+    {
+      "source": "public/models/h01-c0/h01-c0-high.glb",
+      "apkEntry": "assets/public/models/h01-c0/h01-c0-high.glb",
+      "present": true,
+      "bytes": 1529584,
+      "sha256": "ffa5f3b43fd7047104ddb14cca4b1c45539035d33e8c485934d0a6f4c8031e5c",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h01-c0/h01-c0-mobile.glb",
+      "apkEntry": "assets/public/models/h01-c0/h01-c0-mobile.glb",
+      "present": true,
+      "bytes": 849352,
+      "sha256": "386f350da4b67949f46b515fcb8af96993baaf061fb386f57b305e1bf93ccf50",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h01-c0/h01-c0-medium.glb",
+      "apkEntry": "assets/public/models/h01-c0/h01-c0-medium.glb",
+      "present": true,
+      "bytes": 613836,
+      "sha256": "7cb641211b1d89b8a35612eb0f4d55bb0446ff2052683b19bb4e0632b18b3341",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h01-c0/h01-c0-low.glb",
+      "apkEntry": "assets/public/models/h01-c0/h01-c0-low.glb",
+      "present": true,
+      "bytes": 286836,
+      "sha256": "c8f7666aaa45f2c3ba8ac529510a5bb06667d0e083e743ab72aa25dc536be3fe",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h02-body/h02-body-high.glb",
+      "apkEntry": "assets/public/models/h02-body/h02-body-high.glb",
+      "present": true,
+      "bytes": 1007776,
+      "sha256": "6ba32bc115ac5978eb55b9830828998aa942f5f5e7a4e5f4b2b89546b19b88e5",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h01-staff/h01-staff-high.glb",
+      "apkEntry": "assets/public/models/h01-staff/h01-staff-high.glb",
+      "present": true,
+      "bytes": 747528,
+      "sha256": "a0cb241905b1aec8b29e43be7aebfea7a48a29a0cb2d0cc268e02cd15328840a",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h02-hammer/h02-hammer-high.glb",
+      "apkEntry": "assets/public/models/h02-hammer/h02-hammer-high.glb",
+      "present": true,
+      "bytes": 349040,
+      "sha256": "d87a761b288aff2a8c412dca046f5dec5ac84dd9ce68141765a959d45510cdda",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h02-body/h02-body-medium.glb",
+      "apkEntry": "assets/public/models/h02-body/h02-body-medium.glb",
+      "present": true,
+      "bytes": 816956,
+      "sha256": "4361622d2fd5d94449d351e951d60c6010fb4481c38ab8e9d673d9cae1d568c4",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h01-staff/h01-staff-medium.glb",
+      "apkEntry": "assets/public/models/h01-staff/h01-staff-medium.glb",
+      "present": true,
+      "bytes": 305904,
+      "sha256": "01f2755f9a7ea9bf7afabc594566f155938b547d55ae66335b66445b54b602d2",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h02-hammer/h02-hammer-medium.glb",
+      "apkEntry": "assets/public/models/h02-hammer/h02-hammer-medium.glb",
+      "present": true,
+      "bytes": 289072,
+      "sha256": "c919a99e3d90842a916fc6168a79a505dbae6002e0b97c1b932a8a831d8122b1",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h02-body/h02-body-low.glb",
+      "apkEntry": "assets/public/models/h02-body/h02-body-low.glb",
+      "present": true,
+      "bytes": 257880,
+      "sha256": "973959437ff517d4944741bb9a4b94e8be5b05dcf0f537aa35e2a9d14da1aa1f",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h01-staff/h01-staff-low.glb",
+      "apkEntry": "assets/public/models/h01-staff/h01-staff-low.glb",
+      "present": true,
+      "bytes": 71468,
+      "sha256": "633edc5bb44b74f4416cdd86fcf883770e8dcdf79587301a01c22b576e067f57",
+      "matchesWorkingAsset": true
+    },
+    {
+      "source": "public/models/h02-hammer/h02-hammer-low.glb",
+      "apkEntry": "assets/public/models/h02-hammer/h02-hammer-low.glb",
+      "present": true,
+      "bytes": 87528,
+      "sha256": "7f62b928965b9f58e9e4ba1dbaa52b73fce54298687e3d0be17838b765122ec6",
+      "matchesWorkingAsset": true
+    }
+  ],
+  "packagedReviewRigs": [],
+  "packagedMotion": [
+    "assets/public/animations/report-entrances/H01.bin",
+    "assets/public/animations/report-entrances/H02.bin"
+  ],
+  "bindDifferences": {
+    "H01": {
+      "sameNames": true,
+      "differentBindJoints": 30,
+      "differentPositionCount": 30,
+      "differentRotationCount": 30,
+      "details": [
+        {
+          "joint": "LeftHandThumb1",
+          "positionDifferenceMetres": 0.026283763431713195,
+          "rotationDifferenceDegrees": 49.132671522729616,
+          "sourceLocalPosition": [
+            0.004661400965125684,
+            0.023530007651762774,
+            0.0023369676970833586
+          ],
+          "legacyLocalPosition": [
+            0.010801509022712708,
+            0.049080122262239456,
+            0.002908751368522644
+          ],
+          "sourceOffsetLength": 0.024100857600236978,
+          "legacyOffsetLength": 0.05033877067398448
+        },
+        {
+          "joint": "LeftHandThumb2",
+          "positionDifferenceMetres": 0.047168445573390054,
+          "rotationDifferenceDegrees": 67.72625296002911,
+          "sourceLocalPosition": [
+            -4.2779790820901553e-10,
+            0.08561327009015846,
+            -6.282396824985881e-11
+          ],
+          "legacyLocalPosition": [
+            1.4901161193847656e-08,
+            0.038444824516773224,
+            -1.4901161193847656e-08
+          ],
+          "sourceOffsetLength": 0.08561327009015846,
+          "legacyOffsetLength": 0.038444824516779
+        },
+        {
+          "joint": "LeftHandThumb3",
+          "positionDifferenceMetres": 0.0044209328224601085,
+          "rotationDifferenceDegrees": 11.237662697873347,
+          "sourceLocalPosition": [
+            -8.903167092455533e-11,
+            0.021249994195778332,
+            -3.56683016455861e-11
+          ],
+          "legacyLocalPosition": [
+            -1.4901161193847656e-08,
+            0.02567092701792717,
+            5.029141902923584e-08
+          ],
+          "sourceOffsetLength": 0.021249994195778332,
+          "legacyOffsetLength": 0.025670927017980755
+        },
+        {
+          "joint": "LeftHandIndex1",
+          "positionDifferenceMetres": 0.02426406754915032,
+          "rotationDifferenceDegrees": 138.21352723458241,
+          "sourceLocalPosition": [
+            0.018645603860501736,
+            0.09412003060705104,
+            0.009347870788333879
+          ],
+          "legacyLocalPosition": [
+            0.003381781280040741,
+            0.07551519572734833,
+            0.006246127188205719
+          ],
+          "sourceOffsetLength": 0.09640343040094769,
+          "legacyOffsetLength": 0.07584850252455222
+        },
+        {
+          "joint": "LeftHandIndex2",
+          "positionDifferenceMetres": 0.018569819371245626,
+          "rotationDifferenceDegrees": 13.444305334803014,
+          "sourceLocalPosition": [
+            -2.2455903803120236e-10,
+            0.033208538104813376,
+            1.6305864991572605e-10
+          ],
+          "legacyLocalPosition": [
+            1.862645149230957e-08,
+            0.05177835747599602,
+            4.470348358154297e-08
+          ],
+          "sourceOffsetLength": 0.033208538104813376,
+          "legacyOffsetLength": 0.051778357476018666
+        },
+        {
+          "joint": "LeftHandIndex3",
+          "positionDifferenceMetres": 0.00467341108170341,
+          "rotationDifferenceDegrees": 23.56158375107152,
+          "sourceLocalPosition": [
+            -1.9144752450017677e-10,
+            0.02478835271754716,
+            7.295261617024096e-11
+          ],
+          "legacyLocalPosition": [
+            7.450580596923828e-09,
+            0.02946176379919052,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.02478835271754716,
+          "legacyOffsetLength": 0.02946176379919994
+        },
+        {
+          "joint": "LeftHandMiddle1",
+          "positionDifferenceMetres": 0.010480318338843003,
+          "rotationDifferenceDegrees": 155.17406422453112,
+          "sourceLocalPosition": [
+            -0.007571090747664155,
+            0.09227095299146856,
+            0.0006255122210178099
+          ],
+          "legacyLocalPosition": [
+            -0.009794794023036957,
+            0.08607751876115799,
+            -0.007531300187110901
+          ],
+          "sourceOffsetLength": 0.09258315962744958,
+          "legacyOffsetLength": 0.08695974763383116
+        },
+        {
+          "joint": "LeftHandMiddle2",
+          "positionDifferenceMetres": 0.01914776679376148,
+          "rotationDifferenceDegrees": 22.536895366651144,
+          "sourceLocalPosition": [
+            -2.4102209117415896e-10,
+            0.03739432427794909,
+            1.560964690838773e-10
+          ],
+          "legacyLocalPosition": [
+            -5.960464477539063e-08,
+            0.05654209107160568,
+            2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.03739432427794909,
+          "legacyOffsetLength": 0.056542091071641515
+        },
+        {
+          "joint": "LeftHandMiddle3",
+          "positionDifferenceMetres": 0.0014743662619502882,
+          "rotationDifferenceDegrees": 9.18935040777158,
+          "sourceLocalPosition": [
+            -1.975588581615284e-10,
+            0.028857131750753495,
+            6.848815958804266e-11
+          ],
+          "legacyLocalPosition": [
+            1.4901161193847656e-08,
+            0.030331498011946678,
+            -4.470348358154297e-08
+          ],
+          "sourceOffsetLength": 0.028857131750753495,
+          "legacyOffsetLength": 0.03033149801198328
+        },
+        {
+          "joint": "LeftHandRing1",
+          "positionDifferenceMetres": 0.011831723008067946,
+          "rotationDifferenceDegrees": 160.35005126405565,
+          "sourceLocalPosition": [
+            -0.027053423305314905,
+            0.08465996627820804,
+            -0.013310234645865338
+          ],
+          "legacyLocalPosition": [
+            -0.022764988243579865,
+            0.08520021289587021,
+            -0.024324186146259308
+          ],
+          "sourceOffsetLength": 0.08986857041865011,
+          "legacyOffsetLength": 0.09148216765528576
+        },
+        {
+          "joint": "LeftHandRing2",
+          "positionDifferenceMetres": 0.022541715927614246,
+          "rotationDifferenceDegrees": 15.121551041832012,
+          "sourceLocalPosition": [
+            -1.4719603314006235e-10,
+            0.029822469524851847,
+            1.1536142874302158e-10
+          ],
+          "legacyLocalPosition": [
+            0,
+            0.05236418545246124,
+            1.4901161193847656e-08
+          ],
+          "sourceOffsetLength": 0.029822469524851847,
+          "legacyOffsetLength": 0.052364185452463366
+        },
+        {
+          "joint": "LeftHandRing3",
+          "positionDifferenceMetres": 0.008551428813977989,
+          "rotationDifferenceDegrees": 19.514219882671867,
+          "sourceLocalPosition": [
+            -1.9363777248315728e-10,
+            0.032509776551724434,
+            6.682231157295604e-11
+          ],
+          "legacyLocalPosition": [
+            1.4901161193847656e-08,
+            0.023958347737789154,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.032509776551724434,
+          "legacyOffsetLength": 0.023958347737804215
+        },
+        {
+          "joint": "LeftHandPinky1",
+          "positionDifferenceMetres": 0.012770292944645285,
+          "rotationDifferenceDegrees": 161.05924551360886,
+          "sourceLocalPosition": [
+            -0.042243616340188805,
+            0.07210974953221835,
+            -0.027483754394189708
+          ],
+          "legacyLocalPosition": [
+            -0.03594615310430527,
+            0.07674338668584824,
+            -0.03758087009191513
+          ],
+          "sourceOffsetLength": 0.087975541229915,
+          "legacyOffsetLength": 0.09270380315756838
+        },
+        {
+          "joint": "LeftHandPinky2",
+          "positionDifferenceMetres": 0.014731519258300685,
+          "rotationDifferenceDegrees": 15.793319502434432,
+          "sourceLocalPosition": [
+            -6.414491160455782e-11,
+            0.02183349397159362,
+            7.817388403275061e-11
+          ],
+          "legacyLocalPosition": [
+            2.9802322387695312e-08,
+            0.036565013229846954,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.02183349397159362,
+          "legacyOffsetLength": 0.03656501322986593
+        },
+        {
+          "joint": "LeftHandPinky3",
+          "positionDifferenceMetres": 0.004241719094655888,
+          "rotationDifferenceDegrees": 23.928293444470704,
+          "sourceLocalPosition": [
+            -9.526401889559111e-11,
+            0.021705999222893346,
+            3.768040220120117e-11
+          ],
+          "legacyLocalPosition": [
+            -7.450580596923828e-09,
+            0.017464280128479004,
+            4.470348358154297e-08
+          ],
+          "sourceOffsetLength": 0.021705999222893346,
+          "legacyOffsetLength": 0.017464280128537808
+        },
+        {
+          "joint": "RightHandThumb1",
+          "positionDifferenceMetres": 0.025874760526524463,
+          "rotationDifferenceDegrees": 49.4101614154315,
+          "sourceLocalPosition": [
+            -0.004467483474513534,
+            0.023997648113140674,
+            0.002405916187235513
+          ],
+          "legacyLocalPosition": [
+            -0.010801509022712708,
+            0.049080122262239456,
+            0.002908751368522644
+          ],
+          "sourceOffsetLength": 0.024528227743911248,
+          "legacyOffsetLength": 0.05033877067398448
+        },
+        {
+          "joint": "RightHandThumb2",
+          "positionDifferenceMetres": 0.046996978296227634,
+          "rotationDifferenceDegrees": 68.1084801761763,
+          "sourceLocalPosition": [
+            4.225517713507543e-10,
+            0.08544180281299601,
+            -6.169015298596037e-11
+          ],
+          "legacyLocalPosition": [
+            -1.4901161193847656e-08,
+            0.038444824516773224,
+            -1.4901161193847656e-08
+          ],
+          "sourceOffsetLength": 0.08544180281299601,
+          "legacyOffsetLength": 0.038444824516779
+        },
+        {
+          "joint": "RightHandThumb3",
+          "positionDifferenceMetres": 0.0042856291274897115,
+          "rotationDifferenceDegrees": 6.483720983474095,
+          "sourceLocalPosition": [
+            8.794165395897835e-11,
+            0.021385297890758548,
+            -3.4651087554848914e-11
+          ],
+          "legacyLocalPosition": [
+            1.4901161193847656e-08,
+            0.02567092701792717,
+            5.029141902923584e-08
+          ],
+          "sourceOffsetLength": 0.021385297890758548,
+          "legacyOffsetLength": 0.025670927017980755
+        },
+        {
+          "joint": "RightHandIndex1",
+          "positionDifferenceMetres": 0.025309211708623193,
+          "rotationDifferenceDegrees": 138.532442052189,
+          "sourceLocalPosition": [
+            -0.01786993389805336,
+            0.09599059245256214,
+            0.009623664748942384
+          ],
+          "legacyLocalPosition": [
+            -0.003381781280040741,
+            0.07551519572734833,
+            0.006246127188205719
+          ],
+          "sourceOffsetLength": 0.09811291097564434,
+          "legacyOffsetLength": 0.07584850252455222
+        },
+        {
+          "joint": "RightHandIndex2",
+          "positionDifferenceMetres": 0.019793605120371528,
+          "rotationDifferenceDegrees": 13.600465220610085,
+          "sourceLocalPosition": [
+            2.2099100327466203e-10,
+            0.0319847523556836,
+            1.5388079699363288e-10
+          ],
+          "legacyLocalPosition": [
+            -1.862645149230957e-08,
+            0.05177835747599602,
+            4.470348358154297e-08
+          ],
+          "sourceOffsetLength": 0.0319847523556836,
+          "legacyOffsetLength": 0.051778357476018666
+        },
+        {
+          "joint": "RightHandIndex3",
+          "positionDifferenceMetres": 0.0048718276770352295,
+          "rotationDifferenceDegrees": 24.919304691310547,
+          "sourceLocalPosition": [
+            1.9243140414459958e-10,
+            0.024589936122212885,
+            7.04214742075493e-11
+          ],
+          "legacyLocalPosition": [
+            -7.450580596923828e-09,
+            0.02946176379919052,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.024589936122212885,
+          "legacyOffsetLength": 0.02946176379919994
+        },
+        {
+          "joint": "RightHandMiddle1",
+          "positionDifferenceMetres": 0.011042550710725746,
+          "rotationDifferenceDegrees": 155.4481577599525,
+          "sourceLocalPosition": [
+            0.008105082986207046,
+            0.09282697446035088,
+            0.001043526375309911
+          ],
+          "legacyLocalPosition": [
+            0.009794794023036957,
+            0.08607751876115799,
+            -0.007531300187110901
+          ],
+          "sourceOffsetLength": 0.09318598878035209,
+          "legacyOffsetLength": 0.08695974763383116
+        },
+        {
+          "joint": "RightHandMiddle2",
+          "positionDifferenceMetres": 0.018872069775180845,
+          "rotationDifferenceDegrees": 22.80506159664262,
+          "sourceLocalPosition": [
+            2.466971071868329e-10,
+            0.03767002129653124,
+            1.5267632991200486e-10
+          ],
+          "legacyLocalPosition": [
+            5.960464477539063e-08,
+            0.05654209107160568,
+            2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.03767002129653124,
+          "legacyOffsetLength": 0.056542091071641515
+        },
+        {
+          "joint": "RightHandMiddle3",
+          "positionDifferenceMetres": 0.002156198303630176,
+          "rotationDifferenceDegrees": 9.891647422813515,
+          "sourceLocalPosition": [
+            1.9402102147125788e-10,
+            0.02817529970883409,
+            6.455443124497862e-11
+          ],
+          "legacyLocalPosition": [
+            -1.4901161193847656e-08,
+            0.030331498011946678,
+            -4.470348358154297e-08
+          ],
+          "sourceOffsetLength": 0.02817529970883409,
+          "legacyOffsetLength": 0.03033149801198328
+        },
+        {
+          "joint": "RightHandRing1",
+          "positionDifferenceMetres": 0.012782161296925254,
+          "rotationDifferenceDegrees": 160.53316945563384,
+          "sourceLocalPosition": [
+            0.027799489422580925,
+            0.08547939425409423,
+            -0.01257856981213401
+          ],
+          "legacyLocalPosition": [
+            0.022764988243579865,
+            0.08520021289587021,
+            -0.024324186146259308
+          ],
+          "sourceOffsetLength": 0.0907621004203946,
+          "legacyOffsetLength": 0.09148216765528576
+        },
+        {
+          "joint": "RightHandRing2",
+          "positionDifferenceMetres": 0.023238615288701962,
+          "rotationDifferenceDegrees": 16.56168415724485,
+          "sourceLocalPosition": [
+            1.5120882324026752e-10,
+            0.029125570163763992,
+            1.0662171145980892e-10
+          ],
+          "legacyLocalPosition": [
+            0,
+            0.05236418545246124,
+            1.4901161193847656e-08
+          ],
+          "sourceOffsetLength": 0.029125570163763992,
+          "legacyOffsetLength": 0.052364185452463366
+        },
+        {
+          "joint": "RightHandRing3",
+          "positionDifferenceMetres": 0.00873144625250718,
+          "rotationDifferenceDegrees": 20.541334500359415,
+          "sourceLocalPosition": [
+            1.9929768946269633e-10,
+            0.03268979399025451,
+            6.054250850651144e-11
+          ],
+          "legacyLocalPosition": [
+            -1.4901161193847656e-08,
+            0.023958347737789154,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.03268979399025451,
+          "legacyOffsetLength": 0.023958347737804215
+        },
+        {
+          "joint": "RightHandPinky1",
+          "positionDifferenceMetres": 0.013260904841046967,
+          "rotationDifferenceDegrees": 160.85138028729963,
+          "sourceLocalPosition": [
+            0.042774024631298535,
+            0.07269636241852906,
+            -0.026957623780457074
+          ],
+          "legacyLocalPosition": [
+            0.03594615310430527,
+            0.07674338668584824,
+            -0.03758087009191513
+          ],
+          "sourceOffsetLength": 0.08854993942365925,
+          "legacyOffsetLength": 0.09270380315756838
+        },
+        {
+          "joint": "RightHandPinky2",
+          "positionDifferenceMetres": 0.01544392699701533,
+          "rotationDifferenceDegrees": 16.602285743950024,
+          "sourceLocalPosition": [
+            6.530409546456895e-11,
+            0.021121086232876785,
+            7.236923560416386e-11
+          ],
+          "legacyLocalPosition": [
+            -2.9802322387695312e-08,
+            0.036565013229846954,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.021121086232876785,
+          "legacyOffsetLength": 0.03656501322986593
+        },
+        {
+          "joint": "RightHandPinky3",
+          "positionDifferenceMetres": 0.004664294692661458,
+          "rotationDifferenceDegrees": 24.498316272802068,
+          "sourceLocalPosition": [
+            9.924761013024863e-11,
+            0.022128574820920788,
+            3.5710606346994744e-11
+          ],
+          "legacyLocalPosition": [
+            7.450580596923828e-09,
+            0.017464280128479004,
+            4.470348358154297e-08
+          ],
+          "sourceOffsetLength": 0.022128574820920788,
+          "legacyOffsetLength": 0.017464280128537808
+        }
+      ]
+    },
+    "H02": {
+      "sameNames": true,
+      "differentBindJoints": 32,
+      "differentPositionCount": 32,
+      "differentRotationCount": 30,
+      "details": [
+        {
+          "joint": "LeftHand",
+          "positionDifferenceMetres": 0.04017663419339892,
+          "rotationDifferenceDegrees": 0.0,
+          "sourceLocalPosition": [
+            0.021716857524325617,
+            0.21137226202356596,
+            -0.03354100457791648
+          ],
+          "legacyLocalPosition": [
+            8.568167686462402e-08,
+            0.20718343555927277,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.21511590838844694,
+          "legacyOffsetLength": 0.2071834355592917
+        },
+        {
+          "joint": "LeftHandThumb1",
+          "positionDifferenceMetres": 0.02440067198870049,
+          "rotationDifferenceDegrees": 113.03284575785595,
+          "sourceLocalPosition": [
+            0.002160390084152919,
+            0.011535850692816485,
+            -0.008975122963324478
+          ],
+          "legacyLocalPosition": [
+            0.006078712642192841,
+            0.035610493272542953,
+            -0.008303463459014893
+          ],
+          "sourceOffsetLength": 0.01477484242655248,
+          "legacyOffsetLength": 0.03706757995763114
+        },
+        {
+          "joint": "LeftHandThumb2",
+          "positionDifferenceMetres": 0.03964701980085713,
+          "rotationDifferenceDegrees": 62.503672581316565,
+          "sourceLocalPosition": [
+            -5.5816846700196265e-09,
+            0.07809195235101596,
+            5.362921773333085e-09
+          ],
+          "legacyLocalPosition": [
+            -5.587935447692871e-08,
+            0.03844493255019188,
+            1.4901161193847656e-08
+          ],
+          "sourceOffsetLength": 0.07809195235101635,
+          "legacyOffsetLength": 0.03844493255023538
+        },
+        {
+          "joint": "LeftHandThumb3",
+          "positionDifferenceMetres": 0.0075231882637136135,
+          "rotationDifferenceDegrees": 13.228911313420708,
+          "sourceLocalPosition": [
+            1.2473648780542135e-09,
+            0.018147768556573518,
+            7.465646989501806e-10
+          ],
+          "legacyLocalPosition": [
+            1.1175870895385742e-08,
+            0.025670956820249557,
+            2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.018147768556573577,
+          "legacyOffsetLength": 0.02567095682026172
+        },
+        {
+          "joint": "LeftHandIndex1",
+          "positionDifferenceMetres": 0.03836453922916889,
+          "rotationDifferenceDegrees": 160.46189065784623,
+          "sourceLocalPosition": [
+            0.008641560336610565,
+            0.04614340277126705,
+            -0.03590049185329802
+          ],
+          "legacyLocalPosition": [
+            0.00021051615476608276,
+            0.061880435794591904,
+            -0.001943148672580719
+          ],
+          "sourceOffsetLength": 0.05909936970621069,
+          "legacyOffsetLength": 0.061911295237168
+        },
+        {
+          "joint": "LeftHandIndex2",
+          "positionDifferenceMetres": 0.01483796852189594,
+          "rotationDifferenceDegrees": 12.717248806373272,
+          "sourceLocalPosition": [
+            -5.12287101628317e-10,
+            0.036940444833470365,
+            -5.81075854100277e-10
+          ],
+          "legacyLocalPosition": [
+            -1.6763806343078613e-08,
+            0.051778413355350494,
+            -1.4901161193847656e-08
+          ],
+          "sourceOffsetLength": 0.03694044483347037,
+          "legacyOffsetLength": 0.05177841335535535
+        },
+        {
+          "joint": "LeftHandIndex3",
+          "positionDifferenceMetres": 0.007063872908393791,
+          "rotationDifferenceDegrees": 18.40773982453382,
+          "sourceLocalPosition": [
+            -4.935785113957536e-11,
+            0.03652567395959683,
+            -1.589350873132389e-10
+          ],
+          "legacyLocalPosition": [
+            -7.450580596923828e-09,
+            0.029461801052093506,
+            1.1175870895385742e-07
+          ],
+          "sourceOffsetLength": 0.03652567395959683,
+          "legacyOffsetLength": 0.02946180105230642
+        },
+        {
+          "joint": "LeftHandMiddle1",
+          "positionDifferenceMetres": 0.030000536762802787,
+          "rotationDifferenceDegrees": 139.45124197691106,
+          "sourceLocalPosition": [
+            -0.01268705835929862,
+            0.04465046483187873,
+            -0.019237843557692536
+          ],
+          "legacyLocalPosition": [
+            -0.014107979834079742,
+            0.07397478818893433,
+            -0.013065546751022339
+          ],
+          "sourceOffsetLength": 0.05024659276274702,
+          "legacyOffsetLength": 0.07643306152771619
+        },
+        {
+          "joint": "LeftHandMiddle2",
+          "positionDifferenceMetres": 0.014471677552992664,
+          "rotationDifferenceDegrees": 9.879927721441955,
+          "sourceLocalPosition": [
+            -2.710130453387194e-10,
+            0.042070361364644815,
+            -1.0483549583995e-09
+          ],
+          "legacyLocalPosition": [
+            -2.9802322387695312e-08,
+            0.056542038917541504,
+            -4.470348358154297e-08
+          ],
+          "sourceOffsetLength": 0.04207036136464483,
+          "legacyOffsetLength": 0.05654203891756703
+        },
+        {
+          "joint": "LeftHandMiddle3",
+          "positionDifferenceMetres": 0.01303625246279972,
+          "rotationDifferenceDegrees": 12.262578376684523,
+          "sourceLocalPosition": [
+            2.118897279856924e-10,
+            0.04336778772759731,
+            -3.9351855107838674e-10
+          ],
+          "legacyLocalPosition": [
+            2.9802322387695312e-08,
+            0.030331535264849663,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.043367787727597314,
+          "legacyOffsetLength": 0.03033153526487254
+        },
+        {
+          "joint": "LeftHandRing1",
+          "positionDifferenceMetres": 0.0395568340107559,
+          "rotationDifferenceDegrees": 135.32917574381017,
+          "sourceLocalPosition": [
+            -0.03270944717487834,
+            0.04817101138025681,
+            0.000788010210515222
+          ],
+          "legacyLocalPosition": [
+            -0.02905864268541336,
+            0.07492666691541672,
+            -0.028117865324020386
+          ],
+          "sourceOffsetLength": 0.05823208078005511,
+          "legacyOffsetLength": 0.08514120318712955
+        },
+        {
+          "joint": "LeftHandRing2",
+          "positionDifferenceMetres": 0.014827065395769662,
+          "rotationDifferenceDegrees": 10.609017234451105,
+          "sourceLocalPosition": [
+            -2.0098359088116524e-10,
+            0.03753696359466452,
+            1.287552287010385e-10
+          ],
+          "legacyLocalPosition": [
+            -5.960464477539063e-08,
+            0.05236402899026871,
+            3.725290298461914e-08
+          ],
+          "sourceOffsetLength": 0.03753696359466452,
+          "legacyOffsetLength": 0.052364028990315885
+        },
+        {
+          "joint": "LeftHandRing3",
+          "positionDifferenceMetres": 0.010728532695873049,
+          "rotationDifferenceDegrees": 17.372192027229975,
+          "sourceLocalPosition": [
+            7.580091554437729e-10,
+            0.034686884157844045,
+            4.631631744800302e-10
+          ],
+          "legacyLocalPosition": [
+            8.940696716308594e-08,
+            0.023958351463079453,
+            1.2665987014770508e-07
+          ],
+          "sourceOffsetLength": 0.03468688415784406,
+          "legacyOffsetLength": 0.02395835146358108
+        },
+        {
+          "joint": "LeftHandPinky1",
+          "positionDifferenceMetres": 0.06707632086799073,
+          "rotationDifferenceDegrees": 132.2016804849531,
+          "sourceLocalPosition": [
+            -0.05202086392794303,
+            0.0334642231735825,
+            0.016674064660500143
+          ],
+          "legacyLocalPosition": [
+            -0.04409632831811905,
+            0.06803557276725769,
+            -0.04025796800851822
+          ],
+          "sourceOffsetLength": 0.06406285155004764,
+          "legacyOffsetLength": 0.090520877818783
+        },
+        {
+          "joint": "LeftHandPinky2",
+          "positionDifferenceMetres": 0.005161358317775193,
+          "rotationDifferenceDegrees": 15.872360958533216,
+          "sourceLocalPosition": [
+            -8.122599814974762e-11,
+            0.03140354315488836,
+            -4.027322919597509e-11
+          ],
+          "legacyLocalPosition": [
+            -1.1175870895385742e-07,
+            0.036564901471138,
+            -5.727633833885193e-08
+          ],
+          "sourceOffsetLength": 0.03140354315488836,
+          "legacyOffsetLength": 0.036564901471353654
+        },
+        {
+          "joint": "LeftHandPinky3",
+          "positionDifferenceMetres": 0.011437565722883238,
+          "rotationDifferenceDegrees": 23.496028137474614,
+          "sourceLocalPosition": [
+            6.904258276207997e-10,
+            0.02890178997175541,
+            2.6143343045959e-10
+          ],
+          "legacyLocalPosition": [
+            6.705522537231445e-08,
+            0.017464224249124527,
+            3.725290298461914e-08
+          ],
+          "sourceOffsetLength": 0.02890178997175542,
+          "legacyOffsetLength": 0.01746422424929299
+        },
+        {
+          "joint": "RightHand",
+          "positionDifferenceMetres": 0.04016369720780554,
+          "rotationDifferenceDegrees": 0.0,
+          "sourceLocalPosition": [
+            -0.021783544365524543,
+            0.21138632579843608,
+            -0.033480452677634165
+          ],
+          "legacyLocalPosition": [
+            -8.568167686462402e-08,
+            0.20718343555927277,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.2151270374713198,
+          "legacyOffsetLength": 0.2071834355592917
+        },
+        {
+          "joint": "RightHandThumb1",
+          "positionDifferenceMetres": 0.02439903450587227,
+          "rotationDifferenceDegrees": 112.96328405248906,
+          "sourceLocalPosition": [
+            -0.002153687007881544,
+            0.011538823827653477,
+            -0.00898301384325384
+          ],
+          "legacyLocalPosition": [
+            -0.006078712642192841,
+            0.035610493272542953,
+            -0.008303463459014893
+          ],
+          "sourceOffsetLength": 0.01478097969559635,
+          "legacyOffsetLength": 0.03706757995763114
+        },
+        {
+          "joint": "RightHandThumb2",
+          "positionDifferenceMetres": 0.039579696735507486,
+          "rotationDifferenceDegrees": 62.47385809242714,
+          "sourceLocalPosition": [
+            5.56522250505509e-09,
+            0.07802462928566622,
+            5.3286228762772225e-09
+          ],
+          "legacyLocalPosition": [
+            5.587935447692871e-08,
+            0.03844493255019188,
+            1.4901161193847656e-08
+          ],
+          "sourceOffsetLength": 0.0780246292856666,
+          "legacyOffsetLength": 0.03844493255023538
+        },
+        {
+          "joint": "RightHandThumb3",
+          "positionDifferenceMetres": 0.007534498436193994,
+          "rotationDifferenceDegrees": 13.830033768776499,
+          "sourceLocalPosition": [
+            -1.2422652906352027e-09,
+            0.018136458384093057,
+            7.575629012990248e-10
+          ],
+          "legacyLocalPosition": [
+            -1.1175870895385742e-08,
+            0.025670956820249557,
+            2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.018136458384093116,
+          "legacyOffsetLength": 0.02567095682026172
+        },
+        {
+          "joint": "RightHandIndex1",
+          "positionDifferenceMetres": 0.03838172658140818,
+          "rotationDifferenceDegrees": 160.61809195961771,
+          "sourceLocalPosition": [
+            -0.008614748031525066,
+            0.0461552953106148,
+            -0.035932055373015026
+          ],
+          "legacyLocalPosition": [
+            -0.00021051615476608276,
+            0.061880435794591904,
+            -0.001943148672580719
+          ],
+          "sourceOffsetLength": 0.05912391878238572,
+          "legacyOffsetLength": 0.061911295237168
+        },
+        {
+          "joint": "RightHandIndex2",
+          "positionDifferenceMetres": 0.014946314569456566,
+          "rotationDifferenceDegrees": 12.709978468200173,
+          "sourceLocalPosition": [
+            5.11065523234322e-10,
+            0.03683209878590965,
+            -5.553223436649546e-10
+          ],
+          "legacyLocalPosition": [
+            1.6763806343078613e-08,
+            0.051778413355350494,
+            -1.4901161193847656e-08
+          ],
+          "sourceOffsetLength": 0.03683209878590966,
+          "legacyOffsetLength": 0.05177841335535535
+        },
+        {
+          "joint": "RightHandIndex3",
+          "positionDifferenceMetres": 0.006971399729246908,
+          "rotationDifferenceDegrees": 18.6812119446165,
+          "sourceLocalPosition": [
+            2.9917623933783943e-11,
+            0.036433200780438435,
+            -1.3877410331986084e-10
+          ],
+          "legacyLocalPosition": [
+            7.450580596923828e-09,
+            0.029461801052093506,
+            1.1175870895385742e-07
+          ],
+          "sourceOffsetLength": 0.036433200780438435,
+          "legacyOffsetLength": 0.02946180105230642
+        },
+        {
+          "joint": "RightHandMiddle1",
+          "positionDifferenceMetres": 0.029944000850132428,
+          "rotationDifferenceDegrees": 139.66007574181265,
+          "sourceLocalPosition": [
+            0.012691798159783385,
+            0.04471104041969948,
+            -0.01925187707494791
+          ],
+          "legacyLocalPosition": [
+            0.014107979834079742,
+            0.07397478818893433,
+            -0.013065546751022339
+          ],
+          "sourceOffsetLength": 0.05030699401524192,
+          "legacyOffsetLength": 0.07643306152771619
+        },
+        {
+          "joint": "RightHandMiddle2",
+          "positionDifferenceMetres": 0.01480402256600574,
+          "rotationDifferenceDegrees": 9.32572411082478,
+          "sourceLocalPosition": [
+            2.7185936835039115e-10,
+            0.04173801635162977,
+            -9.848095672282398e-10
+          ],
+          "legacyLocalPosition": [
+            2.9802322387695312e-08,
+            0.056542038917541504,
+            -4.470348358154297e-08
+          ],
+          "sourceOffsetLength": 0.041738016351629784,
+          "legacyOffsetLength": 0.05654203891756703
+        },
+        {
+          "joint": "RightHandMiddle3",
+          "positionDifferenceMetres": 0.0131766302966661,
+          "rotationDifferenceDegrees": 12.446127442677735,
+          "sourceLocalPosition": [
+            -2.1319374043926587e-10,
+            0.043508165561464196,
+            -3.645377333327815e-10
+          ],
+          "legacyLocalPosition": [
+            -2.9802322387695312e-08,
+            0.030331535264849663,
+            -2.2351741790771484e-08
+          ],
+          "sourceOffsetLength": 0.0435081655614642,
+          "legacyOffsetLength": 0.03033153526487254
+        },
+        {
+          "joint": "RightHandRing1",
+          "positionDifferenceMetres": 0.03952503552807835,
+          "rotationDifferenceDegrees": 135.48456455093478,
+          "sourceLocalPosition": [
+            0.03273727064409149,
+            0.04818380693163937,
+            0.0007528043898183956
+          ],
+          "legacyLocalPosition": [
+            0.02905864268541336,
+            0.07492666691541672,
+            -0.028117865324020386
+          ],
+          "sourceOffsetLength": 0.05825783083928995,
+          "legacyOffsetLength": 0.08514120318712955
+        },
+        {
+          "joint": "RightHandRing2",
+          "positionDifferenceMetres": 0.014913865378872451,
+          "rotationDifferenceDegrees": 10.622223876089345,
+          "sourceLocalPosition": [
+            1.9874776824302387e-10,
+            0.03745016361156073,
+            1.4876588849688233e-10
+          ],
+          "legacyLocalPosition": [
+            5.960464477539063e-08,
+            0.05236402899026871,
+            3.725290298461914e-08
+          ],
+          "sourceOffsetLength": 0.03745016361156073,
+          "legacyOffsetLength": 0.052364028990315885
+        },
+        {
+          "joint": "RightHandRing3",
+          "positionDifferenceMetres": 0.010711009777737424,
+          "rotationDifferenceDegrees": 17.259653956626746,
+          "sourceLocalPosition": [
+            -7.684142488972867e-10,
+            0.034669361239706875,
+            4.788149876588932e-10
+          ],
+          "legacyLocalPosition": [
+            -8.940696716308594e-08,
+            0.023958351463079453,
+            1.2665987014770508e-07
+          ],
+          "sourceOffsetLength": 0.03466936123970689,
+          "legacyOffsetLength": 0.02395835146358108
+        },
+        {
+          "joint": "RightHandPinky1",
+          "positionDifferenceMetres": 0.06700512758489631,
+          "rotationDifferenceDegrees": 132.58499563126716,
+          "sourceLocalPosition": [
+            0.052095629519745446,
+            0.0333945748637447,
+            0.01653727446127584
+          ],
+          "legacyLocalPosition": [
+            0.04409632831811905,
+            0.06803557276725769,
+            -0.04025796800851822
+          ],
+          "sourceOffsetLength": 0.06405180475206292,
+          "legacyOffsetLength": 0.090520877818783
+        },
+        {
+          "joint": "RightHandPinky2",
+          "positionDifferenceMetres": 0.005475926884031244,
+          "rotationDifferenceDegrees": 15.863562100737333,
+          "sourceLocalPosition": [
+            8.461073508492234e-11,
+            0.031088974588545315,
+            2.7940649793833927e-11
+          ],
+          "legacyLocalPosition": [
+            1.1175870895385742e-07,
+            0.036564901471138,
+            -5.727633833885193e-08
+          ],
+          "sourceOffsetLength": 0.031088974588545315,
+          "legacyOffsetLength": 0.036564901471353654
+        },
+        {
+          "joint": "RightHandPinky3",
+          "positionDifferenceMetres": 0.011539980919837916,
+          "rotationDifferenceDegrees": 24.608462184580613,
+          "sourceLocalPosition": [
+            -6.843645372622831e-10,
+            0.029004205168712494,
+            3.240986368169274e-10
+          ],
+          "legacyLocalPosition": [
+            -6.705522537231445e-08,
+            0.017464224249124527,
+            3.725290298461914e-08
+          ],
+          "sourceOffsetLength": 0.0290042051687125,
+          "legacyOffsetLength": 0.01746422424929299
+        }
+      ]
+    }
+  },
+  "runtimeModes": {
+    "defaultPreviewBefore3Seconds": "legacy skinned high + report motion; source loads separately",
+    "defaultPreviewAfter3Seconds": "static original body/source weapon when loaded and worker World previewAnimation remains false",
+    "mainThreadAnimationMode": "legacy skinned high + report motion, IDLE_HOLD after 3s",
+    "workerAnimationModeBug": {
+      "uiAssignment": "src/main.js:416",
+      "missingAppearanceFlag": "src/render-thread.js:39",
+      "missingCommand": "src/render-worker.js:48",
+      "authoritativeEvidence": "worker-verified-evidence.json",
+      "matchingHeroAndSourcesLoaded": true
+    },
+    "battle": "legacy high + GLB Idle Run Attack Cast Dash and old runtime IK; report player created only for id preview",
+    "h02BattleGrip": "RightHand_WeaponSocket"
+  },
+  "vfxAudit": {
+    "H01": {
+      "carrierBranches": 5,
+      "vinesVertices": 16905,
+      "vinesTriangles": 32000,
+      "rootVertices": 16905,
+      "rootTriangles": 32000,
+      "skeletonBones": 0,
+      "animationType": "uGrow/uOpen/uMorph vertex shader and separate staff reveal",
+      "morphTargetAxis": [
+        -0.38,
+        1.45,
+        0.12
+      ],
+      "morphStaffLength": 2.0384,
+      "generator": "tools/manual-assets/build_h01_vines.py:11-34",
+      "runtime": "src/h01-entrance.js:20-57"
+    },
+    "H02": {
+      "newTimeToLegacyVfx": [
+        [
+          0,
+          0
+        ],
+        [
+          0.3,
+          0.65
+        ],
+        [
+          0.766666667,
+          2.15
+        ],
+        [
+          1,
+          2.82
+        ],
+        [
+          1.6,
+          3.5
+        ],
+        [
+          2.416666667,
+          4.65
+        ],
+        [
+          2.8,
+          5.1
+        ],
+        [
+          3,
+          5.6
+        ]
+      ],
+      "firstImpactPosition": [
+        0,
+        0,
+        0.38
+      ],
+      "stampPosition": [
+        -0.43,
+        0,
+        -0.2334
+      ],
+      "reportBranchAppliesLegacyStampLift": false,
+      "reportBranchCameraShake": 0,
+      "newGripHand": "left",
+      "source": "src/manual-h02.js:74-76; src/h02-entrance.js:11,37-42"
+    }
+  }
+}

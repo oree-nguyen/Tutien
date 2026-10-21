@@ -1,0 +1,200 @@
+{
+  "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d",
+  "passed": false,
+  "approvedSections": [],
+  "gates": [
+    {
+      "id": "AN01",
+      "passed": false,
+      "requirement": "12 nhân vật có giới tính, chiều cao theo bảng riêng và tỷ lệ đầu/thân 1:8 đo trên geometry"
+    },
+    {
+      "id": "AN02",
+      "passed": false,
+      "requirement": "Loft thân bầu dục high128x128, eo/ngực/hông tách biệt; không dùng SphereGeometry cho thân/giáp vai/mắt"
+    },
+    {
+      "id": "AN03",
+      "passed": false,
+      "requirement": "Rig Pelvis/Spine/Chest/Neck/Head và tay/chân/5 ngón x3đốt; hoạt ảnh không lật áo hoặc chân"
+    },
+    {
+      "id": "AN04",
+      "passed": false,
+      "requirement": "12 mặt V-line dùng Canvas2048, UV đúng chiều, iris nhiều lớp/catchlight/mí/mày/môi; không mắt bi lồi"
+    },
+    {
+      "id": "AN05",
+      "passed": false,
+      "requirement": "Tóc mái 8–12 và tóc sau16–24 ở mức gần, búi/trâm/tóc mai, chuyển động nhẹ"
+    },
+    {
+      "id": "AN06",
+      "passed": false,
+      "requirement": "4 lớp Hanfu có cổ Y,4panel64x64, đai/ngọc/tua, vaiExtrude và lụa; mặt sau không mất do culling"
+    },
+    {
+      "id": "AN07",
+      "passed": false,
+      "requirement": "12 silhouette/outfit/tóc/phụ kiện riêng; đủ ảnh toàn thân/cận mặt nam/nữ và xem12nhân vật"
+    },
+    {
+      "id": "WP01",
+      "passed": false,
+      "requirement": "12 Hồn khí có hình/chiều dài/vị trí tay riêng đúng bảng:3nhánh/12sen,9lông,7dây,4móng mỗi tay"
+    },
+    {
+      "id": "WP02",
+      "passed": false,
+      "requirement": "24 skin Hồn khí và48trang phục có biến thể nhìn thấy, giữ chuẩn hóa Ranked gốc"
+    },
+    {
+      "id": "IC01",
+      "passed": false,
+      "requirement": "Engine Canvas512 có đủ149minh họa:7Cốt/12Hoàn/28BP/18SUP/12vũkhí/24skin/48skill; PNG khác nhau, cache hoạt động"
+    },
+    {
+      "id": "IC02",
+      "passed": false,
+      "requirement": "Tất cả ô trang bị/kho/shop/túi/Hoãn/mua nhanh/trợ phẩm dùng ảnh minh họa, không glyph thay icon"
+    },
+    {
+      "id": "IC03",
+      "passed": false,
+      "requirement": "48icon kỹ năng phù hợp hệ/slot, vật liệu/khung/auraphẩmchất vàMPbadge/cooldown cập nhật thật"
+    },
+    {
+      "id": "LB01",
+      "passed": false,
+      "requirement": "Sảnh riêng ba bậc bạch ngọc,4trụrồng,ThiênMôn/biểnmây/núi/cánhhoa,4đènstudio; không sàn lưới xám"
+    },
+    {
+      "id": "LB02",
+      "passed": false,
+      "requirement": "Vuốt xoay360vàchuyển toànthân/cậnmặt giữyaw, framing theo chiều cao"
+    },
+    {
+      "id": "EN01",
+      "passed": false,
+      "requirement": "Terrain600x600/256x256+splatmap2048 phân7biome; tọa độ combat/độ cao/aim/effect nhất quán"
+    },
+    {
+      "id": "EN02",
+      "passed": false,
+      "requirement": "Cây phânnhánh/rễ/5tầng; mỗi bụi80–120lá instanced gió/táchlá; vào bụi hiện ẩn thân và bán trong suốt0.6"
+    },
+    {
+      "id": "EN03",
+      "passed": false,
+      "requirement": "Nước có sóng/pháp tuyến giải tích, phản chiếu bầu trời và mặt trăng thủ tục theo hướng camera với Fresnel; băng/lava/độc/hưkhông có chất liệu riêng; không nhận là phản chiếu vật thể hoặc SSR"
+    },
+    {
+      "id": "EN04",
+      "passed": false,
+      "requirement": "Cổng7m/4tinhthể/vortex có đóng/báotrước/mở/overtime,6đìnhgiao dịch và3TếĐàn đúng vị trí"
+    },
+    {
+      "id": "CR01",
+      "passed": false,
+      "requirement": "4loài thú và3Boss gốc có silhouette/khớp/VFX riêng; Boss4.5m/4m/12m,biếndị1.35hiểnthị/1.6HPgiữluật"
+    },
+    {
+      "id": "CR02",
+      "passed": false,
+      "requirement": "Boss thứ4 chỉ đạt khi có đặc tả gốc; không tự đặt"
+    },
+    {
+      "id": "HU01",
+      "passed": false,
+      "requirement": "Nút92attack,68QWE/78R theo cung145 ở màn lớn; màn thấp scaleđồngđều và kiểm tra overlap/diện tích"
+    },
+    {
+      "id": "HU02",
+      "passed": false,
+      "requirement": "Joysticknổi/radialcooldown/MP/thiếumờ/inputđađiểm/cancelđỏ/aimarrow-fan120-AOE hoạt động"
+    },
+    {
+      "id": "HU03",
+      "passed": false,
+      "requirement": "Lục soát2cột,đồ quý có quét0.8s, nhặtchọnmón/nhặtnhanh thực, đủ tải/realm/khóađội"
+    },
+    {
+      "id": "HU04",
+      "passed": false,
+      "requirement": "Minimap/2ví/7slot/24ô48W/gợiý/icontrợphẩm/lượt dùng đúng state,drawerđóngmặcđịnh"
+    },
+    {
+      "id": "SE01",
+      "passed": false,
+      "requirement": "Vault private saltedXOR/FNV+mirror, phát hiện và khôi phục sửa HP/MP/ví/CD/timer trong game thật"
+    },
+    {
+      "id": "SE02",
+      "passed": false,
+      "requirement": "Credit thời gian theo monotonic ngăn tua nhanhclient, giới hạn di chuyển; chấp nhậnF/skilldash/knockback/pause/restore"
+    },
+    {
+      "id": "SE03",
+      "passed": false,
+      "requirement": "AOI máy chủ không gửi tọa độ địch khuất/khácrealm/bụi; render culling không thay máy chủ"
+    },
+    {
+      "id": "SE04",
+      "passed": false,
+      "requirement": "UUID+HMACgắn tài khoản/dữliệu, xácminh trướcSQLmutation/ledgeridempotent,outbox/chuyểnquyềnPvP,chốngdupe"
+    },
+    {
+      "id": "SE05",
+      "passed": false,
+      "requirement": "KotlinGuard tích hợp trướcWebView, R8/DEX compile, releasefailclosedpinthiếu/sai,debugnormal,khóaHMACbackup0600"
+    },
+    {
+      "id": "SE06",
+      "passed": false,
+      "requirement": "Nút khiên mởgiámsát+môphỏngtấncôngriêng; báo đúng giới hạn JavaScript/root/Frida và không thay ví thật"
+    },
+    {
+      "id": "SE07",
+      "passed": false,
+      "requirement": "Kiểm thử chống sửaAPK/native/root/Frida trên Android vật lý với pin/chữ ký thật và trace"
+    },
+    {
+      "id": "GP01",
+      "passed": false,
+      "requirement": "Các luật GDD/4mode/kinhtế/Cổng/CC/Hoàn/Cốt/SUP vẫn qua hồi quy, client không quyết định giá/sátthương/vịtrí"
+    },
+    {
+      "id": "GP02",
+      "passed": false,
+      "requirement": "Tiênkhí chỉ số/độbền/lắpđúng dữliệu gốc; hiện chờ bổ sung"
+    },
+    {
+      "id": "PK01",
+      "passed": false,
+      "requirement": "PWA/standalone/APK offline có đủ texture/icon/GLB, khôi phục savecũ, không requestassetngoài"
+    },
+    {
+      "id": "DV01",
+      "passed": false,
+      "requirement": "Android thật cảmứng/landscape/immersive/restore/HồiHoàn,tracehợp lệ"
+    },
+    {
+      "id": "DV02",
+      "passed": false,
+      "requirement": "Android tầmtrung60FPSthường/30FPS>=40actor,>=60s mỗi cảnh"
+    },
+    {
+      "id": "AR01",
+      "passed": false,
+      "requirement": "Nghiệmthu đầy đủ hìnhảnh/48trangphục/24skin/vũkhí/Boss/7vùng và mọi chi tiết còn thiếu; không chỉ đếm đa giác"
+    }
+  ],
+  "limitations": [
+    "Boss thứ4/Tiên khí chờ nguồn gốc theo quyết định người dùng.",
+    "Chưa có Android vật lý: không suy diễn FPS/chống can thiệp từ SwiftShader, APK tồn tại hoặc R8compile.",
+    "Review mỹ thuật toàn bộ chi tiết/biến thể vẫn bắt buộc; tính năng kỹ thuật không tự chứng nhận AAA.",
+    "JavaScript/native heuristics có thể bị thay thế trên máy người dùng; quyền kinh tế online ở server."
+  ],
+  "recordedAt": "2026-10-21T09:47:18.866Z",
+  "auditCommandExitCode": 1
+}

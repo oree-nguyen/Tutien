@@ -1,0 +1,418 @@
+{
+  "scope": "Read-only follow-up from exact APK, fresh browser context, H02 battle and vertex equality for diagnostic clones",
+  "apk": {
+    "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d",
+    "apkSha256": "52aeeea29c319b5f8b66224ed1c46ae74890254924de2cdcc8d2104ae92b4c7c",
+    "apkBytes": 303180784,
+    "buildType": "debug",
+    "versionCode": 214719383,
+    "versionName": "2.5.ba97bec3",
+    "rigReviewIncluded": false,
+    "runtimeRigReplaced": false,
+    "lobbyEntranceRevision": "gemini-2026-10-21",
+    "lobbyMotionAssets": [
+      {
+        "hero": "H01",
+        "file": "animations/report-entrances/H01.bin",
+        "sha256": "bfa58f56e1785281186b6c8ad91335cdb50448b8b6c3cd29cb6ba605bc416c8b",
+        "bytes": 382172
+      },
+      {
+        "hero": "H02",
+        "file": "animations/report-entrances/H02.bin",
+        "sha256": "9b19150cc36d16c5c039d46a19c0b119fb3a7929f2c9400138943120d302b7f1",
+        "bytes": 382216
+      }
+    ],
+    "signed": true,
+    "recordedAt": "2026-10-21T04:16:51.100Z"
+  },
+  "clones": [
+    {
+      "hero": 0,
+      "cloneCheck": {
+        "sampledVertices": 128,
+        "vertexMaximumErrorMetres": 1.1123893155135927e-15
+      },
+      "bones": 52,
+      "source": false,
+      "ghost": false,
+      "closeup": null,
+      "view": "front",
+      "time": 3.05,
+      "normalization": "Only actor display transform removed; bone poses, mesh, UV and skin weights unchanged",
+      "camera": {
+        "projection": "orthographic",
+        "size": 2.65,
+        "position": [
+          0,
+          1,
+          5
+        ],
+        "center": [
+          0,
+          1,
+          0
+        ]
+      }
+    },
+    {
+      "hero": 1,
+      "cloneCheck": {
+        "sampledVertices": 128,
+        "vertexMaximumErrorMetres": 6.661338147750939e-16
+      },
+      "bones": 52,
+      "source": false,
+      "ghost": false,
+      "closeup": null,
+      "view": "front",
+      "time": 3.05,
+      "normalization": "Only actor display transform removed; bone poses, mesh, UV and skin weights unchanged",
+      "camera": {
+        "projection": "orthographic",
+        "size": 2.65,
+        "position": [
+          0,
+          1,
+          5
+        ],
+        "center": [
+          0,
+          1,
+          0
+        ]
+      }
+    }
+  ],
+  "combat": [
+    {
+      "phase": "idle",
+      "hero": 1,
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.399999976158142
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 12.900000035762787
+          }
+        ],
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 46.69999998807907,
+        "cache": {
+          "hits": 0,
+          "misses": 8,
+          "bytes": 307544208,
+          "decoded": 8,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 1375,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "animation": "Idle",
+        "rightGripError": 2.3143659852909357e-8
+      },
+      "weaponParent": "RightHand_WeaponSocket",
+      "position": {
+        "x": 8,
+        "z": 8
+      },
+      "cooldowns": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d"
+    },
+    {
+      "phase": "move-input",
+      "hero": 1,
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.399999976158142
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 12.900000035762787
+          }
+        ],
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 46.69999998807907,
+        "cache": {
+          "hits": 0,
+          "misses": 8,
+          "bytes": 307544208,
+          "decoded": 8,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 1375,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "animation": "Idle",
+        "rightGripError": 2.6379341631906878e-8
+      },
+      "weaponParent": "RightHand_WeaponSocket",
+      "position": {
+        "x": 8,
+        "z": 8
+      },
+      "cooldowns": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d"
+    },
+    {
+      "phase": "Q-input",
+      "hero": 1,
+      "asset": {
+        "id": "H02-C0",
+        "status": "loaded",
+        "detail": "high",
+        "rigged": true,
+        "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_albedo",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_normal",
+            "ms": 0
+          },
+          {
+            "kind": "texture",
+            "name": "high_metallic-high_roughness",
+            "ms": 0
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Body",
+            "ms": 12.399999976158142
+          },
+          {
+            "kind": "program",
+            "name": "H02_Hunyuan_Hammer",
+            "ms": 12.900000035762787
+          }
+        ],
+        "clips": [
+          "Attack",
+          "Cast",
+          "Dash",
+          "Entrance",
+          "Idle",
+          "Run"
+        ],
+        "loadMs": 46.69999998807907,
+        "cache": {
+          "hits": 0,
+          "misses": 8,
+          "bytes": 307544208,
+          "decoded": 8,
+          "cacheWrites": 4,
+          "gpu": {
+            "configured": true,
+            "workers": 1,
+            "support": {
+              "astcSupported": true,
+              "etc1Supported": false,
+              "etc2Supported": true,
+              "dxtSupported": true,
+              "bptcSupported": true,
+              "pvrtcSupported": false
+            }
+          },
+          "lastDecodeMs": 1375,
+          "worker": {
+            "decoded": 28,
+            "fallbacks": 0
+          }
+        },
+        "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+        "animation": "Run",
+        "rightGripError": 2.2521269522703615e-8
+      },
+      "weaponParent": "RightHand_WeaponSocket",
+      "position": {
+        "x": 7.356104728772184,
+        "z": 6.813450852391502
+      },
+      "cooldowns": [
+        7,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "docs/anim-report/conver10-gemini-audit-2026-10-21/combat-H02-idle.png",
+      "capturedAt": "2026-10-21T09:30:22.193Z",
+      "type": "actual H02 offline battle idle"
+    },
+    {
+      "file": "docs/anim-report/conver10-gemini-audit-2026-10-21/combat-H02-run.png",
+      "capturedAt": "2026-10-21T09:30:28.693Z",
+      "type": "actual H02 offline battle with W held"
+    },
+    {
+      "file": "docs/anim-report/conver10-gemini-audit-2026-10-21/combat-H02-Q.png",
+      "capturedAt": "2026-10-21T09:30:35.536Z",
+      "type": "actual H02 offline battle after Q input"
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

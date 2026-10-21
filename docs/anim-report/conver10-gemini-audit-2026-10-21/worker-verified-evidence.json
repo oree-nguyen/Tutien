@@ -1,0 +1,872 @@
+{
+  "scope": "Read-only corrected worker audit with matching hero ID, loaded body and loaded original source before capture; exact APK.",
+  "apk": {
+    "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d",
+    "apkSha256": "52aeeea29c319b5f8b66224ed1c46ae74890254924de2cdcc8d2104ae92b4c7c",
+    "apkBytes": 303180784,
+    "buildType": "debug",
+    "versionCode": 214719383,
+    "versionName": "2.5.ba97bec3",
+    "rigReviewIncluded": false,
+    "runtimeRigReplaced": false,
+    "lobbyEntranceRevision": "gemini-2026-10-21",
+    "lobbyMotionAssets": [
+      {
+        "hero": "H01",
+        "file": "animations/report-entrances/H01.bin",
+        "sha256": "bfa58f56e1785281186b6c8ad91335cdb50448b8b6c3cd29cb6ba605bc416c8b",
+        "bytes": 382172
+      },
+      {
+        "hero": "H02",
+        "file": "animations/report-entrances/H02.bin",
+        "sha256": "9b19150cc36d16c5c039d46a19c0b119fb3a7929f2c9400138943120d302b7f1",
+        "bytes": 382216
+      }
+    ],
+    "signed": true,
+    "recordedAt": "2026-10-21T04:16:51.100Z"
+  },
+  "worker": [
+    {
+      "hero": 0,
+      "backend": "worker",
+      "uiProxyFlag": true,
+      "button": "MODEL GỐC",
+      "diagnostic": {
+        "perf": {
+          "enabled": false,
+          "records": [],
+          "windows": [],
+          "active": null
+        },
+        "pose": {
+          "Head": [
+            0.4499999880790711,
+            1.539999956625854,
+            0.00006504585580242091
+          ],
+          "LeftFoot": [
+            0.5549999773505669,
+            0.12000009845522569,
+            2.7152470588196973e-10
+          ],
+          "RightFoot": [
+            0.34499999880757515,
+            0.12000009845522569,
+            2.7152470599822717e-10
+          ],
+          "LeftHand": [
+            0.6900009783912541,
+            0.9150001883286567,
+            0.04000028280154021
+          ],
+          "Hips": [
+            0.4499999880790711,
+            0.8500000238418579,
+            1.232595164407831e-32
+          ],
+          "LeftHand_GroundSocket": [
+            0.6781301652121502,
+            0.8483118294298488,
+            0.05617913697987968
+          ],
+          "RightHand_WeaponSocket": [
+            -0.13880679032684073,
+            1.6981483695653077,
+            0.10087042421119019
+          ],
+          "Staff_Base_Tip": [
+            -0.1361090563874428,
+            0.05107462406158464,
+            0.07838649848687222
+          ]
+        },
+        "terrain": null,
+        "backend": "worker",
+        "loadingCharacter": false,
+        "previewAsset": {
+          "id": "H01-C0",
+          "status": "loaded",
+          "detail": "high",
+          "rigged": true,
+          "source": "a93d658b-a40d-4854-b755-ad1fa9bcc79b",
+          "shaderWarmup": [
+            {
+              "kind": "texture",
+              "name": "high_albedo",
+              "ms": 402.60000002384186
+            },
+            {
+              "kind": "texture",
+              "name": "high_normal",
+              "ms": 13.600000023841858
+            },
+            {
+              "kind": "texture",
+              "name": "high_metallic-high_roughness",
+              "ms": 3.699999988079071
+            },
+            {
+              "kind": "texture",
+              "name": "high_albedo",
+              "ms": 3.700000047683716
+            },
+            {
+              "kind": "texture",
+              "name": "high_normal",
+              "ms": 42.30000001192093
+            },
+            {
+              "kind": "texture",
+              "name": "high_metallic-high_roughness",
+              "ms": 12.300000011920929
+            },
+            {
+              "kind": "texture",
+              "name": "d937dfd5-71a5-428d-9e33-63a4269e2fd0",
+              "ms": 1
+            },
+            {
+              "kind": "texture",
+              "name": "f7882588-c659-4f04-a578-7ef84e4c2013",
+              "ms": 0.9000000357627869
+            },
+            {
+              "kind": "texture",
+              "name": "7923f87e-e987-4794-8d02-edcf3dcdb046",
+              "ms": 0.5999999642372131
+            },
+            {
+              "kind": "program",
+              "name": "H01_C0_Hunyuan_StaticTrial",
+              "ms": 61.10000002384186
+            },
+            {
+              "kind": "program",
+              "name": "MocTinhTruong_TexturedMesh",
+              "ms": 22.200000047683716
+            },
+            {
+              "kind": "program",
+              "name": "Mesh",
+              "ms": 20.399999976158142
+            },
+            {
+              "kind": "program",
+              "name": "Mesh",
+              "ms": 39.30000001192093
+            },
+            {
+              "kind": "program",
+              "name": "Mesh",
+              "ms": 27.399999976158142
+            },
+            {
+              "kind": "program",
+              "name": "Mesh",
+              "ms": 46.5
+            }
+          ],
+          "sourceFidelity": {
+            "status": "loaded",
+            "mesh": "Tencent Hunyuan original",
+            "bodyTriangles": 1499726,
+            "weaponTriangles": 619640,
+            "textureResolution": 4096
+          },
+          "clips": [
+            "Attack",
+            "Cast",
+            "Dash",
+            "Entrance",
+            "Idle",
+            "Run"
+          ],
+          "loadMs": 10594,
+          "cache": {
+            "hits": 0,
+            "misses": 2,
+            "bytes": 2277112,
+            "decoded": 2,
+            "cacheWrites": 2,
+            "gpu": {
+              "configured": true,
+              "workers": 1,
+              "support": {
+                "astcSupported": true,
+                "etc1Supported": false,
+                "etc2Supported": true,
+                "dxtSupported": true,
+                "bptcSupported": true,
+                "pvrtcSupported": false
+              }
+            },
+            "lastDecodeMs": 217,
+            "worker": {
+              "decoded": 14,
+              "fallbacks": 0
+            }
+          },
+          "motion": {
+            "revision": "gemini-2026-10-21",
+            "duration": 3,
+            "gripHand": "right",
+            "weightsReplaced": false,
+            "sourceSkinActivated": false
+          },
+          "entrance": {
+            "time": 3.05,
+            "visible": true,
+            "heroVisible": true,
+            "complete": true,
+            "gripped": true,
+            "landed": true,
+            "player": "gemini-motion-2026-10-21",
+            "gripHand": "right",
+            "groundHand": "right",
+            "state": "BLEND",
+            "vfxTime": 4.25
+          },
+          "animation": "IDLE_HOLD",
+          "cameraShake": 0
+        },
+        "quality": "balanced",
+        "sceneryReady": false,
+        "camera": {
+          "x": 0,
+          "y": 3.7550400528888788,
+          "z": 10.50000031733327
+        },
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "look": {
+          "x": 0,
+          "y": 3.05504,
+          "z": 0
+        },
+        "basis": {
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            0.9977851576564633,
+            -0.06651901352595871
+          ],
+          "forward": [
+            0,
+            -0.06651901352595871,
+            -0.9977851576564633
+          ]
+        },
+        "gpuTiming": {
+          "available": true,
+          "ms": 2648.1645,
+          "samples": 29
+        },
+        "ratio": 1,
+        "fps": 0,
+        "render": {
+          "frame": 32,
+          "calls": 54,
+          "triangles": 2138398,
+          "points": 0,
+          "lines": 0
+        },
+        "memory": {
+          "geometries": 16,
+          "textures": 28
+        },
+        "batching": {
+          "opaqueBefore": 79,
+          "opaqueAfter": 4,
+          "batchedMeshes": 4
+        },
+        "material": {
+          "vertexColors": false,
+          "colorSpace": "srgb",
+          "compressed": false,
+          "metalness": 1,
+          "emissive": 1
+        },
+        "pooledRender": {
+          "projectileCapacity": 128,
+          "dropCapacity": 128,
+          "projectileCount": 0,
+          "dropCount": 0,
+          "cosmeticsSkipped": 0
+        },
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "e3363bc0-93ca-499c-8252-8272a24a8408",
+            "ms": 10.799999952316284
+          },
+          {
+            "kind": "texture",
+            "name": "ef652b75-a787-44fd-aaf6-c39128b9eba0",
+            "ms": 3.300000011920929
+          },
+          {
+            "kind": "texture",
+            "name": "95d95719-a26f-430a-bd2b-7a2eb1bce92d",
+            "ms": 1.800000011920929
+          },
+          {
+            "kind": "texture",
+            "name": "9de93bbe-0206-41d2-84b8-a165e0c72f98",
+            "ms": 4.400000035762787
+          },
+          {
+            "kind": "texture",
+            "name": "8c8fdea8-e84b-4186-8981-0e22eb1395a7",
+            "ms": 1.300000011920929
+          },
+          {
+            "kind": "texture",
+            "name": "cc3f2783-94f2-4195-a36a-c4ff88501c1f",
+            "ms": 24.899999976158142
+          },
+          {
+            "kind": "texture",
+            "name": "776da683-d392-4af6-8e30-51b65cbeb1c5",
+            "ms": 0.20000004768371582
+          },
+          {
+            "kind": "texture",
+            "name": "b8a15edd-3bab-40fa-af0f-9f41336e642d",
+            "ms": 0.19999998807907104
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 28
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 11
+          },
+          {
+            "kind": "program",
+            "name": "Sanctuary_Petals_GPU_Instanced",
+            "ms": 11.200000047683716
+          },
+          {
+            "kind": "program",
+            "name": "StaticBatch_0",
+            "ms": 16.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "StaticBatch_1",
+            "ms": 13.100000023841858
+          },
+          {
+            "kind": "program",
+            "name": "StaticBatch_2",
+            "ms": 12.700000047683716
+          }
+        ]
+      },
+      "messages": [
+        {
+          "type": "frame",
+          "appearanceKeys": [
+            "hero",
+            "branch",
+            "skin",
+            "costume",
+            "rings",
+            "bones"
+          ]
+        },
+        {
+          "type": "frame",
+          "appearanceKeys": [
+            "hero",
+            "branch",
+            "skin",
+            "costume",
+            "rings",
+            "bones"
+          ]
+        },
+        {
+          "type": "frame",
+          "appearanceKeys": [
+            "hero",
+            "branch",
+            "skin",
+            "costume",
+            "rings",
+            "bones"
+          ]
+        },
+        {
+          "type": "command",
+          "method": "replayHeroEntrance",
+          "args": []
+        },
+        {
+          "type": "command",
+          "method": "seekHeroEntrance",
+          "args": [
+            3.05
+          ]
+        },
+        {
+          "type": "command",
+          "method": "inspect"
+        }
+      ],
+      "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d"
+    },
+    {
+      "hero": 1,
+      "backend": "worker",
+      "uiProxyFlag": true,
+      "button": "MODEL GỐC",
+      "diagnostic": {
+        "perf": {
+          "enabled": false,
+          "records": [],
+          "windows": [],
+          "active": null
+        },
+        "pose": {
+          "Head": [
+            -3.009265538105056e-36,
+            1.6100000091484432,
+            0.00006299066152150529
+          ],
+          "LeftFoot": [
+            0.10499998927316528,
+            0.11999998759484354,
+            -2.0433322254843015e-9
+          ],
+          "RightFoot": [
+            -0.10499998927316528,
+            0.11999998759484354,
+            -2.0433322260908458e-9
+          ],
+          "LeftHand": [
+            0.47469163939130066,
+            1.0907153649195975,
+            0.14911881294807133
+          ],
+          "Hips": [
+            0,
+            0.9599999785423279,
+            0
+          ],
+          "LeftHand_GroundSocket": [
+            0.48565397713290787,
+            1.122304477016685,
+            0.1974089280314259
+          ],
+          "RightHand_WeaponSocket": [
+            -0.3036381342692199,
+            0.9478963565662535,
+            0.06400562117483216
+          ],
+          "Hammer_Base_Tip": [
+            0.4344394504136615,
+            0.19511153435442946,
+            0.15476194034212729
+          ],
+          "Hammer_Head_Core": [
+            0.43443945054020416,
+            1.705637855922747,
+            0.1547619401977113
+          ],
+          "Hammer_Head_Impact": [
+            0.43443945056026584,
+            1.9451115343544292,
+            0.15476194017481612
+          ]
+        },
+        "weapon": {
+          "visible": false,
+          "parent": "H02_Entrance_Stage"
+        },
+        "terrain": null,
+        "backend": "worker",
+        "loadingCharacter": false,
+        "previewAsset": {
+          "id": "H02-C0",
+          "status": "loaded",
+          "detail": "high",
+          "rigged": true,
+          "source": "cd050512-738f-449f-95d3-7c11a9c06851",
+          "shaderWarmup": [
+            {
+              "kind": "texture",
+              "name": "texture_pbr_20250901",
+              "ms": 12.099999964237213
+            },
+            {
+              "kind": "texture",
+              "name": "texture_pbr_20250901_normal",
+              "ms": 3.799999952316284
+            },
+            {
+              "kind": "texture",
+              "name": "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+              "ms": 7.400000035762787
+            },
+            {
+              "kind": "texture",
+              "name": "high_albedo",
+              "ms": 0
+            },
+            {
+              "kind": "texture",
+              "name": "high_normal",
+              "ms": 0
+            },
+            {
+              "kind": "texture",
+              "name": "high_metallic-high_roughness",
+              "ms": 0
+            },
+            {
+              "kind": "program",
+              "name": "H02_Hunyuan_Body",
+              "ms": 13.599999964237213
+            },
+            {
+              "kind": "program",
+              "name": "H02_Hunyuan_Hammer",
+              "ms": 10.599999964237213
+            },
+            {
+              "kind": "program",
+              "name": "Mesh",
+              "ms": 10.5
+            }
+          ],
+          "sourceFidelity": {
+            "status": "loaded",
+            "mesh": "Tencent Hunyuan original",
+            "bodyTriangles": 1499746,
+            "weaponTriangles": 1500000,
+            "textureResolution": 4096
+          },
+          "clips": [
+            "Attack",
+            "Cast",
+            "Dash",
+            "Entrance",
+            "Idle",
+            "Run"
+          ],
+          "loadMs": 4144.199999988079,
+          "cache": {
+            "hits": 0,
+            "misses": 6,
+            "bytes": 134880444,
+            "decoded": 6,
+            "cacheWrites": 4,
+            "gpu": {
+              "configured": true,
+              "workers": 1,
+              "support": {
+                "astcSupported": true,
+                "etc1Supported": false,
+                "etc2Supported": true,
+                "dxtSupported": true,
+                "bptcSupported": true,
+                "pvrtcSupported": false
+              }
+            },
+            "lastDecodeMs": 97.80000001192093,
+            "worker": {
+              "decoded": 28,
+              "fallbacks": 0
+            }
+          },
+          "weaponSource": "45b118bc-58ce-4000-94c6-8e09945aa9f1",
+          "motion": {
+            "revision": "gemini-2026-10-21",
+            "duration": 3,
+            "gripHand": "left",
+            "weightsReplaced": false,
+            "sourceSkinActivated": false
+          },
+          "animation": "IDLE_HOLD",
+          "entrance": {
+            "time": 3.05,
+            "visible": true,
+            "heroVisible": true,
+            "complete": true,
+            "gripped": true,
+            "landed": true,
+            "player": "gemini-motion-2026-10-21",
+            "gripHand": "left",
+            "groundHand": "right",
+            "state": "BLEND",
+            "vfxTime": 5.649999999999999
+          },
+          "cameraShake": 0
+        },
+        "quality": "balanced",
+        "sceneryReady": false,
+        "camera": {
+          "x": 0,
+          "y": 4.2384000170127685,
+          "z": 10.500000102079943
+        },
+        "focus": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "look": {
+          "x": 0,
+          "y": 3.5383999999994447,
+          "z": 0
+        },
+        "basis": {
+          "right": [
+            1,
+            0,
+            0
+          ],
+          "up": [
+            0,
+            0.997785157792226,
+            -0.06651901148951841
+          ],
+          "forward": [
+            0,
+            -0.06651901148951841,
+            -0.997785157792226
+          ]
+        },
+        "gpuTiming": {
+          "available": true,
+          "ms": 1245.495317,
+          "samples": 66
+        },
+        "ratio": 1,
+        "fps": 1,
+        "render": {
+          "frame": 69,
+          "calls": 59,
+          "triangles": 3019034,
+          "points": 32,
+          "lines": 144
+        },
+        "memory": {
+          "geometries": 21,
+          "textures": 36
+        },
+        "batching": {
+          "opaqueBefore": 79,
+          "opaqueAfter": 4,
+          "batchedMeshes": 4
+        },
+        "material": {
+          "vertexColors": false,
+          "colorSpace": "srgb",
+          "compressed": false,
+          "metalness": 1,
+          "emissive": 1
+        },
+        "pooledRender": {
+          "projectileCapacity": 128,
+          "dropCapacity": 128,
+          "projectileCount": 0,
+          "dropCount": 0,
+          "cosmeticsSkipped": 0
+        },
+        "shaderWarmup": [
+          {
+            "kind": "texture",
+            "name": "e3363bc0-93ca-499c-8252-8272a24a8408",
+            "ms": 10.799999952316284
+          },
+          {
+            "kind": "texture",
+            "name": "ef652b75-a787-44fd-aaf6-c39128b9eba0",
+            "ms": 3.300000011920929
+          },
+          {
+            "kind": "texture",
+            "name": "95d95719-a26f-430a-bd2b-7a2eb1bce92d",
+            "ms": 1.800000011920929
+          },
+          {
+            "kind": "texture",
+            "name": "9de93bbe-0206-41d2-84b8-a165e0c72f98",
+            "ms": 4.400000035762787
+          },
+          {
+            "kind": "texture",
+            "name": "8c8fdea8-e84b-4186-8981-0e22eb1395a7",
+            "ms": 1.300000011920929
+          },
+          {
+            "kind": "texture",
+            "name": "cc3f2783-94f2-4195-a36a-c4ff88501c1f",
+            "ms": 24.899999976158142
+          },
+          {
+            "kind": "texture",
+            "name": "776da683-d392-4af6-8e30-51b65cbeb1c5",
+            "ms": 0.20000004768371582
+          },
+          {
+            "kind": "texture",
+            "name": "b8a15edd-3bab-40fa-af0f-9f41336e642d",
+            "ms": 0.19999998807907104
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 28
+          },
+          {
+            "kind": "program",
+            "name": "Mesh",
+            "ms": 11
+          },
+          {
+            "kind": "program",
+            "name": "Sanctuary_Petals_GPU_Instanced",
+            "ms": 11.200000047683716
+          },
+          {
+            "kind": "program",
+            "name": "StaticBatch_0",
+            "ms": 16.899999976158142
+          },
+          {
+            "kind": "program",
+            "name": "StaticBatch_1",
+            "ms": 13.100000023841858
+          },
+          {
+            "kind": "program",
+            "name": "StaticBatch_2",
+            "ms": 12.700000047683716
+          }
+        ]
+      },
+      "messages": [
+        {
+          "type": "frame",
+          "appearanceKeys": [
+            "hero",
+            "branch",
+            "skin",
+            "costume",
+            "rings",
+            "bones"
+          ]
+        },
+        {
+          "type": "frame",
+          "appearanceKeys": [
+            "hero",
+            "branch",
+            "skin",
+            "costume",
+            "rings",
+            "bones"
+          ]
+        },
+        {
+          "type": "frame",
+          "appearanceKeys": [
+            "hero",
+            "branch",
+            "skin",
+            "costume",
+            "rings",
+            "bones"
+          ]
+        },
+        {
+          "type": "frame",
+          "appearanceKeys": [
+            "hero",
+            "branch",
+            "skin",
+            "costume",
+            "rings",
+            "bones"
+          ]
+        },
+        {
+          "type": "command",
+          "method": "replayHeroEntrance",
+          "args": []
+        },
+        {
+          "type": "command",
+          "method": "replayHeroEntrance",
+          "args": []
+        },
+        {
+          "type": "command",
+          "method": "seekHeroEntrance",
+          "args": [
+            3.05
+          ]
+        },
+        {
+          "type": "command",
+          "method": "seekHeroEntrance",
+          "args": [
+            3.05
+          ]
+        },
+        {
+          "type": "command",
+          "method": "inspect"
+        },
+        {
+          "type": "command",
+          "method": "inspect"
+        }
+      ],
+      "sourceHash": "ba97bec347eb754beeaf31054d14867c723aad0b35b2a6e4e35709547d35d53d"
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "docs/anim-report/conver10-gemini-audit-2026-10-21/worker-verified-H01-default.png",
+      "capturedAt": "2026-10-21T09:39:21.281Z",
+      "hero": 0,
+      "mode": "default"
+    },
+    {
+      "file": "docs/anim-report/conver10-gemini-audit-2026-10-21/worker-verified-H01-motion-button.png",
+      "capturedAt": "2026-10-21T09:39:32.057Z",
+      "hero": 0,
+      "mode": "requested-animation"
+    },
+    {
+      "file": "docs/anim-report/conver10-gemini-audit-2026-10-21/worker-verified-H02-default.png",
+      "capturedAt": "2026-10-21T09:40:02.905Z",
+      "hero": 1,
+      "mode": "default"
+    },
+    {
+      "file": "docs/anim-report/conver10-gemini-audit-2026-10-21/worker-verified-H02-motion-button.png",
+      "capturedAt": "2026-10-21T09:40:10.465Z",
+      "hero": 1,
+      "mode": "requested-animation"
+    }
+  ],
+  "errors": [],
+  "complete": true
+}

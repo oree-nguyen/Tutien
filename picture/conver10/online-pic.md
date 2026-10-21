@@ -4594,7 +4594,7 @@ Nguồn: `image7.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 10:46:35 UTC+07:00**
 
-Nguồn: `before-H01-2.png`
+Nguồn: `before-H01-2.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/before-H01-2.png`
 
 ## Ảnh 550
 
@@ -4602,7 +4602,7 @@ Nguồn: `before-H01-2.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 10:46:38 UTC+07:00**
 
-Nguồn: `before-H01-6.png`
+Nguồn: `before-H01-6.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/before-H01-6.png`
 
 ## Ảnh 551
 
@@ -4610,7 +4610,7 @@ Nguồn: `before-H01-6.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 10:46:38 UTC+07:00**
 
-Nguồn: `before-H02-3.png`
+Nguồn: `before-H02-3.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/before-H02-3.png`
 
 ## Ảnh 552
 
@@ -4618,7 +4618,7 @@ Nguồn: `before-H02-3.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 10:46:39 UTC+07:00**
 
-Nguồn: `before-H02-6.png`
+Nguồn: `before-H02-6.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/before-H02-6.png`
 
 ## Ảnh 553
 
@@ -4626,7 +4626,7 @@ Nguồn: `before-H02-6.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:01:43 UTC+07:00**
 
-Nguồn: `after-H01-crouch.png`
+Nguồn: `after-H01-crouch.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-crouch.png`
 
 ## Ảnh 554
 
@@ -4634,7 +4634,7 @@ Nguồn: `after-H01-crouch.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:01:47 UTC+07:00**
 
-Nguồn: `after-H01-rise.png`
+Nguồn: `after-H01-rise.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-rise.png`
 
 ## Ảnh 555
 
@@ -4642,7 +4642,7 @@ Nguồn: `after-H01-rise.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:01:47 UTC+07:00**
 
-Nguồn: `after-H01-hold.png`
+Nguồn: `after-H01-hold.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-hold.png`
 
 ## Ảnh 556
 
@@ -4650,7 +4650,7 @@ Nguồn: `after-H01-hold.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:01:48 UTC+07:00**
 
-Nguồn: `after-H01-loop.png`
+Nguồn: `after-H01-loop.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-loop.png`
 
 ## Ảnh 557
 
@@ -4658,7 +4658,7 @@ Nguồn: `after-H01-loop.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:01:48 UTC+07:00**
 
-Nguồn: `after-H01-face.png`
+Nguồn: `after-H01-face.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H01-face.png`
 
 ## Ảnh 558
 
@@ -4666,7 +4666,7 @@ Nguồn: `after-H01-face.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:04:04 UTC+07:00**
 
-Nguồn: `after-H02-crouch.png`
+Nguồn: `after-H02-crouch.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-crouch.png`
 
 ## Ảnh 559
 
@@ -4674,7 +4674,7 @@ Nguồn: `after-H02-crouch.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:04:04 UTC+07:00**
 
-Nguồn: `after-H02-rise.png`
+Nguồn: `after-H02-rise.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-rise.png`
 
 ## Ảnh 560
 
@@ -4682,7 +4682,7 @@ Nguồn: `after-H02-rise.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:04:05 UTC+07:00**
 
-Nguồn: `after-H02-hold.png`
+Nguồn: `after-H02-hold.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-hold.png`
 
 ## Ảnh 561
 
@@ -4690,7 +4690,7 @@ Nguồn: `after-H02-hold.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:04:05 UTC+07:00**
 
-Nguồn: `after-H02-loop.png`
+Nguồn: `after-H02-loop.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-loop.png`
 
 ## Ảnh 562
 
@@ -4698,7 +4698,7 @@ Nguồn: `after-H02-loop.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:04:05 UTC+07:00**
 
-Nguồn: `after-H02-face.png`
+Nguồn: `after-H02-face.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/after-H02-face.png`
 
 ## Ảnh 563
 
@@ -4722,7 +4722,7 @@ Nguồn: `production-H01-hold.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:19:16 UTC+07:00**
 
-Nguồn: `production-H01-hold.png`
+Nguồn: `production-H01-hold.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/production-H01-hold.png`
 
 ## Ảnh 566
 
@@ -4730,4 +4730,644 @@ Nguồn: `production-H01-hold.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 11:19:17 UTC+07:00**
 
-Nguồn: `production-H02-hold.png`
+Nguồn: `production-H02-hold.png`, `docs/anim-report/conver10-redo/gemini-2026-10-21/production-H02-hold.png`
+
+## Ảnh 567
+
+![H01-default-source-3_050.png](../media/de6f6367514862900a1d6cf3fa185ac72c84a6b3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:01:57 UTC+07:00**
+
+Nguồn: `H01-default-source-3_050.png`
+
+## Ảnh 568
+
+![H01-3.050-source-front.png](../media/8946591a055d68594cbfb3b415086ab94338571b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:00 UTC+07:00**
+
+Nguồn: `H01-3.050-source-front.png`
+
+## Ảnh 569
+
+![H01-t0.png](../media/f5ab083afc5cb89420271b6c7808222da780615f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:01 UTC+07:00**
+
+Nguồn: `H01-t0.png`
+
+## Ảnh 570
+
+![H01-impact_0300.png](../media/18279083af1c3f261c4162f89ddc2ce77c64ea99.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:02 UTC+07:00**
+
+Nguồn: `H01-impact_0300.png`
+
+## Ảnh 571
+
+![H01-hidden_0750.png](../media/f4f64dda2f610e49a7c72de8cf78f08d571390b4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:04 UTC+07:00**
+
+Nguồn: `H01-hidden_0750.png`
+
+## Ảnh 572
+
+![H01-emerge_0800.png](../media/2fd91ba48201450c30b4e1ace6c019262cd7ba80.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:04 UTC+07:00**
+
+Nguồn: `H01-emerge_0800.png`
+
+## Ảnh 573
+
+![H01-apex_0867.png](../media/b42a22389ba728f37284fcab1897545b0e00300d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:05 UTC+07:00**
+
+Nguồn: `H01-apex_0867.png`
+
+## Ảnh 574
+
+![H01-land_1000.png](../media/eeafa5f119fbe95da2378cf18ececb815cca942f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:06 UTC+07:00**
+
+Nguồn: `H01-land_1000.png`
+
+## Ảnh 575
+
+![H01-settle_1083.png](../media/042e028a4883496f479d7ec16eb356d38c27015f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:07 UTC+07:00**
+
+Nguồn: `H01-settle_1083.png`
+
+## Ảnh 576
+
+![H01-crouch_1300.png](../media/7ff8b3e0e54d4ffe56f958425ab00b78f9ab24aa.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:07 UTC+07:00**
+
+Nguồn: `H01-crouch_1300.png`
+
+## Ảnh 577
+
+![H01-crouch_end_1583.png](../media/a322c105508d64ae962c2ad395ad8ca0edc19bb2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:08 UTC+07:00**
+
+Nguồn: `H01-crouch_end_1583.png`
+
+## Ảnh 578
+
+![H01-rise_1800.png](../media/61b4cbcd6c24bb0d9cbe7b460adcdf443e738909.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:09 UTC+07:00**
+
+Nguồn: `H01-rise_1800.png`
+
+## Ảnh 579
+
+![H01-open_2033.png](../media/3f74c8be51c1c0c3b2e85a1eb6999794ef294d44.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:10 UTC+07:00**
+
+Nguồn: `H01-open_2033.png`
+
+## Ảnh 580
+
+![H01-contact_2200.png](../media/4a2002eb15272d716a8e9957217f981e311f919a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:10 UTC+07:00**
+
+Nguồn: `H01-contact_2200.png`
+
+## Ảnh 581
+
+![H01-close_2367.png](../media/490c28bdeac7537b5dafb84fdccb46754f70697a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:11 UTC+07:00**
+
+Nguồn: `H01-close_2367.png`
+
+## Ảnh 582
+
+![H01-stand_2417.png](../media/e8f9a7603106a24122b452336345edc5476bc426.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:12 UTC+07:00**
+
+Nguồn: `H01-stand_2417.png`
+
+## Ảnh 583
+
+![H01-stamp_2800.png](../media/6a0b78c444ba728fa37e3968b959de36b3d2446e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:12 UTC+07:00**
+
+Nguồn: `H01-stamp_2800.png`
+
+## Ảnh 584
+
+![H01-pre_switch_2990.png](../media/0bbb934b39c3f147caf27d4f2b7f9fdd5149ede0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:13 UTC+07:00**
+
+Nguồn: `H01-pre_switch_2990.png`
+
+## Ảnh 585
+
+![H01-hold_3050.png](../media/b2c64064161b0da3cebfbbc9bd24ccf194ecdcde.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:14 UTC+07:00**
+
+Nguồn: `H01-hold_3050.png`
+
+## Ảnh 586
+
+![H01-idle_4050.png](../media/faade440dabe85742fbf7710f6f0de3f450fe33d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:15 UTC+07:00**
+
+Nguồn: `H01-idle_4050.png`
+
+## Ảnh 587
+
+![H01-1.300-surface-front.png](../media/be7e5f4e8acdbc890fe71656f43884a127bda619.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:16 UTC+07:00**
+
+Nguồn: `H01-1.300-surface-front.png`
+
+## Ảnh 588
+
+![H01-1.300-surface-side.png](../media/7c7d4d32cf8d52e670b4c8d76245e1318785606a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:17 UTC+07:00**
+
+Nguồn: `H01-1.300-surface-side.png`
+
+## Ảnh 589
+
+![H01-1.300-surface-back.png](../media/277961d0c5cfc26853ca2e5bef7ee49d0cb2cf51.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:18 UTC+07:00**
+
+Nguồn: `H01-1.300-surface-back.png`
+
+## Ảnh 590
+
+![H01-1.300-bones-front.png](../media/aa764d549902694ff203a3708597729acf06adb9.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:19 UTC+07:00**
+
+Nguồn: `H01-1.300-bones-front.png`
+
+## Ảnh 591
+
+![H01-1.300-bones-side.png](../media/dac61704dfe35367d7c1703586b9820605e10a4f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 12:02:20 UTC+07:00**
+
+Nguồn: `H01-1.300-bones-side.png`
+
+## Ảnh 592
+
+![H01-3.050-bones-front.png](../media/153e3eab7b193251934f93ac0a34e980618a4e49.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:18 UTC+07:00**
+
+Nguồn: `H01-3.050-bones-front.png`
+
+## Ảnh 593
+
+![H01-3.050-bones-side-RightHand.png](../media/360fab3d38623cabab515f9e643bdf86be51cf28.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:20 UTC+07:00**
+
+Nguồn: `H01-3.050-bones-side-RightHand.png`
+
+## Ảnh 594
+
+![H01-3.050-bones-side.png](../media/822dccb462ddc0bec1c2f894a1d32f3366614e43.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:20 UTC+07:00**
+
+Nguồn: `H01-3.050-bones-side.png`
+
+## Ảnh 595
+
+![H01-3.050-surface-back.png](../media/6181a3981fc4457a322d2d314fd443c489dfded1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:21 UTC+07:00**
+
+Nguồn: `H01-3.050-surface-back.png`
+
+## Ảnh 596
+
+![H01-3.050-surface-front-RightHand.png](../media/31cecf80170ac16ded80e4d47d7428e7fcd6ba8e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:21 UTC+07:00**
+
+Nguồn: `H01-3.050-surface-front-RightHand.png`
+
+## Ảnh 597
+
+![H01-3.050-surface-front.png](../media/b4e98c59e1f49e083246dfd8bf3a29b5415d3e1d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:21 UTC+07:00**
+
+Nguồn: `H01-3.050-surface-front.png`
+
+## Ảnh 598
+
+![H01-3.050-surface-side.png](../media/12e1bfbf97b26f37468d9c6aa911963ff578d29b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:22 UTC+07:00**
+
+Nguồn: `H01-3.050-surface-side.png`
+
+## Ảnh 599
+
+![H01-source-after-toggle.png](../media/886fc6ff4d347b02c43325017ade94a2398a95e2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:22 UTC+07:00**
+
+Nguồn: `H01-source-after-toggle.png`
+
+## Ảnh 600
+
+![H02-1.300-bones-front.png](../media/d68599988cfe78e5cf36b314e95a146ac033182e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:23 UTC+07:00**
+
+Nguồn: `H02-1.300-bones-front.png`
+
+## Ảnh 601
+
+![H02-1.300-bones-side.png](../media/ed444b9e72963839a2571c64d2285c12853f04d8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:23 UTC+07:00**
+
+Nguồn: `H02-1.300-bones-side.png`
+
+## Ảnh 602
+
+![H02-1.300-surface-back.png](../media/6a6e93403faf8bd614ef8a68cdfc59a35ee211e8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:24 UTC+07:00**
+
+Nguồn: `H02-1.300-surface-back.png`
+
+## Ảnh 603
+
+![H02-1.300-surface-front.png](../media/f67b32c9dcc5a68097df313c48356059ccb0afc8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:24 UTC+07:00**
+
+Nguồn: `H02-1.300-surface-front.png`
+
+## Ảnh 604
+
+![H02-1.300-surface-side.png](../media/9a39e5b44091084015d9c1581fb8cf26994e66f5.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:25 UTC+07:00**
+
+Nguồn: `H02-1.300-surface-side.png`
+
+## Ảnh 605
+
+![H02-3.050-bones-front.png](../media/72d880f6584f53217c052ffc22e0d1f83a36d785.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:25 UTC+07:00**
+
+Nguồn: `H02-3.050-bones-front.png`
+
+## Ảnh 606
+
+![H02-3.050-bones-side-LeftHand.png](../media/30197be97b322aa62078a450db027898573c1c1f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:26 UTC+07:00**
+
+Nguồn: `H02-3.050-bones-side-LeftHand.png`
+
+## Ảnh 607
+
+![H02-3.050-bones-side.png](../media/752009c799e11e1217e03c7c2fc4441ba50b7ad7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:26 UTC+07:00**
+
+Nguồn: `H02-3.050-bones-side.png`
+
+## Ảnh 608
+
+![H02-3.050-source-front.png](../media/4bf3552e06feb13271c4d8f1f54336aa8e9e4508.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:27 UTC+07:00**
+
+Nguồn: `H02-3.050-source-front.png`
+
+## Ảnh 609
+
+![H02-3.050-surface-back.png](../media/5edf6727c7caebc37dd29676ce83b666538d9387.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:27 UTC+07:00**
+
+Nguồn: `H02-3.050-surface-back.png`
+
+## Ảnh 610
+
+![H02-3.050-surface-front-LeftHand.png](../media/f5ed03f1ce1b24ff421c991a18ed6b01674af5f2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:27 UTC+07:00**
+
+Nguồn: `H02-3.050-surface-front-LeftHand.png`
+
+## Ảnh 611
+
+![H02-3.050-surface-front.png](../media/b4954a6e5a75c8b5819b1d9157ce8942ef70a03d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:28 UTC+07:00**
+
+Nguồn: `H02-3.050-surface-front.png`
+
+## Ảnh 612
+
+![H02-3.050-surface-side.png](../media/e8c140f682a9a443fb25758c0809e14a1e9a4f1b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:28 UTC+07:00**
+
+Nguồn: `H02-3.050-surface-side.png`
+
+## Ảnh 613
+
+![H02-apex_0867.png](../media/9589883ec6cf7e10b48f837981bf88a8ef4ad9ea.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:29 UTC+07:00**
+
+Nguồn: `H02-apex_0867.png`
+
+## Ảnh 614
+
+![H02-close_2367.png](../media/7c16fb114a1e14b5dd3ff43e1092172255bf7f62.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:29 UTC+07:00**
+
+Nguồn: `H02-close_2367.png`
+
+## Ảnh 615
+
+![H02-contact_2200.png](../media/6d48d7c99fae2f9a28d062cd01ca1c1a307e7507.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:30 UTC+07:00**
+
+Nguồn: `H02-contact_2200.png`
+
+## Ảnh 616
+
+![H02-crouch_1300.png](../media/ee25abfda9f2b96c6caf1c03f61be2dcf00327fa.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:30 UTC+07:00**
+
+Nguồn: `H02-crouch_1300.png`
+
+## Ảnh 617
+
+![H02-crouch_end_1583.png](../media/b8587119c40af2907a8be5925941f2ce2c162d13.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:31 UTC+07:00**
+
+Nguồn: `H02-crouch_end_1583.png`
+
+## Ảnh 618
+
+![H02-default-source-3_050.png](../media/e1a9e5ecad2e49597a72ce7837b3ca8000853db7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:31 UTC+07:00**
+
+Nguồn: `H02-default-source-3_050.png`
+
+## Ảnh 619
+
+![H02-emerge_0800.png](../media/f8f177b79e7f1c6d99b71f73728289dc48f2e95c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:32 UTC+07:00**
+
+Nguồn: `H02-emerge_0800.png`
+
+## Ảnh 620
+
+![H02-hidden_0750.png](../media/3664b1c00c005aeeb753a42b0eef6ac979ee9844.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:32 UTC+07:00**
+
+Nguồn: `H02-hidden_0750.png`
+
+## Ảnh 621
+
+![H02-hold_3050.png](../media/ff128901d62e3bd5899a9148975df4d72f0f5a7c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:33 UTC+07:00**
+
+Nguồn: `H02-hold_3050.png`
+
+## Ảnh 622
+
+![H02-idle_4050.png](../media/716881d318605ab0961ddd1d90d599e8866e2414.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:33 UTC+07:00**
+
+Nguồn: `H02-idle_4050.png`
+
+## Ảnh 623
+
+![H02-impact_0300.png](../media/be7250241ca35265700b298142fb23c117d8d562.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:33 UTC+07:00**
+
+Nguồn: `H02-impact_0300.png`
+
+## Ảnh 624
+
+![H02-land_1000.png](../media/e4c553b975d83fee6fc0ba6551954be6d2b9a2c1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:34 UTC+07:00**
+
+Nguồn: `H02-land_1000.png`
+
+## Ảnh 625
+
+![H02-open_2033.png](../media/b4a63a429ed5240003d7efdd4c7a43a3c6d91ab8.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:35 UTC+07:00**
+
+Nguồn: `H02-open_2033.png`
+
+## Ảnh 626
+
+![H02-pre_switch_2990.png](../media/7bfa8d5ee7161db85ad60000d89694ff22e279b2.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:35 UTC+07:00**
+
+Nguồn: `H02-pre_switch_2990.png`
+
+## Ảnh 627
+
+![H02-rise_1800.png](../media/ad0725cd1fea8497520dfee0d04ae7965e2c551a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:36 UTC+07:00**
+
+Nguồn: `H02-rise_1800.png`
+
+## Ảnh 628
+
+![H02-settle_1083.png](../media/8533eb7b2167fd8961f538cf4108d110834182f7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:37 UTC+07:00**
+
+Nguồn: `H02-settle_1083.png`
+
+## Ảnh 629
+
+![H02-source-after-toggle.png](../media/f5e212fdc022b02caf10634ff9e2c7677c0c9dc3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:37 UTC+07:00**
+
+Nguồn: `H02-source-after-toggle.png`
+
+## Ảnh 630
+
+![H02-stamp_2800.png](../media/b7f054914f846aff84465f584c4d7acda1141946.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:37 UTC+07:00**
+
+Nguồn: `H02-stamp_2800.png`
+
+## Ảnh 631
+
+![H02-stand_2417.png](../media/3fa3ea5c9af377aca1cc37a81c3df1cad6df12e5.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:38 UTC+07:00**
+
+Nguồn: `H02-stand_2417.png`
+
+## Ảnh 632
+
+![H02-t0.png](../media/51b13cd7879f77a3b7ad3608934eaebfa22f00dd.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:38 UTC+07:00**
+
+Nguồn: `H02-t0.png`
+
+## Ảnh 633
+
+![combat-H01-attack.png](../media/0c53c993a6ea098c656f3691610a1216b1148107.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:39 UTC+07:00**
+
+Nguồn: `combat-H01-attack.png`
+
+## Ảnh 634
+
+![combat-H01-idle.png](../media/1f34e2c586c2b64d6e831763f8d03d214b34f738.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:39 UTC+07:00**
+
+Nguồn: `combat-H01-idle.png`
+
+## Ảnh 635
+
+![combat-H02-Q.png](../media/77adf82d3bd22469a33a16646c95bd7f9af98854.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:40 UTC+07:00**
+
+Nguồn: `combat-H02-Q.png`
+
+## Ảnh 636
+
+![combat-H02-idle.png](../media/065b723767b4165d5e0691f950d7dee2f3321ea7.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:40 UTC+07:00**
+
+Nguồn: `combat-H02-idle.png`
+
+## Ảnh 637
+
+![combat-H02-run.png](../media/6261bf9512d765d0d7a665b35d77fe850224f24e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:41 UTC+07:00**
+
+Nguồn: `combat-H02-run.png`
+
+## Ảnh 638
+
+![worker-H01-default.png](../media/a35f73914b74521579956a2461774d9f2caf9b9e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:41 UTC+07:00**
+
+Nguồn: `worker-H01-default.png`
+
+## Ảnh 639
+
+![worker-H01-motion-button.png](../media/bcb3eb046e5e93503ab3599d0aefe85a28849bd0.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:42 UTC+07:00**
+
+Nguồn: `worker-H01-motion-button.png`
+
+## Ảnh 640
+
+![worker-H02-default.png](../media/df85b1eebfa5e2e1ae577181c9489e979a1b99fc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:42 UTC+07:00**
+
+Nguồn: `worker-H02-default.png`
+
+## Ảnh 641
+
+![worker-H02-motion-button.png](../media/26c53147a95917787c72a8fd81c89c48b6c82b76.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:36:43 UTC+07:00**
+
+Nguồn: `worker-H02-motion-button.png`
+
+## Ảnh 642
+
+![hip-height-reference-vs-apk.png](../media/85b557065790f887ce63fb37efa1f044c2800be1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:39:48 UTC+07:00**
+
+Nguồn: `hip-height-reference-vs-apk.png`
+
+## Ảnh 643
+
+![worker-verified-H01-default.png](../media/c0813bebb0316becdd82544e9aee93b8d3bb58e9.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:46:46 UTC+07:00**
+
+Nguồn: `worker-verified-H01-default.png`
+
+## Ảnh 644
+
+![worker-verified-H01-motion-button.png](../media/047894f08a219532ffa8d91ba0a1047fe0a3bdd6.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:46:47 UTC+07:00**
+
+Nguồn: `worker-verified-H01-motion-button.png`
+
+## Ảnh 645
+
+![worker-verified-H02-default.png](../media/d06eea793689961ff098472daad27fbc8d42a14c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:46:47 UTC+07:00**
+
+Nguồn: `worker-verified-H02-default.png`
+
+## Ảnh 646
+
+![worker-verified-H02-motion-button.png](../media/90289a96fd87a2ce7cec5fc093dc0c5497aabfae.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 16:46:47 UTC+07:00**
+
+Nguồn: `worker-verified-H02-motion-button.png`
