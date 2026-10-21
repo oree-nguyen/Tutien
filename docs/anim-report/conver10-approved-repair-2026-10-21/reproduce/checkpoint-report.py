@@ -1,8 +1,12 @@
 """Summarize existing measured evidence without granting acceptance."""
 from pathlib import Path
 import hashlib,json,shutil
-root=Path('docs/anim-report/conver10-approved-repair-2026-10-21');exp=root/'experiments';exp.mkdir(exist_ok=True);entries=[]
-for folder in sorted(Path('.local/rig-candidates').glob('approved-*')):
+root=Path('docs/anim-report/conver10-approved-repair-2026-10-21');exp=root/'experiments';entries=[]
+candidates=sorted(Path('.local/rig-candidates').glob('approved-*'))
+if not candidates:
+    raise SystemExit('Local staging candidates are required; existing archived evidence was left unchanged.')
+exp.mkdir(exist_ok=True)
+for folder in candidates:
     record={'directory':str(folder),'accepted':False,'activated':False,'evidence':{}}
     for name in ['input.json','heat-solve.json','export.json','bind.json','receipt.json','feasibility-input.json','solve.json']:
         f=folder/name
@@ -10,6 +14,8 @@ for folder in sorted(Path('.local/rig-candidates').glob('approved-*')):
             raw=f.read_bytes();record['evidence'][name]={'sha256':hashlib.sha256(raw).hexdigest(),'data':json.loads(raw)}
     if record['evidence']:
         target=exp/(folder.name+'.json');target.write_text(json.dumps(record,indent=2)+'\n');entries.append({'file':target.name,'candidate':folder.name,'accepted':False})
+if not entries:
+    raise SystemExit('No candidate receipts found; existing archive index was left unchanged.')
 (exp/'index.json').write_text(json.dumps({'scope':'Staging receipts include failures. No candidate accepted or activated. GLBs remain local; original sources stay unchanged. Prefix approved names the approved work plan, not approved assets.','entries':entries},indent=2)+'\n')
 labels=[('H01','Trước fit hai pose','H01-geodesic-before-two-poses-surface.json'),('H01','Sau fit hai pose','H01-geodesic-cp-v1-surface.json'),('H02','Trước fit hai pose','H02-geodesic-before-two-poses-surface.json'),('H02','Sau fit hai pose','H02-geodesic-cp-v3-surface.json'),('H01','Field helper riêng, chưa fit','H01-pronation-field-v1-surface.json'),('H02','Field helper riêng, chưa fit','H02-pronation-field-v1-surface.json')]
 rows=[]
