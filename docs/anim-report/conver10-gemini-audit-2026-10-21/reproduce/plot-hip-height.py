@@ -29,5 +29,5 @@ for ax,hero in zip(axs,['H01','H02']):
   actual=float(np.interp(t,times,xyz[:,1]));records.append({'hero':hero,'time_seconds':t,'docx_height_metres':y,'apk_height_metres':actual,'signed_difference_metres':actual-y})
 fig.savefig(OUT/'hip-height-reference-vs-apk.png',dpi=160)
 with (OUT/'hip-height-keypoints.csv').open('w',newline='') as f:
- w=csv.DictWriter(f,fieldnames=list(records[0]));w.writeheader();w.writerows(records)
+ w=csv.DictWriter(f,fieldnames=list(records[0]),lineterminator="\n");w.writeheader();w.writerows(records)
 print('Wrote plot and',len(records),'literal-reference comparisons')
