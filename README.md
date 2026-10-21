@@ -1,5 +1,8 @@
 # Hồn Giới: Sinh Tồn — WebGL / Android
 
+> Rig/animation H01–H02 theo Gemini đang sửa ở staging. APK hiện hành chưa chứa bộ rig mới. [Goal và điều kiện nghiệm thu](goal/rig-animation.md) · [Kết quả sửa và kiểm thử](docs/anim-report/conver10-approved-repair-2026-10-21/README.md) · [Ảnh conver10](picture/conver10/online-pic.md).
+
+
 Game Three.js r160, giao diện cảm ứng ngang tiếng Việt, có chế độ ngoại tuyến với bot và chế độ online dùng máy chủ có thẩm quyền. **Điều kiện gọi bản chuẩn hoàn tất nằm trong [GOAL.md](GOAL.md); số kiểm thử đạt không thay nghiệm thu 100% GDD hoặc FPS trên điện thoại thật.**
 
 Bản thử Android dùng model H01-C0 do người dùng chia sẻ: [hướng dẫn và giới hạn](docs/H01-C0-ANDROID-TRIAL.md).

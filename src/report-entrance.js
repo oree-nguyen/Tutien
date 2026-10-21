@@ -39,7 +39,7 @@ export async function loadReportEntrancePlayer(hero, body) {
     );
   return new ReportEntrancePlayer(hero, body, await loads.get(hero));
 }
-const clips = new Map();
+const clips = new WeakMap();
 const mappings = {
   H01: [
     [0, 0],
@@ -73,10 +73,11 @@ function mapTime(t, keys) {
  * mesh creation, material replacement or gameplay clock is part of this player. */
 export class ReportEntrancePlayer {
   constructor(hero, body, data) {
-    if (!data) throw Error("Unknown report entrance " + hero);
-    if (!clips.has(hero))
+    if (!data || data.hero !== hero)
+      throw Error("Unknown report entrance " + hero);
+    if (!clips.has(data))
       clips.set(
-        hero,
+        data,
         data.curves.map(
           (c) =>
             new AnimationClip(
@@ -99,7 +100,7 @@ export class ReportEntrancePlayer {
     this.nextPosition = new Vector3();
     this.quaternion = new Quaternion();
     this.nextQuaternion = new Quaternion();
-    this.controller = new HeroPoseController(body, clips.get(hero), {
+    this.controller = new HeroPoseController(body, clips.get(data), {
       events: data.events,
     });
     this.controller.start();

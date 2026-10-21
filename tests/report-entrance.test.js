@@ -174,3 +174,30 @@ test("upright weapons follow the designated anatomical palm and hammer is 1.75m"
     a.player.dispose();
   }
 });
+
+test("different motion payloads for the same hero cannot reuse stale cached curves", async () => {
+  const data = decodeReportMotion(buffers.H01),
+    alternate = decodeReportMotion(buffers.H01),
+    doc = await io.read(donor.H01),
+    first = threeRig(doc),
+    second = threeRig(doc);
+  for (const clip of alternate.curves) {
+    const track = clip.tracks.find((t) => t.name === "Hips.position");
+    track.values = new Float32Array(track.values);
+    for (let i = 0; i < track.values.length; i += 3) track.values[i] += 0.123;
+  }
+  const a = new ReportEntrancePlayer("H01", first.root, data),
+    b = new ReportEntrancePlayer("H01", second.root, alternate);
+  a.sample(1.3, new Group());
+  b.sample(1.3, new Group());
+  assert.ok(
+    Math.abs(
+      second.root.getObjectByName("Hips").position.x -
+        first.root.getObjectByName("Hips").position.x -
+        0.123,
+    ) < 1e-6,
+    "actual alternate motion must be sampled, not previous hero cache",
+  );
+  a.dispose();
+  b.dispose();
+});

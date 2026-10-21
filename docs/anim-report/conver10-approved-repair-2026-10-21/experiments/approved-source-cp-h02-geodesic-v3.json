@@ -1,0 +1,372 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cp-h02-geodesic-v3",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "solve.json": {
+      "sha256": "ba6c47d9225b7e4b3b33fc1cdc2bd6489f7c63051e81e648e1f144d69780a4e9",
+      "data": {
+        "base": ".local/rig-candidates/approved-source-cp-h02-geodesic-input",
+        "assetSha256": "3c5528aa1346922107c24141b1d864d839594dc7054e8e95d896bddcb465b482",
+        "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H02-crouch-fit-v13.json",
+        "poseSha256": "3d2ec6702ec7d8cc4ee823b1eee2b6479573daff043b39bad90342395fe758cf",
+        "inputHashes": {
+          "positions.bin": "6a0ed81d0843c617af633b2de159f0fa93c369dd2bc75bebc1706e4199b77fba",
+          "triangles.bin": "adbd323a377176a0ac942b6b4e648578c95d0b4f6aecc1a01f8ffbd1c849bee7",
+          "source-welds.u32bin": "dc27113f08ec5dd967f8a56bfad923b893d97753e95eb2cd0647a1da506643be",
+          "protected.bin": "bce00564adaaf37598a33efe61ad51ed0c85efb7f0f2fba6e9f7411403a61205",
+          "result-ids.bin": "50839f0e130baec4b56a5251b52f84fa6298716fda8fe408d9d1ef8c47512ca2",
+          "result-weights.bin": "b965e24a1b6fef8b1f094f38c122c204aaf3b331b3d0243a31fcd1ddd1b41f6f",
+          "feasibility-matrices.bin": "b8a6c9857ae57798f358a99c05893b53d9a1248fdc8a97e7b631158f895ca05f"
+        },
+        "outputWeightsSha256": "f8ac65f7f97d0be39e6d603991db4bcbc680a26f24ba4a044df2aee5d462ab24",
+        "jointIdsChanged": false,
+        "protectedWeightsPreserved": true,
+        "initial": {
+          "p999": 1.7000970966650744,
+          "maximum": 2.4813737127297486,
+          "poses": [
+            {
+              "p999": 1.699869090037301,
+              "maximum": 2.4813737127297486
+            },
+            {
+              "p999": 1.7000970966650744,
+              "maximum": 2.4813737127297486
+            }
+          ],
+          "edgesOverTarget": 51846,
+          "immutableEdgesOverTarget": 0
+        },
+        "final": {
+          "p999": 1.570865708887888,
+          "maximum": 1.957070769277843,
+          "poses": [
+            {
+              "p999": 1.5707926485848605,
+              "maximum": 1.957070769277843
+            },
+            {
+              "p999": 1.570865708887888,
+              "maximum": 1.957070769277843
+            }
+          ],
+          "edgesOverTarget": 46056,
+          "immutableEdgesOverTarget": 0
+        },
+        "history": [
+          {
+            "iteration": 25,
+            "elapsedSeconds": 44.85828223702265,
+            "p999": 1.6938331951123855,
+            "maximum": 2.3931628017083413,
+            "poses": [
+              {
+                "p999": 1.6938331951123855,
+                "maximum": 2.3931628017083413
+              },
+              {
+                "p999": 1.6938331951123855,
+                "maximum": 2.3931628017083413
+              }
+            ],
+            "edgesOverTarget": 51288,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 50,
+            "elapsedSeconds": 77.80310182203539,
+            "p999": 1.686658141856943,
+            "maximum": 2.4012033451656154,
+            "poses": [
+              {
+                "p999": 1.6865069675674293,
+                "maximum": 2.4012033451656154
+              },
+              {
+                "p999": 1.686658141856943,
+                "maximum": 2.4012033451656154
+              }
+            ],
+            "edgesOverTarget": 50860,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 75,
+            "elapsedSeconds": 125.77610817900859,
+            "p999": 1.6765534510083127,
+            "maximum": 2.417674444905112,
+            "poses": [
+              {
+                "p999": 1.6764009931006179,
+                "maximum": 2.417674444905112
+              },
+              {
+                "p999": 1.6765534510083127,
+                "maximum": 2.417674444905112
+              }
+            ],
+            "edgesOverTarget": 50848,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 100,
+            "elapsedSeconds": 173.970717438031,
+            "p999": 1.6695214751771206,
+            "maximum": 2.404618571991364,
+            "poses": [
+              {
+                "p999": 1.669179318056822,
+                "maximum": 2.404618571991364
+              },
+              {
+                "p999": 1.6695214751771206,
+                "maximum": 2.404618571991364
+              }
+            ],
+            "edgesOverTarget": 51116,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 125,
+            "elapsedSeconds": 219.530558811035,
+            "p999": 1.6603847188727066,
+            "maximum": 2.3998306368320956,
+            "poses": [
+              {
+                "p999": 1.6603026486424781,
+                "maximum": 2.3998306368320956
+              },
+              {
+                "p999": 1.6603847188727066,
+                "maximum": 2.3998306368320956
+              }
+            ],
+            "edgesOverTarget": 51987,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 150,
+            "elapsedSeconds": 261.23730867600534,
+            "p999": 1.649095859263237,
+            "maximum": 2.357013162146306,
+            "poses": [
+              {
+                "p999": 1.6488533508430716,
+                "maximum": 2.357013162146306
+              },
+              {
+                "p999": 1.649095859263237,
+                "maximum": 2.357013162146306
+              }
+            ],
+            "edgesOverTarget": 53252,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 175,
+            "elapsedSeconds": 308.8197013750323,
+            "p999": 1.6395752752556259,
+            "maximum": 2.288785014913565,
+            "poses": [
+              {
+                "p999": 1.6394132301422852,
+                "maximum": 2.288785014913565
+              },
+              {
+                "p999": 1.6395752752556259,
+                "maximum": 2.288785014913565
+              }
+            ],
+            "edgesOverTarget": 53442,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 200,
+            "elapsedSeconds": 355.68216470303014,
+            "p999": 1.6287355926155938,
+            "maximum": 2.205932549085927,
+            "poses": [
+              {
+                "p999": 1.6285849449280714,
+                "maximum": 2.205932549085927
+              },
+              {
+                "p999": 1.6287355926155938,
+                "maximum": 2.205932549085927
+              }
+            ],
+            "edgesOverTarget": 53538,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 225,
+            "elapsedSeconds": 388.94354439905146,
+            "p999": 1.6193020466665617,
+            "maximum": 2.125957764962255,
+            "poses": [
+              {
+                "p999": 1.6191626439603248,
+                "maximum": 2.125957764962255
+              },
+              {
+                "p999": 1.6193020466665617,
+                "maximum": 2.125957764962255
+              }
+            ],
+            "edgesOverTarget": 53751,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 250,
+            "elapsedSeconds": 430.2915624450543,
+            "p999": 1.610555644297655,
+            "maximum": 2.020789474578701,
+            "poses": [
+              {
+                "p999": 1.6105110776665734,
+                "maximum": 2.020789474578701
+              },
+              {
+                "p999": 1.610555644297655,
+                "maximum": 2.020789474578701
+              }
+            ],
+            "edgesOverTarget": 53141,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 275,
+            "elapsedSeconds": 493.84634937002556,
+            "p999": 1.603368780205608,
+            "maximum": 1.9399523072770888,
+            "poses": [
+              {
+                "p999": 1.6032677914699418,
+                "maximum": 1.9399523072770888
+              },
+              {
+                "p999": 1.603368780205608,
+                "maximum": 1.9399523072770888
+              }
+            ],
+            "edgesOverTarget": 52311,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 300,
+            "elapsedSeconds": 551.1139031070052,
+            "p999": 1.5968017640379124,
+            "maximum": 1.9359468478124582,
+            "poses": [
+              {
+                "p999": 1.5967065295130909,
+                "maximum": 1.9359468478124582
+              },
+              {
+                "p999": 1.5968017640379124,
+                "maximum": 1.9359468478124582
+              }
+            ],
+            "edgesOverTarget": 51287,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 325,
+            "elapsedSeconds": 598.9666000420111,
+            "p999": 1.5905748674966502,
+            "maximum": 1.9551917333482112,
+            "poses": [
+              {
+                "p999": 1.5904113456234479,
+                "maximum": 1.9551917333482112
+              },
+              {
+                "p999": 1.5905748674966502,
+                "maximum": 1.9551917333482112
+              }
+            ],
+            "edgesOverTarget": 50411,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 350,
+            "elapsedSeconds": 630.2115293460083,
+            "p999": 1.5837881654266952,
+            "maximum": 1.9668542970916425,
+            "poses": [
+              {
+                "p999": 1.5836968568523822,
+                "maximum": 1.9668542970916425
+              },
+              {
+                "p999": 1.5837881654266952,
+                "maximum": 1.9668542970916425
+              }
+            ],
+            "edgesOverTarget": 48982,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 375,
+            "elapsedSeconds": 660.7038597100182,
+            "p999": 1.5772729744278013,
+            "maximum": 1.9685743316145559,
+            "poses": [
+              {
+                "p999": 1.577164218239589,
+                "maximum": 1.9685743316145559
+              },
+              {
+                "p999": 1.5772729744278013,
+                "maximum": 1.9685743316145559
+              }
+            ],
+            "edgesOverTarget": 47491,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 400,
+            "elapsedSeconds": 691.5071781350416,
+            "p999": 1.570865708887888,
+            "maximum": 1.957070769277843,
+            "poses": [
+              {
+                "p999": 1.5707926485848605,
+                "maximum": 1.957070769277843
+              },
+              {
+                "p999": 1.570865708887888,
+                "maximum": 1.957070769277843
+              }
+            ],
+            "edgesOverTarget": 46056,
+            "immutableEdgesOverTarget": 0
+          }
+        ],
+        "parameters": {
+          "algorithmVersion": 2,
+          "hero": "H02",
+          "wholeBody": true,
+          "iterations": 400,
+          "ratio": 1.49,
+          "cutFans": false
+        },
+        "continuation": {
+          "directory": ".local/rig-candidates/approved-source-cp-h02-geodesic-v3",
+          "solveSha256": "582f7cdf01ea9a6f62c9aa07286f0132262a449f80c496d5fbc64d3b0629dd14",
+          "kind": "resume"
+        },
+        "stateHashes": {
+          "state-weights.npy": "8c02acaa97f7f44575befa36ca0debacf5c4866abb9cdfcbf17f57200e783d89",
+          "state-extrapolated.npy": "c92fe26d4be29cad76bff3e847280719cdfd6b4fb54531f6e2056fc48163352f",
+          "state-dual.npy": "63e2efd74cbba6d1a6bc3a5d20bdfd253e86640bc6210b0cefb360650e8ad015"
+        },
+        "accepted": false,
+        "activated": false,
+        "poseCount": 2,
+        "scope": "One-or-more frozen-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+      }
+    }
+  }
+}

@@ -1,0 +1,98 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cp-h02-v1",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "solve.json": {
+      "sha256": "539382dec5a8f41a21f468e3487771cf59afcee4398cac4e69e931db8ec42dc5",
+      "data": {
+        "base": ".local/rig-candidates/approved-source-cp-h02-input",
+        "assetSha256": "6109d2dc0ad62861c06b094730b490fcf80965bb2747c16d36bcf80987049093",
+        "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H02-crouch-fit-v13.json",
+        "poseSha256": "3d2ec6702ec7d8cc4ee823b1eee2b6479573daff043b39bad90342395fe758cf",
+        "inputHashes": {
+          "positions.bin": "6a0ed81d0843c617af633b2de159f0fa93c369dd2bc75bebc1706e4199b77fba",
+          "triangles.bin": "adbd323a377176a0ac942b6b4e648578c95d0b4f6aecc1a01f8ffbd1c849bee7",
+          "source-welds.u32bin": "dc27113f08ec5dd967f8a56bfad923b893d97753e95eb2cd0647a1da506643be",
+          "protected.bin": "cdc0bc005decf530ce8225f48a6333d4f9202e900909141abf9a7e06efbc97f8",
+          "result-ids.bin": "09146d82fb96cd2e67c9998a5d90096bad13b9c5311d30e5a843f92b7a6429c0",
+          "result-weights.bin": "3c387b6f07521bb17666d2a9ca060714c161ef2a41d7dfe2b255d8797bced350",
+          "feasibility-matrices.bin": "2eed19645e288a10f6ecb4ac20be25b53714b7c7a5305cc1e6ccadc3158a080d"
+        },
+        "outputWeightsSha256": "cb8261c2d2f9b6c56331c9e45e4378f5dc6c21c33b32bf227fc499d34b4a23cc",
+        "jointIdsChanged": false,
+        "protectedWeightsPreserved": true,
+        "initial": {
+          "p999": 2.4104756652232964,
+          "maximum": 6.653500475127344,
+          "edgesOverTarget": 28889,
+          "immutableEdgesOverTarget": 64
+        },
+        "final": {
+          "p999": 1.8820110326359403,
+          "maximum": 4.565174103825398,
+          "edgesOverTarget": 31061,
+          "immutableEdgesOverTarget": 64
+        },
+        "history": [
+          {
+            "iteration": 25,
+            "elapsedSeconds": 18.62210007099202,
+            "p999": 2.123568797249655,
+            "maximum": 4.565174103825398,
+            "edgesOverTarget": 34014,
+            "immutableEdgesOverTarget": 64
+          },
+          {
+            "iteration": 50,
+            "elapsedSeconds": 29.97283675801009,
+            "p999": 2.0327700552660826,
+            "maximum": 4.565174103825398,
+            "edgesOverTarget": 33679,
+            "immutableEdgesOverTarget": 64
+          },
+          {
+            "iteration": 75,
+            "elapsedSeconds": 42.15156431996729,
+            "p999": 1.9722753997421598,
+            "maximum": 4.565174103825398,
+            "edgesOverTarget": 32713,
+            "immutableEdgesOverTarget": 64
+          },
+          {
+            "iteration": 100,
+            "elapsedSeconds": 54.73792055097874,
+            "p999": 1.9140596614072143,
+            "maximum": 4.565174103825398,
+            "edgesOverTarget": 31802,
+            "immutableEdgesOverTarget": 64
+          },
+          {
+            "iteration": 125,
+            "elapsedSeconds": 66.66803502698895,
+            "p999": 1.8820110326359403,
+            "maximum": 4.565174103825398,
+            "edgesOverTarget": 31061,
+            "immutableEdgesOverTarget": 64
+          }
+        ],
+        "parameters": {
+          "hero": "H02",
+          "wholeBody": true,
+          "iterations": 125,
+          "ratio": 1.49,
+          "cutFans": false
+        },
+        "continuation": null,
+        "stateHashes": {
+          "state-weights.npy": "19e9155f25f39bc1f3967edf64b8f40641eeec5db418777ebad3a3d35ac96656",
+          "state-extrapolated.npy": "71cb86170473956216133deece9c1c2051f1526b07019a59bb45c87859742c2c",
+          "state-dual.npy": "5550300cf529a015972cfd9f17babbfba6a1efba64f8372b371e42e2b5046101"
+        },
+        "accepted": false,
+        "activated": false,
+        "scope": "One-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+      }
+    }
+  }
+}

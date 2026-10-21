@@ -413,7 +413,7 @@ function renderHub() {
   $("#fullscreen").onclick = fullscreen;
   $("#showcaseFull").onclick = () => world?.setShowcaseView("full");
   $("#showcaseFace").onclick = () => world?.setShowcaseView("face");
-  if($("#showcaseMotion"))$("#showcaseMotion").onclick = () => {if(!world)return;world.showcaseAnimationMode=!world.showcaseAnimationMode;world.preview?.traverse(node=>{if(node.userData.manualHunyuan)node.userData.previewAnimation=world.showcaseAnimationMode;});world.replayHeroEntrance();$("#showcaseMotion").textContent=world.showcaseAnimationMode?"MODEL GỐC":"HOẠT ẢNH";};
+  if($("#showcaseMotion"))$("#showcaseMotion").onclick = () => {if(!world)return;world.setShowcaseAnimationMode(!world.showcaseAnimationMode);world.replayHeroEntrance();$("#showcaseMotion").textContent=world.showcaseAnimationMode?"MODEL GỐC":"HOẠT ẢNH";};
   const drag = $("#showcaseDrag");
   let dragX = null;
   drag.onpointerdown = (event) => {

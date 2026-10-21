@@ -1,0 +1,1536 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cp-h02-geodesic-v3-export",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "input.json": {
+      "sha256": "9abe8aff65d50a575f34542691ab1d369b2763365fac842e2f545266c74fd4fc",
+      "data": {
+        "hero": "H02",
+        "input": ".local/rig-candidates/approved-source-hand-h02-geodesic-v1/H02-C0-rigged.glb",
+        "inputSha256": "3c5528aa1346922107c24141b1d864d839594dc7054e8e95d896bddcb465b482",
+        "joints": [
+          {
+            "name": "Hips",
+            "parent": "H02Rig",
+            "head": [
+              0,
+              1.005,
+              0
+            ],
+            "tail": [
+              0,
+              1.145,
+              0
+            ]
+          },
+          {
+            "name": "Spine",
+            "parent": "Hips",
+            "head": [
+              0,
+              1.145,
+              0
+            ],
+            "tail": [
+              0,
+              1.3,
+              0
+            ]
+          },
+          {
+            "name": "Spine1",
+            "parent": "Spine",
+            "head": [
+              0,
+              1.3,
+              0
+            ],
+            "tail": [
+              0,
+              1.46,
+              0
+            ]
+          },
+          {
+            "name": "Spine2",
+            "parent": "Spine1",
+            "head": [
+              0,
+              1.46,
+              0
+            ],
+            "tail": [
+              0,
+              1.585,
+              0
+            ]
+          },
+          {
+            "name": "Neck",
+            "parent": "Spine2",
+            "head": [
+              0,
+              1.585,
+              0
+            ],
+            "tail": [
+              0,
+              1.645,
+              0.01
+            ]
+          },
+          {
+            "name": "Head",
+            "parent": "Neck",
+            "head": [
+              0,
+              1.645,
+              0.01
+            ],
+            "tail": [
+              0,
+              1.725,
+              0.01
+            ]
+          },
+          {
+            "name": "LeftShoulder",
+            "parent": "Spine2",
+            "head": [
+              0.07,
+              1.495,
+              0
+            ],
+            "tail": [
+              0.20499997961389907,
+              1.505000011068918,
+              -2.5520989236846314e-09
+            ]
+          },
+          {
+            "name": "LeftArm",
+            "parent": "LeftShoulder",
+            "head": [
+              0.20499997961389907,
+              1.505000011068918,
+              -2.5520989236846314e-09
+            ],
+            "tail": [
+              0.38950802521947503,
+              1.275501484780349,
+              -0.017668086958484267
+            ]
+          },
+          {
+            "name": "LeftForeArm",
+            "parent": "LeftArm",
+            "head": [
+              0.38950802521947503,
+              1.275501484780349,
+              -0.017668086958484267
+            ],
+            "tail": [
+              0.5053600050774858,
+              1.0809943333551737,
+              0.12945515926288909
+            ]
+          },
+          {
+            "name": "LeftHand",
+            "parent": "LeftForearmPronation",
+            "head": [
+              0.5053600050774858,
+              1.0809943333551737,
+              0.12945515926288909
+            ],
+            "tail": [
+              0.5072501326819949,
+              1.072305688578378,
+              0.14125476979398383
+            ]
+          },
+          {
+            "name": "LeftHandThumb1",
+            "parent": "LeftHand",
+            "head": [
+              0.5072501326819949,
+              1.072305688578378,
+              0.14125476979398383
+            ],
+            "tail": [
+              0.4664837164933821,
+              1.0399483980736772,
+              0.1994738153711532
+            ]
+          },
+          {
+            "name": "LeftHandThumb2",
+            "parent": "LeftHandThumb1",
+            "head": [
+              0.4664837164933821,
+              1.0399483980736772,
+              0.1994738153711532
+            ],
+            "tail": [
+              0.46801067919022515,
+              1.0234035063739222,
+              0.20677288407467448
+            ]
+          },
+          {
+            "name": "LeftHandThumb3",
+            "parent": "LeftHandThumb2",
+            "head": [
+              0.46801067919022515,
+              1.0234035063739222,
+              0.20677288407467448
+            ],
+            "tail": [
+              0.46907065731245456,
+              1.012765781839767,
+              0.2153340751353293
+            ]
+          },
+          {
+            "name": "LeftHandIndex1",
+            "parent": "LeftHand",
+            "head": [
+              0.5129205154955228,
+              1.0462397542479902,
+              0.17665360138726854
+            ],
+            "tail": [
+              0.5298983095473474,
+              1.0156498030727032,
+              0.18851132748931596
+            ]
+          },
+          {
+            "name": "LeftHandIndex2",
+            "parent": "LeftHandIndex1",
+            "head": [
+              0.5298983095473474,
+              1.0156498030727032,
+              0.18851132748931596
+            ],
+            "tail": [
+              0.5431584347244223,
+              0.9834217467918999,
+              0.1994496153217197
+            ]
+          },
+          {
+            "name": "LeftHandIndex3",
+            "parent": "LeftHandIndex2",
+            "head": [
+              0.5431584347244223,
+              0.9834217467918999,
+              0.1994496153217197
+            ],
+            "tail": [
+              0.5487844896228069,
+              0.9591031124490736,
+              0.20872263441631195
+            ]
+          },
+          {
+            "name": "LeftHandMiddle1",
+            "parent": "LeftHand",
+            "head": [
+              0.5159957585111525,
+              1.0370342754063102,
+              0.15134382727326387
+            ],
+            "tail": [
+              0.541324977738058,
+              1.0041450309302848,
+              0.1581734178558962
+            ]
+          },
+          {
+            "name": "LeftHandMiddle2",
+            "parent": "LeftHandMiddle1",
+            "head": [
+              0.541324977738058,
+              1.0041450309302848,
+              0.1581734178558962
+            ],
+            "tail": [
+              0.5544307238858924,
+              0.9639356270408682,
+              0.16777591834106068
+            ]
+          },
+          {
+            "name": "LeftHandMiddle3",
+            "parent": "LeftHandMiddle2",
+            "head": [
+              0.5544307238858924,
+              0.9639356270408682,
+              0.16777591834106068
+            ],
+            "tail": [
+              0.5565260513845176,
+              0.9361328327945434,
+              0.1742943839941895
+            ]
+          },
+          {
+            "name": "LeftHandRing1",
+            "parent": "LeftHand",
+            "head": [
+              0.5250270954743811,
+              1.0262631393280035,
+              0.12650952407653307
+            ],
+            "tail": [
+              0.5416690545056758,
+              0.9929274709870994,
+              0.13107042946455102
+            ]
+          },
+          {
+            "name": "LeftHandRing2",
+            "parent": "LeftHandRing1",
+            "head": [
+              0.5416690545056758,
+              0.9929274709870994,
+              0.13107042946455102
+            ],
+            "tail": [
+              0.5479578915278551,
+              0.9591215190045354,
+              0.135629807113902
+            ]
+          },
+          {
+            "name": "LeftHandRing3",
+            "parent": "LeftHandRing2",
+            "head": [
+              0.5479578915278551,
+              0.9591215190045354,
+              0.135629807113902
+            ],
+            "tail": [
+              0.5457072674462484,
+              0.9365735475928558,
+              0.13913965351380536
+            ]
+          },
+          {
+            "name": "LeftHandPinky1",
+            "parent": "LeftHand",
+            "head": [
+              0.5198880597998681,
+              1.027126450935858,
+              0.09797126734232858
+            ],
+            "tail": [
+              0.5363264622947975,
+              1.0003810973779423,
+              0.09877586223378414
+            ]
+          },
+          {
+            "name": "LeftHandPinky2",
+            "parent": "LeftHandPinky1",
+            "head": [
+              0.5363264622947975,
+              1.0003810973779423,
+              0.09877586223378414
+            ],
+            "tail": [
+              0.5410405256258641,
+              0.9719249532056995,
+              0.10060310932916748
+            ]
+          },
+          {
+            "name": "LeftHandPinky3",
+            "parent": "LeftHandPinky2",
+            "head": [
+              0.5410405256258641,
+              0.9719249532056995,
+              0.10060310932916748
+            ],
+            "tail": [
+              0.5375370791777705,
+              0.9527932756674908,
+              0.10098764420038225
+            ]
+          },
+          {
+            "name": "RightShoulder",
+            "parent": "Spine2",
+            "head": [
+              -0.07,
+              1.495,
+              0
+            ],
+            "tail": [
+              -0.20499997961389907,
+              1.505000011068918,
+              -2.5520989236846314e-09
+            ]
+          },
+          {
+            "name": "RightArm",
+            "parent": "RightShoulder",
+            "head": [
+              -0.20499997961389907,
+              1.505000011068918,
+              -2.5520989236846314e-09
+            ],
+            "tail": [
+              -0.3895420515000631,
+              1.275527424737219,
+              -0.017649634103243255
+            ]
+          },
+          {
+            "name": "RightForeArm",
+            "parent": "RightArm",
+            "head": [
+              -0.3895420515000631,
+              1.275527424737219,
+              -0.017649634103243255
+            ],
+            "tail": [
+              -0.5054437379362244,
+              1.0810293162324291,
+              0.12944641493184356
+            ]
+          },
+          {
+            "name": "RightHand",
+            "parent": "RightForearmPronation",
+            "head": [
+              -0.5054437379362244,
+              1.0810293162324291,
+              0.12944641493184356
+            ],
+            "tail": [
+              -0.5073279689145684,
+              1.072331925737631,
+              0.1412482115453391
+            ]
+          },
+          {
+            "name": "RightHandThumb1",
+            "parent": "RightHand",
+            "head": [
+              -0.5073279689145684,
+              1.072331925737631,
+              0.1412482115453391
+            ],
+            "tail": [
+              -0.4667204877941352,
+              1.0399479823249111,
+              0.1994732460723502
+            ]
+          },
+          {
+            "name": "RightHandThumb2",
+            "parent": "RightHandThumb1",
+            "head": [
+              -0.4667204877941352,
+              1.0399479823249111,
+              0.1994732460723502
+            ],
+            "tail": [
+              -0.46807286261636016,
+              1.0234016827782355,
+              0.20677544665478995
+            ]
+          },
+          {
+            "name": "RightHandThumb3",
+            "parent": "RightHandThumb2",
+            "head": [
+              -0.46807286261636016,
+              1.0234016827782355,
+              0.20677544665478995
+            ],
+            "tail": [
+              -0.46925913303451505,
+              1.0127634112503465,
+              0.21533796752269252
+            ]
+          },
+          {
+            "name": "RightHandIndex1",
+            "parent": "RightHand",
+            "head": [
+              -0.5129806618496011,
+              1.0462397542532362,
+              0.1766536013858248
+            ],
+            "tail": [
+              -0.5297216810501035,
+              1.015649621519184,
+              0.18851047134093685
+            ]
+          },
+          {
+            "name": "RightHandIndex2",
+            "parent": "RightHandIndex1",
+            "head": [
+              -0.5297216810501035,
+              1.015649621519184,
+              0.18851047134093685
+            ],
+            "tail": [
+              -0.5427110593035556,
+              0.98341858159953,
+              0.19945643189161058
+            ]
+          },
+          {
+            "name": "RightHandIndex3",
+            "parent": "RightHandIndex2",
+            "head": [
+              -0.5427110593035556,
+              0.98341858159953,
+              0.19945643189161058
+            ],
+            "tail": [
+              -0.5484032786478692,
+              0.9590999727607459,
+              0.2087288683215279
+            ]
+          },
+          {
+            "name": "RightHandMiddle1",
+            "parent": "RightHand",
+            "head": [
+              -0.5161065991379098,
+              1.0370214662969213,
+              0.15136457703548958
+            ],
+            "tail": [
+              -0.5408987694797062,
+              1.0041430866557006,
+              0.1581779613422436
+            ]
+          },
+          {
+            "name": "RightHandMiddle2",
+            "parent": "RightHandMiddle1",
+            "head": [
+              -0.5408987694797062,
+              1.0041430866557006,
+              0.1581779613422436
+            ],
+            "tail": [
+              -0.5544656443841792,
+              0.9639345600612156,
+              0.16777871698558505
+            ]
+          },
+          {
+            "name": "RightHandMiddle3",
+            "parent": "RightHandMiddle2",
+            "head": [
+              -0.5544656443841792,
+              0.9639345600612156,
+              0.16777871698558505
+            ],
+            "tail": [
+              -0.5567079316083541,
+              0.93613574237173,
+              0.17428834473235577
+            ]
+          },
+          {
+            "name": "RightHandRing1",
+            "parent": "RightHand",
+            "head": [
+              -0.5250849508572492,
+              1.0262608536296078,
+              0.1265116761085588
+            ],
+            "tail": [
+              -0.5415312398828007,
+              0.9929258189838395,
+              0.13107343062678392
+            ]
+          },
+          {
+            "name": "RightHandRing2",
+            "parent": "RightHandRing1",
+            "head": [
+              -0.5415312398828007,
+              0.9929258189838395,
+              0.13107343062678392
+            ],
+            "tail": [
+              -0.5477367980235259,
+              0.9591219982953695,
+              0.13562943947887604
+            ]
+          },
+          {
+            "name": "RightHandRing3",
+            "parent": "RightHandRing2",
+            "head": [
+              -0.5477367980235259,
+              0.9591219982953695,
+              0.13562943947887604
+            ],
+            "tail": [
+              -0.5455141870312106,
+              0.936570373898643,
+              0.13914560571589285
+            ]
+          },
+          {
+            "name": "RightHandPinky1",
+            "parent": "RightHand",
+            "head": [
+              -0.5198071688751986,
+              1.027119893429565,
+              0.09798057138249394
+            ],
+            "tail": [
+              -0.53564976798995,
+              1.0003821193029567,
+              0.09877284407403494
+            ]
+          },
+          {
+            "name": "RightHandPinky2",
+            "parent": "RightHandPinky1",
+            "head": [
+              -0.53564976798995,
+              1.0003821193029567,
+              0.09877284407403494
+            ],
+            "tail": [
+              -0.5409489249432096,
+              0.971924916301379,
+              0.1006032404613982
+            ]
+          },
+          {
+            "name": "RightHandPinky3",
+            "parent": "RightHandPinky2",
+            "head": [
+              -0.5409489249432096,
+              0.971924916301379,
+              0.1006032404613982
+            ],
+            "tail": [
+              -0.5372832730364068,
+              0.9527931957476674,
+              0.10098739061689484
+            ]
+          },
+          {
+            "name": "LeftUpLeg",
+            "parent": "Hips",
+            "head": [
+              0.1,
+              0.985,
+              0
+            ],
+            "tail": [
+              0.10000000000000002,
+              0.525000035454855,
+              -1.734723475976807e-18
+            ]
+          },
+          {
+            "name": "LeftLeg",
+            "parent": "LeftUpLeg",
+            "head": [
+              0.10000000000000002,
+              0.525000035454855,
+              -1.734723475976807e-18
+            ],
+            "tail": [
+              0.10000000000000003,
+              0.08500006937746407,
+              -5.204170427930421e-18
+            ]
+          },
+          {
+            "name": "LeftFoot",
+            "parent": "LeftLeg",
+            "head": [
+              0.10000000000000003,
+              0.08500006937746407,
+              -5.204170427930421e-18
+            ],
+            "tail": [
+              0.10000000000000002,
+              0.025000074895165036,
+              0.14499998666555586
+            ]
+          },
+          {
+            "name": "LeftToeBase",
+            "parent": "LeftFoot",
+            "head": [
+              0.10000000000000002,
+              0.025000074895165036,
+              0.14499998666555586
+            ],
+            "tail": [
+              0.10000000000000002,
+              0.10500007489516504,
+              0.14499998666555586
+            ]
+          },
+          {
+            "name": "RightUpLeg",
+            "parent": "Hips",
+            "head": [
+              -0.1,
+              0.985,
+              0
+            ],
+            "tail": [
+              -0.10000000000000002,
+              0.525000035454855,
+              -1.734723475976807e-18
+            ]
+          },
+          {
+            "name": "RightLeg",
+            "parent": "RightUpLeg",
+            "head": [
+              -0.10000000000000002,
+              0.525000035454855,
+              -1.734723475976807e-18
+            ],
+            "tail": [
+              -0.10000000000000003,
+              0.08500006937746407,
+              -5.204170427930421e-18
+            ]
+          },
+          {
+            "name": "RightFoot",
+            "parent": "RightLeg",
+            "head": [
+              -0.10000000000000003,
+              0.08500006937746407,
+              -5.204170427930421e-18
+            ],
+            "tail": [
+              -0.10000000000000002,
+              0.025000074895165036,
+              0.14499998666555586
+            ]
+          },
+          {
+            "name": "RightToeBase",
+            "parent": "RightFoot",
+            "head": [
+              -0.10000000000000002,
+              0.025000074895165036,
+              0.14499998666555586
+            ],
+            "tail": [
+              -0.10000000000000002,
+              0.10500007489516504,
+              0.14499998666555586
+            ]
+          },
+          {
+            "name": "LeftForearmPronation",
+            "parent": "LeftForeArm",
+            "head": [
+              0.38950802521947503,
+              1.275501484780349,
+              -0.017668086958484267
+            ],
+            "tail": [
+              0.5053600050774858,
+              1.0809943333551737,
+              0.12945515926288909
+            ]
+          },
+          {
+            "name": "RightForearmPronation",
+            "parent": "RightForeArm",
+            "head": [
+              -0.3895420515000631,
+              1.275527424737219,
+              -0.017649634103243255
+            ],
+            "tail": [
+              -0.5054437379362244,
+              1.0810293162324291,
+              0.12944641493184356
+            ]
+          }
+        ],
+        "original": {
+          "positions": "6a0ed81d0843c617af633b2de159f0fa93c369dd2bc75bebc1706e4199b77fba",
+          "normals": "d26f98c97806f9d262303cc45a80f632f3a659fde025a89b35d0a255fbb7a6c0",
+          "uv": "37f86c6b4439298abd941eab3778c72749b6f3f086802c68d90bcd4d4e1217ad",
+          "triangles": "adbd323a377176a0ac942b6b4e648578c95d0b4f6aecc1a01f8ffbd1c849bee7",
+          "images": [
+            "76ccadb6c38d28e0758ddf036be3a3f088937a45f60cf5e8b32fe9a32d1ec5f6",
+            "8f29e0aa51b70378e354abfbbd9601d1456d12822d0934772c271f8cacbbecf5",
+            "4cf14d1b460d7f1ebfdfeb17f33dd110491e89f8c8e47e4d5564fd36bff0dc48"
+          ]
+        }
+      }
+    },
+    "heat-solve.json": {
+      "sha256": "7c9e419840d3f51e385f9e9641c9f004d1d8a9cdec01436c7a7b33f78343eda8",
+      "data": {
+        "weightsValid": true,
+        "accepted": false,
+        "activated": false,
+        "scope": "Structural simplex validity only. Frozen-pose source-weight trial, not full-animation or appearance acceptance.",
+        "upstream": {
+          "base": ".local/rig-candidates/approved-source-cp-h02-geodesic-input",
+          "assetSha256": "3c5528aa1346922107c24141b1d864d839594dc7054e8e95d896bddcb465b482",
+          "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H02-crouch-fit-v13.json",
+          "poseSha256": "3d2ec6702ec7d8cc4ee823b1eee2b6479573daff043b39bad90342395fe758cf",
+          "inputHashes": {
+            "positions.bin": "6a0ed81d0843c617af633b2de159f0fa93c369dd2bc75bebc1706e4199b77fba",
+            "triangles.bin": "adbd323a377176a0ac942b6b4e648578c95d0b4f6aecc1a01f8ffbd1c849bee7",
+            "source-welds.u32bin": "dc27113f08ec5dd967f8a56bfad923b893d97753e95eb2cd0647a1da506643be",
+            "protected.bin": "bce00564adaaf37598a33efe61ad51ed0c85efb7f0f2fba6e9f7411403a61205",
+            "result-ids.bin": "50839f0e130baec4b56a5251b52f84fa6298716fda8fe408d9d1ef8c47512ca2",
+            "result-weights.bin": "b965e24a1b6fef8b1f094f38c122c204aaf3b331b3d0243a31fcd1ddd1b41f6f",
+            "feasibility-matrices.bin": "b8a6c9857ae57798f358a99c05893b53d9a1248fdc8a97e7b631158f895ca05f"
+          },
+          "outputWeightsSha256": "f8ac65f7f97d0be39e6d603991db4bcbc680a26f24ba4a044df2aee5d462ab24",
+          "jointIdsChanged": false,
+          "protectedWeightsPreserved": true,
+          "initial": {
+            "p999": 1.7000970966650744,
+            "maximum": 2.4813737127297486,
+            "poses": [
+              {
+                "p999": 1.699869090037301,
+                "maximum": 2.4813737127297486
+              },
+              {
+                "p999": 1.7000970966650744,
+                "maximum": 2.4813737127297486
+              }
+            ],
+            "edgesOverTarget": 51846,
+            "immutableEdgesOverTarget": 0
+          },
+          "final": {
+            "p999": 1.570865708887888,
+            "maximum": 1.957070769277843,
+            "poses": [
+              {
+                "p999": 1.5707926485848605,
+                "maximum": 1.957070769277843
+              },
+              {
+                "p999": 1.570865708887888,
+                "maximum": 1.957070769277843
+              }
+            ],
+            "edgesOverTarget": 46056,
+            "immutableEdgesOverTarget": 0
+          },
+          "history": [
+            {
+              "iteration": 25,
+              "elapsedSeconds": 44.85828223702265,
+              "p999": 1.6938331951123855,
+              "maximum": 2.3931628017083413,
+              "poses": [
+                {
+                  "p999": 1.6938331951123855,
+                  "maximum": 2.3931628017083413
+                },
+                {
+                  "p999": 1.6938331951123855,
+                  "maximum": 2.3931628017083413
+                }
+              ],
+              "edgesOverTarget": 51288,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 50,
+              "elapsedSeconds": 77.80310182203539,
+              "p999": 1.686658141856943,
+              "maximum": 2.4012033451656154,
+              "poses": [
+                {
+                  "p999": 1.6865069675674293,
+                  "maximum": 2.4012033451656154
+                },
+                {
+                  "p999": 1.686658141856943,
+                  "maximum": 2.4012033451656154
+                }
+              ],
+              "edgesOverTarget": 50860,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 75,
+              "elapsedSeconds": 125.77610817900859,
+              "p999": 1.6765534510083127,
+              "maximum": 2.417674444905112,
+              "poses": [
+                {
+                  "p999": 1.6764009931006179,
+                  "maximum": 2.417674444905112
+                },
+                {
+                  "p999": 1.6765534510083127,
+                  "maximum": 2.417674444905112
+                }
+              ],
+              "edgesOverTarget": 50848,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 100,
+              "elapsedSeconds": 173.970717438031,
+              "p999": 1.6695214751771206,
+              "maximum": 2.404618571991364,
+              "poses": [
+                {
+                  "p999": 1.669179318056822,
+                  "maximum": 2.404618571991364
+                },
+                {
+                  "p999": 1.6695214751771206,
+                  "maximum": 2.404618571991364
+                }
+              ],
+              "edgesOverTarget": 51116,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 125,
+              "elapsedSeconds": 219.530558811035,
+              "p999": 1.6603847188727066,
+              "maximum": 2.3998306368320956,
+              "poses": [
+                {
+                  "p999": 1.6603026486424781,
+                  "maximum": 2.3998306368320956
+                },
+                {
+                  "p999": 1.6603847188727066,
+                  "maximum": 2.3998306368320956
+                }
+              ],
+              "edgesOverTarget": 51987,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 150,
+              "elapsedSeconds": 261.23730867600534,
+              "p999": 1.649095859263237,
+              "maximum": 2.357013162146306,
+              "poses": [
+                {
+                  "p999": 1.6488533508430716,
+                  "maximum": 2.357013162146306
+                },
+                {
+                  "p999": 1.649095859263237,
+                  "maximum": 2.357013162146306
+                }
+              ],
+              "edgesOverTarget": 53252,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 175,
+              "elapsedSeconds": 308.8197013750323,
+              "p999": 1.6395752752556259,
+              "maximum": 2.288785014913565,
+              "poses": [
+                {
+                  "p999": 1.6394132301422852,
+                  "maximum": 2.288785014913565
+                },
+                {
+                  "p999": 1.6395752752556259,
+                  "maximum": 2.288785014913565
+                }
+              ],
+              "edgesOverTarget": 53442,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 200,
+              "elapsedSeconds": 355.68216470303014,
+              "p999": 1.6287355926155938,
+              "maximum": 2.205932549085927,
+              "poses": [
+                {
+                  "p999": 1.6285849449280714,
+                  "maximum": 2.205932549085927
+                },
+                {
+                  "p999": 1.6287355926155938,
+                  "maximum": 2.205932549085927
+                }
+              ],
+              "edgesOverTarget": 53538,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 225,
+              "elapsedSeconds": 388.94354439905146,
+              "p999": 1.6193020466665617,
+              "maximum": 2.125957764962255,
+              "poses": [
+                {
+                  "p999": 1.6191626439603248,
+                  "maximum": 2.125957764962255
+                },
+                {
+                  "p999": 1.6193020466665617,
+                  "maximum": 2.125957764962255
+                }
+              ],
+              "edgesOverTarget": 53751,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 250,
+              "elapsedSeconds": 430.2915624450543,
+              "p999": 1.610555644297655,
+              "maximum": 2.020789474578701,
+              "poses": [
+                {
+                  "p999": 1.6105110776665734,
+                  "maximum": 2.020789474578701
+                },
+                {
+                  "p999": 1.610555644297655,
+                  "maximum": 2.020789474578701
+                }
+              ],
+              "edgesOverTarget": 53141,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 275,
+              "elapsedSeconds": 493.84634937002556,
+              "p999": 1.603368780205608,
+              "maximum": 1.9399523072770888,
+              "poses": [
+                {
+                  "p999": 1.6032677914699418,
+                  "maximum": 1.9399523072770888
+                },
+                {
+                  "p999": 1.603368780205608,
+                  "maximum": 1.9399523072770888
+                }
+              ],
+              "edgesOverTarget": 52311,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 300,
+              "elapsedSeconds": 551.1139031070052,
+              "p999": 1.5968017640379124,
+              "maximum": 1.9359468478124582,
+              "poses": [
+                {
+                  "p999": 1.5967065295130909,
+                  "maximum": 1.9359468478124582
+                },
+                {
+                  "p999": 1.5968017640379124,
+                  "maximum": 1.9359468478124582
+                }
+              ],
+              "edgesOverTarget": 51287,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 325,
+              "elapsedSeconds": 598.9666000420111,
+              "p999": 1.5905748674966502,
+              "maximum": 1.9551917333482112,
+              "poses": [
+                {
+                  "p999": 1.5904113456234479,
+                  "maximum": 1.9551917333482112
+                },
+                {
+                  "p999": 1.5905748674966502,
+                  "maximum": 1.9551917333482112
+                }
+              ],
+              "edgesOverTarget": 50411,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 350,
+              "elapsedSeconds": 630.2115293460083,
+              "p999": 1.5837881654266952,
+              "maximum": 1.9668542970916425,
+              "poses": [
+                {
+                  "p999": 1.5836968568523822,
+                  "maximum": 1.9668542970916425
+                },
+                {
+                  "p999": 1.5837881654266952,
+                  "maximum": 1.9668542970916425
+                }
+              ],
+              "edgesOverTarget": 48982,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 375,
+              "elapsedSeconds": 660.7038597100182,
+              "p999": 1.5772729744278013,
+              "maximum": 1.9685743316145559,
+              "poses": [
+                {
+                  "p999": 1.577164218239589,
+                  "maximum": 1.9685743316145559
+                },
+                {
+                  "p999": 1.5772729744278013,
+                  "maximum": 1.9685743316145559
+                }
+              ],
+              "edgesOverTarget": 47491,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 400,
+              "elapsedSeconds": 691.5071781350416,
+              "p999": 1.570865708887888,
+              "maximum": 1.957070769277843,
+              "poses": [
+                {
+                  "p999": 1.5707926485848605,
+                  "maximum": 1.957070769277843
+                },
+                {
+                  "p999": 1.570865708887888,
+                  "maximum": 1.957070769277843
+                }
+              ],
+              "edgesOverTarget": 46056,
+              "immutableEdgesOverTarget": 0
+            }
+          ],
+          "parameters": {
+            "algorithmVersion": 2,
+            "hero": "H02",
+            "wholeBody": true,
+            "iterations": 400,
+            "ratio": 1.49,
+            "cutFans": false
+          },
+          "continuation": {
+            "directory": ".local/rig-candidates/approved-source-cp-h02-geodesic-v3",
+            "solveSha256": "582f7cdf01ea9a6f62c9aa07286f0132262a449f80c496d5fbc64d3b0629dd14",
+            "kind": "resume"
+          },
+          "stateHashes": {
+            "state-weights.npy": "8c02acaa97f7f44575befa36ca0debacf5c4866abb9cdfcbf17f57200e783d89",
+            "state-extrapolated.npy": "c92fe26d4be29cad76bff3e847280719cdfd6b4fb54531f6e2056fc48163352f",
+            "state-dual.npy": "63e2efd74cbba6d1a6bc3a5d20bdfd253e86640bc6210b0cefb360650e8ad015"
+          },
+          "accepted": false,
+          "activated": false,
+          "poseCount": 2,
+          "scope": "One-or-more frozen-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+        }
+      }
+    },
+    "export.json": {
+      "sha256": "2f2ffe3a849cf75bd10183db661ee22ade1f4fd6bd84cfdc8ac42da2c11d9e7f",
+      "data": {
+        "hero": "H02",
+        "input": ".local/rig-candidates/approved-source-hand-h02-geodesic-v1/H02-C0-rigged.glb",
+        "inputSha256": "3c5528aa1346922107c24141b1d864d839594dc7054e8e95d896bddcb465b482",
+        "output": "/workspace/Tutien/.local/rig-candidates/approved-source-cp-h02-geodesic-v3-export/H02-C0-rigged.glb",
+        "outputSha256": "5d436bb246a74e1b7caaab37ce18ff6bc8407e5b5e3feaeba4412c145a2f8d19",
+        "originalPayloadPreserved": true,
+        "solver": {
+          "weightsValid": true,
+          "accepted": false,
+          "activated": false,
+          "scope": "Structural simplex validity only. Frozen-pose source-weight trial, not full-animation or appearance acceptance.",
+          "upstream": {
+            "base": ".local/rig-candidates/approved-source-cp-h02-geodesic-input",
+            "assetSha256": "3c5528aa1346922107c24141b1d864d839594dc7054e8e95d896bddcb465b482",
+            "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H02-crouch-fit-v13.json",
+            "poseSha256": "3d2ec6702ec7d8cc4ee823b1eee2b6479573daff043b39bad90342395fe758cf",
+            "inputHashes": {
+              "positions.bin": "6a0ed81d0843c617af633b2de159f0fa93c369dd2bc75bebc1706e4199b77fba",
+              "triangles.bin": "adbd323a377176a0ac942b6b4e648578c95d0b4f6aecc1a01f8ffbd1c849bee7",
+              "source-welds.u32bin": "dc27113f08ec5dd967f8a56bfad923b893d97753e95eb2cd0647a1da506643be",
+              "protected.bin": "bce00564adaaf37598a33efe61ad51ed0c85efb7f0f2fba6e9f7411403a61205",
+              "result-ids.bin": "50839f0e130baec4b56a5251b52f84fa6298716fda8fe408d9d1ef8c47512ca2",
+              "result-weights.bin": "b965e24a1b6fef8b1f094f38c122c204aaf3b331b3d0243a31fcd1ddd1b41f6f",
+              "feasibility-matrices.bin": "b8a6c9857ae57798f358a99c05893b53d9a1248fdc8a97e7b631158f895ca05f"
+            },
+            "outputWeightsSha256": "f8ac65f7f97d0be39e6d603991db4bcbc680a26f24ba4a044df2aee5d462ab24",
+            "jointIdsChanged": false,
+            "protectedWeightsPreserved": true,
+            "initial": {
+              "p999": 1.7000970966650744,
+              "maximum": 2.4813737127297486,
+              "poses": [
+                {
+                  "p999": 1.699869090037301,
+                  "maximum": 2.4813737127297486
+                },
+                {
+                  "p999": 1.7000970966650744,
+                  "maximum": 2.4813737127297486
+                }
+              ],
+              "edgesOverTarget": 51846,
+              "immutableEdgesOverTarget": 0
+            },
+            "final": {
+              "p999": 1.570865708887888,
+              "maximum": 1.957070769277843,
+              "poses": [
+                {
+                  "p999": 1.5707926485848605,
+                  "maximum": 1.957070769277843
+                },
+                {
+                  "p999": 1.570865708887888,
+                  "maximum": 1.957070769277843
+                }
+              ],
+              "edgesOverTarget": 46056,
+              "immutableEdgesOverTarget": 0
+            },
+            "history": [
+              {
+                "iteration": 25,
+                "elapsedSeconds": 44.85828223702265,
+                "p999": 1.6938331951123855,
+                "maximum": 2.3931628017083413,
+                "poses": [
+                  {
+                    "p999": 1.6938331951123855,
+                    "maximum": 2.3931628017083413
+                  },
+                  {
+                    "p999": 1.6938331951123855,
+                    "maximum": 2.3931628017083413
+                  }
+                ],
+                "edgesOverTarget": 51288,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 50,
+                "elapsedSeconds": 77.80310182203539,
+                "p999": 1.686658141856943,
+                "maximum": 2.4012033451656154,
+                "poses": [
+                  {
+                    "p999": 1.6865069675674293,
+                    "maximum": 2.4012033451656154
+                  },
+                  {
+                    "p999": 1.686658141856943,
+                    "maximum": 2.4012033451656154
+                  }
+                ],
+                "edgesOverTarget": 50860,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 75,
+                "elapsedSeconds": 125.77610817900859,
+                "p999": 1.6765534510083127,
+                "maximum": 2.417674444905112,
+                "poses": [
+                  {
+                    "p999": 1.6764009931006179,
+                    "maximum": 2.417674444905112
+                  },
+                  {
+                    "p999": 1.6765534510083127,
+                    "maximum": 2.417674444905112
+                  }
+                ],
+                "edgesOverTarget": 50848,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 100,
+                "elapsedSeconds": 173.970717438031,
+                "p999": 1.6695214751771206,
+                "maximum": 2.404618571991364,
+                "poses": [
+                  {
+                    "p999": 1.669179318056822,
+                    "maximum": 2.404618571991364
+                  },
+                  {
+                    "p999": 1.6695214751771206,
+                    "maximum": 2.404618571991364
+                  }
+                ],
+                "edgesOverTarget": 51116,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 125,
+                "elapsedSeconds": 219.530558811035,
+                "p999": 1.6603847188727066,
+                "maximum": 2.3998306368320956,
+                "poses": [
+                  {
+                    "p999": 1.6603026486424781,
+                    "maximum": 2.3998306368320956
+                  },
+                  {
+                    "p999": 1.6603847188727066,
+                    "maximum": 2.3998306368320956
+                  }
+                ],
+                "edgesOverTarget": 51987,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 150,
+                "elapsedSeconds": 261.23730867600534,
+                "p999": 1.649095859263237,
+                "maximum": 2.357013162146306,
+                "poses": [
+                  {
+                    "p999": 1.6488533508430716,
+                    "maximum": 2.357013162146306
+                  },
+                  {
+                    "p999": 1.649095859263237,
+                    "maximum": 2.357013162146306
+                  }
+                ],
+                "edgesOverTarget": 53252,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 175,
+                "elapsedSeconds": 308.8197013750323,
+                "p999": 1.6395752752556259,
+                "maximum": 2.288785014913565,
+                "poses": [
+                  {
+                    "p999": 1.6394132301422852,
+                    "maximum": 2.288785014913565
+                  },
+                  {
+                    "p999": 1.6395752752556259,
+                    "maximum": 2.288785014913565
+                  }
+                ],
+                "edgesOverTarget": 53442,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 200,
+                "elapsedSeconds": 355.68216470303014,
+                "p999": 1.6287355926155938,
+                "maximum": 2.205932549085927,
+                "poses": [
+                  {
+                    "p999": 1.6285849449280714,
+                    "maximum": 2.205932549085927
+                  },
+                  {
+                    "p999": 1.6287355926155938,
+                    "maximum": 2.205932549085927
+                  }
+                ],
+                "edgesOverTarget": 53538,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 225,
+                "elapsedSeconds": 388.94354439905146,
+                "p999": 1.6193020466665617,
+                "maximum": 2.125957764962255,
+                "poses": [
+                  {
+                    "p999": 1.6191626439603248,
+                    "maximum": 2.125957764962255
+                  },
+                  {
+                    "p999": 1.6193020466665617,
+                    "maximum": 2.125957764962255
+                  }
+                ],
+                "edgesOverTarget": 53751,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 250,
+                "elapsedSeconds": 430.2915624450543,
+                "p999": 1.610555644297655,
+                "maximum": 2.020789474578701,
+                "poses": [
+                  {
+                    "p999": 1.6105110776665734,
+                    "maximum": 2.020789474578701
+                  },
+                  {
+                    "p999": 1.610555644297655,
+                    "maximum": 2.020789474578701
+                  }
+                ],
+                "edgesOverTarget": 53141,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 275,
+                "elapsedSeconds": 493.84634937002556,
+                "p999": 1.603368780205608,
+                "maximum": 1.9399523072770888,
+                "poses": [
+                  {
+                    "p999": 1.6032677914699418,
+                    "maximum": 1.9399523072770888
+                  },
+                  {
+                    "p999": 1.603368780205608,
+                    "maximum": 1.9399523072770888
+                  }
+                ],
+                "edgesOverTarget": 52311,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 300,
+                "elapsedSeconds": 551.1139031070052,
+                "p999": 1.5968017640379124,
+                "maximum": 1.9359468478124582,
+                "poses": [
+                  {
+                    "p999": 1.5967065295130909,
+                    "maximum": 1.9359468478124582
+                  },
+                  {
+                    "p999": 1.5968017640379124,
+                    "maximum": 1.9359468478124582
+                  }
+                ],
+                "edgesOverTarget": 51287,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 325,
+                "elapsedSeconds": 598.9666000420111,
+                "p999": 1.5905748674966502,
+                "maximum": 1.9551917333482112,
+                "poses": [
+                  {
+                    "p999": 1.5904113456234479,
+                    "maximum": 1.9551917333482112
+                  },
+                  {
+                    "p999": 1.5905748674966502,
+                    "maximum": 1.9551917333482112
+                  }
+                ],
+                "edgesOverTarget": 50411,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 350,
+                "elapsedSeconds": 630.2115293460083,
+                "p999": 1.5837881654266952,
+                "maximum": 1.9668542970916425,
+                "poses": [
+                  {
+                    "p999": 1.5836968568523822,
+                    "maximum": 1.9668542970916425
+                  },
+                  {
+                    "p999": 1.5837881654266952,
+                    "maximum": 1.9668542970916425
+                  }
+                ],
+                "edgesOverTarget": 48982,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 375,
+                "elapsedSeconds": 660.7038597100182,
+                "p999": 1.5772729744278013,
+                "maximum": 1.9685743316145559,
+                "poses": [
+                  {
+                    "p999": 1.577164218239589,
+                    "maximum": 1.9685743316145559
+                  },
+                  {
+                    "p999": 1.5772729744278013,
+                    "maximum": 1.9685743316145559
+                  }
+                ],
+                "edgesOverTarget": 47491,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 400,
+                "elapsedSeconds": 691.5071781350416,
+                "p999": 1.570865708887888,
+                "maximum": 1.957070769277843,
+                "poses": [
+                  {
+                    "p999": 1.5707926485848605,
+                    "maximum": 1.957070769277843
+                  },
+                  {
+                    "p999": 1.570865708887888,
+                    "maximum": 1.957070769277843
+                  }
+                ],
+                "edgesOverTarget": 46056,
+                "immutableEdgesOverTarget": 0
+              }
+            ],
+            "parameters": {
+              "algorithmVersion": 2,
+              "hero": "H02",
+              "wholeBody": true,
+              "iterations": 400,
+              "ratio": 1.49,
+              "cutFans": false
+            },
+            "continuation": {
+              "directory": ".local/rig-candidates/approved-source-cp-h02-geodesic-v3",
+              "solveSha256": "582f7cdf01ea9a6f62c9aa07286f0132262a449f80c496d5fbc64d3b0629dd14",
+              "kind": "resume"
+            },
+            "stateHashes": {
+              "state-weights.npy": "8c02acaa97f7f44575befa36ca0debacf5c4866abb9cdfcbf17f57200e783d89",
+              "state-extrapolated.npy": "c92fe26d4be29cad76bff3e847280719cdfd6b4fb54531f6e2056fc48163352f",
+              "state-dual.npy": "63e2efd74cbba6d1a6bc3a5d20bdfd253e86640bc6210b0cefb360650e8ad015"
+            },
+            "accepted": false,
+            "activated": false,
+            "poseCount": 2,
+            "scope": "One-or-more frozen-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+          }
+        },
+        "accepted": false,
+        "activated": false
+      }
+    }
+  }
+}

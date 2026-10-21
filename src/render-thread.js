@@ -43,6 +43,7 @@ export class RenderThread{
  reset(){this.latest=null;this.epoch++;this.aimState=null;this.command('reset');}
  setQuality(value){localStorage.setItem('hon-gioi-quality',value);this.quality=value;this.command('setQuality',[value]);}
  setShowcaseView(value){this.command('setShowcaseView',[value]);}
+ setShowcaseAnimationMode(value){this.showcaseAnimationMode=!!value;this.command('setShowcaseAnimationMode',[this.showcaseAnimationMode]);}
  rotateShowcase(value){this.command('rotateShowcase',[value]);}
  replayHeroEntrance(){this.command('replayHeroEntrance');}
  seekHeroEntrance(time){return this.request('command',{method:'seekHeroEntrance',args:[time]});}

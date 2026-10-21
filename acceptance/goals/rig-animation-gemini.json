@@ -1,0 +1,259 @@
+{
+  "id": "gemini-rig-animation-approved-20261021",
+  "objective": "Hoàn thiện rig/animation H01/H02 theo mục13 được người dùng phê duyệt; không đạt một cổng thì chưa hoàn thành.",
+  "approved": true,
+  "baselineCommit": "bbef21f36c7324d005b851f4a92fac54a0f81981",
+  "status": "in_progress",
+  "heroes": ["H01", "H02"],
+  "referenceRequirements": [
+    "C-001",
+    "C-002",
+    "C-003",
+    "C-004",
+    "C-005",
+    "C-006",
+    "C-007",
+    "C-008",
+    "H01-001",
+    "H01-002",
+    "H01-003",
+    "H01-004",
+    "H01-005",
+    "H01-006",
+    "H01-007",
+    "H01-008",
+    "H01-009",
+    "H01-010",
+    "H01-011",
+    "H01-012",
+    "H01-013",
+    "H01-014",
+    "H01-015",
+    "H01-016",
+    "H01-017",
+    "H01-018",
+    "H01-019",
+    "H01-020",
+    "H01-021",
+    "H01-022",
+    "H01-023",
+    "H01-024",
+    "H01-025",
+    "H01-026",
+    "H02-001",
+    "H02-002",
+    "H02-003",
+    "H02-004",
+    "H02-005",
+    "H02-006",
+    "H02-007",
+    "H02-008",
+    "H02-009",
+    "H02-010",
+    "H02-011",
+    "H02-012",
+    "H02-013",
+    "H02-014",
+    "H02-015",
+    "H02-016",
+    "H02-017",
+    "H02-018",
+    "H02-019",
+    "H02-020",
+    "H02-021",
+    "H02-022",
+    "H02-023",
+    "H02-024",
+    "H02-025",
+    "H02-026",
+    "V-001",
+    "V-002",
+    "V-003",
+    "V-004",
+    "V-005"
+  ],
+  "thresholds": {
+    "edgeP999": 1.5,
+    "edgeMaximum": 2.0,
+    "contactMetres": 0.005,
+    "keptSeamMetres": 1e-6,
+    "animationSampleHz": [60, 120],
+    "noOriginalTextureResize": true
+  },
+  "required": [
+    {
+      "id": "SOURCES",
+      "condition": "Khóa SHA hai DOCX, nguồn GLB và texture; 65 yêu cầu được truy về nguồn.",
+      "validatorKind": "sha256/all-inputs",
+      "status": "pending"
+    },
+    {
+      "id": "RUNTIME_MODES",
+      "condition": "Main và worker thực sự hiện cùng mode; replay/seek/đổi hero/full/face không đánh tráo mesh.",
+      "validatorKind": "browser-visible-mesh",
+      "status": "pending"
+    },
+    {
+      "id": "BIND",
+      "condition": "Bind, 52 xương cơ thể, 30 đốt ngón có calibration riêng; không dùng basis canonical chưa kiểm để chứng nhận legacy.",
+      "validatorKind": "bind-and-anatomical-calibration",
+      "status": "pending"
+    },
+    {
+      "id": "SKIN_ALL_FRAMES",
+      "condition": "Mọi primitive và cạnh ở Entrance, Hold và combat; p999<=1.5, max<=2.0, không mask bỏ vùng hỏng.",
+      "validatorKind": "fresh-full-mesh-lbs",
+      "status": "pending"
+    },
+    {
+      "id": "PROVENANCE",
+      "condition": "Đủ mặt nguồn; UV/normal/images gốc; mọi phần cắt/mặt mới có source-ID và kiểm seam độc lập.",
+      "validatorKind": "source-provenance-and-seams",
+      "status": "pending"
+    },
+    {
+      "id": "H01_TIMING",
+      "condition": "Ẩn trước46/60, apex52/60, đáp1.0, dip65/60, giữ95/60, đứng145/60; không chỉ đổi tên clip.",
+      "validatorKind": "literal-reference-landmarks",
+      "status": "pending"
+    },
+    {
+      "id": "H02_TIMING",
+      "condition": "Chùy impact.30; hero rơi46/60; đáp1.0; dip65/60; giữ95/60; nâng145/60.",
+      "validatorKind": "literal-reference-landmarks",
+      "status": "pending"
+    },
+    {
+      "id": "CROUCH",
+      "condition": "Chân/gối bất đối xứng, đầu/thân đúng hướng; đo trên mesh thật và có ảnh trước/bên/sau/3/4.",
+      "validatorKind": "world-landmarks-and-silhouette",
+      "status": "pending"
+    },
+    {
+      "id": "H01_ARM",
+      "condition": "35 độ đo vai tới tâm nắm; không thay bởi vai tới wrist; thân và wrist không méo.",
+      "validatorKind": "actual-palm-shoulder-vector",
+      "status": "pending"
+    },
+    {
+      "id": "H02_GRIP_CONTINUITY",
+      "condition": "Tay trái giữ liên tục từ1.0, tay phải chống sàn; không dùng flaggripped thay tiếp xúc.",
+      "validatorKind": "surface-contact-all-gripped-frames",
+      "status": "pending"
+    },
+    {
+      "id": "FINGERS",
+      "condition": "Cả30đốt; palm/finger masks cósource-ID; mọi ngón nắm ôm cán, thumb opposition đúng, không xuyên/candywrapper.",
+      "validatorKind": "finger-surface-bvh",
+      "status": "pending"
+    },
+    {
+      "id": "FEET",
+      "condition": "Tất cả đỉnh ủng/lòng chân đã xác minh, floor<=5mm; footslide và support trong cả chuyển pha.",
+      "validatorKind": "source-boot-contact-and-drift",
+      "status": "pending"
+    },
+    {
+      "id": "WEAPONS",
+      "condition": "Trượng/chùy đúng chiều dài cứng; đo tip/base/head và mặt rộng so mặt thật; không scale theo từng frame.",
+      "validatorKind": "rigid-weapon-landmarks",
+      "status": "pending"
+    },
+    {
+      "id": "CONTINUITY",
+      "condition": "Không flip quaternion/đổi bone length; 60/120Hz; transition/idleloop/replay/seek dài, vận tốc/gia tốc không bật.",
+      "validatorKind": "fresh-motion-and-skin-sequence",
+      "status": "pending"
+    },
+    {
+      "id": "VFX",
+      "condition": "Dây leo6nhánh có quyết địnhcho mâu thuẫn5; morph tới trục trượng; impact/stamp phát tại contact thật.",
+      "validatorKind": "contact-driven-vfx",
+      "status": "pending"
+    },
+    {
+      "id": "COMBAT",
+      "condition": "Idle/Run/Attack/Cast/Dash trên rig đã đạt, H02 giữ trái; không sửa tốc độ/cost/hitbox/luật để hợp hoạt ảnh.",
+      "validatorKind": "actual-battle-actor-and-clips",
+      "status": "pending"
+    },
+    {
+      "id": "FIDELITY",
+      "condition": "Không giảm texture/UV/PBR/màu/ánh sáng; body động đủ source fidelity; so ảnh cùng pose/góc.",
+      "validatorKind": "image-and-payload-fidelity",
+      "status": "pending"
+    },
+    {
+      "id": "CACHE",
+      "condition": "Loadonce/cache/clone; reset animation không tạo lại; ownership/dispose đúng và không giữ preview cũ.",
+      "validatorKind": "lifecycle-and-reuse",
+      "status": "pending"
+    },
+    {
+      "id": "REGRESSION",
+      "condition": "npmtest,testmaster,verifymaster; riggoal gốc giữ nguyên ngưỡng và báo kết quả thật.",
+      "validatorKind": "commands-and-source-bound-evidence",
+      "status": "pending"
+    },
+    {
+      "id": "APK_ANIMATION",
+      "condition": "APKrig+animation mới ký hợp lệ; đúng source hash, body/weapon/clipSHA và load offline.",
+      "validatorKind": "apk-contents-and-production-browser",
+      "status": "pending"
+    },
+    {
+      "id": "H01_SLEEVES_LAST",
+      "condition": "Chỉ sửa riêng tay áo sau APKrig+animation; cắt thật, giữ UV/PBR, không giả thân thiếu; kiểm lại mọi pose.",
+      "validatorKind": "ordered-artifact-and-sleeve-validation",
+      "status": "pending"
+    },
+    {
+      "id": "PUBLISH",
+      "condition": "Main, APK mới, ảnh nguyên byte vào conver10, timestamps và provenance khớp remote.",
+      "validatorKind": "git-and-artifact-identity",
+      "status": "pending"
+    },
+    {
+      "id": "ANDROID_PHYSICAL",
+      "condition": "Thiết bị thật/trace hợp lệ cho cảm ứng, appearance và FPS; không dùng SwiftShader thay thế.",
+      "validatorKind": "physical-device-trace",
+      "status": "pending"
+    }
+  ],
+  "rules": [
+    "No manually checked pass. Only registered fresh validators may approve their measured scope.",
+    "No weighted completion average: every required gate must pass. Missing, stale or unknown evidence blocks.",
+    "Candidate not activated while actual full-mesh skin/contact/provenance gates fail.",
+    "Keep source GLB, GDD/gameplay/economy/security immutable.",
+    "Physical-device evidence stays blocked without actual connected hardware."
+  ],
+  "iterationLog": [],
+  "sourceAssets": [
+    {
+      "file": "public/models/hunyuan-original/H01-C0-source.glb",
+      "sha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b"
+    },
+    {
+      "file": "public/models/hunyuan-original/H01-W0-source.glb",
+      "sha256": "0984acdf12b0a5b09ce8580e9e309ee94d2f94ec88e4e4dc3067f4a3e16a4be1"
+    },
+    {
+      "file": "public/models/hunyuan-original/H02-C0-source.glb",
+      "sha256": "eec6ac7815030ebc06052c2a662582bb0f114c2bd1e96b88e35936c716fc781a"
+    },
+    {
+      "file": "public/models/hunyuan-original/H02-W0-source.glb",
+      "sha256": "bf1bf4e377a19aac5fa3c737a588daf2f98e721ea194a4c96869a562fc213c72"
+    }
+  ],
+  "references": [
+    {
+      "file": "docs/requests/gemini-animation-2026-10-21/Lam-Dat.docx",
+      "sha256": "d29514af20f7d2665aa480fd595eed759125622c4349e5eb166ff877f30df629"
+    },
+    {
+      "file": "docs/requests/gemini-animation-2026-10-21/Chuy-175m.docx",
+      "sha256": "c729606f4dda827343e07ca5b655e17ea31ff4e77a9d99d353941558cdcedeea"
+    }
+  ]
+}

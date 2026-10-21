@@ -1,0 +1,1168 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cp-h01-geodesic-v1-export",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "input.json": {
+      "sha256": "e88e13557e86860fbd1395a785695fbff20d7693cee2d475e9f22b8e5acc08ce",
+      "data": {
+        "hero": "H01",
+        "input": ".local/rig-candidates/approved-source-hand-h01-geodesic-v1/H01-C0-rigged.glb",
+        "inputSha256": "2deb7e512a2885d2cecc591e3c520d54c25fd46e04a7cfff9284fbe7827ef6cd",
+        "joints": [
+          {
+            "name": "Hips",
+            "parent": "H01Rig",
+            "head": [
+              0,
+              0.96,
+              0
+            ],
+            "tail": [
+              0,
+              1.09,
+              0
+            ]
+          },
+          {
+            "name": "Spine",
+            "parent": "Hips",
+            "head": [
+              0,
+              1.09,
+              0
+            ],
+            "tail": [
+              0,
+              1.23,
+              0
+            ]
+          },
+          {
+            "name": "Spine1",
+            "parent": "Spine",
+            "head": [
+              0,
+              1.23,
+              0
+            ],
+            "tail": [
+              0,
+              1.38,
+              0
+            ]
+          },
+          {
+            "name": "Spine2",
+            "parent": "Spine1",
+            "head": [
+              0,
+              1.38,
+              0
+            ],
+            "tail": [
+              0,
+              1.53,
+              0
+            ]
+          },
+          {
+            "name": "Neck",
+            "parent": "Spine2",
+            "head": [
+              0,
+              1.53,
+              0
+            ],
+            "tail": [
+              0,
+              1.62,
+              0.01
+            ]
+          },
+          {
+            "name": "Head",
+            "parent": "Neck",
+            "head": [
+              0,
+              1.62,
+              0.01
+            ],
+            "tail": [
+              0,
+              1.7000000000000002,
+              0.01
+            ]
+          },
+          {
+            "name": "LeftShoulder",
+            "parent": "Spine2",
+            "head": [
+              0.07,
+              1.42,
+              0
+            ],
+            "tail": [
+              0.19999999818322467,
+              1.4300000009982323,
+              -2.776915333964347e-10
+            ]
+          },
+          {
+            "name": "LeftArm",
+            "parent": "LeftShoulder",
+            "head": [
+              0.19999999818322467,
+              1.4300000009982323,
+              -2.776915333964347e-10
+            ],
+            "tail": [
+              0.3752224109246446,
+              1.2146069841040996,
+              -0.03609639665364438
+            ]
+          },
+          {
+            "name": "LeftForeArm",
+            "parent": "LeftArm",
+            "head": [
+              0.3752224109246446,
+              1.2146069841040996,
+              -0.03609639665364438
+            ],
+            "tail": [
+              0.48999999109253767,
+              1.0250000123776546,
+              0.08999999491712267
+            ]
+          },
+          {
+            "name": "LeftHand",
+            "parent": "LeftForearmPronation",
+            "head": [
+              0.48999999109253767,
+              1.0250000123776546,
+              0.08999999491712267
+            ],
+            "tail": [
+              0.509204380418553,
+              1.014490679785338,
+              0.10007951327185735
+            ]
+          },
+          {
+            "name": "LeftHandThumb1",
+            "parent": "LeftHand",
+            "head": [
+              0.509204380418553,
+              1.014490679785338,
+              0.10007951327185735
+            ],
+            "tail": [
+              0.5651683595258266,
+              1.0210600778786574,
+              0.1645349866075479
+            ]
+          },
+          {
+            "name": "LeftHandThumb2",
+            "parent": "LeftHandThumb1",
+            "head": [
+              0.5651683595258266,
+              1.0210600778786574,
+              0.1645349866075479
+            ],
+            "tail": [
+              0.5811932346804889,
+              1.0174746897887201,
+              0.1780224110834281
+            ]
+          },
+          {
+            "name": "LeftHandThumb3",
+            "parent": "LeftHandThumb2",
+            "head": [
+              0.5811932346804889,
+              1.0174746897887201,
+              0.1780224110834281
+            ],
+            "tail": [
+              0.5891683060620241,
+              1.0183251200523116,
+              0.18474447179539125
+            ]
+          },
+          {
+            "name": "LeftHandIndex1",
+            "parent": "LeftHand",
+            "head": [
+              0.5668175483965991,
+              0.9829626820083877,
+              0.13031806833605986
+            ],
+            "tail": [
+              0.5897725969161827,
+              0.9644956934855342,
+              0.14564265880038882
+            ]
+          },
+          {
+            "name": "LeftHandIndex2",
+            "parent": "LeftHandIndex1",
+            "head": [
+              0.5897725969161827,
+              0.9644956934855342,
+              0.14564265880038882
+            ],
+            "tail": [
+              0.605436448817608,
+              0.9501634321807613,
+              0.15843689394197844
+            ]
+          },
+          {
+            "name": "LeftHandIndex3",
+            "parent": "LeftHandIndex2",
+            "head": [
+              0.605436448817608,
+              0.9501634321807613,
+              0.15843689394197844
+            ],
+            "tail": [
+              0.6166394944935112,
+              0.9407094786074511,
+              0.16761165354146498
+            ]
+          },
+          {
+            "name": "LeftHandMiddle1",
+            "parent": "LeftHand",
+            "head": [
+              0.5533503525798961,
+              0.9629782701468697,
+              0.11667726107756168
+            ],
+            "tail": [
+              0.5758335876650668,
+              0.9398025115172378,
+              0.1355379032604232
+            ]
+          },
+          {
+            "name": "LeftHandMiddle2",
+            "parent": "LeftHandMiddle1",
+            "head": [
+              0.5758335876650668,
+              0.9398025115172378,
+              0.1355379032604232
+            ],
+            "tail": [
+              0.5903557407026082,
+              0.9189001990528112,
+              0.14913696378264263
+            ]
+          },
+          {
+            "name": "LeftHandMiddle3",
+            "parent": "LeftHandMiddle2",
+            "head": [
+              0.5903557407026082,
+              0.9189001990528112,
+              0.14913696378264263
+            ],
+            "tail": [
+              0.599386071249097,
+              0.9073284400294401,
+              0.15769152716241752
+            ]
+          },
+          {
+            "name": "LeftHandRing1",
+            "parent": "LeftHand",
+            "head": [
+              0.5339690900949667,
+              0.9489532443133105,
+              0.10897279769880516
+            ],
+            "tail": [
+              0.5493280794750116,
+              0.9273827609682278,
+              0.12269122948759524
+            ]
+          },
+          {
+            "name": "LeftHandRing2",
+            "parent": "LeftHandRing1",
+            "head": [
+              0.5493280794750116,
+              0.9273827609682278,
+              0.12269122948759524
+            ],
+            "tail": [
+              0.5644998551018027,
+              0.9040367083378649,
+              0.13947409601676
+            ]
+          },
+          {
+            "name": "LeftHandRing3",
+            "parent": "LeftHandRing2",
+            "head": [
+              0.5644998551018027,
+              0.9040367083378649,
+              0.13947409601676
+            ],
+            "tail": [
+              0.5715358198317498,
+              0.890310449168495,
+              0.1485215043023434
+            ]
+          },
+          {
+            "name": "LeftHandPinky1",
+            "parent": "LeftHand",
+            "head": [
+              0.5119972123170934,
+              0.9407702098517166,
+              0.1026948123954463
+            ],
+            "tail": [
+              0.5218146682536567,
+              0.9230023335517387,
+              0.11073356749523591
+            ]
+          },
+          {
+            "name": "LeftHandPinky2",
+            "parent": "LeftHandPinky1",
+            "head": [
+              0.5218146682536567,
+              0.9230023335517387,
+              0.11073356749523591
+            ],
+            "tail": [
+              0.5298825438482077,
+              0.9073646084670742,
+              0.12344267186244247
+            ]
+          },
+          {
+            "name": "LeftHandPinky3",
+            "parent": "LeftHandPinky2",
+            "head": [
+              0.5298825438482077,
+              0.9073646084670742,
+              0.12344267186244247
+            ],
+            "tail": [
+              0.5336929614372665,
+              0.8947255607982232,
+              0.13134770315792482
+            ]
+          },
+          {
+            "name": "RightShoulder",
+            "parent": "Spine2",
+            "head": [
+              -0.07,
+              1.42,
+              0
+            ],
+            "tail": [
+              -0.19999999818322467,
+              1.4300000009982323,
+              -2.776915333964347e-10
+            ]
+          },
+          {
+            "name": "RightArm",
+            "parent": "RightShoulder",
+            "head": [
+              -0.19999999818322467,
+              1.4300000009982323,
+              -2.776915333964347e-10
+            ],
+            "tail": [
+              -0.3752224109246446,
+              1.2146069841040996,
+              -0.03609639665364438
+            ]
+          },
+          {
+            "name": "RightForeArm",
+            "parent": "RightArm",
+            "head": [
+              -0.3752224109246446,
+              1.2146069841040996,
+              -0.03609639665364438
+            ],
+            "tail": [
+              -0.48999999109253767,
+              1.0250000123776546,
+              0.08999999491712267
+            ]
+          },
+          {
+            "name": "RightHand",
+            "parent": "RightForearmPronation",
+            "head": [
+              -0.48999999109253767,
+              1.0250000123776546,
+              0.08999999491712267
+            ],
+            "tail": [
+              -0.5095320234111854,
+              1.0140989167104546,
+              0.10006477394371935
+            ]
+          },
+          {
+            "name": "RightHandThumb1",
+            "parent": "RightHand",
+            "head": [
+              -0.5095320234111854,
+              1.0140989167104546,
+              0.10006477394371935
+            ],
+            "tail": [
+              -0.5656108047961136,
+              1.0207236066980225,
+              0.16418641931667516
+            ]
+          },
+          {
+            "name": "RightHandThumb2",
+            "parent": "RightHandThumb1",
+            "head": [
+              -0.5656108047961136,
+              1.0207236066980225,
+              0.16418641931667516
+            ],
+            "tail": [
+              -0.5816153998430661,
+              1.0169754098424548,
+              0.17786614594642272
+            ]
+          },
+          {
+            "name": "RightHandThumb3",
+            "parent": "RightHandThumb2",
+            "head": [
+              -0.5816153998430661,
+              1.0169754098424548,
+              0.17786614594642272
+            ],
+            "tail": [
+              -0.590018803441581,
+              1.0167235869804547,
+              0.18567632670546658
+            ]
+          },
+          {
+            "name": "RightHandIndex1",
+            "parent": "RightHand",
+            "head": [
+              -0.5681281203671291,
+              0.9813956297088552,
+              0.13025911102350746
+            ],
+            "tail": [
+              -0.5902963524529268,
+              0.9639883936829571,
+              0.14537803928922702
+            ]
+          },
+          {
+            "name": "RightHandIndex2",
+            "parent": "RightHandIndex1",
+            "head": [
+              -0.5902963524529268,
+              0.9639883936829571,
+              0.14537803928922702
+            ],
+            "tail": [
+              -0.6056702777500258,
+              0.9499830790434499,
+              0.158498959012189
+            ]
+          },
+          {
+            "name": "RightHandIndex3",
+            "parent": "RightHandIndex2",
+            "head": [
+              -0.6056702777500258,
+              0.9499830790434499,
+              0.158498959012189
+            ],
+            "tail": [
+              -0.6170756753319915,
+              0.940121679857219,
+              0.1677366880740728
+            ]
+          },
+          {
+            "name": "RightHandMiddle1",
+            "parent": "RightHand",
+            "head": [
+              -0.5538919779136925,
+              0.9624461558217606,
+              0.11623846755929218
+            ],
+            "tail": [
+              -0.5763596223384473,
+              0.9392488421043317,
+              0.13563228301378208
+            ]
+          },
+          {
+            "name": "RightHandMiddle2",
+            "parent": "RightHandMiddle1",
+            "head": [
+              -0.5763596223384473,
+              0.9392488421043317,
+              0.13563228301378208
+            ],
+            "tail": [
+              -0.5904928813431368,
+              0.9189048112649129,
+              0.14905684642232644
+            ]
+          },
+          {
+            "name": "RightHandMiddle3",
+            "parent": "RightHandMiddle2",
+            "head": [
+              -0.5904928813431368,
+              0.9189048112649129,
+              0.14905684642232644
+            ],
+            "tail": [
+              -0.5997984965952812,
+              0.9069153874512235,
+              0.15772520289783742
+            ]
+          },
+          {
+            "name": "RightHandRing1",
+            "parent": "RightHand",
+            "head": [
+              -0.5348546663611168,
+              0.9482436256105228,
+              0.10828315558858148
+            ],
+            "tail": [
+              -0.5493894080420842,
+              0.9274912862366451,
+              0.12264910565846224
+            ]
+          },
+          {
+            "name": "RightHandRing2",
+            "parent": "RightHandRing1",
+            "head": [
+              -0.5493894080420842,
+              0.9274912862366451,
+              0.12264910565846224
+            ],
+            "tail": [
+              -0.5645191806673552,
+              0.9040759666575825,
+              0.1397205849992864
+            ]
+          },
+          {
+            "name": "RightHandRing3",
+            "parent": "RightHandRing2",
+            "head": [
+              -0.5645191806673552,
+              0.9040759666575825,
+              0.1397205849992864
+            ],
+            "tail": [
+              -0.5719619663172024,
+              0.8899363118505976,
+              0.1483274724680391
+            ]
+          },
+          {
+            "name": "RightHandPinky1",
+            "parent": "RightHand",
+            "head": [
+              -0.5126336408483017,
+              0.940265635012554,
+              0.10220224361664539
+            ],
+            "tail": [
+              -0.5216789044961396,
+              0.9231917158310562,
+              0.11073247029593448
+            ]
+          },
+          {
+            "name": "RightHandPinky2",
+            "parent": "RightHandPinky1",
+            "head": [
+              -0.5216789044961396,
+              0.9231917158310562,
+              0.11073247029593448
+            ],
+            "tail": [
+              -0.5298344562868159,
+              0.9073625489036012,
+              0.12387013625056001
+            ]
+          },
+          {
+            "name": "RightHandPinky3",
+            "parent": "RightHandPinky2",
+            "head": [
+              -0.5298344562868159,
+              0.9073625489036012,
+              0.12387013625056001
+            ],
+            "tail": [
+              -0.5337449688617084,
+              0.8947339396959666,
+              0.13151132298537357
+            ]
+          },
+          {
+            "name": "LeftUpLeg",
+            "parent": "Hips",
+            "head": [
+              0.1,
+              0.94,
+              0
+            ],
+            "tail": [
+              0.1,
+              0.499999985181815,
+              -8.673617379884035e-19
+            ]
+          },
+          {
+            "name": "LeftLeg",
+            "parent": "LeftUpLeg",
+            "head": [
+              0.1,
+              0.499999985181815,
+              -8.673617379884035e-19
+            ],
+            "tail": [
+              0.09999999999999999,
+              0.07999997104419632,
+              -5.204170427930421e-18
+            ]
+          },
+          {
+            "name": "LeftFoot",
+            "parent": "LeftLeg",
+            "head": [
+              0.09999999999999999,
+              0.07999997104419632,
+              -5.204170427930421e-18
+            ],
+            "tail": [
+              0.1,
+              0.024999973673148213,
+              0.1399999933081224
+            ]
+          },
+          {
+            "name": "LeftToeBase",
+            "parent": "LeftFoot",
+            "head": [
+              0.1,
+              0.024999973673148213,
+              0.1399999933081224
+            ],
+            "tail": [
+              0.1,
+              0.10499997367314821,
+              0.1399999933081224
+            ]
+          },
+          {
+            "name": "RightUpLeg",
+            "parent": "Hips",
+            "head": [
+              -0.1,
+              0.94,
+              0
+            ],
+            "tail": [
+              -0.1,
+              0.499999985181815,
+              -8.673617379884035e-19
+            ]
+          },
+          {
+            "name": "RightLeg",
+            "parent": "RightUpLeg",
+            "head": [
+              -0.1,
+              0.499999985181815,
+              -8.673617379884035e-19
+            ],
+            "tail": [
+              -0.09999999999999999,
+              0.07999997104419632,
+              -5.204170427930421e-18
+            ]
+          },
+          {
+            "name": "RightFoot",
+            "parent": "RightLeg",
+            "head": [
+              -0.09999999999999999,
+              0.07999997104419632,
+              -5.204170427930421e-18
+            ],
+            "tail": [
+              -0.1,
+              0.024999973673148213,
+              0.1399999933081224
+            ]
+          },
+          {
+            "name": "RightToeBase",
+            "parent": "RightFoot",
+            "head": [
+              -0.1,
+              0.024999973673148213,
+              0.1399999933081224
+            ],
+            "tail": [
+              -0.1,
+              0.10499997367314821,
+              0.1399999933081224
+            ]
+          },
+          {
+            "name": "LeftForearmPronation",
+            "parent": "LeftForeArm",
+            "head": [
+              0.3752224109246446,
+              1.2146069841040996,
+              -0.03609639665364438
+            ],
+            "tail": [
+              0.48999999109253767,
+              1.0250000123776546,
+              0.08999999491712267
+            ]
+          },
+          {
+            "name": "RightForearmPronation",
+            "parent": "RightForeArm",
+            "head": [
+              -0.3752224109246446,
+              1.2146069841040996,
+              -0.03609639665364438
+            ],
+            "tail": [
+              -0.48999999109253767,
+              1.0250000123776546,
+              0.08999999491712267
+            ]
+          }
+        ],
+        "original": {
+          "positions": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc",
+          "normals": "31edceb17c1d9e6faf2efb2d7851d7c7bc9a00031aba2f9d88e325d56cbbca27",
+          "uv": "06e12852c33ee554e40b5c3b6605c58b5353be162f2552e4d5cd3672b61d3bdb",
+          "triangles": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132",
+          "images": [
+            "87169091ebce50459cd2edd93aa8b72cc5947abf1624f0d77db31c7c0e6d2def",
+            "aeb14e2deb59a03daeb5f7b0b27d663caa621be379863189d508f9c51917b6c2",
+            "8330d299eda21f773379a197dd773d0cf95fd83c22badded63bd20fc3fb15180"
+          ]
+        }
+      }
+    },
+    "heat-solve.json": {
+      "sha256": "c8f23a6d46b521cf636348e15cc18805714e2ab336ea466917368f3ed70634f6",
+      "data": {
+        "weightsValid": true,
+        "accepted": false,
+        "activated": false,
+        "scope": "Structural simplex validity only. Frozen-pose source-weight trial, not full-animation or appearance acceptance.",
+        "upstream": {
+          "base": ".local/rig-candidates/approved-source-cp-h01-geodesic-input",
+          "assetSha256": "2deb7e512a2885d2cecc591e3c520d54c25fd46e04a7cfff9284fbe7827ef6cd",
+          "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-fit-v7.json",
+          "poseSha256": "99b80ef186a396c0df79f2061ffe28d0a41abb53cccbf6bf40073d8fc63d1327",
+          "inputHashes": {
+            "positions.bin": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc",
+            "triangles.bin": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132",
+            "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+            "protected.bin": "319bcf179ac369291bcd71d629ef1fbc89028821c2c07e9549d1528973722322",
+            "result-ids.bin": "37bdb9877fe64b46e329306735e7a6ce2b5a0a8f9dbda205da58f09075fff198",
+            "result-weights.bin": "119a29ea8689b81a06f58b3dada8f9eb8975146f18cdbad1fa63ca691399e1ff",
+            "feasibility-matrices.bin": "b594f4457a0a8658932aeb0409ec10cbf8757bde87d2bef2fd6819f61658fca1"
+          },
+          "outputWeightsSha256": "550640ea31da1cb576a34320db62c0973d3fffb6cb14440d64d9f7a5feb724a3",
+          "jointIdsChanged": false,
+          "protectedWeightsPreserved": true,
+          "initial": {
+            "p999": 2.917297533376623,
+            "maximum": 14.36347674475673,
+            "poses": [
+              {
+                "p999": 2.895557008528978,
+                "maximum": 14.36347674475673
+              },
+              {
+                "p999": 2.917297533376623,
+                "maximum": 14.36347674475673
+              }
+            ],
+            "edgesOverTarget": 105484,
+            "immutableEdgesOverTarget": 0
+          },
+          "final": {
+            "p999": 1.992208283578977,
+            "maximum": 5.51214476325321,
+            "poses": [
+              {
+                "p999": 1.9890195492000136,
+                "maximum": 3.7973307966077487
+              },
+              {
+                "p999": 1.992208283578977,
+                "maximum": 5.51214476325321
+              }
+            ],
+            "edgesOverTarget": 79931,
+            "immutableEdgesOverTarget": 0
+          },
+          "history": [
+            {
+              "iteration": 25,
+              "elapsedSeconds": 46.924954074958805,
+              "p999": 2.4774563375112777,
+              "maximum": 6.417427978645496,
+              "poses": [
+                {
+                  "p999": 2.4682144173193694,
+                  "maximum": 6.332469544768068
+                },
+                {
+                  "p999": 2.4774563375112777,
+                  "maximum": 6.417427978645496
+                }
+              ],
+              "edgesOverTarget": 115633,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 50,
+              "elapsedSeconds": 85.65903084399179,
+              "p999": 2.302664364631482,
+              "maximum": 6.033591538175511,
+              "poses": [
+                {
+                  "p999": 2.2932589413119064,
+                  "maximum": 5.781074896001776
+                },
+                {
+                  "p999": 2.302664364631482,
+                  "maximum": 6.033591538175511
+                }
+              ],
+              "edgesOverTarget": 111278,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 75,
+              "elapsedSeconds": 120.20742051798152,
+              "p999": 2.1707138512332196,
+              "maximum": 7.079235407376032,
+              "poses": [
+                {
+                  "p999": 2.1650010498175662,
+                  "maximum": 4.602249643479352
+                },
+                {
+                  "p999": 2.1707138512332196,
+                  "maximum": 7.079235407376032
+                }
+              ],
+              "edgesOverTarget": 101958,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 100,
+              "elapsedSeconds": 170.38371984200785,
+              "p999": 2.1162770037924883,
+              "maximum": 7.159612586261731,
+              "poses": [
+                {
+                  "p999": 2.1123014940355604,
+                  "maximum": 3.923015330383849
+                },
+                {
+                  "p999": 2.1162770037924883,
+                  "maximum": 7.159612586261731
+                }
+              ],
+              "edgesOverTarget": 92390,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 125,
+              "elapsedSeconds": 233.43877655500546,
+              "p999": 2.0527870477256247,
+              "maximum": 6.4427328603303655,
+              "poses": [
+                {
+                  "p999": 2.0476947831047223,
+                  "maximum": 3.9679029740388105
+                },
+                {
+                  "p999": 2.0527870477256247,
+                  "maximum": 6.4427328603303655
+                }
+              ],
+              "edgesOverTarget": 85499,
+              "immutableEdgesOverTarget": 0
+            },
+            {
+              "iteration": 150,
+              "elapsedSeconds": 297.54695264599286,
+              "p999": 1.992208283578977,
+              "maximum": 5.51214476325321,
+              "poses": [
+                {
+                  "p999": 1.9890195492000136,
+                  "maximum": 3.7973307966077487
+                },
+                {
+                  "p999": 1.992208283578977,
+                  "maximum": 5.51214476325321
+                }
+              ],
+              "edgesOverTarget": 79931,
+              "immutableEdgesOverTarget": 0
+            }
+          ],
+          "parameters": {
+            "algorithmVersion": 2,
+            "hero": "H01",
+            "wholeBody": true,
+            "iterations": 150,
+            "ratio": 1.49,
+            "cutFans": false
+          },
+          "continuation": null,
+          "stateHashes": {
+            "state-weights.npy": "9e66f564bc7ff6876ad04ab7412c20b88ccdf9b93035907ceea2e94157976a03",
+            "state-extrapolated.npy": "399ddbdf378fb8aad6b40e3300041cc525c609f7c6ff8b1e39901a53af671449",
+            "state-dual.npy": "8f66c7f93750ba7b8b60873dd26dc2816fe79d4ea89c36c89f979b42f758cd6b"
+          },
+          "accepted": false,
+          "activated": false,
+          "poseCount": 2,
+          "scope": "One-or-more frozen-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+        }
+      }
+    },
+    "export.json": {
+      "sha256": "c34b5bfcd9a03f0adf6ef345ab1addcf9eb03f08ffaed14f1a1d02f983bd528a",
+      "data": {
+        "hero": "H01",
+        "input": ".local/rig-candidates/approved-source-hand-h01-geodesic-v1/H01-C0-rigged.glb",
+        "inputSha256": "2deb7e512a2885d2cecc591e3c520d54c25fd46e04a7cfff9284fbe7827ef6cd",
+        "output": "/workspace/Tutien/.local/rig-candidates/approved-source-cp-h01-geodesic-v1-export/H01-C0-rigged.glb",
+        "outputSha256": "b98a23e2276600c6b54154487cf101a90009b9d5e88c50bf029f8534aafa63d0",
+        "originalPayloadPreserved": true,
+        "solver": {
+          "weightsValid": true,
+          "accepted": false,
+          "activated": false,
+          "scope": "Structural simplex validity only. Frozen-pose source-weight trial, not full-animation or appearance acceptance.",
+          "upstream": {
+            "base": ".local/rig-candidates/approved-source-cp-h01-geodesic-input",
+            "assetSha256": "2deb7e512a2885d2cecc591e3c520d54c25fd46e04a7cfff9284fbe7827ef6cd",
+            "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-fit-v7.json",
+            "poseSha256": "99b80ef186a396c0df79f2061ffe28d0a41abb53cccbf6bf40073d8fc63d1327",
+            "inputHashes": {
+              "positions.bin": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc",
+              "triangles.bin": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132",
+              "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+              "protected.bin": "319bcf179ac369291bcd71d629ef1fbc89028821c2c07e9549d1528973722322",
+              "result-ids.bin": "37bdb9877fe64b46e329306735e7a6ce2b5a0a8f9dbda205da58f09075fff198",
+              "result-weights.bin": "119a29ea8689b81a06f58b3dada8f9eb8975146f18cdbad1fa63ca691399e1ff",
+              "feasibility-matrices.bin": "b594f4457a0a8658932aeb0409ec10cbf8757bde87d2bef2fd6819f61658fca1"
+            },
+            "outputWeightsSha256": "550640ea31da1cb576a34320db62c0973d3fffb6cb14440d64d9f7a5feb724a3",
+            "jointIdsChanged": false,
+            "protectedWeightsPreserved": true,
+            "initial": {
+              "p999": 2.917297533376623,
+              "maximum": 14.36347674475673,
+              "poses": [
+                {
+                  "p999": 2.895557008528978,
+                  "maximum": 14.36347674475673
+                },
+                {
+                  "p999": 2.917297533376623,
+                  "maximum": 14.36347674475673
+                }
+              ],
+              "edgesOverTarget": 105484,
+              "immutableEdgesOverTarget": 0
+            },
+            "final": {
+              "p999": 1.992208283578977,
+              "maximum": 5.51214476325321,
+              "poses": [
+                {
+                  "p999": 1.9890195492000136,
+                  "maximum": 3.7973307966077487
+                },
+                {
+                  "p999": 1.992208283578977,
+                  "maximum": 5.51214476325321
+                }
+              ],
+              "edgesOverTarget": 79931,
+              "immutableEdgesOverTarget": 0
+            },
+            "history": [
+              {
+                "iteration": 25,
+                "elapsedSeconds": 46.924954074958805,
+                "p999": 2.4774563375112777,
+                "maximum": 6.417427978645496,
+                "poses": [
+                  {
+                    "p999": 2.4682144173193694,
+                    "maximum": 6.332469544768068
+                  },
+                  {
+                    "p999": 2.4774563375112777,
+                    "maximum": 6.417427978645496
+                  }
+                ],
+                "edgesOverTarget": 115633,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 50,
+                "elapsedSeconds": 85.65903084399179,
+                "p999": 2.302664364631482,
+                "maximum": 6.033591538175511,
+                "poses": [
+                  {
+                    "p999": 2.2932589413119064,
+                    "maximum": 5.781074896001776
+                  },
+                  {
+                    "p999": 2.302664364631482,
+                    "maximum": 6.033591538175511
+                  }
+                ],
+                "edgesOverTarget": 111278,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 75,
+                "elapsedSeconds": 120.20742051798152,
+                "p999": 2.1707138512332196,
+                "maximum": 7.079235407376032,
+                "poses": [
+                  {
+                    "p999": 2.1650010498175662,
+                    "maximum": 4.602249643479352
+                  },
+                  {
+                    "p999": 2.1707138512332196,
+                    "maximum": 7.079235407376032
+                  }
+                ],
+                "edgesOverTarget": 101958,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 100,
+                "elapsedSeconds": 170.38371984200785,
+                "p999": 2.1162770037924883,
+                "maximum": 7.159612586261731,
+                "poses": [
+                  {
+                    "p999": 2.1123014940355604,
+                    "maximum": 3.923015330383849
+                  },
+                  {
+                    "p999": 2.1162770037924883,
+                    "maximum": 7.159612586261731
+                  }
+                ],
+                "edgesOverTarget": 92390,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 125,
+                "elapsedSeconds": 233.43877655500546,
+                "p999": 2.0527870477256247,
+                "maximum": 6.4427328603303655,
+                "poses": [
+                  {
+                    "p999": 2.0476947831047223,
+                    "maximum": 3.9679029740388105
+                  },
+                  {
+                    "p999": 2.0527870477256247,
+                    "maximum": 6.4427328603303655
+                  }
+                ],
+                "edgesOverTarget": 85499,
+                "immutableEdgesOverTarget": 0
+              },
+              {
+                "iteration": 150,
+                "elapsedSeconds": 297.54695264599286,
+                "p999": 1.992208283578977,
+                "maximum": 5.51214476325321,
+                "poses": [
+                  {
+                    "p999": 1.9890195492000136,
+                    "maximum": 3.7973307966077487
+                  },
+                  {
+                    "p999": 1.992208283578977,
+                    "maximum": 5.51214476325321
+                  }
+                ],
+                "edgesOverTarget": 79931,
+                "immutableEdgesOverTarget": 0
+              }
+            ],
+            "parameters": {
+              "algorithmVersion": 2,
+              "hero": "H01",
+              "wholeBody": true,
+              "iterations": 150,
+              "ratio": 1.49,
+              "cutFans": false
+            },
+            "continuation": null,
+            "stateHashes": {
+              "state-weights.npy": "9e66f564bc7ff6876ad04ab7412c20b88ccdf9b93035907ceea2e94157976a03",
+              "state-extrapolated.npy": "399ddbdf378fb8aad6b40e3300041cc525c609f7c6ff8b1e39901a53af671449",
+              "state-dual.npy": "8f66c7f93750ba7b8b60873dd26dc2816fe79d4ea89c36c89f979b42f758cd6b"
+            },
+            "accepted": false,
+            "activated": false,
+            "poseCount": 2,
+            "scope": "One-or-more frozen-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+          }
+        },
+        "accepted": false,
+        "activated": false
+      }
+    }
+  }
+}

@@ -8,6 +8,12 @@ const hand = params.get("hand") ?? "R";
 const full = params.get("view") === "full";
 const candidate = params.get("candidate");
 const candidates = [
+  "approved-source-heat-h01-v3-diffuse40",
+  "approved-source-heat-h02-v3-largest8-body",
+  "approved-source-heat-h02-v3-diffuse40",
+  "approved-source-bind-h01-v3",
+  "approved-source-bind-h02-v3",
+  "approved-source-heat-h01-smooth20",
   "semantic-garment",
   "semantic-garment-v2",
   "semantic-garment-v3",
@@ -116,11 +122,13 @@ function setView(i) {
         [0, 0, distance],
         [(hand === "R" ? -1 : 1) * distance, distance * 0.15, 0],
         [0, distance * 0.23, -distance],
+        [distance*.65,distance*.10,distance*.76],
       ]
     : [
         [0, 0, 0.65],
         [(hand === "R" ? -1 : 1) * 0.55, 0.1, 0],
         [0, 0.15, -0.63],
+        [.4,.08,.5],
       ];
   camera.position.copy(center).add(new THREE.Vector3(...offsets[i]));
   camera.lookAt(center);
@@ -129,7 +137,7 @@ function setView(i) {
     " " +
     hand +
     " — " +
-    ["front", "side", "back"][i] +
+    ["front", "side", "back", "three-quarter"][i] +
     " · " +
     (params.has("rigged") ? "SOURCE MESH + CANDIDATE RIG" : "SOURCE GLB");
   draw();

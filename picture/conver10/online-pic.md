@@ -4738,7 +4738,7 @@ Nguồn: `production-H02-hold.png`, `docs/anim-report/conver10-redo/gemini-2026-
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:01:57 UTC+07:00**
 
-Nguồn: `H01-default-source-3_050.png`
+Nguồn: `H01-default-source-3_050.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-default-source-3_050.png`
 
 ## Ảnh 568
 
@@ -4746,7 +4746,7 @@ Nguồn: `H01-default-source-3_050.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:00 UTC+07:00**
 
-Nguồn: `H01-3.050-source-front.png`
+Nguồn: `H01-3.050-source-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-3.050-source-front.png`
 
 ## Ảnh 569
 
@@ -4754,7 +4754,7 @@ Nguồn: `H01-3.050-source-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:01 UTC+07:00**
 
-Nguồn: `H01-t0.png`
+Nguồn: `H01-t0.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-t0.png`
 
 ## Ảnh 570
 
@@ -4762,7 +4762,7 @@ Nguồn: `H01-t0.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:02 UTC+07:00**
 
-Nguồn: `H01-impact_0300.png`
+Nguồn: `H01-impact_0300.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-impact_0300.png`
 
 ## Ảnh 571
 
@@ -4770,7 +4770,7 @@ Nguồn: `H01-impact_0300.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:04 UTC+07:00**
 
-Nguồn: `H01-hidden_0750.png`
+Nguồn: `H01-hidden_0750.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-hidden_0750.png`
 
 ## Ảnh 572
 
@@ -4778,7 +4778,7 @@ Nguồn: `H01-hidden_0750.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:04 UTC+07:00**
 
-Nguồn: `H01-emerge_0800.png`
+Nguồn: `H01-emerge_0800.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-emerge_0800.png`
 
 ## Ảnh 573
 
@@ -4786,7 +4786,7 @@ Nguồn: `H01-emerge_0800.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:05 UTC+07:00**
 
-Nguồn: `H01-apex_0867.png`
+Nguồn: `H01-apex_0867.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-apex_0867.png`
 
 ## Ảnh 574
 
@@ -4794,7 +4794,7 @@ Nguồn: `H01-apex_0867.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:06 UTC+07:00**
 
-Nguồn: `H01-land_1000.png`
+Nguồn: `H01-land_1000.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-land_1000.png`
 
 ## Ảnh 575
 
@@ -4802,7 +4802,7 @@ Nguồn: `H01-land_1000.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:07 UTC+07:00**
 
-Nguồn: `H01-settle_1083.png`
+Nguồn: `H01-settle_1083.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-settle_1083.png`
 
 ## Ảnh 576
 
@@ -4810,7 +4810,7 @@ Nguồn: `H01-settle_1083.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:07 UTC+07:00**
 
-Nguồn: `H01-crouch_1300.png`
+Nguồn: `H01-crouch_1300.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-crouch_1300.png`
 
 ## Ảnh 577
 
@@ -4818,7 +4818,7 @@ Nguồn: `H01-crouch_1300.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:08 UTC+07:00**
 
-Nguồn: `H01-crouch_end_1583.png`
+Nguồn: `H01-crouch_end_1583.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-crouch_end_1583.png`
 
 ## Ảnh 578
 
@@ -4826,7 +4826,7 @@ Nguồn: `H01-crouch_end_1583.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:09 UTC+07:00**
 
-Nguồn: `H01-rise_1800.png`
+Nguồn: `H01-rise_1800.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-rise_1800.png`
 
 ## Ảnh 579
 
@@ -4834,7 +4834,7 @@ Nguồn: `H01-rise_1800.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:10 UTC+07:00**
 
-Nguồn: `H01-open_2033.png`
+Nguồn: `H01-open_2033.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-open_2033.png`
 
 ## Ảnh 580
 
@@ -4842,7 +4842,7 @@ Nguồn: `H01-open_2033.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:10 UTC+07:00**
 
-Nguồn: `H01-contact_2200.png`
+Nguồn: `H01-contact_2200.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-contact_2200.png`
 
 ## Ảnh 581
 
@@ -4850,7 +4850,7 @@ Nguồn: `H01-contact_2200.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:11 UTC+07:00**
 
-Nguồn: `H01-close_2367.png`
+Nguồn: `H01-close_2367.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-close_2367.png`
 
 ## Ảnh 582
 
@@ -4858,7 +4858,7 @@ Nguồn: `H01-close_2367.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:12 UTC+07:00**
 
-Nguồn: `H01-stand_2417.png`
+Nguồn: `H01-stand_2417.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-stand_2417.png`
 
 ## Ảnh 583
 
@@ -4866,7 +4866,7 @@ Nguồn: `H01-stand_2417.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:12 UTC+07:00**
 
-Nguồn: `H01-stamp_2800.png`
+Nguồn: `H01-stamp_2800.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-stamp_2800.png`
 
 ## Ảnh 584
 
@@ -4874,7 +4874,7 @@ Nguồn: `H01-stamp_2800.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:13 UTC+07:00**
 
-Nguồn: `H01-pre_switch_2990.png`
+Nguồn: `H01-pre_switch_2990.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-pre_switch_2990.png`
 
 ## Ảnh 585
 
@@ -4882,7 +4882,7 @@ Nguồn: `H01-pre_switch_2990.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:14 UTC+07:00**
 
-Nguồn: `H01-hold_3050.png`
+Nguồn: `H01-hold_3050.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-hold_3050.png`
 
 ## Ảnh 586
 
@@ -4890,7 +4890,7 @@ Nguồn: `H01-hold_3050.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:15 UTC+07:00**
 
-Nguồn: `H01-idle_4050.png`
+Nguồn: `H01-idle_4050.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-idle_4050.png`
 
 ## Ảnh 587
 
@@ -4898,7 +4898,7 @@ Nguồn: `H01-idle_4050.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:16 UTC+07:00**
 
-Nguồn: `H01-1.300-surface-front.png`
+Nguồn: `H01-1.300-surface-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-1.300-surface-front.png`
 
 ## Ảnh 588
 
@@ -4906,7 +4906,7 @@ Nguồn: `H01-1.300-surface-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:17 UTC+07:00**
 
-Nguồn: `H01-1.300-surface-side.png`
+Nguồn: `H01-1.300-surface-side.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-1.300-surface-side.png`
 
 ## Ảnh 589
 
@@ -4914,7 +4914,7 @@ Nguồn: `H01-1.300-surface-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:18 UTC+07:00**
 
-Nguồn: `H01-1.300-surface-back.png`
+Nguồn: `H01-1.300-surface-back.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-1.300-surface-back.png`
 
 ## Ảnh 590
 
@@ -4922,7 +4922,7 @@ Nguồn: `H01-1.300-surface-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:19 UTC+07:00**
 
-Nguồn: `H01-1.300-bones-front.png`
+Nguồn: `H01-1.300-bones-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-1.300-bones-front.png`
 
 ## Ảnh 591
 
@@ -4930,7 +4930,7 @@ Nguồn: `H01-1.300-bones-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 12:02:20 UTC+07:00**
 
-Nguồn: `H01-1.300-bones-side.png`
+Nguồn: `H01-1.300-bones-side.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-1.300-bones-side.png`
 
 ## Ảnh 592
 
@@ -4938,7 +4938,7 @@ Nguồn: `H01-1.300-bones-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:18 UTC+07:00**
 
-Nguồn: `H01-3.050-bones-front.png`
+Nguồn: `H01-3.050-bones-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-3.050-bones-front.png`
 
 ## Ảnh 593
 
@@ -4946,7 +4946,7 @@ Nguồn: `H01-3.050-bones-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:20 UTC+07:00**
 
-Nguồn: `H01-3.050-bones-side-RightHand.png`
+Nguồn: `H01-3.050-bones-side-RightHand.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-3.050-bones-side-RightHand.png`
 
 ## Ảnh 594
 
@@ -4954,7 +4954,7 @@ Nguồn: `H01-3.050-bones-side-RightHand.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:20 UTC+07:00**
 
-Nguồn: `H01-3.050-bones-side.png`
+Nguồn: `H01-3.050-bones-side.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-3.050-bones-side.png`
 
 ## Ảnh 595
 
@@ -4962,7 +4962,7 @@ Nguồn: `H01-3.050-bones-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:21 UTC+07:00**
 
-Nguồn: `H01-3.050-surface-back.png`
+Nguồn: `H01-3.050-surface-back.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-3.050-surface-back.png`
 
 ## Ảnh 596
 
@@ -4970,7 +4970,7 @@ Nguồn: `H01-3.050-surface-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:21 UTC+07:00**
 
-Nguồn: `H01-3.050-surface-front-RightHand.png`
+Nguồn: `H01-3.050-surface-front-RightHand.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-3.050-surface-front-RightHand.png`
 
 ## Ảnh 597
 
@@ -4978,7 +4978,7 @@ Nguồn: `H01-3.050-surface-front-RightHand.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:21 UTC+07:00**
 
-Nguồn: `H01-3.050-surface-front.png`
+Nguồn: `H01-3.050-surface-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-3.050-surface-front.png`
 
 ## Ảnh 598
 
@@ -4986,7 +4986,7 @@ Nguồn: `H01-3.050-surface-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:22 UTC+07:00**
 
-Nguồn: `H01-3.050-surface-side.png`
+Nguồn: `H01-3.050-surface-side.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-3.050-surface-side.png`
 
 ## Ảnh 599
 
@@ -4994,7 +4994,7 @@ Nguồn: `H01-3.050-surface-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:22 UTC+07:00**
 
-Nguồn: `H01-source-after-toggle.png`
+Nguồn: `H01-source-after-toggle.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H01-source-after-toggle.png`
 
 ## Ảnh 600
 
@@ -5002,7 +5002,7 @@ Nguồn: `H01-source-after-toggle.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:23 UTC+07:00**
 
-Nguồn: `H02-1.300-bones-front.png`
+Nguồn: `H02-1.300-bones-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-1.300-bones-front.png`
 
 ## Ảnh 601
 
@@ -5010,7 +5010,7 @@ Nguồn: `H02-1.300-bones-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:23 UTC+07:00**
 
-Nguồn: `H02-1.300-bones-side.png`
+Nguồn: `H02-1.300-bones-side.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-1.300-bones-side.png`
 
 ## Ảnh 602
 
@@ -5018,7 +5018,7 @@ Nguồn: `H02-1.300-bones-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:24 UTC+07:00**
 
-Nguồn: `H02-1.300-surface-back.png`
+Nguồn: `H02-1.300-surface-back.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-1.300-surface-back.png`
 
 ## Ảnh 603
 
@@ -5026,7 +5026,7 @@ Nguồn: `H02-1.300-surface-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:24 UTC+07:00**
 
-Nguồn: `H02-1.300-surface-front.png`
+Nguồn: `H02-1.300-surface-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-1.300-surface-front.png`
 
 ## Ảnh 604
 
@@ -5034,7 +5034,7 @@ Nguồn: `H02-1.300-surface-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:25 UTC+07:00**
 
-Nguồn: `H02-1.300-surface-side.png`
+Nguồn: `H02-1.300-surface-side.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-1.300-surface-side.png`
 
 ## Ảnh 605
 
@@ -5042,7 +5042,7 @@ Nguồn: `H02-1.300-surface-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:25 UTC+07:00**
 
-Nguồn: `H02-3.050-bones-front.png`
+Nguồn: `H02-3.050-bones-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-3.050-bones-front.png`
 
 ## Ảnh 606
 
@@ -5050,7 +5050,7 @@ Nguồn: `H02-3.050-bones-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:26 UTC+07:00**
 
-Nguồn: `H02-3.050-bones-side-LeftHand.png`
+Nguồn: `H02-3.050-bones-side-LeftHand.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-3.050-bones-side-LeftHand.png`
 
 ## Ảnh 607
 
@@ -5058,7 +5058,7 @@ Nguồn: `H02-3.050-bones-side-LeftHand.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:26 UTC+07:00**
 
-Nguồn: `H02-3.050-bones-side.png`
+Nguồn: `H02-3.050-bones-side.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-3.050-bones-side.png`
 
 ## Ảnh 608
 
@@ -5066,7 +5066,7 @@ Nguồn: `H02-3.050-bones-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:27 UTC+07:00**
 
-Nguồn: `H02-3.050-source-front.png`
+Nguồn: `H02-3.050-source-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-3.050-source-front.png`
 
 ## Ảnh 609
 
@@ -5074,7 +5074,7 @@ Nguồn: `H02-3.050-source-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:27 UTC+07:00**
 
-Nguồn: `H02-3.050-surface-back.png`
+Nguồn: `H02-3.050-surface-back.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-3.050-surface-back.png`
 
 ## Ảnh 610
 
@@ -5082,7 +5082,7 @@ Nguồn: `H02-3.050-surface-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:27 UTC+07:00**
 
-Nguồn: `H02-3.050-surface-front-LeftHand.png`
+Nguồn: `H02-3.050-surface-front-LeftHand.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-3.050-surface-front-LeftHand.png`
 
 ## Ảnh 611
 
@@ -5090,7 +5090,7 @@ Nguồn: `H02-3.050-surface-front-LeftHand.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:28 UTC+07:00**
 
-Nguồn: `H02-3.050-surface-front.png`
+Nguồn: `H02-3.050-surface-front.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-3.050-surface-front.png`
 
 ## Ảnh 612
 
@@ -5098,7 +5098,7 @@ Nguồn: `H02-3.050-surface-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:28 UTC+07:00**
 
-Nguồn: `H02-3.050-surface-side.png`
+Nguồn: `H02-3.050-surface-side.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-3.050-surface-side.png`
 
 ## Ảnh 613
 
@@ -5106,7 +5106,7 @@ Nguồn: `H02-3.050-surface-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:29 UTC+07:00**
 
-Nguồn: `H02-apex_0867.png`
+Nguồn: `H02-apex_0867.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-apex_0867.png`
 
 ## Ảnh 614
 
@@ -5114,7 +5114,7 @@ Nguồn: `H02-apex_0867.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:29 UTC+07:00**
 
-Nguồn: `H02-close_2367.png`
+Nguồn: `H02-close_2367.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-close_2367.png`
 
 ## Ảnh 615
 
@@ -5122,7 +5122,7 @@ Nguồn: `H02-close_2367.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:30 UTC+07:00**
 
-Nguồn: `H02-contact_2200.png`
+Nguồn: `H02-contact_2200.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-contact_2200.png`
 
 ## Ảnh 616
 
@@ -5130,7 +5130,7 @@ Nguồn: `H02-contact_2200.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:30 UTC+07:00**
 
-Nguồn: `H02-crouch_1300.png`
+Nguồn: `H02-crouch_1300.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-crouch_1300.png`
 
 ## Ảnh 617
 
@@ -5138,7 +5138,7 @@ Nguồn: `H02-crouch_1300.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:31 UTC+07:00**
 
-Nguồn: `H02-crouch_end_1583.png`
+Nguồn: `H02-crouch_end_1583.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-crouch_end_1583.png`
 
 ## Ảnh 618
 
@@ -5146,7 +5146,7 @@ Nguồn: `H02-crouch_end_1583.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:31 UTC+07:00**
 
-Nguồn: `H02-default-source-3_050.png`
+Nguồn: `H02-default-source-3_050.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-default-source-3_050.png`
 
 ## Ảnh 619
 
@@ -5154,7 +5154,7 @@ Nguồn: `H02-default-source-3_050.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:32 UTC+07:00**
 
-Nguồn: `H02-emerge_0800.png`
+Nguồn: `H02-emerge_0800.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-emerge_0800.png`
 
 ## Ảnh 620
 
@@ -5162,7 +5162,7 @@ Nguồn: `H02-emerge_0800.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:32 UTC+07:00**
 
-Nguồn: `H02-hidden_0750.png`
+Nguồn: `H02-hidden_0750.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-hidden_0750.png`
 
 ## Ảnh 621
 
@@ -5170,7 +5170,7 @@ Nguồn: `H02-hidden_0750.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:33 UTC+07:00**
 
-Nguồn: `H02-hold_3050.png`
+Nguồn: `H02-hold_3050.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-hold_3050.png`
 
 ## Ảnh 622
 
@@ -5178,7 +5178,7 @@ Nguồn: `H02-hold_3050.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:33 UTC+07:00**
 
-Nguồn: `H02-idle_4050.png`
+Nguồn: `H02-idle_4050.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-idle_4050.png`
 
 ## Ảnh 623
 
@@ -5186,7 +5186,7 @@ Nguồn: `H02-idle_4050.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:33 UTC+07:00**
 
-Nguồn: `H02-impact_0300.png`
+Nguồn: `H02-impact_0300.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-impact_0300.png`
 
 ## Ảnh 624
 
@@ -5194,7 +5194,7 @@ Nguồn: `H02-impact_0300.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:34 UTC+07:00**
 
-Nguồn: `H02-land_1000.png`
+Nguồn: `H02-land_1000.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-land_1000.png`
 
 ## Ảnh 625
 
@@ -5202,7 +5202,7 @@ Nguồn: `H02-land_1000.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:35 UTC+07:00**
 
-Nguồn: `H02-open_2033.png`
+Nguồn: `H02-open_2033.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-open_2033.png`
 
 ## Ảnh 626
 
@@ -5210,7 +5210,7 @@ Nguồn: `H02-open_2033.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:35 UTC+07:00**
 
-Nguồn: `H02-pre_switch_2990.png`
+Nguồn: `H02-pre_switch_2990.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-pre_switch_2990.png`
 
 ## Ảnh 627
 
@@ -5218,7 +5218,7 @@ Nguồn: `H02-pre_switch_2990.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:36 UTC+07:00**
 
-Nguồn: `H02-rise_1800.png`
+Nguồn: `H02-rise_1800.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-rise_1800.png`
 
 ## Ảnh 628
 
@@ -5226,7 +5226,7 @@ Nguồn: `H02-rise_1800.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:37 UTC+07:00**
 
-Nguồn: `H02-settle_1083.png`
+Nguồn: `H02-settle_1083.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-settle_1083.png`
 
 ## Ảnh 629
 
@@ -5234,7 +5234,7 @@ Nguồn: `H02-settle_1083.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:37 UTC+07:00**
 
-Nguồn: `H02-source-after-toggle.png`
+Nguồn: `H02-source-after-toggle.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-source-after-toggle.png`
 
 ## Ảnh 630
 
@@ -5242,7 +5242,7 @@ Nguồn: `H02-source-after-toggle.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:37 UTC+07:00**
 
-Nguồn: `H02-stamp_2800.png`
+Nguồn: `H02-stamp_2800.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-stamp_2800.png`
 
 ## Ảnh 631
 
@@ -5250,7 +5250,7 @@ Nguồn: `H02-stamp_2800.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:38 UTC+07:00**
 
-Nguồn: `H02-stand_2417.png`
+Nguồn: `H02-stand_2417.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-stand_2417.png`
 
 ## Ảnh 632
 
@@ -5258,7 +5258,7 @@ Nguồn: `H02-stand_2417.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:38 UTC+07:00**
 
-Nguồn: `H02-t0.png`
+Nguồn: `H02-t0.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/H02-t0.png`
 
 ## Ảnh 633
 
@@ -5266,7 +5266,7 @@ Nguồn: `H02-t0.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:39 UTC+07:00**
 
-Nguồn: `combat-H01-attack.png`
+Nguồn: `combat-H01-attack.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/combat-H01-attack.png`
 
 ## Ảnh 634
 
@@ -5274,7 +5274,7 @@ Nguồn: `combat-H01-attack.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:39 UTC+07:00**
 
-Nguồn: `combat-H01-idle.png`
+Nguồn: `combat-H01-idle.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/combat-H01-idle.png`
 
 ## Ảnh 635
 
@@ -5282,7 +5282,7 @@ Nguồn: `combat-H01-idle.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:40 UTC+07:00**
 
-Nguồn: `combat-H02-Q.png`
+Nguồn: `combat-H02-Q.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/combat-H02-Q.png`
 
 ## Ảnh 636
 
@@ -5290,7 +5290,7 @@ Nguồn: `combat-H02-Q.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:40 UTC+07:00**
 
-Nguồn: `combat-H02-idle.png`
+Nguồn: `combat-H02-idle.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/combat-H02-idle.png`
 
 ## Ảnh 637
 
@@ -5298,7 +5298,7 @@ Nguồn: `combat-H02-idle.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:41 UTC+07:00**
 
-Nguồn: `combat-H02-run.png`
+Nguồn: `combat-H02-run.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/combat-H02-run.png`
 
 ## Ảnh 638
 
@@ -5306,7 +5306,7 @@ Nguồn: `combat-H02-run.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:41 UTC+07:00**
 
-Nguồn: `worker-H01-default.png`
+Nguồn: `worker-H01-default.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/worker-H01-default.png`
 
 ## Ảnh 639
 
@@ -5314,7 +5314,7 @@ Nguồn: `worker-H01-default.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:42 UTC+07:00**
 
-Nguồn: `worker-H01-motion-button.png`
+Nguồn: `worker-H01-motion-button.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/worker-H01-motion-button.png`
 
 ## Ảnh 640
 
@@ -5322,7 +5322,7 @@ Nguồn: `worker-H01-motion-button.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:42 UTC+07:00**
 
-Nguồn: `worker-H02-default.png`
+Nguồn: `worker-H02-default.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/worker-H02-default.png`
 
 ## Ảnh 641
 
@@ -5330,7 +5330,7 @@ Nguồn: `worker-H02-default.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:36:43 UTC+07:00**
 
-Nguồn: `worker-H02-motion-button.png`
+Nguồn: `worker-H02-motion-button.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/worker-H02-motion-button.png`
 
 ## Ảnh 642
 
@@ -5338,7 +5338,7 @@ Nguồn: `worker-H02-motion-button.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:39:48 UTC+07:00**
 
-Nguồn: `hip-height-reference-vs-apk.png`
+Nguồn: `hip-height-reference-vs-apk.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/hip-height-reference-vs-apk.png`
 
 ## Ảnh 643
 
@@ -5346,7 +5346,7 @@ Nguồn: `hip-height-reference-vs-apk.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:46:46 UTC+07:00**
 
-Nguồn: `worker-verified-H01-default.png`
+Nguồn: `worker-verified-H01-default.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/worker-verified-H01-default.png`
 
 ## Ảnh 644
 
@@ -5354,7 +5354,7 @@ Nguồn: `worker-verified-H01-default.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:46:47 UTC+07:00**
 
-Nguồn: `worker-verified-H01-motion-button.png`
+Nguồn: `worker-verified-H01-motion-button.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/worker-verified-H01-motion-button.png`
 
 ## Ảnh 645
 
@@ -5362,7 +5362,7 @@ Nguồn: `worker-verified-H01-motion-button.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:46:47 UTC+07:00**
 
-Nguồn: `worker-verified-H02-default.png`
+Nguồn: `worker-verified-H02-default.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/worker-verified-H02-default.png`
 
 ## Ảnh 646
 
@@ -5370,4 +5370,212 @@ Nguồn: `worker-verified-H02-default.png`
 
 **Thời gian đăng ký ảnh: 2026-10-21 16:46:47 UTC+07:00**
 
-Nguồn: `worker-verified-H02-motion-button.png`
+Nguồn: `worker-verified-H02-motion-button.png`, `docs/anim-report/conver10-gemini-audit-2026-10-21/worker-verified-H02-motion-button.png`
+
+## Ảnh 647
+
+![leg-support-side.png](../media/80f2186e62c21ad90dc61a40786e93494ba6ea82.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 21:46:40 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 648
+
+![stance-sheet.png](../media/7d22dbaa69e26846e3f5200d7b80ad40fabf2b3c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 21:53:30 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 649
+
+![leg-support-back.png](../media/cce9cf592f0f67249e048bbbbe5b0541488e405b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 21:56:03 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 650
+
+![leg-support-front.png](../media/c550d3fe33cef389d5ac55bb8fc194c10f3dc12a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 21:56:05 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 651
+
+![leg-support-side.png](../media/5c483723c06a06317c99e5e211a254686f938123.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 21:56:05 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 652
+
+![stance-sheet.png](../media/3ab4e669100eee67056ef6e76111a149a9b3198c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 21:56:05 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 653
+
+![leg-support-back.png](../media/84792b77c913f8ab60ba2ec489e3a3126ddcc85e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 21:56:06 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 654
+
+![leg-support-front.png](../media/1c5cda54cce84f77849ef58ecd4388d848adfc51.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 21:56:06 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 655
+
+![leg-support-back.png](../media/c751d598e2c5ee3b87a35b8afc100674e32ebe43.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:07:18 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 656
+
+![leg-support-front.png](../media/c60cef99fafc0ddbd59fa2dbeed04366fd247f3a.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:07:20 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 657
+
+![leg-support-side.png](../media/921be02d576d0d0101b1a484ca050c83ce154d05.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:07:20 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 658
+
+![leg-support-three-quarter.png](../media/42af662c185c77bdec8010cf5ee5dcde8edb6d2e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:07:21 UTC+07:00**
+
+Nguồn: `leg-support-three-quarter.png`
+
+## Ảnh 659
+
+![stance-sheet.png](../media/f26734577c804a9de86b09481ec98bd3e3a02dde.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:07:21 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 660
+
+![leg-support-back.png](../media/4836578921ddf5739d7fa5ccf03820c3b7d9a02b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:09:50 UTC+07:00**
+
+Nguồn: `leg-support-back.png`
+
+## Ảnh 661
+
+![leg-support-front.png](../media/2f8531e04f47b276c6f94bcbd8a692aee51df678.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:09:51 UTC+07:00**
+
+Nguồn: `leg-support-front.png`
+
+## Ảnh 662
+
+![leg-support-side.png](../media/664b2b6289d06d5cd5bcff08bc57ce2d6b29bdde.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:09:52 UTC+07:00**
+
+Nguồn: `leg-support-side.png`
+
+## Ảnh 663
+
+![leg-support-three-quarter.png](../media/a23c64995b0054c39d7322854c2811df7499d573.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:09:52 UTC+07:00**
+
+Nguồn: `leg-support-three-quarter.png`
+
+## Ảnh 664
+
+![stance-sheet.png](../media/5646d14d5646ccea73e59e054507a4d84026861e.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 22:09:53 UTC+07:00**
+
+Nguồn: `stance-sheet.png`
+
+## Ảnh 665
+
+![H01-front-bones.png](../media/5cd6b318067143723809ceabefa118dc378731a3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 23:07:05 UTC+07:00**
+
+Nguồn: `H01-front-bones.png`
+
+## Ảnh 666
+
+![H01-front-surface.png](../media/e07102f1387b210b8fe0bebc2e5524a1ef885742.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 23:07:07 UTC+07:00**
+
+Nguồn: `H01-front-surface.png`
+
+## Ảnh 667
+
+![H01-side-bones.png](../media/4d97ed32e7e58d699781a406113e3b8eba255a09.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 23:07:07 UTC+07:00**
+
+Nguồn: `H01-side-bones.png`
+
+## Ảnh 668
+
+![H01-three-quarter-bones.png](../media/4ce708e0859fb153634b0892fc46b3b8e2f68607.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 23:07:08 UTC+07:00**
+
+Nguồn: `H01-three-quarter-bones.png`
+
+## Ảnh 669
+
+![H02-front-bones.png](../media/0e2bd8d1f2b39bc670124e1fe22ea1e624f5e84b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 23:07:08 UTC+07:00**
+
+Nguồn: `H02-front-bones.png`
+
+## Ảnh 670
+
+![H02-front-surface.png](../media/0aa41dc937f3789312a51ee15d2d091151f6e50c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 23:07:08 UTC+07:00**
+
+Nguồn: `H02-front-surface.png`
+
+## Ảnh 671
+
+![H02-side-bones.png](../media/ac63f8b88f03b29de10612868ae45337614f8493.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 23:07:09 UTC+07:00**
+
+Nguồn: `H02-side-bones.png`
+
+## Ảnh 672
+
+![H02-three-quarter-bones.png](../media/3cfb0ec63a2c6f6feaf0fb5d09293bdd20d204f3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-21 23:07:09 UTC+07:00**
+
+Nguồn: `H02-three-quarter-bones.png`

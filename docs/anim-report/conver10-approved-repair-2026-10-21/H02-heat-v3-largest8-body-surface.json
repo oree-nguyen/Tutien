@@ -1,0 +1,43 @@
+{
+  "file": ".local/rig-candidates/approved-source-heat-h02-v3-largest8-body/H02-C0-rigged.glb",
+  "sha256": "300397362de39f62fec1b5f04fc98b1569e4922894f81b1996a64a6d7439c4f8",
+  "scope": "Staging key-pose diagnostics only; not animation/texture/provenance/contact/collision acceptance and not runtime activation",
+  "thresholds": {
+    "p999": 1.5,
+    "maximum": 2,
+    "minimumSourceEdge": 1e-12,
+    "minimumAreaRatio": 1e-12
+  },
+  "activated": false,
+  "accepted": false,
+  "poses": [
+    {
+      "name": "docs/anim-report/conver10-approved-repair-2026-10-21/H02-crouch-fit-v12.json",
+      "sha256": "2c2fe96827136a84517606bfb3b0d656eb255cc67ce62964a42e54e6fd80c6c7",
+      "upstreamPassed": true,
+      "meshes": [
+        {
+          "name": "H02_Tencent_Original_Body",
+          "primitive": 0,
+          "passed": false,
+          "p999": 10.863777512328463,
+          "maximum": 558.2416712380119,
+          "minimum": 0.006519930425486215,
+          "minimumAreaRatio": 0.0006693268470254404,
+          "collapsed": 0,
+          "minimumY": -0.03693689116719901,
+          "edges": 2390975,
+          "triangles": 1499746,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 524035,
+            "b": 524485,
+            "bindLength": 0.0003153272603129165,
+            "posedLength": 0.17602881678398616
+          }
+        }
+      ],
+      "skinPassed": false
+    }
+  ]
+}

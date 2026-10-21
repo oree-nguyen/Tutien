@@ -1,3 +1,4 @@
+import {showcaseState} from './showcase-state.js';
 import {getCharacterEnvironment} from './character-fidelity.js';
 import * as THREE from "three";
 import{loadTerrainTextureSet}from"./terrain-assets.js";
@@ -204,8 +205,18 @@ export class World {
     this.showcaseView = "full";
     this.showcaseYaw = Math.PI;
   }
+  inspectShowcase() {
+    return showcaseState(this.preview,this.showcaseAnimationMode);
+  }
   seekHeroEntrance(seconds) {
     this.preview?.traverse(node=>{if(node.userData.manualHunyuan)seekManualH01Entrance(node,seconds);});
+  }
+  setShowcaseAnimationMode(value) {
+    this.showcaseAnimationMode = !!value;
+    this.preview?.traverse(node => {
+      if (node.userData.manualHunyuan)
+        node.userData.previewAnimation = this.showcaseAnimationMode;
+    });
   }
   replayHeroEntrance() {
     let asset;this.preview?.traverse(n=>{if(n.userData.manualHunyuan)asset=n.userData.manualAsset;});

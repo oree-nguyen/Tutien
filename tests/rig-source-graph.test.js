@@ -27,3 +27,13 @@ test('offline mesh-floor residual agrees with independent source-vertex matrix s
  const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_mesh_foot_constraints.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
  assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 2 tests/);
 });
+
+test('screened source-field solver preserves disconnected surfaces and physical scale',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_diffuse_source_heat.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 3 tests/);
+});
+
+test('source forearm receives actual pronation support while hand flex and finger ownership remain separate',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_pronation_source_weights.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 2 tests/);
+});

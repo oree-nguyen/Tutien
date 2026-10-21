@@ -123,3 +123,80 @@ test("physically mirrored limbs report identical abduction and internal rotation
     ),
   );
 });
+
+test("a measured flexed rest hinge can straighten without weakening its physical limits", () => {
+  const bind = q([0, 1, 0], 25),
+    frame = q([0, 0, 1], 35),
+    restFlex = 40;
+  const pose = (degrees) =>
+    bind
+      .clone()
+      .multiply(frame)
+      .multiply(q([1, 0, 0], degrees - restFlex))
+      .multiply(frame.clone().invert());
+  assert.ok(
+    Math.abs(anatomicalAngles(bind, bind, frame, { restFlex }).flex - 40) <
+      1e-8,
+  );
+  assert.deepEqual(
+    inspectJoint(pose(0), bind, frame, table.elbow, { restFlex }),
+    [],
+  );
+  assert.ok(
+    inspectJoint(pose(-12), bind, frame, table.elbow, { restFlex }).some(
+      (v) => v.axis === "flex",
+    ),
+  );
+  const tooFar = pose(165);
+  assert.ok(
+    inspectJoint(tooFar, bind, frame, table.elbow, { restFlex }).some(
+      (v) => v.axis === "flex",
+    ),
+  );
+  assert.equal(
+    clampJoint(tooFar, bind, frame, table.elbow, { restFlex }),
+    true,
+  );
+  assert.ok(
+    Math.abs(
+      anatomicalAngles(tooFar, bind, frame, { restFlex }).flex -
+        table.elbow.flex[1],
+    ) < 1e-7,
+  );
+  assert.throws(
+    () => anatomicalAngles(bind, bind, frame, { restFlex: NaN }),
+    /rest flexion/,
+  );
+});
+
+test("anatomical zero differs from A-pose and clamp retains that calibrated zero", () => {
+  const bind = q([0, 0, 1], 50),
+    zero = q([0, 0, 1], -25),
+    frame = q([0, 1, 0], 35),
+    options = {
+      anatomicalZero: zero.toArray(),
+      restFlex: 20,
+      lateralSign: -1,
+      twistSign: -1,
+    };
+  const pose = zero
+    .clone()
+    .multiply(frame)
+    .multiply(q([1, 0, 0], 40))
+    .multiply(q([0, 1, 0], -15))
+    .multiply(frame.clone().invert());
+  const measured = anatomicalAngles(pose, bind, frame, options);
+  assert.ok(Math.abs(measured.flex - 60) < 1e-7);
+  assert.ok(Math.abs(measured.twist - 15) < 1e-7);
+  const bounds = { flex: [0, 45], lateral: [-20, 20], twist: [-10, 10] };
+  assert.ok(inspectJoint(pose, bind, frame, bounds, options).length === 2);
+  assert.equal(clampJoint(pose, bind, frame, bounds, options), true);
+  const result = anatomicalAngles(pose, bind, frame, options);
+  assert.ok(Math.abs(result.flex - 45) < 1e-7);
+  assert.ok(Math.abs(result.twist - 10) < 1e-7);
+  assert.deepEqual(inspectJoint(pose, bind, frame, bounds, options), []);
+  assert.throws(
+    () => anatomicalAngles(bind, bind, frame, { anatomicalZero: [0, 0, 0, 2] }),
+    /zero rotation/,
+  );
+});

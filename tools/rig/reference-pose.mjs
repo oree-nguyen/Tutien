@@ -43,6 +43,8 @@ export class ReferencePose {
         tolerance: this.limits.tolerance,
         lateralSign: frame.lateralSign,
         twistSign: frame.twistSign,
+        restFlex: frame.restFlex ?? 0,
+        anatomicalZero: frame.anatomicalZero,
         finger: frame.type.startsWith("finger"),
       },
     );
@@ -79,7 +81,9 @@ export class ReferencePose {
           .multiply(
             new Quaternion().setFromAxisAngle(
               new Vector3(1, 0, 0),
-              MathUtils.degToRad(theta),
+              MathUtils.degToRad(
+                theta - (this.frames[fore.getName()].restFlex ?? 0),
+              ),
             ),
           )
           .multiply(canonicalInverse)
