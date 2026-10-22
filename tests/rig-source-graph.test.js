@@ -35,5 +35,10 @@ test('screened source-field solver preserves disconnected surfaces and physical 
 
 test('source forearm receives actual pronation support while hand flex and finger ownership remain separate',()=>{
  const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_pronation_source_weights.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
- assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 2 tests/);
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 4 tests/);
+});
+
+test('source boot underside rejects shin leakage without taking ownership of nearby cloth or hand vertices',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_source_boot_weights.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 3 tests/);
 });

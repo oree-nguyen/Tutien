@@ -4,6 +4,8 @@
 
 [Goal chi tiết](../../../goal/rig-animation.md) · [23 cổng và nguồn SHA](../../../acceptance/goals/rig-animation-gemini.json) · [Kết quả goal gần nhất](goal-latest.json) · [65 yêu cầu → cổng kiểm](REQUIREMENT-GATES.md) · [Quyết định kỹ thuật](DECISIONS.md) · [Ảnh nguyên byte trên Git](../../../picture/conver10/online-pic.md).
 
+**Vòng tiếp — [ủng và cổ tay](BOOT-WRIST.md):** đã fit tiếp xúc sàn trên bề mặt source và giữ seed/đế trong các vòng weight tiếp. Full source sau CP600 vẫn trượt maxstrain và kiểm hình ảnh; không thay vào game. `npm test`336/336, `test:master`215/215; `verify:master`0/37. Chưa chạy lại build/APK trong vòng này vì điều kiện rig trước phát hành chưa đạt. Các số đo/bằng chứng của checkpoint trước vẫn được giữ bên dưới như lịch sử.
+
 ## Phạm vi và nguồn
 
 Tiếp tục từ `bbef21f36c7324d005b851f4a92fac54a0f81981`, sau khi người dùng duyệt mục 13 của [audit](../conver10-gemini-audit-2026-10-21/README.md). Hai DOCX gốc được giữ nguyên để có thể chạy lại kiểm SHA trên một checkout mới:

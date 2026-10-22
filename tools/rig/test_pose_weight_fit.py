@@ -140,6 +140,54 @@ class MultiPoseCoefficients(unittest.TestCase):
 
 
 class WeightedProjection(unittest.TestCase):
+    def test_free_operator_steps_obey_independent_spectral_bound_without_fixed_slot_inflation(
+        self,
+    ):
+        from pose_weight_fit import diagonal_steps
+
+        rng = np.random.default_rng(12)
+        coeff = rng.normal(size=(2, 4, 4, 3))
+        edges = np.array([[0, 1], [1, 2], [2, 3]])
+        length = np.array([0.1, 0.2, 0.3])
+        free = np.array([False, True, True, False])
+        coeff[:, ~free] *= 1e8
+        tau, sigma, _ = diagonal_steps(coeff, edges, length, free)
+        # Assemble the Jacobian independently, omitting every locked column.
+        variables = [(v, k) for v in np.flatnonzero(free) for k in range(4)]
+        operator = np.zeros((2 * len(edges) * 3, len(variables)))
+        for pose in range(2):
+            for e, (a, b) in enumerate(edges):
+                for c, (v, k) in enumerate(variables):
+                    if v == a:
+                        operator[
+                            (pose * len(edges) + e)
+                            * 3 : (pose * len(edges) + e + 1)
+                            * 3,
+                            c,
+                        ] += (
+                            coeff[pose, v, k] / length[e]
+                        )
+                    if v == b:
+                        operator[
+                            (pose * len(edges) + e)
+                            * 3 : (pose * len(edges) + e + 1)
+                            * 3,
+                            c,
+                        ] -= (
+                            coeff[pose, v, k] / length[e]
+                        )
+        scaled = (
+            np.sqrt(np.repeat(sigma, 3).reshape(-1, 1))
+            * operator
+            * np.sqrt(tau[free].reshape(1, -1))
+        )
+        self.assertLess(np.linalg.svd(scaled, compute_uv=False)[0], 1)
+        baseline = sigma.copy()
+        coeff[:, ~free] *= 1e8
+        np.testing.assert_array_equal(
+            diagonal_steps(coeff, edges, length, free)[1], baseline
+        )
+
     def test_weighted_projection_satisfies_independent_kkt_and_equal_steps_limit(self):
         from pose_weight_fit import weighted_simplex
 

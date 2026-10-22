@@ -1,0 +1,79 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cones-h02-v2",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "solve.json": {
+      "sha256": "c70b5248d0e3803d39b9e4052a1d0dd5eba872128e8035b0e2e9247dd578221c",
+      "data": {
+        "base": ".local/rig-candidates/approved-source-cp-h02-wrist-input",
+        "assetSha256": "761e7f7cfc9126e7dd5bec70b82573404d5f72dd6bcbaacc9b044ef980c07fa8",
+        "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H02-crouch-floor-v1.json",
+        "poseSha256": "b2557bb8d2b2c3742db1a4ded1c460d00fb4cb0cee6a6a8a9c67464ab014995b",
+        "inputHashes": {
+          "positions.bin": "6a0ed81d0843c617af633b2de159f0fa93c369dd2bc75bebc1706e4199b77fba",
+          "triangles.bin": "adbd323a377176a0ac942b6b4e648578c95d0b4f6aecc1a01f8ffbd1c849bee7",
+          "source-welds.u32bin": "dc27113f08ec5dd967f8a56bfad923b893d97753e95eb2cd0647a1da506643be",
+          "protected.bin": "4337cbca5a519e99668b8b26b10718a36be6346078eee71f46a6007f7107332c",
+          "result-ids.bin": "d8f408ff2700d38bec8ddcdb63b7340abaf339468d543a94bb95f71e192c5ade",
+          "result-weights.bin": "cc62014fa7278aa3653812a19aa2b4d92a451afe10a2e189e5ccff4fc47f9505",
+          "feasibility-matrices.bin": "26032228816351925d38c7b57afbe8b1f52216e81c9574fed845a5f3e53966c9"
+        },
+        "poseCount": 2,
+        "parameters": {
+          "hero": "H02",
+          "algorithmVersion": "local-source-cones-1",
+          "anatomicalZeroSlots": true
+        },
+        "parent": ".local/rig-candidates/approved-source-cp-h02-wrist-v1",
+        "parentSolveSha256": "7fac3044b1d6f56319db2c332f249a58a86049b8fe287440f4a82bba4f6e4425",
+        "scriptSha256": "a18c4d519b52ec274769363b69e268a1959508d3d148b841d017484d8d04e4b5",
+        "initial": {
+          "p999": 1.4971653644898604,
+          "maximum": 3.241119903287759,
+          "poses": [
+            {
+              "p999": 1.4971653644898604,
+              "maximum": 3.241119903287759
+            },
+            {
+              "p999": 1.4963139447237255,
+              "maximum": 3.241119903287759
+            }
+          ]
+        },
+        "attempts": [
+          {
+            "rings": 3,
+            "freeVertices": 666,
+            "constrainedEdges": 2196,
+            "status": "infeasible",
+            "error": null,
+            "seconds": 0.9914761849795468
+          },
+          {
+            "rings": 6,
+            "freeVertices": 1315,
+            "constrainedEdges": 4210,
+            "status": "infeasible",
+            "error": null,
+            "seconds": 1.820345998974517
+          },
+          {
+            "rings": 12,
+            "freeVertices": 3198,
+            "constrainedEdges": 10059,
+            "status": "infeasible",
+            "error": null,
+            "seconds": 4.5245963229681365
+          }
+        ],
+        "accepted": false,
+        "activated": false,
+        "outputWritten": false,
+        "zeroWeightSlotsChanged": 2784,
+        "scope": "Local maximum repair with every touched edge constrained on both poses; <=1.49 edges remain<=1.49, percentile-tail edges cannot worsen, worst edges capped1.95. Full all-source/readback skin/contact/animation gates remain mandatory."
+      }
+    }
+  }
+}

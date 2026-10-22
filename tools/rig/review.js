@@ -8,6 +8,12 @@ const hand = params.get("hand") ?? "R";
 const full = params.get("view") === "full";
 const candidate = params.get("candidate");
 const candidates = [
+  "approved-source-cp-h01-floor-v1",
+  "approved-source-cp-h02-floor-v1",
+  "approved-source-wrist-h01-v2",
+  "approved-source-wrist-h02-v2",
+  "approved-source-wrist-h01-v3",
+  "approved-source-wrist-h02-v3",
   "approved-source-heat-h01-v3-diffuse40",
   "approved-source-heat-h02-v3-largest8-body",
   "approved-source-heat-h02-v3-diffuse40",

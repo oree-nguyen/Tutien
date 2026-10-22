@@ -1,0 +1,71 @@
+{
+  "file": ".local/rig-candidates/approved-source-wrist-h01-v3/H01-C0-rigged.glb",
+  "sha256": "f136391759d2cba9b9c0a9d8813a24b857d3e67049324813bd76f0f31df1b6fd",
+  "scope": "Staging key-pose diagnostics only; not animation/texture/provenance/contact/collision acceptance and not runtime activation",
+  "thresholds": {
+    "p999": 1.5,
+    "maximum": 2,
+    "minimumSourceEdge": 1e-12,
+    "minimumAreaRatio": 1e-12
+  },
+  "activated": false,
+  "accepted": false,
+  "poses": [
+    {
+      "name": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+      "sha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf",
+      "upstreamPassed": true,
+      "meshes": [
+        {
+          "name": "H01_Tencent_Original_Body",
+          "primitive": 0,
+          "passed": false,
+          "p999": 1.529493930958883,
+          "maximum": 2.991226206490264,
+          "minimum": 0.011299135309830797,
+          "minimumAreaRatio": 0.0007818117867066477,
+          "collapsed": 0,
+          "minimumY": -6.534207853611806e-13,
+          "edges": 2365667,
+          "triangles": 1499726,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 843086,
+            "b": 843091,
+            "bindLength": 0.002359809104317319,
+            "posedLength": 0.007058722835148283
+          }
+        }
+      ],
+      "skinPassed": false
+    },
+    {
+      "name": ".local/rig-candidates/approved-source-cp-h01-floor-input/finger-stress-pose.json",
+      "sha256": "8e2483d95e457a50b83542bae039c1400e38d2f5e817abeeddb0db4ca9bfe8eb",
+      "upstreamPassed": false,
+      "meshes": [
+        {
+          "name": "H01_Tencent_Original_Body",
+          "primitive": 0,
+          "passed": false,
+          "p999": 1.5470299181989338,
+          "maximum": 3.8941314470375525,
+          "minimum": 0.011299135309830797,
+          "minimumAreaRatio": 0.0007818117867066477,
+          "collapsed": 0,
+          "minimumY": -6.534207853611806e-13,
+          "edges": 2365667,
+          "triangles": 1499726,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 814267,
+            "b": 814272,
+            "bindLength": 0.0008065093896685483,
+            "posedLength": 0.003140653576639357
+          }
+        }
+      ],
+      "skinPassed": false
+    }
+  ]
+}

@@ -48,3 +48,9 @@ Chạy `npm run goal:animation` để lấy trạng thái hiện hành, không l
 Trong checkpoint này chỉ SOURCES/RUNTIME_MODES qua phạm vi validator đã đăng ký. Skin/timing/regression chưa đạt; 17 scope còn thiếu validator đầy đủ vẫn bị khóa. Body/clip/weapon trong APK chưa thay. Không đồng nhất 52 xương lõi (22 thân/chi + 30 đốt ngón) với 52 xương thân cộng thêm 30 ngón; hai helper bổ sung đưa bộ thử lên54.
 
 Ưu tiên tiếp theo là kết hợp field helper với mask ngón/garment đã kiểm, sửa nén/strain/giao cắt trong nhiều pose rồi toàn chuỗi. Sau đó mới tích hợp các curve54bone vào sảnh/combat và chuẩn bị APK. Tay áo H01 giữ đúng thứ tự cuối. Khoảng cách contact5mm và penetration3mm của validator cũ đều còn hiệu lực.
+
+### Vòng tiếp: ủng và cổ tay trên source thật
+
+[Báo cáo riêng](../docs/anim-report/conver10-approved-repair-2026-10-21/BOOT-WRIST.md) lưu fit sàn bằng bề mặt source, field helper/ủng ghép thật và các vòng CP650/CP600. MinY key-pose về xấp xỉ0; đây chưa là FEET toàn chuỗi hoặc mask toàn bộ ủng. Bản đọc lại GLB sau CP600 có p99,9 H01/H02 dưới1,5 nhưng max vẫn khoảng3,02/3,24, nên SKIN chưa đạt.
+
+Ảnh full source H01 cho thấy bàn tay còn bị áo che/xuyên; H02 còn vấn đề vạt áo và grip chưa hoàn tất. Các cone patch với support cũ hoặc thử zero-slot cùng chuỗi đều infeasible, không xuất weight/GLB mới. Không giải thích điều này thành toàn bộ rig bất khả thi. Bước nền tiếp phải sửa ownership/cut garment và calibration/contact trên source đã kiểm, không chỉ tăng số vòng solver. 23 cổng giữ nguyên, không đổi ngưỡng để kích hoạt. APK/tay áo H01 giữ đúng thứ tự trước đó.

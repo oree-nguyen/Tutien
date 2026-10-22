@@ -1,0 +1,581 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cp-h01-floor-v1",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "export.json": {
+      "sha256": "f483352ff712b7ac62237190da8e792e83ef9b2714668d41ec5ccfa9da5a5b37",
+      "data": {
+        "hero": "H01",
+        "input": ".local/rig-candidates/approved-source-cp-h01-floor-input/H01-C0-rigged.glb",
+        "inputSha256": "356f1a764c560be532af642e1d32215bc137c91d38bba32663b8eb46f203b044",
+        "output": ".local/rig-candidates/approved-source-cp-h01-floor-v1/H01-C0-rigged.glb",
+        "outputSha256": "36808d4db84a18d87eedbe6e6c82ae2bb3d039a3d78dd4d19e8eef451da39960",
+        "solveSha256": "657e59ac8abd53425a9c4544d475e0691239e11f0e2b6fb28ac74b05c75913d9",
+        "sourcePayloadExceptWeightsPreserved": true,
+        "protectedSourceSupportsPreserved": true,
+        "legacyClipsPreserved": true,
+        "accepted": false,
+        "activated": false,
+        "scope": "Source-layout weight-only staging export. Existing clips are byte-preserved, not retargeted or accepted. Full animation, skin, contact, collision and visual validation still required."
+      }
+    },
+    "solve.json": {
+      "sha256": "657e59ac8abd53425a9c4544d475e0691239e11f0e2b6fb28ac74b05c75913d9",
+      "data": {
+        "base": ".local/rig-candidates/approved-source-cp-h01-floor-input",
+        "assetSha256": "356f1a764c560be532af642e1d32215bc137c91d38bba32663b8eb46f203b044",
+        "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+        "poseSha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf",
+        "inputHashes": {
+          "positions.bin": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc",
+          "triangles.bin": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132",
+          "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+          "protected.bin": "62edc9b61926cbf15c06b36a5382c0f9445b570af1e43eb22ecc4dcc1fbda504",
+          "result-ids.bin": "7f42c81d84e1eae4360bdb81e859ef82a958d4bfac39828ada58c8f22bbaefd6",
+          "result-weights.bin": "12742a5f0629d1fbdb6a3c081bb04bc402b813f0a99db802d6cf13c68047caec",
+          "feasibility-matrices.bin": "12d8a10b3f28c399724806dd617805125da9b0708a5647a952b1b760f6809048"
+        },
+        "outputWeightsSha256": "488a2d2fc2f8ec9de6074e343534c3b5213099353a4b6c5b7bbe00bac9a020be",
+        "jointIdsChanged": false,
+        "protectedWeightsPreserved": true,
+        "initial": {
+          "p999": 2.976195948422876,
+          "maximum": 14.32952527868863,
+          "poses": [
+            {
+              "p999": 2.948322365426411,
+              "maximum": 14.32952527868863
+            },
+            {
+              "p999": 2.976195948422876,
+              "maximum": 14.32952527868863
+            }
+          ],
+          "edgesOverTarget": 112297,
+          "immutableEdgesOverTarget": 0
+        },
+        "final": {
+          "p999": 1.5325497030577293,
+          "maximum": 3.8941971159774096,
+          "poses": [
+            {
+              "p999": 1.525258916597215,
+              "maximum": 2.9912645740601267
+            },
+            {
+              "p999": 1.5325497030577293,
+              "maximum": 3.8941971159774096
+            }
+          ],
+          "edgesOverTarget": 29718,
+          "immutableEdgesOverTarget": 0
+        },
+        "history": [
+          {
+            "iteration": 25,
+            "elapsedSeconds": 37.94246019300772,
+            "p999": 2.5012355199586596,
+            "maximum": 6.386298032616456,
+            "poses": [
+              {
+                "p999": 2.4904235520017624,
+                "maximum": 6.386298032616456
+              },
+              {
+                "p999": 2.5012355199586596,
+                "maximum": 6.386298032616456
+              }
+            ],
+            "edgesOverTarget": 120004,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 50,
+            "elapsedSeconds": 67.32217524800217,
+            "p999": 2.305938359781263,
+            "maximum": 6.036120984126235,
+            "poses": [
+              {
+                "p999": 2.3002186917527916,
+                "maximum": 5.843055022400039
+              },
+              {
+                "p999": 2.305938359781263,
+                "maximum": 6.036120984126235
+              }
+            ],
+            "edgesOverTarget": 114801,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 75,
+            "elapsedSeconds": 97.24683569301851,
+            "p999": 2.168748964909829,
+            "maximum": 7.224420091098537,
+            "poses": [
+              {
+                "p999": 2.1636452765133356,
+                "maximum": 4.62727187853295
+              },
+              {
+                "p999": 2.168748964909829,
+                "maximum": 7.224420091098537
+              }
+            ],
+            "edgesOverTarget": 105191,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 100,
+            "elapsedSeconds": 127.82638207200216,
+            "p999": 2.1208485019699013,
+            "maximum": 7.540254892615288,
+            "poses": [
+              {
+                "p999": 2.1152959823004744,
+                "maximum": 3.8848392004866903
+              },
+              {
+                "p999": 2.1208485019699013,
+                "maximum": 7.540254892615288
+              }
+            ],
+            "edgesOverTarget": 95552,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 125,
+            "elapsedSeconds": 161.36051736300578,
+            "p999": 2.0566793903614466,
+            "maximum": 7.060209455587563,
+            "poses": [
+              {
+                "p999": 2.052612469553197,
+                "maximum": 3.9679029740623837
+              },
+              {
+                "p999": 2.0566793903614466,
+                "maximum": 7.060209455587563
+              }
+            ],
+            "edgesOverTarget": 88546,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 150,
+            "elapsedSeconds": 193.47609868296422,
+            "p999": 2.00172016372724,
+            "maximum": 6.180369741019661,
+            "poses": [
+              {
+                "p999": 1.9981435246118397,
+                "maximum": 3.7973307966161407
+              },
+              {
+                "p999": 2.00172016372724,
+                "maximum": 6.180369741019661
+              }
+            ],
+            "edgesOverTarget": 82136,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 175,
+            "elapsedSeconds": 225.923102241999,
+            "p999": 1.9455620123377737,
+            "maximum": 5.291437069311066,
+            "poses": [
+              {
+                "p999": 1.9431238245473696,
+                "maximum": 4.555631213493849
+              },
+              {
+                "p999": 1.9455620123377737,
+                "maximum": 5.291437069311066
+              }
+            ],
+            "edgesOverTarget": 76462,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 200,
+            "elapsedSeconds": 259.4464409350185,
+            "p999": 1.910778085866538,
+            "maximum": 4.532380628593036,
+            "poses": [
+              {
+                "p999": 1.9084549339665813,
+                "maximum": 4.005576587054449
+              },
+              {
+                "p999": 1.910778085866538,
+                "maximum": 4.532380628593036
+              }
+            ],
+            "edgesOverTarget": 71595,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 225,
+            "elapsedSeconds": 292.49253386596683,
+            "p999": 1.868769596043362,
+            "maximum": 3.8226865482516588,
+            "poses": [
+              {
+                "p999": 1.865381079058901,
+                "maximum": 3.446819381878307
+              },
+              {
+                "p999": 1.868769596043362,
+                "maximum": 3.8226865482516588
+              }
+            ],
+            "edgesOverTarget": 67369,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 250,
+            "elapsedSeconds": 326.17023958300706,
+            "p999": 1.8187131003842727,
+            "maximum": 3.4956024683751745,
+            "poses": [
+              {
+                "p999": 1.8160288132369335,
+                "maximum": 3.197032568363545
+              },
+              {
+                "p999": 1.8187131003842727,
+                "maximum": 3.4956024683751745
+              }
+            ],
+            "edgesOverTarget": 65956,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 275,
+            "elapsedSeconds": 360.3606610529823,
+            "p999": 1.7758812574014833,
+            "maximum": 3.5568140067730516,
+            "poses": [
+              {
+                "p999": 1.7722924138644287,
+                "maximum": 3.1955050370058173
+              },
+              {
+                "p999": 1.7758812574014833,
+                "maximum": 3.5568140067730516
+              }
+            ],
+            "edgesOverTarget": 63436,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 300,
+            "elapsedSeconds": 391.40125712100416,
+            "p999": 1.7331144922635242,
+            "maximum": 3.5883614086941904,
+            "poses": [
+              {
+                "p999": 1.7287049255821707,
+                "maximum": 3.163641184935652
+              },
+              {
+                "p999": 1.7331144922635242,
+                "maximum": 3.5883614086941904
+              }
+            ],
+            "edgesOverTarget": 59701,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 325,
+            "elapsedSeconds": 422.56940617598593,
+            "p999": 1.6998872968775638,
+            "maximum": 3.5065027872474337,
+            "poses": [
+              {
+                "p999": 1.6944822486298907,
+                "maximum": 3.1707283566444677
+              },
+              {
+                "p999": 1.6998872968775638,
+                "maximum": 3.5065027872474337
+              }
+            ],
+            "edgesOverTarget": 55656,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 350,
+            "elapsedSeconds": 454.05865254299715,
+            "p999": 1.6678546294817376,
+            "maximum": 3.419791590496744,
+            "poses": [
+              {
+                "p999": 1.66269390119823,
+                "maximum": 3.1712039231837044
+              },
+              {
+                "p999": 1.6678546294817376,
+                "maximum": 3.419791590496744
+              }
+            ],
+            "edgesOverTarget": 51753,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 375,
+            "elapsedSeconds": 486.975658566982,
+            "p999": 1.6387329939915014,
+            "maximum": 3.4012326947022307,
+            "poses": [
+              {
+                "p999": 1.631991220417659,
+                "maximum": 3.124143489368808
+              },
+              {
+                "p999": 1.6387329939915014,
+                "maximum": 3.4012326947022307
+              }
+            ],
+            "edgesOverTarget": 47569,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 400,
+            "elapsedSeconds": 518.622455508972,
+            "p999": 1.619409194419987,
+            "maximum": 3.4506207119677,
+            "poses": [
+              {
+                "p999": 1.6112836668789141,
+                "maximum": 3.111529933371197
+              },
+              {
+                "p999": 1.619409194419987,
+                "maximum": 3.4506207119677
+              }
+            ],
+            "edgesOverTarget": 43684,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 425,
+            "elapsedSeconds": 551.6709249099949,
+            "p999": 1.6006100800706973,
+            "maximum": 3.4578519915427295,
+            "poses": [
+              {
+                "p999": 1.5915908224717041,
+                "maximum": 3.0545810561495657
+              },
+              {
+                "p999": 1.6006100800706973,
+                "maximum": 3.4578519915427295
+              }
+            ],
+            "edgesOverTarget": 40047,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 450,
+            "elapsedSeconds": 583.6143821839942,
+            "p999": 1.583061921244499,
+            "maximum": 3.6138393996866807,
+            "poses": [
+              {
+                "p999": 1.5739145777915693,
+                "maximum": 3.0443906619248073
+              },
+              {
+                "p999": 1.583061921244499,
+                "maximum": 3.6138393996866807
+              }
+            ],
+            "edgesOverTarget": 37546,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 475,
+            "elapsedSeconds": 614.0532523180009,
+            "p999": 1.5682890120726967,
+            "maximum": 3.7872393055465667,
+            "poses": [
+              {
+                "p999": 1.5583109616287874,
+                "maximum": 3.015858813345299
+              },
+              {
+                "p999": 1.5682890120726967,
+                "maximum": 3.7872393055465667
+              }
+            ],
+            "edgesOverTarget": 34718,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 500,
+            "elapsedSeconds": 645.1046239350107,
+            "p999": 1.5564435040895621,
+            "maximum": 3.9019328843938386,
+            "poses": [
+              {
+                "p999": 1.5474322685658521,
+                "maximum": 3.014012797226065
+              },
+              {
+                "p999": 1.5564435040895621,
+                "maximum": 3.9019328843938386
+              }
+            ],
+            "edgesOverTarget": 32886,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 525,
+            "elapsedSeconds": 677.0762054889929,
+            "p999": 1.5495206746577177,
+            "maximum": 4.003029826726401,
+            "poses": [
+              {
+                "p999": 1.5404373156778506,
+                "maximum": 3.0025071151338367
+              },
+              {
+                "p999": 1.5495206746577177,
+                "maximum": 4.003029826726401
+              }
+            ],
+            "edgesOverTarget": 32392,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 550,
+            "elapsedSeconds": 709.6140719379764,
+            "p999": 1.5455628839477453,
+            "maximum": 4.033618134790856,
+            "poses": [
+              {
+                "p999": 1.5366959380924636,
+                "maximum": 2.9857560719548277
+              },
+              {
+                "p999": 1.5455628839477453,
+                "maximum": 4.033618134790856
+              }
+            ],
+            "edgesOverTarget": 33163,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 575,
+            "elapsedSeconds": 742.3261931549641,
+            "p999": 1.5429323033345,
+            "maximum": 4.048301537174874,
+            "poses": [
+              {
+                "p999": 1.5353372289090406,
+                "maximum": 2.970169516870959
+              },
+              {
+                "p999": 1.5429323033345,
+                "maximum": 4.048301537174874
+              }
+            ],
+            "edgesOverTarget": 32656,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 600,
+            "elapsedSeconds": 783.135539904004,
+            "p999": 1.5404841641810918,
+            "maximum": 4.033017188210235,
+            "poses": [
+              {
+                "p999": 1.5328907924514543,
+                "maximum": 2.977342370651297
+              },
+              {
+                "p999": 1.5404841641810918,
+                "maximum": 4.033017188210235
+              }
+            ],
+            "edgesOverTarget": 32204,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 625,
+            "elapsedSeconds": 821.7909022910171,
+            "p999": 1.5367877227685813,
+            "maximum": 3.9317918607779427,
+            "poses": [
+              {
+                "p999": 1.5288994632720336,
+                "maximum": 2.9814645153354675
+              },
+              {
+                "p999": 1.5367877227685813,
+                "maximum": 3.9317918607779427
+              }
+            ],
+            "edgesOverTarget": 31216,
+            "immutableEdgesOverTarget": 0
+          },
+          {
+            "iteration": 650,
+            "elapsedSeconds": 857.3532998189912,
+            "p999": 1.5325497030577293,
+            "maximum": 3.8941971159774096,
+            "poses": [
+              {
+                "p999": 1.525258916597215,
+                "maximum": 2.9912645740601267
+              },
+              {
+                "p999": 1.5325497030577293,
+                "maximum": 3.8941971159774096
+              }
+            ],
+            "edgesOverTarget": 29718,
+            "immutableEdgesOverTarget": 0
+          }
+        ],
+        "parameters": {
+          "algorithmVersion": 2,
+          "hero": "H01",
+          "wholeBody": true,
+          "iterations": 650,
+          "ratio": 1.49,
+          "cutFans": false
+        },
+        "continuation": null,
+        "stateHashes": {
+          "state-weights.npy": "5f6ca83e418da11c79fd621c8a13ae9519265845db71d858ce4835c27e3f47b6",
+          "state-extrapolated.npy": "f5bcafeb42c8515e443f1d4cb56035dc30e200a991acc4cad2dc3cc1e1953b6c",
+          "state-dual.npy": "2a06b3638974b35bbca1b66c5635bfb25b2090c38196d14eee4fa09431e725c7"
+        },
+        "accepted": false,
+        "activated": false,
+        "poseCount": 2,
+        "scope": "One-or-more frozen-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+      }
+    },
+    "state-archive.json": {
+      "sha256": "ae5fa9c8c745c43bc8853517c0ad5b1c3c5cf0d0d6d4987a1510f0574ea04c8f",
+      "data": {
+        "scope": "Lossless local optimizer-state archive only; no model, texture or result weight bytes altered",
+        "archive": ".local/rig-candidates/approved-source-cp-h01-floor-v1/optimizer-state.zip",
+        "sha256": "f95ee5f74e7e647ebf6bd4f58ef0d09706808e9a0316aeeec84fd87aea991de7",
+        "originalBytes": 155970736,
+        "archiveBytes": 49812460,
+        "stateHashes": {
+          "state-weights.npy": "5f6ca83e418da11c79fd621c8a13ae9519265845db71d858ce4835c27e3f47b6",
+          "state-extrapolated.npy": "f5bcafeb42c8515e443f1d4cb56035dc30e200a991acc4cad2dc3cc1e1953b6c",
+          "state-dual.npy": "2a06b3638974b35bbca1b66c5635bfb25b2090c38196d14eee4fa09431e725c7"
+        },
+        "restore": "python3 -m zipfile -e .local/rig-candidates/approved-source-cp-h01-floor-v1/optimizer-state.zip .local/rig-candidates/approved-source-cp-h01-floor-v1"
+      }
+    }
+  }
+}

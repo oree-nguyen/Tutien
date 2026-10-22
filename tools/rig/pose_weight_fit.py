@@ -60,6 +60,32 @@ def transformed_coefficients(point, ids, matrices, reference_weights=None):
     return origin, transformed - origin[:, :, None, :]
 
 
+def diagonal_steps(coeff, edges, length, free):
+    """Schur bounds on the actual free-variable Jacobian, not locked supports.
+
+    Fixed source seeds contribute a constant to posed edges. Counting their
+    unused zero-weight joint slots in the operator stalls nearby wrist edges.
+    One dual step per3D edge keeps the Euclidean length-ball prox unchanged.
+    """
+    left, right = edges.T
+    inverse_length = 1 / length
+    varying = np.abs(coeff).sum(axis=2) * free[None, :, None]
+    row_bound = np.max(
+        (varying[:, left] + varying[:, right]) * inverse_length[None, :, None],
+        axis=2,
+    )
+    incident = np.bincount(
+        edges.ravel(), weights=np.repeat(inverse_length, 2), minlength=coeff.shape[1]
+    )
+    column_bound = np.abs(coeff).sum(axis=(0, 3)) * incident[:, None]
+    tau = 0.95 / np.maximum(column_bound, 1e-12)
+    tau[~free] = 0
+    sigma = 0.95 / np.maximum(row_bound, 1e-12)
+    movable = (free[left] | free[right])[None, :] & (row_bound > 1e-12)
+    sigma[~movable] = 0
+    return tau, sigma, movable
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("base", type=Path)
@@ -184,21 +210,7 @@ def main():
     length = length[length > 1e-12]
     left, right = edges.T
     inverse_length = 1 / length
-    # Absolute row/column sums give conservative diagonal primal-dual steps.
-    # One scalar per vertex and per edge preserves Euclidean simplex/ball prox.
-    row_bound = np.max(
-        (np.abs(coeff[:, left]).sum(axis=2) + np.abs(coeff[:, right]).sum(axis=2))
-        * inverse_length[None, :, None],
-        axis=2,
-    )
-    incident = np.bincount(
-        edges.ravel(), weights=np.repeat(inverse_length, 2), minlength=len(point)
-    )
-    column_bound = np.abs(coeff).sum(axis=(0, 3)) * incident[:, None]
-    tau = 0.95 / np.maximum(column_bound, 1e-12)
-    sigma = 0.95 / np.maximum(row_bound, 1e-12)
-    movable = (free[left] | free[right])[None, :] & (row_bound > 1e-12)
-    sigma[~movable] = 0
+    tau, sigma, movable = diagonal_steps(coeff, edges, length, free)
     dual = np.zeros((pose_count, len(edges), 3))
     history = []
     continuation = None
@@ -217,6 +229,9 @@ def main():
             "kind": "resume" if args.resume else "warm-start",
         }
         if args.resume:
+            assert (
+                prior["parameters"]["algorithmVersion"] == 3
+            ), "Changed operator steps: use warm-start, not old dual state"
             for name, expected in prior["stateHashes"].items():
                 assert digest(previous / name) == expected
             w = np.load(previous / "state-weights.npy")
@@ -343,7 +358,7 @@ def main():
         "final": measure(w),
         "history": history,
         "parameters": {
-            "algorithmVersion": 2,
+            "algorithmVersion": 3,
             "hero": args.hero,
             "wholeBody": args.whole_body,
             "iterations": args.iterations,

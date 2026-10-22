@@ -8,7 +8,7 @@ if not candidates:
 exp.mkdir(exist_ok=True)
 for folder in candidates:
     record={'directory':str(folder),'accepted':False,'activated':False,'evidence':{}}
-    for name in ['input.json','heat-solve.json','export.json','bind.json','receipt.json','feasibility-input.json','solve.json']:
+    for name in ['input.json','heat-solve.json','export.json','bind.json','receipt.json','feasibility-input.json','solve.json','state-archive.json']:
         f=folder/name
         if f.exists():
             raw=f.read_bytes();record['evidence'][name]={'sha256':hashlib.sha256(raw).hexdigest(),'data':json.loads(raw)}
@@ -18,13 +18,22 @@ if not entries:
     raise SystemExit('No candidate receipts found; existing archive index was left unchanged.')
 (exp/'index.json').write_text(json.dumps({'scope':'Staging receipts include failures. No candidate accepted or activated. GLBs remain local; original sources stay unchanged. Prefix approved names the approved work plan, not approved assets.','entries':entries},indent=2)+'\n')
 labels=[('H01','Trước fit hai pose','H01-geodesic-before-two-poses-surface.json'),('H01','Sau fit hai pose','H01-geodesic-cp-v1-surface.json'),('H02','Trước fit hai pose','H02-geodesic-before-two-poses-surface.json'),('H02','Sau fit hai pose','H02-geodesic-cp-v3-surface.json'),('H01','Field helper riêng, chưa fit','H01-pronation-field-v1-surface.json'),('H02','Field helper riêng, chưa fit','H02-pronation-field-v1-surface.json')]
+labels += [(hero,label,hero+suffix) for hero in ['H01','H02'] for label,suffix in [
+    ('Ủng source trước/sau fit sàn','-boot-field-v1-surface.json'),
+    ('Helper + ủng, CP650','-floor-cp-v1-surface.json'),
+    ('Lòng bàn tay hardcrop — bị loại','-wrist-v2-surface.json'),
+    ('Lòng bàn tay C1 trước CP','-wrist-v3-surface.json'),
+    ('Lòng bàn tay C1 sau CP600','-wrist-cp-v1-surface.json'),
+    ('Cone cục bộ sau CP600','-wrist-cones-v1-surface.json'),
+]]
 rows=[]
 for hero,label,file in labels:
+    if not (root/file).exists():continue
     data=json.loads((root/file).read_text())
     for i,pose in enumerate(data['poses']):
         for m in pose['meshes']:
-            rows.append({'hero':hero,'trial':label,'pose':'crouch mở tay'if i==0 else'crouch + stress nắm','report':file,'assetSha256':data['sha256'],'p999':m['p999'],'maximum':m['maximum'],'minimum':m['minimum'],'minimumAreaRatio':m['minimumAreaRatio'],'minimumY':m['minimumY'],'edges':m['edges'],'triangles':m['triangles'],'skinPassed':m['passed'],'accepted':False})
-lines=['# Số đo staging và kết quả kiểm', '', 'Đo bằng Node/Three và LBS độc lập trên cloud, không phải FPS hoặc nghiệm thu điện thoại. Mỗi dòng là một pose trên toàn bộ source mesh; cả hai pose dùng cùng hash trước/sau tương ứng. Ngưỡng giữ nguyên: p99,9 ≤ 1,5× và max ≤ 2,0×. Không dùng số liệu này thay kiểm toàn chuỗi.', '', '**Mọi mẫu ở bảng vẫn chưa đạt.** Mẫu CP tốt nhất chưa tích hợp field helper mới; field helper được đo riêng, chưa tối ưu và chưa qua nghiệm thu. Chưa kiểm chấp nhận compression/normal, giao cắt, foot slide hoặc bề mặt nắm cán trong toàn chuỗi.', '', '| Hero / mẫu | Pose | p99,9 | Max | Min cạnh | Min diện tích | Min Y (m) | Đạt skin của pose |', '| --- | --- | ---: | ---: | ---: | ---: | ---: | --- |']
+            rows.append({'hero':hero,'trial':label,'pose':('crouch + stress nắm' if 'stress' in pose['name'] else ('crouch fit sàn' if 'crouch-floor' in pose['name'] else 'crouch mở tay')),'report':file,'assetSha256':data['sha256'],'p999':m['p999'],'maximum':m['maximum'],'minimum':m['minimum'],'minimumAreaRatio':m['minimumAreaRatio'],'minimumY':m['minimumY'],'edges':m['edges'],'triangles':m['triangles'],'skinPassed':m['passed'],'accepted':False})
+lines=['# Số đo staging và kết quả kiểm', '', 'Đo bằng Node/Three và LBS độc lập trên cloud, không phải FPS hoặc nghiệm thu điện thoại. Mỗi dòng là một pose trên toàn bộ source mesh; cả hai pose dùng cùng hash trước/sau tương ứng. Ngưỡng giữ nguyên: p99,9 ≤ 1,5× và max ≤ 2,0×. Không dùng số liệu này thay kiểm toàn chuỗi.', '', '**Chưa có mẫu được nghiệm thu toàn chuỗi.** Các dòng CP geodesic đầu là lịch sử chưa có weight helper; CP650 và các vòng wrist mới đã kết hợp helper thật và ủng source. Không so khác pose/field như cùng một bản đã sửa APK. Chưa kiểm chấp nhận compression/normal, giao cắt, foot slide hoặc bề mặt nắm cán trong toàn chuỗi. Chi tiết vòng tiếp: [BOOT-WRIST.md](BOOT-WRIST.md).', '', '| Hero / mẫu | Pose | p99,9 | Max | Min cạnh | Min diện tích | Min Y (m) | Đạt skin của pose |', '| --- | --- | ---: | ---: | ---: | ---: | ---: | --- |']
 for r in rows:lines.append(f"| {r['hero']} / [{r['trial']}]({r['report']}) | {r['pose']} | {r['p999']:.6f} | {r['maximum']:.6f} | {r['minimum']:.6g} | {r['minimumAreaRatio']:.6g} | {r['minimumY']:.6f} | {'Có'if r['skinPassed'] else'Không'} |")
 lines+=['', 'Min cạnh/diện tích rất nhỏ là tín hiệu nén/fold cần kiểm tiếp; qua ngưỡng giãn không chứng minh hình dáng tự nhiên. Min Y thuộc toàn mesh, chưa được phân loại là ủng, tay hay áo. Không gọi đây là số đo chân khi chưa có mask giải phẫu được kiểm.', '', '## Runtime đang dùng', '', 'Các asset mới không được đăng ký vào runtime. Trên đúng body legacy hiện hành, phép đo Entrance/Hold mới vẫn thấy mọi mẫu nhìn thấy đều trượt:']
 goal=json.loads((root/'goal-latest.json').read_text());surface=json.loads((Path(goal['iteration'])/'surface.json').read_text())
@@ -34,7 +43,7 @@ lines+=['', 'Không so trực tiếp các số runtime này với staging để 
 iteration=Path(goal['iteration'])
 for name,label in [('test.log','npm test'),('test-master.log','npm run test:master'),('verify-master.log','npm run verify:master'),('goal-rig.log','npm run goal:rig')]:
     text=(iteration/name).read_text();summary=' / '.join(line for line in text.splitlines()if line.startswith('ℹ tests')or line.startswith('ℹ pass')or line.startswith('ℹ fail')or 'Master Prompt:'in line or 'RIG/APK GOAL BLOCKED'in line);lines.append('| '+label+' | '+summary.replace('|','\\|')+' |')
-lines+=['| npm run goal:animation | INCOMPLETE; xem goal-latest.json, không tính trung bình phần trăm |','| npm run build | Đã chạy thành công; kiểm web production, chưa phát hành APK mới |','| npm run android:apk | Chưa chạy trong vòng này: điều kiện rig/skin trước APK chưa đạt |','','Các lần thử CLARABEL và bone heat thất bại được giữ trong `logs/` và biên nhận. Infeasible của một patch SOCP có boundary cố định không chứng minh toàn bộ rig không thể sửa. Các phép thử không được dùng để đổi giới hạn kiểm.']
+lines+=['| npm run goal:animation | INCOMPLETE; xem goal-latest.json, không tính trung bình phần trăm |','| npm run build | Chưa chạy lại trong vòng ủng/cổ tay; lần trước đã qua nhưng không chứng nhận build có fingerprint hiện tại |','| npm run android:apk | Chưa chạy trong vòng này: điều kiện rig/skin trước APK chưa đạt |','','Các lần thử CLARABEL và bone heat thất bại được giữ trong `logs/` và biên nhận. Infeasible của một patch SOCP có boundary cố định không chứng minh toàn bộ rig không thể sửa. Các phép thử không được dùng để đổi giới hạn kiểm.']
 (root/'STAGING-MEASUREMENTS.md').write_text('\n'.join(lines)+'\n');(root/'staging-measurements.json').write_text(json.dumps({'scope':'Measured frozen poses only; no activation or acceptance','rows':rows},indent=2)+'\n')
 logs=root/'logs';logs.mkdir(exist_ok=True)
 for f in sorted(Path('.local').glob('approved-*.log')):shutil.copyfile(f,logs/f.name.removeprefix('approved-'))

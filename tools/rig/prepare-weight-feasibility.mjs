@@ -6,6 +6,8 @@ import { NodeIO } from "@gltf-transform/core";
 import { ALL_EXTENSIONS } from "@gltf-transform/extensions";
 import { Matrix4, Vector3 } from "three";
 import { calibratedRotation } from "./source-bind-calibration.mjs";
+import { sourceSeedLineage } from "./source-seed-lineage.mjs";
+import { sourceBindIdentity } from "./source-bind-identity.mjs";
 const [candidate, poseFile, output] = process.argv.slice(2);
 const staging = path.resolve(".local/rig-candidates");
 if (
@@ -30,9 +32,11 @@ const asset = path.join(candidate, hero + "-C0-rigged.glb"),
   nodes = new Map(joints.map((n) => [n.getName(), n]));
 const hash = (b) => createHash("sha256").update(b).digest("hex"),
   raw = (a) => Buffer.from(a.buffer, a.byteOffset, a.byteLength);
+const bindBytes = await fs.readFile(pose.input);
 if (
   pose.hero !== hero ||
-  pose.inputSha256 !== hash(await fs.readFile(meta.input))
+  pose.inputSha256 !== hash(bindBytes) ||
+  sourceBindIdentity(doc) !== sourceBindIdentity(await io.readBinary(bindBytes))
 )
   throw Error("Pose and source bind differ");
 if (
@@ -108,11 +112,13 @@ for (let i = 0; i < protectedVertices.length; i++) {
     points.some((p) => v.distanceToSquared(new Vector3(...p)) < 0.025 ** 2),
   );
 }
-let protectedSeedReportSha256 = null;
+let protectedSeedReportSha256 = null,
+  protectedSeedReports = null,
+  fixedBootSelection = null;
 if (process.env.WEIGHT_SEED_PROTECTION === "1") {
-  const seedBytes = await fs.readFile(path.join(candidate, "heat-solve.json")),
-    seedReport = JSON.parse(seedBytes);
-  protectedSeedReportSha256 = hash(seedBytes);
+  const { report: seedReport, chain } = await sourceSeedLineage(candidate);
+  protectedSeedReports = chain;
+  protectedSeedReportSha256 = chain.at(-1).sha256;
   protectedVertices.fill(0);
   for (const hand of seedReport.hands ?? [])
     for (const seed of hand.seeds ?? []) {
@@ -136,6 +142,43 @@ if (process.env.WEIGHT_SEED_PROTECTION === "1") {
     }
   if (!protectedVertices.some(Boolean))
     throw Error("No source seed protection");
+}
+if (process.env.WEIGHT_FIXED_BOOTS_SELECTION) {
+  const file = process.env.WEIGHT_FIXED_BOOTS_SELECTION,
+    bytes = await fs.readFile(file),
+    selection = JSON.parse(bytes),
+    sourceMeta = JSON.parse(
+      await fs.readFile(path.join(path.dirname(file), "input.json")),
+    );
+  if (
+    selection.hero !== hero ||
+    hash(await fs.readFile(selection.source)) !== selection.sourceSha256 ||
+    sourceMeta.attributeHashes.POSITION !== hash(raw(positions)) ||
+    !(await fs.readFile(path.join(path.dirname(file), "positions.bin"))).equals(
+      raw(positions),
+    )
+  )
+    throw Error("Stale source boot support selection");
+  let count = 0;
+  for (const side of ["Left", "Right"]) {
+    for (const id of selection.sides[side].vertexIds) {
+      if (!Number.isInteger(id) || id < 0 || id >= protectedVertices.length)
+        throw Error("Invalid source boot ID");
+      if (positions[id * 3 + 1] <= 0.08) {
+        protectedVertices[id] = 1;
+        count++;
+      }
+    }
+  }
+  if (!count) throw Error("No fixed source boot supports");
+  fixedBootSelection = {
+    file,
+    sha256: hash(bytes),
+    fixedSourceVertices: count,
+    maximumSourceHeight: 0.08,
+    scope:
+      "Preserve previously fitted support weights, not a contact or semantic certificate",
+  };
 }
 await fs.mkdir(output, { recursive: true });
 if (stressPose)
@@ -177,6 +220,8 @@ await fs.writeFile(
       hero,
       poseCount,
       protectedSeedReportSha256,
+      protectedSeedReports,
+      fixedBootSelection,
       assetSha256: hash(bytes),
       matricesSha256: hash(raw(matrices)),
       poseFile,
