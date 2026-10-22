@@ -54,3 +54,9 @@ Trong checkpoint này chỉ SOURCES/RUNTIME_MODES qua phạm vi validator đã �
 [Báo cáo riêng](../docs/anim-report/conver10-approved-repair-2026-10-21/BOOT-WRIST.md) lưu fit sàn bằng bề mặt source, field helper/ủng ghép thật và các vòng CP650/CP600. MinY key-pose về xấp xỉ0; đây chưa là FEET toàn chuỗi hoặc mask toàn bộ ủng. Bản đọc lại GLB sau CP600 có p99,9 H01/H02 dưới1,5 nhưng max vẫn khoảng3,02/3,24, nên SKIN chưa đạt.
 
 Ảnh full source H01 cho thấy bàn tay còn bị áo che/xuyên; H02 còn vấn đề vạt áo và grip chưa hoàn tất. Các cone patch với support cũ hoặc thử zero-slot cùng chuỗi đều infeasible, không xuất weight/GLB mới. Không giải thích điều này thành toàn bộ rig bất khả thi. Bước nền tiếp phải sửa ownership/cut garment và calibration/contact trên source đã kiểm, không chỉ tăng số vòng solver. 23 cổng giữ nguyên, không đổi ngưỡng để kích hoạt. APK/tay áo H01 giữ đúng thứ tự trước đó.
+
+### Vòng 22/10: cơ học hai vạt áo source
+
+[Báo cáo và ảnh](../docs/anim-report/conver10-approved-repair-2026-10-21/GARMENT-PANELS.md): đã chạy partition trên bind54bone và nhiều mẫu rủ vải; không đổi registry/runtime. Grid v6 giảm giao cắt72.063→6.568 cặp trên cùng pose/source/cut nhưng max áo2,544×, xuyên sàn165mm, root bridge làm thân xấu hơn. Tất cả trial vẫn bị loại, không thêm cut pattern vào registry để ép pass.48ảnh mới đã được lưu nguyên byte vào conver10.
+
+Goal hiện hành fingerprint4964f896… ổn định: test340/340, master215/215, verify0/37, INCOMPLETE. Tiếp vòng sửa biên eo, support chuyển tiếp và contact/drape sàn; phải qua cả strain, compression, source fan, seam, collision, normal và silhouette trước khi dựng/chứng nhận toàn clip. Chưa sửa riêng tay áo, chưa có APK mới. H02 vẫn phải làm đủ các cổng, không sao chép mask mặt H01 sang H02.

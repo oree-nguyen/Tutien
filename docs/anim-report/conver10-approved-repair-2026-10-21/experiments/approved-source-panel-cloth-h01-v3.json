@@ -1,0 +1,1278 @@
+{
+  "directory": ".local/rig-candidates/approved-source-panel-cloth-h01-v3",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "input.json": {
+      "sha256": "b25bee1d82fdf1d4be7e59a1488cf1fff99399d3949a27bf022b4dafb20c9035",
+      "data": {
+        "input": ".local/rig-candidates/approved-source-panels-h01-v1/H01-C0-rigged.glb",
+        "inputSha256": "189f9bcbb98f20c737a2ecf4c595de3a42e412918dd57b34fabb18a86d4218f6",
+        "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+        "poseSha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf",
+        "vertices": 885176,
+        "faces": 1499726,
+        "parts": [
+          {
+            "nodeIndex": 56,
+            "primitiveIndex": 0,
+            "name": "H01_Remaining_Source",
+            "offset": 0,
+            "count": 136550,
+            "faces": 231649
+          },
+          {
+            "nodeIndex": 57,
+            "primitiveIndex": 0,
+            "name": "H01_Robe_Left",
+            "offset": 136550,
+            "count": 108063,
+            "faces": 181682
+          },
+          {
+            "nodeIndex": 57,
+            "primitiveIndex": 1,
+            "name": "H01_Robe_Left",
+            "offset": 244613,
+            "count": 95029,
+            "faces": 160275
+          },
+          {
+            "nodeIndex": 58,
+            "primitiveIndex": 0,
+            "name": "H01_Robe_Right",
+            "offset": 339642,
+            "count": 100351,
+            "faces": 162022
+          },
+          {
+            "nodeIndex": 58,
+            "primitiveIndex": 1,
+            "name": "H01_Robe_Right",
+            "offset": 439993,
+            "count": 112564,
+            "faces": 188144
+          },
+          {
+            "nodeIndex": 59,
+            "primitiveIndex": 0,
+            "name": "H01_Robe_Torso",
+            "offset": 552557,
+            "count": 165243,
+            "faces": 279272
+          },
+          {
+            "nodeIndex": 60,
+            "primitiveIndex": 0,
+            "name": "H01_Sleeve_Left",
+            "offset": 717800,
+            "count": 81409,
+            "faces": 145786
+          },
+          {
+            "nodeIndex": 61,
+            "primitiveIndex": 0,
+            "name": "H01_Sleeve_Right",
+            "offset": 799209,
+            "count": 85967,
+            "faces": 150896
+          }
+        ],
+        "config": {
+          "kind": "secondary-cloth-source-chain-staging",
+          "chains": [
+            {
+              "name": "H01_Cloth_Left_Front",
+              "role": 1,
+              "sign": 1,
+              "anchor": [
+                0.0259261392056942,
+                0.99,
+                0.14919276535511017
+              ],
+              "rows": 8,
+              "spacing": 0.13,
+              "anglesDegrees": [
+                0,
+                0,
+                0,
+                -65,
+                -100,
+                -118,
+                -118,
+                -118
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back",
+              "role": 1,
+              "sign": -1,
+              "anchor": [
+                0.1962084025144577,
+                0.99,
+                -0.06549236178398132
+              ],
+              "rows": 8,
+              "spacing": 0.13,
+              "anglesDegrees": [
+                0,
+                0,
+                0,
+                40,
+                62,
+                62,
+                62,
+                62
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front",
+              "role": 2,
+              "sign": 1,
+              "anchor": [
+                -0.057608284056186676,
+                0.99,
+                0.12230178713798523
+              ],
+              "rows": 8,
+              "spacing": 0.13,
+              "anglesDegrees": [
+                0,
+                0,
+                0,
+                -65,
+                -100,
+                -118,
+                -118,
+                -118
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back",
+              "role": 2,
+              "sign": -1,
+              "anchor": [
+                -0.19540934264659882,
+                0.99,
+                -0.06552989035844803
+              ],
+              "rows": 8,
+              "spacing": 0.13,
+              "anglesDegrees": [
+                0,
+                0,
+                0,
+                40,
+                62,
+                62,
+                62,
+                62
+              ]
+            }
+          ],
+          "transitionMetres": 0.24,
+          "waistFade": [
+            0.7,
+            0.99
+          ],
+          "accepted": false
+        },
+        "skeleton": {
+          "coreJointCount": 54,
+          "jointCount": 86,
+          "records": [
+            {
+              "name": "H01_Cloth_Left_Front_0",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 0,
+              "index": 54,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0.0259261392056942,
+                0.030000000000000027,
+                0.14919276535511017
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_1",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 1,
+              "index": 55,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_2",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 2,
+              "index": 56,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_3",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 3,
+              "index": 57,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_4",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 4,
+              "index": 58,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_5",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 5,
+              "index": 59,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_6",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 6,
+              "index": 60,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_7",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 7,
+              "index": 61,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_0",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 0,
+              "index": 62,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0.1962084025144577,
+                0.030000000000000027,
+                -0.06549236178398132
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_1",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 1,
+              "index": 63,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_2",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 2,
+              "index": 64,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_3",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 3,
+              "index": 65,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_4",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 4,
+              "index": 66,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_5",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 5,
+              "index": 67,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_6",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 6,
+              "index": 68,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_7",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 7,
+              "index": 69,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_0",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 0,
+              "index": 70,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                -0.057608284056186676,
+                0.030000000000000027,
+                0.12230178713798523
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_1",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 1,
+              "index": 71,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_2",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 2,
+              "index": 72,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_3",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 3,
+              "index": 73,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_4",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 4,
+              "index": 74,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_5",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 5,
+              "index": 75,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_6",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 6,
+              "index": 76,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_7",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 7,
+              "index": 77,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_0",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 0,
+              "index": 78,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                -0.19540934264659882,
+                0.030000000000000027,
+                -0.06552989035844803
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_1",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 1,
+              "index": 79,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_2",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 2,
+              "index": 80,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_3",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 3,
+              "index": 81,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_4",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 4,
+              "index": 82,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_5",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 5,
+              "index": 83,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_6",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 6,
+              "index": 84,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_7",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 7,
+              "index": 85,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            }
+          ]
+        },
+        "coreJointNames": [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase",
+          "LeftForearmPronation",
+          "RightForearmPronation"
+        ],
+        "weightEngine": "grid",
+        "files": {
+          "positions.f32bin": "7b77806f50f0b97bb866c0f291392e16717d01a9a8cea6c2538260c68551a515",
+          "fans.u32bin": "c81f14827d44bf7b9ed502f71ac9d5015c0b42dbfc9ad62f1b956ace88dd9ca4",
+          "ids.u16bin": "69f899aad5bf82af9069c9d199a925acc9d4ed3f55a7a14643e13e53f7280228",
+          "weights.f32bin": "4b249dac359df31c227afeda97c4481ecc59c274f3a3e8b36e0759f140450c29",
+          "roles.u8bin": "9bcd2c282ef4b2c47f3b657c861b363af80c03804ad1c0a90dce4cb6bb7db5f7",
+          "triangles.u32bin": "208fc6fbe453f03865e4b59c9e4d3655d667d2685f59823dee38003b62ed7def",
+          "protected.u8bin": "84ae3af9d96da771f53155393b4da2bf07422b53dc0b88a8673a63095173e762"
+        },
+        "guide": {
+          "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-panel-drape-guide-v3.json",
+          "sha256": "7abc20b7ebaee1596818270bcdd67e4e9ebc485daa4b89331cd3609bc688fccb"
+        }
+      }
+    },
+    "receipt.json": {
+      "sha256": "e070477b5aad8988e7bc3f96e0cb39b5a96a3da0941f78b84b368fa96f1ea2a3",
+      "data": {
+        "input": ".local/rig-candidates/approved-source-panels-h01-v1/H01-C0-rigged.glb",
+        "inputSha256": "189f9bcbb98f20c737a2ecf4c595de3a42e412918dd57b34fabb18a86d4218f6",
+        "output": ".local/rig-candidates/approved-source-panel-cloth-h01-v3/H01-C0-rigged.glb",
+        "sha256": "3a2c7643a60fae15ef1af7f81c76f917b4d494c7030fa7631d820c2339276663",
+        "sourceCoreJoints": 54,
+        "additionalClothJoints": 32,
+        "geometryUvImagesAndLegacyClipsPreserved": true,
+        "coreJointTransformsAndInverseBindsPreserved": true,
+        "solveSha256": "6a12e274c5ffba34f47a48f8988a01e9a7e9d65d941dae636a0a29aada13559c",
+        "poseSha256": "da89536adf21459f90b5284749e6479dbb66f4fc29d86bd7b07ef1ae9025ff09",
+        "provenanceFiles": {
+          "H01-cut-source-triangles.u32bin": "502d86f882a63468c58b1b5696459c03ed9a30a6b875bf577d6463aecad50cbe",
+          "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+          "source-continuity.json": "0f4ff8453e5a188ed30206ca62670a6cc1957aa9ba2dbe205381af06d299e11d",
+          "cut-plan.json": "d42c3742848c6c2234ed4d4dc465ba0c5374f5d1ceed6bfac2796e9b63317dc9",
+          "cut-edges.u32bin": "6fd55f3c841fd9ce4cc5fa76fcfae0f044b0753332aeea766ded1aec41f65e93",
+          "corner-components.u32bin": "95e228ce972c210382ab667dff3e9ac1433929f33df7f76c202edc1106c465d0",
+          "face-roles.u8bin": "ed2d8327e0d30d285ab520693f1056881daf0e1574a44f68c90eb719015009da"
+        },
+        "accepted": false,
+        "activated": false,
+        "scope": "One-pose secondary-cloth source experiment. All original geometry/UV/images and54core joints preserved; extra32cloth joints, no runtime activation or animation acceptance."
+      }
+    },
+    "solve.json": {
+      "sha256": "6a12e274c5ffba34f47a48f8988a01e9a7e9d65d941dae636a0a29aada13559c",
+      "data": {
+        "inputSha256": "189f9bcbb98f20c737a2ecf4c595de3a42e412918dd57b34fabb18a86d4218f6",
+        "kind": "four-support-source-cloth-grid",
+        "sourceFans": 752904,
+        "panelFans": 349132,
+        "mixedWaistFans": 1603,
+        "rootBridgeFans": 35012,
+        "changedCopies": 460102,
+        "protectedCopies": 29023,
+        "sparsificationUsed": false,
+        "seconds": 4.229248743999051,
+        "accepted": false,
+        "activated": false,
+        "scope": "Original source-fan grid field and rigid-root bridge only; no strain, collision, floor, drape, animation or pattern acceptance."
+      }
+    },
+    "cut-plan.json": {
+      "sha256": "d42c3742848c6c2234ed4d4dc465ba0c5374f5d1ceed6bfac2796e9b63317dc9",
+      "data": {
+        "parentRig": ".local/rig-candidates/semantic-garment-v7/H01-C0-rigged.glb",
+        "parentRigSha256": "5fcf74580c7bcb9d48adcaebbdb1c379712f89ad2e34d0d55a18d7a6a6902db4",
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "operation": "Open lower left/right source-panel interfaces below the retained waistband; retain previous sleeve/boot junction proposals. Do not change sleeve geometry or fabricate hidden anatomy.",
+        "diagnostics": {
+          "sourceFaces": 1499726,
+          "sourceCorners": 4499178,
+          "pairedEdges": 2249589,
+          "cutEdges": 3060,
+          "fanUnionIterations": 3,
+          "unpairedNonzeroEdges": 0
+        },
+        "bounds": [
+          [
+            -0.3417028784751892,
+            0.6333267688751221,
+            -0.10229013860225677
+          ],
+          [
+            0.34510233998298645,
+            0.9168662428855896,
+            0.0050727082416415215
+          ]
+        ],
+        "leftEdges": 450,
+        "rightEdges": 498,
+        "files": {
+          "cut-edges.u32bin": {
+            "sha256": "6fd55f3c841fd9ce4cc5fa76fcfae0f044b0753332aeea766ded1aec41f65e93",
+            "bytes": 24480
+          },
+          "corner-components.u32bin": {
+            "sha256": "95e228ce972c210382ab667dff3e9ac1433929f33df7f76c202edc1106c465d0",
+            "bytes": 17996712
+          },
+          "face-roles.u8bin": {
+            "sha256": "ed2d8327e0d30d285ab520693f1056881daf0e1574a44f68c90eb719015009da",
+            "bytes": 1499726
+          }
+        },
+        "patternApproved": false,
+        "accepted": false,
+        "activated": false,
+        "scope": "Exact source-edge pattern proposal. No geometry removed/generated, no texture change, no exemption in current seam verifier. Requires isolated boundary and deformed mesh review.",
+        "previousPlan": ".local/rig-candidates/coat-boot-cut-v2/cut-plan.json",
+        "previousPlanSha256": "9c4c93720d4200a94a67333a5eaf24f184f8d9c39c8a0d7c31a696679deef6b6",
+        "additionalLowerJunctionEdges": 610,
+        "additionalBounds": [
+          [
+            -0.19966340065002441,
+            0.19048839807510376,
+            -0.11628219485282898
+          ],
+          [
+            0.19827716052532196,
+            0.37341398000717163,
+            -0.004594145808368921
+          ]
+        ],
+        "bootConnectivityProof": {
+          "selection": ".local/rig-candidates/foot-source/H01/selection.json",
+          "sha256": "e7e7b1c56dbcbe695446dc17a5a52b91841351729e2706b68cc1d6ff77d302fa",
+          "components": {
+            "Left": 23119,
+            "Right": 13446
+          },
+          "method": "Original remaining-source triangle connectivity to actual graph-selected sole IDs, not colour or spatial proximity"
+        },
+        "repartition": true,
+        "ownershipCorrections": [
+          {
+            "component": 152124,
+            "sourceFaces": [
+              367875,
+              367892,
+              367956,
+              367988
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.1353476345539093,
+                0.27465927600860596,
+                -0.17624621093273163
+              ],
+              [
+                -0.13126637041568756,
+                0.28084996342658997,
+                -0.1750609278678894
+              ]
+            ]
+          },
+          {
+            "component": 152373,
+            "sourceFaces": [
+              367513,
+              367589,
+              367606,
+              368738,
+              368801,
+              368802
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.15291111171245575,
+                0.27426522970199585,
+                -0.16907039284706116
+              ],
+              [
+                -0.14745067059993744,
+                0.27934569120407104,
+                -0.1657709926366806
+              ]
+            ]
+          },
+          {
+            "component": 275189,
+            "sourceFaces": [
+              683844,
+              683848,
+              683850,
+              683856
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.26934731006622314,
+                0.2613959312438965,
+                -0.034209057688713074
+              ],
+              [
+                0.27024176716804504,
+                0.2688782513141632,
+                -0.028834622353315353
+              ]
+            ]
+          },
+          {
+            "component": 275195,
+            "sourceFaces": [
+              683783,
+              683826
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.2706029713153839,
+                0.26289239525794983,
+                -0.02742103859782219
+              ],
+              [
+                0.27111589908599854,
+                0.26647329330444336,
+                -0.022989505901932716
+              ]
+            ]
+          },
+          {
+            "component": 275206,
+            "sourceFaces": [
+              683788,
+              683829
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.2716350257396698,
+                0.26291584968566895,
+                -0.01824836991727352
+              ],
+              [
+                0.2718367576599121,
+                0.2658853232860565,
+                -0.014767570421099663
+              ]
+            ]
+          },
+          {
+            "component": 276684,
+            "sourceFaces": [
+              688921,
+              689007
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.27099859714508057,
+                0.2587032616138458,
+                0.0019921669736504555
+              ],
+              [
+                0.27130353450775146,
+                0.26169461011886597,
+                0.00498508894816041
+              ]
+            ]
+          },
+          {
+            "component": 310109,
+            "sourceFaces": [
+              787497,
+              787540
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.046035341918468475,
+                0.2922227382659912,
+                -0.1894891858100891
+              ],
+              [
+                -0.044846925884485245,
+                0.29451984167099,
+                -0.18919207155704498
+              ]
+            ]
+          },
+          {
+            "component": 534594,
+            "sourceFaces": [
+              1268853,
+              1269039,
+              1269104,
+              1269236
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.1863633543252945,
+                0.3700355887413025,
+                0.11392185091972351
+              ],
+              [
+                -0.18417105078697205,
+                0.37266260385513306,
+                0.11663955450057983
+              ]
+            ]
+          },
+          {
+            "component": 534617,
+            "sourceFaces": [
+              1268620,
+              1269008
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.18408504128456116,
+                0.36764153838157654,
+                0.11493824422359467
+              ],
+              [
+                -0.18269646167755127,
+                0.36883777379989624,
+                0.11643627285957336
+              ]
+            ]
+          },
+          {
+            "component": 534643,
+            "sourceFaces": [
+              1268782,
+              1268917
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.18920458853244781,
+                0.3757806122303009,
+                0.11331043392419815
+              ],
+              [
+                -0.1884884238243103,
+                0.3772176504135132,
+                0.1139359101653099
+              ]
+            ]
+          }
+        ],
+        "additionalLiningFaces": [
+          367875,
+          367892,
+          367956,
+          367988,
+          367513,
+          367589,
+          367606,
+          368738,
+          368801,
+          368802,
+          683844,
+          683848,
+          683850,
+          683856,
+          683783,
+          683826,
+          683788,
+          683829,
+          688921,
+          689007,
+          787497,
+          787540,
+          1268853,
+          1269039,
+          1269104,
+          1269236,
+          1268620,
+          1269008,
+          1268782,
+          1268917
+        ],
+        "independentCornerGraphPassed": true,
+        "sourceInputs": {
+          "positions.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/positions.bin",
+            "sha256": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc"
+          },
+          "triangles.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/triangles.bin",
+            "sha256": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132"
+          },
+          "source-welds.u32bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/source-welds.u32bin",
+            "sha256": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25"
+          },
+          "protected.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/protected.bin",
+            "sha256": "42c11892831127626dba90e7e82c08ff89f98dae34228a2c50e2801d07b68ef0"
+          }
+        },
+        "panelOpening": {
+          "waistHeightMetres": 0.86,
+          "additionalEdges": 1502,
+          "endpoints": 2,
+          "branchedVertices": 0,
+          "lengthMetres": 10.33834457397461,
+          "bounds": [
+            [
+              -0.1672658771276474,
+              0.12413901090621948,
+              -0.20249603688716888
+            ],
+            [
+              0.1836174726486206,
+              0.8597192764282227,
+              0.19428664445877075
+            ]
+          ]
+        }
+      }
+    },
+    "model-archive.json": {
+      "sha256": "89c08ae847edf45d0e81c79d13d0ac10bb397a1c0711937c2c3dd7899a891af5",
+      "data": {
+        "kind": "Lossless archive of rejected LOCAL derived model only; canonical and source GLBs untouched",
+        "original": ".local/rig-candidates/approved-source-panel-cloth-h01-v3/H01-C0-rigged.glb",
+        "originalBytes": 113348532,
+        "originalSha256": "3a2c7643a60fae15ef1af7f81c76f917b4d494c7030fa7631d820c2339276663",
+        "archive": ".local/rig-candidates/approved-source-panel-cloth-h01-v3/rejected-model.glb.zip",
+        "archiveBytes": 80609115,
+        "archiveSha256": "8695975f56bf331afc645ad8c055e8bef49090de03416c1762e6ab040e582edb",
+        "aliases": [],
+        "restore": "python3 -m zipfile -e .local/rig-candidates/approved-source-panel-cloth-h01-v3/rejected-model.glb.zip .local/rig-candidates/approved-source-panel-cloth-h01-v3"
+      }
+    },
+    "numerical-arrays-archive.json": {
+      "sha256": "971307fc9d86a4d4e13994241ac67a73866b56b746f01e8916eb54c474f307ad",
+      "data": {
+        "files": [
+          {
+            "file": "positions.f32bin",
+            "bytes": 10622112,
+            "sha256": "7b77806f50f0b97bb866c0f291392e16717d01a9a8cea6c2538260c68551a515"
+          },
+          {
+            "file": "fans.u32bin",
+            "bytes": 3540704,
+            "sha256": "c81f14827d44bf7b9ed502f71ac9d5015c0b42dbfc9ad62f1b956ace88dd9ca4"
+          },
+          {
+            "file": "ids.u16bin",
+            "bytes": 7081408,
+            "sha256": "69f899aad5bf82af9069c9d199a925acc9d4ed3f55a7a14643e13e53f7280228"
+          },
+          {
+            "file": "weights.f32bin",
+            "bytes": 14162816,
+            "sha256": "4b249dac359df31c227afeda97c4481ecc59c274f3a3e8b36e0759f140450c29"
+          },
+          {
+            "file": "roles.u8bin",
+            "bytes": 885176,
+            "sha256": "9bcd2c282ef4b2c47f3b657c861b363af80c03804ad1c0a90dce4cb6bb7db5f7"
+          },
+          {
+            "file": "protected.u8bin",
+            "bytes": 885176,
+            "sha256": "84ae3af9d96da771f53155393b4da2bf07422b53dc0b88a8673a63095173e762"
+          },
+          {
+            "file": "triangles.u32bin",
+            "bytes": 17996712,
+            "sha256": "208fc6fbe453f03865e4b59c9e4d3655d667d2685f59823dee38003b62ed7def"
+          },
+          {
+            "file": "result-ids.u16bin",
+            "bytes": 7081408,
+            "sha256": "b763f8105350eba42398016d6e32975a09225087896a43f0336511a58689dd08"
+          },
+          {
+            "file": "result-weights.f32bin",
+            "bytes": 14162816,
+            "sha256": "1199137f92a7eb9e7637541f4e3a4d74b4489654eb8abb659599510ecbd1745e"
+          },
+          {
+            "file": "changed.u8bin",
+            "bytes": 885176,
+            "sha256": "c3b5c03e10349355092a1b5388e28b01261433181d7d340d201219c001300bb9"
+          }
+        ],
+        "archive": ".local/rig-candidates/approved-source-panel-cloth-h01-v3/numerical-arrays.zip",
+        "archiveSha256": "bb28ef55e11aafad7e9081caa826b41ebd2c4ba784eaf7be2ef32c4ae4a44645",
+        "restore": "python3 -m zipfile -e .local/rig-candidates/approved-source-panel-cloth-h01-v3/numerical-arrays.zip .local/rig-candidates/approved-source-panel-cloth-h01-v3"
+      }
+    }
+  }
+}

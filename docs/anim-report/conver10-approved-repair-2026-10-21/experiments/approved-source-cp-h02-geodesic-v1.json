@@ -254,6 +254,31 @@
         "poseCount": 2,
         "scope": "One-or-more frozen-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
       }
+    },
+    "state-archive.json": {
+      "sha256": "eacfc1fa897623b1a6853707962a51163c6fe060636b24dfb6d17f326f013e1f",
+      "data": {
+        "files": [
+          {
+            "file": "state-dual.npy",
+            "bytes": 107981840,
+            "sha256": "b20d54789c840ebaa10d10fd558f016e697440145c73ef69d6c0c2ee9e0d2f45"
+          },
+          {
+            "file": "state-extrapolated.npy",
+            "bytes": 23995552,
+            "sha256": "a97655ee80a7a31c2c1de368eb74645385c8dfd1cd66fe01947912bbb73cde21"
+          },
+          {
+            "file": "state-weights.npy",
+            "bytes": 23995552,
+            "sha256": "6e85b68b889d069879bf9cf863f1da789f950b95682b5f6034d9a363c1bceee0"
+          }
+        ],
+        "archive": ".local/rig-candidates/approved-source-cp-h02-geodesic-v1/optimizer-state.zip",
+        "archiveSha256": "2a160628957b20dab60deae8c4546cdcd52bf5bed04622f03fefb72cc595c680",
+        "restore": "python3 -m zipfile -e .local/rig-candidates/approved-source-cp-h02-geodesic-v1/optimizer-state.zip .local/rig-candidates/approved-source-cp-h02-geodesic-v1"
+      }
     }
   }
 }

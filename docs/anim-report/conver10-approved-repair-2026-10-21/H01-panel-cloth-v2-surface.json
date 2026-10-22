@@ -1,0 +1,183 @@
+{
+  "file": ".local/rig-candidates/approved-source-panel-cloth-h01-v2/H01-C0-rigged.glb",
+  "sha256": "1739aa897c8158b3217f02d705fe4710f2959daeebe5e7fc98e0c470839a629d",
+  "scope": "Staging key-pose diagnostics only; not animation/texture/provenance/contact/collision acceptance and not runtime activation",
+  "thresholds": {
+    "p999": 1.5,
+    "maximum": 2,
+    "minimumSourceEdge": 1e-12,
+    "minimumAreaRatio": 1e-12
+  },
+  "activated": false,
+  "accepted": false,
+  "poses": [
+    {
+      "name": ".local/rig-candidates/approved-source-panel-cloth-h01-v2/crouch-pose.json",
+      "sha256": "f4591f386f904ae4e3262bfc5d7c30a7f4d3495f1aa3f08dbff3238d20fab63e",
+      "upstreamPassed": false,
+      "meshes": [
+        {
+          "name": "H01_Remaining_Source",
+          "primitive": 0,
+          "passed": false,
+          "p999": 1.4880920734171537,
+          "maximum": 2.5615350078145225,
+          "minimum": 0.04979780801916991,
+          "minimumAreaRatio": 0.029785044697874477,
+          "collapsed": 0,
+          "minimumY": -6.534207853611806e-13,
+          "edges": 367598,
+          "triangles": 231649,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 124986,
+            "b": 124991,
+            "bindLength": 0.00235980345007188,
+            "posedLength": 0.006044719148920611
+          }
+        },
+        {
+          "name": "H01_Robe_Left",
+          "primitive": 0,
+          "passed": false,
+          "p999": 26.810971205912026,
+          "maximum": 30.8394818202229,
+          "minimum": 0.017228204717561903,
+          "minimumAreaRatio": 0.004310074524178334,
+          "collapsed": 0,
+          "minimumY": -0.06983130942064084,
+          "edges": 289150,
+          "triangles": 181682,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 100803,
+            "b": 100805,
+            "bindLength": 0.0031189391401498135,
+            "posedLength": 0.09618646691103182
+          }
+        },
+        {
+          "name": "H01_Robe_Left",
+          "primitive": 1,
+          "passed": false,
+          "p999": 30.375368983760318,
+          "maximum": 35.0311027099363,
+          "minimum": 0.029535553047798466,
+          "minimumAreaRatio": 0.004919074401942804,
+          "collapsed": 0,
+          "minimumY": -0.0698313230791557,
+          "edges": 254789,
+          "triangles": 160275,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 60851,
+            "b": 60910,
+            "bindLength": 0.0011978779500789192,
+            "posedLength": 0.041962985503182566
+          }
+        },
+        {
+          "name": "H01_Robe_Right",
+          "primitive": 0,
+          "passed": false,
+          "p999": 26.39976071848213,
+          "maximum": 30.145635780948997,
+          "minimum": 0.026683989391154166,
+          "minimumAreaRatio": 0.01715186225198608,
+          "collapsed": 0,
+          "minimumY": -0.030759081223154114,
+          "edges": 261629,
+          "triangles": 162022,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 98242,
+            "b": 98243,
+            "bindLength": 0.0018497983269480027,
+            "posedLength": 0.0557633466323833
+          }
+        },
+        {
+          "name": "H01_Robe_Right",
+          "primitive": 1,
+          "passed": false,
+          "p999": 29.482678823755023,
+          "maximum": 34.28782340374202,
+          "minimum": 0.01432540192151079,
+          "minimumAreaRatio": 0.0023728890851865535,
+          "collapsed": 0,
+          "minimumY": -0.030759081685712373,
+          "edges": 299933,
+          "triangles": 188144,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 97264,
+            "b": 97287,
+            "bindLength": 0.0011981638992559502,
+            "posedLength": 0.041082432186426966
+          }
+        },
+        {
+          "name": "H01_Robe_Torso",
+          "primitive": 0,
+          "passed": true,
+          "p999": 1.4897093935315415,
+          "maximum": 1.4951044944188556,
+          "minimum": 0.022857499403661156,
+          "minimumAreaRatio": 0.004075948495467149,
+          "collapsed": 0,
+          "minimumY": 0.3720450062104844,
+          "edges": 443822,
+          "triangles": 279272,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 88362,
+            "b": 88403,
+            "bindLength": 0.0009849166140617122,
+            "posedLength": 0.0014725532563114674
+          }
+        },
+        {
+          "name": "H01_Sleeve_Left",
+          "primitive": 0,
+          "passed": true,
+          "p999": 1.487449457298268,
+          "maximum": 1.489968110814064,
+          "minimum": 0.028895107098969003,
+          "minimumAreaRatio": 0.0023737451914407157,
+          "collapsed": 0,
+          "minimumY": 0.45310071002245134,
+          "edges": 227053,
+          "triangles": 145786,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 40374,
+            "b": 40392,
+            "bindLength": 0.0021260476495405375,
+            "posedLength": 0.003167743199886596
+          }
+        },
+        {
+          "name": "H01_Sleeve_Right",
+          "primitive": 0,
+          "passed": true,
+          "p999": 1.4852973610503177,
+          "maximum": 1.4898908258440453,
+          "minimum": 0.011299202781933802,
+          "minimumAreaRatio": 0.0010587128717885325,
+          "collapsed": 0,
+          "minimumY": 0.28193143829070544,
+          "edges": 236575,
+          "triangles": 150896,
+          "sourceDegenerateEdges": 0,
+          "worst": {
+            "a": 80178,
+            "b": 80270,
+            "bindLength": 0.003482423502019757,
+            "posedLength": 0.005188430827362928
+          }
+        }
+      ],
+      "skinPassed": false
+    }
+  ]
+}

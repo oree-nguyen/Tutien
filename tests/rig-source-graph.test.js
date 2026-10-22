@@ -42,3 +42,13 @@ test('source boot underside rejects shin leakage without taking ownership of nea
  const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_source_boot_weights.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
  assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 3 tests/);
 });
+
+test('lower source-panel openings retain the waistband and unrelated sleeve interfaces across original UV seams',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_open_source_panel_seams.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 3 tests/);
+});
+
+test('cloth grid keeps four continuous supports and refuses to discard an old root-bridge influence',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_cloth_grid_weights.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 3 tests/);
+});

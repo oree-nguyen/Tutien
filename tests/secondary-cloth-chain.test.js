@@ -27,3 +27,15 @@ test('zero activation returns the exact secondary bind rotations and invalid act
  for(const bone of s.records)assert(new Quaternion(...r[bone.name]).angleTo(new Quaternion(...bone.bindRotation))<1e-7);
  for(const value of [-.1,1.1,NaN])assert.throws(()=>clothGuideRotations(config,s,value));
 });
+
+test('zero-angle waist rows share the exact hip skin transform after a crouch, across distinct source cloth anchors',()=>{
+ const{d,hips}=fixture(),config={chains:['Front','Back'].map((face,i)=>({name:'Cloth_'+face,rows:4,spacing:.13,anchor:[.12,.99,i?-.1:.1],anglesDegrees:[0,0,0,i?40:-65]}))},
+  s=appendClothChains(d,config),skin=d.getRoot().listSkins()[0],rotations=clothGuideRotations(config,s,1);
+ hips.setTranslation([0,.52,-.04]).setRotation(new Quaternion().setFromAxisAngle(new Vector3(1,0,0),.49).toArray());
+ for(const r of s.records)skin.listJoints()[r.index].setRotation(rotations[r.name]);
+ const hipMatrix=new Matrix4().fromArray(hips.getWorldMatrix()).multiply(new Matrix4().fromArray(skin.getInverseBindMatrices().getElement(0,[])));
+ for(const r of s.records.filter(r=>r.row<3)){
+  const matrix=new Matrix4().fromArray(skin.listJoints()[r.index].getWorldMatrix()).multiply(new Matrix4().fromArray(skin.getInverseBindMatrices().getElement(r.index,[])));
+  for(const point of [[.12,.86,.15],[-.1,.76,-.13],[0,1,0]])assert(new Vector3(...point).applyMatrix4(matrix).distanceTo(new Vector3(...point).applyMatrix4(hipMatrix))<1e-6);
+ }
+});

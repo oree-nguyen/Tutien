@@ -8,7 +8,7 @@ if not candidates:
 exp.mkdir(exist_ok=True)
 for folder in candidates:
     record={'directory':str(folder),'accepted':False,'activated':False,'evidence':{}}
-    for name in ['input.json','heat-solve.json','export.json','bind.json','receipt.json','feasibility-input.json','solve.json','state-archive.json']:
+    for name in ['input.json','heat-solve.json','export.json','bind.json','receipt.json','feasibility-input.json','solve.json','state-archive.json','cut-plan.json','model-archive.json','numerical-arrays-archive.json','numeric-state-archive.json']:
         f=folder/name
         if f.exists():
             raw=f.read_bytes();record['evidence'][name]={'sha256':hashlib.sha256(raw).hexdigest(),'data':json.loads(raw)}
@@ -16,7 +16,13 @@ for folder in candidates:
         target=exp/(folder.name+'.json');target.write_text(json.dumps(record,indent=2)+'\n');entries.append({'file':target.name,'candidate':folder.name,'accepted':False})
 if not entries:
     raise SystemExit('No candidate receipts found; existing archive index was left unchanged.')
-(exp/'index.json').write_text(json.dumps({'scope':'Staging receipts include failures. No candidate accepted or activated. GLBs remain local; original sources stay unchanged. Prefix approved names the approved work plan, not approved assets.','entries':entries},indent=2)+'\n')
+previous=json.loads((exp/'index.json').read_text())['entries'] if (exp/'index.json').exists() else []
+indexed={entry['candidate']:entry for entry in previous}
+indexed.update({entry['candidate']:entry for entry in entries})
+entries=[indexed[key] for key in sorted(indexed)]
+for entry in entries:
+    assert (exp/entry['file']).is_file(), 'An archived experiment must not disappear when local staging is partial'
+(exp/'index.json').write_text(json.dumps({'scope':'Staging receipts include failures. No candidate accepted or activated. GLBs remain local; original sources stay unchanged. Prefix approved names the approved work plan, not approved assets. Existing archive entries survive partial local staging.','entries':entries},indent=2)+'\n')
 labels=[('H01','Trước fit hai pose','H01-geodesic-before-two-poses-surface.json'),('H01','Sau fit hai pose','H01-geodesic-cp-v1-surface.json'),('H02','Trước fit hai pose','H02-geodesic-before-two-poses-surface.json'),('H02','Sau fit hai pose','H02-geodesic-cp-v3-surface.json'),('H01','Field helper riêng, chưa fit','H01-pronation-field-v1-surface.json'),('H02','Field helper riêng, chưa fit','H02-pronation-field-v1-surface.json')]
 labels += [(hero,label,hero+suffix) for hero in ['H01','H02'] for label,suffix in [
     ('Ủng source trước/sau fit sàn','-boot-field-v1-surface.json'),

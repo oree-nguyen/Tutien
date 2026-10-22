@@ -125,7 +125,26 @@ def main():
     assert (
         digest(args.base / "feasibility-matrices.bin") == feasibility["matricesSha256"]
     )
-    if args.cut_fans:
+    cut_cloth_layout = (
+        args.cut_fans and feasibility.get("kind") == "cut-cloth-source-layout"
+    )
+    if cut_cloth_layout:
+        layout = args.base
+        files = {
+            name: layout / name
+            for name in [
+                "positions.bin",
+                "triangles.bin",
+                "protected.bin",
+                "groups.bin",
+                "result-ids.bin",
+                "result-weights.bin",
+                "feasibility-matrices.bin",
+            ]
+        }
+        for name, expected in feasibility["files"].items():
+            assert digest(layout / name) == expected
+    elif args.cut_fans:
         parent = json.loads((args.base / "solve.json").read_text())
         layout = Path(parent["base"])
         assert digest(layout / "H01-C0-rigged.glb") == parent["inputSha256"]
@@ -180,7 +199,9 @@ def main():
         fixed, inverse, np.fromfile(files["protected.bin"], "u1").astype(bool)
     )
     if args.cut_fans:
-        roles = np.fromfile(layout / "solver-roles.bin", "u1")
+        roles = np.fromfile(
+            layout / ("roles.bin" if cut_cloth_layout else "solver-roles.bin"), "u1"
+        )
         np.logical_or.at(fixed, inverse, roles == 0)
     # Preserve head and boots; the full torso/lining/sleeve domain is solved
     # together so a color label cannot hard-pin an internal fabric layer.

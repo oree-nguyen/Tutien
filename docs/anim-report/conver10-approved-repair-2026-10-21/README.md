@@ -4,7 +4,7 @@
 
 [Goal chi tiết](../../../goal/rig-animation.md) · [23 cổng và nguồn SHA](../../../acceptance/goals/rig-animation-gemini.json) · [Kết quả goal gần nhất](goal-latest.json) · [65 yêu cầu → cổng kiểm](REQUIREMENT-GATES.md) · [Quyết định kỹ thuật](DECISIONS.md) · [Ảnh nguyên byte trên Git](../../../picture/conver10/online-pic.md).
 
-**Vòng tiếp — [ủng và cổ tay](BOOT-WRIST.md):** đã fit tiếp xúc sàn trên bề mặt source và giữ seed/đế trong các vòng weight tiếp. Full source sau CP600 vẫn trượt maxstrain và kiểm hình ảnh; không thay vào game. `npm test`336/336, `test:master`215/215; `verify:master`0/37. Chưa chạy lại build/APK trong vòng này vì điều kiện rig trước phát hành chưa đạt. Các số đo/bằng chứng của checkpoint trước vẫn được giữ bên dưới như lịch sử.
+**Vòng mới — [hai vạt áo source](GARMENT-PANELS.md):** đã mang phân vùng sang bind54bone, thử mở lớp trước/sau và grid vải bốn support. Giao cắt cùng pose/cut giảm72.063→6.568 cặp, nhưng áo còn xuyên sàn165mm và trượt strain; dải eo còn làm thân xấu hơn. Không thay vào game. `npm test`340/340, `test:master`215/215; `verify:master`0/37. Goal vẫn INCOMPLETE, chưa chạy build/APK. [Vòng ủng/cổ tay trước](BOOT-WRIST.md) và mọi mẫu thất bại được giữ nguyên.
 
 ## Phạm vi và nguồn
 

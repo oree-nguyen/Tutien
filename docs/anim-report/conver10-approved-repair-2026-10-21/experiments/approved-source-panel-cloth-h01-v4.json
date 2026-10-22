@@ -1,0 +1,836 @@
+{
+  "directory": ".local/rig-candidates/approved-source-panel-cloth-h01-v4",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "input.json": {
+      "sha256": "d7ba815dbff03688c234f2da65a299c2c838f5b60c8812759cf8d931a8111d56",
+      "data": {
+        "input": ".local/rig-candidates/approved-source-panels-h01-v2/H01-C0-rigged.glb",
+        "inputSha256": "38fb63d0e5c53f86a1318071634cc95057ad488c4e8908cf69e7b66ec7ce3c58",
+        "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+        "poseSha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf",
+        "vertices": 886671,
+        "faces": 1499726,
+        "parts": [
+          {
+            "nodeIndex": 56,
+            "primitiveIndex": 0,
+            "name": "H01_Remaining_Source",
+            "offset": 0,
+            "count": 136550,
+            "faces": 231649
+          },
+          {
+            "nodeIndex": 57,
+            "primitiveIndex": 0,
+            "name": "H01_Robe_Left",
+            "offset": 136550,
+            "count": 47348,
+            "faces": 76198
+          },
+          {
+            "nodeIndex": 57,
+            "primitiveIndex": 1,
+            "name": "H01_Robe_Left",
+            "offset": 183898,
+            "count": 61090,
+            "faces": 105484
+          },
+          {
+            "nodeIndex": 57,
+            "primitiveIndex": 2,
+            "name": "H01_Robe_Left",
+            "offset": 244988,
+            "count": 53824,
+            "faces": 90844
+          },
+          {
+            "nodeIndex": 57,
+            "primitiveIndex": 3,
+            "name": "H01_Robe_Left",
+            "offset": 298812,
+            "count": 41572,
+            "faces": 69431
+          },
+          {
+            "nodeIndex": 58,
+            "primitiveIndex": 0,
+            "name": "H01_Robe_Right",
+            "offset": 340384,
+            "count": 49823,
+            "faces": 78438
+          },
+          {
+            "nodeIndex": 58,
+            "primitiveIndex": 1,
+            "name": "H01_Robe_Right",
+            "offset": 390207,
+            "count": 50926,
+            "faces": 83584
+          },
+          {
+            "nodeIndex": 58,
+            "primitiveIndex": 2,
+            "name": "H01_Robe_Right",
+            "offset": 441133,
+            "count": 69647,
+            "faces": 115821
+          },
+          {
+            "nodeIndex": 58,
+            "primitiveIndex": 3,
+            "name": "H01_Robe_Right",
+            "offset": 510780,
+            "count": 43272,
+            "faces": 72323
+          },
+          {
+            "nodeIndex": 59,
+            "primitiveIndex": 0,
+            "name": "H01_Robe_Torso",
+            "offset": 554052,
+            "count": 165243,
+            "faces": 279272
+          },
+          {
+            "nodeIndex": 60,
+            "primitiveIndex": 0,
+            "name": "H01_Sleeve_Left",
+            "offset": 719295,
+            "count": 81409,
+            "faces": 145786
+          },
+          {
+            "nodeIndex": 61,
+            "primitiveIndex": 0,
+            "name": "H01_Sleeve_Right",
+            "offset": 800704,
+            "count": 85967,
+            "faces": 150896
+          }
+        ],
+        "config": {
+          "kind": "secondary-cloth-source-chain-staging",
+          "chains": [
+            {
+              "name": "H01_Cloth_Left_Front",
+              "role": 1,
+              "sign": 1,
+              "anchor": [
+                0.0259261392056942,
+                0.99,
+                0.14919276535511017
+              ],
+              "rows": 8,
+              "spacing": 0.13,
+              "anglesDegrees": [
+                0,
+                0,
+                0,
+                -65,
+                -100,
+                -118,
+                -118,
+                -118
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back",
+              "role": 1,
+              "sign": -1,
+              "anchor": [
+                0.1962084025144577,
+                0.99,
+                -0.06549236178398132
+              ],
+              "rows": 8,
+              "spacing": 0.13,
+              "anglesDegrees": [
+                0,
+                0,
+                0,
+                40,
+                62,
+                62,
+                62,
+                62
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front",
+              "role": 2,
+              "sign": 1,
+              "anchor": [
+                -0.057608284056186676,
+                0.99,
+                0.12230178713798523
+              ],
+              "rows": 8,
+              "spacing": 0.13,
+              "anglesDegrees": [
+                0,
+                0,
+                0,
+                -65,
+                -100,
+                -118,
+                -118,
+                -118
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back",
+              "role": 2,
+              "sign": -1,
+              "anchor": [
+                -0.19540934264659882,
+                0.99,
+                -0.06552989035844803
+              ],
+              "rows": 8,
+              "spacing": 0.13,
+              "anglesDegrees": [
+                0,
+                0,
+                0,
+                40,
+                62,
+                62,
+                62,
+                62
+              ]
+            }
+          ],
+          "transitionMetres": 0.36,
+          "waistFade": [
+            0.7,
+            0.99
+          ],
+          "accepted": false
+        },
+        "skeleton": {
+          "coreJointCount": 54,
+          "jointCount": 86,
+          "records": [
+            {
+              "name": "H01_Cloth_Left_Front_0",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 0,
+              "index": 54,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0.0259261392056942,
+                0.030000000000000027,
+                0.14919276535511017
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_1",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 1,
+              "index": 55,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_2",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 2,
+              "index": 56,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_3",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 3,
+              "index": 57,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_4",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 4,
+              "index": 58,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_5",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 5,
+              "index": 59,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_6",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 6,
+              "index": 60,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Front_7",
+              "chain": "H01_Cloth_Left_Front",
+              "row": 7,
+              "index": 61,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_0",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 0,
+              "index": 62,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0.1962084025144577,
+                0.030000000000000027,
+                -0.06549236178398132
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_1",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 1,
+              "index": 63,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_2",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 2,
+              "index": 64,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_3",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 3,
+              "index": 65,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_4",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 4,
+              "index": 66,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_5",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 5,
+              "index": 67,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_6",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 6,
+              "index": 68,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Left_Back_7",
+              "chain": "H01_Cloth_Left_Back",
+              "row": 7,
+              "index": 69,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_0",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 0,
+              "index": 70,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                -0.057608284056186676,
+                0.030000000000000027,
+                0.12230178713798523
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_1",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 1,
+              "index": 71,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_2",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 2,
+              "index": 72,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_3",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 3,
+              "index": 73,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_4",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 4,
+              "index": 74,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_5",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 5,
+              "index": 75,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_6",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 6,
+              "index": 76,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Front_7",
+              "chain": "H01_Cloth_Right_Front",
+              "row": 7,
+              "index": 77,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_0",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 0,
+              "index": 78,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                -0.19540934264659882,
+                0.030000000000000027,
+                -0.06552989035844803
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_1",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 1,
+              "index": 79,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_2",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 2,
+              "index": 80,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_3",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 3,
+              "index": 81,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_4",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 4,
+              "index": 82,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_5",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 5,
+              "index": 83,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_6",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 6,
+              "index": 84,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            },
+            {
+              "name": "H01_Cloth_Right_Back_7",
+              "chain": "H01_Cloth_Right_Back",
+              "row": 7,
+              "index": 85,
+              "bindRotation": [
+                0,
+                0,
+                0,
+                1
+              ],
+              "bindTranslation": [
+                0,
+                -0.13,
+                0
+              ]
+            }
+          ]
+        },
+        "coreJointNames": [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase",
+          "LeftForearmPronation",
+          "RightForearmPronation"
+        ],
+        "weightEngine": "grid",
+        "files": {
+          "positions.f32bin": "687989054191b9dc1f6560be1fe5c0f4c2baa1e20f206c7958881c5af16372c8",
+          "fans.u32bin": "d0501d96719e1456fe0adf4171924e7592c7a55e99c78632ae11508b1628f1d8",
+          "ids.u16bin": "37fa6a67f90cfd1d6af90e29e3b2da5addac433f0f23f15b81c0dd59b338154a",
+          "weights.f32bin": "473ccee28385bb6280b724dfd02da8f8ae241fbc9024a460c050f012f9f1e35c",
+          "roles.u8bin": "d05a25d33258007440f789deda8a4fd0358d5fe7fb6ffebe8de539082673a245",
+          "layers.u8bin": "f97842b44fff22c90cf41c21b5227d9c049ec8d40a182e0bb97a71a11d6a88c8",
+          "triangles.u32bin": "2d89747c44ffd691b8b674a15d3d4564fe839a0d784706e242f52bf3b1c1915e",
+          "protected.u8bin": "58bb8ad1a023d8dc1b49ec04dbf0bf6c8f1382afcac6dcef563823de0f82ae71"
+        },
+        "guide": {
+          "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-panel-drape-guide-v4.json",
+          "sha256": "198d899890b999ed2e6a23d5cb153687d05da53c1b64b91db1ec1435b917a817"
+        }
+      }
+    }
+  }
+}
