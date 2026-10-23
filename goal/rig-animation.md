@@ -88,3 +88,7 @@ Vòng chốt sau sửa bootstrap fixture: fingerprint69627ad8… stableSource=tr
 ### Vòng23/10 tiếp: ô trống local và hình dáng tay
 
 [Báo cáo](../docs/anim-report/conver10-approved-repair-2026-10-21/HAND-SHAPE.md): sửa policy làm mất local finger ID có weight0; audit thực giữ lại1.243ô. Bản thử V11 giảm p99,9 riêng tay phải/trái về1,578524/1,600990 nhưng vẫn trượt; normal/diện tích còn xấu hơn nên bị loại.42/46lượt tay và16/23pose toàn model qua upper-strain chưa là nghiệm thu.12ảnh mới đăng nguyên byte; test356/356, master215/215, verify0/37, goalINCOMPLETE. Chưa thay runtime, chưa APK mới; H02 và tay áo giữ thứ tự/phạm vi đã chốt.
+
+### Vòng tiếp: co từng ngón, không che lỗi bằng đồng chuyển động
+
+[Kiểm và sửa14pose](../docs/anim-report/conver10-approved-repair-2026-10-21/HAND-ISOLATION.md) phát hiện V9 chỉ1/10phép co ngón riêng qua upper-strain. V12 tăng8/10nhưng thumb/fist còn trượt, toàn model15/23pose nên tiếp tục bị loại. Normal/collision giảm nhưng không đạt; hai proposal support/CMC cũng bị loại, không thay source pivot hoặc hạ ngưỡng.4PNG mới đăng conver10, Studio MCP đã inspect game asset thật. Test359/359, master215/215, verify0/37; goalINCOMPLETE,2passed/4failed/17blocked. Chưa thay runtime/H02, chưa APK mới; tay áo vẫn sau APK rig+animation đạt.

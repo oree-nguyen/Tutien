@@ -1,0 +1,668 @@
+{
+  "actions": [
+    {
+      "frame_end": 19.2,
+      "frame_start": 0.0,
+      "name": "Attack_H01Rig",
+      "users": 2
+    },
+    {
+      "frame_end": 24.0,
+      "frame_start": 0.0,
+      "name": "Cast_H01Rig",
+      "users": 1
+    },
+    {
+      "frame_end": 12.0,
+      "frame_start": 0.0,
+      "name": "Dash_H01Rig",
+      "users": 1
+    },
+    {
+      "frame_end": 100.8,
+      "frame_start": 0.0,
+      "name": "Entrance_H01Rig",
+      "users": 1
+    },
+    {
+      "frame_end": 48.0,
+      "frame_start": 0.0,
+      "name": "Idle_H01Rig",
+      "users": 1
+    },
+    {
+      "frame_end": 19.2,
+      "frame_start": 0.0,
+      "name": "Run_H01Rig",
+      "users": 1
+    }
+  ],
+  "blender": {
+    "background": true,
+    "build_hash": "Unknown",
+    "version": "4.3.2",
+    "version_tuple": [
+      4,
+      3,
+      2
+    ]
+  },
+  "hard_gate_pass": true,
+  "input": "/workspace/Tutien/.local/rig-candidates/approved-source-hand-islands-h01-v9/H01-C0-rigged.glb",
+  "issues": [],
+  "material_details": [
+    {
+      "image_texture_nodes": 3,
+      "images": [
+        "texture_pbr_20250901",
+        "texture_pbr_20250901_metallic-texture_pbr_20250901_roughness",
+        "texture_pbr_20250901_normal"
+      ],
+      "name": "Material.001",
+      "node_count": 7,
+      "use_nodes": true
+    }
+  ],
+  "materials": [
+    "Material.001"
+  ],
+  "meshes": [
+    {
+      "boundary_edges": 40249,
+      "connected_components": 857,
+      "data_name": "H01_Remaining_Source",
+      "degenerate_faces": 0,
+      "edges": 367598,
+      "flat_polygons": 0,
+      "invalid_vertices": 0,
+      "isolated_vertices": 0,
+      "material_slots": [
+        "Material.001"
+      ],
+      "missing_material_faces": 0,
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE"
+        }
+      ],
+      "name": "H01_Remaining_Source",
+      "non_manifold_edges": 40249,
+      "polygons": 231649,
+      "refinement_modifiers": [],
+      "shape_keys": 0,
+      "smooth_polygon_ratio": 1.0,
+      "smooth_polygons": 231649,
+      "source_polygons": 231649,
+      "source_vertices": 136550,
+      "triangles": 231649,
+      "uv_layers": 1,
+      "vertex_groups": 54,
+      "vertices": 136550,
+      "weighted_vertices": 136550,
+      "wire_edges": 0,
+      "world_bounds": [
+        [
+          -0.633245,
+          -0.214302,
+          -0.11
+        ],
+        [
+          0.629034,
+          0.175126,
+          1.71
+        ]
+      ],
+      "zero_length_edges": 0
+    },
+    {
+      "boundary_edges": 63379,
+      "connected_components": 2002,
+      "data_name": "H01_Robe_Left",
+      "degenerate_faces": 0,
+      "edges": 544625,
+      "flat_polygons": 0,
+      "invalid_vertices": 0,
+      "isolated_vertices": 0,
+      "material_slots": [
+        "Material.001"
+      ],
+      "missing_material_faces": 0,
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE"
+        }
+      ],
+      "name": "H01_Robe_Left",
+      "non_manifold_edges": 63379,
+      "polygons": 341957,
+      "refinement_modifiers": [],
+      "shape_keys": 0,
+      "smooth_polygon_ratio": 1.0,
+      "smooth_polygons": 341957,
+      "source_polygons": 341957,
+      "source_vertices": 203834,
+      "triangles": 341957,
+      "uv_layers": 1,
+      "vertex_groups": 54,
+      "vertices": 203834,
+      "weighted_vertices": 203834,
+      "wire_edges": 0,
+      "world_bounds": [
+        [
+          -0.167266,
+          -0.202496,
+          0.010216
+        ],
+        [
+          0.346945,
+          0.202496,
+          0.916649
+        ]
+      ],
+      "zero_length_edges": 0
+    },
+    {
+      "boundary_edges": 73978,
+      "connected_components": 3132,
+      "data_name": "H01_Robe_Right",
+      "degenerate_faces": 0,
+      "edges": 562238,
+      "flat_polygons": 0,
+      "invalid_vertices": 0,
+      "isolated_vertices": 0,
+      "material_slots": [
+        "Material.001"
+      ],
+      "missing_material_faces": 0,
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE"
+        }
+      ],
+      "name": "H01_Robe_Right",
+      "non_manifold_edges": 73978,
+      "polygons": 350166,
+      "refinement_modifiers": [],
+      "shape_keys": 0,
+      "smooth_polygon_ratio": 1.0,
+      "smooth_polygons": 350166,
+      "source_polygons": 350166,
+      "source_vertices": 213668,
+      "triangles": 350166,
+      "uv_layers": 1,
+      "vertex_groups": 54,
+      "vertices": 213668,
+      "weighted_vertices": 213668,
+      "wire_edges": 0,
+      "world_bounds": [
+        [
+          -0.343546,
+          -0.194287,
+          0.010391
+        ],
+        [
+          0.183617,
+          0.202496,
+          0.916771
+        ]
+      ],
+      "zero_length_edges": 0
+    },
+    {
+      "boundary_edges": 49828,
+      "connected_components": 923,
+      "data_name": "H01_Robe_Torso",
+      "degenerate_faces": 0,
+      "edges": 443822,
+      "flat_polygons": 0,
+      "invalid_vertices": 0,
+      "isolated_vertices": 0,
+      "material_slots": [
+        "Material.001"
+      ],
+      "missing_material_faces": 0,
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE"
+        }
+      ],
+      "name": "H01_Robe_Torso",
+      "non_manifold_edges": 49828,
+      "polygons": 279272,
+      "refinement_modifiers": [],
+      "shape_keys": 0,
+      "smooth_polygon_ratio": 1.0,
+      "smooth_polygons": 279272,
+      "source_polygons": 279272,
+      "source_vertices": 165243,
+      "triangles": 279272,
+      "uv_layers": 1,
+      "vertex_groups": 54,
+      "vertices": 165243,
+      "weighted_vertices": 165243,
+      "wire_edges": 0,
+      "world_bounds": [
+        [
+          -0.256114,
+          -0.165488,
+          0.746537
+        ],
+        [
+          0.256755,
+          0.182481,
+          1.440393
+        ]
+      ],
+      "zero_length_edges": 0
+    },
+    {
+      "boundary_edges": 16748,
+      "connected_components": 153,
+      "data_name": "H01_Sleeve_Left",
+      "degenerate_faces": 0,
+      "edges": 227053,
+      "flat_polygons": 0,
+      "invalid_vertices": 0,
+      "isolated_vertices": 0,
+      "material_slots": [
+        "Material.001"
+      ],
+      "missing_material_faces": 0,
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE"
+        }
+      ],
+      "name": "H01_Sleeve_Left",
+      "non_manifold_edges": 16748,
+      "polygons": 145786,
+      "refinement_modifiers": [],
+      "shape_keys": 0,
+      "smooth_polygon_ratio": 1.0,
+      "smooth_polygons": 145786,
+      "source_polygons": 145786,
+      "source_vertices": 81409,
+      "triangles": 145786,
+      "uv_layers": 1,
+      "vertex_groups": 54,
+      "vertices": 81409,
+      "weighted_vertices": 81409,
+      "wire_edges": 0,
+      "world_bounds": [
+        [
+          0.193159,
+          -0.148404,
+          0.522718
+        ],
+        [
+          0.53453,
+          0.122896,
+          1.300367
+        ]
+      ],
+      "zero_length_edges": 0
+    },
+    {
+      "boundary_edges": 20462,
+      "connected_components": 452,
+      "data_name": "H01_Sleeve_Right",
+      "degenerate_faces": 0,
+      "edges": 236575,
+      "flat_polygons": 0,
+      "invalid_vertices": 0,
+      "isolated_vertices": 0,
+      "material_slots": [
+        "Material.001"
+      ],
+      "missing_material_faces": 0,
+      "modifiers": [
+        {
+          "name": "Armature",
+          "type": "ARMATURE"
+        }
+      ],
+      "name": "H01_Sleeve_Right",
+      "non_manifold_edges": 20462,
+      "polygons": 150896,
+      "refinement_modifiers": [],
+      "shape_keys": 0,
+      "smooth_polygon_ratio": 1.0,
+      "smooth_polygons": 150896,
+      "source_polygons": 150896,
+      "source_vertices": 85967,
+      "triangles": 150896,
+      "uv_layers": 1,
+      "vertex_groups": 54,
+      "vertices": 85967,
+      "weighted_vertices": 85967,
+      "wire_edges": 0,
+      "world_bounds": [
+        [
+          -0.533892,
+          -0.152426,
+          0.523173
+        ],
+        [
+          -0.18114,
+          0.121924,
+          1.300578
+        ]
+      ],
+      "zero_length_edges": 0
+    }
+  ],
+  "objects": [
+    {
+      "action": "Attack_H01Rig",
+      "collections": [
+        "Scene Collection"
+      ],
+      "dimensions": [
+        1.247664,
+        0.315577,
+        1.637623
+      ],
+      "hidden_render": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "H01Rig",
+      "parent": null,
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform_is_finite": true,
+      "type": "ARMATURE"
+    },
+    {
+      "action": null,
+      "collections": [
+        "Scene Collection"
+      ],
+      "dimensions": [
+        1.262279,
+        0.389428,
+        1.82
+      ],
+      "hidden_render": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "H01_Remaining_Source",
+      "parent": "H01Rig",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform_is_finite": true,
+      "type": "MESH"
+    },
+    {
+      "action": null,
+      "collections": [
+        "Scene Collection"
+      ],
+      "dimensions": [
+        0.514211,
+        0.404992,
+        0.906433
+      ],
+      "hidden_render": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "H01_Robe_Left",
+      "parent": "H01Rig",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform_is_finite": true,
+      "type": "MESH"
+    },
+    {
+      "action": null,
+      "collections": [
+        "Scene Collection"
+      ],
+      "dimensions": [
+        0.527163,
+        0.396783,
+        0.90638
+      ],
+      "hidden_render": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "H01_Robe_Right",
+      "parent": "H01Rig",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform_is_finite": true,
+      "type": "MESH"
+    },
+    {
+      "action": null,
+      "collections": [
+        "Scene Collection"
+      ],
+      "dimensions": [
+        0.512869,
+        0.347969,
+        0.693856
+      ],
+      "hidden_render": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "H01_Robe_Torso",
+      "parent": "H01Rig",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform_is_finite": true,
+      "type": "MESH"
+    },
+    {
+      "action": null,
+      "collections": [
+        "Scene Collection"
+      ],
+      "dimensions": [
+        0.341371,
+        0.2713,
+        0.777649
+      ],
+      "hidden_render": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "H01_Sleeve_Left",
+      "parent": "H01Rig",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform_is_finite": true,
+      "type": "MESH"
+    },
+    {
+      "action": null,
+      "collections": [
+        "Scene Collection"
+      ],
+      "dimensions": [
+        0.352752,
+        0.27435,
+        0.777405
+      ],
+      "hidden_render": false,
+      "location": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "name": "H01_Sleeve_Right",
+      "parent": "H01Rig",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform_is_finite": true,
+      "type": "MESH"
+    },
+    {
+      "action": null,
+      "collections": [
+        "Scene Collection"
+      ],
+      "dimensions": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "hidden_render": false,
+      "location": [
+        -0.0,
+        0.035964,
+        -0.025
+      ],
+      "name": "RightHand_WeaponSocket",
+      "parent": "H01Rig",
+      "rotation_euler": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "scale": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "transform_is_finite": true,
+      "type": "EMPTY"
+    }
+  ],
+  "scene": {
+    "bounds": {
+      "dimensions": [
+        1.262279,
+        0.416798,
+        1.82
+      ],
+      "max": [
+        0.629034,
+        0.202496,
+        1.71
+      ],
+      "min": [
+        -0.633245,
+        -0.214302,
+        -0.11
+      ]
+    },
+    "fps": 24.0,
+    "frame_end": 250,
+    "frame_start": 1,
+    "name": "Scene"
+  },
+  "schema_version": 3,
+  "totals": {
+    "actions": 6,
+    "armatures": 1,
+    "bones": 54,
+    "boundary_edges": 264644,
+    "cameras": 0,
+    "constraints": 0,
+    "degenerate_faces": 0,
+    "edges": 2381911,
+    "flat_polygons": 0,
+    "geometry_nodes_modifiers": 0,
+    "images": 3,
+    "invalid_vertices": 0,
+    "isolated_vertices": 0,
+    "lights": 0,
+    "materials": 1,
+    "mesh_objects": 6,
+    "missing_material_faces": 0,
+    "node_materials": 1,
+    "non_manifold_edges": 264644,
+    "objects": 8,
+    "polygons": 1499726,
+    "refinement_modifiers": 0,
+    "rigid_body_objects": 0,
+    "shape_keys": 0,
+    "simulation_modifiers": 0,
+    "smooth_polygons": 1499726,
+    "textured_materials": 1,
+    "triangles": 1499726,
+    "uv_mapped_meshes": 6,
+    "vertices": 886671,
+    "weighted_meshes": 6,
+    "wire_edges": 0,
+    "zero_length_edges": 0
+  }
+}

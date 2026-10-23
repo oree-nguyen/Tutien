@@ -83,3 +83,7 @@ Chạy `npm run build` trước phép kiểm production; test sẽ từ chối b
 - Bake đủ các track của rig mới: 54 rotation + Hips.position cho Entrance/Hold; không tái dùng nguyên payload 53 track của rig 52 xương. Retarget đủ các clip combat, kiểm sảnh và Idle/Run/Attack/Cast/Dash. H02 dùng tay trái nhất quán.
 - Kiểm production/offline/source fidelity, rồi mới đóng APK rig/animation. Sau đó mới làm riêng tay áo H01.
 - Chưa có điện thoại Android vật lý kết nối; các mẫu 60/120 Hz ở đây là tần số lấy mẫu toán học, không phải FPS điện thoại.
+
+## Checkpoint: co ngón độc lập trên source
+
+Xem [HAND-ISOLATION.md](HAND-ISOLATION.md): fit14pose tăng8/10phép co từng ngón qua upper-strain nhưng fist/thumb và toàn model còn trượt, V12 bị loại. Test359/359/master215/215/verify0/37; goalINCOMPLETE, chưa APK mới.

@@ -7171,3 +7171,35 @@ Nguồn: `preview.png`
 **Thời gian đăng ký ảnh: 2026-10-23 19:03:00 UTC+07:00**
 
 Nguồn: `eevee-preview.png`
+
+## Ảnh 872
+
+![pose-0-left-front.png](../media/dc2ede43f6e1cd2effd2c8274bbf86f8fc4f3456.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 19:38:44 UTC+07:00**
+
+Nguồn: `pose-0-left-front.png`
+
+## Ảnh 873
+
+![pose-0-left-back.png](../media/9246ef6b27c29a71f789627393489ecfee759ca3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 19:38:46 UTC+07:00**
+
+Nguồn: `pose-0-left-back.png`
+
+## Ảnh 874
+
+![pose-0-right-front.png](../media/ff6e050ef75d7d82d5aa1c41e916f971439cc7f1.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 19:38:46 UTC+07:00**
+
+Nguồn: `pose-0-right-front.png`
+
+## Ảnh 875
+
+![pose-0-right-back.png](../media/a8c575c48f22b0d7b868cf1043cfb5730e812d8b.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 19:38:47 UTC+07:00**
+
+Nguồn: `pose-0-right-back.png`
