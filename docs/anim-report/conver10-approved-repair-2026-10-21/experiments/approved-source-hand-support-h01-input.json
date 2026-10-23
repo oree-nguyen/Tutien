@@ -1,0 +1,57 @@
+{
+  "directory": ".local/rig-candidates/approved-source-hand-support-h01-input",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "receipt.json": {
+      "sha256": "0945dd41cb796bf2b2aa8e82d46339230ee8e130c1543a9eed785e4be69a1b78",
+      "data": {
+        "sha256": "194a246962e19cdd9af94a59eea0f686127e8a596289e0d030f4cc5343b1299c",
+        "accepted": false,
+        "activated": false
+      }
+    },
+    "feasibility-input.json": {
+      "sha256": "e5ea6c9132c046a345011d373a94847ae702695268044ba404472aaca8672253",
+      "data": {
+        "kind": "source-hand-support",
+        "candidate": ".local/rig-candidates/approved-source-hand-islands-h01-v3",
+        "candidateSolveSha256": "bcb939034f7b20d9ee2404ae0d9076c410e53faa94ac69caa13dad4cf5b24494",
+        "assetSha256": "194a246962e19cdd9af94a59eea0f686127e8a596289e0d030f4cc5343b1299c",
+        "mesh": "H01_Remaining_Source",
+        "primitive": 0,
+        "poseFile": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-010.json",
+        "poseSha256": "fb95a004c9eb65edba28e5d730f766892eaacb29b641d89b10242ea824245af6",
+        "poseCount": 3,
+        "poses": [
+          {
+            "file": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-010.json",
+            "sha256": "fb95a004c9eb65edba28e5d730f766892eaacb29b641d89b10242ea824245af6"
+          },
+          {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+            "sha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf"
+          },
+          {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-fist-stress-v1.json",
+            "sha256": "7e4f78c09dcc805726fba5d995c25e36c717b7cabba469ec398e2e1c87ef9ea6"
+          }
+        ],
+        "matricesSha256": "1c56f76c0d563c22ef4d8d3aa5db4b037ea3d69736844e832079d4fb22c49d17",
+        "files": {
+          "positions.bin": "a6481078f41e2aafea22305fa1c6b886f9958ca735cb8db74b44744ff9cfce46",
+          "triangles.bin": "50f2caa9a5ffb4c9e72e68de2f1ad17ac32067c20329caec015345f360416c5b",
+          "source-welds.u32bin": "ba5bdc4cf8d32eebbae2ed0941b79210e6dc76c12aaad0aab930002b81e2ca83",
+          "result-ids.bin": "215ab9528c394da1043f99d8bc2836b63d1314f5d036abb5c4c8240affc50b0e",
+          "result-weights.bin": "025439cc21a0c99739527d77a192ae890f5ad7925fbf99d47ec8ae90f6a70e60",
+          "protected.bin": "e36328684496f6f13cc8158d095d1972b44141d60e520ebd87ec821f64652076",
+          "feasibility-matrices.bin": "1c56f76c0d563c22ef4d8d3aa5db4b037ea3d69736844e832079d4fb22c49d17"
+        },
+        "freeVertices": 23054,
+        "scope": "Remaining_Source only, original source-weld IDs; all non-hand rows and pure measured seeds pinned. No garment, geometry, joint or animation edits.",
+        "accepted": false,
+        "activated": false
+      }
+    }
+  }
+}

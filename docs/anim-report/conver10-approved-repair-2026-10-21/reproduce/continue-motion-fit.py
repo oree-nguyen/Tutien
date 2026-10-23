@@ -23,7 +23,7 @@ assert 1 <= args.iterations <= 2000
 sha = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
 old = json.loads((args.previous/'solve.json').read_text())
 assert old['parameters']['algorithmVersion'] == 3
-assert old['parameters']['cutFans'] and old['parameters']['wholeBody']
+assert old['parameters']['wholeBody']
 assert not old['accepted'] and not old['activated']
 assert not (args.previous/'receipt.json').exists(), 'Completed exports are immutable'
 expected = {**old['stateHashes'], 'result-weights.bin': old['outputWeightsSha256']}
@@ -34,7 +34,7 @@ for name in ['solve.json', *expected]:
     shutil.copyfile(args.previous/name, args.output/name)
     assert sha(args.previous/name) == sha(args.output/name)
 command = ['python3','tools/rig/pose_weight_fit.py',old['base'],str(args.output),
-    '--whole-body','--cut-fans','--archive-state','--resume',
+    '--whole-body',*(['--cut-fans'] if old['parameters']['cutFans'] else []),'--archive-state','--resume',
     '--iterations',str(args.iterations),'--ratio',str(old['parameters']['ratio'])]
 record = {'previous':str(args.previous),'previousSolveSha256':sha(args.previous/'solve.json'),
     'copiedNumericalFiles':{**expected,'solve.json':sha(args.previous/'solve.json')},

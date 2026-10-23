@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {spawnSync} from 'node:child_process';
+import '../tools/rig/test-source-fan-skin.mjs';
 
 test('source graph, UV seam identity and continuous four-bone supports pass independent Python regressions',()=>{
   const result=spawnSync('python3',['tools/rig/test_source_garment_graph.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
@@ -56,4 +57,9 @@ test('cloth grid keeps four continuous supports and refuses to discard an old ro
 test('pose-space cloth reduction preserves actual evaluated points and scalar floor/edge constraints keep the body fixed',()=>{
  const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_cloth_blend_math.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
  assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 12 tests/);
+});
+
+test('hand ownership follows source connectivity, preserves measured finger seeds and refuses stale source data',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_source_hand*.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 3 tests/);
 });

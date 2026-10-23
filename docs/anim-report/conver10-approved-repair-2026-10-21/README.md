@@ -4,7 +4,9 @@
 
 [Goal chi tiết](../../../goal/rig-animation.md) · [23 cổng và nguồn SHA](../../../acceptance/goals/rig-animation-gemini.json) · [Kết quả goal gần nhất](goal-latest.json) · [65 yêu cầu → cổng kiểm](REQUIREMENT-GATES.md) · [Quyết định kỹ thuật](DECISIONS.md) · [Ảnh nguyên byte trên Git](../../../picture/conver10/online-pic.md).
 
-**Vòng mới — [kiểm chuyển động và fit vạt áo](CLOTH-MOTION.md):** đã sửa cách rút support vốn chỉ giữ đúng một pose và chạy fit nhiều pose. GLB đọc lại cho max vạt7,35→2,04× trên21 mẫu diagnostic; toàn model15/21 mẫu qua upper-strain (parent1/21). Lớp lót phải/thân/cổ tay còn trượt; ảnh vẫn thấy áo phồng/chặn tay, nên không thay vào game hoặc xuất APK. H02 parent54 mới được kiểm21 mẫu, chỉ4/21 qua.60ảnh chụp mới đã vào conver10; dữ liệu thất bại và [cut/grid](GARMENT-PANELS.md), [ủng/cổ tay](BOOT-WRIST.md) được giữ nguyên.
+**Vòng mới nhất — [ownership bàn tay và cuff](HAND-OWNERSHIP.md):** đã bỏ crop cắt ngang thumb, giữ seed nguồn và đồng bộ các bản copy kept-fan qua mesh. Remaining_Source bản thử qua23/23 mẫu, gồm hai bài nắm; chưa là nghiệm thu ngón hay nhân vật. Cuff/áo vẫn trượt nặng, mọi candidate bị loại và runtime/APK chưa thay.24ảnh mới cùng log thất bại được giữ trong conver10. Goal mới: test350/350, master215/215, verify0/37, INCOMPLETE. Số đo vạt áo ở đoạn trước là checkpoint cũ.
+
+**Vòng trước — [kiểm chuyển động và fit vạt áo](CLOTH-MOTION.md):** đã sửa cách rút support vốn chỉ giữ đúng một pose và chạy fit nhiều pose. GLB đọc lại cho max vạt7,35→2,04× trên21 mẫu diagnostic; toàn model15/21 mẫu qua upper-strain (parent1/21). Lớp lót phải/thân/cổ tay còn trượt; ảnh vẫn thấy áo phồng/chặn tay, nên không thay vào game hoặc xuất APK. H02 parent54 mới được kiểm21 mẫu, chỉ4/21 qua.60ảnh chụp mới đã vào conver10; dữ liệu thất bại và [cut/grid](GARMENT-PANELS.md), [ủng/cổ tay](BOOT-WRIST.md) được giữ nguyên.
 
 ## Phạm vi và nguồn
 

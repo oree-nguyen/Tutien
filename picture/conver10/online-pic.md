@@ -6354,7 +6354,7 @@ Nguồn: `crouch-right-front.png`, `docs/anim-report/conver10-approved-repair-20
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:12:58 UTC+07:00**
 
-Nguồn: `bind-left-back.png`
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/bind-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/bind-left-back.png`
 
 ## Ảnh 770
 
@@ -6362,7 +6362,7 @@ Nguồn: `bind-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:12:59 UTC+07:00**
 
-Nguồn: `bind-left-front.png`
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/bind-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/bind-left-front.png`
 
 ## Ảnh 771
 
@@ -6370,7 +6370,7 @@ Nguồn: `bind-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:00 UTC+07:00**
 
-Nguồn: `bind-right-back.png`
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/bind-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/bind-right-back.png`
 
 ## Ảnh 772
 
@@ -6378,7 +6378,7 @@ Nguồn: `bind-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:00 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/bind-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/bind-right-front.png`
 
 ## Ảnh 773
 
@@ -6386,7 +6386,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:01 UTC+07:00**
 
-Nguồn: `crouch-all-back.png`
+Nguồn: `crouch-all-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/crouch-all-back.png`
 
 ## Ảnh 774
 
@@ -6394,7 +6394,7 @@ Nguồn: `crouch-all-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:01 UTC+07:00**
 
-Nguồn: `crouch-all-front.png`
+Nguồn: `crouch-all-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/crouch-all-front.png`
 
 ## Ảnh 775
 
@@ -6402,7 +6402,7 @@ Nguồn: `crouch-all-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:01 UTC+07:00**
 
-Nguồn: `crouch-all-side.png`
+Nguồn: `crouch-all-side.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/crouch-all-side.png`
 
 ## Ảnh 776
 
@@ -6410,7 +6410,7 @@ Nguồn: `crouch-all-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:02 UTC+07:00**
 
-Nguồn: `crouch-all-three-quarter.png`
+Nguồn: `crouch-all-three-quarter.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/crouch-all-three-quarter.png`
 
 ## Ảnh 777
 
@@ -6418,7 +6418,7 @@ Nguồn: `crouch-all-three-quarter.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:02 UTC+07:00**
 
-Nguồn: `crouch-left-back.png`
+Nguồn: `crouch-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/crouch-left-back.png`
 
 ## Ảnh 778
 
@@ -6426,7 +6426,7 @@ Nguồn: `crouch-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:03 UTC+07:00**
 
-Nguồn: `crouch-left-front.png`
+Nguồn: `crouch-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/crouch-left-front.png`
 
 ## Ảnh 779
 
@@ -6434,7 +6434,7 @@ Nguồn: `crouch-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:03 UTC+07:00**
 
-Nguồn: `crouch-right-back.png`
+Nguồn: `crouch-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/crouch-right-back.png`
 
 ## Ảnh 780
 
@@ -6442,7 +6442,7 @@ Nguồn: `crouch-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:13:04 UTC+07:00**
 
-Nguồn: `crouch-right-front.png`
+Nguồn: `crouch-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-review/crouch-right-front.png`
 
 ## Ảnh 781
 
@@ -6450,7 +6450,7 @@ Nguồn: `crouch-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:19 UTC+07:00**
 
-Nguồn: `crouch-all-back.png`
+Nguồn: `crouch-all-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/crouch-all-back.png`
 
 ## Ảnh 782
 
@@ -6458,7 +6458,7 @@ Nguồn: `crouch-all-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:21 UTC+07:00**
 
-Nguồn: `crouch-all-front.png`
+Nguồn: `crouch-all-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/crouch-all-front.png`
 
 ## Ảnh 783
 
@@ -6466,7 +6466,7 @@ Nguồn: `crouch-all-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:21 UTC+07:00**
 
-Nguồn: `crouch-all-side.png`
+Nguồn: `crouch-all-side.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/crouch-all-side.png`
 
 ## Ảnh 784
 
@@ -6474,7 +6474,7 @@ Nguồn: `crouch-all-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:22 UTC+07:00**
 
-Nguồn: `crouch-all-three-quarter.png`
+Nguồn: `crouch-all-three-quarter.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/crouch-all-three-quarter.png`
 
 ## Ảnh 785
 
@@ -6482,7 +6482,7 @@ Nguồn: `crouch-all-three-quarter.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:22 UTC+07:00**
 
-Nguồn: `crouch-left-back.png`
+Nguồn: `crouch-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/crouch-left-back.png`
 
 ## Ảnh 786
 
@@ -6490,7 +6490,7 @@ Nguồn: `crouch-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:23 UTC+07:00**
 
-Nguồn: `crouch-left-front.png`
+Nguồn: `crouch-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/crouch-left-front.png`
 
 ## Ảnh 787
 
@@ -6498,7 +6498,7 @@ Nguồn: `crouch-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:23 UTC+07:00**
 
-Nguồn: `crouch-right-back.png`
+Nguồn: `crouch-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/crouch-right-back.png`
 
 ## Ảnh 788
 
@@ -6506,7 +6506,7 @@ Nguồn: `crouch-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:24 UTC+07:00**
 
-Nguồn: `crouch-right-front.png`
+Nguồn: `crouch-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v1-mid-review/crouch-right-front.png`
 
 ## Ảnh 789
 
@@ -6514,7 +6514,7 @@ Nguồn: `crouch-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:24 UTC+07:00**
 
-Nguồn: `bind-left-back.png`
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/bind-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/bind-left-back.png`
 
 ## Ảnh 790
 
@@ -6522,7 +6522,7 @@ Nguồn: `bind-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:25 UTC+07:00**
 
-Nguồn: `bind-left-front.png`
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/bind-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/bind-left-front.png`
 
 ## Ảnh 791
 
@@ -6530,7 +6530,7 @@ Nguồn: `bind-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:25 UTC+07:00**
 
-Nguồn: `bind-right-back.png`
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/bind-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/bind-right-back.png`
 
 ## Ảnh 792
 
@@ -6538,7 +6538,7 @@ Nguồn: `bind-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:26 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/bind-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/bind-right-front.png`
 
 ## Ảnh 793
 
@@ -6546,7 +6546,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:27 UTC+07:00**
 
-Nguồn: `crouch-all-back.png`
+Nguồn: `crouch-all-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/crouch-all-back.png`
 
 ## Ảnh 794
 
@@ -6554,7 +6554,7 @@ Nguồn: `crouch-all-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:28 UTC+07:00**
 
-Nguồn: `crouch-all-front.png`
+Nguồn: `crouch-all-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/crouch-all-front.png`
 
 ## Ảnh 795
 
@@ -6562,7 +6562,7 @@ Nguồn: `crouch-all-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:29 UTC+07:00**
 
-Nguồn: `crouch-all-side.png`
+Nguồn: `crouch-all-side.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/crouch-all-side.png`
 
 ## Ảnh 796
 
@@ -6570,7 +6570,7 @@ Nguồn: `crouch-all-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:30 UTC+07:00**
 
-Nguồn: `crouch-all-three-quarter.png`
+Nguồn: `crouch-all-three-quarter.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/crouch-all-three-quarter.png`
 
 ## Ảnh 797
 
@@ -6578,7 +6578,7 @@ Nguồn: `crouch-all-three-quarter.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:30 UTC+07:00**
 
-Nguồn: `crouch-left-back.png`
+Nguồn: `crouch-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/crouch-left-back.png`
 
 ## Ảnh 798
 
@@ -6586,7 +6586,7 @@ Nguồn: `crouch-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:31 UTC+07:00**
 
-Nguồn: `crouch-left-front.png`
+Nguồn: `crouch-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/crouch-left-front.png`
 
 ## Ảnh 799
 
@@ -6594,7 +6594,7 @@ Nguồn: `crouch-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:31 UTC+07:00**
 
-Nguồn: `crouch-right-back.png`
+Nguồn: `crouch-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/crouch-right-back.png`
 
 ## Ảnh 800
 
@@ -6602,7 +6602,7 @@ Nguồn: `crouch-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:32 UTC+07:00**
 
-Nguồn: `crouch-right-front.png`
+Nguồn: `crouch-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-mid-review/crouch-right-front.png`
 
 ## Ảnh 801
 
@@ -6610,7 +6610,7 @@ Nguồn: `crouch-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:32 UTC+07:00**
 
-Nguồn: `crouch-all-back.png`
+Nguồn: `crouch-all-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/crouch-all-back.png`
 
 ## Ảnh 802
 
@@ -6618,7 +6618,7 @@ Nguồn: `crouch-all-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:33 UTC+07:00**
 
-Nguồn: `crouch-all-front.png`
+Nguồn: `crouch-all-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/crouch-all-front.png`
 
 ## Ảnh 803
 
@@ -6626,7 +6626,7 @@ Nguồn: `crouch-all-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:33 UTC+07:00**
 
-Nguồn: `crouch-all-side.png`
+Nguồn: `crouch-all-side.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/crouch-all-side.png`
 
 ## Ảnh 804
 
@@ -6634,7 +6634,7 @@ Nguồn: `crouch-all-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:34 UTC+07:00**
 
-Nguồn: `crouch-all-three-quarter.png`
+Nguồn: `crouch-all-three-quarter.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/crouch-all-three-quarter.png`
 
 ## Ảnh 805
 
@@ -6642,7 +6642,7 @@ Nguồn: `crouch-all-three-quarter.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:34 UTC+07:00**
 
-Nguồn: `crouch-left-back.png`
+Nguồn: `crouch-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/crouch-left-back.png`
 
 ## Ảnh 806
 
@@ -6650,7 +6650,7 @@ Nguồn: `crouch-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:35 UTC+07:00**
 
-Nguồn: `crouch-left-front.png`
+Nguồn: `crouch-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/crouch-left-front.png`
 
 ## Ảnh 807
 
@@ -6658,7 +6658,7 @@ Nguồn: `crouch-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:35 UTC+07:00**
 
-Nguồn: `crouch-right-back.png`
+Nguồn: `crouch-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/crouch-right-back.png`
 
 ## Ảnh 808
 
@@ -6666,7 +6666,7 @@ Nguồn: `crouch-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:32:36 UTC+07:00**
 
-Nguồn: `crouch-right-front.png`
+Nguồn: `crouch-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-blend-v5-review/crouch-right-front.png`
 
 ## Ảnh 809
 
@@ -6674,7 +6674,7 @@ Nguồn: `crouch-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:52 UTC+07:00**
 
-Nguồn: `bind-left-back.png`
+Nguồn: `bind-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/bind-left-back.png`
 
 ## Ảnh 810
 
@@ -6682,7 +6682,7 @@ Nguồn: `bind-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:54 UTC+07:00**
 
-Nguồn: `bind-left-front.png`
+Nguồn: `bind-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/bind-left-front.png`
 
 ## Ảnh 811
 
@@ -6690,7 +6690,7 @@ Nguồn: `bind-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:54 UTC+07:00**
 
-Nguồn: `bind-right-back.png`
+Nguồn: `bind-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/bind-right-back.png`
 
 ## Ảnh 812
 
@@ -6698,7 +6698,7 @@ Nguồn: `bind-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:55 UTC+07:00**
 
-Nguồn: `bind-right-front.png`
+Nguồn: `bind-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/bind-right-front.png`
 
 ## Ảnh 813
 
@@ -6706,7 +6706,7 @@ Nguồn: `bind-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:55 UTC+07:00**
 
-Nguồn: `crouch-all-back.png`
+Nguồn: `crouch-all-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/crouch-all-back.png`
 
 ## Ảnh 814
 
@@ -6714,7 +6714,7 @@ Nguồn: `crouch-all-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:56 UTC+07:00**
 
-Nguồn: `crouch-all-front.png`
+Nguồn: `crouch-all-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/crouch-all-front.png`
 
 ## Ảnh 815
 
@@ -6722,7 +6722,7 @@ Nguồn: `crouch-all-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:56 UTC+07:00**
 
-Nguồn: `crouch-all-side.png`
+Nguồn: `crouch-all-side.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/crouch-all-side.png`
 
 ## Ảnh 816
 
@@ -6730,7 +6730,7 @@ Nguồn: `crouch-all-side.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:57 UTC+07:00**
 
-Nguồn: `crouch-all-three-quarter.png`
+Nguồn: `crouch-all-three-quarter.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/crouch-all-three-quarter.png`
 
 ## Ảnh 817
 
@@ -6738,7 +6738,7 @@ Nguồn: `crouch-all-three-quarter.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:57 UTC+07:00**
 
-Nguồn: `crouch-left-back.png`
+Nguồn: `crouch-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/crouch-left-back.png`
 
 ## Ảnh 818
 
@@ -6746,7 +6746,7 @@ Nguồn: `crouch-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:57 UTC+07:00**
 
-Nguồn: `crouch-left-front.png`
+Nguồn: `crouch-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/crouch-left-front.png`
 
 ## Ảnh 819
 
@@ -6754,7 +6754,7 @@ Nguồn: `crouch-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:58 UTC+07:00**
 
-Nguồn: `crouch-right-back.png`
+Nguồn: `crouch-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/crouch-right-back.png`
 
 ## Ảnh 820
 
@@ -6762,4 +6762,196 @@ Nguồn: `crouch-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 07:51:58 UTC+07:00**
 
-Nguồn: `crouch-right-front.png`
+Nguồn: `crouch-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/cloth-motion-v2-review/crouch-right-front.png`
+
+## Ảnh 821
+
+![pose-0-left-back.png](../media/ca70c48a62ee7424646c0b0020cf5a524dc7ccc3.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:10:05 UTC+07:00**
+
+Nguồn: `pose-0-left-back.png`
+
+## Ảnh 822
+
+![pose-0-left-front.png](../media/98d64646370b0732b09e2d2c3fe2338879c9c9dc.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:10:07 UTC+07:00**
+
+Nguồn: `pose-0-left-front.png`
+
+## Ảnh 823
+
+![pose-0-right-back.png](../media/113f8cbbf537fd2c79d56418538beaf7d597d620.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:10:07 UTC+07:00**
+
+Nguồn: `pose-0-right-back.png`
+
+## Ảnh 824
+
+![pose-0-right-front.png](../media/4a61514755f567622e3c68c9486b2cb1e5f0dfe4.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:10:08 UTC+07:00**
+
+Nguồn: `pose-0-right-front.png`
+
+## Ảnh 825
+
+![pose-1-left-back.png](../media/5203e9641ccb1b5df2eab31a682abdb3fe96dffe.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:10:09 UTC+07:00**
+
+Nguồn: `pose-1-left-back.png`
+
+## Ảnh 826
+
+![pose-1-left-front.png](../media/ff3788f60350a535be13907685195823fa8a5782.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:10:09 UTC+07:00**
+
+Nguồn: `pose-1-left-front.png`
+
+## Ảnh 827
+
+![pose-1-right-back.png](../media/ba15c1da002631b8efc447e63b7fbe5206742a38.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:10:10 UTC+07:00**
+
+Nguồn: `pose-1-right-back.png`
+
+## Ảnh 828
+
+![pose-1-right-front.png](../media/81f0aa24ca0ba7110a8bb80db3d45d76e7c7fa94.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:10:10 UTC+07:00**
+
+Nguồn: `pose-1-right-front.png`
+
+## Ảnh 829
+
+![pose-0-left-back.png](../media/7cc13c7ecd03640428d2682f441aa38ce2572eb5.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:17:43 UTC+07:00**
+
+Nguồn: `pose-0-left-back.png`
+
+## Ảnh 830
+
+![pose-0-left-front.png](../media/b17565dabd57cc5dceb23109dacce0b81bbab37c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:17:44 UTC+07:00**
+
+Nguồn: `pose-0-left-front.png`
+
+## Ảnh 831
+
+![pose-0-right-back.png](../media/34ae66c2d2528d59e2aa94a53c4d8a4af2849c9c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:17:45 UTC+07:00**
+
+Nguồn: `pose-0-right-back.png`
+
+## Ảnh 832
+
+![pose-0-right-front.png](../media/f43480dc8cfe96b67958020d1f850173d2e6f033.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:17:45 UTC+07:00**
+
+Nguồn: `pose-0-right-front.png`
+
+## Ảnh 833
+
+![pose-1-left-back.png](../media/571b3b79217faec0dd401f7cda8c1ac64b11b590.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:17:46 UTC+07:00**
+
+Nguồn: `pose-1-left-back.png`
+
+## Ảnh 834
+
+![pose-1-left-front.png](../media/5fab10ef0b919e96d361b14b675e2f0db5c3987f.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:17:46 UTC+07:00**
+
+Nguồn: `pose-1-left-front.png`
+
+## Ảnh 835
+
+![pose-1-right-back.png](../media/ef4831428ae703d25018d0bcf9939cb11932c651.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:17:46 UTC+07:00**
+
+Nguồn: `pose-1-right-back.png`
+
+## Ảnh 836
+
+![pose-1-right-front.png](../media/fda8ee100afba70c9d1fc0af1490cd1bd557354c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:17:47 UTC+07:00**
+
+Nguồn: `pose-1-right-front.png`
+
+## Ảnh 837
+
+![pose-0-left-back.png](../media/33bb1acc1396d79a4daf76c92685a0e69683130d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:25:27 UTC+07:00**
+
+Nguồn: `pose-0-left-back.png`
+
+## Ảnh 838
+
+![pose-0-left-front.png](../media/0421e77301a2e03e57c660e9fe10c1719555a882.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:25:28 UTC+07:00**
+
+Nguồn: `pose-0-left-front.png`
+
+## Ảnh 839
+
+![pose-0-right-back.png](../media/5067f5d59835f67d028813c533bf40f6ae978b7d.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:25:28 UTC+07:00**
+
+Nguồn: `pose-0-right-back.png`
+
+## Ảnh 840
+
+![pose-0-right-front.png](../media/eca480286dc1fb066a49f8fd5ff79317188ddbdf.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:25:29 UTC+07:00**
+
+Nguồn: `pose-0-right-front.png`
+
+## Ảnh 841
+
+![pose-1-left-back.png](../media/0f185e18cfb9a8dc3994929905a18b44e71203ef.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:25:29 UTC+07:00**
+
+Nguồn: `pose-1-left-back.png`
+
+## Ảnh 842
+
+![pose-1-left-front.png](../media/0fd761013c1a21748f3cad7f873842bb4fd8b758.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:25:30 UTC+07:00**
+
+Nguồn: `pose-1-left-front.png`
+
+## Ảnh 843
+
+![pose-1-right-back.png](../media/f5c756aadefa9f582469b35ed872831ec5b6b074.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:25:31 UTC+07:00**
+
+Nguồn: `pose-1-right-back.png`
+
+## Ảnh 844
+
+![pose-1-right-front.png](../media/700357c0f9e6b657dbfca131edb3066d32b79242.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 11:25:31 UTC+07:00**
+
+Nguồn: `pose-1-right-front.png`

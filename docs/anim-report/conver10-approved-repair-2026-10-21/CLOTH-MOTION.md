@@ -1,5 +1,7 @@
 # Kiểm chuyển động và rút support vạt áo — 23/10/2026
 
+Vòng tiếp mới nhất: [ownership bàn tay và cuff](HAND-OWNERSHIP.md). Các số đo/goal trong bài dưới đây là checkpoint trước; mọi candidate vẫn chưa nghiệm thu.
+
 **Chưa đạt rig/animation; không thay vào runtime, chưa có APK mới.** Vòng này phát hiện việc giữ đúng điểm ở một pose có thể làm hỏng chuyển động ở giữa. Đã sửa cách chọn bốn support và chuyển sang fit đồng thời nhiều pose, vẫn giữ nguyên ngưỡng kiểm. Toàn bộ kết quả ở đây đo trên cloud, không phải điện thoại.
 
 ## Phạm vi và điều kiện không đổi

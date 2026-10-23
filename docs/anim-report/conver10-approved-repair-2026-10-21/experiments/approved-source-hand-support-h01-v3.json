@@ -1,0 +1,386 @@
+{
+  "directory": ".local/rig-candidates/approved-source-hand-support-h01-v3",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "solve.json": {
+      "sha256": "fde026b1fe2a58a75c33544081f279820e6cf145ca7cdd0f49bff669555c05ca",
+      "data": {
+        "base": ".local/rig-candidates/approved-source-hand-support-h01-input",
+        "assetSha256": "194a246962e19cdd9af94a59eea0f686127e8a596289e0d030f4cc5343b1299c",
+        "poseFile": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-010.json",
+        "poseSha256": "fb95a004c9eb65edba28e5d730f766892eaacb29b641d89b10242ea824245af6",
+        "inputHashes": {
+          "positions.bin": "a6481078f41e2aafea22305fa1c6b886f9958ca735cb8db74b44744ff9cfce46",
+          "triangles.bin": "50f2caa9a5ffb4c9e72e68de2f1ad17ac32067c20329caec015345f360416c5b",
+          "source-welds.u32bin": "ba5bdc4cf8d32eebbae2ed0941b79210e6dc76c12aaad0aab930002b81e2ca83",
+          "protected.bin": "e36328684496f6f13cc8158d095d1972b44141d60e520ebd87ec821f64652076",
+          "result-ids.bin": "215ab9528c394da1043f99d8bc2836b63d1314f5d036abb5c4c8240affc50b0e",
+          "result-weights.bin": "025439cc21a0c99739527d77a192ae890f5ad7925fbf99d47ec8ae90f6a70e60",
+          "feasibility-matrices.bin": "1c56f76c0d563c22ef4d8d3aa5db4b037ea3d69736844e832079d4fb22c49d17"
+        },
+        "outputWeightsSha256": "22b82acd92ab83c19e74001d3399561acf712886d9d5d0dc4f660bf87074a1e5",
+        "jointIdsChanged": false,
+        "protectedWeightsPreserved": true,
+        "initial": {
+          "p999": 1.5023413320575665,
+          "maximum": 1.8537002388099384,
+          "poses": [
+            {
+              "p999": 1.3104416593257993,
+              "maximum": 1.5479614592011488
+            },
+            {
+              "p999": 1.4871972703040595,
+              "maximum": 1.4910401408268232
+            },
+            {
+              "p999": 1.5023413320575665,
+              "maximum": 1.8537002388099384
+            }
+          ],
+          "edgesOverTarget": 779,
+          "immutableEdgesOverTarget": 27
+        },
+        "final": {
+          "p999": 1.501157767111257,
+          "maximum": 1.8385311879859805,
+          "poses": [
+            {
+              "p999": 1.3104416593257993,
+              "maximum": 1.5479614592011488
+            },
+            {
+              "p999": 1.4871972703040595,
+              "maximum": 1.4910401408268232
+            },
+            {
+              "p999": 1.501157767111257,
+              "maximum": 1.8385311879859805
+            }
+          ],
+          "edgesOverTarget": 794,
+          "immutableEdgesOverTarget": 27
+        },
+        "history": [
+          {
+            "iteration": 25,
+            "elapsedSeconds": 5.456290375994286,
+            "p999": 1.5005801727202492,
+            "maximum": 1.8711760176482621,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.5005801727202492,
+                "maximum": 1.8711760176482621
+              }
+            ],
+            "edgesOverTarget": 777,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 50,
+            "elapsedSeconds": 10.522693767998135,
+            "p999": 1.501327631791127,
+            "maximum": 1.8746539163157292,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.501327631791127,
+                "maximum": 1.8746539163157292
+              }
+            ],
+            "edgesOverTarget": 823,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 75,
+            "elapsedSeconds": 16.101079090993153,
+            "p999": 1.501539000598418,
+            "maximum": 1.8692660555393714,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.501539000598418,
+                "maximum": 1.8692660555393714
+              }
+            ],
+            "edgesOverTarget": 740,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 100,
+            "elapsedSeconds": 21.413347110996256,
+            "p999": 1.5028765662081902,
+            "maximum": 1.8630108647958366,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.5028765662081902,
+                "maximum": 1.8630108647958366
+              }
+            ],
+            "edgesOverTarget": 774,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 125,
+            "elapsedSeconds": 27.223744713992346,
+            "p999": 1.5038413432960023,
+            "maximum": 1.8556735522539611,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.5038413432960023,
+                "maximum": 1.8556735522539611
+              }
+            ],
+            "edgesOverTarget": 830,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 150,
+            "elapsedSeconds": 31.560293223999906,
+            "p999": 1.501897788352431,
+            "maximum": 1.847064377511043,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.501897788352431,
+                "maximum": 1.847064377511043
+              }
+            ],
+            "edgesOverTarget": 799,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 175,
+            "elapsedSeconds": 36.438364638001076,
+            "p999": 1.501032643448609,
+            "maximum": 1.8485755486017221,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.501032643448609,
+                "maximum": 1.8485755486017221
+              }
+            ],
+            "edgesOverTarget": 739,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 200,
+            "elapsedSeconds": 41.21726049500285,
+            "p999": 1.5013304293799343,
+            "maximum": 1.8443006948188685,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.5013304293799343,
+                "maximum": 1.8443006948188685
+              }
+            ],
+            "edgesOverTarget": 795,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 225,
+            "elapsedSeconds": 45.61245786699874,
+            "p999": 1.5017895620721644,
+            "maximum": 1.8380340051949042,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.5017895620721644,
+                "maximum": 1.8380340051949042
+              }
+            ],
+            "edgesOverTarget": 760,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 250,
+            "elapsedSeconds": 51.5990977390029,
+            "p999": 1.5013525276932722,
+            "maximum": 1.8371688868211757,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.5013525276932722,
+                "maximum": 1.8371688868211757
+              }
+            ],
+            "edgesOverTarget": 753,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 275,
+            "elapsedSeconds": 55.932716661991435,
+            "p999": 1.5010634051214613,
+            "maximum": 1.8404169315273597,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.5010634051214613,
+                "maximum": 1.8404169315273597
+              }
+            ],
+            "edgesOverTarget": 864,
+            "immutableEdgesOverTarget": 27
+          },
+          {
+            "iteration": 300,
+            "elapsedSeconds": 60.471886605999316,
+            "p999": 1.501157767111257,
+            "maximum": 1.8385311879859805,
+            "poses": [
+              {
+                "p999": 1.3104416593257993,
+                "maximum": 1.5479614592011488
+              },
+              {
+                "p999": 1.4871972703040595,
+                "maximum": 1.4910401408268232
+              },
+              {
+                "p999": 1.501157767111257,
+                "maximum": 1.8385311879859805
+              }
+            ],
+            "edgesOverTarget": 794,
+            "immutableEdgesOverTarget": 27
+          }
+        ],
+        "parameters": {
+          "algorithmVersion": 3,
+          "hero": "H01",
+          "wholeBody": true,
+          "iterations": 300,
+          "ratio": 1.49,
+          "cutFans": false,
+          "archiveState": true
+        },
+        "continuation": {
+          "directory": ".local/rig-candidates/approved-source-hand-support-h01-v3",
+          "solveSha256": "b493f88c1f70729dc1d0cedce3508a28d7ca37c837e877499322a99af1a77451",
+          "kind": "resume"
+        },
+        "stateHashes": {
+          "optimizer-state.npz": "6498936142d0a02e0090473f0ba1e641c981e77dde07c474619d078f163a65a6"
+        },
+        "accepted": false,
+        "activated": false,
+        "poseCount": 3,
+        "scope": "One-or-more frozen-pose convex four-fixed-joint weight simplex and original posed source-edge length-ball trial. Unique-edge metrics cannot replace per-primitive limits, lower compression/collision, joint sections, full animation or visual acceptance."
+      }
+    },
+    "continuation-input.json": {
+      "sha256": "11ed039663c1d7495dd8ef287055c47523293da249be522a302326b3fe65c23a",
+      "data": {
+        "previous": ".local/rig-candidates/approved-source-hand-support-h01-v2",
+        "previousSolveSha256": "b493f88c1f70729dc1d0cedce3508a28d7ca37c837e877499322a99af1a77451",
+        "copiedNumericalFiles": {
+          "optimizer-state.npz": "93f144159606a36877b38fc3e41f829cf7fa22abd5a14839c6884a54004c965f",
+          "result-weights.bin": "2e33cece3711df9413a6238815b35edbe906e9a96f20c569be49ac08996079b7",
+          "solve.json": "b493f88c1f70729dc1d0cedce3508a28d7ca37c837e877499322a99af1a77451"
+        },
+        "command": [
+          "python3",
+          "tools/rig/pose_weight_fit.py",
+          ".local/rig-candidates/approved-source-hand-support-h01-input",
+          ".local/rig-candidates/approved-source-hand-support-h01-v3",
+          "--whole-body",
+          "--archive-state",
+          "--resume",
+          "--iterations",
+          "300",
+          "--ratio",
+          "1.49"
+        ],
+        "additionalIterations": 300,
+        "accepted": false,
+        "activated": false,
+        "executionComplete": true,
+        "scope": "Exact numerical-state continuation in a fresh trial. Previous trial/GLB/assets/history are untouched. Not a skin or animation certificate.",
+        "exitCode": 0
+      }
+    }
+  }
+}

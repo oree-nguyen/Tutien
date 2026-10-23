@@ -1,0 +1,112 @@
+{
+  "directory": ".local/rig-candidates/approved-source-hand-owner-h01-input",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "input.json": {
+      "sha256": "c9977bc7d677e12b0c0fc76d9ec89f5125435b4c68bcc3de0eabdd222d8a552f",
+      "data": {
+        "input": ".local/rig-candidates/approved-source-cloth-motion-h01-v2/H01-C0-rigged.glb",
+        "inputSha256": "fbadcb142dd0117d0fd3b7ad7c357e3cff70a2909bf6cdf4af1bd8a9094a3fd4",
+        "mesh": "H01_Remaining_Source",
+        "primitive": 0,
+        "vertices": 136550,
+        "faces": 231649,
+        "jointNames": [
+          "Hips",
+          "Spine",
+          "Spine1",
+          "Spine2",
+          "Neck",
+          "Head",
+          "LeftShoulder",
+          "LeftArm",
+          "LeftForeArm",
+          "LeftHand",
+          "LeftHandThumb1",
+          "LeftHandThumb2",
+          "LeftHandThumb3",
+          "LeftHandIndex1",
+          "LeftHandIndex2",
+          "LeftHandIndex3",
+          "LeftHandMiddle1",
+          "LeftHandMiddle2",
+          "LeftHandMiddle3",
+          "LeftHandRing1",
+          "LeftHandRing2",
+          "LeftHandRing3",
+          "LeftHandPinky1",
+          "LeftHandPinky2",
+          "LeftHandPinky3",
+          "RightShoulder",
+          "RightArm",
+          "RightForeArm",
+          "RightHand",
+          "RightHandThumb1",
+          "RightHandThumb2",
+          "RightHandThumb3",
+          "RightHandIndex1",
+          "RightHandIndex2",
+          "RightHandIndex3",
+          "RightHandMiddle1",
+          "RightHandMiddle2",
+          "RightHandMiddle3",
+          "RightHandRing1",
+          "RightHandRing2",
+          "RightHandRing3",
+          "RightHandPinky1",
+          "RightHandPinky2",
+          "RightHandPinky3",
+          "LeftUpLeg",
+          "LeftLeg",
+          "LeftFoot",
+          "LeftToeBase",
+          "RightUpLeg",
+          "RightLeg",
+          "RightFoot",
+          "RightToeBase",
+          "LeftForearmPronation",
+          "RightForearmPronation"
+        ],
+        "files": {
+          "positions.f32bin": "a6481078f41e2aafea22305fa1c6b886f9958ca735cb8db74b44744ff9cfce46",
+          "normals.f32bin": "29afd8b7f66c23e0f75edd232bad2b446237d470b7b3d9e09a59c146c8ce11a1",
+          "ids.u16bin": "d7b0b632a56b4f65a2672d853c7ebd1da878a1643a2acb3915de3fd86c2b10d1",
+          "weights.f32bin": "d23c796e0c81db6b91f8e64158828f417f22499824f58e17ca5bc36f64b279ef",
+          "fans.u32bin": "d4fe55890359effeebc40bba5fce658c7243c1e8bc310df3ef5661b94959cdac",
+          "welds.u32bin": "ba5bdc4cf8d32eebbae2ed0941b79210e6dc76c12aaad0aab930002b81e2ca83",
+          "triangles.u32bin": "50f2caa9a5ffb4c9e72e68de2f1ad17ac32067c20329caec015345f360416c5b"
+        },
+        "accepted": false,
+        "activated": false,
+        "scope": "Read-only Remaining_Source hand ownership diagnostic; one audited palm seed is already pure LeftHand in Sleeve_Left and must remain unchanged. Not accepted anatomy.",
+        "externalSeeds": [
+          {
+            "sourceWeld": 837953,
+            "node": "H01_Sleeve_Left",
+            "primitive": 0,
+            "vertex": 80112,
+            "position": [
+              0.514748215675354,
+              0.9930841326713562,
+              0.10976561158895493
+            ],
+            "ids": [
+              9,
+              0,
+              1,
+              2
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "requiredJoint": "LeftHand"
+          }
+        ]
+      }
+    }
+  }
+}

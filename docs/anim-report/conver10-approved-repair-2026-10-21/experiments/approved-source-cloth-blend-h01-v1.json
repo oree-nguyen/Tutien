@@ -545,6 +545,25 @@
           "ownershipMethod": "Original face centroid z sign; provisional, isolated boundary review required"
         }
       }
+    },
+    "model-archive.json": {
+      "sha256": "16b965156607eed05cebd977bfca1221f03b5890c5b8b89c005e313dbbc56a30",
+      "data": {
+        "format": "gzip-xor-parent",
+        "scope": "Lossless archive of rejected local trial only; source images/models and runtime/APK untouched. Restore before replaying this candidate.",
+        "model": ".local/rig-candidates/approved-source-cloth-blend-h01-v1/H01-C0-rigged.glb",
+        "sha256": "b817696126764e2be1f1461413e884246da6ea76500470ad3d7e7d31e84ac58b",
+        "bytes": 113459868,
+        "parent": ".local/rig-candidates/approved-source-panel-cloth-h01-v6/H01-C0-rigged.glb",
+        "parentSha256": "33836c20a5bb08a0e3f5ada8ce466d8b4ebabd53beea07cd65a79ce03f6fa8fb",
+        "archive": ".local/rig-candidates/approved-source-cloth-blend-h01-v1/rejected-model.glb.xor.gz",
+        "archiveSha256": "41860149bc4190ab6efd4fefca39396e091ae2aa40cc94fd6543caa590037645",
+        "archiveBytes": 7092073,
+        "restore": "python3 /workspace/Tutien/docs/anim-report/conver10-approved-repair-2026-10-21/reproduce/archive-staging-delta.py restore .local/rig-candidates/approved-source-cloth-blend-h01-v1",
+        "restorationVerified": true,
+        "accepted": false,
+        "activated": false
+      }
     }
   }
 }

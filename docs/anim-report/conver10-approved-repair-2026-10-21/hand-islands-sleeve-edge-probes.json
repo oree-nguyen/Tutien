@@ -1,0 +1,454 @@
+{
+  "accepted": false,
+  "activated": false,
+  "scope": "Actual exported worst sleeve edges at one frozen diagnostic pose; source/support probes, not accepted anatomy or animation",
+  "trials": [
+    {
+      "version": 4,
+      "file": ".local/rig-candidates/approved-source-hand-islands-h01-v4/H01-C0-rigged.glb",
+      "sha256": "e1444ebf80a56375191c704ce1ad437fd8155f1d94ed5074b3470962839de429",
+      "poseFile": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-020.json",
+      "poseSha256": "3d643c388861adce6f67f3407f646f5fd4bf72e86ccba6c0dfb24991f7a77c11",
+      "edges": [
+        {
+          "mesh": "H01_Sleeve_Left",
+          "primitive": 0,
+          "maximum": 24.056308247904262,
+          "p999": 1.4894540198050867,
+          "worst": {
+            "a": 73570,
+            "b": 73601,
+            "bindLength": 0.0008948486158821806,
+            "posedLength": 0.021526754138872214
+          },
+          "vertices": [
+            {
+              "vertex": 73570,
+              "sourceWeld": 828896,
+              "sourceFan": 4285175,
+              "position": [
+                0.5298566222190857,
+                1.038867712020874,
+                0.06429634243249893
+              ],
+              "support": [
+                {
+                  "joint": "LeftHand",
+                  "weight": 0.9999998807907104
+                },
+                {
+                  "joint": "LeftHandIndex1",
+                  "weight": 1.0468131250718216e-7
+                },
+                {
+                  "joint": "LeftHandThumb1",
+                  "weight": 4.559892019528888e-9
+                },
+                {
+                  "joint": "LeftHandIndex3",
+                  "weight": 4.2501530073124627e-10
+                }
+              ]
+            },
+            {
+              "vertex": 73601,
+              "sourceWeld": 828765,
+              "sourceFan": 4285260,
+              "position": [
+                0.5305540561676025,
+                1.0392711162567139,
+                0.06390698254108429
+              ],
+              "support": [
+                {
+                  "joint": "LeftForearmPronation",
+                  "weight": 0.5743202567100525
+                },
+                {
+                  "joint": "LeftHand",
+                  "weight": 0.40909650921821594
+                },
+                {
+                  "joint": "LeftForeArm",
+                  "weight": 0.008911487646400928
+                },
+                {
+                  "joint": "LeftUpLeg",
+                  "weight": 0.007671739906072617
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mesh": "H01_Sleeve_Right",
+          "primitive": 0,
+          "maximum": 28.09352155077672,
+          "p999": 1.4888505900008262,
+          "worst": {
+            "a": 78429,
+            "b": 78430,
+            "bindLength": 0.00014543389576191613,
+            "posedLength": 0.004085750284800806
+          },
+          "vertices": [
+            {
+              "vertex": 78429,
+              "sourceWeld": 822614,
+              "sourceFan": 4177716,
+              "position": [
+                -0.5218207836151123,
+                1.0554444789886475,
+                0.09761254489421844
+              ],
+              "support": [
+                {
+                  "joint": "RightForearmPronation",
+                  "weight": 0.5202587842941284
+                },
+                {
+                  "joint": "RightHand",
+                  "weight": 0.4715808629989624
+                },
+                {
+                  "joint": "RightForeArm",
+                  "weight": 0.006544231437146664
+                },
+                {
+                  "joint": "RightUpLeg",
+                  "weight": 0.001616126042790711
+                }
+              ]
+            },
+            {
+              "vertex": 78430,
+              "sourceWeld": 808512,
+              "sourceFan": 4177717,
+              "position": [
+                -0.5218207836151123,
+                1.0552990436553955,
+                0.09761254489421844
+              ],
+              "support": [
+                {
+                  "joint": "RightHand",
+                  "weight": 1
+                },
+                {
+                  "joint": "RightHandThumb1",
+                  "weight": 9.390286291599548e-12
+                },
+                {
+                  "joint": "RightHandIndex1",
+                  "weight": 2.9070426621480294e-12
+                },
+                {
+                  "joint": "RightHandThumb2",
+                  "weight": 1.9330774164000829e-16
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": 6,
+      "file": ".local/rig-candidates/approved-source-hand-islands-h01-v6/H01-C0-rigged.glb",
+      "sha256": "cd01a56dc644cd511a41ed19714f71f9bcd42e4c45147ba3641995b912abafa6",
+      "poseFile": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-020.json",
+      "poseSha256": "3d643c388861adce6f67f3407f646f5fd4bf72e86ccba6c0dfb24991f7a77c11",
+      "edges": [
+        {
+          "mesh": "H01_Sleeve_Left",
+          "primitive": 0,
+          "maximum": 7.279648629389884,
+          "p999": 1.5806806469845134,
+          "worst": {
+            "a": 72526,
+            "b": 72528,
+            "bindLength": 0.0007711478248496659,
+            "posedLength": 0.005613685206223861
+          },
+          "vertices": [
+            {
+              "vertex": 72526,
+              "sourceWeld": 832785,
+              "sourceFan": 4274334,
+              "position": [
+                0.48145702481269836,
+                0.9978048801422119,
+                0.09910742938518524
+              ],
+              "support": [
+                {
+                  "joint": "LeftHand",
+                  "weight": 0.8013508319854736
+                },
+                {
+                  "joint": "LeftForearmPronation",
+                  "weight": 0.16485612094402313
+                },
+                {
+                  "joint": "LeftHandPinky1",
+                  "weight": 0.0238413754850626
+                },
+                {
+                  "joint": "LeftUpLeg",
+                  "weight": 0.009951689280569553
+                }
+              ]
+            },
+            {
+              "vertex": 72528,
+              "sourceWeld": 832768,
+              "sourceFan": 4274336,
+              "position": [
+                0.48146793246269226,
+                0.9982787370681763,
+                0.0997157171368599
+              ],
+              "support": [
+                {
+                  "joint": "LeftHand",
+                  "weight": 0.8054840564727783
+                },
+                {
+                  "joint": "LeftForearmPronation",
+                  "weight": 0.16177186369895935
+                },
+                {
+                  "joint": "LeftHandPinky1",
+                  "weight": 0.022205175831913948
+                },
+                {
+                  "joint": "LeftHandThumb1",
+                  "weight": 0.010538917034864426
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mesh": "H01_Sleeve_Right",
+          "primitive": 0,
+          "maximum": 5.9855314250772995,
+          "p999": 1.4889036187563587,
+          "worst": {
+            "a": 80828,
+            "b": 80830,
+            "bindLength": 0.0012648338070492056,
+            "posedLength": 0.007570702499593178
+          },
+          "vertices": [
+            {
+              "vertex": 80828,
+              "sourceWeld": 807425,
+              "sourceFan": 4200015,
+              "position": [
+                -0.4810597896575928,
+                0.96181321144104,
+                0.0899801105260849
+              ],
+              "support": [
+                {
+                  "joint": "RightHand",
+                  "weight": 0.6106429696083069
+                },
+                {
+                  "joint": "RightForearmPronation",
+                  "weight": 0.19853733479976654
+                },
+                {
+                  "joint": "RightHandPinky1",
+                  "weight": 0.17749261856079102
+                },
+                {
+                  "joint": "RightUpLeg",
+                  "weight": 0.013327054679393768
+                }
+              ]
+            },
+            {
+              "vertex": 80830,
+              "sourceWeld": 807456,
+              "sourceFan": 4200018,
+              "position": [
+                -0.48120370507240295,
+                0.9614332318305969,
+                0.09117790311574936
+              ],
+              "support": [
+                {
+                  "joint": "RightHand",
+                  "weight": 0.611515998840332
+                },
+                {
+                  "joint": "RightForearmPronation",
+                  "weight": 0.1919393688440323
+                },
+                {
+                  "joint": "RightHandPinky1",
+                  "weight": 0.18387992680072784
+                },
+                {
+                  "joint": "RightHandPinky2",
+                  "weight": 0.0126646738499403
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "version": 7,
+      "file": ".local/rig-candidates/approved-source-hand-islands-h01-v7/H01-C0-rigged.glb",
+      "sha256": "7172c544fed1568f3a21ade1ab56925bac27159b2ebe0ae1e9d04006a7362738",
+      "poseFile": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-020.json",
+      "poseSha256": "3d643c388861adce6f67f3407f646f5fd4bf72e86ccba6c0dfb24991f7a77c11",
+      "edges": [
+        {
+          "mesh": "H01_Sleeve_Left",
+          "primitive": 0,
+          "maximum": 20.906939366320245,
+          "p999": 2.7195424551486393,
+          "worst": {
+            "a": 71523,
+            "b": 71746,
+            "bindLength": 0.0007611972913234305,
+            "posedLength": 0.015914305615506167
+          },
+          "vertices": [
+            {
+              "vertex": 71523,
+              "sourceWeld": 841928,
+              "sourceFan": 4269053,
+              "position": [
+                0.48003092408180237,
+                1.013770341873169,
+                0.11095716059207916
+              ],
+              "support": [
+                {
+                  "joint": "LeftHand",
+                  "weight": 0.6604116559028625
+                },
+                {
+                  "joint": "LeftForearmPronation",
+                  "weight": 0.2789042294025421
+                },
+                {
+                  "joint": "LeftHandPinky1",
+                  "weight": 0.03158702701330185
+                },
+                {
+                  "joint": "LeftUpLeg",
+                  "weight": 0.029097093269228935
+                }
+              ]
+            },
+            {
+              "vertex": 71746,
+              "sourceWeld": 841929,
+              "sourceFan": 4269696,
+              "position": [
+                0.48069387674331665,
+                1.0141361951828003,
+                0.11103534698486328
+              ],
+              "support": [
+                {
+                  "joint": "LeftHand",
+                  "weight": 0.6642705798149109
+                },
+                {
+                  "joint": "LeftForearmPronation",
+                  "weight": 0.27524131536483765
+                },
+                {
+                  "joint": "LeftHandPinky1",
+                  "weight": 0.03150853142142296
+                },
+                {
+                  "joint": "LeftHandThumb1",
+                  "weight": 0.028979545459151268
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "mesh": "H01_Sleeve_Right",
+          "primitive": 0,
+          "maximum": 29.61077702960956,
+          "p999": 2.404380886292552,
+          "worst": {
+            "a": 83191,
+            "b": 83193,
+            "bindLength": 0.0003361930123842685,
+            "posedLength": 0.009954936328623341
+          },
+          "vertices": [
+            {
+              "vertex": 83191,
+              "sourceWeld": 810413,
+              "sourceFan": 4213164,
+              "position": [
+                -0.4880824089050293,
+                1.020073652267456,
+                0.11431286484003067
+              ],
+              "support": [
+                {
+                  "joint": "RightHand",
+                  "weight": 0.7102154493331909
+                },
+                {
+                  "joint": "RightForearmPronation",
+                  "weight": 0.23904740810394287
+                },
+                {
+                  "joint": "RightHandThumb1",
+                  "weight": 0.031141627579927444
+                },
+                {
+                  "joint": "RightHandPinky1",
+                  "weight": 0.019595494493842125
+                }
+              ]
+            },
+            {
+              "vertex": 83193,
+              "sourceWeld": 819859,
+              "sourceFan": 4213166,
+              "position": [
+                -0.4880824089050293,
+                1.020073652267456,
+                0.11464905738830566
+              ],
+              "support": [
+                {
+                  "joint": "RightHand",
+                  "weight": 0.7091044783592224
+                },
+                {
+                  "joint": "RightForearmPronation",
+                  "weight": 0.2401084303855896
+                },
+                {
+                  "joint": "RightHandThumb1",
+                  "weight": 0.031301841139793396
+                },
+                {
+                  "joint": "RightUpLeg",
+                  "weight": 0.01948522962629795
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
