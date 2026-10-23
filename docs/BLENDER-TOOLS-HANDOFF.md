@@ -1,5 +1,7 @@
 # Đồng bộ bộ công cụ Blender giữa các phiên cloud
 
+**Cập nhật:** đã cài từ URL người dùng gửi và kiểm chứng tại Game Agent. Xem [kết quả hiện tại](BLENDER-TOOLS-VERIFIED.md). Nội dung bên dưới giữ làm lịch sử trước khi nhận được URL nguồn.
+
 Kiểm tra tại phiên Game Agent ngày2026-10-23. Đây là trạng thái truy cập công cụ, **không phải nghiệm thu rig/animation**.
 
 ## Chứng cứ người dùng cung cấp

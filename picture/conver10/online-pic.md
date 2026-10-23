@@ -7155,3 +7155,19 @@ Nguồn: `1-15889.jpg`
 **Thời gian đăng ký ảnh: 2026-10-23 18:09:50 UTC+07:00**
 
 Nguồn: `2-15890.jpg`
+
+## Ảnh 870
+
+![preview.png](../media/0b731bd1d66b7cd6bc3fc0eb82432e1dad38063c.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 19:02:59 UTC+07:00**
+
+Nguồn: `preview.png`
+
+## Ảnh 871
+
+![eevee-preview.png](../media/2d081cc0de2d3204fc1b0b43a6ac52e03e030e93.png)
+
+**Thời gian đăng ký ảnh: 2026-10-23 19:03:00 UTC+07:00**
+
+Nguồn: `eevee-preview.png`
