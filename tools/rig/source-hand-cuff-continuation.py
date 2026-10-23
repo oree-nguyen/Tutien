@@ -9,6 +9,7 @@ import hashlib
 import json
 from pathlib import Path
 import shutil
+import re
 
 import numpy as np
 from scipy.sparse import coo_matrix, diags
@@ -39,14 +40,53 @@ def continue_field(graph, field, free):
     return result, residual
 
 
+def restrict_arm_support(field, rows, factor, names, side):
+    """Move off-chain leakage to the real forearm-roll joint, preserving mass.
+
+    The caller establishes the source-geodesic domain. This does not infer an
+    anatomy mask from a mesh name or accept the resulting deformation.
+    """
+    rows = np.asarray(rows, dtype=int)
+    factor = np.asarray(factor, dtype=float)
+    assert factor.shape == rows.shape and np.isfinite(factor).all()
+    assert np.all((factor >= 0) & (factor <= 1))
+    helper = names.index(side + "ForearmPronation")
+    allowed = np.array(
+        [
+            bool(
+                re.fullmatch(
+                    side
+                    + r"(?:Shoulder|Arm|ForeArm|ForearmPronation|Hand(?:Thumb|Index|Middle|Ring|Pinky)?[123]?)",
+                    n,
+                )
+            )
+            for n in names
+        ]
+    )
+    assert allowed[helper]
+    previous = field[rows].copy()
+    removed = previous[:, ~allowed] * factor[:, None]
+    field[np.ix_(rows, np.flatnonzero(~allowed))] -= removed
+    field[rows, helper] += removed.sum(axis=1)
+    assert (
+        np.max(np.abs(field[rows].sum(axis=1) - previous.sum(axis=1)), initial=0)
+        < 1e-12
+    )
+    return removed.sum(axis=1)
+
+
 def run():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("input", type=Path)
     parser.add_argument("output", type=Path)
     parser.add_argument("--extension", type=float, default=0.045)
     parser.add_argument("--hand-proposal", type=Path)
+    parser.add_argument("--local-arm-collar", type=float)
+    parser.add_argument("--local-arm-inner", type=float, default=0.15)
     args = parser.parse_args()
     assert 0.005 <= args.extension <= 0.10
+    if args.local_arm_collar is not None:
+        assert args.extension < args.local_arm_inner < args.local_arm_collar <= 0.35
     assert (
         str(args.output).startswith(".local/rig-candidates/")
         and not args.output.exists()
@@ -127,10 +167,64 @@ def run():
             field[group] = 0
             for joint, weight in zip(hand_ids[vertex], hand_weights[vertex]):
                 field[group, joint] += weight
+    locked_core = field[core].copy()
+    cleanup = []
+    cleanup_reports = []
+    if args.local_arm_collar is not None:
+        names = hand_meta["jointNames"]
+        owned = np.full(len(q), -1, dtype=int)
+        for side_index, side in enumerate(["Left", "Right"]):
+            side_rows = np.flatnonzero(
+                touched
+                & np.array([names[int(j)].startswith(side) for j in hand_ids[:, 0]])
+            )
+            side_fans = np.unique(hand_fans[side_rows])
+            for record in proposal.get("externalSeedsPreserved", []):
+                if record["requiredJoint"] != side + "Hand":
+                    continue
+                part = next(
+                    p
+                    for p in meta["parts"]
+                    if p["node"] == record["node"]
+                    and p["primitive"] == record["primitive"]
+                )
+                side_fans = np.union1d(
+                    side_fans, fans[part["offset"] + record["vertex"]]
+                )
+            side_core = np.searchsorted(unique, side_fans)
+            assert np.array_equal(unique[side_core], side_fans)
+            side_distance = dijkstra(
+                distances, indices=side_core, min_only=True, limit=args.local_arm_collar
+            )
+            rows = np.flatnonzero(side_distance < args.local_arm_collar)
+            assert np.all(owned[rows] < 0), "Arm cleanup domains overlap"
+            owned[rows] = side_index
+            t = np.clip(
+                (side_distance[rows] - args.local_arm_inner)
+                / (args.local_arm_collar - args.local_arm_inner),
+                0,
+                1,
+            )
+            factor = 1 - t * t * (3 - 2 * t)
+            removed = restrict_arm_support(field, rows, factor, names, side)
+            changed = rows[removed > 0]
+            cleanup.extend(changed.tolist())
+            cleanup_reports.append(
+                {
+                    "side": side,
+                    "changedFans": len(changed),
+                    "maximumRemovedOffChainWeight": float(removed.max(initial=0)),
+                }
+            )
+    assert np.array_equal(
+        field[core], locked_core
+    ), "Locality cleanup changed a locked hand/seed field"
     original = field.copy()
     field, residual = continue_field(graph, field, free)
     assert np.array_equal(field[core], original[core])
-    dense = np.maximum(field[free], 0)
+    export_groups = np.union1d(free, cleanup).astype(int)
+    export_groups = np.setdiff1d(export_groups, core)
+    dense = np.maximum(field[export_groups], 0)
     order = np.argsort(-dense, axis=1, kind="stable")[:, :4]
     values = np.take_along_axis(dense, order, axis=1)
     lost = 1 - values.sum(axis=1)
@@ -138,7 +232,7 @@ def run():
     args.output.mkdir()
     for name in ["ids.u16bin", "weights.f32bin", "touched.u8bin"]:
         shutil.copyfile(hand_proposal / name, args.output / name)
-    unique[free].astype("<u4").tofile(args.output / "extra-fans.u32bin")
+    unique[export_groups].astype("<u4").tofile(args.output / "extra-fans.u32bin")
     order.astype("<u2").tofile(args.output / "extra-ids.u16bin")
     values.astype("<f4").tofile(args.output / "extra-weights.f32bin")
     extra_names = ["extra-fans.u32bin", "extra-ids.u16bin", "extra-weights.f32bin"]
@@ -156,6 +250,10 @@ def run():
     diagnostics = {
         "extensionMetres": args.extension,
         "sourceFans": len(free),
+        "exportedSupplementaryFans": len(export_groups),
+        "localArmCollarMetres": args.local_arm_collar,
+        "localArmInnerMetres": args.local_arm_inner if args.local_arm_collar else None,
+        "localArmCleanup": cleanup_reports,
         "protectedExternalSeedFans": [int(fan) for fan in external_fans],
         "relativeResidual": float(residual),
         "maximumDroppedFourWeightMass": float(lost.max()),

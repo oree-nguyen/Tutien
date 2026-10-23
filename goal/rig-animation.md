@@ -74,3 +74,13 @@ Kết quả GLB sau350 vòng: vạt max7,345744→2,036974× trên21 interpolant
 [Báo cáo và ảnh mới](../docs/anim-report/conver10-approved-repair-2026-10-21/HAND-OWNERSHIP.md): xác định crop22mm cắt qua thumb và một seed palm bị phân vào node Sleeve. Đã thử ownership theo connected source-fan, fit cả nắm tay, và truyền field sang mọi bản copy của kept seam. Remaining_Source v7 qua23/23 mẫu diagnostic; nắm max1,911374/p99,9=1,498372. Không xem đây là FINGERS hoặc SKIN_ALL_FRAMES đã đạt: chỉ truyền seam gây kéo mép áo24–28×; nối field45mm còn~7,28/5,99×; tăng90mm lại xấu hơn. Mọi trial vẫn bị loại, không thay runtime, không sửa hình học tay áo và chưa có APK mới.24ảnh mới đăng conver10 nguyên byte.
 
 Goal fingerprint98d25cb1… stableSource=true: test350/350, master215/215, verify0/37;2scope passed,4failed,17blocked, INCOMPLETE. Phải sửa support/calibration có ràng buộc đồng thời trên hand/cuff, lớp lót và drape/contact; H02 cùng toàn Entrance/Hold/combat vẫn phải qua đủ cổng. Không nới ngưỡng hoặc gọi fit/normal/seam riêng lẻ là nghiệm thu toàn bộ.
+
+### Vòng tiếp: không làm loãng lỗi ngón bằng p99,9 toàn primitive
+
+[Coupled hand/cuff](../docs/anim-report/conver10-approved-repair-2026-10-21/COUPLED-HAND-CUFF.md) xử lý weight đùi lọt vào cuff, giải đồng thời trên83.042fan source, đủ cạnh qua biên và384seed cố định. GLB v9 có Remaining/Sleeve trái/phải qua upper-strain23mẫu nhưng **kiểm riêng mỗi bàn tay vẫn trượt khi nắm**: p99,9 phải1,6035/trái1,6233. Không dùng diện tích đầu/ủng trong Remaining làm loãng lỗi ngón hoặc chuyển FINGERS thành passed.
+
+Giữ fail hình dáng: giao cắt76.417cặp, new-opposed85.166triangle, vạt còn che/xuyên tay và nén mạnh. Lớp lót phải/torso còn trượt; toàn model chỉ16/23mẫu qua upper-strain. V9 bị loại khỏi tích hợp; không tiếp tục cùng objective upper-bound-only rồi nhận mỹ thuật đạt. Bước tiếp cần kiểm pivot/ownership khớp ngón và ràng buộc bảo toàn hình dáng/normal/contact/drape trước timeline/APK; không thay hình học tay áo hoặc đảo thứ tự sleeves-last.
+
+20rawPNG mới đã vào conver10. Goal fingerprint69bd6ca1… stableSource=true: npm test353/353, master215/215, verify0/37, INCOMPLETE. APK/runtime/H02 chưa đổi; chưa có Android thật để nghiệm thu.
+
+Vòng chốt sau sửa bootstrap fixture: fingerprint69627ad8… stableSource=true, test353/353/master215/215/verify0/37. Kiểm riêng hai tay đủ23mẫu chỉ42/46lượt qua; giữ4lượt nắm thất bại. Các10case Python numerical đã chạy thêm từ workspace sạch không có `.local`. Các kết quả này không thay FINGERS hoặc SKIN_ALL_FRAMES thành passed.

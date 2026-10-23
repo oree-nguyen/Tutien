@@ -10,7 +10,7 @@ test("source-panel tools refuse occupied or archived trials before reading anoth
     old = Buffer.from("untouched completed trial bytes"),
     base = ".local/rig-candidates/missing-source",
     pattern = ".local/rig-candidates/missing-pattern";
-  await fs.mkdir(directory);
+  await fs.mkdir(directory, { recursive: true });
   try {
     await fs.writeFile(directory + "/H01-C0-rigged.glb", old);
     for (const [tool, args] of [

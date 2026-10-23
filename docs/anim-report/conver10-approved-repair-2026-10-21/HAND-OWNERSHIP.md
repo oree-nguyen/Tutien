@@ -1,5 +1,7 @@
 # Conver10 — ownership bàn tay và chuyển tiếp cổ tay trên source
 
+Vòng tiếp mới nhất: [giải đồng thời hand/cuff và kiểm riêng bàn tay](COUPLED-HAND-CUFF.md). Các kết quả23/23 theo primitive trong bài này không chứng nhận p99,9 riêng từng bàn tay; phép đo cục bộ vòng sau vẫn thấy nắm tay thất bại.
+
 **Chưa đạt nghiệm thu. Không thay model/animation runtime, không xuất APK rig mới.** Đây là phần B của phương án13 đã duyệt. Giữ nguyên mọi ngưỡng, hình học, UV, normal nguồn, ảnh4096, bind, GDD và dữ liệu tài sản. Không thực hiện giai đoạn thiết kế/tách riêng tay áo H01 trước APK rig+animation.
 
 ## Lỗi đã truy tới source

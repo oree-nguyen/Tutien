@@ -14,6 +14,7 @@ import numpy as np
 class SourceHandIslandsTest(unittest.TestCase):
     def test_source_connectivity_and_seed_ownership_survive_uv_copies(self):
         root = Path(".local/rig-candidates")
+        root.mkdir(parents=True, exist_ok=True)
         with tempfile.TemporaryDirectory(prefix="unit-hand-islands-", dir=root) as temp:
             directory = Path(temp).resolve().relative_to(Path.cwd())
             base = directory / "input"

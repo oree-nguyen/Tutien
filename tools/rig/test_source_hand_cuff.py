@@ -36,6 +36,33 @@ class CuffContinuationTest(unittest.TestCase):
                 coo_matrix((2, 2)).tocsr(), np.ones((2, 1)), np.array([], dtype=int)
             )
 
+    def test_arm_cleanup_preserves_local_fingers_and_mass_with_a_partial_collar(self):
+        names = [
+            "LeftHand",
+            "LeftForearmPronation",
+            "LeftHandThumb1",
+            "LeftUpLeg",
+            "RightArm",
+            "Hips",
+        ]
+        field = np.array(
+            [
+                [0.5, 0.3, 0.1, 0.07, 0.02, 0.01],
+                [0.5, 0.3, 0.1, 0.07, 0.02, 0.01],
+                [0.5, 0.3, 0.1, 0.07, 0.02, 0.01],
+            ]
+        )
+        before = field.copy()
+        removed = cuff.restrict_arm_support(field, [0, 1], [1, 0.5], names, "Left")
+        np.testing.assert_allclose(removed, [0.1, 0.05], atol=1e-15)
+        np.testing.assert_array_equal(field[:, [0, 2]], before[:, [0, 2]])
+        np.testing.assert_allclose(field.sum(axis=1), before.sum(axis=1), atol=1e-15)
+        np.testing.assert_array_equal(field[2], before[2])
+        np.testing.assert_array_equal(field[0, 3:], [0, 0, 0])
+        np.testing.assert_allclose(field[1, 3:], before[1, 3:] * 0.5, atol=1e-15)
+        self.assertAlmostEqual(field[0, 1], 0.4)
+        self.assertAlmostEqual(field[1, 1], 0.35)
+
 
 if __name__ == "__main__":
     unittest.main()

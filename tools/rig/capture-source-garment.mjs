@@ -26,6 +26,7 @@ const asset = directory + "/H01-C0-rigged.glb",
 await fs.mkdir(output, { recursive: true });
 const server = await createServer({
   configFile: false,
+  cacheDir: ".local/vite-garment-review-cache",
   plugins: [
     {
       name: "garment-review",

@@ -25,6 +25,7 @@ if (assetSha256 !== receipt.sha256) throw Error("Stale candidate");
 await fs.mkdir(output, { recursive: true });
 const server = await createServer({
   configFile: false,
+  cacheDir: ".local/vite-hand-review-cache",
   plugins: [
     {
       name: "hand-review",

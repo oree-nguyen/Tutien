@@ -1,7 +1,8 @@
 """Offline convex source-edge skin-weight trial, with unchanged source geometry.
 
 Chambolle-Pock splits the actual posed edge-length balls from per-vertex weight
-simplices. Four source joint IDs stay fixed; protected hands are immutable.
+simplices. Four source joint IDs stay fixed; explicit protected source seeds
+and outside neighbors are immutable.
 Frozen-pose feasibility experiments never constitute a whole-rig certificate.
 """
 
@@ -179,7 +180,10 @@ def main():
     cut_cloth_layout = (
         args.cut_fans and feasibility.get("kind") == "cut-cloth-source-layout"
     )
-    if cut_cloth_layout:
+    support_layout = (
+        args.cut_fans and feasibility.get("kind") == "source-support-layout"
+    )
+    if cut_cloth_layout or support_layout:
         layout = args.base
         files = {
             name: layout / name
@@ -249,7 +253,7 @@ def main():
     np.logical_or.at(
         fixed, inverse, np.fromfile(files["protected.bin"], "u1").astype(bool)
     )
-    if args.cut_fans:
+    if args.cut_fans and not support_layout:
         roles = np.fromfile(
             layout / ("roles.bin" if cut_cloth_layout else "solver-roles.bin"), "u1"
         )

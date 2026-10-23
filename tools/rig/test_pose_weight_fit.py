@@ -3,6 +3,12 @@ import numpy as np
 from pose_weight_fit import simplex
 
 
+def setUpModule():
+    from pathlib import Path
+
+    Path(".local/rig-candidates").mkdir(parents=True, exist_ok=True)
+
+
 class WeightSimplexTest(unittest.TestCase):
     def test_continuation_archive_is_lossless_hash_bound_and_rejects_missing_members(
         self,
@@ -180,6 +186,93 @@ class MultiPoseCoefficients(unittest.TestCase):
 
 
 class WeightedProjection(unittest.TestCase):
+    def test_source_support_layout_keeps_fixed_neighbors_and_both_poses_and_checks_hashes(
+        self,
+    ):
+        import hashlib, json, shutil, subprocess, tempfile, sys, uuid
+        from pathlib import Path
+
+        with tempfile.TemporaryDirectory(
+            prefix="test-star-", dir=".local/rig-candidates"
+        ) as temporary:
+            base = Path(temporary)
+            outputs = [
+                Path(".local/rig-candidates/test-star-result-" + uuid.uuid4().hex)
+                for _ in range(2)
+            ]
+            try:
+                matrices = np.broadcast_to(np.eye(4), (2, 4, 4, 4)).copy()
+                matrices[1, :, :3, :3] *= 3
+                original = np.full((3, 4), 0.25, dtype="<f4")
+                arrays = {
+                    "positions.bin": np.array(
+                        [[0, 0, 0], [1, 0, 0], [0, 1, 0]], dtype="<f4"
+                    ),
+                    "triangles.bin": np.array([[0, 1, 2]], dtype="<u4"),
+                    "groups.bin": np.array([10, 20, 30], dtype="<u4"),
+                    "result-ids.bin": np.tile(np.arange(4, dtype="<u2"), (3, 1)),
+                    "result-weights.bin": original,
+                    "protected.bin": np.array([1, 1, 0], dtype="u1"),
+                    "feasibility-matrices.bin": matrices.transpose(0, 1, 3, 2).astype(
+                        "<f8"
+                    ),
+                }
+                for name, value in arrays.items():
+                    value.tofile(base / name)
+                raw = b"numerical source-star unit fixture, not a renderer asset"
+                (base / "H01-C0-rigged.glb").write_bytes(raw)
+                digest = lambda p: hashlib.sha256(p.read_bytes()).hexdigest()
+                asset_sha = hashlib.sha256(raw).hexdigest()
+                (base / "receipt.json").write_text(json.dumps({"sha256": asset_sha}))
+                files = {name: digest(base / name) for name in arrays}
+                (base / "feasibility-input.json").write_text(
+                    json.dumps(
+                        {
+                            "kind": "source-support-layout",
+                            "assetSha256": asset_sha,
+                            "poseCount": 2,
+                            "matricesSha256": files["feasibility-matrices.bin"],
+                            "poseFile": "two-explicit-poses",
+                            "poseSha256": "unit",
+                            "files": files,
+                        }
+                    )
+                )
+                command = [
+                    sys.executable,
+                    "tools/rig/pose_weight_fit.py",
+                    str(base),
+                    str(outputs[0]),
+                    "--whole-body",
+                    "--cut-fans",
+                    "--iterations",
+                    "2",
+                    "--archive-state",
+                ]
+                result = subprocess.run(command, capture_output=True, text=True)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                report = json.loads((outputs[0] / "solve.json").read_text())
+                self.assertEqual(report["poseCount"], 2)
+                self.assertAlmostEqual(
+                    report["final"]["poses"][1]["maximum"], 3, places=12
+                )
+                self.assertGreater(report["final"]["immutableEdgesOverTarget"], 0)
+                actual = np.fromfile(outputs[0] / "result-weights.bin", "<f4").reshape(
+                    -1, 4
+                )
+                np.testing.assert_array_equal(actual[:2], original[:2])
+                self.assertFalse(report["accepted"])
+                self.assertFalse(report["activated"])
+                self.assertFalse((base / "roles.bin").exists())
+                (base / "protected.bin").write_bytes(b"\0\0\0")
+                command[3] = str(outputs[1])
+                tampered = subprocess.run(command, capture_output=True, text=True)
+                self.assertNotEqual(tampered.returncode, 0)
+                self.assertFalse((outputs[1] / "solve.json").exists())
+            finally:
+                for output in outputs:
+                    shutil.rmtree(output, ignore_errors=True)
+
     def test_free_operator_steps_obey_independent_spectral_bound_without_fixed_slot_inflation(
         self,
     ):

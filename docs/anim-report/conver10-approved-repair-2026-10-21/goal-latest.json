@@ -1,18 +1,18 @@
 {
   "goal": "gemini-rig-animation-approved-20261021",
   "specSha256": "889f4aae774887555f077865e01987fce4301015ba22667083b328b287f3fdc3",
-  "sourceHash": "98d25cb1295c3347afed2c03e953e08370eb010b7508eab6d05fdedffbe78d70",
+  "sourceHash": "69627ad89abadf2933f38239b4e64dcf97f575db7ff4954e91d619156e101df3",
   "stableSource": true,
   "passed": false,
-  "recordedAt": "2026-10-23T04:23:12.360Z",
-  "iteration": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T04-20-42-261Z",
+  "recordedAt": "2026-10-23T05:07:47.644Z",
+  "iteration": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T05-04-49-304Z",
   "gates": [
     {
       "id": "SOURCES",
       "condition": "Khóa SHA hai DOCX, nguồn GLB và texture; 65 yêu cầu được truy về nguồn.",
       "validatorKind": "sha256/all-inputs",
       "status": "passed",
-      "sourceHash": "98d25cb1295c3347afed2c03e953e08370eb010b7508eab6d05fdedffbe78d70",
+      "sourceHash": "69627ad89abadf2933f38239b4e64dcf97f575db7ff4954e91d619156e101df3",
       "passed": true,
       "coverage": true,
       "sources": [
@@ -61,9 +61,9 @@
       "status": "passed",
       "passed": true,
       "browserExit": 0,
-      "sourceHash": "98d25cb1295c3347afed2c03e953e08370eb010b7508eab6d05fdedffbe78d70",
+      "sourceHash": "69627ad89abadf2933f38239b4e64dcf97f575db7ff4954e91d619156e101df3",
       "states": 16,
-      "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T04-20-42-261Z/browser.log"
+      "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T05-04-49-304Z/browser.log"
     },
     {
       "id": "BIND",
@@ -78,9 +78,9 @@
       "condition": "Mọi primitive và cạnh ở Entrance, Hold và combat; p999<=1.5, max<=2.0, không mask bỏ vùng hỏng.",
       "validatorKind": "fresh-full-mesh-lbs",
       "status": "failed",
-      "sourceHash": "98d25cb1295c3347afed2c03e953e08370eb010b7508eab6d05fdedffbe78d70",
+      "sourceHash": "69627ad89abadf2933f38239b4e64dcf97f575db7ff4954e91d619156e101df3",
       "passed": false,
-      "report": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T04-20-42-261Z/surface.json",
+      "report": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T05-04-49-304Z/surface.json",
       "heroes": {
         "H01": {
           "p999": 16.858894801740274,
@@ -137,7 +137,7 @@
       "condition": "Ẩn trước46/60, apex52/60, đáp1.0, dip65/60, giữ95/60, đứng145/60; không chỉ đổi tên clip.",
       "validatorKind": "literal-reference-landmarks",
       "status": "failed",
-      "sourceHash": "98d25cb1295c3347afed2c03e953e08370eb010b7508eab6d05fdedffbe78d70",
+      "sourceHash": "69627ad89abadf2933f38239b4e64dcf97f575db7ff4954e91d619156e101df3",
       "passed": false,
       "scope": "Literal model-space pelvis timing/visibility only; does not certify limb pose, skin, surface grip or camera",
       "toleranceMetres": 0.01,
@@ -395,7 +395,7 @@
       "condition": "Chùy impact.30; hero rơi46/60; đáp1.0; dip65/60; giữ95/60; nâng145/60.",
       "validatorKind": "literal-reference-landmarks",
       "status": "failed",
-      "sourceHash": "98d25cb1295c3347afed2c03e953e08370eb010b7508eab6d05fdedffbe78d70",
+      "sourceHash": "69627ad89abadf2933f38239b4e64dcf97f575db7ff4954e91d619156e101df3",
       "passed": false,
       "scope": "Literal model-space pelvis timing/visibility only; does not certify limb pose, skin, surface grip or camera",
       "toleranceMetres": 0.01,
@@ -715,28 +715,28 @@
       "condition": "npmtest,testmaster,verifymaster; riggoal gốc giữ nguyên ngưỡng và báo kết quả thật.",
       "validatorKind": "commands-and-source-bound-evidence",
       "status": "failed",
-      "sourceHash": "98d25cb1295c3347afed2c03e953e08370eb010b7508eab6d05fdedffbe78d70",
+      "sourceHash": "69627ad89abadf2933f38239b4e64dcf97f575db7ff4954e91d619156e101df3",
       "passed": false,
       "commands": [
         {
           "command": "npm run test",
           "exitCode": 0,
-          "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T04-20-42-261Z/test.log"
+          "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T05-04-49-304Z/test.log"
         },
         {
           "command": "npm run test:master",
           "exitCode": 0,
-          "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T04-20-42-261Z/test-master.log"
+          "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T05-04-49-304Z/test-master.log"
         },
         {
           "command": "npm run verify:master",
           "exitCode": 1,
-          "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T04-20-42-261Z/verify-master.log"
+          "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T05-04-49-304Z/verify-master.log"
         },
         {
           "command": "npm run goal:rig",
           "exitCode": 1,
-          "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T04-20-42-261Z/goal-rig.log"
+          "log": "docs/anim-report/conver10-approved-repair-2026-10-21/iterations/2026-10-23T05-04-49-304Z/goal-rig.log"
         }
       ]
     },
