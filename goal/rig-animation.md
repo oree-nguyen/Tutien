@@ -84,3 +84,7 @@ Giữ fail hình dáng: giao cắt76.417cặp, new-opposed85.166triangle, vạt 
 20rawPNG mới đã vào conver10. Goal fingerprint69bd6ca1… stableSource=true: npm test353/353, master215/215, verify0/37, INCOMPLETE. APK/runtime/H02 chưa đổi; chưa có Android thật để nghiệm thu.
 
 Vòng chốt sau sửa bootstrap fixture: fingerprint69627ad8… stableSource=true, test353/353/master215/215/verify0/37. Kiểm riêng hai tay đủ23mẫu chỉ42/46lượt qua; giữ4lượt nắm thất bại. Các10case Python numerical đã chạy thêm từ workspace sạch không có `.local`. Các kết quả này không thay FINGERS hoặc SKIN_ALL_FRAMES thành passed.
+
+### Vòng23/10 tiếp: ô trống local và hình dáng tay
+
+[Báo cáo](../docs/anim-report/conver10-approved-repair-2026-10-21/HAND-SHAPE.md): sửa policy làm mất local finger ID có weight0; audit thực giữ lại1.243ô. Bản thử V11 giảm p99,9 riêng tay phải/trái về1,578524/1,600990 nhưng vẫn trượt; normal/diện tích còn xấu hơn nên bị loại.42/46lượt tay và16/23pose toàn model qua upper-strain chưa là nghiệm thu.12ảnh mới đăng nguyên byte; test356/356, master215/215, verify0/37, goalINCOMPLETE. Chưa thay runtime, chưa APK mới; H02 và tay áo giữ thứ tự/phạm vi đã chốt.

@@ -1,0 +1,1212 @@
+{
+  "asset": ".local/rig-candidates/approved-source-hand-islands-h01-v10/H01-C0-rigged.glb",
+  "assetSha256": "76959051af4a1d6f4c3e86a69446b843ec412b14af36697021031aa2d690ba53",
+  "solveSha256": "34c02e777f8b71cf48e9e478cee4e9b905398a97bada2cad4e637d672b52114b",
+  "accepted": false,
+  "activated": false,
+  "scope": "Hash-bound Remaining_Source hand components only. Includes all incident faces. Original source-weld neighbors excluded from self-crossings. Does not cover cuff copies, external palm seed, garment collisions, containment, thickness, volume, contact or complete animation. Diagnostic only.",
+  "poses": [
+    {
+      "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-source-bind-open-v1.json",
+      "sha256": "76c003b24d5c78f12782e9f3380ce74ee34834422d33048064f5455c71218e50",
+      "hands": [
+        {
+          "side": "Right",
+          "vertices": 12349,
+          "triangles": 21600,
+          "normals": {
+            "triangles": 21600,
+            "measured": 21600,
+            "bindDegenerate": 0,
+            "posedDegenerate": 0,
+            "bindOpposed": 0,
+            "posedOpposed": 0,
+            "newOpposed": 0,
+            "maximumAngleDegrees": 71.39789322900711,
+            "meanAngleDegrees": 1.7959688583320352,
+            "diagnosticOnly": true,
+            "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+          },
+          "selfCrossings": {
+            "bind": 0,
+            "posed": 0,
+            "newPairs": 0,
+            "removedPairs": 0,
+            "coplanarAmbiguous": 0,
+            "pointTouches": 0,
+            "witnesses": []
+          }
+        },
+        {
+          "side": "Left",
+          "vertices": 11877,
+          "triangles": 20516,
+          "normals": {
+            "triangles": 20516,
+            "measured": 20516,
+            "bindDegenerate": 0,
+            "posedDegenerate": 0,
+            "bindOpposed": 1,
+            "posedOpposed": 1,
+            "newOpposed": 0,
+            "maximumAngleDegrees": 127.93323659087952,
+            "meanAngleDegrees": 1.89626679297374,
+            "diagnosticOnly": true,
+            "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+          },
+          "selfCrossings": {
+            "bind": 0,
+            "posed": 0,
+            "newPairs": 0,
+            "removedPairs": 0,
+            "coplanarAmbiguous": 0,
+            "pointTouches": 0,
+            "witnesses": []
+          }
+        }
+      ]
+    },
+    {
+      "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-bind-fist-stress-v1.json",
+      "sha256": "4a66cd78fb45fc11bb4722f470556bb6f17c9008be984373165673ee6e156287",
+      "hands": [
+        {
+          "side": "Right",
+          "vertices": 12349,
+          "triangles": 21600,
+          "normals": {
+            "triangles": 21600,
+            "measured": 21600,
+            "bindDegenerate": 0,
+            "posedDegenerate": 0,
+            "bindOpposed": 0,
+            "posedOpposed": 477,
+            "newOpposed": 477,
+            "maximumAngleDegrees": 177.8866978619477,
+            "meanAngleDegrees": 16.76906028589549,
+            "diagnosticOnly": true,
+            "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+          },
+          "selfCrossings": {
+            "bind": 0,
+            "posed": 63,
+            "newPairs": 63,
+            "removedPairs": 0,
+            "coplanarAmbiguous": 0,
+            "pointTouches": 0,
+            "witnesses": [
+              {
+                "sourceFaces": [
+                  11104,
+                  11160
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0004775926674540326,
+                "segment": [
+                  [
+                    -0.5294122201592412,
+                    1.0461804520719067,
+                    0.1557148677784657
+                  ],
+                  [
+                    -0.5291472194500825,
+                    1.0463033510675368,
+                    0.15533702493147192
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200637,
+                  200693
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11024,
+                  11104
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0001486471755761264,
+                "segment": [
+                  [
+                    -0.5290910703592595,
+                    1.0463157924431257,
+                    0.15528205507114887
+                  ],
+                  [
+                    -0.5289952708872273,
+                    1.0463456299104352,
+                    0.1551723820593836
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200557,
+                  200637
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11096,
+                  11221
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00022794464350597263,
+                "segment": [
+                  [
+                    -0.5283215128348399,
+                    1.0463909268150395,
+                    0.15470439011269127
+                  ],
+                  [
+                    -0.5285177096552803,
+                    1.0463888086018582,
+                    0.15482041201288702
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200629,
+                  200754
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11104,
+                  11222
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00007428842529603761,
+                "segment": [
+                  [
+                    -0.528908161162374,
+                    1.0463710923898455,
+                    0.15507573546032358
+                  ],
+                  [
+                    -0.5288596796398841,
+                    1.0463855887663003,
+                    0.15502134642485038
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200637,
+                  200755
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11104,
+                  11221
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00039664653739015783,
+                "segment": [
+                  [
+                    -0.5288596796398848,
+                    1.0463855887663005,
+                    0.15502134642485008
+                  ],
+                  [
+                    -0.5285177096552788,
+                    1.046388808601858,
+                    0.1548204120128865
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200637,
+                  200754
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11158,
+                  11221
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00019684530411963845,
+                "segment": [
+                  [
+                    -0.5281669083555952,
+                    1.0464034827305995,
+                    0.15458319655784628
+                  ],
+                  [
+                    -0.5283215128348401,
+                    1.04639092681504,
+                    0.15470439011269074
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200691,
+                  200754
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11221,
+                  11522
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0008840531092536759,
+                "segment": [
+                  [
+                    -0.5281669083555962,
+                    1.0464034827305992,
+                    0.15458319655784747
+                  ],
+                  [
+                    -0.5275030475004421,
+                    1.0464788057608534,
+                    0.15400426210034088
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200754,
+                  201055
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11211,
+                  11522
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00021762365820192215,
+                "segment": [
+                  [
+                    -0.5275030475004416,
+                    1.046478805760853,
+                    0.15400426210034163
+                  ],
+                  [
+                    -0.5273287219586673,
+                    1.0463696913868161,
+                    0.15407542891474854
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200744,
+                  201055
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11160,
+                  11598
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0006961114777988711,
+                "segment": [
+                  [
+                    -0.5298940144303333,
+                    1.0460423030142523,
+                    0.15619794159035727
+                  ],
+                  [
+                    -0.5294122201592415,
+                    1.0461804520719067,
+                    0.15571486777846555
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200693,
+                  201131
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11104,
+                  11267
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00007955623024432309,
+                "segment": [
+                  [
+                    -0.5291472194500824,
+                    1.046303351067537,
+                    0.15533702493147142
+                  ],
+                  [
+                    -0.5290910703592595,
+                    1.046315792443126,
+                    0.1552820550711486
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200637,
+                  200800
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11219,
+                  11598
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0005048758822627343,
+                "segment": [
+                  [
+                    -0.5303072970385564,
+                    1.0459978610911436,
+                    0.15648451105436442
+                  ],
+                  [
+                    -0.5298940144303338,
+                    1.0460423030142525,
+                    0.1561979415903567
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200752,
+                  201131
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11159,
+                  11598
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0001998822708772321,
+                "segment": [
+                  [
+                    -0.5303959611000497,
+                    1.0459282927685525,
+                    0.1566495924127984
+                  ],
+                  [
+                    -0.5303072970385565,
+                    1.0459978610911436,
+                    0.15648451105436437
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200692,
+                  201131
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11159,
+                  11600
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0003562004093518996,
+                "segment": [
+                  [
+                    -0.5305727440581828,
+                    1.0458107399011969,
+                    0.15693561311259535
+                  ],
+                  [
+                    -0.5303959611000493,
+                    1.0459282927685525,
+                    0.1566495924127981
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200692,
+                  201133
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11159,
+                  11599
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00029448047323661766,
+                "segment": [
+                  [
+                    -0.5306514899975845,
+                    1.0456940035514468,
+                    0.15719424499537946
+                  ],
+                  [
+                    -0.5305727440581829,
+                    1.0458107399011969,
+                    0.15693561311259535
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200692,
+                  201132
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11104,
+                  11372
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00013257830565956645,
+                "segment": [
+                  [
+                    -0.5289952708872274,
+                    1.0463456299104352,
+                    0.15517238205938336
+                  ],
+                  [
+                    -0.5289081611623736,
+                    1.0463710923898453,
+                    0.15507573546032397
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200637,
+                  200905
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11205,
+                  11517
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.000037731342506332895,
+                "segment": [
+                  [
+                    -0.5261614451727037,
+                    1.0455290977436658,
+                    0.15463753644346723
+                  ],
+                  [
+                    -0.5261541436604152,
+                    1.0455083801400815,
+                    0.15466821417199067
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200738,
+                  201050
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11205,
+                  11636
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0003918977402821343,
+                "segment": [
+                  [
+                    -0.5261541436604151,
+                    1.0455083801400815,
+                    0.1546682141719905
+                  ],
+                  [
+                    -0.5260910727315647,
+                    1.0452847877754183,
+                    0.15498382841634034
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200738,
+                  201169
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11210,
+                  11517
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00037658319706466764,
+                "segment": [
+                  [
+                    -0.5265409833551196,
+                    1.0458942053578955,
+                    0.15429349777440968
+                  ],
+                  [
+                    -0.5262401678434769,
+                    1.0456967801682462,
+                    0.1544046203497874
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200743,
+                  201050
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11211,
+                  11517
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0009456072645512248,
+                "segment": [
+                  [
+                    -0.5273287219586673,
+                    1.0463696913868161,
+                    0.1540754289147484
+                  ],
+                  [
+                    -0.5265409833551196,
+                    1.0458942053578955,
+                    0.15429349777440962
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200744,
+                  201050
+                ]
+              },
+              {
+                "sourceFaces": [
+                  11146,
+                  11517
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0002975979857154016,
+                "segment": [
+                  [
+                    -0.5262401678434769,
+                    1.0456967801682462,
+                    0.15440462034978744
+                  ],
+                  [
+                    -0.5261614451727038,
+                    1.0455290977436658,
+                    0.1546375364434672
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  200679,
+                  201050
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "side": "Left",
+          "vertices": 11877,
+          "triangles": 20516,
+          "normals": {
+            "triangles": 20516,
+            "measured": 20516,
+            "bindDegenerate": 0,
+            "posedDegenerate": 0,
+            "bindOpposed": 1,
+            "posedOpposed": 443,
+            "newOpposed": 442,
+            "maximumAngleDegrees": 179.35896741669976,
+            "meanAngleDegrees": 16.942988180414357,
+            "diagnosticOnly": true,
+            "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+          },
+          "selfCrossings": {
+            "bind": 0,
+            "posed": 86,
+            "newPairs": 86,
+            "removedPairs": 0,
+            "coplanarAmbiguous": 0,
+            "pointTouches": 0,
+            "witnesses": [
+              {
+                "sourceFaces": [
+                  12762,
+                  12830
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0009303052408597817,
+                "segment": [
+                  [
+                    0.5737658371741378,
+                    0.9825571159848293,
+                    0.17283739721733507
+                  ],
+                  [
+                    0.5730207832454717,
+                    0.9826589680715546,
+                    0.1733851094017715
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  223895,
+                  223963
+                ]
+              },
+              {
+                "sourceFaces": [
+                  12724,
+                  12830
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0010809580110190226,
+                "segment": [
+                  [
+                    0.5720601047496273,
+                    0.9829136244732984,
+                    0.1738102178188366
+                  ],
+                  [
+                    0.5730207832454715,
+                    0.9826589680715547,
+                    0.17338510940177126
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  223857,
+                  223963
+                ]
+              },
+              {
+                "sourceFaces": [
+                  12678,
+                  12830
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0006511863011541656,
+                "segment": [
+                  [
+                    0.5742104192963997,
+                    0.982561688085278,
+                    0.172361614250772
+                  ],
+                  [
+                    0.5737658371741369,
+                    0.9825571159848293,
+                    0.17283739721733618
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  223811,
+                  223963
+                ]
+              },
+              {
+                "sourceFaces": [
+                  443,
+                  728
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00026311792964029806,
+                "segment": [
+                  [
+                    0.5256229356601879,
+                    1.046027309689287,
+                    0.1522706880831728
+                  ],
+                  [
+                    0.5258592748752223,
+                    1.0461355739291043,
+                    0.15231135348261612
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211576,
+                  211861
+                ]
+              },
+              {
+                "sourceFaces": [
+                  108,
+                  443
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00003944266939602007,
+                "segment": [
+                  [
+                    0.5258949962546495,
+                    1.04615150476889,
+                    0.15231644421582768
+                  ],
+                  [
+                    0.5258592748752224,
+                    1.0461355739291043,
+                    0.15231135348261635
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211241,
+                  211576
+                ]
+              },
+              {
+                "sourceFaces": [
+                  108,
+                  444
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0010064042555460485,
+                "segment": [
+                  [
+                    0.5262334943770635,
+                    1.0467352182766199,
+                    0.15156975345815268
+                  ],
+                  [
+                    0.5258949962546495,
+                    1.04615150476889,
+                    0.15231644421582766
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211241,
+                  211577
+                ]
+              },
+              {
+                "sourceFaces": [
+                  89,
+                  444
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0008052457625953068,
+                "segment": [
+                  [
+                    0.5262334943770635,
+                    1.0467352182766199,
+                    0.15156975345815268
+                  ],
+                  [
+                    0.5265117324839902,
+                    1.0471935407988282,
+                    0.15096896667428664
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211222,
+                  211577
+                ]
+              },
+              {
+                "sourceFaces": [
+                  89,
+                  477
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00032136754920159867,
+                "segment": [
+                  [
+                    0.5265117324839903,
+                    1.0471935407988282,
+                    0.15096896667428655
+                  ],
+                  [
+                    0.5268001503146412,
+                    1.047335230792247,
+                    0.15096494145287145
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211222,
+                  211610
+                ]
+              },
+              {
+                "sourceFaces": [
+                  258,
+                  477
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0002948446926276106,
+                "segment": [
+                  [
+                    0.5270572708222258,
+                    1.0474696707554978,
+                    0.15091251690107255
+                  ],
+                  [
+                    0.5268001503146413,
+                    1.047335230792247,
+                    0.15096494145287154
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211391,
+                  211610
+                ]
+              },
+              {
+                "sourceFaces": [
+                  448,
+                  728
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0005250389775835818,
+                "segment": [
+                  [
+                    0.525589472456527,
+                    1.045752371796101,
+                    0.1527167321357879
+                  ],
+                  [
+                    0.5256229356601879,
+                    1.046027309689287,
+                    0.15227068808317284
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211581,
+                  211861
+                ]
+              },
+              {
+                "sourceFaces": [
+                  430,
+                  773
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.000552086882063194,
+                "segment": [
+                  [
+                    0.5240724674582654,
+                    1.0399615412889869,
+                    0.16143690181503156
+                  ],
+                  [
+                    0.5241753504747321,
+                    1.0402609372922766,
+                    0.16098459987662858
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211563,
+                  211906
+                ]
+              },
+              {
+                "sourceFaces": [
+                  493,
+                  773
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0005861917182814095,
+                "segment": [
+                  [
+                    0.523976389624294,
+                    1.039649101986922,
+                    0.1619234934949094
+                  ],
+                  [
+                    0.5240724674582653,
+                    1.0399615412889869,
+                    0.16143690181503154
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211626,
+                  211906
+                ]
+              },
+              {
+                "sourceFaces": [
+                  428,
+                  680
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00015545183155787827,
+                "segment": [
+                  [
+                    0.5254438235448892,
+                    1.0444512474085983,
+                    0.1547339813326341
+                  ],
+                  [
+                    0.5254567112360393,
+                    1.0445368269899666,
+                    0.15460484839878555
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211561,
+                  211813
+                ]
+              },
+              {
+                "sourceFaces": [
+                  224,
+                  680
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00040858850082797776,
+                "segment": [
+                  [
+                    0.5254838127009653,
+                    1.044758886848644,
+                    0.15426294272060512
+                  ],
+                  [
+                    0.5254567112360394,
+                    1.0445368269899666,
+                    0.15460484839878544
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211357,
+                  211813
+                ]
+              },
+              {
+                "sourceFaces": [
+                  428,
+                  826
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0009778797430704052,
+                "segment": [
+                  [
+                    0.5252516647367709,
+                    1.04331999446685,
+                    0.15645281520971438
+                  ],
+                  [
+                    0.5253759283176682,
+                    1.0438444190861633,
+                    0.15563685799697086
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211561,
+                  211959
+                ]
+              },
+              {
+                "sourceFaces": [
+                  428,
+                  745
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0010899709380497035,
+                "segment": [
+                  [
+                    0.5253759283176683,
+                    1.0438444190861633,
+                    0.15563685799697088
+                  ],
+                  [
+                    0.5254438235448893,
+                    1.0444512474085985,
+                    0.15473398133263402
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211561,
+                  211878
+                ]
+              },
+              {
+                "sourceFaces": [
+                  256,
+                  826
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.002167183858612616,
+                "segment": [
+                  [
+                    0.5252374764085005,
+                    1.0432786533760467,
+                    0.15651243052033045
+                  ],
+                  [
+                    0.5248243375127117,
+                    1.0420675828502504,
+                    0.15826151894329962
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211389,
+                  211959
+                ]
+              },
+              {
+                "sourceFaces": [
+                  255,
+                  826
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.00007392144281450914,
+                "segment": [
+                  [
+                    0.5252516647367708,
+                    1.04331999446685,
+                    0.15645281520971438
+                  ],
+                  [
+                    0.5252374764085004,
+                    1.0432786533760467,
+                    0.15651243052033054
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211388,
+                  211959
+                ]
+              },
+              {
+                "sourceFaces": [
+                  429,
+                  826
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0000345389455922113,
+                "segment": [
+                  [
+                    0.5248179873202193,
+                    1.0420483604135922,
+                    0.158289503077141
+                  ],
+                  [
+                    0.5248243375127117,
+                    1.0420675828502504,
+                    0.15826151894329962
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211562,
+                  211959
+                ]
+              },
+              {
+                "sourceFaces": [
+                  224,
+                  709
+                ],
+                "labels": [
+                  1,
+                  1
+                ],
+                "segmentMetres": 0.0004443358028697514,
+                "segment": [
+                  [
+                    0.5254971087976578,
+                    1.045004821169094,
+                    0.1538931132605164
+                  ],
+                  [
+                    0.5254838127009651,
+                    1.044758886848644,
+                    0.15426294272060492
+                  ]
+                ],
+                "remainingPrimitiveFaces": [
+                  211357,
+                  211842
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

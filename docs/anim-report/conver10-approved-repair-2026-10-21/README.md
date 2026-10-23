@@ -1,10 +1,12 @@
 # Sửa rig và animation H01/H02 — phương án mục 13 đã được phê duyệt
 
+**Vòng mới nhất — [ô xương ngón và hình dáng bàn tay](HAND-SHAPE.md):** sửa policy làm mất ID ngón có weight0; audit input thật giữ lại1.243ô local. Giữ hình dáng giảm một phần giao cắt nhưng normal/diện tích vẫn lỗi,4/46lượt tay trượt. Không kích hoạt model/APK.12ảnh mới, test356/356, master215/215, verify0/37; goal INCOMPLETE.
+
 **Đang thực hiện, chưa nghiệm thu rig, chưa có APK rig/animation mới.** Những ảnh và GLB staging trong vòng này là mẫu thử, gồm cả mẫu bị loại. Không coi `passed` của một phép IK hoặc tính hợp lệ của weight là đã hết biến dạng.
 
 [Goal chi tiết](../../../goal/rig-animation.md) · [23 cổng và nguồn SHA](../../../acceptance/goals/rig-animation-gemini.json) · [Kết quả goal gần nhất](goal-latest.json) · [65 yêu cầu → cổng kiểm](REQUIREMENT-GATES.md) · [Quyết định kỹ thuật](DECISIONS.md) · [Ảnh nguyên byte trên Git](../../../picture/conver10/online-pic.md).
 
-**Vòng mới nhất — [giải đồng thời hand/cuff và kiểm riêng bàn tay](COUPLED-HAND-CUFF.md):** đã xử lý influence xương đùi lọt vào cuff và fit trên toàn edge-star nguồn. Primitive lớn qua23mẫu nhưng kiểm riêng hai bàn tay vẫn trượt khi nắm (p99,9≈1,60/1,62); normal/giao cắt/hình dáng còn lỗi. Không nghiệm thu hoặc thay APK.20ảnh mới, test353/353, master215/215, verify0/37; goal INCOMPLETE.
+**Vòng trước — [giải đồng thời hand/cuff và kiểm riêng bàn tay](COUPLED-HAND-CUFF.md):** đã xử lý influence xương đùi lọt vào cuff và fit trên toàn edge-star nguồn. Primitive lớn qua23mẫu nhưng kiểm riêng hai bàn tay vẫn trượt khi nắm (p99,9≈1,60/1,62); normal/giao cắt/hình dáng còn lỗi. Không nghiệm thu hoặc thay APK.20ảnh mới, test353/353, master215/215, verify0/37; goal INCOMPLETE.
 
 **Vòng trước — [ownership bàn tay và cuff](HAND-OWNERSHIP.md):** đã bỏ crop cắt ngang thumb, giữ seed nguồn và đồng bộ các bản copy kept-fan qua mesh. Remaining_Source bản thử qua23/23 mẫu, gồm hai bài nắm; chưa là nghiệm thu ngón hay nhân vật. Cuff/áo vẫn trượt nặng, mọi candidate bị loại và runtime/APK chưa thay.24ảnh mới cùng log thất bại được giữ trong conver10. Goal mới: test350/350, master215/215, verify0/37, INCOMPLETE. Số đo vạt áo ở đoạn trước là checkpoint cũ.
 

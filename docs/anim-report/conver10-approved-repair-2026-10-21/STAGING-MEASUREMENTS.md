@@ -2,7 +2,7 @@
 
 Đo bằng Node/Three và LBS độc lập trên cloud, không phải FPS hoặc nghiệm thu điện thoại. Mỗi dòng là một pose trên toàn bộ source mesh; cả hai pose dùng cùng hash trước/sau tương ứng. Ngưỡng giữ nguyên: p99,9 ≤ 1,5× và max ≤ 2,0×. Không dùng số liệu này thay kiểm toàn chuỗi.
 
-**Chưa có mẫu được nghiệm thu toàn chuỗi.** Các dòng CP geodesic đầu là lịch sử chưa có weight helper; CP650 và các vòng wrist mới đã kết hợp helper thật và ủng source. Không so khác pose/field như cùng một bản đã sửa APK. Chưa kiểm chấp nhận compression/normal, giao cắt, foot slide hoặc bề mặt nắm cán trong toàn chuỗi. Chi tiết hiện hành: [COUPLED-HAND-CUFF.md](COUPLED-HAND-CUFF.md); trước đó [HAND-OWNERSHIP.md](HAND-OWNERSHIP.md), [CLOTH-MOTION.md](CLOTH-MOTION.md); lịch sử [BOOT-WRIST.md](BOOT-WRIST.md).
+**Chưa có mẫu được nghiệm thu toàn chuỗi.** Các dòng CP geodesic đầu là lịch sử chưa có weight helper; CP650 và các vòng wrist mới đã kết hợp helper thật và ủng source. Không so khác pose/field như cùng một bản đã sửa APK. Chưa kiểm chấp nhận compression/normal, giao cắt, foot slide hoặc bề mặt nắm cán trong toàn chuỗi. Chi tiết hiện hành: [HAND-SHAPE.md](HAND-SHAPE.md); trước đó [COUPLED-HAND-CUFF.md](COUPLED-HAND-CUFF.md); trước đó [HAND-OWNERSHIP.md](HAND-OWNERSHIP.md), [CLOTH-MOTION.md](CLOTH-MOTION.md); lịch sử [BOOT-WRIST.md](BOOT-WRIST.md).
 
 | Hero / mẫu | Pose | p99,9 | Max | Min cạnh | Min diện tích | Min Y (m) | Đạt skin của pose |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
@@ -51,11 +51,11 @@ Không so trực tiếp các số runtime này với staging để khẳng đị
 
 ## Lệnh kiểm gần nhất
 
-Source fingerprint: `69627ad89abadf2933f38239b4e64dcf97f575db7ff4954e91d619156e101df3`. Mã nguồn giữ ổn định trong vòng kiểm: `True`. Log đầy đủ: [2026-10-23T05-04-49-304Z](iterations/2026-10-23T05-04-49-304Z/goal.json).
+Source fingerprint: `1ae98b1efd070b45bf6ebf479ebd03692ab932dcc46e804ffce2a58f7f1ddc5e`. Mã nguồn giữ ổn định trong vòng kiểm: `True`. Log đầy đủ: [2026-10-23T08-25-56-842Z](iterations/2026-10-23T08-25-56-842Z/goal.json).
 
 | Kiểm | Kết quả |
 | --- | --- |
-| npm test | ℹ tests 353 / ℹ pass 353 / ℹ fail 0 |
+| npm test | ℹ tests 356 / ℹ pass 356 / ℹ fail 0 |
 | npm run test:master | ℹ tests 215 / ℹ pass 215 / ℹ fail 0 |
 | npm run verify:master | Master Prompt: 0/37; NOT100% |
 | npm run goal:rig | RIG/APK GOAL BLOCKED — do not claim 100% |

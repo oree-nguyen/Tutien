@@ -1,0 +1,30 @@
+✔ offline four-weight simplex projection satisfies feasibility and Euclidean optimality (1062.512055ms)
+✔ ARAP weights preserve fixed boundary contributions and penalize source compression (521.152766ms)
+✔ kept seam follows identical fan across primitives; coincident cut and unrelated rows remain byte exact (6.257712ms)
+✔ supplementary cuff supports propagate by fan and cannot overwrite fixed hand fields (1.704731ms)
+✔ conflicting proposed fields on one kept source fan fail before mutation (0.862862ms)
+✔ recorded hand domains keep all UV copies and reject missing, mixed or overlapping seeds (0.940171ms)
+✔ empty local finger supports survive while empty leg/opposite-side supports are removed (0.479571ms)
+✔ fan compaction accepts only equivalent skin fields, without coordinate stitching (1.119568ms)
+✔ source star retains boundary-crossing triangles and UV fan copies without merging independent cuts (0.50507ms)
+✔ source star rejects nonexistent active fans and invalid source indices (3.838931ms)
+✔ source graph, UV seam identity and continuous four-bone supports pass independent Python regressions (455.536701ms)
+✔ explicit source-edge cuts match an independent sparse corner-fan oracle and reject invalid topology (388.068015ms)
+✔ bounded FEM projected Newton matches an independent NNLS optimum without a small-field tolerance escape (467.667987ms)
+✔ source boot graph refuses attached clothing and invalid sole domains (345.476924ms)
+✔ offline mesh-floor residual agrees with independent source-vertex matrix skinning (345.965404ms)
+✔ screened source-field solver preserves disconnected surfaces and physical scale (336.517863ms)
+✔ source forearm receives actual pronation support while hand flex and finger ownership remain separate (277.639307ms)
+✔ source boot underside rejects shin leakage without taking ownership of nearby cloth or hand vertices (303.269195ms)
+✔ lower source-panel openings retain the waistband and unrelated sleeve interfaces across original UV seams (288.961806ms)
+✔ cloth grid keeps four continuous supports and refuses to discard an old root-bridge influence (293.467617ms)
+✔ pose-space cloth reduction preserves actual evaluated points and scalar floor/edge constraints keep the body fixed (387.217489ms)
+✔ hand ownership follows source connectivity, preserves measured finger seeds and refuses stale source data (836.9254ms)
+ℹ tests 22
+ℹ suites 0
+ℹ pass 22
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 4845.997402

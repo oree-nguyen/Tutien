@@ -1,5 +1,26 @@
 import assert from "node:assert/strict";
 
+/** Zero weight is unused capacity, not permission to discard valid finger IDs. */
+export function localizeEmptyArmSlots(ids, weights, names) {
+  assert.equal(ids.length, 4);
+  assert.equal(weights.length, 4);
+  if (weights.every((weight) => weight !== 0)) return 0;
+  const first = names[ids[0]]?.match(
+    /^(Left|Right)(Hand|Arm|ForeArm|ForearmPronation|Shoulder)/,
+  );
+  assert(first, "Inactive slot needs an explicit local arm support");
+  const local = new RegExp(
+    `^${first[1]}(Hand|Arm|ForeArm|ForearmPronation|Shoulder)`,
+  );
+  let changed = 0;
+  for (let k = 0; k < 4; k++)
+    if (weights[k] === 0 && !local.test(names[ids[k]] ?? "")) {
+      ids[k] = ids[0];
+      changed++;
+    }
+  return changed;
+}
+
 export function assertSourceFanSkin(fans, positions, ids, weights, selected) {
   assert.equal(positions.length, fans.length * 3);
   assert.equal(ids.length, fans.length * 4);

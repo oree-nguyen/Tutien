@@ -92,7 +92,9 @@ await fs.writeFile(
       ...old,
       files,
       method:
-        old.method + "; coupled hand/cuff native-four-weight source-star CP",
+        old.method +
+        "; " +
+        (fit.method ?? "coupled hand/cuff native-four-weight source-star CP"),
       dependencies: {
         ...old.dependencies,
         [parent + "/solve.json"]: sha256(oldBytes),

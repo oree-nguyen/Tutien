@@ -1,5 +1,7 @@
 # Conver10 — giải đồng thời bàn tay/cuff và kiểm lỗi bị che bởi primitive lớn
 
+Vòng tiếp: [giữ ô xương ngón và kiểm hình dáng](HAND-SHAPE.md); V11 vẫn bị loại, không thay runtime/APK.
+
 **Chưa nghiệm thu, chưa thay runtime, chưa có APK rig mới.** Bản v9 đã giải được upper-strain của ba primitive lớn qua23mẫu, nhưng kiểm **riêng từng bàn tay** vẫn thất bại khi nắm. Kiểm hình dáng/normal/giao cắt cũng thất bại. Không dùng số23/23 như chứng nhận FINGERS hoặc toàn bộ rig.
 
 Tiếp từ commit26f74e0 và [báo cáo ownership](HAND-OWNERSHIP.md). Giữ nguồn GLB, UV/ảnh4096,54joint/core bind và6clip legacy; không thay gameplay/GDD/ví/kho/vault/HMAC/reconnect. Chỉ thử trọng số rig quanh đường nối, chưa thực hiện giai đoạn thiết kế/tách riêng tay áo H01 vốn phải sau APK rig+animation.

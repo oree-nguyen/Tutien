@@ -801,6 +801,25 @@
         "poseSha256": "99b80ef186a396c0df79f2061ffe28d0a41abb53cccbf6bf40073d8fc63d1327",
         "scope": "Frozen-pose weight feasibility only; optional source-seed protection and artificial finger stress are not approved anatomy or whole-motion acceptance"
       }
+    },
+    "model-archive.json": {
+      "sha256": "6faee24d5ec17b6fb4d5032996822e471252e7b23b71750000f22a372f097220",
+      "data": {
+        "format": "gzip-xor-parent",
+        "scope": "Lossless archive of rejected local trial only; source images/models and runtime/APK untouched. Restore before replaying this candidate.",
+        "model": ".local/rig-candidates/approved-source-cp-h01-geodesic-input/H01-C0-rigged.glb",
+        "sha256": "2deb7e512a2885d2cecc591e3c520d54c25fd46e04a7cfff9284fbe7827ef6cd",
+        "bytes": 101825136,
+        "parent": ".local/rig-candidates/approved-source-cp-h01-wrist-input/H01-C0-rigged.glb",
+        "parentSha256": "f136391759d2cba9b9c0a9d8813a24b857d3e67049324813bd76f0f31df1b6fd",
+        "archive": ".local/rig-candidates/approved-source-cp-h01-geodesic-input/rejected-model.glb.xor.gz",
+        "archiveSha256": "d521cc3c81a31a077d7933766645d62123b704bd4524de873d1f21423e00e0dc",
+        "archiveBytes": 4636561,
+        "restore": "python3 /workspace/Tutien/docs/anim-report/conver10-approved-repair-2026-10-21/reproduce/archive-staging-delta.py restore .local/rig-candidates/approved-source-cp-h01-geodesic-input",
+        "restorationVerified": true,
+        "accepted": false,
+        "activated": false
+      }
     }
   }
 }

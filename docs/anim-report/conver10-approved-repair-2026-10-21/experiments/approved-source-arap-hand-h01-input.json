@@ -1,0 +1,69 @@
+{
+  "directory": ".local/rig-candidates/approved-source-arap-hand-h01-input",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "receipt.json": {
+      "sha256": "cbda29a63304c54d9423e6e448e8be37fad56f9de6c4d3dbf1fb405e64b2387e",
+      "data": {
+        "sha256": "ab464ae930752c651224d680f15b6281cbc0ba8fb2b818104b371d54e7fc7726",
+        "accepted": false,
+        "activated": false
+      }
+    },
+    "feasibility-input.json": {
+      "sha256": "96ff2ba6ab7b7eae7b1999065a318f4c14ec5981b608d0fced6525b34e66fb84",
+      "data": {
+        "kind": "source-support-layout",
+        "candidate": ".local/rig-candidates/approved-source-hand-islands-h01-v9",
+        "candidateSolveSha256": "53a4a6c1f57d80a1cbae91b441ac7f0706567e44656c8f7ffef968202436fd59",
+        "assetSha256": "ab464ae930752c651224d680f15b6281cbc0ba8fb2b818104b371d54e7fc7726",
+        "poseFile": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-010.json",
+        "poseSha256": "fb95a004c9eb65edba28e5d730f766892eaacb29b641d89b10242ea824245af6",
+        "poseCount": 4,
+        "poses": [
+          {
+            "file": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-010.json",
+            "sha256": "fb95a004c9eb65edba28e5d730f766892eaacb29b641d89b10242ea824245af6"
+          },
+          {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+            "sha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf"
+          },
+          {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-fist-stress-v1.json",
+            "sha256": "7e4f78c09dcc805726fba5d995c25e36c717b7cabba469ec398e2e1c87ef9ea6"
+          },
+          {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-bind-fist-stress-v1.json",
+            "sha256": "4a66cd78fb45fc11bb4722f470556bb6f17c9008be984373165673ee6e156287"
+          }
+        ],
+        "matricesSha256": "11393af1c30814e695f3cdb719b6598bb70655e2031f7fa013dc3ae42d9f4089",
+        "files": {
+          "positions.bin": "c9b5d269722c437a0a867ade0f16d3a0d04dfd665a327be472120e2d8775eb72",
+          "groups.bin": "a7d6ef08fc21c40eec5c7d4081fc1e289e0a879f2cd1913f620e145f9906bfdc",
+          "triangles.bin": "9dd89d49f2ba9d718097e3f442314a6a0d92a00bcbf502ab0027a8fb82280bf4",
+          "source-faces.u32bin": "ddc7258af1a71c52a43966c14f0a2e83dc1a20e5bc4e21a3b11cc7e2264dcf93",
+          "result-ids.bin": "2fbdc5f1a379e566b15c54639567e53b7b2b4f05c02582431db027558338650f",
+          "result-weights.bin": "456e639dab05a4a09694158dc4de30a13bc165bffdc862870326787f96f3d5ce",
+          "protected.bin": "ae335da8b30408abe9cc2889d5c278013ddbef9f6f79056064133027d6cf8bc8",
+          "feasibility-matrices.bin": "11393af1c30814e695f3cdb719b6598bb70655e2031f7fa013dc3ae42d9f4089"
+        },
+        "vertices": 83042,
+        "sourceFaces": 165118,
+        "originalSourceFaces": 1499726,
+        "sourceSeedFans": 384,
+        "freeFans": 81687,
+        "zeroWeightSlotsMadeLocal": 12963,
+        "sourceFanAudit": {
+          "sourceFans": 83042,
+          "allSelectedFanCopiesExact": true
+        },
+        "scope": "Complete source-triangle star of hash-bound hand/cuff fields. All incident edges include fixed outside neighbors. Audited seed fans pinned; no role/color/coordinate crop. Geometry is numerical only; full-source export and validation required.",
+        "accepted": false,
+        "activated": false
+      }
+    }
+  }
+}

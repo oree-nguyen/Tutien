@@ -8,6 +8,7 @@ import { sha256 } from "./animation-payload.mjs";
 import {
   sourceSupportStar,
   assertSourceFanSkin,
+  localizeEmptyArmSlots,
 } from "./source-support-star.mjs";
 
 const [candidate, geometry, output, ...poseFiles] = process.argv.slice(2);
@@ -120,18 +121,11 @@ for (let i = 0; i < count; i++) {
     );
   }
   if (!protectedMask[i])
-    for (let k = 0; k < 4; k++)
-      if (weights[i * 4 + k] === 0) {
-        // Inactive arbitrary Hips slots must not become new long-distance supports.
-        assert(
-          /^(Left|Right)(Hand|Arm|ForeArm|ForearmPronation|Shoulder)/.test(
-            names[ids[i * 4]],
-          ),
-          "Inactive slot needs an explicit local arm support",
-        );
-        ids[i * 4 + k] = ids[i * 4];
-        neutralSlots++;
-      }
+    neutralSlots += localizeEmptyArmSlots(
+      ids.subarray(i * 4, i * 4 + 4),
+      weights.subarray(i * 4, i * 4 + 4),
+      names,
+    );
 }
 const bind = joints.map((n) => [n, n.getTranslation(), n.getRotation()]);
 const matrices = new Float64Array(poseFiles.length * joints.length * 16),
@@ -219,6 +213,8 @@ await fs.writeFile(
       sourceSeedFans: locked.size,
       freeFans: protectedMask.reduce((s, p) => s + Number(!p), 0),
       zeroWeightSlotsMadeLocal: neutralSlots,
+      emptySlotPolicy:
+        "v2: keep same-side local zero-weight finger/arm supports; replace only unrelated empty IDs",
       sourceFanAudit,
       scope:
         "Complete source-triangle star of hash-bound hand/cuff fields. All incident edges include fixed outside neighbors. Audited seed fans pinned; no role/color/coordinate crop. Geometry is numerical only; full-source export and validation required.",

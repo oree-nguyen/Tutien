@@ -1,0 +1,1637 @@
+{
+  "directory": ".local/rig-candidates/approved-source-hand-islands-h01-v11",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "receipt.json": {
+      "sha256": "d2c9821d3307bebe900e9028933731ec0486ae50c686c463a64f6952781231cd",
+      "data": {
+        "input": ".local/rig-candidates/approved-source-cloth-motion-h01-v2/H01-C0-rigged.glb",
+        "inputSha256": "fbadcb142dd0117d0fd3b7ad7c357e3cff70a2909bf6cdf4af1bd8a9094a3fd4",
+        "output": ".local/rig-candidates/approved-source-hand-islands-h01-v11/H01-C0-rigged.glb",
+        "sha256": "b9aa9f26a16633768e86412bdc9fe9c84f87765eafbf03b72ad97ec7b551c5d1",
+        "solveSha256": "a6267716d4156501dc364a16abcff8883ab952965434aeb1e805d3da99ba5734",
+        "provenanceFiles": {
+          "H01-cut-source-triangles.u32bin": "3e92e3e37b41de3f3de41bd9252f44127a9bee51da4362c3a43151697088a62c",
+          "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+          "source-continuity.json": "0f4ff8453e5a188ed30206ca62670a6cc1957aa9ba2dbe205381af06d299e11d",
+          "cut-plan.json": "6454c896d6e3a8fb0d8fb0724354e9c497af647994c0389a6e9d2effc209af85",
+          "cut-edges.u32bin": "bcfd548ad6b1afd0f42a3d503bce2eacddfc1e047c78a60bb2ab22f97222a767",
+          "corner-components.u32bin": "68f266c9248052bdcdd7cbd757922fae1c252a201f9339a8958fe597e8aa80be",
+          "face-roles.u8bin": "ed2d8327e0d30d285ab520693f1056881daf0e1574a44f68c90eb719015009da",
+          "face-layers.u8bin": "0e2d1d7886861570e70e32c31358e660f55e343985a63d18f5db7462054da08d"
+        },
+        "allSourceGeometryUvImagesCoreBindAndLegacyClipsPreserved": true,
+        "unaffectedSourceFansByteExact": true,
+        "fanPropagation": {
+          "sourceFans": 82070,
+          "primitives": [
+            {
+              "mesh": "H01_Remaining_Source",
+              "primitive": 0,
+              "affectedVertices": 24226
+            },
+            {
+              "mesh": "H01_Robe_Left",
+              "primitive": 0,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Robe_Left",
+              "primitive": 1,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Robe_Left",
+              "primitive": 2,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Robe_Left",
+              "primitive": 3,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Robe_Right",
+              "primitive": 0,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Robe_Right",
+              "primitive": 1,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Robe_Right",
+              "primitive": 2,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Robe_Right",
+              "primitive": 3,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Robe_Torso",
+              "primitive": 0,
+              "affectedVertices": 0
+            },
+            {
+              "mesh": "H01_Sleeve_Left",
+              "primitive": 0,
+              "affectedVertices": 35335
+            },
+            {
+              "mesh": "H01_Sleeve_Right",
+              "primitive": 0,
+              "affectedVertices": 34446
+            }
+          ]
+        },
+        "changedVertices": 24226,
+        "accepted": false,
+        "activated": false,
+        "scope": "Source hand skin support experiment only. Legacy clips retained, not retargeted or accepted. Full-animation, cuff, fist, anatomy and phone checks still required."
+      }
+    },
+    "solve.json": {
+      "sha256": "a6267716d4156501dc364a16abcff8883ab952965434aeb1e805d3da99ba5734",
+      "data": {
+        "method": "Source-island screened Dirichlet fields; measured seeds and palm-geodesic boundary; unrelated support transferred to Hand; no spatial crop; multi-pose fixed-support CP with original seed protection; kept fans must propagate on export; coupled source-edge Dirichlet cuff continuation; coupled hand/cuff native-four-weight source-star CP; proper-rotation ARAP edge fit with four fixed source joint slots and bounded simplex weights; upper-length-constrained ADMM",
+        "smoothingMetres": 0.002,
+        "input": ".local/rig-candidates/approved-source-hand-owner-h01-input",
+        "inputMetadataSha256": "c9977bc7d677e12b0c0fc76d9ec89f5125435b4c68bcc3de0eabdd222d8a552f",
+        "asset": ".local/rig-candidates/approved-source-cloth-motion-h01-v2/H01-C0-rigged.glb",
+        "assetSha256": "fbadcb142dd0117d0fd3b7ad7c357e3cff70a2909bf6cdf4af1bd8a9094a3fd4",
+        "canonical": ".local/rig-candidates/approved-source-cp-h01-wrist-input",
+        "canonicalHashes": {
+          "positions.bin": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc",
+          "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25"
+        },
+        "seedReport": ".local/rig-candidates/approved-source-hand-h01-geodesic-v1/heat-solve.json",
+        "seedReportSha256": "06f4448a3ce0035cd869aa67d58236c50d184645dc9c9da8cfd82e606cd21c78",
+        "externalSeedsPreserved": [
+          {
+            "sourceWeld": 837953,
+            "node": "H01_Sleeve_Left",
+            "primitive": 0,
+            "vertex": 80112,
+            "position": [
+              0.514748215675354,
+              0.9930841326713562,
+              0.10976561158895493
+            ],
+            "ids": [
+              9,
+              0,
+              1,
+              2
+            ],
+            "weights": [
+              1,
+              0,
+              0,
+              0
+            ],
+            "requiredJoint": "LeftHand"
+          }
+        ],
+        "hands": [
+          {
+            "side": "Right",
+            "component": 44,
+            "sourceFans": 10929,
+            "vertices": 12349,
+            "sourceBoundaryFans": 256,
+            "palmOwnedBoundaryFans": 58,
+            "bounds": [
+              [
+                -0.6275034546852112,
+                0.8780818581581116,
+                0.0590079128742218
+              ],
+              [
+                -0.49882975220680237,
+                1.0584983825683594,
+                0.19439932703971863
+              ]
+            ],
+            "measuredSeeds": [
+              {
+                "joint": "RightHand",
+                "originalSourceVertexIDs": [
+                  814500,
+                  814596,
+                  814491,
+                  814489,
+                  814580,
+                  814502,
+                  814661,
+                  814595,
+                  815961,
+                  815968,
+                  814540,
+                  815717
+                ],
+                "currentSourceFans": [
+                  4233949,
+                  4233950,
+                  4233994,
+                  4233995,
+                  4234010,
+                  4234012,
+                  4234054,
+                  4234055,
+                  4234130,
+                  4234265,
+                  4234518,
+                  4234948
+                ]
+              },
+              {
+                "joint": "RightHandThumb1",
+                "originalSourceVertexIDs": [
+                  818997,
+                  819002,
+                  818998,
+                  814301,
+                  819006,
+                  814300,
+                  818995,
+                  814314,
+                  819008,
+                  814297,
+                  814266,
+                  814327
+                ],
+                "currentSourceFans": [
+                  4217791,
+                  4217794,
+                  4218162,
+                  4218267,
+                  4218268,
+                  4220505,
+                  4238197,
+                  4238198,
+                  4238272,
+                  4239224,
+                  4239793,
+                  4239795
+                ]
+              },
+              {
+                "joint": "RightHandThumb2",
+                "originalSourceVertexIDs": [
+                  808353,
+                  808280,
+                  808292,
+                  811813,
+                  811812,
+                  808468,
+                  811825,
+                  811807,
+                  808360,
+                  811821,
+                  811817,
+                  811811
+                ],
+                "currentSourceFans": [
+                  4242674,
+                  4242677,
+                  4242846,
+                  4242847,
+                  4242920,
+                  4242926,
+                  4243170,
+                  4243171,
+                  4243172,
+                  4243277,
+                  4243543,
+                  4243562
+                ]
+              },
+              {
+                "joint": "RightHandThumb3",
+                "originalSourceVertexIDs": [
+                  811730,
+                  811725,
+                  811735,
+                  808019,
+                  811722,
+                  811734,
+                  811731,
+                  808269,
+                  811723,
+                  808263,
+                  808319,
+                  811749
+                ],
+                "currentSourceFans": [
+                  4243000,
+                  4243007,
+                  4243248,
+                  4243251,
+                  4243253,
+                  4243331,
+                  4243334,
+                  4243497,
+                  4243588,
+                  4243967,
+                  4244376,
+                  4244706
+                ]
+              },
+              {
+                "joint": "RightHandIndex1",
+                "originalSourceVertexIDs": [
+                  808954,
+                  808952,
+                  808953,
+                  808959,
+                  808958,
+                  808960,
+                  809021,
+                  808951,
+                  808956,
+                  809026,
+                  808955,
+                  808948
+                ],
+                "currentSourceFans": [
+                  4188440,
+                  4189008,
+                  4189010,
+                  4189145,
+                  4189368,
+                  4256556,
+                  4256557,
+                  4256558,
+                  4256640,
+                  4256641,
+                  4256642,
+                  4256861
+                ]
+              },
+              {
+                "joint": "RightHandIndex2",
+                "originalSourceVertexIDs": [
+                  808892,
+                  808923,
+                  808891,
+                  809041,
+                  809045,
+                  809048,
+                  808889,
+                  808894,
+                  809139,
+                  809031,
+                  809088,
+                  809118
+                ],
+                "currentSourceFans": [
+                  4245651,
+                  4245762,
+                  4245768,
+                  4251544,
+                  4251669,
+                  4251671,
+                  4251978,
+                  4251979,
+                  4252341,
+                  4252750,
+                  4252751,
+                  4252781
+                ]
+              },
+              {
+                "joint": "RightHandIndex3",
+                "originalSourceVertexIDs": [
+                  817954,
+                  817953,
+                  817960,
+                  818600,
+                  817955,
+                  817952,
+                  817969,
+                  817956,
+                  818559,
+                  817976,
+                  808898,
+                  808904
+                ],
+                "currentSourceFans": [
+                  4242606,
+                  4242607,
+                  4243558,
+                  4246246,
+                  4248642,
+                  4248643,
+                  4248644,
+                  4248972,
+                  4251438,
+                  4252111,
+                  4252143,
+                  4253566
+                ]
+              },
+              {
+                "joint": "RightHandMiddle1",
+                "originalSourceVertexIDs": [
+                  806716,
+                  806715,
+                  806723,
+                  806724,
+                  806729,
+                  806667,
+                  806714,
+                  806666,
+                  806731,
+                  806668,
+                  806738,
+                  806745
+                ],
+                "currentSourceFans": [
+                  4158130,
+                  4158394,
+                  4158448,
+                  4158778,
+                  4159024,
+                  4159276,
+                  4162813,
+                  4162890,
+                  4162892,
+                  4162984,
+                  4163026,
+                  4163086
+                ]
+              },
+              {
+                "joint": "RightHandMiddle2",
+                "originalSourceVertexIDs": [
+                  806597,
+                  806737,
+                  806599,
+                  806609,
+                  806766,
+                  806612,
+                  806744,
+                  806742,
+                  806607,
+                  806601,
+                  806789,
+                  806785
+                ],
+                "currentSourceFans": [
+                  4185025,
+                  4191327,
+                  4191328,
+                  4191329,
+                  4191330,
+                  4191331,
+                  4191332,
+                  4191393,
+                  4191407,
+                  4191762,
+                  4192042,
+                  4192633
+                ]
+              },
+              {
+                "joint": "RightHandMiddle3",
+                "originalSourceVertexIDs": [
+                  806621,
+                  806774,
+                  806736,
+                  806802,
+                  806619,
+                  806620,
+                  806799,
+                  806735,
+                  806622,
+                  806812,
+                  806643,
+                  806784
+                ],
+                "currentSourceFans": [
+                  4185084,
+                  4185216,
+                  4185220,
+                  4185232,
+                  4185233,
+                  4185237,
+                  4185242,
+                  4251586,
+                  4251587,
+                  4251938,
+                  4251939,
+                  4252412
+                ]
+              },
+              {
+                "joint": "RightHandRing1",
+                "originalSourceVertexIDs": [
+                  812919,
+                  812922,
+                  812864,
+                  812955,
+                  812865,
+                  812951,
+                  812876,
+                  812970,
+                  812882,
+                  812860,
+                  812883,
+                  812957
+                ],
+                "currentSourceFans": [
+                  4164518,
+                  4164898,
+                  4165087,
+                  4165108,
+                  4165357,
+                  4165516,
+                  4165570,
+                  4166208,
+                  4166348,
+                  4167278,
+                  4167485,
+                  4167816
+                ]
+              },
+              {
+                "joint": "RightHandRing2",
+                "originalSourceVertexIDs": [
+                  812850,
+                  812848,
+                  812843,
+                  812925,
+                  812921,
+                  812844,
+                  812958,
+                  812934,
+                  812980,
+                  812901,
+                  812839,
+                  812979
+                ],
+                "currentSourceFans": [
+                  4159395,
+                  4159422,
+                  4159424,
+                  4159428,
+                  4159430,
+                  4159448,
+                  4159566,
+                  4159572,
+                  4159629,
+                  4159630,
+                  4159635,
+                  4159651
+                ]
+              },
+              {
+                "joint": "RightHandRing3",
+                "originalSourceVertexIDs": [
+                  812863,
+                  812868,
+                  812890,
+                  812952,
+                  812874,
+                  812916,
+                  812869,
+                  812625,
+                  812954,
+                  812623,
+                  812965,
+                  812920
+                ],
+                "currentSourceFans": [
+                  4158103,
+                  4158171,
+                  4158172,
+                  4158173,
+                  4158186,
+                  4158254,
+                  4158321,
+                  4158322,
+                  4158323,
+                  4158328,
+                  4158331,
+                  4158422
+                ]
+              },
+              {
+                "joint": "RightHandPinky1",
+                "originalSourceVertexIDs": [
+                  807109,
+                  807060,
+                  807403,
+                  807286,
+                  807287,
+                  807437,
+                  807055,
+                  807108,
+                  807067,
+                  807058,
+                  807478,
+                  807439
+                ],
+                "currentSourceFans": [
+                  4152979,
+                  4153006,
+                  4153007,
+                  4153041,
+                  4153100,
+                  4153101,
+                  4153122,
+                  4153124,
+                  4153127,
+                  4153673,
+                  4166173,
+                  4167555
+                ]
+              },
+              {
+                "joint": "RightHandPinky2",
+                "originalSourceVertexIDs": [
+                  807283,
+                  807399,
+                  807338,
+                  807242,
+                  807339,
+                  807432,
+                  807698,
+                  811017,
+                  807435,
+                  811198,
+                  807756,
+                  807697
+                ],
+                "currentSourceFans": [
+                  4164702,
+                  4165120,
+                  4165121,
+                  4165124,
+                  4165612,
+                  4165631,
+                  4165942,
+                  4166154,
+                  4166156,
+                  4166291,
+                  4166297,
+                  4166303
+                ]
+              },
+              {
+                "joint": "RightHandPinky3",
+                "originalSourceVertexIDs": [
+                  807157,
+                  807152,
+                  807205,
+                  807203,
+                  807153,
+                  807308,
+                  807154,
+                  807340,
+                  807194,
+                  807291,
+                  807396,
+                  807160
+                ],
+                "currentSourceFans": [
+                  4160456,
+                  4160592,
+                  4160593,
+                  4160594,
+                  4161096,
+                  4161097,
+                  4161098,
+                  4161769,
+                  4164817,
+                  4164888,
+                  4164890,
+                  4166524
+                ]
+              }
+            ],
+            "relativeResidual": 4.536058199923628e-16,
+            "maximumDroppedFourWeightMass": 0.04723550891665074,
+            "p999DroppedFourWeightMass": 0.013401390423092886
+          },
+          {
+            "side": "Left",
+            "component": 45,
+            "sourceFans": 10371,
+            "vertices": 11877,
+            "sourceBoundaryFans": 224,
+            "palmOwnedBoundaryFans": 42,
+            "bounds": [
+              [
+                0.5016365647315979,
+                0.8778848052024841,
+                0.055885199457407
+              ],
+              [
+                0.6275034546852112,
+                1.0577430725097656,
+                0.19441497325897217
+              ]
+            ],
+            "measuredSeeds": [
+              {
+                "joint": "LeftHand",
+                "originalSourceVertexIDs": [
+                  838054,
+                  837997,
+                  836062,
+                  836064,
+                  837804,
+                  836060,
+                  837310,
+                  837799,
+                  836127,
+                  837953,
+                  837798,
+                  837008
+                ],
+                "currentSourceFans": [
+                  4353081,
+                  4353083,
+                  4353201,
+                  4353202,
+                  4353203,
+                  4353456,
+                  4373098,
+                  4373099,
+                  4373113,
+                  4373120,
+                  4373144
+                ]
+              },
+              {
+                "joint": "LeftHandThumb1",
+                "originalSourceVertexIDs": [
+                  838271,
+                  838285,
+                  838314,
+                  838265,
+                  838328,
+                  838286,
+                  838382,
+                  838288,
+                  838267,
+                  838315,
+                  838272,
+                  838389
+                ],
+                "currentSourceFans": [
+                  4319628,
+                  4320019,
+                  4320097,
+                  4320153,
+                  4320156,
+                  4320234,
+                  4320236,
+                  4373523,
+                  4373646,
+                  4373647,
+                  4373725,
+                  4373838
+                ]
+              },
+              {
+                "joint": "LeftHandThumb2",
+                "originalSourceVertexIDs": [
+                  843120,
+                  843075,
+                  843190,
+                  843212,
+                  843191,
+                  843119,
+                  843019,
+                  843065,
+                  843020,
+                  834877,
+                  828146,
+                  843115
+                ],
+                "currentSourceFans": [
+                  4370619,
+                  4370900,
+                  4370931,
+                  4370932,
+                  4370933,
+                  4370961,
+                  4370986,
+                  4371192,
+                  4371193,
+                  4376420,
+                  4376423,
+                  4376449
+                ]
+              },
+              {
+                "joint": "LeftHandThumb3",
+                "originalSourceVertexIDs": [
+                  843025,
+                  842980,
+                  842924,
+                  842966,
+                  843027,
+                  843051,
+                  843052,
+                  843048,
+                  843023,
+                  842971,
+                  843026,
+                  842923
+                ],
+                "currentSourceFans": [
+                  4371047,
+                  4371072,
+                  4371073,
+                  4371074,
+                  4371076,
+                  4371077,
+                  4371091,
+                  4371134,
+                  4371238,
+                  4371284,
+                  4371287,
+                  4372198
+                ]
+              },
+              {
+                "joint": "LeftHandIndex1",
+                "originalSourceVertexIDs": [
+                  830182,
+                  830177,
+                  830172,
+                  830176,
+                  830242,
+                  830171,
+                  830218,
+                  830173,
+                  830208,
+                  830209,
+                  830248,
+                  830174
+                ],
+                "currentSourceFans": [
+                  4315608,
+                  4315609,
+                  4315610,
+                  4315613,
+                  4315681,
+                  4315818,
+                  4315819,
+                  4315821,
+                  4315850,
+                  4315853,
+                  4315989,
+                  4316393
+                ]
+              },
+              {
+                "joint": "LeftHandIndex2",
+                "originalSourceVertexIDs": [
+                  830102,
+                  830100,
+                  830144,
+                  830098,
+                  830143,
+                  830101,
+                  830104,
+                  830142,
+                  830290,
+                  830147,
+                  830287,
+                  830103
+                ],
+                "currentSourceFans": [
+                  4314215,
+                  4314221,
+                  4318069,
+                  4318072,
+                  4318137,
+                  4318138,
+                  4318139,
+                  4318926,
+                  4349134,
+                  4349149,
+                  4349363,
+                  4349423
+                ]
+              },
+              {
+                "joint": "LeftHandIndex3",
+                "originalSourceVertexIDs": [
+                  828160,
+                  827542,
+                  828537,
+                  828237,
+                  827528,
+                  830151,
+                  828159,
+                  830289,
+                  838712,
+                  830288,
+                  827529,
+                  830135
+                ],
+                "currentSourceFans": [
+                  4347984,
+                  4348035,
+                  4348041,
+                  4348103,
+                  4348839,
+                  4349122,
+                  4349181,
+                  4349182,
+                  4349252,
+                  4349385,
+                  4349518,
+                  4351542
+                ]
+              },
+              {
+                "joint": "LeftHandMiddle1",
+                "originalSourceVertexIDs": [
+                  845741,
+                  845740,
+                  845742,
+                  845743,
+                  845738,
+                  845756,
+                  845744,
+                  845745,
+                  845749,
+                  845753,
+                  845719,
+                  845794
+                ],
+                "currentSourceFans": [
+                  4329445,
+                  4329561,
+                  4329578,
+                  4329611,
+                  4329668,
+                  4329708,
+                  4342588,
+                  4342589,
+                  4342601,
+                  4342610,
+                  4342613,
+                  4343410
+                ]
+              },
+              {
+                "joint": "LeftHandMiddle2",
+                "originalSourceVertexIDs": [
+                  845572,
+                  845554,
+                  845904,
+                  845556,
+                  845575,
+                  845558,
+                  845570,
+                  845618,
+                  845638,
+                  845655,
+                  845658,
+                  845571
+                ],
+                "currentSourceFans": [
+                  4340475,
+                  4340476,
+                  4340477,
+                  4341505,
+                  4342089,
+                  4342114,
+                  4342116,
+                  4342166,
+                  4342175,
+                  4342233,
+                  4342321,
+                  4342364
+                ]
+              },
+              {
+                "joint": "LeftHandMiddle3",
+                "originalSourceVertexIDs": [
+                  845635,
+                  845632,
+                  845644,
+                  845643,
+                  845642,
+                  845649,
+                  845647,
+                  845858,
+                  845609,
+                  845695,
+                  845856,
+                  845640
+                ],
+                "currentSourceFans": [
+                  4340551,
+                  4340653,
+                  4340730,
+                  4340731,
+                  4340732,
+                  4340745,
+                  4340757,
+                  4340766,
+                  4340768,
+                  4340790,
+                  4340819,
+                  4340980
+                ]
+              },
+              {
+                "joint": "LeftHandRing1",
+                "originalSourceVertexIDs": [
+                  831355,
+                  831375,
+                  831369,
+                  831322,
+                  831398,
+                  831397,
+                  831329,
+                  831354,
+                  831320,
+                  831416,
+                  831351,
+                  831417
+                ],
+                "currentSourceFans": [
+                  4333814,
+                  4333854,
+                  4333974,
+                  4333992,
+                  4354284,
+                  4354285,
+                  4354288,
+                  4354362,
+                  4354363,
+                  4354392,
+                  4354509,
+                  4354510
+                ]
+              },
+              {
+                "joint": "LeftHandRing2",
+                "originalSourceVertexIDs": [
+                  831295,
+                  831284,
+                  831296,
+                  831300,
+                  831361,
+                  831339,
+                  831381,
+                  831305,
+                  831290,
+                  831393,
+                  831394,
+                  831372
+                ],
+                "currentSourceFans": [
+                  4333906,
+                  4333907,
+                  4334210,
+                  4335505,
+                  4335525,
+                  4335526,
+                  4335527,
+                  4335530,
+                  4335562,
+                  4335589,
+                  4335590,
+                  4335613
+                ]
+              },
+              {
+                "joint": "LeftHandRing3",
+                "originalSourceVertexIDs": [
+                  831311,
+                  831310,
+                  831360,
+                  831332,
+                  831401,
+                  831404,
+                  831400,
+                  831413,
+                  831376,
+                  831435,
+                  831359,
+                  831462
+                ],
+                "currentSourceFans": [
+                  4335006,
+                  4335007,
+                  4335021,
+                  4335025,
+                  4335036,
+                  4335066,
+                  4335775,
+                  4335776,
+                  4335777,
+                  4335783,
+                  4335867,
+                  4335932
+                ]
+              },
+              {
+                "joint": "LeftHandPinky1",
+                "originalSourceVertexIDs": [
+                  841293,
+                  841230,
+                  841340,
+                  841229,
+                  841232,
+                  841236,
+                  841387,
+                  841287,
+                  841231,
+                  841291,
+                  841653,
+                  841480
+                ],
+                "currentSourceFans": [
+                  4360265,
+                  4360278,
+                  4365613,
+                  4365614,
+                  4368130,
+                  4368140,
+                  4368157,
+                  4368158,
+                  4368161,
+                  4368312,
+                  4368314,
+                  4370139
+                ]
+              },
+              {
+                "joint": "LeftHandPinky2",
+                "originalSourceVertexIDs": [
+                  841246,
+                  841248,
+                  841247,
+                  841312,
+                  841245,
+                  841409,
+                  841253,
+                  841243,
+                  841304,
+                  841513,
+                  841364,
+                  841704
+                ],
+                "currentSourceFans": [
+                  4368398,
+                  4368421,
+                  4368427,
+                  4368433,
+                  4368439,
+                  4368444,
+                  4368458,
+                  4368490,
+                  4368499,
+                  4368511,
+                  4368626,
+                  4368686
+                ]
+              },
+              {
+                "joint": "LeftHandPinky3",
+                "originalSourceVertexIDs": [
+                  841302,
+                  841334,
+                  841268,
+                  841442,
+                  841367,
+                  841269,
+                  841728,
+                  841271,
+                  841267,
+                  841303,
+                  841273,
+                  841266
+                ],
+                "currentSourceFans": [
+                  4368479,
+                  4368538,
+                  4368607,
+                  4368613,
+                  4368693,
+                  4368712,
+                  4368778,
+                  4368819,
+                  4369282,
+                  4369283,
+                  4369287,
+                  4369294
+                ]
+              }
+            ],
+            "relativeResidual": 4.4838038999188265e-16,
+            "maximumDroppedFourWeightMass": 0.022255937138147552,
+            "p999DroppedFourWeightMass": 0.011784520284363472
+          }
+        ],
+        "changedVertices": 24226,
+        "files": {
+          "ids.u16bin": "215ab9528c394da1043f99d8bc2836b63d1314f5d036abb5c4c8240affc50b0e",
+          "weights.f32bin": "e8e4fbf6c7c47afa68adf97173c9f33205e55e5facf6886babfcb78d5df4109c",
+          "touched.u8bin": "f8083a916c3e0163717725b1f6e6c38ae999ceff2a80b54e00065b24ed697f23",
+          "extra-fans.u32bin": "e4f706a0f88e9670cc9c291d5bc85e1aacf5fd6683401d9a8f1d43133ba69b54",
+          "extra-ids.u16bin": "a09b54ac07b08e72c9d84ed3efb281eeee5a98b9fc88767cc5c08850333acc57",
+          "extra-weights.f32bin": "cab6942338e4f6d241891b6daf3063ce0a4fd0659675f7bd6d70b4de6cb6f149"
+        },
+        "accepted": false,
+        "activated": false,
+        "scope": "Experimental source hand ownership. Four-weight deformation, cuff matching, fist, all clips and anatomy review remain mandatory.",
+        "dependencies": {
+          ".local/rig-candidates/approved-source-hand-islands-h01-v3/solve.json": "bcb939034f7b20d9ee2404ae0d9076c410e53faa94ac69caa13dad4cf5b24494",
+          ".local/rig-candidates/approved-source-hand-islands-h01-v3/receipt.json": "c1d4b6b6a384af3a984ccdf07a04b795b64093b36cd82deff656c4ade1a902a8",
+          ".local/rig-candidates/approved-source-hand-support-h01-v4/solve.json": "d15f463dba167e58a2ee920a3e603761bffd928cbc75e12f18bd513404c9d299",
+          ".local/rig-candidates/approved-source-hand-support-h01-v4/result-weights.bin": "a99292f2d30ff4c2d8b52bad17ab092d6fea295a9f14f94be9ef4103f28da6ba",
+          ".local/rig-candidates/approved-source-hand-support-h01-input/feasibility-input.json": "e5ea6c9132c046a345011d373a94847ae702695268044ba404472aaca8672253",
+          ".local/rig-candidates/approved-source-hand-islands-h01-v7-field/solve.json": "ecbae00de725423b85fbe1d82b2db22be7627c7527ec94fb778c1d8b1e306245",
+          ".local/rig-candidates/approved-source-hand-islands-h01-v4/solve.json": "3d98b5c3ccd9f48cb2d626474f9e0b406699023d455fe4163ac91c91048c3dbf",
+          ".local/rig-candidates/approved-source-hand-islands-h01-v4/receipt.json": "70ee08749c274f8b25b29ffa43d0c76db24b93584b5c781c3b60d70cbb83b655",
+          ".local/rig-candidates/approved-source-hand-cuff-h01-input/input.json": "640615200821b6fee80b380d7005395d369b11852512fafbaafd049bb6917121",
+          ".local/rig-candidates/approved-source-hand-islands-h01-v8/solve.json": "8cf67022530c27049d99d19e08808096224ce4c093b43428ae0c3de9f76d509a",
+          ".local/rig-candidates/approved-source-coupled-hand-h01-v2/solve.json": "e326c1014291cd18bc51035885f6ce3a2b4cc8ebc7f59009c10af34489721b7c",
+          ".local/rig-candidates/approved-source-coupled-hand-h01-v2/result-weights.bin": "456e639dab05a4a09694158dc4de30a13bc165bffdc862870326787f96f3d5ce",
+          ".local/rig-candidates/approved-source-coupled-hand-h01-input/feasibility-input.json": "0383ba29a098592c2f10c4a74cb94618a4ec0143c4bec237fe00b82b03c771f6",
+          ".local/rig-candidates/approved-source-hand-islands-h01-v9/solve.json": "53a4a6c1f57d80a1cbae91b441ac7f0706567e44656c8f7ffef968202436fd59",
+          ".local/rig-candidates/approved-source-restored-slots-hand-h01-v2/solve.json": "2b1af696185c453e446bff953e0c588d3470f09f871a06926088fdcbd747a45c",
+          ".local/rig-candidates/approved-source-restored-slots-hand-h01-v2/result-weights.bin": "dabb7f2ed6d7a80ad29231a195658d0795b6dacf39de724ea34de57e6b37254d",
+          ".local/rig-candidates/approved-source-restored-slots-hand-h01-input/feasibility-input.json": "95242d61bcac7b40e3bc5d908433b9a6f4de0e6e1840b9a2a6fdf12f2f825893"
+        },
+        "supportFit": {
+          "proposal": ".local/rig-candidates/approved-source-hand-islands-h01-v3",
+          "numerical": ".local/rig-candidates/approved-source-hand-support-h01-v4",
+          "source": ".local/rig-candidates/approved-source-hand-support-h01-input",
+          "poseCount": 3,
+          "accepted": false
+        },
+        "additionalFanField": {
+          "fans": "extra-fans.u32bin",
+          "ids": "extra-ids.u16bin",
+          "weights": "extra-weights.f32bin",
+          "extensionMetres": 0.045,
+          "sourceFans": 7636,
+          "exportedSupplementaryFans": 60770,
+          "localArmCollarMetres": 0.25,
+          "localArmInnerMetres": 0.15,
+          "localArmCleanup": [
+            {
+              "side": "Left",
+              "changedFans": 30197,
+              "maximumRemovedOffChainWeight": 0.2034046084224582
+            },
+            {
+              "side": "Right",
+              "changedFans": 29164,
+              "maximumRemovedOffChainWeight": 0.19378692586818533
+            }
+          ],
+          "protectedExternalSeedFans": [
+            4353144
+          ],
+          "relativeResidual": 1.538113995793111e-15,
+          "maximumDroppedFourWeightMass": 0.012329870738001736,
+          "p999DroppedFourWeightMass": 0.007303084493907526
+        },
+        "coupledFit": {
+          "numerical": ".local/rig-candidates/approved-source-restored-slots-hand-h01-v2",
+          "input": ".local/rig-candidates/approved-source-restored-slots-hand-h01-input",
+          "poseCount": 4,
+          "pinnedSourceSeeds": 384,
+          "freeFans": 81687
+        }
+      }
+    },
+    "cut-plan.json": {
+      "sha256": "6454c896d6e3a8fb0d8fb0724354e9c497af647994c0389a6e9d2effc209af85",
+      "data": {
+        "parentRig": ".local/rig-candidates/semantic-garment-v7/H01-C0-rigged.glb",
+        "parentRigSha256": "5fcf74580c7bcb9d48adcaebbdb1c379712f89ad2e34d0d55a18d7a6a6902db4",
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "operation": "Retain lower left/right openings and earlier source junction proposals; open front/back source-panel interfaces below750mm so opposing drape chains do not stretch one sewn circumference.",
+        "diagnostics": {
+          "sourceFaces": 1499726,
+          "sourceCorners": 4499178,
+          "pairedEdges": 2249589,
+          "cutEdges": 4416,
+          "fanUnionIterations": 3,
+          "unpairedNonzeroEdges": 0
+        },
+        "bounds": [
+          [
+            -0.3417028784751892,
+            0.6333267688751221,
+            -0.10229013860225677
+          ],
+          [
+            0.34510233998298645,
+            0.9168662428855896,
+            0.0050727082416415215
+          ]
+        ],
+        "leftEdges": 450,
+        "rightEdges": 498,
+        "files": {
+          "cut-edges.u32bin": {
+            "sha256": "bcfd548ad6b1afd0f42a3d503bce2eacddfc1e047c78a60bb2ab22f97222a767",
+            "bytes": 35328
+          },
+          "corner-components.u32bin": {
+            "sha256": "68f266c9248052bdcdd7cbd757922fae1c252a201f9339a8958fe597e8aa80be",
+            "bytes": 17996712
+          },
+          "face-roles.u8bin": {
+            "sha256": "ed2d8327e0d30d285ab520693f1056881daf0e1574a44f68c90eb719015009da",
+            "bytes": 1499726
+          },
+          "face-layers.u8bin": {
+            "sha256": "0e2d1d7886861570e70e32c31358e660f55e343985a63d18f5db7462054da08d",
+            "bytes": 1499726
+          }
+        },
+        "patternApproved": false,
+        "accepted": false,
+        "activated": false,
+        "scope": "Exact source-edge pattern proposal. No geometry removed/generated, no texture change, no exemption in current seam verifier. Requires isolated boundary and deformed mesh review.",
+        "previousPlan": ".local/rig-candidates/approved-source-panel-pattern-v1/cut-plan.json",
+        "previousPlanSha256": "d42c3742848c6c2234ed4d4dc465ba0c5374f5d1ceed6bfac2796e9b63317dc9",
+        "additionalLowerJunctionEdges": 610,
+        "additionalBounds": [
+          [
+            -0.19966340065002441,
+            0.19048839807510376,
+            -0.11628219485282898
+          ],
+          [
+            0.19827716052532196,
+            0.37341398000717163,
+            -0.004594145808368921
+          ]
+        ],
+        "bootConnectivityProof": {
+          "selection": ".local/rig-candidates/foot-source/H01/selection.json",
+          "sha256": "e7e7b1c56dbcbe695446dc17a5a52b91841351729e2706b68cc1d6ff77d302fa",
+          "components": {
+            "Left": 23119,
+            "Right": 13446
+          },
+          "method": "Original remaining-source triangle connectivity to actual graph-selected sole IDs, not colour or spatial proximity"
+        },
+        "repartition": true,
+        "ownershipCorrections": [
+          {
+            "component": 152124,
+            "sourceFaces": [
+              367875,
+              367892,
+              367956,
+              367988
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.1353476345539093,
+                0.27465927600860596,
+                -0.17624621093273163
+              ],
+              [
+                -0.13126637041568756,
+                0.28084996342658997,
+                -0.1750609278678894
+              ]
+            ]
+          },
+          {
+            "component": 152373,
+            "sourceFaces": [
+              367513,
+              367589,
+              367606,
+              368738,
+              368801,
+              368802
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.15291111171245575,
+                0.27426522970199585,
+                -0.16907039284706116
+              ],
+              [
+                -0.14745067059993744,
+                0.27934569120407104,
+                -0.1657709926366806
+              ]
+            ]
+          },
+          {
+            "component": 275189,
+            "sourceFaces": [
+              683844,
+              683848,
+              683850,
+              683856
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.26934731006622314,
+                0.2613959312438965,
+                -0.034209057688713074
+              ],
+              [
+                0.27024176716804504,
+                0.2688782513141632,
+                -0.028834622353315353
+              ]
+            ]
+          },
+          {
+            "component": 275195,
+            "sourceFaces": [
+              683783,
+              683826
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.2706029713153839,
+                0.26289239525794983,
+                -0.02742103859782219
+              ],
+              [
+                0.27111589908599854,
+                0.26647329330444336,
+                -0.022989505901932716
+              ]
+            ]
+          },
+          {
+            "component": 275206,
+            "sourceFaces": [
+              683788,
+              683829
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.2716350257396698,
+                0.26291584968566895,
+                -0.01824836991727352
+              ],
+              [
+                0.2718367576599121,
+                0.2658853232860565,
+                -0.014767570421099663
+              ]
+            ]
+          },
+          {
+            "component": 276684,
+            "sourceFaces": [
+              688921,
+              689007
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.27099859714508057,
+                0.2587032616138458,
+                0.0019921669736504555
+              ],
+              [
+                0.27130353450775146,
+                0.26169461011886597,
+                0.00498508894816041
+              ]
+            ]
+          },
+          {
+            "component": 310109,
+            "sourceFaces": [
+              787497,
+              787540
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.046035341918468475,
+                0.2922227382659912,
+                -0.1894891858100891
+              ],
+              [
+                -0.044846925884485245,
+                0.29451984167099,
+                -0.18919207155704498
+              ]
+            ]
+          },
+          {
+            "component": 534594,
+            "sourceFaces": [
+              1268853,
+              1269039,
+              1269104,
+              1269236
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.1863633543252945,
+                0.3700355887413025,
+                0.11392185091972351
+              ],
+              [
+                -0.18417105078697205,
+                0.37266260385513306,
+                0.11663955450057983
+              ]
+            ]
+          },
+          {
+            "component": 534617,
+            "sourceFaces": [
+              1268620,
+              1269008
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.18408504128456116,
+                0.36764153838157654,
+                0.11493824422359467
+              ],
+              [
+                -0.18269646167755127,
+                0.36883777379989624,
+                0.11643627285957336
+              ]
+            ]
+          },
+          {
+            "component": 534643,
+            "sourceFaces": [
+              1268782,
+              1268917
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.18920458853244781,
+                0.3757806122303009,
+                0.11331043392419815
+              ],
+              [
+                -0.1884884238243103,
+                0.3772176504135132,
+                0.1139359101653099
+              ]
+            ]
+          }
+        ],
+        "additionalLiningFaces": [
+          367875,
+          367892,
+          367956,
+          367988,
+          367513,
+          367589,
+          367606,
+          368738,
+          368801,
+          368802,
+          683844,
+          683848,
+          683850,
+          683856,
+          683783,
+          683826,
+          683788,
+          683829,
+          688921,
+          689007,
+          787497,
+          787540,
+          1268853,
+          1269039,
+          1269104,
+          1269236,
+          1268620,
+          1269008,
+          1268782,
+          1268917
+        ],
+        "independentCornerGraphPassed": true,
+        "sourceInputs": {
+          "positions.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/positions.bin",
+            "sha256": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc"
+          },
+          "triangles.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/triangles.bin",
+            "sha256": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132"
+          },
+          "source-welds.u32bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/source-welds.u32bin",
+            "sha256": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25"
+          },
+          "protected.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/protected.bin",
+            "sha256": "42c11892831127626dba90e7e82c08ff89f98dae34228a2c50e2801d07b68ef0"
+          }
+        },
+        "panelOpening": {
+          "waistHeightMetres": 0.86,
+          "additionalEdges": 1502,
+          "endpoints": 2,
+          "branchedVertices": 0,
+          "lengthMetres": 10.33834457397461,
+          "bounds": [
+            [
+              -0.1672658771276474,
+              0.12413901090621948,
+              -0.20249603688716888
+            ],
+            [
+              0.1836174726486206,
+              0.8597192764282227,
+              0.19428664445877075
+            ]
+          ]
+        },
+        "frontBackOpening": {
+          "heightMetres": 0.75,
+          "additionalEdges": 1356,
+          "frontFaces": 361301,
+          "backFaces": 330822,
+          "bounds": [
+            [
+              -0.3304145336151123,
+              0.12530086934566498,
+              -0.00429392047226429
+            ],
+            [
+              0.330575555562973,
+              0.7495237588882446,
+              0.00341355730779469
+            ]
+          ],
+          "ownershipMethod": "Original face centroid z sign; provisional, isolated boundary review required"
+        }
+      }
+    }
+  }
+}

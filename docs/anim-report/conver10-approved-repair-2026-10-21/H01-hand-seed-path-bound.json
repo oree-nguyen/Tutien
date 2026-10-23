@@ -1,0 +1,6022 @@
+{
+  "assetSha256": "ab464ae930752c651224d680f15b6281cbc0ba8fb2b818104b371d54e7fc7726",
+  "inputMetadataSha256": "96ff2ba6ab7b7eae7b1999065a318f4c14ec5981b608d0fced6525b34e66fb84",
+  "maximumEdgeThreshold": 2,
+  "accepted": false,
+  "activated": false,
+  "scope": "Necessary stretch bound between immutable measured source-hand pins.\n\nFor any deformation, endpoint distance cannot exceed the sum of deformed\nedge lengths on a source path. A ratio above the edge-maximum limit therefore\nproves those particular pins/pose/path are incompatible with that limit. A\nratio below it is only a necessary bound, never a feasibility certificate.\n",
+  "hands": [
+    {
+      "side": "Right",
+      "seeds": 192,
+      "poses": [
+        {
+          "pairs": 18336,
+          "maximumLowerBound": 1.000000024664578,
+          "witnesses": [
+            {
+              "a": {
+                "vertex": 1960,
+                "sourceFan": 4159276,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2631,
+                "sourceFan": 4162890,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0024945113086739775,
+              "posedEndpointDistanceMeters": 0.002494511370200046,
+              "necessaryMaximumStretch": 1.000000024664578,
+              "sourceA": [
+                -0.5626974701881409,
+                0.9425156712532043,
+                0.12387175112962723
+              ],
+              "sourceB": [
+                -0.5624050498008728,
+                0.9438713192939758,
+                0.12179827690124512
+              ],
+              "posedA": [
+                -0.38292751848596535,
+                0.5909826750479994,
+                0.1797897250846281
+              ],
+              "posedB": [
+                -0.38280044590065515,
+                0.5924898166159936,
+                0.17780605075950723
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2633,
+                "sourceFan": 4162892,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2668,
+                "sourceFan": 4163086,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0026239684744310174,
+              "posedEndpointDistanceMeters": 0.0026239685382863005,
+              "necessaryMaximumStretch": 1.000000024335385,
+              "sourceA": [
+                -0.5601611733436584,
+                0.9465171694755554,
+                0.12001096457242966
+              ],
+              "sourceB": [
+                -0.5605802536010742,
+                0.9451833367347717,
+                0.12223143130540848
+              ],
+              "posedA": [
+                -0.3814030659464838,
+                0.595876470700124,
+                0.17646147153093378
+              ],
+              "posedB": [
+                -0.3816790334513263,
+                0.5943345214387916,
+                0.17856657136269094
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1811,
+                "sourceFan": 4158394,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2658,
+                "sourceFan": 4163026,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0030417623643803704,
+              "posedEndpointDistanceMeters": 0.003041762435824715,
+              "necessaryMaximumStretch": 1.0000000234878126,
+              "sourceA": [
+                -0.5583223104476929,
+                0.9451864361763,
+                0.1270914077758789
+              ],
+              "sourceB": [
+                -0.5589649081230164,
+                0.9456305503845215,
+                0.12415165454149246
+              ],
+              "posedA": [
+                -0.3804362741149005,
+                0.5948160841967969,
+                0.1837570757181209
+              ],
+              "posedB": [
+                -0.38068755212369904,
+                0.5951985249842165,
+                0.180749931371335
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1833,
+                "sourceFan": 4158448,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2613,
+                "sourceFan": 4162813,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.003048449899663641,
+              "posedEndpointDistanceMeters": 0.0030484499679782045,
+              "necessaryMaximumStretch": 1.0000000224096068,
+              "sourceA": [
+                -0.5617389678955078,
+                0.9426047801971436,
+                0.12570440769195557
+              ],
+              "sourceB": [
+                -0.5611400008201599,
+                0.9442732334136963,
+                0.12322437763214111
+              ],
+              "posedA": [
+                -0.3823927725523714,
+                0.5912844210328946,
+                0.18176666548654935
+              ],
+              "posedB": [
+                -0.3820295671290828,
+                0.5932198423812317,
+                0.17943959152292874
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2421,
+                "sourceFan": 4161097,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2501,
+                "sourceFan": 4161769,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0013348472541053946,
+              "posedEndpointDistanceMeters": 0.0013348472829709766,
+              "necessaryMaximumStretch": 1.000000021624633,
+              "sourceA": [
+                -0.5250998735427856,
+                0.898106575012207,
+                0.12589359283447266
+              ],
+              "sourceB": [
+                -0.5249966979026794,
+                0.898689866065979,
+                0.12469737231731415
+              ],
+              "posedA": [
+                -0.33269195083022596,
+                0.562897342584042,
+                0.18858958783241195
+              ],
+              "posedB": [
+                -0.3326064293598332,
+                0.5635582247090724,
+                0.18743298151919546
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2420,
+                "sourceFan": 4161096,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2421,
+                "sourceFan": 4161097,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.002757790336074773,
+              "posedEndpointDistanceMeters": 0.002757790395442913,
+              "necessaryMaximumStretch": 1.0000000215274307,
+              "sourceA": [
+                -0.5255158543586731,
+                0.8968023657798767,
+                0.12828762829303741
+              ],
+              "sourceB": [
+                -0.5250998735427856,
+                0.898106575012207,
+                0.12589359283447266
+              ],
+              "posedA": [
+                -0.33300529091352216,
+                0.561372400758287,
+                0.19086593980112418
+              ],
+              "posedB": [
+                -0.33269195083022596,
+                0.562897342584042,
+                0.18858958783241195
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2332,
+                "sourceFan": 4160594,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3010,
+                "sourceFan": 4164890,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.00209154711549358,
+              "posedEndpointDistanceMeters": 0.0020915471589090617,
+              "necessaryMaximumStretch": 1.000000020757592,
+              "sourceA": [
+                -0.5261757373809814,
+                0.8974592089653015,
+                0.12469737231731415
+              ],
+              "sourceB": [
+                -0.526095986366272,
+                0.8984724879264832,
+                0.12286940217018127
+              ],
+              "posedA": [
+                -0.3332393364805869,
+                0.5619906994164785,
+                0.18721631563058078
+              ],
+              "posedB": [
+                -0.3332243320344178,
+                0.5630863921465411,
+                0.18543479890996778
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2330,
+                "sourceFan": 4160592,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2331,
+                "sourceFan": 4160593,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0015885976342245426,
+              "posedEndpointDistanceMeters": 0.0015885976669100747,
+              "necessaryMaximumStretch": 1.0000000205750854,
+              "sourceA": [
+                -0.5271545648574829,
+                0.8954904079437256,
+                0.1266910880804062
+              ],
+              "sourceB": [
+                -0.5278613567352295,
+                0.8955515027046204,
+                0.12526969611644745
+              ],
+              "posedA": [
+                -0.3337588768148959,
+                0.5596726029468359,
+                0.18899555427735168
+              ],
+              "posedB": [
+                -0.3341873923787817,
+                0.5595729515876948,
+                0.18746909216991464
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2331,
+                "sourceFan": 4160593,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3008,
+                "sourceFan": 4164888,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0014856262656410036,
+              "posedEndpointDistanceMeters": 0.0014856262958044357,
+              "necessaryMaximumStretch": 1.0000000203035129,
+              "sourceA": [
+                -0.5278613567352295,
+                0.8955515027046204,
+                0.12526969611644745
+              ],
+              "sourceB": [
+                -0.5283101797103882,
+                0.8960049152374268,
+                0.12392803281545639
+              ],
+              "posedA": [
+                -0.3341873923787817,
+                0.5595729515876948,
+                0.18746909216991464
+              ],
+              "posedB": [
+                -0.3345356709658047,
+                0.559925538752602,
+                0.18606856733695037
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1945,
+                "sourceFan": 4159024,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2658,
+                "sourceFan": 4163026,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0010859400285257433,
+              "posedEndpointDistanceMeters": 0.0010859400501053108,
+              "necessaryMaximumStretch": 1.0000000198717858,
+              "sourceA": [
+                -0.5592870116233826,
+                0.9450925588607788,
+                0.1250382661819458
+              ],
+              "sourceB": [
+                -0.5589649081230164,
+                0.9456305503845215,
+                0.12415165454149246
+              ],
+              "posedA": [
+                -0.38093755837400317,
+                0.5945225422879179,
+                0.18156221830434352
+              ],
+              "posedB": [
+                -0.38068755212369904,
+                0.5951985249842165,
+                0.180749931371335
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2289,
+                "sourceFan": 4160456,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2987,
+                "sourceFan": 4164817,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0014405081105452848,
+              "posedEndpointDistanceMeters": 0.0014405081381813542,
+              "necessaryMaximumStretch": 1.0000000191849454,
+              "sourceA": [
+                -0.529118537902832,
+                0.8944036960601807,
+                0.12534630298614502
+              ],
+              "sourceB": [
+                -0.5296611785888672,
+                0.8948681354522705,
+                0.12409534305334091
+              ],
+              "posedA": [
+                -0.33493498462592297,
+                0.5580495494295636,
+                0.18731357695265133
+              ],
+              "posedB": [
+                -0.3353886022762901,
+                0.5583727981603082,
+                0.18598511732529557
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2330,
+                "sourceFan": 4160592,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2332,
+                "sourceFan": 4160594,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.002968026825234961,
+              "posedEndpointDistanceMeters": 0.0029680268805566414,
+              "necessaryMaximumStretch": 1.0000000186392117,
+              "sourceA": [
+                -0.5271545648574829,
+                0.8954904079437256,
+                0.1266910880804062
+              ],
+              "sourceB": [
+                -0.5261757373809814,
+                0.8974592089653015,
+                0.12469737231731415
+              ],
+              "posedA": [
+                -0.3337588768148959,
+                0.5596726029468359,
+                0.18899555427735168
+              ],
+              "posedB": [
+                -0.3332393364805869,
+                0.5619906994164785,
+                0.18721631563058078
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1691,
+                "sourceFan": 4158130,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 1904,
+                "sourceFan": 4158778,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.002314070030584305,
+              "posedEndpointDistanceMeters": 0.0023140700732941287,
+              "necessaryMaximumStretch": 1.000000018456582,
+              "sourceA": [
+                -0.5595794320106506,
+                0.9440152049064636,
+                0.12769030034542084
+              ],
+              "sourceB": [
+                -0.5602737665176392,
+                0.9441231489181519,
+                0.12548549473285675
+              ],
+              "posedA": [
+                -0.3812639114592464,
+                0.5932356797691882,
+                0.18411505308070625
+              ],
+              "posedB": [
+                -0.38156512402015813,
+                0.5932369226700945,
+                0.18182067086484469
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2331,
+                "sourceFan": 4160593,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3010,
+                "sourceFan": 4164890,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.004172540980555623,
+              "posedEndpointDistanceMeters": 0.004172541054908578,
+              "necessaryMaximumStretch": 1.0000000178195863,
+              "sourceA": [
+                -0.5278613567352295,
+                0.8955515027046204,
+                0.12526969611644745
+              ],
+              "sourceB": [
+                -0.526095986366272,
+                0.8984724879264832,
+                0.12286940217018127
+              ],
+              "posedA": [
+                -0.3341873923787817,
+                0.5595729515876948,
+                0.18746909216991464
+              ],
+              "posedB": [
+                -0.3332243320344178,
+                0.5630863921465411,
+                0.18543479890996778
+              ]
+            },
+            {
+              "a": {
+                "vertex": 10714,
+                "sourceFan": 4256640,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.0021122013533037783,
+              "posedEndpointDistanceMeters": 0.002112201390778723,
+              "necessaryMaximumStretch": 1.0000000177421269,
+              "sourceA": [
+                -0.5745785236358643,
+                0.9674175977706909,
+                0.13906152546405792
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.40543692994690383,
+                0.6089164700011895,
+                0.1925842116782956
+              ],
+              "posedB": [
+                -0.4049162756601289,
+                0.6099407872404716,
+                0.19081190018699956
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2289,
+                "sourceFan": 4160456,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3008,
+                "sourceFan": 4164888,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0022866648416278446,
+              "posedEndpointDistanceMeters": 0.002286664881983961,
+              "necessaryMaximumStretch": 1.0000000176484616,
+              "sourceA": [
+                -0.529118537902832,
+                0.8944036960601807,
+                0.12534630298614502
+              ],
+              "sourceB": [
+                -0.5283101797103882,
+                0.8960049152374268,
+                0.12392803281545639
+              ],
+              "posedA": [
+                -0.33493498462592297,
+                0.5580495494295636,
+                0.18731357695265133
+              ],
+              "posedB": [
+                -0.3345356709658047,
+                0.559925538752602,
+                0.18606856733695037
+              ]
+            },
+            {
+              "a": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.0019493682315958015,
+              "posedEndpointDistanceMeters": 0.0019493682657891786,
+              "necessaryMaximumStretch": 1.0000000175407482,
+              "sourceA": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.4049162756601289,
+                0.6099407872404716,
+                0.19081190018699956
+              ],
+              "posedB": [
+                -0.40484176431587526,
+                0.6099758027820141,
+                0.19275952915759276
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1904,
+                "sourceFan": 4158778,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2613,
+                "sourceFan": 4162813,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0024260127299367434,
+              "posedEndpointDistanceMeters": 0.0024260127720591553,
+              "necessaryMaximumStretch": 1.0000000173628156,
+              "sourceA": [
+                -0.5602737665176392,
+                0.9441231489181519,
+                0.12548549473285675
+              ],
+              "sourceB": [
+                -0.5611400008201599,
+                0.9442732334136963,
+                0.12322437763214111
+              ],
+              "posedA": [
+                -0.38156512402015813,
+                0.5932369226700945,
+                0.18182067086484469
+              ],
+              "posedB": [
+                -0.3820295671290828,
+                0.5932198423812317,
+                0.17943959152292874
+              ]
+            },
+            {
+              "a": {
+                "vertex": 10693,
+                "sourceFan": 4256558,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.0021418666946224144,
+              "posedEndpointDistanceMeters": 0.002141866731658597,
+              "necessaryMaximumStretch": 1.0000000172915442,
+              "sourceA": [
+                -0.5754135251045227,
+                0.9669171571731567,
+                0.13823746144771576
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.40588019650574003,
+                0.6082076296867408,
+                0.19162098274986195
+              ],
+              "posedB": [
+                -0.4049162756601289,
+                0.6099407872404716,
+                0.19081190018699956
+              ]
+            },
+            {
+              "a": {
+                "vertex": 10334,
+                "sourceFan": 4252750,
+                "joint": "RightHandIndex2",
+                "jointIndex": 33
+              },
+              "b": {
+                "vertex": 10335,
+                "sourceFan": 4252751,
+                "joint": "RightHandIndex2",
+                "jointIndex": 33
+              },
+              "sourcePathMeters": 0.0017924447741339098,
+              "posedEndpointDistanceMeters": 0.0017924448050399117,
+              "necessaryMaximumStretch": 1.0000000172423733,
+              "sourceA": [
+                -0.5955742597579956,
+                0.9482950568199158,
+                0.15054847300052643
+              ],
+              "sourceB": [
+                -0.5949565768241882,
+                0.9482762813568115,
+                0.15223102271556854
+              ],
+              "posedA": [
+                -0.41967090823594017,
+                0.5828300823766608,
+                0.20002307340944395
+              ],
+              "posedB": [
+                -0.41938370806022657,
+                0.5829197421371366,
+                0.201790086585834
+              ]
+            }
+          ],
+          "pose": {
+            "file": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-010.json",
+            "sha256": "fb95a004c9eb65edba28e5d730f766892eaacb29b641d89b10242ea824245af6"
+          }
+        },
+        {
+          "pairs": 18336,
+          "maximumLowerBound": 1.0000000261010507,
+          "witnesses": [
+            {
+              "a": {
+                "vertex": 1960,
+                "sourceFan": 4159276,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2631,
+                "sourceFan": 4162890,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0024945113086739775,
+              "posedEndpointDistanceMeters": 0.0024945113737833437,
+              "necessaryMaximumStretch": 1.0000000261010507,
+              "sourceA": [
+                -0.5626974701881409,
+                0.9425156712532043,
+                0.12387175112962723
+              ],
+              "sourceB": [
+                -0.5624050498008728,
+                0.9438713192939758,
+                0.12179827690124512
+              ],
+              "posedA": [
+                -0.16685870422875348,
+                0.2851709819059437,
+                0.1999987264867989
+              ],
+              "posedB": [
+                -0.16683256985617967,
+                0.2869397659084595,
+                0.19823994647185988
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2633,
+                "sourceFan": 4162892,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2668,
+                "sourceFan": 4163086,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0026239684744310174,
+              "posedEndpointDistanceMeters": 0.0026239685419482597,
+              "necessaryMaximumStretch": 1.0000000257309656,
+              "sourceA": [
+                -0.5601611733436584,
+                0.9465171694755554,
+                0.12001096457242966
+              ],
+              "sourceB": [
+                -0.5605802536010742,
+                0.9451833367347717,
+                0.12223143130540848
+              ],
+              "posedA": [
+                -0.16643072099320455,
+                0.29076368666090735,
+                0.1975720111887494
+              ],
+              "posedB": [
+                -0.166607164341934,
+                0.28889601337113047,
+                0.1994066433416556
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1811,
+                "sourceFan": 4158394,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2658,
+                "sourceFan": 4163026,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0030417623643803704,
+              "posedEndpointDistanceMeters": 0.0030417624389195296,
+              "necessaryMaximumStretch": 1.0000000245052538,
+              "sourceA": [
+                -0.5583223104476929,
+                0.9451864361763,
+                0.1270914077758789
+              ],
+              "sourceB": [
+                -0.5589649081230164,
+                0.9456305503845215,
+                0.12415165454149246
+              ],
+              "posedA": [
+                -0.16675917409242014,
+                0.28890320008153797,
+                0.2047633709216337
+              ],
+              "posedB": [
+                -0.16647047251849423,
+                0.28966523426341667,
+                0.20183279520316422
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1833,
+                "sourceFan": 4158448,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2613,
+                "sourceFan": 4162813,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.003048449899663641,
+              "posedEndpointDistanceMeters": 0.003048449972367077,
+              "necessaryMaximumStretch": 1.0000000238493132,
+              "sourceA": [
+                -0.5617389678955078,
+                0.9426047801971436,
+                0.12570440769195557
+              ],
+              "sourceB": [
+                -0.5611400008201599,
+                0.9442732334136963,
+                0.12322437763214111
+              ],
+              "posedA": [
+                -0.16690121621986154,
+                0.28530373433307593,
+                0.20206412396375975
+              ],
+              "posedB": [
+                -0.16673250502735115,
+                0.2876026340886187,
+                0.20006921953459228
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2421,
+                "sourceFan": 4161097,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2501,
+                "sourceFan": 4161769,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0013348472541053946,
+              "posedEndpointDistanceMeters": 0.0013348472847243618,
+              "necessaryMaximumStretch": 1.0000000229381805,
+              "sourceA": [
+                -0.5250998735427856,
+                0.898106575012207,
+                0.12589359283447266
+              ],
+              "sourceB": [
+                -0.5249966979026794,
+                0.898689866065979,
+                0.12469737231731415
+              ],
+              "posedA": [
+                -0.11319460238641876,
+                0.27327407937034415,
+                0.21919413299129548
+              ],
+              "posedB": [
+                -0.1130939377043565,
+                0.27410514148804005,
+                0.21815441204226535
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2420,
+                "sourceFan": 4161096,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2421,
+                "sourceFan": 4161097,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.002757790336074773,
+              "posedEndpointDistanceMeters": 0.0027577903991732045,
+              "necessaryMaximumStretch": 1.0000000228800683,
+              "sourceA": [
+                -0.5255158543586731,
+                0.8968023657798767,
+                0.12828762829303741
+              ],
+              "sourceB": [
+                -0.5250998735427856,
+                0.898106575012207,
+                0.12589359283447266
+              ],
+              "posedA": [
+                -0.11344805779241562,
+                0.271383049636921,
+                0.22118540765598954
+              ],
+              "posedB": [
+                -0.11319460238641876,
+                0.27327407937034415,
+                0.21919413299129548
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2332,
+                "sourceFan": 4160594,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3010,
+                "sourceFan": 4164890,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.00209154711549358,
+              "posedEndpointDistanceMeters": 0.0020915471617897665,
+              "necessaryMaximumStretch": 1.0000000221349001,
+              "sourceA": [
+                -0.5261757373809814,
+                0.8974592089653015,
+                0.12469737231731415
+              ],
+              "sourceB": [
+                -0.526095986366272,
+                0.8984724879264832,
+                0.12286940217018127
+              ],
+              "posedA": [
+                -0.11308592780106208,
+                0.2724744102262984,
+                0.2176591318434146
+              ],
+              "posedB": [
+                -0.1130642790677776,
+                0.2737905267750676,
+                0.2160337278652006
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2330,
+                "sourceFan": 4160592,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2331,
+                "sourceFan": 4160593,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0015885976342245426,
+              "posedEndpointDistanceMeters": 0.0015885976686003916,
+              "necessaryMaximumStretch": 1.0000000216391163,
+              "sourceA": [
+                -0.5271545648574829,
+                0.8954904079437256,
+                0.1266910880804062
+              ],
+              "sourceB": [
+                -0.5278613567352295,
+                0.8955515027046204,
+                0.12526969611644745
+              ],
+              "posedA": [
+                -0.11314738306828864,
+                0.26985636442842487,
+                0.2190560008571106
+              ],
+              "posedB": [
+                -0.11317471885409547,
+                0.2698737000960496,
+                0.2174677330011981
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2331,
+                "sourceFan": 4160593,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3008,
+                "sourceFan": 4164888,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0014856262656410036,
+              "posedEndpointDistanceMeters": 0.0014856262976961371,
+              "necessaryMaximumStretch": 1.000000021576849,
+              "sourceA": [
+                -0.5278613567352295,
+                0.8955515027046204,
+                0.12526969611644745
+              ],
+              "sourceB": [
+                -0.5283101797103882,
+                0.8960049152374268,
+                0.12392803281545639
+              ],
+              "posedA": [
+                -0.11317471885409547,
+                0.2698737000960496,
+                0.2174677330011981
+              ],
+              "posedB": [
+                -0.11331159996054085,
+                0.2703191360765426,
+                0.21605708214206007
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1945,
+                "sourceFan": 4159024,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 2658,
+                "sourceFan": 4163026,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.0010859400285257433,
+              "posedEndpointDistanceMeters": 0.0010859400516074094,
+              "necessaryMaximumStretch": 1.00000002125501,
+              "sourceA": [
+                -0.5592870116233826,
+                0.9450925588607788,
+                0.1250382661819458
+              ],
+              "sourceB": [
+                -0.5589649081230164,
+                0.9456305503845215,
+                0.12415165454149246
+              ],
+              "posedA": [
+                -0.1666418147407711,
+                0.28882366096101614,
+                0.20249737177154215
+              ],
+              "posedB": [
+                -0.16647047251849423,
+                0.28966523426341667,
+                0.20183279520316422
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2289,
+                "sourceFan": 4160456,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2987,
+                "sourceFan": 4164817,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0014405081105452848,
+              "posedEndpointDistanceMeters": 0.0014405081400952631,
+              "necessaryMaximumStretch": 1.00000002051358,
+              "sourceA": [
+                -0.529118537902832,
+                0.8944036960601807,
+                0.12534630298614502
+              ],
+              "sourceB": [
+                -0.5296611785888672,
+                0.8948681354522705,
+                0.12409534305334091
+              ],
+              "posedA": [
+                -0.11329989804616702,
+                0.268238367713019,
+                0.217005292235616
+              ],
+              "posedB": [
+                -0.11353850549649458,
+                0.2686116568153766,
+                0.21563460429432885
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2330,
+                "sourceFan": 4160592,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 2332,
+                "sourceFan": 4160594,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.002968026825234961,
+              "posedEndpointDistanceMeters": 0.0029680268851641745,
+              "necessaryMaximumStretch": 1.000000020191601,
+              "sourceA": [
+                -0.5271545648574829,
+                0.8954904079437256,
+                0.1266910880804062
+              ],
+              "sourceB": [
+                -0.5261757373809814,
+                0.8974592089653015,
+                0.12469737231731415
+              ],
+              "posedA": [
+                -0.11314738306828864,
+                0.26985636442842487,
+                0.2190560008571106
+              ],
+              "posedB": [
+                -0.11308592780106208,
+                0.2724744102262984,
+                0.2176591318434146
+              ]
+            },
+            {
+              "a": {
+                "vertex": 1691,
+                "sourceFan": 4158130,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "b": {
+                "vertex": 1904,
+                "sourceFan": 4158778,
+                "joint": "RightHandMiddle1",
+                "jointIndex": 35
+              },
+              "sourcePathMeters": 0.002314070030584305,
+              "posedEndpointDistanceMeters": 0.002314070075485051,
+              "necessaryMaximumStretch": 1.0000000194033651,
+              "sourceA": [
+                -0.5595794320106506,
+                0.9440152049064636,
+                0.12769030034542084
+              ],
+              "sourceB": [
+                -0.5602737665176392,
+                0.9441231489181519,
+                0.12548549473285675
+              ],
+              "posedA": [
+                -0.16704885050530272,
+                0.28710685698697663,
+                0.20477034183187218
+              ],
+              "posedB": [
+                -0.16682862748133886,
+                0.2873820104412081,
+                0.2024832666886825
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2331,
+                "sourceFan": 4160593,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3010,
+                "sourceFan": 4164890,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.004172540980555623,
+              "posedEndpointDistanceMeters": 0.004172541061503923,
+              "necessaryMaximumStretch": 1.0000000194002407,
+              "sourceA": [
+                -0.5278613567352295,
+                0.8955515027046204,
+                0.12526969611644745
+              ],
+              "sourceB": [
+                -0.526095986366272,
+                0.8984724879264832,
+                0.12286940217018127
+              ],
+              "posedA": [
+                -0.11317471885409547,
+                0.2698737000960496,
+                0.2174677330011981
+              ],
+              "posedB": [
+                -0.1130642790677776,
+                0.2737905267750676,
+                0.2160337278652006
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2289,
+                "sourceFan": 4160456,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3008,
+                "sourceFan": 4164888,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0022866648416278446,
+              "posedEndpointDistanceMeters": 0.002286664885583819,
+              "necessaryMaximumStretch": 1.0000000192227445,
+              "sourceA": [
+                -0.529118537902832,
+                0.8944036960601807,
+                0.12534630298614502
+              ],
+              "sourceB": [
+                -0.5283101797103882,
+                0.8960049152374268,
+                0.12392803281545639
+              ],
+              "posedA": [
+                -0.11329989804616702,
+                0.268238367713019,
+                0.217005292235616
+              ],
+              "posedB": [
+                -0.11331159996054085,
+                0.2703191360765426,
+                0.21605708214206007
+              ]
+            },
+            {
+              "a": {
+                "vertex": 10714,
+                "sourceFan": 4256640,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.0021122013533037783,
+              "posedEndpointDistanceMeters": 0.00211220139329842,
+              "necessaryMaximumStretch": 1.0000000189350517,
+              "sourceA": [
+                -0.5745785236358643,
+                0.9674175977706909,
+                0.13906152546405792
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.19636274336259196,
+                0.29281699129623356,
+                0.20793873329842705
+              ],
+              "posedB": [
+                -0.19585650740990312,
+                0.29422382215272735,
+                0.20644677256594313
+              ]
+            },
+            {
+              "a": {
+                "vertex": 10693,
+                "sourceFan": 4256558,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.0021418666946224144,
+              "posedEndpointDistanceMeters": 0.0021418667349897883,
+              "necessaryMaximumStretch": 1.000000018846819,
+              "sourceA": [
+                -0.5754135251045227,
+                0.9669171571731567,
+                0.13823746144771576
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.19631562965790395,
+                0.2921692287139562,
+                0.20684103855890335
+              ],
+              "posedB": [
+                -0.19585650740990312,
+                0.29422382215272735,
+                0.20644677256594313
+              ]
+            },
+            {
+              "a": {
+                "vertex": 2987,
+                "sourceFan": 4164817,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "b": {
+                "vertex": 3343,
+                "sourceFan": 4166524,
+                "joint": "RightHandPinky3",
+                "jointIndex": 43
+              },
+              "sourcePathMeters": 0.0022769787729723366,
+              "posedEndpointDistanceMeters": 0.002276978815351982,
+              "necessaryMaximumStretch": 1.0000000186122269,
+              "sourceA": [
+                -0.5296611785888672,
+                0.8948681354522705,
+                0.12409534305334091
+              ],
+              "sourceB": [
+                -0.5308464765548706,
+                0.8955718278884888,
+                0.12228301912546158
+              ],
+              "posedA": [
+                -0.11353850549649458,
+                0.2686116568153766,
+                0.21563460429432885
+              ],
+              "posedB": [
+                -0.11417361663135095,
+                0.2689392203020206,
+                0.21347266800152076
+              ]
+            },
+            {
+              "a": {
+                "vertex": 10693,
+                "sourceFan": 4256558,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "b": {
+                "vertex": 10761,
+                "sourceFan": 4256861,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.002735164066368683,
+              "posedEndpointDistanceMeters": 0.0027351641169893743,
+              "necessaryMaximumStretch": 1.0000000185073692,
+              "sourceA": [
+                -0.5754135251045227,
+                0.9669171571731567,
+                0.13823746144771576
+              ],
+              "sourceB": [
+                -0.5747488737106323,
+                0.9681024551391602,
+                0.1358637660741806
+              ],
+              "posedA": [
+                -0.19631562965790395,
+                0.2921692287139562,
+                0.20684103855890335
+              ],
+              "posedB": [
+                -0.19582377025051467,
+                0.2941120305644831,
+                0.2049796632502087
+              ]
+            },
+            {
+              "a": {
+                "vertex": 5120,
+                "sourceFan": 4189010,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "b": {
+                "vertex": 5142,
+                "sourceFan": 4189145,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.0011586775100573636,
+              "posedEndpointDistanceMeters": 0.0011586775314575918,
+              "necessaryMaximumStretch": 1.0000000184695292,
+              "sourceA": [
+                -0.5760780572891235,
+                0.967997670173645,
+                0.13400296866893768
+              ],
+              "sourceB": [
+                -0.5751554369926453,
+                0.968607485294342,
+                0.13365738093852997
+              ],
+              "posedA": [
+                -0.19601142373130587,
+                0.2937554146380099,
+                0.20272624644952536
+              ],
+              "posedB": [
+                -0.19566810313648497,
+                0.2948588696780688,
+                0.20281022005040772
+              ]
+            }
+          ],
+          "pose": {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+            "sha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf"
+          }
+        },
+        {
+          "pairs": 18336,
+          "maximumLowerBound": 1.1338524005423676,
+          "witnesses": [
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.062355159813226126,
+              "posedEndpointDistanceMeters": 0.07070154764042941,
+              "necessaryMaximumStretch": 1.1338524005423676,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.1797114351183805,
+                0.36244379351383876,
+                0.25067656845999725
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7716,
+                "sourceFan": 4238197,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06077038861652446,
+              "posedEndpointDistanceMeters": 0.0687133516427329,
+              "necessaryMaximumStretch": 1.130704496170502,
+              "sourceA": [
+                -0.5469697713851929,
+                1.0144551992416382,
+                0.14022023975849152
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.18537923161523162,
+                0.36121743822341223,
+                0.25065517677117194
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7744,
+                "sourceFan": 4238272,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06381927001443698,
+              "posedEndpointDistanceMeters": 0.07205485890019275,
+              "necessaryMaximumStretch": 1.1290454886728216,
+              "sourceA": [
+                -0.542899489402771,
+                1.0140470266342163,
+                0.14270496368408203
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.18151834226701724,
+                0.36385444248671767,
+                0.25167859956543387
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6608,
+                "sourceFan": 4220505,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06530803280011616,
+              "posedEndpointDistanceMeters": 0.07360482010778925,
+              "necessaryMaximumStretch": 1.1270408394181235,
+              "sourceA": [
+                -0.5401817560195923,
+                1.0131229162216187,
+                0.1437307447195053
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.17869784275585787,
+                0.36500963926232266,
+                0.25172943342003995
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06430452804482192,
+              "posedEndpointDistanceMeters": 0.07243886598646303,
+              "necessaryMaximumStretch": 1.1264971253030776,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.1797114351183805,
+                0.36244379351383876,
+                0.25067656845999725
+              ],
+              "posedB": [
+                -0.1939506472584448,
+                0.30082430428654544,
+                0.21535415786272236
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7912,
+                "sourceFan": 4239224,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06381388595056148,
+              "posedEndpointDistanceMeters": 0.0718352796046695,
+              "necessaryMaximumStretch": 1.1256998149324808,
+              "sourceA": [
+                -0.5444709658622742,
+                1.0154122114181519,
+                0.1423327922821045
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.1836212661494523,
+                0.36385945315022816,
+                0.251901007232781
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6311,
+                "sourceFan": 4218267,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06333653697661741,
+              "posedEndpointDistanceMeters": 0.07127894446268236,
+              "necessaryMaximumStretch": 1.125400090772205,
+              "sourceA": [
+                -0.5392982959747314,
+                1.009882926940918,
+                0.1420685350894928
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.17644763336785718,
+                0.36279888639236474,
+                0.2497070333517229
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7717,
+                "sourceFan": 4238198,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06365994051579615,
+              "posedEndpointDistanceMeters": 0.07157601662316579,
+              "necessaryMaximumStretch": 1.1243494109989844,
+              "sourceA": [
+                -0.5458438992500305,
+                1.0164989233016968,
+                0.1419246792793274
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.185413479150061,
+                0.3637687168056285,
+                0.2520113900790289
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6312,
+                "sourceFan": 4218268,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06376488246995698,
+              "posedEndpointDistanceMeters": 0.07166917707717124,
+              "necessaryMaximumStretch": 1.1239599964908331,
+              "sourceA": [
+                -0.5380535125732422,
+                1.0093872547149658,
+                0.14197784662246704
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.17526479222126556,
+                0.36317784338834497,
+                0.2491964655782825
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7716,
+                "sourceFan": 4238197,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06271975684812026,
+              "posedEndpointDistanceMeters": 0.07047667506927215,
+              "necessaryMaximumStretch": 1.123675833755793,
+              "sourceA": [
+                -0.5469697713851929,
+                1.0144551992416382,
+                0.14022023975849152
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.18537923161523162,
+                0.36121743822341223,
+                0.25065517677117194
+              ],
+              "posedB": [
+                -0.1939506472584448,
+                0.30082430428654544,
+                0.21535415786272236
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10714,
+                "sourceFan": 4256640,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06358281784255164,
+              "posedEndpointDistanceMeters": 0.07142927394496787,
+              "necessaryMaximumStretch": 1.1234052904331198,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5745785236358643,
+                0.9674175977706909,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.1797114351183805,
+                0.36244379351383876,
+                0.25067656845999725
+              ],
+              "posedB": [
+                -0.19404300914941974,
+                0.30085090567970263,
+                0.21746417122117043
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10761,
+                "sourceFan": 4256861,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06577625449703202,
+              "posedEndpointDistanceMeters": 0.07387939335940538,
+              "necessaryMaximumStretch": 1.1231924639725266,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5747488737106323,
+                0.9681024551391602,
+                0.1358637660741806
+              ],
+              "posedA": [
+                -0.1797114351183805,
+                0.36244379351383876,
+                0.25067656845999725
+              ],
+              "posedB": [
+                -0.19419768013555883,
+                0.2997434871281689,
+                0.21438627984721334
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7942,
+                "sourceFan": 4239793,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06317678442927405,
+              "posedEndpointDistanceMeters": 0.0709571394332108,
+              "necessaryMaximumStretch": 1.1231521210555881,
+              "sourceA": [
+                -0.5404475927352905,
+                1.0104771852493286,
+                0.1420685350894928
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.17765065777150635,
+                0.3625393564636943,
+                0.25010628570006127
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6233,
+                "sourceFan": 4217794,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06407741529373123,
+              "posedEndpointDistanceMeters": 0.0719461715821647,
+              "necessaryMaximumStretch": 1.122800775473902,
+              "sourceA": [
+                -0.5405398607254028,
+                1.0116201639175415,
+                0.1427268534898758
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.17826768328814635,
+                0.36346773833310536,
+                0.25081739981753676
+              ],
+              "posedB": [
+                -0.19391507401544683,
+                0.30195458639212475,
+                0.21694199713294413
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7744,
+                "sourceFan": 4238272,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06576863824603278,
+              "posedEndpointDistanceMeters": 0.07380261237887431,
+              "necessaryMaximumStretch": 1.1221550931735482,
+              "sourceA": [
+                -0.542899489402771,
+                1.0140470266342163,
+                0.14270496368408203
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.18151834226701724,
+                0.36385444248671767,
+                0.25167859956543387
+              ],
+              "posedB": [
+                -0.1939506472584448,
+                0.30082430428654544,
+                0.21535415786272236
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10693,
+                "sourceFan": 4256558,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06485825884367717,
+              "posedEndpointDistanceMeters": 0.07266807268765631,
+              "necessaryMaximumStretch": 1.1204135600186635,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5754135251045227,
+                0.9669171571731567,
+                0.13823746144771576
+              ],
+              "posedA": [
+                -0.1797114351183805,
+                0.36244379351383876,
+                0.25067656845999725
+              ],
+              "posedB": [
+                -0.19416168916658905,
+                0.2996288637728785,
+                0.21711880411671955
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7716,
+                "sourceFan": 4238197,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10761,
+                "sourceFan": 4256861,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06419148330033035,
+              "posedEndpointDistanceMeters": 0.07191831881827303,
+              "necessaryMaximumStretch": 1.1203716617949364,
+              "sourceA": [
+                -0.5469697713851929,
+                1.0144551992416382,
+                0.14022023975849152
+              ],
+              "sourceB": [
+                -0.5747488737106323,
+                0.9681024551391602,
+                0.1358637660741806
+              ],
+              "posedA": [
+                -0.18537923161523162,
+                0.36121743822341223,
+                0.25065517677117194
+              ],
+              "posedB": [
+                -0.19419768013555883,
+                0.2997434871281689,
+                0.21438627984721334
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6608,
+                "sourceFan": 4220505,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06725740103171196,
+              "posedEndpointDistanceMeters": 0.07533635206869027,
+              "necessaryMaximumStretch": 1.1201198814264184,
+              "sourceA": [
+                -0.5401817560195923,
+                1.0131229162216187,
+                0.1437307447195053
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.17869784275585787,
+                0.36500963926232266,
+                0.25172943342003995
+              ],
+              "posedB": [
+                -0.1939506472584448,
+                0.30082430428654544,
+                0.21535415786272236
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7716,
+                "sourceFan": 4238197,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10714,
+                "sourceFan": 4256640,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06199804664584997,
+              "posedEndpointDistanceMeters": 0.06943214055416183,
+              "necessaryMaximumStretch": 1.1199085182598971,
+              "sourceA": [
+                -0.5469697713851929,
+                1.0144551992416382,
+                0.14022023975849152
+              ],
+              "sourceB": [
+                -0.5745785236358643,
+                0.9674175977706909,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.18537923161523162,
+                0.36121743822341223,
+                0.25065517677117194
+              ],
+              "posedB": [
+                -0.19404300914941974,
+                0.30085090567970263,
+                0.21746417122117043
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7912,
+                "sourceFan": 4239224,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06576325418215728,
+              "posedEndpointDistanceMeters": 0.07359210762873428,
+              "necessaryMaximumStretch": 1.1190460165625609,
+              "sourceA": [
+                -0.5444709658622742,
+                1.0154122114181519,
+                0.1423327922821045
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.1836212661494523,
+                0.36385945315022816,
+                0.251901007232781
+              ],
+              "posedB": [
+                -0.1939506472584448,
+                0.30082430428654544,
+                0.21535415786272236
+              ]
+            }
+          ],
+          "pose": {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-fist-stress-v1.json",
+            "sha256": "7e4f78c09dcc805726fba5d995c25e36c717b7cabba469ec398e2e1c87ef9ea6"
+          }
+        },
+        {
+          "pairs": 18336,
+          "maximumLowerBound": 1.1338523935510147,
+          "witnesses": [
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.062355159813226126,
+              "posedEndpointDistanceMeters": 0.07070154720448249,
+              "necessaryMaximumStretch": 1.1338523935510147,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5032753333923503,
+                1.008458404158295,
+                0.15259624193488208
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7716,
+                "sourceFan": 4238197,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06077038861652446,
+              "posedEndpointDistanceMeters": 0.0687133512108479,
+              "necessaryMaximumStretch": 1.130704489063669,
+              "sourceA": [
+                -0.5469697713851929,
+                1.0144551992416382,
+                0.14022023975849152
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5078355655260494,
+                1.0112306154508723,
+                0.15486504105783605
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7744,
+                "sourceFan": 4238272,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06381927001443698,
+              "posedEndpointDistanceMeters": 0.07205485845199788,
+              "necessaryMaximumStretch": 1.129045481649945,
+              "sourceA": [
+                -0.542899489402771,
+                1.0140470266342163,
+                0.14270496368408203
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5032175130078913,
+                1.0106872753239333,
+                0.1537310108110317
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6608,
+                "sourceFan": 4220505,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06530803280011616,
+              "posedEndpointDistanceMeters": 0.07360481965489495,
+              "necessaryMaximumStretch": 1.1270408324833823,
+              "sourceA": [
+                -0.5401817560195923,
+                1.0131229162216187,
+                0.1437307447195053
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5006075092481579,
+                1.0097195833790753,
+                0.15248853995612455
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06430452804482192,
+              "posedEndpointDistanceMeters": 0.072438865539064,
+              "necessaryMaximumStretch": 1.1264971183455734,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.5032753333923503,
+                1.008458404158295,
+                0.15259624193488208
+              ],
+              "posedB": [
+                -0.5649431457873035,
+                0.9717654252688049,
+                0.1426919269548902
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7912,
+                "sourceFan": 4239224,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06381388595056148,
+              "posedEndpointDistanceMeters": 0.07183527915476016,
+              "necessaryMaximumStretch": 1.125699807882145,
+              "sourceA": [
+                -0.5444709658622742,
+                1.0154122114181519,
+                0.1423327922821045
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.504535504393971,
+                1.0120598211474685,
+                0.15465339674049072
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6311,
+                "sourceFan": 4218267,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06333653697661741,
+              "posedEndpointDistanceMeters": 0.07127894403083188,
+              "necessaryMaximumStretch": 1.1254000839538583,
+              "sourceA": [
+                -0.5392982959747314,
+                1.009882926940918,
+                0.1420685350894928
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5012893171151623,
+                1.0066147835182853,
+                0.15050452172570994
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7717,
+                "sourceFan": 4238198,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06365994051579615,
+              "posedEndpointDistanceMeters": 0.07157601617288546,
+              "necessaryMaximumStretch": 1.1243494039257713,
+              "sourceA": [
+                -0.5458438992500305,
+                1.0164989233016968,
+                0.1419246792793274
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5057498950147232,
+                1.0131591312596735,
+                0.15539448890411978
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6312,
+                "sourceFan": 4218268,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06376488246995698,
+              "posedEndpointDistanceMeters": 0.0716691766461696,
+              "necessaryMaximumStretch": 1.123959989731601,
+              "sourceA": [
+                -0.5380535125732422,
+                1.0093872547149658,
+                0.14197784662246704
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5004912446180162,
+                1.006139159136283,
+                0.14953485025057478
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7716,
+                "sourceFan": 4238197,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06271975684812026,
+              "posedEndpointDistanceMeters": 0.07047667462618874,
+              "necessaryMaximumStretch": 1.1236758266912983,
+              "sourceA": [
+                -0.5469697713851929,
+                1.0144551992416382,
+                0.14022023975849152
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.5078355655260494,
+                1.0112306154508723,
+                0.15486504105783605
+              ],
+              "posedB": [
+                -0.5649431457873035,
+                0.9717654252688049,
+                0.1426919269548902
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10714,
+                "sourceFan": 4256640,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06358281784255164,
+              "posedEndpointDistanceMeters": 0.07142927350463882,
+              "necessaryMaximumStretch": 1.123405283507836,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5745785236358643,
+                0.9674175977706909,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5032753333923503,
+                1.008458404158295,
+                0.15259624193488208
+              ],
+              "posedB": [
+                -0.5640615701436659,
+                0.9718058547580987,
+                0.1446109330817641
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10761,
+                "sourceFan": 4256861,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06577625449703202,
+              "posedEndpointDistanceMeters": 0.07387939290300263,
+              "necessaryMaximumStretch": 1.1231924570338108,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5747488737106323,
+                0.9681024551391602,
+                0.1358637660741806
+              ],
+              "posedA": [
+                -0.5032753333923503,
+                1.008458404158295,
+                0.15259624193488208
+              ],
+              "posedB": [
+                -0.5661761841481869,
+                0.9711266498771439,
+                0.14220452445412038
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7942,
+                "sourceFan": 4239793,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06317678442927405,
+              "posedEndpointDistanceMeters": 0.07095713900031475,
+              "necessaryMaximumStretch": 1.1231521142034502,
+              "sourceA": [
+                -0.5404475927352905,
+                1.0104771852493286,
+                0.1420685350894928
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5020791823306884,
+                1.007196128723433,
+                0.15134842730772102
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6233,
+                "sourceFan": 4217794,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10716,
+                "sourceFan": 4256642,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06407741529373123,
+              "posedEndpointDistanceMeters": 0.07194617114119996,
+              "necessaryMaximumStretch": 1.1228007685921522,
+              "sourceA": [
+                -0.5405398607254028,
+                1.0116201639175415,
+                0.1427268534898758
+              ],
+              "sourceB": [
+                -0.5736230611801147,
+                0.968188464641571,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5016323977695102,
+                1.008288478262629,
+                0.15194462584512103
+              ],
+              "posedB": [
+                -0.5635507548904247,
+                0.9725679582145328,
+                0.14379520618361824
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7744,
+                "sourceFan": 4238272,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06576863824603278,
+              "posedEndpointDistanceMeters": 0.07380261191933299,
+              "necessaryMaximumStretch": 1.1221550861863074,
+              "sourceA": [
+                -0.542899489402771,
+                1.0140470266342163,
+                0.14270496368408203
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.5032175130078913,
+                1.0106872753239333,
+                0.1537310108110317
+              ],
+              "posedB": [
+                -0.5649431457873035,
+                0.9717654252688049,
+                0.1426919269548902
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7943,
+                "sourceFan": 4239795,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10693,
+                "sourceFan": 4256558,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06485825884367717,
+              "posedEndpointDistanceMeters": 0.07266807223945994,
+              "necessaryMaximumStretch": 1.1204135531082657,
+              "sourceA": [
+                -0.5421630144119263,
+                1.0117563009262085,
+                0.1420200616121292
+              ],
+              "sourceB": [
+                -0.5754135251045227,
+                0.9669171571731567,
+                0.13823746144771576
+              ],
+              "posedA": [
+                -0.5032753333923503,
+                1.008458404158295,
+                0.15259624193488208
+              ],
+              "posedB": [
+                -0.5650178992666365,
+                0.9709645359422763,
+                0.14467701669129746
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7716,
+                "sourceFan": 4238197,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10761,
+                "sourceFan": 4256861,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06419148330033035,
+              "posedEndpointDistanceMeters": 0.07191831836622335,
+              "necessaryMaximumStretch": 1.12037165475273,
+              "sourceA": [
+                -0.5469697713851929,
+                1.0144551992416382,
+                0.14022023975849152
+              ],
+              "sourceB": [
+                -0.5747488737106323,
+                0.9681024551391602,
+                0.1358637660741806
+              ],
+              "posedA": [
+                -0.5078355655260494,
+                1.0112306154508723,
+                0.15486504105783605
+              ],
+              "posedB": [
+                -0.5661761841481869,
+                0.9711266498771439,
+                0.14220452445412038
+              ]
+            },
+            {
+              "a": {
+                "vertex": 6608,
+                "sourceFan": 4220505,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06725740103171196,
+              "posedEndpointDistanceMeters": 0.07533635160433778,
+              "necessaryMaximumStretch": 1.1201198745223084,
+              "sourceA": [
+                -0.5401817560195923,
+                1.0131229162216187,
+                0.1437307447195053
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.5006075092481579,
+                1.0097195833790753,
+                0.15248853995612455
+              ],
+              "posedB": [
+                -0.5649431457873035,
+                0.9717654252688049,
+                0.1426919269548902
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7716,
+                "sourceFan": 4238197,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10714,
+                "sourceFan": 4256640,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06199804664584997,
+              "posedEndpointDistanceMeters": 0.0694321401177268,
+              "necessaryMaximumStretch": 1.1199085112204008,
+              "sourceA": [
+                -0.5469697713851929,
+                1.0144551992416382,
+                0.14022023975849152
+              ],
+              "sourceB": [
+                -0.5745785236358643,
+                0.9674175977706909,
+                0.13906152546405792
+              ],
+              "posedA": [
+                -0.5078355655260494,
+                1.0112306154508723,
+                0.15486504105783605
+              ],
+              "posedB": [
+                -0.5640615701436659,
+                0.9718058547580987,
+                0.1446109330817641
+              ]
+            },
+            {
+              "a": {
+                "vertex": 7912,
+                "sourceFan": 4239224,
+                "joint": "RightHandThumb1",
+                "jointIndex": 29
+              },
+              "b": {
+                "vertex": 10715,
+                "sourceFan": 4256641,
+                "joint": "RightHandIndex1",
+                "jointIndex": 32
+              },
+              "sourcePathMeters": 0.06576325418215728,
+              "posedEndpointDistanceMeters": 0.0735921071675744,
+              "necessaryMaximumStretch": 1.119046009550136,
+              "sourceA": [
+                -0.5444709658622742,
+                1.0154122114181519,
+                0.1423327922821045
+              ],
+              "sourceB": [
+                -0.5740593671798706,
+                0.9681806564331055,
+                0.13716162741184235
+              ],
+              "posedA": [
+                -0.504535504393971,
+                1.0120598211474685,
+                0.15465339674049072
+              ],
+              "posedB": [
+                -0.5649431457873035,
+                0.9717654252688049,
+                0.1426919269548902
+              ]
+            }
+          ],
+          "pose": {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-bind-fist-stress-v1.json",
+            "sha256": "4a66cd78fb45fc11bb4722f470556bb6f17c9008be984373165673ee6e156287"
+          }
+        }
+      ]
+    },
+    {
+      "side": "Left",
+      "seeds": 191,
+      "poses": [
+        {
+          "pairs": 18145,
+          "maximumLowerBound": 1.0000000123595483,
+          "witnesses": [
+            {
+              "a": {
+                "vertex": 20490,
+                "sourceFan": 4373113,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20484,
+                "sourceFan": 4373120,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.004231411533316868,
+              "posedEndpointDistanceMeters": 0.004231411585615203,
+              "necessaryMaximumStretch": 1.0000000123595483,
+              "sourceA": [
+                0.5148873329162598,
+                0.9959535002708435,
+                0.11324171721935272
+              ],
+              "sourceB": [
+                0.5188231468200684,
+                0.9944617748260498,
+                0.11367642134428024
+              ],
+              "posedA": [
+                0.2976805839705715,
+                0.7315536746668311,
+                0.18557547704598865
+              ],
+              "posedB": [
+                0.3009642939413354,
+                0.7288864637380726,
+                0.18548559547782248
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20489,
+                "sourceFan": 4373098,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20485,
+                "sourceFan": 4373099,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.004624786797914975,
+              "posedEndpointDistanceMeters": 0.004624786851773665,
+              "necessaryMaximumStretch": 1.000000011645659,
+              "sourceA": [
+                0.5190248489379883,
+                0.99313884973526,
+                0.11212054640054703
+              ],
+              "sourceB": [
+                0.5147857069969177,
+                0.9948948621749878,
+                0.11154197156429291
+              ],
+              "posedA": [
+                0.30055617092081954,
+                0.7276536067472181,
+                0.18389655159748422
+              ],
+              "posedB": [
+                0.2970539361961668,
+                0.7306740202865175,
+                0.18388618774722296
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18465,
+                "sourceFan": 4353203,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20478,
+                "sourceFan": 4373144,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0018026249464312039,
+              "posedEndpointDistanceMeters": 0.001802624967148703,
+              "necessaryMaximumStretch": 1.0000000114929615,
+              "sourceA": [
+                0.5183743834495544,
+                0.9926588535308838,
+                0.11136683821678162
+              ],
+              "sourceB": [
+                0.5167293548583984,
+                0.9932029843330383,
+                0.11086958646774292
+              ],
+              "posedA": [
+                0.2997049337237029,
+                0.72744251298942,
+                0.18322393553966587
+              ],
+              "posedB": [
+                0.2982709786118697,
+                0.7284992534742787,
+                0.18294729668285814
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18465,
+                "sourceFan": 4353203,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 18505,
+                "sourceFan": 4353456,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0026323757357227776,
+              "posedEndpointDistanceMeters": 0.0026323757658901687,
+              "necessaryMaximumStretch": 1.0000000114601388,
+              "sourceA": [
+                0.5183743834495544,
+                0.9926588535308838,
+                0.11136683821678162
+              ],
+              "sourceB": [
+                0.5207777619361877,
+                0.9919145107269287,
+                0.11214087158441544
+              ],
+              "posedA": [
+                0.2997049337237029,
+                0.72744251298942,
+                0.18322393553966587
+              ],
+              "posedB": [
+                0.30182144025324376,
+                0.7259440473098285,
+                0.1836760449184043
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18531,
+                "sourceFan": 4353081,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 18421,
+                "sourceFan": 4353083,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.003962729514131424,
+              "posedEndpointDistanceMeters": 0.003962729558132081,
+              "necessaryMaximumStretch": 1.0000000111036236,
+              "sourceA": [
+                0.5160350799560547,
+                0.991959810256958,
+                0.10972338914871216
+              ],
+              "sourceB": [
+                0.5196127891540527,
+                0.990752637386322,
+                0.11092586815357208
+              ],
+              "posedA": [
+                0.297091695005554,
+                0.7275993979697136,
+                0.18187920595884377
+              ],
+              "posedB": [
+                0.300216773043931,
+                0.7252719949157095,
+                0.1826005296234767
+              ]
+            },
+            {
+              "a": {
+                "vertex": 16897,
+                "sourceFan": 4340476,
+                "joint": "LeftHandMiddle2",
+                "jointIndex": 17
+              },
+              "b": {
+                "vertex": 17169,
+                "sourceFan": 4342114,
+                "joint": "LeftHandMiddle2",
+                "jointIndex": 17
+              },
+              "sourcePathMeters": 0.0018174735472647197,
+              "posedEndpointDistanceMeters": 0.001817473567223819,
+              "necessaryMaximumStretch": 1.0000000109817826,
+              "sourceA": [
+                0.5750225186347961,
+                0.9229443669319153,
+                0.1450473666191101
+              ],
+              "sourceB": [
+                0.5752617716789246,
+                0.9227911233901978,
+                0.14325223863124847
+              ],
+              "posedA": [
+                0.3348568032415369,
+                0.6418003393107846,
+                0.2083886639787108
+              ],
+              "posedB": [
+                0.33482670574905127,
+                0.641678200825544,
+                0.20657554884201196
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18463,
+                "sourceFan": 4353201,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 18464,
+                "sourceFan": 4353202,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0014390182030878257,
+              "posedEndpointDistanceMeters": 0.0014390182178678165,
+              "necessaryMaximumStretch": 1.0000000102708853,
+              "sourceA": [
+                0.5184525847434998,
+                0.9919754862785339,
+                0.11090711504220963
+              ],
+              "sourceB": [
+                0.5197222828865051,
+                0.9914422631263733,
+                0.11132462322711945
+              ],
+              "posedA": [
+                0.29950928210206695,
+                0.7267950259955074,
+                0.18274756106597614
+              ],
+              "posedB": [
+                0.300584105564625,
+                0.725870148802808,
+                0.18299277553152551
+              ]
+            },
+            {
+              "a": {
+                "vertex": 19737,
+                "sourceFan": 4368421,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "b": {
+                "vertex": 19738,
+                "sourceFan": 4368427,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "sourcePathMeters": 0.0014406561235269246,
+              "posedEndpointDistanceMeters": 0.0014406561368339066,
+              "necessaryMaximumStretch": 1.0000000092367511,
+              "sourceA": [
+                0.5178333520889282,
+                0.9124847650527954,
+                0.11429408192634583
+              ],
+              "sourceB": [
+                0.5176457166671753,
+                0.9123799800872803,
+                0.11571861803531647
+              ],
+              "posedA": [
+                0.27415530024557444,
+                0.651410014906086,
+                0.18496323532536385
+              ],
+              "posedB": [
+                0.2741096196697823,
+                0.6512915203091804,
+                0.18639828320613183
+              ]
+            },
+            {
+              "a": {
+                "vertex": 19739,
+                "sourceFan": 4368433,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "b": {
+                "vertex": 19762,
+                "sourceFan": 4368511,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "sourcePathMeters": 0.0018104426719428783,
+              "posedEndpointDistanceMeters": 0.0018104426873742081,
+              "necessaryMaximumStretch": 1.000000008523512,
+              "sourceA": [
+                0.5183337330818176,
+                0.9110039472579956,
+                0.1175137460231781
+              ],
+              "sourceB": [
+                0.5184134244918823,
+                0.9107959866523743,
+                0.11931043863296509
+              ],
+              "posedA": [
+                0.2745287319495572,
+                0.6496737335084803,
+                0.18807053559627313
+              ],
+              "posedB": [
+                0.2747449820604313,
+                0.6493536329819433,
+                0.1898392849472905
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20485,
+                "sourceFan": 4373099,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20484,
+                "sourceFan": 4373120,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.00458741330606484,
+              "posedEndpointDistanceMeters": 0.004587413344989686,
+              "necessaryMaximumStretch": 1.0000000084851404,
+              "sourceA": [
+                0.5147857069969177,
+                0.9948948621749878,
+                0.11154197156429291
+              ],
+              "sourceB": [
+                0.5188231468200684,
+                0.9944617748260498,
+                0.11367642134428024
+              ],
+              "posedA": [
+                0.2970539361961668,
+                0.7306740202865175,
+                0.18388618774722296
+              ],
+              "posedB": [
+                0.3009642939413354,
+                0.7288864637380726,
+                0.18548559547782248
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18531,
+                "sourceFan": 4353081,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 18463,
+                "sourceFan": 4353201,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.002691799050060879,
+              "posedEndpointDistanceMeters": 0.0026917990701754288,
+              "necessaryMaximumStretch": 1.0000000074725302,
+              "sourceA": [
+                0.5160350799560547,
+                0.991959810256958,
+                0.10972338914871216
+              ],
+              "sourceB": [
+                0.5184525847434998,
+                0.9919754862785339,
+                0.11090711504220963
+              ],
+              "posedA": [
+                0.297091695005554,
+                0.7275993979697136,
+                0.18187920595884377
+              ],
+              "posedB": [
+                0.29950928210206695,
+                0.7267950259955074,
+                0.18274756106597614
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20489,
+                "sourceFan": 4373098,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20478,
+                "sourceFan": 4373144,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0026150156920266214,
+              "posedEndpointDistanceMeters": 0.002615015711007025,
+              "necessaryMaximumStretch": 1.000000007258237,
+              "sourceA": [
+                0.5190248489379883,
+                0.99313884973526,
+                0.11212054640054703
+              ],
+              "sourceB": [
+                0.5167293548583984,
+                0.9932029843330383,
+                0.11086958646774292
+              ],
+              "posedA": [
+                0.30055617092081954,
+                0.7276536067472181,
+                0.18389655159748422
+              ],
+              "posedB": [
+                0.2982709786118697,
+                0.7284992534742787,
+                0.18294729668285814
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18505,
+                "sourceFan": 4353456,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20489,
+                "sourceFan": 4373098,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.002138252347052981,
+              "posedEndpointDistanceMeters": 0.0021382523586003354,
+              "necessaryMaximumStretch": 1.0000000054003702,
+              "sourceA": [
+                0.5207777619361877,
+                0.9919145107269287,
+                0.11214087158441544
+              ],
+              "sourceB": [
+                0.5190248489379883,
+                0.99313884973526,
+                0.11212054640054703
+              ],
+              "posedA": [
+                0.30182144025324376,
+                0.7259440473098285,
+                0.1836760449184043
+              ],
+              "posedB": [
+                0.30055617092081954,
+                0.7276536067472181,
+                0.18389655159748422
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18463,
+                "sourceFan": 4353201,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20478,
+                "sourceFan": 4373144,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0021160531904042203,
+              "posedEndpointDistanceMeters": 0.002116053201099906,
+              "necessaryMaximumStretch": 1.0000000050545448,
+              "sourceA": [
+                0.5184525847434998,
+                0.9919754862785339,
+                0.11090711504220963
+              ],
+              "sourceB": [
+                0.5167293548583984,
+                0.9932029843330383,
+                0.11086958646774292
+              ],
+              "posedA": [
+                0.29950928210206695,
+                0.7267950259955074,
+                0.18274756106597614
+              ],
+              "posedB": [
+                0.2982709786118697,
+                0.7284992534742787,
+                0.18294729668285814
+              ]
+            },
+            {
+              "a": {
+                "vertex": 19732,
+                "sourceFan": 4368398,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "b": {
+                "vertex": 19741,
+                "sourceFan": 4368444,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "sourcePathMeters": 0.0012294608539146431,
+              "posedEndpointDistanceMeters": 0.001229460857859209,
+              "necessaryMaximumStretch": 1.0000000032083705,
+              "sourceA": [
+                0.5210889577865601,
+                0.9081986546516418,
+                0.11493519693613052
+              ],
+              "sourceB": [
+                0.5207981467247009,
+                0.9079484343528748,
+                0.11610326915979385
+              ],
+              "posedA": [
+                0.2759378337891145,
+                0.6462935359224842,
+                0.18512120664121645
+              ],
+              "posedB": [
+                0.2757194191748722,
+                0.6460832970098518,
+                0.18631270513341375
+              ]
+            },
+            {
+              "a": {
+                "vertex": 13745,
+                "sourceFan": 4318069,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "b": {
+                "vertex": 13746,
+                "sourceFan": 4318072,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "sourcePathMeters": 0.0017803878750059076,
+              "posedEndpointDistanceMeters": 0.001780387880519409,
+              "necessaryMaximumStretch": 1.000000003096798,
+              "sourceA": [
+                0.5901075601577759,
+                0.952285647392273,
+                0.15342724323272705
+              ],
+              "sourceB": [
+                0.590198278427124,
+                0.9523934721946716,
+                0.15165244042873383
+              ],
+              "posedA": [
+                0.3593132556940445,
+                0.6644631234862256,
+                0.21524209528770666
+              ],
+              "posedB": [
+                0.359228282457131,
+                0.6646338578789366,
+                0.21347195113503026
+              ]
+            },
+            {
+              "a": {
+                "vertex": 13238,
+                "sourceFan": 4315608,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.001061686909203646,
+              "posedEndpointDistanceMeters": 0.0010616869122280286,
+              "necessaryMaximumStretch": 1.0000000028486578,
+              "sourceA": [
+                0.573799729347229,
+                0.9682009220123291,
+                0.1372663974761963
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.3471339225855121,
+                0.6855303577637468,
+                0.20152165572529807
+              ],
+              "posedB": [
+                0.3464315888539242,
+                0.6863166928527535,
+                0.2016464898426975
+              ]
+            },
+            {
+              "a": {
+                "vertex": 13761,
+                "sourceFan": 4318138,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "b": {
+                "vertex": 17813,
+                "sourceFan": 4349134,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "sourcePathMeters": 0.0012030874318116574,
+              "posedEndpointDistanceMeters": 0.001203087434436971,
+              "necessaryMaximumStretch": 1.000000002182147,
+              "sourceA": [
+                0.5914930701255798,
+                0.9512942433357239,
+                0.15065635740756989
+              ],
+              "sourceB": [
+                0.5913507342338562,
+                0.9511581659317017,
+                0.15184321999549866
+              ],
+              "posedA": [
+                0.35998467973799697,
+                0.6632414033769007,
+                0.21230323192374312
+              ],
+              "posedB": [
+                0.35994435793252477,
+                0.6630920491153636,
+                0.21349633159747716
+              ]
+            },
+            {
+              "a": {
+                "vertex": 13746,
+                "sourceFan": 4318072,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "b": {
+                "vertex": 13762,
+                "sourceFan": 4318139,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "sourcePathMeters": 0.003056683658136907,
+              "posedEndpointDistanceMeters": 0.0030566836646240317,
+              "necessaryMaximumStretch": 1.0000000021222755,
+              "sourceA": [
+                0.590198278427124,
+                0.9523934721946716,
+                0.15165244042873383
+              ],
+              "sourceB": [
+                0.5905766487121582,
+                0.9527406692504883,
+                0.14863920211791992
+              ],
+              "posedA": [
+                0.359228282457131,
+                0.6646338578789366,
+                0.21347195113503026
+              ],
+              "posedB": [
+                0.3593472073630086,
+                0.6650093656337807,
+                0.21044075239222348
+              ]
+            },
+            {
+              "a": {
+                "vertex": 13239,
+                "sourceFan": 4315609,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "b": {
+                "vertex": 13306,
+                "sourceFan": 4315850,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.0017741157305351484,
+              "posedEndpointDistanceMeters": 0.001774115734103195,
+              "necessaryMaximumStretch": 1.000000002011169,
+              "sourceA": [
+                0.574500322341919,
+                0.9682087898254395,
+                0.13535556197166443
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9689155220985413,
+                0.13547126948833466
+              ],
+              "posedA": [
+                0.34757586596607737,
+                0.6854233174338419,
+                0.19953786821877403
+              ],
+              "posedB": [
+                0.3462846100032959,
+                0.686594022580617,
+                0.19986891826920172
+              ]
+            }
+          ],
+          "pose": {
+            "file": ".local/rig-candidates/approved-source-panels-h01-transition-v1/pose-010.json",
+            "sha256": "fb95a004c9eb65edba28e5d730f766892eaacb29b641d89b10242ea824245af6"
+          }
+        },
+        {
+          "pairs": 18145,
+          "maximumLowerBound": 1.000000010864993,
+          "witnesses": [
+            {
+              "a": {
+                "vertex": 16897,
+                "sourceFan": 4340476,
+                "joint": "LeftHandMiddle2",
+                "jointIndex": 17
+              },
+              "b": {
+                "vertex": 17169,
+                "sourceFan": 4342114,
+                "joint": "LeftHandMiddle2",
+                "jointIndex": 17
+              },
+              "sourcePathMeters": 0.0018174735472647197,
+              "posedEndpointDistanceMeters": 0.0018174735670115569,
+              "necessaryMaximumStretch": 1.000000010864993,
+              "sourceA": [
+                0.5750225186347961,
+                0.9229443669319153,
+                0.1450473666191101
+              ],
+              "sourceB": [
+                0.5752617716789246,
+                0.9227911233901978,
+                0.14325223863124847
+              ],
+              "posedA": [
+                0.13946399136932264,
+                0.4570928254282115,
+                0.23279437195954283
+              ],
+              "posedB": [
+                0.1389117794720237,
+                0.45734255084608594,
+                0.23108092239712943
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20490,
+                "sourceFan": 4373113,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20484,
+                "sourceFan": 4373120,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.004231411533316868,
+              "posedEndpointDistanceMeters": 0.004231411571125258,
+              "necessaryMaximumStretch": 1.0000000089351722,
+              "sourceA": [
+                0.5148873329162598,
+                0.9959535002708435,
+                0.11324171721935272
+              ],
+              "sourceB": [
+                0.5188231468200684,
+                0.9944617748260498,
+                0.11367642134428024
+              ],
+              "posedA": [
+                0.13574740244681716,
+                0.5567785194402515,
+                0.23012542132862945
+              ],
+              "posedB": [
+                0.1375770451191477,
+                0.5532054143044107,
+                0.22878744850974697
+              ]
+            },
+            {
+              "a": {
+                "vertex": 19737,
+                "sourceFan": 4368421,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "b": {
+                "vertex": 19738,
+                "sourceFan": 4368427,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "sourcePathMeters": 0.0014406561235269246,
+              "posedEndpointDistanceMeters": 0.0014406561358646791,
+              "necessaryMaximumStretch": 1.000000008563983,
+              "sourceA": [
+                0.5178333520889282,
+                0.9124847650527954,
+                0.11429408192634583
+              ],
+              "sourceB": [
+                0.5176457166671753,
+                0.9123799800872803,
+                0.11571861803531647
+              ],
+              "posedA": [
+                0.08351312828000557,
+                0.49160117762310485,
+                0.2306863985949072
+              ],
+              "posedB": [
+                0.08380479802572349,
+                0.49123043257401344,
+                0.23204763588862626
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20489,
+                "sourceFan": 4373098,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20485,
+                "sourceFan": 4373099,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.004624786797914975,
+              "posedEndpointDistanceMeters": 0.004624786835956146,
+              "necessaryMaximumStretch": 1.0000000082254972,
+              "sourceA": [
+                0.5190248489379883,
+                0.99313884973526,
+                0.11212054640054703
+              ],
+              "sourceB": [
+                0.5147857069969177,
+                0.9948948621749878,
+                0.11154197156429291
+              ],
+              "posedA": [
+                0.13631636780180567,
+                0.5525249093939721,
+                0.2273180380885719
+              ],
+              "posedB": [
+                0.13440564344421901,
+                0.5565175066570553,
+                0.22865854277046554
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18465,
+                "sourceFan": 4353203,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20478,
+                "sourceFan": 4373144,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0018026249464312039,
+              "posedEndpointDistanceMeters": 0.0018026249602027889,
+              "necessaryMaximumStretch": 1.0000000076397395,
+              "sourceA": [
+                0.5183743834495544,
+                0.9926588535308838,
+                0.11136683821678162
+              ],
+              "sourceB": [
+                0.5167293548583984,
+                0.9932029843330383,
+                0.11086958646774292
+              ],
+              "posedA": [
+                0.13530585845576992,
+                0.552758329058381,
+                0.22693598597522707
+              ],
+              "posedB": [
+                0.13438139620489575,
+                0.554280815487002,
+                0.22721322480461326
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18465,
+                "sourceFan": 4353203,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 18505,
+                "sourceFan": 4353456,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0026323757357227776,
+              "posedEndpointDistanceMeters": 0.002632375755613313,
+              "necessaryMaximumStretch": 1.0000000075561155,
+              "sourceA": [
+                0.5183743834495544,
+                0.9926588535308838,
+                0.11136683821678162
+              ],
+              "sourceB": [
+                0.5207777619361877,
+                0.9919145107269287,
+                0.11214087158441544
+              ],
+              "posedA": [
+                0.13530585845576992,
+                0.552758329058381,
+                0.22693598597522707
+              ],
+              "posedB": [
+                0.13670585186128392,
+                0.5505588596452458,
+                0.2265730054193556
+              ]
+            },
+            {
+              "a": {
+                "vertex": 19739,
+                "sourceFan": 4368433,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "b": {
+                "vertex": 19762,
+                "sourceFan": 4368511,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "sourcePathMeters": 0.0018104426719428783,
+              "posedEndpointDistanceMeters": 0.0018104426853336832,
+              "necessaryMaximumStretch": 1.000000007396426,
+              "sourceA": [
+                0.5183337330818176,
+                0.9110039472579956,
+                0.1175137460231781
+              ],
+              "sourceB": [
+                0.5184134244918823,
+                0.9107959866523743,
+                0.11931043863296509
+              ],
+              "posedA": [
+                0.08398285602366129,
+                0.48927680357275577,
+                0.23336708514160698
+              ],
+              "posedB": [
+                0.08451467998715445,
+                0.48856523309921396,
+                0.23494459376279297
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18531,
+                "sourceFan": 4353081,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 18421,
+                "sourceFan": 4353083,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.003962729514131424,
+              "posedEndpointDistanceMeters": 0.0039627295427644175,
+              "necessaryMaximumStretch": 1.0000000072255735,
+              "sourceA": [
+                0.5160350799560547,
+                0.991959810256958,
+                0.10972338914871216
+              ],
+              "sourceB": [
+                0.5196127891540527,
+                0.990752637386322,
+                0.11092586815357208
+              ],
+              "posedA": [
+                0.1327081205169981,
+                0.5540735602840702,
+                0.22650720689357995
+              ],
+              "posedB": [
+                0.13474451883569916,
+                0.5507102188571866,
+                0.2260129986754185
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18463,
+                "sourceFan": 4353201,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 18464,
+                "sourceFan": 4353202,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0014390182030878257,
+              "posedEndpointDistanceMeters": 0.0014390182124678179,
+              "necessaryMaximumStretch": 1.0000000065183277,
+              "sourceA": [
+                0.5184525847434998,
+                0.9919754862785339,
+                0.11090711504220963
+              ],
+              "sourceB": [
+                0.5197222828865051,
+                0.9914422631263733,
+                0.11132462322711945
+              ],
+              "posedA": [
+                0.13475465856289703,
+                0.5523250306348331,
+                0.22649680177972453
+              ],
+              "posedB": [
+                0.13540566392337194,
+                0.5510547338990044,
+                0.22631428701486972
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20485,
+                "sourceFan": 4373099,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20484,
+                "sourceFan": 4373120,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.00458741330606484,
+              "posedEndpointDistanceMeters": 0.004587413326244668,
+              "necessaryMaximumStretch": 1.0000000043989556,
+              "sourceA": [
+                0.5147857069969177,
+                0.9948948621749878,
+                0.11154197156429291
+              ],
+              "sourceB": [
+                0.5188231468200684,
+                0.9944617748260498,
+                0.11367642134428024
+              ],
+              "posedA": [
+                0.13440564344421901,
+                0.5565175066570553,
+                0.22865854277046554
+              ],
+              "posedB": [
+                0.1375770451191477,
+                0.5532054143044107,
+                0.22878744850974697
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18531,
+                "sourceFan": 4353081,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 18463,
+                "sourceFan": 4353201,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.002691799050060879,
+              "posedEndpointDistanceMeters": 0.0026917990589877673,
+              "necessaryMaximumStretch": 1.0000000033163279,
+              "sourceA": [
+                0.5160350799560547,
+                0.991959810256958,
+                0.10972338914871216
+              ],
+              "sourceB": [
+                0.5184525847434998,
+                0.9919754862785339,
+                0.11090711504220963
+              ],
+              "posedA": [
+                0.1327081205169981,
+                0.5540735602840702,
+                0.22650720689357995
+              ],
+              "posedB": [
+                0.13475465856289703,
+                0.5523250306348331,
+                0.22649680177972453
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20489,
+                "sourceFan": 4373098,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20478,
+                "sourceFan": 4373144,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0026150156920266214,
+              "posedEndpointDistanceMeters": 0.0026150157003126786,
+              "necessaryMaximumStretch": 1.0000000031686453,
+              "sourceA": [
+                0.5190248489379883,
+                0.99313884973526,
+                0.11212054640054703
+              ],
+              "sourceB": [
+                0.5167293548583984,
+                0.9932029843330383,
+                0.11086958646774292
+              ],
+              "posedA": [
+                0.13631636780180567,
+                0.5525249093939721,
+                0.2273180380885719
+              ],
+              "posedB": [
+                0.13438139620489575,
+                0.554280815487002,
+                0.22721322480461326
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18505,
+                "sourceFan": 4353456,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20489,
+                "sourceFan": 4373098,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.002138252347052981,
+              "posedEndpointDistanceMeters": 0.002138252353033734,
+              "necessaryMaximumStretch": 1.0000000027970286,
+              "sourceA": [
+                0.5207777619361877,
+                0.9919145107269287,
+                0.11214087158441544
+              ],
+              "sourceB": [
+                0.5190248489379883,
+                0.99313884973526,
+                0.11212054640054703
+              ],
+              "posedA": [
+                0.13670585186128392,
+                0.5505588596452458,
+                0.2265730054193556
+              ],
+              "posedB": [
+                0.13631636780180567,
+                0.5525249093939721,
+                0.2273180380885719
+              ]
+            },
+            {
+              "a": {
+                "vertex": 18463,
+                "sourceFan": 4353201,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "b": {
+                "vertex": 20478,
+                "sourceFan": 4373144,
+                "joint": "LeftHand",
+                "jointIndex": 9
+              },
+              "sourcePathMeters": 0.0021160531904042203,
+              "posedEndpointDistanceMeters": 0.0021160531955659707,
+              "necessaryMaximumStretch": 1.0000000024393292,
+              "sourceA": [
+                0.5184525847434998,
+                0.9919754862785339,
+                0.11090711504220963
+              ],
+              "sourceB": [
+                0.5167293548583984,
+                0.9932029843330383,
+                0.11086958646774292
+              ],
+              "posedA": [
+                0.13475465856289703,
+                0.5523250306348331,
+                0.22649680177972453
+              ],
+              "posedB": [
+                0.13438139620489575,
+                0.554280815487002,
+                0.22721322480461326
+              ]
+            },
+            {
+              "a": {
+                "vertex": 13745,
+                "sourceFan": 4318069,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "b": {
+                "vertex": 13746,
+                "sourceFan": 4318072,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "sourcePathMeters": 0.0017803878750059076,
+              "posedEndpointDistanceMeters": 0.0017803878791989665,
+              "necessaryMaximumStretch": 1.0000000023551379,
+              "sourceA": [
+                0.5901075601577759,
+                0.952285647392273,
+                0.15342724323272705
+              ],
+              "sourceB": [
+                0.590198278427124,
+                0.9523934721946716,
+                0.15165244042873383
+              ],
+              "posedA": [
+                0.1716967939256221,
+                0.468023680453358,
+                0.23329658194202063
+              ],
+              "posedB": [
+                0.17122199099836377,
+                0.46855278777114634,
+                0.2316642864335638
+              ]
+            },
+            {
+              "a": {
+                "vertex": 17169,
+                "sourceFan": 4342114,
+                "joint": "LeftHandMiddle2",
+                "jointIndex": 17
+              },
+              "b": {
+                "vertex": 17191,
+                "sourceFan": 4342233,
+                "joint": "LeftHandMiddle2",
+                "jointIndex": 17
+              },
+              "sourcePathMeters": 0.0019136834275697782,
+              "posedEndpointDistanceMeters": 0.0019136834318868906,
+              "necessaryMaximumStretch": 1.0000000022559177,
+              "sourceA": [
+                0.5752617716789246,
+                0.9227911233901978,
+                0.14325223863124847
+              ],
+              "sourceB": [
+                0.5761077404022217,
+                0.9222235083580017,
+                0.14163225889205933
+              ],
+              "posedA": [
+                0.1389117794720237,
+                0.45734255084608594,
+                0.23108092239712943
+              ],
+              "posedB": [
+                0.13855797206378628,
+                0.45687143563508126,
+                0.22926019313298424
+              ]
+            },
+            {
+              "a": {
+                "vertex": 19732,
+                "sourceFan": 4368398,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "b": {
+                "vertex": 19741,
+                "sourceFan": 4368444,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "sourcePathMeters": 0.0012294608539146431,
+              "posedEndpointDistanceMeters": 0.001229460856458417,
+              "necessaryMaximumStretch": 1.0000000020690156,
+              "sourceA": [
+                0.5210889577865601,
+                0.9081986546516418,
+                0.11493519693613052
+              ],
+              "sourceB": [
+                0.5207981467247009,
+                0.9079484343528748,
+                0.11610326915979385
+              ],
+              "posedA": [
+                0.08312687077657066,
+                0.486257196399404,
+                0.2298657844152271
+              ],
+              "posedB": [
+                0.08316614868933925,
+                0.48590970542644174,
+                0.2310444621773155
+              ]
+            },
+            {
+              "a": {
+                "vertex": 13761,
+                "sourceFan": 4318138,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "b": {
+                "vertex": 17813,
+                "sourceFan": 4349134,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "sourcePathMeters": 0.0012030874318116574,
+              "posedEndpointDistanceMeters": 0.0012030874334223553,
+              "necessaryMaximumStretch": 1.0000000013388037,
+              "sourceA": [
+                0.5914930701255798,
+                0.9512942433357239,
+                0.15065635740756989
+              ],
+              "sourceB": [
+                0.5913507342338562,
+                0.9511581659317017,
+                0.15184321999549866
+              ],
+              "posedA": [
+                0.17103670855262776,
+                0.46723859914562094,
+                0.2302097935146024
+              ],
+              "posedB": [
+                0.1712572655334309,
+                0.46688455732088685,
+                0.23133825635272193
+              ]
+            },
+            {
+              "a": {
+                "vertex": 13746,
+                "sourceFan": 4318072,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "b": {
+                "vertex": 13762,
+                "sourceFan": 4318139,
+                "joint": "LeftHandIndex2",
+                "jointIndex": 14
+              },
+              "sourcePathMeters": 0.003056683658136907,
+              "posedEndpointDistanceMeters": 0.0030566836620596906,
+              "necessaryMaximumStretch": 1.0000000012833463,
+              "sourceA": [
+                0.590198278427124,
+                0.9523934721946716,
+                0.15165244042873383
+              ],
+              "sourceB": [
+                0.5905766487121582,
+                0.9527406692504883,
+                0.14863920211791992
+              ],
+              "posedA": [
+                0.17122199099836377,
+                0.46855278777114634,
+                0.2316642864335638
+              ],
+              "posedB": [
+                0.17067463719534526,
+                0.46944290826149315,
+                0.22879176065702347
+              ]
+            },
+            {
+              "a": {
+                "vertex": 19738,
+                "sourceFan": 4368427,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "b": {
+                "vertex": 19759,
+                "sourceFan": 4368490,
+                "joint": "LeftHandPinky2",
+                "jointIndex": 23
+              },
+              "sourcePathMeters": 0.0025497300505813616,
+              "posedEndpointDistanceMeters": 0.0025497300535948656,
+              "necessaryMaximumStretch": 1.0000000011818915,
+              "sourceA": [
+                0.5176457166671753,
+                0.9123799800872803,
+                0.11571861803531647
+              ],
+              "sourceB": [
+                0.5190248489379883,
+                0.9110602140426636,
+                0.11402825266122818
+              ],
+              "posedA": [
+                0.08380479802572349,
+                0.49123043257401344,
+                0.23204763588862626
+              ],
+              "posedB": [
+                0.08329495478495874,
+                0.4898956646536219,
+                0.22993586463805366
+              ]
+            }
+          ],
+          "pose": {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+            "sha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf"
+          }
+        },
+        {
+          "pairs": 18145,
+          "maximumLowerBound": 1.1401349526990119,
+          "witnesses": [
+            {
+              "a": {
+                "vertex": 20548,
+                "sourceFan": 4373647,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06184068549677337,
+              "posedEndpointDistanceMeters": 0.07050672703373818,
+              "necessaryMaximumStretch": 1.1401349526990119,
+              "sourceA": [
+                0.5384741425514221,
+                1.0098438262939453,
+                0.14209668338298798
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.14590051342164356,
+                0.5630547852030947,
+                0.2694640019660235
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20553,
+                "sourceFan": 4373725,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.061449641045460954,
+              "posedEndpointDistanceMeters": 0.07000085423211912,
+              "necessaryMaximumStretch": 1.139158065713222,
+              "sourceA": [
+                0.5399612188339233,
+                1.0104568004608154,
+                0.14207635819911957
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.14736447683598075,
+                0.5625991141352462,
+                0.26995054201800817
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14194,
+                "sourceFan": 4320153,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06120304481362247,
+              "posedEndpointDistanceMeters": 0.06970851134101898,
+              "necessaryMaximumStretch": 1.1389712971519248,
+              "sourceA": [
+                0.5411325097084045,
+                1.0111088752746582,
+                0.14204664528369904
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.14862959629592232,
+                0.5623677736248553,
+                0.2703299639433678
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20547,
+                "sourceFan": 4373646,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06272308116060824,
+              "posedEndpointDistanceMeters": 0.0713624624741505,
+              "necessaryMaximumStretch": 1.1377384712881105,
+              "sourceA": [
+                0.5369635820388794,
+                1.0096843242645264,
+                0.14223115146160126
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.14467801197334706,
+                0.5638915707397794,
+                0.26910262169225013
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14197,
+                "sourceFan": 4320156,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.061296906820091104,
+              "posedEndpointDistanceMeters": 0.06972738152008476,
+              "necessaryMaximumStretch": 1.137535075378884,
+              "sourceA": [
+                0.5423631072044373,
+                1.0122770071029663,
+                0.14206229150295258
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.15025464093238305,
+                0.562502887191981,
+                0.27079913466461825
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20548,
+                "sourceFan": 4373647,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06331344019477557,
+              "posedEndpointDistanceMeters": 0.07194976238337711,
+              "necessaryMaximumStretch": 1.136405827294063,
+              "sourceA": [
+                0.5384741425514221,
+                1.0098438262939453,
+                0.14209668338298798
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.14590051342164356,
+                0.5630547852030947,
+                0.2694640019660235
+              ],
+              "posedB": [
+                0.16345680855278766,
+                0.5019495879244419,
+                0.2357786984371919
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20553,
+                "sourceFan": 4373725,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06292239574346316,
+              "posedEndpointDistanceMeters": 0.07144958406730276,
+              "necessaryMaximumStretch": 1.135519129923235,
+              "sourceA": [
+                0.5399612188339233,
+                1.0104568004608154,
+                0.14207635819911957
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.14736447683598075,
+                0.5625991141352462,
+                0.26995054201800817
+              ],
+              "posedB": [
+                0.16345680855278766,
+                0.5019495879244419,
+                0.2357786984371919
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14194,
+                "sourceFan": 4320153,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06267579951162468,
+              "posedEndpointDistanceMeters": 0.07116174066672373,
+              "necessaryMaximumStretch": 1.1353942226700298,
+              "sourceA": [
+                0.5411325097084045,
+                1.0111088752746582,
+                0.14204664528369904
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.14862959629592232,
+                0.5623677736248553,
+                0.2703299639433678
+              ],
+              "posedB": [
+                0.16345680855278766,
+                0.5019495879244419,
+                0.2357786984371919
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20146,
+                "sourceFan": 4370986,
+                "joint": "LeftHandThumb2",
+                "jointIndex": 11
+              },
+              "b": {
+                "vertex": 20182,
+                "sourceFan": 4371134,
+                "joint": "LeftHandThumb3",
+                "jointIndex": 12
+              },
+              "sourcePathMeters": 0.009316869712711456,
+              "posedEndpointDistanceMeters": 0.010572779936286258,
+              "necessaryMaximumStretch": 1.1347995906673787,
+              "sourceA": [
+                0.5793602466583252,
+                1.0264862775802612,
+                0.17317992448806763
+              ],
+              "sourceB": [
+                0.5867080688476562,
+                1.0240250825881958,
+                0.17737063765525818
+              ],
+              "posedA": [
+                0.16640831075742624,
+                0.5661982010027109,
+                0.31562132715994073
+              ],
+              "posedB": [
+                0.16013306335236738,
+                0.569557123867864,
+                0.3234394204551369
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14197,
+                "sourceFan": 4320156,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06276966151809331,
+              "posedEndpointDistanceMeters": 0.07118588508700763,
+              "necessaryMaximumStretch": 1.1340810730114954,
+              "sourceA": [
+                0.5423631072044373,
+                1.0122770071029663,
+                0.14206229150295258
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.15025464093238305,
+                0.562502887191981,
+                0.27079913466461825
+              ],
+              "posedB": [
+                0.16345680855278766,
+                0.5019495879244419,
+                0.2357786984371919
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20547,
+                "sourceFan": 4373646,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06419583585861044,
+              "posedEndpointDistanceMeters": 0.07280066137870303,
+              "necessaryMaximumStretch": 1.1340402442775959,
+              "sourceA": [
+                0.5369635820388794,
+                1.0096843242645264,
+                0.14223115146160126
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.14467801197334706,
+                0.5638915707397794,
+                0.26910262169225013
+              ],
+              "posedB": [
+                0.16345680855278766,
+                0.5019495879244419,
+                0.2357786984371919
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14217,
+                "sourceFan": 4320236,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.0617519481449703,
+              "posedEndpointDistanceMeters": 0.06988815434604354,
+              "necessaryMaximumStretch": 1.1317562675427257,
+              "sourceA": [
+                0.5434717535972595,
+                1.013596773147583,
+                0.14200754463672638
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.1519087147619056,
+                0.5628183757308638,
+                0.2711711335339627
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20561,
+                "sourceFan": 4373838,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06451906876997189,
+              "posedEndpointDistanceMeters": 0.07300707812856307,
+              "necessaryMaximumStretch": 1.1315581504880867,
+              "sourceA": [
+                0.5392138361930847,
+                1.0130259990692139,
+                0.1439543515443802
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.14795048897097296,
+                0.5653417846409097,
+                0.27162999710845454
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20548,
+                "sourceFan": 4373647,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13306,
+                "sourceFan": 4315850,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06479083222375015,
+              "posedEndpointDistanceMeters": 0.07327446160303051,
+              "necessaryMaximumStretch": 1.1309387314239583,
+              "sourceA": [
+                0.5384741425514221,
+                1.0098438262939453,
+                0.14209668338298798
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9689155220985413,
+                0.13547126948833466
+              ],
+              "posedA": [
+                0.14590051342164356,
+                0.5630547852030947,
+                0.2694640019660235
+              ],
+              "posedB": [
+                0.16332395522984355,
+                0.50128652904041,
+                0.23410508612586756
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20548,
+                "sourceFan": 4373647,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13241,
+                "sourceFan": 4315613,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06270088242928022,
+              "posedEndpointDistanceMeters": 0.07091027696402057,
+              "necessaryMaximumStretch": 1.13092948961284,
+              "sourceA": [
+                0.5384741425514221,
+                1.0098438262939453,
+                0.14209668338298798
+              ],
+              "sourceB": [
+                0.5732383131980896,
+                0.9683713912963867,
+                0.13906152546405792
+              ],
+              "posedA": [
+                0.14590051342164356,
+                0.5630547852030947,
+                0.2694640019660235
+              ],
+              "posedB": [
+                0.16372655364022393,
+                0.5022685907833899,
+                0.2375964912817935
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14155,
+                "sourceFan": 4320019,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06195124180939315,
+              "posedEndpointDistanceMeters": 0.07005990209690202,
+              "necessaryMaximumStretch": 1.1308877764300025,
+              "sourceA": [
+                0.545080840587616,
+                1.0155326128005981,
+                0.14169950783252716
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.15438582838742776,
+                0.5632543068913192,
+                0.2714957791558532
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14194,
+                "sourceFan": 4320153,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13306,
+                "sourceFan": 4315850,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06415319154059924,
+              "posedEndpointDistanceMeters": 0.07251954493346299,
+              "necessaryMaximumStretch": 1.1304121150008433,
+              "sourceA": [
+                0.5411325097084045,
+                1.0111088752746582,
+                0.14204664528369904
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9689155220985413,
+                0.13547126948833466
+              ],
+              "posedA": [
+                0.14862959629592232,
+                0.5623677736248553,
+                0.2703299639433678
+              ],
+              "posedB": [
+                0.16332395522984355,
+                0.50128652904041,
+                0.23410508612586756
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20553,
+                "sourceFan": 4373725,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13306,
+                "sourceFan": 4315850,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06439978777243772,
+              "posedEndpointDistanceMeters": 0.0727930954811725,
+              "necessaryMaximumStretch": 1.1303312945439086,
+              "sourceA": [
+                0.5399612188339233,
+                1.0104568004608154,
+                0.14207635819911957
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9689155220985413,
+                0.13547126948833466
+              ],
+              "posedA": [
+                0.14736447683598075,
+                0.5625991141352462,
+                0.26995054201800817
+              ],
+              "posedB": [
+                0.16332395522984355,
+                0.50128652904041,
+                0.23410508612586756
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20531,
+                "sourceFan": 4373523,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06476628441543866,
+              "posedEndpointDistanceMeters": 0.07317540248962745,
+              "necessaryMaximumStretch": 1.1298378955977944,
+              "sourceA": [
+                0.5406039357185364,
+                1.014495849609375,
+                0.1440669447183609
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.14985594985125972,
+                0.5656252915109692,
+                0.2722579757247289
+              ],
+              "posedB": [
+                0.16338493886565564,
+                0.5032198668357455,
+                0.23652047501647688
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20553,
+                "sourceFan": 4373725,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13241,
+                "sourceFan": 4315613,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.062309837977967804,
+              "posedEndpointDistanceMeters": 0.07038660529034188,
+              "necessaryMaximumStretch": 1.1296226659300566,
+              "sourceA": [
+                0.5399612188339233,
+                1.0104568004608154,
+                0.14207635819911957
+              ],
+              "sourceB": [
+                0.5732383131980896,
+                0.9683713912963867,
+                0.13906152546405792
+              ],
+              "posedA": [
+                0.14736447683598075,
+                0.5625991141352462,
+                0.26995054201800817
+              ],
+              "posedB": [
+                0.16372655364022393,
+                0.5022685907833899,
+                0.2375964912817935
+              ]
+            }
+          ],
+          "pose": {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-fist-stress-v1.json",
+            "sha256": "7e4f78c09dcc805726fba5d995c25e36c717b7cabba469ec398e2e1c87ef9ea6"
+          }
+        },
+        {
+          "pairs": 18145,
+          "maximumLowerBound": 1.140134952261152,
+          "witnesses": [
+            {
+              "a": {
+                "vertex": 20548,
+                "sourceFan": 4373647,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06184068549677337,
+              "posedEndpointDistanceMeters": 0.07050672700666062,
+              "necessaryMaximumStretch": 1.140134952261152,
+              "sourceA": [
+                0.5384741425514221,
+                1.0098438262939453,
+                0.14209668338298798
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.5006050476868789,
+                1.006905640185113,
+                0.15020208055790463
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20553,
+                "sourceFan": 4373725,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.061449641045460954,
+              "posedEndpointDistanceMeters": 0.07000085419429339,
+              "necessaryMaximumStretch": 1.1391580650976656,
+              "sourceA": [
+                0.5399612188339233,
+                1.0104568004608154,
+                0.14207635819911957
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.5016463948469918,
+                1.0075128779532807,
+                0.15126716488491743
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14194,
+                "sourceFan": 4320153,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06120304481362247,
+              "posedEndpointDistanceMeters": 0.06970851129411831,
+              "necessaryMaximumStretch": 1.1389712963856122,
+              "sourceA": [
+                0.5411325097084045,
+                1.0111088752746582,
+                0.14204664528369904
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.5024686536712386,
+                1.0081609722415672,
+                0.15210494224641913
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20547,
+                "sourceFan": 4373646,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06272308116060824,
+              "posedEndpointDistanceMeters": 0.0713624624558241,
+              "necessaryMaximumStretch": 1.137738470995931,
+              "sourceA": [
+                0.5369635820388794,
+                1.0096843242645264,
+                0.14223115146160126
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.4994463789920207,
+                1.0067432210104612,
+                0.149224112045933
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14197,
+                "sourceFan": 4320156,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.061296906820091104,
+              "posedEndpointDistanceMeters": 0.06972738146172154,
+              "necessaryMaximumStretch": 1.1375350744267443,
+              "sourceA": [
+                0.5423631072044373,
+                1.0122770071029663,
+                0.14206229150295258
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.5032778911833209,
+                1.009320652682682,
+                0.15304271772545852
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20548,
+                "sourceFan": 4373647,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06331344019477557,
+              "posedEndpointDistanceMeters": 0.071949762353714,
+              "necessaryMaximumStretch": 1.136405826825551,
+              "sourceA": [
+                0.5384741425514221,
+                1.0098438262939453,
+                0.14209668338298798
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.5006050476868789,
+                1.006905640185113,
+                0.15020208055790463
+              ],
+              "posedB": [
+                0.5634313248395523,
+                0.9725339972940221,
+                0.14325820794539917
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20553,
+                "sourceFan": 4373725,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06292239574346316,
+              "posedEndpointDistanceMeters": 0.07144958402691585,
+              "necessaryMaximumStretch": 1.1355191292813824,
+              "sourceA": [
+                0.5399612188339233,
+                1.0104568004608154,
+                0.14207635819911957
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.5016463948469918,
+                1.0075128779532807,
+                0.15126716488491743
+              ],
+              "posedB": [
+                0.5634313248395523,
+                0.9725339972940221,
+                0.14325820794539917
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14194,
+                "sourceFan": 4320153,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06267579951162468,
+              "posedEndpointDistanceMeters": 0.07116174061728528,
+              "necessaryMaximumStretch": 1.1353942218812332,
+              "sourceA": [
+                0.5411325097084045,
+                1.0111088752746582,
+                0.14204664528369904
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.5024686536712386,
+                1.0081609722415672,
+                0.15210494224641913
+              ],
+              "posedB": [
+                0.5634313248395523,
+                0.9725339972940221,
+                0.14325820794539917
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20146,
+                "sourceFan": 4370986,
+                "joint": "LeftHandThumb2",
+                "jointIndex": 11
+              },
+              "b": {
+                "vertex": 20182,
+                "sourceFan": 4371134,
+                "joint": "LeftHandThumb3",
+                "jointIndex": 12
+              },
+              "sourcePathMeters": 0.009316869712711456,
+              "posedEndpointDistanceMeters": 0.010572779950604284,
+              "necessaryMaximumStretch": 1.1347995922041636,
+              "sourceA": [
+                0.5793602466583252,
+                1.0264862775802612,
+                0.17317992448806763
+              ],
+              "sourceB": [
+                0.5867080688476562,
+                1.0240250825881958,
+                0.17737063765525818
+              ],
+              "posedA": [
+                0.49213842182232703,
+                1.0221836541367737,
+                0.19769784881683294
+              ],
+              "posedB": [
+                0.48245668492363997,
+                1.0205345896700373,
+                0.20161297753668989
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14197,
+                "sourceFan": 4320156,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06276966151809331,
+              "posedEndpointDistanceMeters": 0.07118588502613926,
+              "necessaryMaximumStretch": 1.1340810720417853,
+              "sourceA": [
+                0.5423631072044373,
+                1.0122770071029663,
+                0.14206229150295258
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.5032778911833209,
+                1.009320652682682,
+                0.15304271772545852
+              ],
+              "posedB": [
+                0.5634313248395523,
+                0.9725339972940221,
+                0.14325820794539917
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20547,
+                "sourceFan": 4373646,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13307,
+                "sourceFan": 4315853,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06419583585861044,
+              "posedEndpointDistanceMeters": 0.07280066135777677,
+              "necessaryMaximumStretch": 1.1340402439516204,
+              "sourceA": [
+                0.5369635820388794,
+                1.0096843242645264,
+                0.14223115146160126
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9687263369560242,
+                0.1372663974761963
+              ],
+              "posedA": [
+                0.4994463789920207,
+                1.0067432210104612,
+                0.149224112045933
+              ],
+              "posedB": [
+                0.5634313248395523,
+                0.9725339972940221,
+                0.14325820794539917
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14217,
+                "sourceFan": 4320236,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.0617519481449703,
+              "posedEndpointDistanceMeters": 0.06988815427666926,
+              "necessaryMaximumStretch": 1.1317562664192913,
+              "sourceA": [
+                0.5434717535972595,
+                1.013596773147583,
+                0.14200754463672638
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.504043371918681,
+                1.0106368404064958,
+                0.153852387746928
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20561,
+                "sourceFan": 4373838,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06451906876997189,
+              "posedEndpointDistanceMeters": 0.0730070780804487,
+              "necessaryMaximumStretch": 1.1315581497423481,
+              "sourceA": [
+                0.5392138361930847,
+                1.0130259990692139,
+                0.1439543515443802
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.4996796641500865,
+                1.0099522809561403,
+                0.15219856406261367
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20548,
+                "sourceFan": 4373647,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13306,
+                "sourceFan": 4315850,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06479083222375015,
+              "posedEndpointDistanceMeters": 0.07327446156614208,
+              "necessaryMaximumStretch": 1.1309387308546117,
+              "sourceA": [
+                0.5384741425514221,
+                1.0098438262939453,
+                0.14209668338298798
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9689155220985413,
+                0.13547126948833466
+              ],
+              "posedA": [
+                0.5006050476868789,
+                1.006905640185113,
+                0.15020208055790463
+              ],
+              "posedB": [
+                0.5644744737650422,
+                0.9719640417063802,
+                0.14189980219560755
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20548,
+                "sourceFan": 4373647,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13241,
+                "sourceFan": 4315613,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06270088242928022,
+              "posedEndpointDistanceMeters": 0.07091027694281421,
+              "necessaryMaximumStretch": 1.1309294892746253,
+              "sourceA": [
+                0.5384741425514221,
+                1.0098438262939453,
+                0.14209668338298798
+              ],
+              "sourceB": [
+                0.5732383131980896,
+                0.9683713912963867,
+                0.13906152546405792
+              ],
+              "posedA": [
+                0.5006050476868789,
+                1.006905640185113,
+                0.15020208055790463
+              ],
+              "posedB": [
+                0.5626196560849133,
+                0.9729316046682741,
+                0.144889771074675
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14155,
+                "sourceFan": 4320019,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06195124180939315,
+              "posedEndpointDistanceMeters": 0.07005990201250666,
+              "necessaryMaximumStretch": 1.1308877750677155,
+              "sourceA": [
+                0.545080840587616,
+                1.0155326128005981,
+                0.14169950783252716
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.505314309921141,
+                1.0125828711521694,
+                0.15486688448828922
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 14194,
+                "sourceFan": 4320153,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13306,
+                "sourceFan": 4315850,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06415319154059924,
+              "posedEndpointDistanceMeters": 0.07251954487675012,
+              "necessaryMaximumStretch": 1.1304121141168206,
+              "sourceA": [
+                0.5411325097084045,
+                1.0111088752746582,
+                0.14204664528369904
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9689155220985413,
+                0.13547126948833466
+              ],
+              "posedA": [
+                0.5024686536712386,
+                1.0081609722415672,
+                0.15210494224641913
+              ],
+              "posedB": [
+                0.5644744737650422,
+                0.9719640417063802,
+                0.14189980219560755
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20553,
+                "sourceFan": 4373725,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13306,
+                "sourceFan": 4315850,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06439978777243772,
+              "posedEndpointDistanceMeters": 0.07279309543352855,
+              "necessaryMaximumStretch": 1.130331293804093,
+              "sourceA": [
+                0.5399612188339233,
+                1.0104568004608154,
+                0.14207635819911957
+              ],
+              "sourceB": [
+                0.5728771686553955,
+                0.9689155220985413,
+                0.13547126948833466
+              ],
+              "posedA": [
+                0.5016463948469918,
+                1.0075128779532807,
+                0.15126716488491743
+              ],
+              "posedB": [
+                0.5644744737650422,
+                0.9719640417063802,
+                0.14189980219560755
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20531,
+                "sourceFan": 4373523,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13258,
+                "sourceFan": 4315681,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.06476628441543866,
+              "posedEndpointDistanceMeters": 0.07317540242781183,
+              "necessaryMaximumStretch": 1.1298378946433532,
+              "sourceA": [
+                0.5406039357185364,
+                1.014495849609375,
+                0.1440669447183609
+              ],
+              "sourceB": [
+                0.5721203684806824,
+                0.9691282510757446,
+                0.13846419751644135
+              ],
+              "posedA": [
+                0.5005202554179524,
+                1.011405832706572,
+                0.15333263112339846
+              ],
+              "posedB": [
+                0.5623047033395596,
+                0.9734397334979928,
+                0.14353993862446124
+              ]
+            },
+            {
+              "a": {
+                "vertex": 20553,
+                "sourceFan": 4373725,
+                "joint": "LeftHandThumb1",
+                "jointIndex": 10
+              },
+              "b": {
+                "vertex": 13241,
+                "sourceFan": 4315613,
+                "joint": "LeftHandIndex1",
+                "jointIndex": 13
+              },
+              "sourcePathMeters": 0.062309837977967804,
+              "posedEndpointDistanceMeters": 0.07038660525846552,
+              "necessaryMaximumStretch": 1.1296226654184782,
+              "sourceA": [
+                0.5399612188339233,
+                1.0104568004608154,
+                0.14207635819911957
+              ],
+              "sourceB": [
+                0.5732383131980896,
+                0.9683713912963867,
+                0.13906152546405792
+              ],
+              "posedA": [
+                0.5016463948469918,
+                1.0075128779532807,
+                0.15126716488491743
+              ],
+              "posedB": [
+                0.5626196560849133,
+                0.9729316046682741,
+                0.144889771074675
+              ]
+            }
+          ],
+          "pose": {
+            "file": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-bind-fist-stress-v1.json",
+            "sha256": "4a66cd78fb45fc11bb4722f470556bb6f17c9008be984373165673ee6e156287"
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -52,6 +52,25 @@
         "accepted": false,
         "activated": false
       }
+    },
+    "model-archive.json": {
+      "sha256": "a3fa316d9d53da21ddf4c9a1596c424150b52f75fe08889d15d7ad9da15dc5bc",
+      "data": {
+        "format": "gzip-xor-parent",
+        "scope": "Lossless archive of rejected local trial only; source images/models and runtime/APK untouched. Restore before replaying this candidate.",
+        "model": ".local/rig-candidates/approved-source-hand-support-h01-input/H01-C0-rigged.glb",
+        "sha256": "194a246962e19cdd9af94a59eea0f686127e8a596289e0d030f4cc5343b1299c",
+        "bytes": 113447904,
+        "parent": ".local/rig-candidates/approved-source-hand-islands-h01-v4/H01-C0-rigged.glb",
+        "parentSha256": "e1444ebf80a56375191c704ce1ad437fd8155f1d94ed5074b3470962839de429",
+        "archive": ".local/rig-candidates/approved-source-hand-support-h01-input/rejected-model.glb.xor.gz",
+        "archiveSha256": "8f0007edd6e7a07ba4ab51f0685553631d7b096a9e54089d2e1c41679ee6f04d",
+        "archiveBytes": 9107717,
+        "restore": "python3 /workspace/Tutien/docs/anim-report/conver10-approved-repair-2026-10-21/reproduce/archive-staging-delta.py restore .local/rig-candidates/approved-source-hand-support-h01-input",
+        "restorationVerified": true,
+        "accepted": false,
+        "activated": false
+      }
     }
   }
 }

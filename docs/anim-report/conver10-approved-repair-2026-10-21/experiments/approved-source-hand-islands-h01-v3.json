@@ -1503,6 +1503,25 @@
           "ownershipMethod": "Original face centroid z sign; provisional, isolated boundary review required"
         }
       }
+    },
+    "model-archive.json": {
+      "sha256": "5f330adb2158ed7bae8e8760600f35663b4afdab53a1cb1565ff61ccfe32bc2f",
+      "data": {
+        "format": "gzip-xor-parent",
+        "scope": "Lossless archive of rejected local trial only; source images/models and runtime/APK untouched. Restore before replaying this candidate.",
+        "model": ".local/rig-candidates/approved-source-hand-islands-h01-v3/H01-C0-rigged.glb",
+        "sha256": "194a246962e19cdd9af94a59eea0f686127e8a596289e0d030f4cc5343b1299c",
+        "bytes": 113447904,
+        "parent": ".local/rig-candidates/approved-source-hand-islands-h01-v4/H01-C0-rigged.glb",
+        "parentSha256": "e1444ebf80a56375191c704ce1ad437fd8155f1d94ed5074b3470962839de429",
+        "archive": ".local/rig-candidates/approved-source-hand-islands-h01-v3/rejected-model.glb.xor.gz",
+        "archiveSha256": "a1f0084c636738813a5872290b07271219cb2e2e1b73212856b80a20a62dd252",
+        "archiveBytes": 9107717,
+        "restore": "python3 /workspace/Tutien/docs/anim-report/conver10-approved-repair-2026-10-21/reproduce/archive-staging-delta.py restore .local/rig-candidates/approved-source-hand-islands-h01-v3",
+        "restorationVerified": true,
+        "accepted": false,
+        "activated": false
+      }
     }
   }
 }
