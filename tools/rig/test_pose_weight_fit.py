@@ -4,6 +4,33 @@ from pose_weight_fit import simplex
 
 
 class WeightSimplexTest(unittest.TestCase):
+    def test_continuation_archive_is_lossless_hash_bound_and_rejects_missing_members(
+        self,
+    ):
+        import tempfile
+        from pathlib import Path
+        from pose_weight_fit import save_optimizer_state, read_optimizer_state
+
+        rng = np.random.default_rng(22)
+        expected = [
+            rng.normal(size=(17, 4)),
+            rng.normal(size=(17, 4)),
+            rng.normal(size=(2, 13, 3)),
+        ]
+        with tempfile.TemporaryDirectory() as temporary:
+            directory = Path(temporary)
+            for archive in [False, True]:
+                hashes = save_optimizer_state(directory, *expected, archive=archive)
+                actual = read_optimizer_state(directory, hashes)
+                for a, b in zip(actual, expected):
+                    np.testing.assert_array_equal(a, b)
+                wrong = dict(hashes)
+                wrong[next(iter(wrong))] = "0" * 64
+                with self.assertRaises(ValueError):
+                    read_optimizer_state(directory, wrong)
+            with self.assertRaises(ValueError):
+                read_optimizer_state(directory, {})
+
     def test_projection_preserves_already_feasible_supports(self):
         rows = np.array([[0.1, 0.2, 0.3, 0.4], [0, 0, 0, 1]], float)
         np.testing.assert_allclose(simplex(rows), rows, atol=1e-15)
@@ -123,6 +150,7 @@ class MultiPoseCoefficients(unittest.TestCase):
                         "--whole-body",
                         "--iterations",
                         "2",
+                        "--archive-state",
                     ],
                     capture_output=True,
                     text=True,
@@ -135,6 +163,18 @@ class MultiPoseCoefficients(unittest.TestCase):
                 self.assertGreater(report["final"]["immutableEdgesOverTarget"], 0)
                 self.assertFalse(report["accepted"])
                 self.assertFalse(report["activated"])
+                self.assertEqual(set(report["stateHashes"]), {"optimizer-state.npz"})
+                original_solve = (output / "solve.json").read_bytes()
+                overwrite = subprocess.run(result.args, capture_output=True, text=True)
+                self.assertNotEqual(overwrite.returncode, 0)
+                self.assertEqual((output / "solve.json").read_bytes(), original_solve)
+                resumed = subprocess.run(
+                    result.args + ["--resume"], capture_output=True, text=True
+                )
+                self.assertEqual(resumed.returncode, 0, resumed.stderr)
+                replay = json.loads((output / "solve.json").read_text())
+                self.assertEqual(replay["poseCount"], 2)
+                self.assertAlmostEqual(replay["final"]["maximum"], 3, places=12)
             finally:
                 shutil.rmtree(output, ignore_errors=True)
 

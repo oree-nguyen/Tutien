@@ -1,0 +1,149 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cloth-blend-h01-v3",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "solve.json": {
+      "sha256": "6f2ed3102844b678dbd01a8606c86c1e988887897fedc29c5d54f6dad0138cdc",
+      "data": {
+        "kind": "floor-safe-frozen-cloth-blend",
+        "base": ".local/rig-candidates/approved-source-cloth-blend-h01-input",
+        "inputSha256": "431845a8a9f6517afb50839a70d1b46c373f1a025c97e8c48b3e6c5af4453917",
+        "parentSourceRigSha256": "38fb63d0e5c53f86a1318071634cc95057ad488c4e8908cf69e7b66ec7ce3c58",
+        "clothTemplateSha256": "33836c20a5bb08a0e3f5ada8ce466d8b4ebabd53beea07cd65a79ce03f6fa8fb",
+        "poseFile": ".local/rig-candidates/approved-source-panel-cloth-h01-v6/crouch-pose.json",
+        "poseSha256": "da89536adf21459f90b5284749e6479dbb66f4fc29d86bd7b07ef1ae9025ff09",
+        "parameters": {
+          "algorithm": "admm",
+          "iterations": 100,
+          "ratio": 1.499,
+          "floor": 0.001,
+          "transitionMetres": 0.12,
+          "repairPasses": 0
+        },
+        "fit": {
+          "algorithm": "ADMM scalar field with exact normalized vector Gram",
+          "activeEdges": 1040552,
+          "feasibleSegmentStep": 0.004045789106997774,
+          "maximumRelativeLinearResidual": 9.994549211237922e-10,
+          "totalCgIterations": 4938,
+          "history": [
+            {
+              "iteration": 10,
+              "activeMaximum": 18.737055334659754,
+              "edgePrimalResidual": 0.9316585493222472,
+              "boxPrimalResidual": 0.23095095524496423,
+              "meanAlpha": 0.8015941232187616,
+              "cgIterations": 605
+            },
+            {
+              "iteration": 20,
+              "activeMaximum": 29.911178713967026,
+              "edgePrimalResidual": 0.33355343925812514,
+              "boxPrimalResidual": 0.19645400655007683,
+              "meanAlpha": 0.8413848215539861,
+              "cgIterations": 1145
+            },
+            {
+              "iteration": 30,
+              "activeMaximum": 64.82816554676856,
+              "edgePrimalResidual": 0.18607889663790741,
+              "boxPrimalResidual": 0.12701629938960518,
+              "meanAlpha": 0.8532389344399283,
+              "cgIterations": 1656
+            },
+            {
+              "iteration": 40,
+              "activeMaximum": 36.595584534294545,
+              "edgePrimalResidual": 0.19345279630830414,
+              "boxPrimalResidual": 0.09601141132527147,
+              "meanAlpha": 0.8588990185190745,
+              "cgIterations": 2151
+            },
+            {
+              "iteration": 50,
+              "activeMaximum": 45.938906927246606,
+              "edgePrimalResidual": 0.15666259807868688,
+              "boxPrimalResidual": 0.10292222402222162,
+              "meanAlpha": 0.8615550809218165,
+              "cgIterations": 2632
+            },
+            {
+              "iteration": 60,
+              "activeMaximum": 58.217059475145376,
+              "edgePrimalResidual": 0.14397282247085175,
+              "boxPrimalResidual": 0.08211804835672842,
+              "meanAlpha": 0.8633225452883903,
+              "cgIterations": 3109
+            },
+            {
+              "iteration": 70,
+              "activeMaximum": 27.452531364524525,
+              "edgePrimalResidual": 0.14557045095318785,
+              "boxPrimalResidual": 0.06475590680626042,
+              "meanAlpha": 0.8652774249298681,
+              "cgIterations": 3571
+            },
+            {
+              "iteration": 80,
+              "activeMaximum": 42.78818738997547,
+              "edgePrimalResidual": 0.1489170693116583,
+              "boxPrimalResidual": 0.051291980047875274,
+              "meanAlpha": 0.8665618969489325,
+              "cgIterations": 4028
+            },
+            {
+              "iteration": 90,
+              "activeMaximum": 31.267980284607273,
+              "edgePrimalResidual": 0.14614832430323016,
+              "boxPrimalResidual": 0.04460329257627116,
+              "meanAlpha": 0.8675158926806044,
+              "cgIterations": 4488
+            },
+            {
+              "iteration": 100,
+              "activeMaximum": 23.69234890121313,
+              "edgePrimalResidual": 0.135979331812184,
+              "boxPrimalResidual": 0.03275157606297319,
+              "meanAlpha": 0.8682250228117389,
+              "cgIterations": 4938
+            }
+          ]
+        },
+        "freeClothFans": 348887,
+        "changedCopies": 415698,
+        "maximumPoseReductionErrorMetres": 3.482611849017438e-08,
+        "meanAlpha": 0.0035126518270592877,
+        "maximumAlpha": 0.004045785061208666,
+        "meanDisplacementMetres": 0.0019333326798803903,
+        "before": {
+          "allSourceP999": 1.4895254750033669,
+          "allSourceMaximum": 2.5615170903653706,
+          "changedDomainP999": 1.4896404870216915,
+          "changedDomainMaximum": 1.4942387487222633,
+          "freeClothMinimumY": 0.03596603481836231,
+          "allSourceMinimumY": -6.534207853611806e-13
+        },
+        "after": {
+          "allSourceP999": 1.488998738553965,
+          "allSourceMaximum": 2.5615170903653706,
+          "changedDomainP999": 1.4878413418948722,
+          "changedDomainMaximum": 1.4990054305413392,
+          "freeClothMinimumY": 0.0360782845320955,
+          "allSourceMinimumY": -6.534207853611806e-13
+        },
+        "nonPanelAndProtectedWeightsUnchanged": true,
+        "outputHashes": {
+          "result-ids.u16bin": "2fbb2074ab8d54e654e661fcfb0b511dffaf48e0ecae96bc85841599ba29688a",
+          "result-weights.f32bin": "121899f429e14b6ac96f090cb3e303d761818e6292e789697069db5c998cec76",
+          "alpha.f64bin": "c76e94976038eabf4b1a43775448800e3b2307e878d97af9227d94223994356b",
+          "changed.u8bin": "7f150e1d709ee83d1aeb10482d1186d0e75bca4efd614665389e0cc3c7342e77"
+        },
+        "seconds": 404.3349953270081,
+        "accepted": false,
+        "activated": false,
+        "scope": "Convex scalar cloth movement and exact four-support point reduction at one pose. Fixed body rows retain baseline failures. Exported GLB, intermediate motion, normal/compression/collision and naturalness must still pass independent checks."
+      }
+    }
+  }
+}

@@ -60,3 +60,11 @@ Trong checkpoint này chỉ SOURCES/RUNTIME_MODES qua phạm vi validator đã �
 [Báo cáo và ảnh](../docs/anim-report/conver10-approved-repair-2026-10-21/GARMENT-PANELS.md): đã chạy partition trên bind54bone và nhiều mẫu rủ vải; không đổi registry/runtime. Grid v6 giảm giao cắt72.063→6.568 cặp trên cùng pose/source/cut nhưng max áo2,544×, xuyên sàn165mm, root bridge làm thân xấu hơn. Tất cả trial vẫn bị loại, không thêm cut pattern vào registry để ép pass.48ảnh mới đã được lưu nguyên byte vào conver10.
 
 Goal hiện hành fingerprint4964f896… ổn định: test340/340, master215/215, verify0/37, INCOMPLETE. Tiếp vòng sửa biên eo, support chuyển tiếp và contact/drape sàn; phải qua cả strain, compression, source fan, seam, collision, normal và silhouette trước khi dựng/chứng nhận toàn clip. Chưa sửa riêng tay áo, chưa có APK mới. H02 vẫn phải làm đủ các cổng, không sao chép mask mặt H01 sang H02.
+
+### Vòng23/10: không nhận skin từ một pose cuối
+
+[Kiểm chuyển động và fit nhiều pose](../docs/anim-report/conver10-approved-repair-2026-10-21/CLOTH-MOTION.md): phép rút support tại một pose bị21-sample exported-GLB audit bác bỏ (max84,76×). Cách chọn hệ số gần prior giảm còn22,79× nhưng vẫn xấu hơn parent7,35×, nên không kích hoạt. Vòng fit tiếp dùng54bone parent, giữ IDs/support và body/protected, giải đồng thời5pose rồi kiểm lại21 mẫu kể cả held-out. Không dùng các interpolant diagnostic làm timeline Gemini hoặc60/120FPS.
+
+Đã thêm normal-vs-surface diagnostics, kiểm collapse giữa hai đầu đạt, và continuation NPZ lossless/hash-bound. H02 parent54 cũng đã đo21 mẫu, max3,551960×, còn trượt. Goal sourcea5230a4a… ổn định: test346/346, master215/215, verify0/37; INCOMPLETE, chưa APK mới. Sau fit phải kiểm cả normal, giao cắt, sàn và dáng áo; qua upper-strain riêng vạt không cho phép nghiệm thu cả nhân vật. Không hạ bất kỳ ngưỡng nào hoặc chuyển17scope bị thiếu validator thành passed.
+
+Kết quả GLB sau350 vòng: vạt max7,345744→2,036974× trên21 interpolant; toàn model15/21 mẫu qua upper-strain,162/168 primitive-pose vạt qua. Lớp lót phải p99,9=1,531489 và body/cổ tay còn fail; áo vẫn che tay nên candidate tiếp tục bị loại.60ảnh mới đã lưu nguyên byte. Probe source cho thấy support chéo hai chân ở lớp lót và Hips/Arm lọt vào cuff cạnh Thumb; cần sửa ownership/support thực thay vì chỉ tăng số vòng hoặc hạ ngưỡng. Chưa kích hoạt rig, chưa có APK mới.

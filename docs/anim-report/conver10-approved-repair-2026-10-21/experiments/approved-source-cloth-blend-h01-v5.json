@@ -1,0 +1,472 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cloth-blend-h01-v5",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "receipt.json": {
+      "sha256": "843634069afc5200a2a2d7be7ac6fdc2b27204e7cf9e16a73625a0f8cb7713fa",
+      "data": {
+        "input": ".local/rig-candidates/approved-source-panels-h01-v2/H01-C0-rigged.glb",
+        "inputSha256": "38fb63d0e5c53f86a1318071634cc95057ad488c4e8908cf69e7b66ec7ce3c58",
+        "template": ".local/rig-candidates/approved-source-panel-cloth-h01-v6/H01-C0-rigged.glb",
+        "templateSha256": "33836c20a5bb08a0e3f5ada8ce466d8b4ebabd53beea07cd65a79ce03f6fa8fb",
+        "output": ".local/rig-candidates/approved-source-cloth-blend-h01-v5/H01-C0-rigged.glb",
+        "sha256": "f330a1e0d22c9e1cbdf244300b82125a20e5ae90c25528b6245b59bf3bcc075b",
+        "solveSha256": "8dc8472cc9351fc0023b5bf85858b8aee97165d571a7e7e23f70d8092f586d3f",
+        "sourceAttributesImagesCoreBindAndLegacyClipsPreserved": true,
+        "nonPanelAndProtectedRowsMatchOriginalParent": true,
+        "provenanceFiles": {
+          "H01-cut-source-triangles.u32bin": "3e92e3e37b41de3f3de41bd9252f44127a9bee51da4362c3a43151697088a62c",
+          "source-welds.u32bin": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25",
+          "source-continuity.json": "0f4ff8453e5a188ed30206ca62670a6cc1957aa9ba2dbe205381af06d299e11d",
+          "cut-plan.json": "6454c896d6e3a8fb0d8fb0724354e9c497af647994c0389a6e9d2effc209af85",
+          "cut-edges.u32bin": "bcfd548ad6b1afd0f42a3d503bce2eacddfc1e047c78a60bb2ab22f97222a767",
+          "corner-components.u32bin": "68f266c9248052bdcdd7cbd757922fae1c252a201f9339a8958fe597e8aa80be",
+          "face-roles.u8bin": "ed2d8327e0d30d285ab520693f1056881daf0e1574a44f68c90eb719015009da",
+          "face-layers.u8bin": "0e2d1d7886861570e70e32c31358e660f55e343985a63d18f5db7462054da08d"
+        },
+        "accepted": false,
+        "activated": false,
+        "scope": "Frozen-pose four-support cloth trial. Body rows restored exactly to the original parent. Independent source/surface/seam/collision and intermediate-motion tests are still required."
+      }
+    },
+    "solve.json": {
+      "sha256": "8dc8472cc9351fc0023b5bf85858b8aee97165d571a7e7e23f70d8092f586d3f",
+      "data": {
+        "kind": "floor-safe-frozen-cloth-blend",
+        "base": ".local/rig-candidates/approved-source-cloth-blend-h01-input",
+        "inputSha256": "431845a8a9f6517afb50839a70d1b46c373f1a025c97e8c48b3e6c5af4453917",
+        "parentSourceRigSha256": "38fb63d0e5c53f86a1318071634cc95057ad488c4e8908cf69e7b66ec7ce3c58",
+        "clothTemplateSha256": "33836c20a5bb08a0e3f5ada8ce466d8b4ebabd53beea07cd65a79ce03f6fa8fb",
+        "poseFile": ".local/rig-candidates/approved-source-panel-cloth-h01-v6/crouch-pose.json",
+        "poseSha256": "da89536adf21459f90b5284749e6479dbb66f4fc29d86bd7b07ef1ae9025ff09",
+        "parameters": {
+          "algorithm": "cp",
+          "iterations": 400,
+          "ratio": 1.499,
+          "floor": 0.001,
+          "transitionMetres": 0.12,
+          "repairPasses": 0,
+          "reduction": "nearest"
+        },
+        "fit": {
+          "reusedFrom": ".local/rig-candidates/approved-source-cloth-blend-h01-v1",
+          "solveSha256": "2d89c4f8ad4ec6e65ab27e88a5a046f4bbd1240301aef08227d29487469dfed2",
+          "scope": "Same hash-bound scalar field; only support reduction changes. No new convergence claim."
+        },
+        "freeClothFans": 348887,
+        "changedCopies": 414267,
+        "maximumPoseReductionErrorMetres": 3.765405445746968e-08,
+        "meanAlpha": 0.014510153848875449,
+        "maximumAlpha": 0.05877095794801913,
+        "meanDisplacementMetres": 0.006672931339588973,
+        "before": {
+          "allSourceP999": 1.4895254750033669,
+          "allSourceMaximum": 2.5615170903653706,
+          "changedDomainP999": 1.489641122052052,
+          "changedDomainMaximum": 1.4942387487222633,
+          "freeClothMinimumY": 0.03596603481836231,
+          "allSourceMinimumY": -6.534207853611806e-13
+        },
+        "after": {
+          "allSourceP999": 1.4891357086191563,
+          "allSourceMaximum": 2.5615170903653706,
+          "changedDomainP999": 1.4880139418084781,
+          "changedDomainMaximum": 1.4989926152896544,
+          "freeClothMinimumY": 0.03672656774986545,
+          "allSourceMinimumY": -6.534207853611806e-13
+        },
+        "nonPanelAndProtectedWeightsUnchanged": true,
+        "outputHashes": {
+          "result-ids.u16bin": "164b26a0fd5ecdb35f814b478139b9d463d6b572ddac64e244c312c9495fa29d",
+          "result-weights.f32bin": "10caf594fd80283c1b21108e6402d91f85c2c5409ef50d9e997014cd041c8e89",
+          "alpha.f64bin": "54029b7baa59bb2b7db1973a82e777ddb1e5aea46e642ecd144761d6e9749ad8",
+          "changed.u8bin": "0b2ab9d87fd68f1f8a8b7f1704d9585c0ed90dc32e03f043a5ef4557a03affb2"
+        },
+        "seconds": 151.6817641289963,
+        "accepted": false,
+        "activated": false,
+        "scope": "Convex scalar cloth movement and exact four-support point reduction at one pose. Fixed body rows retain baseline failures. Exported GLB, intermediate motion, normal/compression/collision and naturalness must still pass independent checks."
+      }
+    },
+    "cut-plan.json": {
+      "sha256": "6454c896d6e3a8fb0d8fb0724354e9c497af647994c0389a6e9d2effc209af85",
+      "data": {
+        "parentRig": ".local/rig-candidates/semantic-garment-v7/H01-C0-rigged.glb",
+        "parentRigSha256": "5fcf74580c7bcb9d48adcaebbdb1c379712f89ad2e34d0d55a18d7a6a6902db4",
+        "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+        "operation": "Retain lower left/right openings and earlier source junction proposals; open front/back source-panel interfaces below750mm so opposing drape chains do not stretch one sewn circumference.",
+        "diagnostics": {
+          "sourceFaces": 1499726,
+          "sourceCorners": 4499178,
+          "pairedEdges": 2249589,
+          "cutEdges": 4416,
+          "fanUnionIterations": 3,
+          "unpairedNonzeroEdges": 0
+        },
+        "bounds": [
+          [
+            -0.3417028784751892,
+            0.6333267688751221,
+            -0.10229013860225677
+          ],
+          [
+            0.34510233998298645,
+            0.9168662428855896,
+            0.0050727082416415215
+          ]
+        ],
+        "leftEdges": 450,
+        "rightEdges": 498,
+        "files": {
+          "cut-edges.u32bin": {
+            "sha256": "bcfd548ad6b1afd0f42a3d503bce2eacddfc1e047c78a60bb2ab22f97222a767",
+            "bytes": 35328
+          },
+          "corner-components.u32bin": {
+            "sha256": "68f266c9248052bdcdd7cbd757922fae1c252a201f9339a8958fe597e8aa80be",
+            "bytes": 17996712
+          },
+          "face-roles.u8bin": {
+            "sha256": "ed2d8327e0d30d285ab520693f1056881daf0e1574a44f68c90eb719015009da",
+            "bytes": 1499726
+          },
+          "face-layers.u8bin": {
+            "sha256": "0e2d1d7886861570e70e32c31358e660f55e343985a63d18f5db7462054da08d",
+            "bytes": 1499726
+          }
+        },
+        "patternApproved": false,
+        "accepted": false,
+        "activated": false,
+        "scope": "Exact source-edge pattern proposal. No geometry removed/generated, no texture change, no exemption in current seam verifier. Requires isolated boundary and deformed mesh review.",
+        "previousPlan": ".local/rig-candidates/approved-source-panel-pattern-v1/cut-plan.json",
+        "previousPlanSha256": "d42c3742848c6c2234ed4d4dc465ba0c5374f5d1ceed6bfac2796e9b63317dc9",
+        "additionalLowerJunctionEdges": 610,
+        "additionalBounds": [
+          [
+            -0.19966340065002441,
+            0.19048839807510376,
+            -0.11628219485282898
+          ],
+          [
+            0.19827716052532196,
+            0.37341398000717163,
+            -0.004594145808368921
+          ]
+        ],
+        "bootConnectivityProof": {
+          "selection": ".local/rig-candidates/foot-source/H01/selection.json",
+          "sha256": "e7e7b1c56dbcbe695446dc17a5a52b91841351729e2706b68cc1d6ff77d302fa",
+          "components": {
+            "Left": 23119,
+            "Right": 13446
+          },
+          "method": "Original remaining-source triangle connectivity to actual graph-selected sole IDs, not colour or spatial proximity"
+        },
+        "repartition": true,
+        "ownershipCorrections": [
+          {
+            "component": 152124,
+            "sourceFaces": [
+              367875,
+              367892,
+              367956,
+              367988
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.1353476345539093,
+                0.27465927600860596,
+                -0.17624621093273163
+              ],
+              [
+                -0.13126637041568756,
+                0.28084996342658997,
+                -0.1750609278678894
+              ]
+            ]
+          },
+          {
+            "component": 152373,
+            "sourceFaces": [
+              367513,
+              367589,
+              367606,
+              368738,
+              368801,
+              368802
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.15291111171245575,
+                0.27426522970199585,
+                -0.16907039284706116
+              ],
+              [
+                -0.14745067059993744,
+                0.27934569120407104,
+                -0.1657709926366806
+              ]
+            ]
+          },
+          {
+            "component": 275189,
+            "sourceFaces": [
+              683844,
+              683848,
+              683850,
+              683856
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.26934731006622314,
+                0.2613959312438965,
+                -0.034209057688713074
+              ],
+              [
+                0.27024176716804504,
+                0.2688782513141632,
+                -0.028834622353315353
+              ]
+            ]
+          },
+          {
+            "component": 275195,
+            "sourceFaces": [
+              683783,
+              683826
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.2706029713153839,
+                0.26289239525794983,
+                -0.02742103859782219
+              ],
+              [
+                0.27111589908599854,
+                0.26647329330444336,
+                -0.022989505901932716
+              ]
+            ]
+          },
+          {
+            "component": 275206,
+            "sourceFaces": [
+              683788,
+              683829
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.2716350257396698,
+                0.26291584968566895,
+                -0.01824836991727352
+              ],
+              [
+                0.2718367576599121,
+                0.2658853232860565,
+                -0.014767570421099663
+              ]
+            ]
+          },
+          {
+            "component": 276684,
+            "sourceFaces": [
+              688921,
+              689007
+            ],
+            "ownerRole": 1,
+            "sourceBounds": [
+              [
+                0.27099859714508057,
+                0.2587032616138458,
+                0.0019921669736504555
+              ],
+              [
+                0.27130353450775146,
+                0.26169461011886597,
+                0.00498508894816041
+              ]
+            ]
+          },
+          {
+            "component": 310109,
+            "sourceFaces": [
+              787497,
+              787540
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.046035341918468475,
+                0.2922227382659912,
+                -0.1894891858100891
+              ],
+              [
+                -0.044846925884485245,
+                0.29451984167099,
+                -0.18919207155704498
+              ]
+            ]
+          },
+          {
+            "component": 534594,
+            "sourceFaces": [
+              1268853,
+              1269039,
+              1269104,
+              1269236
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.1863633543252945,
+                0.3700355887413025,
+                0.11392185091972351
+              ],
+              [
+                -0.18417105078697205,
+                0.37266260385513306,
+                0.11663955450057983
+              ]
+            ]
+          },
+          {
+            "component": 534617,
+            "sourceFaces": [
+              1268620,
+              1269008
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.18408504128456116,
+                0.36764153838157654,
+                0.11493824422359467
+              ],
+              [
+                -0.18269646167755127,
+                0.36883777379989624,
+                0.11643627285957336
+              ]
+            ]
+          },
+          {
+            "component": 534643,
+            "sourceFaces": [
+              1268782,
+              1268917
+            ],
+            "ownerRole": 2,
+            "sourceBounds": [
+              [
+                -0.18920458853244781,
+                0.3757806122303009,
+                0.11331043392419815
+              ],
+              [
+                -0.1884884238243103,
+                0.3772176504135132,
+                0.1139359101653099
+              ]
+            ]
+          }
+        ],
+        "additionalLiningFaces": [
+          367875,
+          367892,
+          367956,
+          367988,
+          367513,
+          367589,
+          367606,
+          368738,
+          368801,
+          368802,
+          683844,
+          683848,
+          683850,
+          683856,
+          683783,
+          683826,
+          683788,
+          683829,
+          688921,
+          689007,
+          787497,
+          787540,
+          1268853,
+          1269039,
+          1269104,
+          1269236,
+          1268620,
+          1269008,
+          1268782,
+          1268917
+        ],
+        "independentCornerGraphPassed": true,
+        "sourceInputs": {
+          "positions.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/positions.bin",
+            "sha256": "2555c55111e8f4a619f88b91899d3e9ae647751fdbcecffa5cda279b496ce4fc"
+          },
+          "triangles.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/triangles.bin",
+            "sha256": "c592b19ee7b4b9fc0acf33a6de6e306d2314897b25b3afd49a1cf65face1b132"
+          },
+          "source-welds.u32bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/source-welds.u32bin",
+            "sha256": "a571444cb5af3d693e64d37d8ba0d2057cea7a6d1eaae43c92e59f1979ae2f25"
+          },
+          "protected.bin": {
+            "file": ".local/rig-candidates/semantic-garment-v6/protected.bin",
+            "sha256": "42c11892831127626dba90e7e82c08ff89f98dae34228a2c50e2801d07b68ef0"
+          }
+        },
+        "panelOpening": {
+          "waistHeightMetres": 0.86,
+          "additionalEdges": 1502,
+          "endpoints": 2,
+          "branchedVertices": 0,
+          "lengthMetres": 10.33834457397461,
+          "bounds": [
+            [
+              -0.1672658771276474,
+              0.12413901090621948,
+              -0.20249603688716888
+            ],
+            [
+              0.1836174726486206,
+              0.8597192764282227,
+              0.19428664445877075
+            ]
+          ]
+        },
+        "frontBackOpening": {
+          "heightMetres": 0.75,
+          "additionalEdges": 1356,
+          "frontFaces": 361301,
+          "backFaces": 330822,
+          "bounds": [
+            [
+              -0.3304145336151123,
+              0.12530086934566498,
+              -0.00429392047226429
+            ],
+            [
+              0.330575555562973,
+              0.7495237588882446,
+              0.00341355730779469
+            ]
+          ],
+          "ownershipMethod": "Original face centroid z sign; provisional, isolated boundary review required"
+        }
+      }
+    }
+  }
+}

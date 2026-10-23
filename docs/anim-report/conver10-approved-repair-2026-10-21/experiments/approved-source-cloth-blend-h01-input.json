@@ -1,0 +1,111 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cloth-blend-h01-input",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "input.json": {
+      "sha256": "431845a8a9f6517afb50839a70d1b46c373f1a025c97e8c48b3e6c5af4453917",
+      "data": {
+        "kind": "frozen-source-cloth-blend",
+        "baseFile": ".local/rig-candidates/approved-source-panels-h01-v2/H01-C0-rigged.glb",
+        "baseSha256": "38fb63d0e5c53f86a1318071634cc95057ad488c4e8908cf69e7b66ec7ce3c58",
+        "clothFile": ".local/rig-candidates/approved-source-panel-cloth-h01-v6/H01-C0-rigged.glb",
+        "clothSha256": "33836c20a5bb08a0e3f5ada8ce466d8b4ebabd53beea07cd65a79ce03f6fa8fb",
+        "poseFile": ".local/rig-candidates/approved-source-panel-cloth-h01-v6/crouch-pose.json",
+        "poseSha256": "da89536adf21459f90b5284749e6479dbb66f4fc29d86bd7b07ef1ae9025ff09",
+        "vertices": 886671,
+        "faces": 1499726,
+        "parts": [
+          {
+            "name": "H01_Remaining_Source",
+            "primitive": 0,
+            "offset": 0,
+            "count": 136550
+          },
+          {
+            "name": "H01_Robe_Left",
+            "primitive": 0,
+            "offset": 136550,
+            "count": 47348
+          },
+          {
+            "name": "H01_Robe_Left",
+            "primitive": 1,
+            "offset": 183898,
+            "count": 61090
+          },
+          {
+            "name": "H01_Robe_Left",
+            "primitive": 2,
+            "offset": 244988,
+            "count": 53824
+          },
+          {
+            "name": "H01_Robe_Left",
+            "primitive": 3,
+            "offset": 298812,
+            "count": 41572
+          },
+          {
+            "name": "H01_Robe_Right",
+            "primitive": 0,
+            "offset": 340384,
+            "count": 49823
+          },
+          {
+            "name": "H01_Robe_Right",
+            "primitive": 1,
+            "offset": 390207,
+            "count": 50926
+          },
+          {
+            "name": "H01_Robe_Right",
+            "primitive": 2,
+            "offset": 441133,
+            "count": 69647
+          },
+          {
+            "name": "H01_Robe_Right",
+            "primitive": 3,
+            "offset": 510780,
+            "count": 43272
+          },
+          {
+            "name": "H01_Robe_Torso",
+            "primitive": 0,
+            "offset": 554052,
+            "count": 165243
+          },
+          {
+            "name": "H01_Sleeve_Left",
+            "primitive": 0,
+            "offset": 719295,
+            "count": 81409
+          },
+          {
+            "name": "H01_Sleeve_Right",
+            "primitive": 0,
+            "offset": 800704,
+            "count": 85967
+          }
+        ],
+        "jointCount": 86,
+        "files": {
+          "positions.f32bin": "687989054191b9dc1f6560be1fe5c0f4c2baa1e20f206c7958881c5af16372c8",
+          "fans.u32bin": "d0501d96719e1456fe0adf4171924e7592c7a55e99c78632ae11508b1628f1d8",
+          "roles.u8bin": "d05a25d33258007440f789deda8a4fd0358d5fe7fb6ffebe8de539082673a245",
+          "base-ids.u16bin": "37fa6a67f90cfd1d6af90e29e3b2da5addac433f0f23f15b81c0dd59b338154a",
+          "base-weights.f32bin": "473ccee28385bb6280b724dfd02da8f8ae241fbc9024a460c050f012f9f1e35c",
+          "cloth-ids.u16bin": "b64982c0019355b6b5e748a39dc0d8b775e0ccf57b6668a08f304a910ce01fa2",
+          "cloth-weights.f32bin": "058b91f1140904d7508d79c1536acd2daf92d5369967b62a9629ecdb45c184db",
+          "triangles.u32bin": "2d89747c44ffd691b8b674a15d3d4564fe839a0d784706e242f52bf3b1c1915e",
+          "matrices.f64bin": "18dfb35fdf90a4bb86e3c7bd9cf51f83240778f5d76fda95a3b141f080df664e",
+          "protected.u8bin": "58bb8ad1a023d8dc1b49ec04dbf0bf6c8f1382afcac6dcef563823de0f82ae71"
+        },
+        "accepted": false,
+        "activated": false,
+        "scope": "Source-identical parent and cloth target evaluated at one pose. Body/hand/boot/sleeve rows and mixed boundary fans must remain the original parent. A frozen-pose reduction is not animation acceptance."
+      }
+    }
+  }
+}

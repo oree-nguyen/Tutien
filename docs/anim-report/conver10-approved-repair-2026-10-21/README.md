@@ -4,7 +4,7 @@
 
 [Goal chi tiết](../../../goal/rig-animation.md) · [23 cổng và nguồn SHA](../../../acceptance/goals/rig-animation-gemini.json) · [Kết quả goal gần nhất](goal-latest.json) · [65 yêu cầu → cổng kiểm](REQUIREMENT-GATES.md) · [Quyết định kỹ thuật](DECISIONS.md) · [Ảnh nguyên byte trên Git](../../../picture/conver10/online-pic.md).
 
-**Vòng mới — [hai vạt áo source](GARMENT-PANELS.md):** đã mang phân vùng sang bind54bone, thử mở lớp trước/sau và grid vải bốn support. Giao cắt cùng pose/cut giảm72.063→6.568 cặp, nhưng áo còn xuyên sàn165mm và trượt strain; dải eo còn làm thân xấu hơn. Không thay vào game. `npm test`340/340, `test:master`215/215; `verify:master`0/37. Goal vẫn INCOMPLETE, chưa chạy build/APK. [Vòng ủng/cổ tay trước](BOOT-WRIST.md) và mọi mẫu thất bại được giữ nguyên.
+**Vòng mới — [kiểm chuyển động và fit vạt áo](CLOTH-MOTION.md):** đã sửa cách rút support vốn chỉ giữ đúng một pose và chạy fit nhiều pose. GLB đọc lại cho max vạt7,35→2,04× trên21 mẫu diagnostic; toàn model15/21 mẫu qua upper-strain (parent1/21). Lớp lót phải/thân/cổ tay còn trượt; ảnh vẫn thấy áo phồng/chặn tay, nên không thay vào game hoặc xuất APK. H02 parent54 mới được kiểm21 mẫu, chỉ4/21 qua.60ảnh chụp mới đã vào conver10; dữ liệu thất bại và [cut/grid](GARMENT-PANELS.md), [ủng/cổ tay](BOOT-WRIST.md) được giữ nguyên.
 
 ## Phạm vi và nguồn
 

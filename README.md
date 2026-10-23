@@ -2,7 +2,7 @@
 
 > Rig/animation H01–H02 theo Gemini đang sửa ở staging. APK hiện hành chưa chứa bộ rig mới. [Goal và điều kiện nghiệm thu](goal/rig-animation.md) · [Kết quả sửa và kiểm thử](docs/anim-report/conver10-approved-repair-2026-10-21/README.md) · [Ảnh conver10](picture/conver10/online-pic.md).
 
-Vòng mới đang sửa cơ học hai vạt áo nguồn. Giao cắt giảm trên cùng pose nhưng strain/sàn/hình dáng còn trượt; không thay model trong game hoặc phát hành APK lỗi. [Số đo, mẫu bị loại và48ảnh mới](docs/anim-report/conver10-approved-repair-2026-10-21/GARMENT-PANELS.md). Không dùng ảnh/model staging để nhận là APK đã được cập nhật.
+Vòng mới fit nhiều pose đưa15/21 mẫu source H01 qua upper-strain (trước1/21); vạt vẫn chặn tay và rig chưa đạt nên APK chưa thay. [Số đo,60ảnh mới và các lỗi còn lại](docs/anim-report/conver10-approved-repair-2026-10-21/CLOTH-MOTION.md).
 
 
 Game Three.js r160, giao diện cảm ứng ngang tiếng Việt, có chế độ ngoại tuyến với bot và chế độ online dùng máy chủ có thẩm quyền. **Điều kiện gọi bản chuẩn hoàn tất nằm trong [GOAL.md](GOAL.md); số kiểm thử đạt không thay nghiệm thu 100% GDD hoặc FPS trên điện thoại thật.**

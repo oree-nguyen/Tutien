@@ -24,6 +24,8 @@ test("source-panel tools refuse occupied or archived trials before reading anoth
       ],
       ["export-cut-cloth-fit.mjs", [directory]],
       ["stage-secondary-cloth.mjs", [base, directory, "missing-pose.json"]],
+      ["prepare-cloth-blend.mjs", [base, pattern, "missing-pose.json", directory]],
+      ["export-cloth-blend.mjs", [directory]],
     ]) {
       const result = spawnSync(
         process.execPath,

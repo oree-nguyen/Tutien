@@ -43,6 +43,41 @@ def digest(file):
     return hashlib.sha256(file.read_bytes()).hexdigest()
 
 
+def save_optimizer_state(directory, weights, extrapolated, dual, archive=False):
+    values = {"weights": weights, "extrapolated": extrapolated, "dual": dual}
+    if archive:
+        path = directory / "optimizer-state.npz"
+        np.savez_compressed(path, **values)
+        return {path.name: digest(path)}
+    result = {}
+    for name, value in values.items():
+        path = directory / ("state-" + name + ".npy")
+        np.save(path, value)
+        result[path.name] = digest(path)
+    return result
+
+
+def read_optimizer_state(directory, hashes):
+    for name, expected in hashes.items():
+        if digest(directory / name) != expected:
+            raise ValueError("Changed optimizer state " + name)
+    if "optimizer-state.npz" in hashes:
+        if len(hashes) != 1:
+            raise ValueError("Ambiguous optimizer state archive")
+        with np.load(directory / "optimizer-state.npz", allow_pickle=False) as data:
+            if set(data.files) != {"weights", "extrapolated", "dual"}:
+                raise ValueError("Incomplete optimizer state")
+            return tuple(
+                data[name].copy() for name in ["weights", "extrapolated", "dual"]
+            )
+    if set(hashes) != {"state-weights.npy", "state-extrapolated.npy", "state-dual.npy"}:
+        raise ValueError("Incomplete optimizer state hashes")
+    return tuple(
+        np.load(directory / ("state-" + name + ".npy"), allow_pickle=False)
+        for name in ["weights", "extrapolated", "dual"]
+    )
+
+
 def transformed_coefficients(point, ids, matrices, reference_weights=None):
     if matrices.ndim != 4 or matrices.shape[2:] != (4, 4):
         raise ValueError("Expected all pose matrices explicitly")
@@ -101,6 +136,11 @@ def main():
     parser.add_argument("--resume", action="store_true")
     parser.add_argument("--warm-start", type=Path)
     parser.add_argument(
+        "--archive-state",
+        action="store_true",
+        help="Losslessly store local solver continuation arrays in NPZ; does not compress model assets",
+    )
+    parser.add_argument(
         "--cut-fans",
         action="store_true",
         help="Use exact per-export-vertex source-corner fan layout",
@@ -114,6 +154,17 @@ def main():
         and not (args.resume and args.warm_start)
     )
     args.output.mkdir(parents=True, exist_ok=True)
+    assert not any(
+        (args.output / name).exists()
+        for name in [
+            "receipt.json",
+            "model-archive.json",
+            "H01-C0-rigged.glb",
+        ]
+    ), "Use a new immutable staging revision"
+    assert (
+        args.resume or not (args.output / "solve.json").exists()
+    ), "Use --resume only for unfinished numerical state or choose a new revision"
     started = time.monotonic()
     receipt = json.loads((args.base / "receipt.json").read_text())
     feasibility = json.loads((args.base / "feasibility-input.json").read_text())
@@ -253,11 +304,7 @@ def main():
             assert (
                 prior["parameters"]["algorithmVersion"] == 3
             ), "Changed operator steps: use warm-start, not old dual state"
-            for name, expected in prior["stateHashes"].items():
-                assert digest(previous / name) == expected
-            w = np.load(previous / "state-weights.npy")
-            extrapolated = np.load(previous / "state-extrapolated.npy")
-            dual = np.load(previous / "state-dual.npy")
+            w, extrapolated, dual = read_optimizer_state(previous, prior["stateHashes"])
         else:
             w = (
                 np.fromfile(previous / "result-weights.bin", "<f4")
@@ -275,7 +322,7 @@ def main():
             and np.isfinite(extrapolated).all()
             and np.isfinite(dual).all()
         )
-        assert np.max(np.abs(w[~free] - w0[~free])) < 1e-8
+        assert np.max(np.abs(w[~free] - w0[~free]), initial=0) < 1e-8
 
     def posed(weights):
         return origin + np.einsum("pnkj,nk->pnj", coeff, weights)
@@ -360,12 +407,9 @@ def main():
         and np.max(np.abs(result.sum(1) - 1)) < 1e-5
     )
     result.astype("<f4").tofile(args.output / "result-weights.bin")
-    for name, value in [
-        ("state-weights.npy", w),
-        ("state-extrapolated.npy", extrapolated),
-        ("state-dual.npy", dual),
-    ]:
-        np.save(args.output / name, value)
+    state_hashes = save_optimizer_state(
+        args.output, w, extrapolated, dual, args.archive_state
+    )
     report = {
         "base": str(args.base),
         "assetSha256": receipt["sha256"],
@@ -385,16 +429,10 @@ def main():
             "iterations": args.iterations,
             "ratio": args.ratio,
             "cutFans": args.cut_fans,
+            "archiveState": args.archive_state,
         },
         "continuation": continuation,
-        "stateHashes": {
-            name: digest(args.output / name)
-            for name in [
-                "state-weights.npy",
-                "state-extrapolated.npy",
-                "state-dual.npy",
-            ]
-        },
+        "stateHashes": state_hashes,
         "accepted": False,
         "activated": False,
         "poseCount": pose_count,

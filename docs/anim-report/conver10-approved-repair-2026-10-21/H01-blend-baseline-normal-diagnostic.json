@@ -1,0 +1,1362 @@
+{
+  "file": ".local/rig-candidates/approved-source-panels-h01-v2/H01-C0-rigged.glb",
+  "sha256": "38fb63d0e5c53f86a1318071634cc95057ad488c4e8908cf69e7b66ec7ce3c58",
+  "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+  "poseSha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "sourceFaces": 1499726,
+  "sourceCornersChecked": 4499178,
+  "sourceAttributesAndImagesPreserved": true,
+  "independentFansPassed": true,
+  "cutEdges": 4416,
+  "cutEdgesSha256": "bcfd548ad6b1afd0f42a3d503bce2eacddfc1e047c78a60bb2ab22f97222a767",
+  "thresholds": {
+    "p999": 1.5,
+    "maximum": 2,
+    "minimumSourceEdge": 1e-12,
+    "minimumAreaRatio": 1e-12
+  },
+  "meshes": [
+    {
+      "name": "H01_Remaining_Source",
+      "primitive": 0,
+      "passed": false,
+      "p999": 1.4880920734171537,
+      "maximum": 2.5615350078145225,
+      "minimum": 0.04979780801916991,
+      "minimumAreaRatio": 0.029785044697874477,
+      "collapsed": 0,
+      "minimumY": -6.534207853611806e-13,
+      "edges": 367598,
+      "triangles": 231649,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 124986,
+        "b": 124991,
+        "bindLength": 0.00235980345007188,
+        "posedLength": 0.006044719148920611
+      },
+      "normalAgreement": {
+        "triangles": 231649,
+        "measured": 231649,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 1,
+        "posedOpposed": 542,
+        "newOpposed": 541,
+        "maximumAngleDegrees": 176.49530510203044,
+        "meanAngleDegrees": 5.907401880095388,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Left",
+      "primitive": 0,
+      "passed": true,
+      "p999": 1.4893853329391542,
+      "maximum": 1.48999819653045,
+      "minimum": 0.09328061241746852,
+      "minimumAreaRatio": 0.024081122839845415,
+      "collapsed": 0,
+      "minimumY": 0.15583961280585584,
+      "edges": 123186,
+      "triangles": 76198,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 29611,
+        "b": 29612,
+        "bindLength": 0.0007740987892253856,
+        "posedLength": 0.0011534057998822296
+      },
+      "normalAgreement": {
+        "triangles": 76198,
+        "measured": 76198,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 2,
+        "posedOpposed": 252,
+        "newOpposed": 251,
+        "maximumAngleDegrees": 178.84996548703015,
+        "meanAngleDegrees": 17.349569358750482,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Left",
+      "primitive": 1,
+      "passed": true,
+      "p999": 1.489395752036547,
+      "maximum": 1.4899967572576733,
+      "minimum": 0.02023492738352198,
+      "minimumAreaRatio": 0.0007818117867066477,
+      "collapsed": 0,
+      "minimumY": 0.1853781394652783,
+      "edges": 166303,
+      "triangles": 105484,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 52846,
+        "b": 52848,
+        "bindLength": 0.005251348782446744,
+        "posedLength": 0.00782449265707468
+      },
+      "normalAgreement": {
+        "triangles": 105484,
+        "measured": 105484,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 0,
+        "posedOpposed": 6755,
+        "newOpposed": 6755,
+        "maximumAngleDegrees": 179.26662808993078,
+        "meanAngleDegrees": 32.15280546171417,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Left",
+      "primitive": 2,
+      "passed": true,
+      "p999": 1.48991437095335,
+      "maximum": 1.4899993315340947,
+      "minimum": 0.028869375252131513,
+      "minimumAreaRatio": 0.004324157320439924,
+      "collapsed": 0,
+      "minimumY": 0.05146258010258731,
+      "edges": 144377,
+      "triangles": 90844,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 21138,
+        "b": 21139,
+        "bindLength": 0.0015010148839129625,
+        "posedLength": 0.002236511173653041
+      },
+      "normalAgreement": {
+        "triangles": 90844,
+        "measured": 90844,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 1,
+        "posedOpposed": 5473,
+        "newOpposed": 5473,
+        "maximumAngleDegrees": 179.1520029858205,
+        "meanAngleDegrees": 27.033742146249143,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Left",
+      "primitive": 3,
+      "passed": true,
+      "p999": 1.4609097511067897,
+      "maximum": 1.4893460563771204,
+      "minimum": 0.06151925005241892,
+      "minimumAreaRatio": 0.026450799396656538,
+      "collapsed": 0,
+      "minimumY": 0.13915833594882315,
+      "edges": 110759,
+      "triangles": 69431,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 40322,
+        "b": 40327,
+        "bindLength": 0.0017078265141049142,
+        "posedLength": 0.0025435446837584383
+      },
+      "normalAgreement": {
+        "triangles": 69431,
+        "measured": 69431,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 0,
+        "posedOpposed": 311,
+        "newOpposed": 311,
+        "maximumAngleDegrees": 175.74374824098211,
+        "meanAngleDegrees": 17.620883675648393,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Right",
+      "primitive": 0,
+      "passed": true,
+      "p999": 1.4889052697354566,
+      "maximum": 1.4899399519311682,
+      "minimum": 0.09306015847749241,
+      "minimumAreaRatio": 0.0074361953291549165,
+      "collapsed": 0,
+      "minimumY": 0.04472841610033992,
+      "edges": 127864,
+      "triangles": 78438,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 6374,
+        "b": 6393,
+        "bindLength": 0.0027433625617894783,
+        "posedLength": 0.004087445483442382
+      },
+      "normalAgreement": {
+        "triangles": 78438,
+        "measured": 78438,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 1,
+        "posedOpposed": 735,
+        "newOpposed": 735,
+        "maximumAngleDegrees": 179.05282581185025,
+        "meanAngleDegrees": 19.399717342214444,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Right",
+      "primitive": 1,
+      "passed": true,
+      "p999": 1.488322759439388,
+      "maximum": 1.4899002723244563,
+      "minimum": 0.01635733905967112,
+      "minimumAreaRatio": 0.002757670863325268,
+      "collapsed": 0,
+      "minimumY": 0.1665973214879505,
+      "edges": 134124,
+      "triangles": 83584,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 40320,
+        "b": 40334,
+        "bindLength": 0.011145597997430966,
+        "posedLength": 0.016605829491591312
+      },
+      "normalAgreement": {
+        "triangles": 83584,
+        "measured": 83584,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 1,
+        "posedOpposed": 4424,
+        "newOpposed": 4423,
+        "maximumAngleDegrees": 179.13146132275588,
+        "meanAngleDegrees": 34.33203909457269,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Right",
+      "primitive": 2,
+      "passed": true,
+      "p999": 1.4897755524902325,
+      "maximum": 1.494243791186013,
+      "minimum": 0.014387747140855223,
+      "minimumAreaRatio": 0.000823577056854942,
+      "collapsed": 0,
+      "minimumY": 0.03596603481836231,
+      "edges": 184964,
+      "triangles": 115821,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 49424,
+        "b": 55009,
+        "bindLength": 0.0006472525811665643,
+        "posedLength": 0.0009671531507372595
+      },
+      "normalAgreement": {
+        "triangles": 115821,
+        "measured": 115821,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 0,
+        "posedOpposed": 4518,
+        "newOpposed": 4518,
+        "maximumAngleDegrees": 179.1980708755482,
+        "meanAngleDegrees": 23.470680569006465,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Right",
+      "primitive": 3,
+      "passed": true,
+      "p999": 1.4829089475838673,
+      "maximum": 1.4899679657783214,
+      "minimum": 0.019577636579681555,
+      "minimumAreaRatio": 0.002958918488099381,
+      "collapsed": 0,
+      "minimumY": 0.14855141822088536,
+      "edges": 115286,
+      "triangles": 72323,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 19488,
+        "b": 19489,
+        "bindLength": 0.0014089259009100992,
+        "posedLength": 0.0020992544585114094
+      },
+      "normalAgreement": {
+        "triangles": 72323,
+        "measured": 72323,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 0,
+        "posedOpposed": 2423,
+        "newOpposed": 2423,
+        "maximumAngleDegrees": 178.9298710665652,
+        "meanAngleDegrees": 26.958569016635536,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Robe_Torso",
+      "primitive": 0,
+      "passed": true,
+      "p999": 1.4897093935315415,
+      "maximum": 1.4951044944188556,
+      "minimum": 0.022857499403661156,
+      "minimumAreaRatio": 0.004075948495467149,
+      "collapsed": 0,
+      "minimumY": 0.3720450062104844,
+      "edges": 443822,
+      "triangles": 279272,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 88362,
+        "b": 88403,
+        "bindLength": 0.0009849166140617122,
+        "posedLength": 0.0014725532563114674
+      },
+      "normalAgreement": {
+        "triangles": 279272,
+        "measured": 279272,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 5,
+        "posedOpposed": 10898,
+        "newOpposed": 10894,
+        "maximumAngleDegrees": 179.44098158721533,
+        "meanAngleDegrees": 23.44052824564589,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Sleeve_Left",
+      "primitive": 0,
+      "passed": true,
+      "p999": 1.487449457298268,
+      "maximum": 1.489968110814064,
+      "minimum": 0.028895107098969003,
+      "minimumAreaRatio": 0.0023737451914407157,
+      "collapsed": 0,
+      "minimumY": 0.45310071002245134,
+      "edges": 227053,
+      "triangles": 145786,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 40374,
+        "b": 40392,
+        "bindLength": 0.0021260476495405375,
+        "posedLength": 0.003167743199886596
+      },
+      "normalAgreement": {
+        "triangles": 145786,
+        "measured": 145786,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 2,
+        "posedOpposed": 17421,
+        "newOpposed": 17419,
+        "maximumAngleDegrees": 179.65052386653045,
+        "meanAngleDegrees": 39.93745501387927,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    },
+    {
+      "name": "H01_Sleeve_Right",
+      "primitive": 0,
+      "passed": true,
+      "p999": 1.4852973610503177,
+      "maximum": 1.4898908258440453,
+      "minimum": 0.011299202781933802,
+      "minimumAreaRatio": 0.0010587128717885325,
+      "collapsed": 0,
+      "minimumY": 0.28193143829070544,
+      "edges": 236575,
+      "triangles": 150896,
+      "sourceDegenerateEdges": 0,
+      "worst": {
+        "a": 80178,
+        "b": 80270,
+        "bindLength": 0.003482423502019757,
+        "posedLength": 0.005188430827362928
+      },
+      "normalAgreement": {
+        "triangles": 150896,
+        "measured": 150896,
+        "bindDegenerate": 0,
+        "posedDegenerate": 0,
+        "bindOpposed": 1,
+        "posedOpposed": 12828,
+        "newOpposed": 12828,
+        "maximumAngleDegrees": 179.3003604341713,
+        "meanAngleDegrees": 32.25415253969331,
+        "diagnosticOnly": true,
+        "scope": "Actual four-weight shader normal direction vs posed geometric triangle normal. Includes source disagreements separately; does not measure normal-map shading, penetration, volume or whole-animation fidelity."
+      }
+    }
+  ],
+  "keptSeams": {
+    "groups": 121693,
+    "pairs": 144721,
+    "maximumMillimetres": 0,
+    "invalidPositions": 0
+  },
+  "skinPassed": false,
+  "crossings": {
+    "sourceTrianglePairsTested": 34065062,
+    "excludedSourceNeighborPairs": 4328927,
+    "crossingPairs": 72063,
+    "coplanarOverlapPairs": 0,
+    "pointTouchPairs": 20017,
+    "witnesses": [
+      {
+        "sourceFaces": [
+          924033,
+          924036
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00024392258610784817,
+        "segment": [
+          [
+            -0.16316570822223006,
+            0.07724059450564642,
+            0.07161267712759255
+          ],
+          [
+            -0.16329099000853298,
+            0.07729594150979156,
+            0.0714108370642591
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          924036,
+          924053
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00011262955624362014,
+        "segment": [
+          [
+            -0.16329552763255747,
+            0.07723337628663274,
+            0.0715043807426074
+          ],
+          [
+            -0.163290990008533,
+            0.07729594150979158,
+            0.07141083706425909
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          924033,
+          924151
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00008982638850829202,
+        "segment": [
+          [
+            -0.16312021347298422,
+            0.07722240073889393,
+            0.07168796321339103
+          ],
+          [
+            -0.16316570822223006,
+            0.07724059450564641,
+            0.07161267712759255
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          924150,
+          924151
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0004315130675585812,
+        "segment": [
+          [
+            -0.16286715530855644,
+            0.07716876966026902,
+            0.07203334532105693
+          ],
+          [
+            -0.16312021347298428,
+            0.07722240073889398,
+            0.071687963213391
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          924150,
+          924154
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0009883566957140904,
+        "segment": [
+          [
+            -0.16229158200906696,
+            0.07706360582957253,
+            0.07282990348189068
+          ],
+          [
+            -0.16286715530855647,
+            0.07716876966026902,
+            0.07203334532105692
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          924041,
+          924154
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00024209879206610113,
+        "segment": [
+          [
+            -0.16211727095359924,
+            0.07707445190054531,
+            0.07299756338707394
+          ],
+          [
+            -0.16229158200906693,
+            0.0770636058295725,
+            0.0728299034818907
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          924154,
+          924170
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0002591982112311326,
+        "segment": [
+          [
+            -0.16211727095359924,
+            0.07707445190054527,
+            0.07299756338707396
+          ],
+          [
+            -0.1619118430996866,
+            0.07711293150941408,
+            0.07315086840735564
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          924169,
+          924170
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00018503134430589166,
+        "segment": [
+          [
+            -0.1617740440788475,
+            0.07718229644230726,
+            0.07325302776481327
+          ],
+          [
+            -0.1619118430996866,
+            0.07711293150941408,
+            0.07315086840735564
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          924169,
+          927381
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0003234924748309805,
+        "segment": [
+          [
+            -0.16163601812421116,
+            0.077127151164802,
+            0.07354035199889015
+          ],
+          [
+            -0.1617740440788475,
+            0.07718229644230726,
+            0.07325302776481327
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927381,
+          927426
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00010552528287288544,
+        "segment": [
+          [
+            -0.16086335041824368,
+            0.0765480371631347,
+            0.07523029222827453
+          ],
+          [
+            -0.16090632468741853,
+            0.07657520218634842,
+            0.07513782137325475
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927381,
+          927513
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0016722298412816387,
+        "segment": [
+          [
+            -0.16097880621333355,
+            0.07660505137073331,
+            0.07498667041172559
+          ],
+          [
+            -0.1616360181242112,
+            0.077127151164802,
+            0.07354035199889015
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927381,
+          927427
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00017026790237312947,
+        "segment": [
+          [
+            -0.1609063246874185,
+            0.07657520218634847,
+            0.07513782137325474
+          ],
+          [
+            -0.1609788062133335,
+            0.07660505137073323,
+            0.07498667041172573
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927383,
+          927713
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0005214323481503525,
+        "segment": [
+          [
+            -0.1606247316917953,
+            0.07510488232678414,
+            0.07698453351344321
+          ],
+          [
+            -0.1608278100449655,
+            0.07526591211902799,
+            0.07653207325863493
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927676,
+          927713
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00010970378890111492,
+        "segment": [
+          [
+            -0.16058299384811492,
+            0.07507969670056491,
+            0.07708281147605986
+          ],
+          [
+            -0.16062473169179536,
+            0.07510488232678421,
+            0.07698453351344306
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927383,
+          927455
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00021735192876109715,
+        "segment": [
+          [
+            -0.1608278100449655,
+            0.07526591211902797,
+            0.07653207325863488
+          ],
+          [
+            -0.16092301984143145,
+            0.07532445203817709,
+            0.07634565965006755
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927676,
+          927712
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0005082555031411234,
+        "segment": [
+          [
+            -0.16030620270641674,
+            0.07511996548359383,
+            0.07750718011941622
+          ],
+          [
+            -0.16058299384811486,
+            0.07507969670056483,
+            0.07708281147605994
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927408,
+          927414
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0005615839804818456,
+        "segment": [
+          [
+            -0.15988550952584804,
+            0.07499180158717415,
+            0.07813677075429631
+          ],
+          [
+            -0.16019685266125436,
+            0.07508274512506777,
+            0.0776783263279101
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927414,
+          927712
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0002064795683540539,
+        "segment": [
+          [
+            -0.16019685266125436,
+            0.07508274512506778,
+            0.07767832632791012
+          ],
+          [
+            -0.16030620270641677,
+            0.07511996548359384,
+            0.0775071801194162
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927428,
+          927617
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0010550787875086751,
+        "segment": [
+          [
+            -0.1597018851564638,
+            0.07561361572047447,
+            0.07784445595757106
+          ],
+          [
+            -0.16008422537743863,
+            0.07597665656668585,
+            0.07693055850858796
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927576,
+          927617
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00025479679759380134,
+        "segment": [
+          [
+            -0.1596135300702756,
+            0.07551164636981751,
+            0.07806059720383213
+          ],
+          [
+            -0.1597018851564638,
+            0.07561361572047452,
+            0.07784445595757099
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927577,
+          927617
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0007217201891756553,
+        "segment": [
+          [
+            -0.15935814597069178,
+            0.07524065298189073,
+            0.07867883791491762
+          ],
+          [
+            -0.1596135300702756,
+            0.07551164636981751,
+            0.07806059720383214
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927381,
+          927428
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0005538739970614942,
+        "segment": [
+          [
+            -0.16064268582202806,
+            0.07638620693412196,
+            0.07571184650099509
+          ],
+          [
+            -0.1608633504182438,
+            0.07654803716313466,
+            0.07523029222827443
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927382,
+          927428
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.000992658820591366,
+        "segment": [
+          [
+            -0.16023301520063016,
+            0.07611762057464483,
+            0.07657521367871493
+          ],
+          [
+            -0.1606426858220281,
+            0.07638620693412196,
+            0.075711846500995
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927428,
+          927530
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00041021849195620365,
+        "segment": [
+          [
+            -0.16008422537743858,
+            0.07597665656668588,
+            0.07693055850858806
+          ],
+          [
+            -0.16023301520063019,
+            0.07611762057464477,
+            0.07657521367871488
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927414,
+          927621
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0008311091928644144,
+        "segment": [
+          [
+            -0.15940103066366076,
+            0.0748753986492763,
+            0.07880195725341234
+          ],
+          [
+            -0.15988550952584804,
+            0.07499180158717413,
+            0.07813677075429633
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927620,
+          927621
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00011668882882470072,
+        "segment": [
+          [
+            -0.15933315546943094,
+            0.07485762582158828,
+            0.07889519548257115
+          ],
+          [
+            -0.1594010306636609,
+            0.07487539864927631,
+            0.0788019572534122
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927393,
+          927577
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0005116349554736151,
+        "segment": [
+          [
+            -0.15912569214204472,
+            0.07511243393700044,
+            0.07911621123570574
+          ],
+          [
+            -0.15935814597069178,
+            0.07524065298189074,
+            0.07867883791491762
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927620,
+          927623
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0004321742001629064,
+        "segment": [
+          [
+            -0.1591955394727296,
+            0.07470958999784666,
+            0.07927719256584202
+          ],
+          [
+            -0.15933315546943097,
+            0.07485762582158825,
+            0.07889519548257111
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927620,
+          927622
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00025335653863041104,
+        "segment": [
+          [
+            -0.15908239901662974,
+            0.07464418939171717,
+            0.07949424448031919
+          ],
+          [
+            -0.1591955394727296,
+            0.07470958999784662,
+            0.07927719256584204
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927619,
+          927622
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.000700854382406249,
+        "segment": [
+          [
+            -0.15877841390160724,
+            0.0744423739396652,
+            0.08009262599615614
+          ],
+          [
+            -0.15908239901662985,
+            0.0746441893917173,
+            0.07949424448031885
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927492,
+          927619
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.001468395466129462,
+        "segment": [
+          [
+            -0.15877841390160724,
+            0.0744423739396652,
+            0.08009262599615616
+          ],
+          [
+            -0.1581088770157807,
+            0.07403609923260811,
+            0.08133473970507049
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927392,
+          927605
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00045278896587191275,
+        "segment": [
+          [
+            -0.15894618703582736,
+            0.07505458469629607,
+            0.07943984449139711
+          ],
+          [
+            -0.15869437286444732,
+            0.07503981186192986,
+            0.07981586208948573
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927393,
+          927605
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0003745758961780453,
+        "segment": [
+          [
+            -0.15894618703582736,
+            0.07505458469629607,
+            0.07943984449139713
+          ],
+          [
+            -0.15912569214204472,
+            0.07511243393700043,
+            0.07911621123570574
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927392,
+          927606
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0005627642071506821,
+        "segment": [
+          [
+            -0.15869437286444982,
+            0.07503981186192997,
+            0.07981586208948203
+          ],
+          [
+            -0.15838140541273885,
+            0.07501901806614117,
+            0.08028311207083695
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927619,
+          927715
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.000013410073692227429,
+        "segment": [
+          [
+            -0.15810216726251483,
+            0.07403270534233737,
+            0.0813458433439504
+          ],
+          [
+            -0.15810887701578064,
+            0.07403609923260811,
+            0.08133473970507059
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927418,
+          927606
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00021495610314670532,
+        "segment": [
+          [
+            -0.15759767221407614,
+            0.07452082854907448,
+            0.08175233659476301
+          ],
+          [
+            -0.15749825889083888,
+            0.0744641839877889,
+            0.08193431052454336
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927384,
+          927715
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00020206075208050242,
+        "segment": [
+          [
+            -0.1581021672625148,
+            0.07403270534233737,
+            0.08134584334395038
+          ],
+          [
+            -0.15799960143622985,
+            0.07398581461897356,
+            0.08151350389050872
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927419,
+          927606
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0017381171489019552,
+        "segment": [
+          [
+            -0.15759767221407614,
+            0.07452082854907448,
+            0.081752336594763
+          ],
+          [
+            -0.15838140541273885,
+            0.07501901806614125,
+            0.08028311207083694
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927626,
+          927715
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.00035957964464780953,
+        "segment": [
+          [
+            -0.15781529461604096,
+            0.07390772984932144,
+            0.08181221995238903
+          ],
+          [
+            -0.15799960143622985,
+            0.07398581461897356,
+            0.08151350389050872
+          ]
+        ]
+      },
+      {
+        "sourceFaces": [
+          927418,
+          927570
+        ],
+        "labels": [
+          2,
+          2
+        ],
+        "segmentMetres": 0.0012832604267538105,
+        "segment": [
+          [
+            -0.15749825889083888,
+            0.07446418398778892,
+            0.08193431052454335
+          ],
+          [
+            -0.15690721146249878,
+            0.07408533106680264,
+            0.08300850358195207
+          ]
+        ]
+      }
+    ],
+    "accepted": false,
+    "scope": "Non-adjacent original source faces involving garment, BVH triangle crossings. Validated source-weld neighbors excluded; coplanar/contact cases separate. No containment, thickness, full-animation or collision acceptance.",
+    "pairFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-blend-baseline-normal-diagnostic-pairs.u32bin",
+    "pairSha256": "5cee831c7777e295556231549c2af1c8e9ba1e26e479cec8ffc8f607ac8ea63b",
+    "seconds": 15.771116844000002
+  },
+  "accepted": false,
+  "activated": false,
+  "patternReviewed": false,
+  "scope": "Cloud exported one-pose source conservation/fan/strain/kept-seam/crossing diagnostics. Proposed cuts remain unapproved. No whole-motion, penetration-depth, thickness, natural-drape or phone acceptance."
+}

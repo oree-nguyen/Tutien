@@ -1,0 +1,22 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cloth-blend-h01-v4",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "stopped-run.json": {
+      "sha256": "2d155369a978730b61b150c9ef0dc86ff2b5e66545a4cc28416a9cf49e6c5a59",
+      "data": {
+        "utc": "2026-10-23T00:21:38.344531+00:00",
+        "command": "python3 tools/rig/fit-cloth-blend.py .local/rig-candidates/approved-source-cloth-blend-h01-input .local/rig-candidates/approved-source-cloth-blend-h01-v4 --algorithm admm-box --iterations 100",
+        "elapsedSeconds": 779.3300000000017,
+        "signal": "SIGTERM",
+        "reason": "Full exported v1 diagnostic transition disproved the shared frozen-pose support reduction: panel maximum84.75571x between endpoints. Global scalar convergence cannot fix the invalid reduction. Bounded100-iteration run stopped before any output; no claim of convergence or infeasibility.",
+        "inputSha256": "431845a8a9f6517afb50839a70d1b46c373f1a025c97e8c48b3e6c5af4453917",
+        "log": ".local/approved-cloth-blend-fit-v4.log",
+        "accepted": false,
+        "activated": false,
+        "completed": false
+      }
+    }
+  }
+}

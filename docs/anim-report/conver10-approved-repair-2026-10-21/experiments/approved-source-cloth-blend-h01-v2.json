@@ -1,0 +1,200 @@
+{
+  "directory": ".local/rig-candidates/approved-source-cloth-blend-h01-v2",
+  "accepted": false,
+  "activated": false,
+  "evidence": {
+    "solve.json": {
+      "sha256": "711100cd3b6c00ac454749362de7fbf08fba9f1805cd88f073660637d82e5c4d",
+      "data": {
+        "kind": "floor-safe-frozen-cloth-blend",
+        "base": ".local/rig-candidates/approved-source-cloth-blend-h01-input",
+        "inputSha256": "431845a8a9f6517afb50839a70d1b46c373f1a025c97e8c48b3e6c5af4453917",
+        "parentSourceRigSha256": "38fb63d0e5c53f86a1318071634cc95057ad488c4e8908cf69e7b66ec7ce3c58",
+        "clothTemplateSha256": "33836c20a5bb08a0e3f5ada8ce466d8b4ebabd53beea07cd65a79ce03f6fa8fb",
+        "poseFile": ".local/rig-candidates/approved-source-panel-cloth-h01-v6/crouch-pose.json",
+        "poseSha256": "da89536adf21459f90b5284749e6479dbb66f4fc29d86bd7b07ef1ae9025ff09",
+        "parameters": {
+          "iterations": 400,
+          "ratio": 1.499,
+          "floor": 0.001,
+          "transitionMetres": 0.12,
+          "repairPasses": 100
+        },
+        "fit": {
+          "activeEdges": 1040552,
+          "feasibleSegmentStep": 0.02336385798541109,
+          "history": [
+            {
+              "iteration": 25,
+              "activeMaximum": 2.1477011971585402,
+              "meanAlpha": 0.021237611781757492
+            },
+            {
+              "iteration": 50,
+              "activeMaximum": 2.1774534503421012,
+              "meanAlpha": 0.04076447702864903
+            },
+            {
+              "iteration": 75,
+              "activeMaximum": 2.1303795921602995,
+              "meanAlpha": 0.05917664651424026
+            },
+            {
+              "iteration": 100,
+              "activeMaximum": 2.2682951927230324,
+              "meanAlpha": 0.07673201995515531
+            },
+            {
+              "iteration": 125,
+              "activeMaximum": 2.1553560777799627,
+              "meanAlpha": 0.09356416613393491
+            },
+            {
+              "iteration": 150,
+              "activeMaximum": 2.0927691672888176,
+              "meanAlpha": 0.10976850510945768
+            },
+            {
+              "iteration": 175,
+              "activeMaximum": 2.033278141006745,
+              "meanAlpha": 0.12541022736559077
+            },
+            {
+              "iteration": 200,
+              "activeMaximum": 2.0008792043666266,
+              "meanAlpha": 0.14054422366558347
+            },
+            {
+              "iteration": 225,
+              "activeMaximum": 1.9987669632006904,
+              "meanAlpha": 0.15520750779155532
+            },
+            {
+              "iteration": 250,
+              "activeMaximum": 1.9577567640364442,
+              "meanAlpha": 0.16943219663632658
+            },
+            {
+              "iteration": 275,
+              "activeMaximum": 1.9064863865275004,
+              "meanAlpha": 0.18324637980139324
+            },
+            {
+              "iteration": 300,
+              "activeMaximum": 1.8976543801327013,
+              "meanAlpha": 0.19667283195813318
+            },
+            {
+              "iteration": 325,
+              "activeMaximum": 1.9128360646596152,
+              "meanAlpha": 0.2097348093591926
+            },
+            {
+              "iteration": 350,
+              "activeMaximum": 1.8878101624931711,
+              "meanAlpha": 0.222448730081987
+            },
+            {
+              "iteration": 375,
+              "activeMaximum": 1.8741379160358236,
+              "meanAlpha": 0.23483087693612306
+            },
+            {
+              "iteration": 400,
+              "activeMaximum": 1.8692127295088519,
+              "meanAlpha": 0.2468919838566099
+            }
+          ],
+          "repair": {
+            "edgeColours": 39,
+            "history": [
+              {
+                "repairPass": 10,
+                "activeMaximum": 2.5959948402061617,
+                "edgesOverRatio": 136785
+              },
+              {
+                "repairPass": 20,
+                "activeMaximum": 2.537425508020216,
+                "edgesOverRatio": 125832
+              },
+              {
+                "repairPass": 30,
+                "activeMaximum": 2.545528753727962,
+                "edgesOverRatio": 119253
+              },
+              {
+                "repairPass": 40,
+                "activeMaximum": 2.5521536362846238,
+                "edgesOverRatio": 113017
+              },
+              {
+                "repairPass": 50,
+                "activeMaximum": 2.556105999252477,
+                "edgesOverRatio": 107895
+              },
+              {
+                "repairPass": 60,
+                "activeMaximum": 2.5523980019757104,
+                "edgesOverRatio": 104261
+              },
+              {
+                "repairPass": 70,
+                "activeMaximum": 2.543951829136661,
+                "edgesOverRatio": 100433
+              },
+              {
+                "repairPass": 80,
+                "activeMaximum": 2.5324794916426,
+                "edgesOverRatio": 97551
+              },
+              {
+                "repairPass": 90,
+                "activeMaximum": 2.5190611568960266,
+                "edgesOverRatio": 94703
+              },
+              {
+                "repairPass": 100,
+                "activeMaximum": 2.504377815466688,
+                "edgesOverRatio": 92253
+              }
+            ]
+          }
+        },
+        "freeClothFans": 348887,
+        "changedCopies": 414270,
+        "maximumPoseReductionErrorMetres": 3.476975630173495e-08,
+        "meanAlpha": 0.005768464575808173,
+        "maximumAlpha": 0.02336371313744559,
+        "meanDisplacementMetres": 0.002652844692800181,
+        "before": {
+          "allSourceP999": 1.4895254750033669,
+          "allSourceMaximum": 2.5615170903653706,
+          "changedDomainP999": 1.4896411202689073,
+          "changedDomainMaximum": 1.4942387487222633,
+          "freeClothMinimumY": 0.03596603481836231,
+          "allSourceMinimumY": -6.534207853611806e-13
+        },
+        "after": {
+          "allSourceP999": 1.4891189724822766,
+          "allSourceMaximum": 2.5615170903653706,
+          "changedDomainP999": 1.4883202431771223,
+          "changedDomainMaximum": 1.4990024005279778,
+          "freeClothMinimumY": 0.03626839622372272,
+          "allSourceMinimumY": -6.534207853611806e-13
+        },
+        "nonPanelAndProtectedWeightsUnchanged": true,
+        "outputHashes": {
+          "result-ids.u16bin": "f9520e8230ffc78237a692c39823cc8e6fc56f45220e246618f2407750488ffa",
+          "result-weights.f32bin": "1e2e803096fad9a84691a22415af3f126adaed154619b922c21e4aeca9642ce0",
+          "alpha.f64bin": "b62238c9bb8b4245332d72db91e940b5d4d690a7e74d4a642b7df2fcb4620adb",
+          "changed.u8bin": "325893ca958fb1f3e5ece284e4461726ea4bb5f56e94fc6eb0b58dff3aeb718b"
+        },
+        "seconds": 86.59560431200953,
+        "accepted": false,
+        "activated": false,
+        "scope": "Convex scalar cloth movement and exact four-support point reduction at one pose. Fixed body rows retain baseline failures. Exported GLB, intermediate motion, normal/compression/collision and naturalness must still pass independent checks."
+      }
+    }
+  }
+}

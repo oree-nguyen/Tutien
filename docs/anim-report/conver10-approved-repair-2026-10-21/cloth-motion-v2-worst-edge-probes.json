@@ -1,0 +1,176 @@
+{
+  "file": ".local/rig-candidates/approved-source-cloth-motion-h01-v2/H01-C0-rigged.glb",
+  "sha256": "fbadcb142dd0117d0fd3b7ad7c357e3cff70a2909bf6cdf4af1bd8a9094a3fd4",
+  "scope": "Exact exported source vertices for the remaining maximum edges at crouch; not accepted anatomical masks.",
+  "probes": [
+    {
+      "name": "H01_Robe_Right",
+      "primitive": 2,
+      "data": [
+        {
+          "vertex": 66700,
+          "position": [
+            -0.07025235891342163,
+            0.5974883437156677,
+            0.16329103708267212
+          ],
+          "posed": [
+            -0.0914697017149397,
+            0.4367313315885628,
+            0.39044909642330256
+          ],
+          "sourceWeld": 722631,
+          "sourceCutFan": 3773892,
+          "support": [
+            {
+              "id": 49,
+              "bone": "RightLeg",
+              "weight": 0.2684425115585327
+            },
+            {
+              "id": 48,
+              "bone": "RightUpLeg",
+              "weight": 0.5727049708366394
+            },
+            {
+              "id": 45,
+              "bone": "LeftLeg",
+              "weight": 0.06240787357091904
+            },
+            {
+              "id": 44,
+              "bone": "LeftUpLeg",
+              "weight": 0.09644462168216705
+            }
+          ]
+        },
+        {
+          "vertex": 66709,
+          "position": [
+            -0.0712406188249588,
+            0.5974946022033691,
+            0.16265615820884705
+          ],
+          "posed": [
+            -0.0932700655463945,
+            0.4374201020945971,
+            0.3918665963566243
+          ],
+          "sourceWeld": 722630,
+          "sourceCutFan": 3773904,
+          "support": [
+            {
+              "id": 49,
+              "bone": "RightLeg",
+              "weight": 0.25513216853141785
+            },
+            {
+              "id": 48,
+              "bone": "RightUpLeg",
+              "weight": 0.5957225561141968
+            },
+            {
+              "id": 45,
+              "bone": "LeftLeg",
+              "weight": 0.07749321311712265
+            },
+            {
+              "id": 44,
+              "bone": "LeftUpLeg",
+              "weight": 0.07165204733610153
+            }
+          ]
+        }
+      ],
+      "bindLength": 0.0011746352650287483,
+      "posedLength": 0.002392701568637518,
+      "ratio": 2.036974063245886
+    },
+    {
+      "name": "H01_Remaining_Source",
+      "primitive": 0,
+      "data": [
+        {
+          "vertex": 124986,
+          "position": [
+            0.5531995296478271,
+            1.0432868003845215,
+            0.1466110795736313
+          ],
+          "posed": [
+            0.1992710895861935,
+            0.5672552855031016,
+            0.25469182215363706
+          ],
+          "sourceWeld": 843091,
+          "sourceCutFan": 4260827,
+          "support": [
+            {
+              "id": 9,
+              "bone": "LeftHand",
+              "weight": 0
+            },
+            {
+              "id": 52,
+              "bone": "LeftForearmPronation",
+              "weight": 0.8914972543716431
+            },
+            {
+              "id": 7,
+              "bone": "LeftArm",
+              "weight": 0.08486586064100266
+            },
+            {
+              "id": 0,
+              "bone": "Hips",
+              "weight": 0.02363687939941883
+            }
+          ]
+        },
+        {
+          "vertex": 124991,
+          "position": [
+            0.5551698803901672,
+            1.0420092344284058,
+            0.14684408903121948
+          ],
+          "posed": [
+            0.20153924050347036,
+            0.5634692082748849,
+            0.25056147831471
+          ],
+          "sourceWeld": 843086,
+          "sourceCutFan": 4261027,
+          "support": [
+            {
+              "id": 9,
+              "bone": "LeftHand",
+              "weight": 0.5295346975326538
+            },
+            {
+              "id": 11,
+              "bone": "LeftHandThumb2",
+              "weight": 0.19252094626426697
+            },
+            {
+              "id": 52,
+              "bone": "LeftForearmPronation",
+              "weight": 0.22417373955249786
+            },
+            {
+              "id": 10,
+              "bone": "LeftHandThumb1",
+              "weight": 0.05377059429883957
+            }
+          ]
+        }
+      ],
+      "bindLength": 0.0023598199565626954,
+      "posedLength": 0.006044719148920611,
+      "ratio": 2.5615170903653706
+    }
+  ],
+  "accepted": false,
+  "activated": false,
+  "bindDefinition": "Probe bindLength uses literal POSITION values. Runtime-surface validator measures evaluated rest skin with Float32 inverse-bind matrices; nanometre-scale rest residuals change the final ratio slightly. The validator report remains authoritative."
+}

@@ -2,7 +2,7 @@
 
 Đo bằng Node/Three và LBS độc lập trên cloud, không phải FPS hoặc nghiệm thu điện thoại. Mỗi dòng là một pose trên toàn bộ source mesh; cả hai pose dùng cùng hash trước/sau tương ứng. Ngưỡng giữ nguyên: p99,9 ≤ 1,5× và max ≤ 2,0×. Không dùng số liệu này thay kiểm toàn chuỗi.
 
-**Chưa có mẫu được nghiệm thu toàn chuỗi.** Các dòng CP geodesic đầu là lịch sử chưa có weight helper; CP650 và các vòng wrist mới đã kết hợp helper thật và ủng source. Không so khác pose/field như cùng một bản đã sửa APK. Chưa kiểm chấp nhận compression/normal, giao cắt, foot slide hoặc bề mặt nắm cán trong toàn chuỗi. Chi tiết vòng tiếp: [BOOT-WRIST.md](BOOT-WRIST.md).
+**Chưa có mẫu được nghiệm thu toàn chuỗi.** Các dòng CP geodesic đầu là lịch sử chưa có weight helper; CP650 và các vòng wrist mới đã kết hợp helper thật và ủng source. Không so khác pose/field như cùng một bản đã sửa APK. Chưa kiểm chấp nhận compression/normal, giao cắt, foot slide hoặc bề mặt nắm cán trong toàn chuỗi. Chi tiết hiện hành: [CLOTH-MOTION.md](CLOTH-MOTION.md); lịch sử [BOOT-WRIST.md](BOOT-WRIST.md).
 
 | Hero / mẫu | Pose | p99,9 | Max | Min cạnh | Min diện tích | Min Y (m) | Đạt skin của pose |
 | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
@@ -51,16 +51,16 @@ Không so trực tiếp các số runtime này với staging để khẳng đị
 
 ## Lệnh kiểm gần nhất
 
-Source fingerprint: `4964f8963f78a697a40487476dd5faea3e2dcc433637a678312cfc202bddf387`. Mã nguồn giữ ổn định trong vòng kiểm: `True`. Log đầy đủ: [2026-10-22T23-12-36-675Z](iterations/2026-10-22T23-12-36-675Z/goal.json).
+Source fingerprint: `a5230a4a691edbc53aa78a82aae0d564bcd97891ce226959a9010d542a282ed5`. Mã nguồn giữ ổn định trong vòng kiểm: `True`. Log đầy đủ: [2026-10-23T00-53-42-071Z](iterations/2026-10-23T00-53-42-071Z/goal.json).
 
 | Kiểm | Kết quả |
 | --- | --- |
-| npm test | ℹ tests 340 / ℹ pass 340 / ℹ fail 0 |
+| npm test | ℹ tests 346 / ℹ pass 346 / ℹ fail 0 |
 | npm run test:master | ℹ tests 215 / ℹ pass 215 / ℹ fail 0 |
 | npm run verify:master | Master Prompt: 0/37; NOT100% |
 | npm run goal:rig | RIG/APK GOAL BLOCKED — do not claim 100% |
 | npm run goal:animation | INCOMPLETE; xem goal-latest.json, không tính trung bình phần trăm |
-| npm run build | Chưa chạy lại trong vòng ủng/cổ tay; lần trước đã qua nhưng không chứng nhận build có fingerprint hiện tại |
-| npm run android:apk | Chưa chạy trong vòng này: điều kiện rig/skin trước APK chưa đạt |
+| npm run build | Chưa chạy lại trong vòng hiện hành; build cũ không chứng nhận fingerprint hiện tại |
+| npm run android:apk | Chưa chạy trong vòng hiện hành: điều kiện rig/skin trước APK chưa đạt |
 
 Các lần thử CLARABEL và bone heat thất bại được giữ trong `logs/` và biên nhận. Infeasible của một patch SOCP có boundary cố định không chứng minh toàn bộ rig không thể sửa. Các phép thử không được dùng để đổi giới hạn kiểm.

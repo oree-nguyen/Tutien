@@ -112,7 +112,7 @@ await fs.writeFile(
       accepted: false,
       activated: false,
       scope:
-        "One-pose panel support fit only. Full-animation, pattern, collision, natural drape and phone checks remain required.",
+        "One-or-more explicit-pose panel support fit only. Full-animation, pattern, collision, natural drape and phone checks remain required.",
     },
     null,
     2,

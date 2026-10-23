@@ -16,6 +16,8 @@ import {
 } from "./runtime-surface.mjs";
 import { SeamAccumulator } from "./mesh-seams.mjs";
 import { sourceSurfaceIntersections } from "./surface-intersections.mjs";
+import { measureSkinNormalAgreement } from "./normal-agreement.mjs";
+import { Matrix4 } from "three";
 
 const [directory, poseFile, output] = process.argv.slice(2);
 assert(
@@ -134,7 +136,25 @@ let vertexAt = 0,
   faceAt = 0;
 for (const [i, s] of surfaces.entries()) {
   const metric = measureRuntimeSurface(s);
-  meshes.push({ name: s.name, primitive: s.primitiveIndex, ...metric });
+  const normalAgreement = measureSkinNormalAgreement({
+    positions: s.positions,
+    posed: s.posed,
+    normals: s.primitive.getAttribute("NORMAL").getArray(),
+    indices: s.index,
+    ids: s.ids,
+    weights: s.weights,
+    matrices: s.joints.map(
+      (joint, j) =>
+        new Matrix4().copy(joint.matrixWorld).multiply(s.inverseBind[j])
+          .elements,
+    ),
+  });
+  meshes.push({
+    name: s.name,
+    primitive: s.primitiveIndex,
+    ...metric,
+    normalAgreement,
+  });
   const m = mappings[i];
   points.set(s.posed, vertexAt * 3);
   fans.set(m.fans, vertexAt);

@@ -9,7 +9,12 @@ import { Matrix4 } from "three";
 import { sha256 } from "./animation-payload.mjs";
 import { copyProvenance } from "./copy-provenance.mjs";
 import { assertUnusedStagingOutput } from "./staging-output.mjs";
-const [base, output, poseFile] = process.argv.slice(2);
+const [base, output, ...poseFiles] = process.argv.slice(2);
+assert(
+  poseFiles.length > 0 && poseFiles.length <= 120,
+  "Explicit diagnostic poses required",
+);
+const poseFile = poseFiles[0];
 for (const d of [base, output])
   assert(/^\.local\/rig-candidates\/[a-z0-9-]+$/.test(d ?? ""));
 assert.notEqual(base, output);
@@ -69,38 +74,67 @@ for (const part of parts) {
 assert.equal(faceAt, triangles.length);
 const skin = doc.getRoot().listSkins()[0],
   joints = skin.listJoints(),
-  channels = new Set(Object.keys(pose.rotations));
-for (const n of joints) {
-  assert(
-    channels.delete(n.getName()),
-    "Pose missing current core/cloth joint " + n.getName(),
+  bind = joints.map((n) => ({
+    n,
+    rotation: n.getRotation(),
+    translation: n.getTranslation(),
+  })),
+  allMatrices = [],
+  poses = [];
+for (const file of poseFiles) {
+  const raw = await fs.readFile(file),
+    current = JSON.parse(raw);
+  assert(current.poseDataValid === true && !current.scales);
+  if (current.assetSha256)
+    assert.equal(
+      current.assetSha256,
+      sha256(bytes),
+      "Diagnostic pose belongs to another asset",
+    );
+  for (const { n, rotation, translation } of bind)
+    n.setRotation(rotation).setTranslation(translation);
+  const channels = new Set(Object.keys(current.rotations));
+  for (const n of joints) {
+    assert(
+      channels.delete(n.getName()),
+      "Pose missing current core/cloth joint " + n.getName(),
+    );
+    const q = current.rotations[n.getName()];
+    assert(
+      q.length === 4 &&
+        q.every(Number.isFinite) &&
+        Math.abs(Math.hypot(...q) - 1) < 1e-6,
+    );
+    n.setRotation(q);
+  }
+  assert.equal(channels.size, 0);
+  for (const [name, t] of Object.entries(current.translations ?? {})) {
+    assert(t.length === 3 && t.every(Number.isFinite));
+    const joint = bind.find(({ n }) => n.getName() === name);
+    assert(joint, "Unknown translation joint " + name);
+    if (name !== "Hips")
+      assert.deepEqual(
+        t,
+        joint.translation,
+        "Diagnostic transition must not stretch a limb",
+      );
+    joint.n.setTranslation(t);
+  }
+  allMatrices.push(
+    ...joints.flatMap(
+      (n, i) =>
+        new Matrix4()
+          .fromArray(n.getWorldMatrix())
+          .multiply(
+            new Matrix4().fromArray(
+              skin.getInverseBindMatrices().getElement(i, []),
+            ),
+          ).elements,
+    ),
   );
-  const q = pose.rotations[n.getName()];
-  assert(
-    q.length === 4 &&
-      q.every(Number.isFinite) &&
-      Math.abs(Math.hypot(...q) - 1) < 1e-6,
-  );
-  n.setRotation(q);
+  poses.push({ file, sha256: sha256(raw), t: current.t ?? null });
 }
-assert.equal(channels.size, 0);
-for (const [name, t] of Object.entries(pose.translations ?? {})) {
-  assert.equal(name, "Hips");
-  assert(t.length === 3 && t.every(Number.isFinite));
-  joints.find((n) => n.getName() === name).setTranslation(t);
-}
-const matrices = Float64Array.from(
-  joints.flatMap(
-    (n, i) =>
-      new Matrix4()
-        .fromArray(n.getWorldMatrix())
-        .multiply(
-          new Matrix4().fromArray(
-            skin.getInverseBindMatrices().getElement(i, []),
-          ),
-        ).elements,
-  ),
-);
+const matrices = Float64Array.from(allMatrices);
 assert([...matrices].every(Number.isFinite));
 await fs.mkdir(output, { recursive: true });
 const files = {};
@@ -118,21 +152,24 @@ for (const [name, array] of Object.entries({
   await fs.writeFile(output + "/" + name, raw);
   files[name] = sha256(raw);
 }
-await fs.copyFile(input, output + "/H01-C0-rigged.glb");
+// An immutable, hash-checked local staging alias avoids another source copy.
+// Export tools refuse occupied directories and always write to a new revision.
+await fs.link(input, output + "/H01-C0-rigged.glb");
 await copyProvenance(doc, base, output);
 const meta = {
   kind: "cut-cloth-source-layout",
   assetSha256: sha256(bytes),
   poseFile,
   poseSha256: sha256(poseBytes),
-  poseCount: 1,
+  poseCount: poses.length,
+  poses,
   matricesSha256: files["feasibility-matrices.bin"],
   files,
   parts,
   vertices,
   faces,
   scope:
-    "Exact source-corner fan numerical layout. Only left/right panel rows may change; body, hands, sleeves and boots fixed. Unreviewed cuts are not accepted source seams.",
+    "One-or-more explicit poses on exact source-corner fans. Only left/right panel rows may change; body, hands, sleeves and boots fixed. Unreviewed cuts are not accepted source seams. Local GLB alias is immutable and hash-checked.",
 };
 await fs.writeFile(
   output + "/feasibility-input.json",

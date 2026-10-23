@@ -52,3 +52,8 @@ test('cloth grid keeps four continuous supports and refuses to discard an old ro
  const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_cloth_grid_weights.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
  assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 3 tests/);
 });
+
+test('pose-space cloth reduction preserves actual evaluated points and scalar floor/edge constraints keep the body fixed',()=>{
+ const result=spawnSync('python3',['-m','unittest','discover','-s','tools/rig','-p','test_cloth_blend_math.py'],{encoding:'utf8',env:{...process.env,OPENBLAS_NUM_THREADS:'1',OMP_NUM_THREADS:'1'}});
+ assert.equal(result.status,0,result.stderr+'\n'+result.stdout);assert.match(result.stderr,/Ran 12 tests/);
+});
