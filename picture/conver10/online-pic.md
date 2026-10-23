@@ -7050,7 +7050,7 @@ Nguồn: `pose-1-right-back.png`, `docs/anim-report/conver10-approved-repair-202
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:11:22 UTC+07:00**
 
-Nguồn: `pose-0-left-back.png`
+Nguồn: `pose-0-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-source-open-review/pose-0-left-back.png`
 
 ## Ảnh 857
 
@@ -7058,7 +7058,7 @@ Nguồn: `pose-0-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:11:23 UTC+07:00**
 
-Nguồn: `pose-0-left-front.png`
+Nguồn: `pose-0-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-source-open-review/pose-0-left-front.png`
 
 ## Ảnh 858
 
@@ -7066,7 +7066,7 @@ Nguồn: `pose-0-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:11:24 UTC+07:00**
 
-Nguồn: `pose-0-right-back.png`
+Nguồn: `pose-0-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-source-open-review/pose-0-right-back.png`
 
 ## Ảnh 859
 
@@ -7074,7 +7074,7 @@ Nguồn: `pose-0-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:11:24 UTC+07:00**
 
-Nguồn: `pose-0-right-front.png`
+Nguồn: `pose-0-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-source-open-review/pose-0-right-front.png`
 
 ## Ảnh 860
 
@@ -7082,7 +7082,7 @@ Nguồn: `pose-0-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:14:41 UTC+07:00**
 
-Nguồn: `pose-0-left-back.png`
+Nguồn: `pose-0-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v10-hand-review/pose-0-left-back.png`
 
 ## Ảnh 861
 
@@ -7090,7 +7090,7 @@ Nguồn: `pose-0-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:14:42 UTC+07:00**
 
-Nguồn: `pose-0-left-front.png`
+Nguồn: `pose-0-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v10-hand-review/pose-0-left-front.png`
 
 ## Ảnh 862
 
@@ -7098,7 +7098,7 @@ Nguồn: `pose-0-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:14:43 UTC+07:00**
 
-Nguồn: `pose-0-right-back.png`
+Nguồn: `pose-0-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v10-hand-review/pose-0-right-back.png`
 
 ## Ảnh 863
 
@@ -7106,7 +7106,7 @@ Nguồn: `pose-0-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:14:43 UTC+07:00**
 
-Nguồn: `pose-0-right-front.png`
+Nguồn: `pose-0-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v10-hand-review/pose-0-right-front.png`
 
 ## Ảnh 864
 
@@ -7114,7 +7114,7 @@ Nguồn: `pose-0-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:25:57 UTC+07:00**
 
-Nguồn: `pose-0-left-back.png`
+Nguồn: `pose-0-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v11-hand-review/pose-0-left-back.png`
 
 ## Ảnh 865
 
@@ -7122,7 +7122,7 @@ Nguồn: `pose-0-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:25:59 UTC+07:00**
 
-Nguồn: `pose-0-left-front.png`
+Nguồn: `pose-0-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v11-hand-review/pose-0-left-front.png`
 
 ## Ảnh 866
 
@@ -7130,7 +7130,7 @@ Nguồn: `pose-0-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:25:59 UTC+07:00**
 
-Nguồn: `pose-0-right-back.png`
+Nguồn: `pose-0-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v11-hand-review/pose-0-right-back.png`
 
 ## Ảnh 867
 
@@ -7138,4 +7138,20 @@ Nguồn: `pose-0-right-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 15:26:00 UTC+07:00**
 
-Nguồn: `pose-0-right-front.png`
+Nguồn: `pose-0-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v11-hand-review/pose-0-right-front.png`
+
+## Ảnh 868
+
+![1-15889.jpg](../media/03a254610c00d3219603f09cfe028d88c97ecc1d.jpg)
+
+**Thời gian đăng ký ảnh: 2026-10-23 18:09:48 UTC+07:00**
+
+Nguồn: `1-15889.jpg`
+
+## Ảnh 869
+
+![2-15890.jpg](../media/924065c31143f87ce2973cb2c987c1a643531a64.jpg)
+
+**Thời gian đăng ký ảnh: 2026-10-23 18:09:50 UTC+07:00**
+
+Nguồn: `2-15890.jpg`
