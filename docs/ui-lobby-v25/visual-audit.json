@@ -1,0 +1,118 @@
+{
+  "viewport": [
+    1376,
+    768
+  ],
+  "metric": "Mean absolute RGB error on 0–255 scale; exact pixel fraction; no inferred visual similarity percentage",
+  "screens": [
+    {
+      "screen": "H1",
+      "actual": "H1-home-1376x768.png",
+      "reference": "image2.jpeg",
+      "meanAbsoluteRGBError": 40.2315,
+      "exactPixelFraction": 0.063924,
+      "pixelIdentical": false
+    },
+    {
+      "screen": "H2",
+      "actual": "H2-character-1376x768.png",
+      "reference": "image3.jpeg",
+      "meanAbsoluteRGBError": 38.2669,
+      "exactPixelFraction": 0.019443,
+      "pixelIdentical": false
+    },
+    {
+      "screen": "H3",
+      "actual": "H3-heroes-1376x768.png",
+      "reference": "image4.jpeg",
+      "meanAbsoluteRGBError": 41.5496,
+      "exactPixelFraction": 0.009736,
+      "pixelIdentical": false
+    },
+    {
+      "screen": "H4",
+      "actual": "H4-friends-1376x768.png",
+      "reference": "image5.jpeg",
+      "meanAbsoluteRGBError": 50.481,
+      "exactPixelFraction": 5.5e-05,
+      "pixelIdentical": false
+    },
+    {
+      "screen": "H5",
+      "actual": "H5-profile-1376x768.png",
+      "reference": "image6.jpeg",
+      "meanAbsoluteRGBError": 36.015,
+      "exactPixelFraction": 0.012199,
+      "pixelIdentical": false
+    },
+    {
+      "screen": "H6",
+      "actual": "H6-pass-1376x768.png",
+      "reference": "image7.jpeg",
+      "meanAbsoluteRGBError": 41.8876,
+      "exactPixelFraction": 0.019264,
+      "pixelIdentical": false
+    },
+    {
+      "screen": "H7",
+      "actual": "H7-quests-1376x768.png",
+      "reference": "image8.jpeg",
+      "meanAbsoluteRGBError": 20.9244,
+      "exactPixelFraction": 0.010972,
+      "pixelIdentical": false
+    }
+  ],
+  "static_regions": [
+    {
+      "name": "shop",
+      "bounds": [
+        35,
+        200,
+        175,
+        40
+      ],
+      "meanAbsoluteRGBError": 0.2609,
+      "exactPixelFraction": 0.428143
+    },
+    {
+      "name": "pass",
+      "bounds": [
+        35,
+        369,
+        175,
+        40
+      ],
+      "meanAbsoluteRGBError": 0.2944,
+      "exactPixelFraction": 0.371
+    },
+    {
+      "name": "bottom-nav",
+      "bounds": [
+        30,
+        697,
+        670,
+        36
+      ],
+      "meanAbsoluteRGBError": 0.2716,
+      "exactPixelFraction": 0.393988
+    },
+    {
+      "name": "start",
+      "bounds": [
+        1030,
+        682,
+        305,
+        46
+      ],
+      "meanAbsoluteRGBError": 0.2796,
+      "exactPixelFraction": 0.372488
+    }
+  ],
+  "acceptance100Percent": false,
+  "remainingDifferences": [
+    "Live 3D models, entrance/idle poses, lighting and scenery differ from painted references.",
+    "Actual account balances, rank, items and selected supports intentionally use real game state.",
+    "Season pass, social and quest services have no authoritative live data; their inactive previews cannot reproduce the sample account.",
+    "Reconstructed scalable frames, type, icons and panel details still have pixel differences."
+  ]
+}

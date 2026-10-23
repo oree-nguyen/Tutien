@@ -1,4 +1,7 @@
 import "./style.css";
+import { composeLobby, cardPickers, pickerMarkup, lobbyState, profilePanel, friendsPanel, passPanel, questPanel } from "./lobby-ui.js";
+import { LobbyEntranceClock } from "./lobby-entrance-clock.js";
+const entranceReplayClock = new LobbyEntranceClock();
 import {
   HEROES,
   SKILLS,
@@ -99,9 +102,10 @@ function updateAssetLoadingIndicator(){
  const el=document.getElementById('assetLoadStatus');if(!el)return;
  const asset=world?.previewAsset??world?.preview?.getObjectByName(loadout.hero===1?'manualHero_H02_C0':'manualHero_H01_C0')?.userData.manualAsset;
  const expected=loadout.hero===1?'H02-C0':'H01-C0';const visible=asset?.id===expected&&asset.status==='loaded'&&(asset.entrance?.visible!==false)&&(asset.entrance?.heroVisible!==false);
- const hidden=!!match||![0,1].includes(loadout.hero)||loadout.costume!==0||visible;if(el.hidden!==hidden)el.hidden=hidden;
+ const legacyLoading=!!world?.loadingCharacter;
+ const hidden=!!match||([0,1].includes(loadout.hero)&&loadout.costume===0?!legacyLoading&&visible:!legacyLoading);if(el.hidden!==hidden)el.hidden=hidden;
  const text=asset?.status==='failed'?`Không nạp được model — chạm ${loadout.hero===1?'Trạch':'Dật'} để thử lại.`:(loadout.hero===1?'Đang nạp Hàn Trạch và Chấn Nhạc Chùy…':'Đang nạp Lâm Dật và Mộc Tinh Trượng…');
- if(el.textContent!==text)el.textContent=text;
+ const message=legacyLoading?`Đang chuẩn bị ${HEROES[loadout.hero].name}…`:text;if(el.textContent!==message)el.textContent=message;
 }
 const lootArt = (item, className = "item-art") =>
   itemIcon(item.kind, item.id ?? 1, { className, label: item.name });
@@ -278,7 +282,7 @@ function renderHub() {
    ["Hồn công", h.power],
    ["Giáp", h.armor],
    ["Kháng", h.resist],
-   ["Tốc chạy", h.speed],
+   ["Tốc chạy", h.speed + "m/s"],
    ["Hồn lực", h.mp],
    ["Tầm đánh", h.range + "m"],
  ]
@@ -292,19 +296,11 @@ function renderHub() {
  ]
    .map(
      (slot) =>
-       `<div class="ring-choice">${loadout.rings[slot - 1] ? itemIcon("ring", loadout.rings[slot - 1], { label: RINGS[loadout.rings[slot - 1] - 1].name }) : '<div class="empty-icon"></div>'}<select aria-label="Hồn hoàn khe ${slot}" data-ring="${slot}"><option value="0">Khe ${slot} · Trống</option>${RINGS.filter(
-         (r) =>
-           R.ringCompatible(loadout.hero, r.id, slot) && ownsGear("ring", r.id),
-       )
-         .map(
-           (r) =>
-             `<option value="${r.id}" ${loadout.rings[slot - 1] === r.id ? "selected" : ""}>${r.name}</option>`,
-         )
-         .join("")}</select></div>`,
+       `<div class="ring-choice">${loadout.rings[slot - 1] ? itemIcon("ring", loadout.rings[slot - 1], { label: RINGS[loadout.rings[slot - 1] - 1].name }) : '<div class="empty-icon"></div>'}${pickerMarkup("Hồn hoàn khe "+slot,[{value:0,text:"Khe "+slot+" · Trống"},...RINGS.filter(r=>R.ringCompatible(loadout.hero,r.id,slot)&&ownsGear("ring",r.id)).map(r=>({value:r.id,text:r.name}))],loadout.rings[slot-1],`data-ring="${slot}"`)}</div>`,
    )
    .join(
      "",
-   )}</div><div class="section-label">HỒN CỐT <span>6 VỊ TRÍ + NGOẠI PHỤ</span></div><div class="bone-grid">${BONES.map((b) => `<button class="bone ${loadout.bones.includes(b.id) ? "active" : ""}" data-bone="${b.id}" ${!ownsGear("bone", b.id) ? "disabled" : ""} title="${b.name}">${itemIcon("bone", b.id, { label: b.name })}${b.slot}</button>`).join("")}</div><div class="section-label">HỒN KHÍ & TRANG PHỤC <span>THẨM MỸ</span></div><div class="ring-pair"><select id="skin" aria-label="Skin Hồn khí">${["Nguyên bản", "Cơ bản · 2.800 TB", "VIP · 399 NB"].map((s, i) => `<option value="${i}" ${loadout.skin === i ? "selected" : ""}>${s}</option>`).join("")}</select><select id="costume" aria-label="Trang phục">${COSTUMES[loadout.hero].map((s, i) => `<option value="${i}" ${loadout.costume === i ? "selected" : ""}>${s}${i === 1 ? " · 1.800 TB" : i === 2 ? " · 299 NB" : i === 3 ? " · 1 Vé" : ""}</option>`).join("")}</select></div><div class="weapon-previews">${[0, 1, 2].map((skin) => `<button data-preview-skin="${skin}" class="${loadout.skin === skin ? "active" : ""}" aria-label="Xem ${["Nguyên bản", "Cơ bản", "VIP"][skin]}">${itemIcon("weapon", loadout.hero + 1, { skin, label: ["Nguyên bản", "Cơ bản", "VIP"][skin] })}<span>${["GỐC", "CƠ BẢN", "VIP"][skin]}</span></button>`).join("")}</div><div class="section-label">PHẨM KHO <button id="openSupports" class="ghost small">THAY ĐỔI ↗</button></div><div class="stack">${loadout.supports.map((s, i) => `<div class="support-slot">${itemIcon("support", s.id, { label: SUPPORTS[s.id - 1].name })}<span>${i + 1} / ${SUPPORTS[s.id - 1].name}</span><small>Cấp ${s.tier}</small></div>`).join("")}${loadout.supports.length < 3 ? "<small>Chưa chọn đủ 3 khe — không bắt buộc</small>" : ""}</div><div class="section-label">VỐN MANG VÀO <span id="capitalValue">${loadout.brought} / 300 TB</span></div><input id="capital" type="range" min="0" max="${Math.min(300, profile.tb)}" step="10" value="${loadout.brought}" aria-label="Vốn Thanh bảo mang vào"><small>Tiêu trước thu nhập trận · Chết hoàn 50% phần dư</small></aside></section>
+   )}</div><div class="section-label">HỒN CỐT <span>6 VỊ TRÍ + NGOẠI PHỤ</span></div><div class="bone-grid">${BONES.map((b) => `<button class="bone ${loadout.bones.includes(b.id) ? "active" : ""}" data-bone="${b.id}" ${!ownsGear("bone", b.id) ? "disabled" : ""} title="${b.name}">${itemIcon("bone", b.id, { label: b.name })}${b.slot}</button>`).join("")}</div><div class="section-label">HỒN KHÍ & TRANG PHỤC <span>THẨM MỸ</span></div><div class="ring-pair">${pickerMarkup("Skin Hồn khí",["Nguyên bản","Cơ bản · 2.800 TB","VIP · 399 NB"].map((text,value)=>({text,value})),loadout.skin,'id="skin"')}${pickerMarkup("Trang phục",COSTUMES[loadout.hero].map((text,value)=>({value,text:text+([""," · 1.800 TB"," · 299 NB"," · 1 Vé"][value]??"")})),loadout.costume,'id="costume"')}</div><div class="weapon-previews">${[0, 1, 2].map((skin) => `<button data-preview-skin="${skin}" class="${loadout.skin === skin ? "active" : ""}" aria-label="Xem ${["Nguyên bản", "Cơ bản", "VIP"][skin]}">${itemIcon("weapon", loadout.hero + 1, { skin, label: ["Nguyên bản", "Cơ bản", "VIP"][skin] })}<span>${["GỐC", "CƠ BẢN", "VIP"][skin]}</span></button>`).join("")}</div><div class="section-label">PHẨM KHO <button id="openSupports" class="ghost small">THAY ĐỔI ↗</button></div><div class="stack">${loadout.supports.map((s, i) => `<div class="support-slot">${itemIcon("support", s.id, { label: SUPPORTS[s.id - 1].name })}<span>${i + 1} / ${SUPPORTS[s.id - 1].name}</span><small>Cấp ${s.tier}</small></div>`).join("")}${loadout.supports.length < 3 ? "<small>Chưa chọn đủ 3 khe — không bắt buộc</small>" : ""}</div><div class="section-label">VỐN MANG VÀO <span id="capitalValue">${loadout.brought} / 300 TB</span></div><input id="capital" type="range" min="0" max="${Math.min(300, profile.tb)}" step="10" value="${loadout.brought}" aria-label="Vốn Thanh bảo mang vào"><small>Tiêu trước thu nhập trận · Chết hoàn 50% phần dư</small></aside></section>
  <footer class="hub-footer"><div><div class="mode-controls">${[
    ["solo", "SOLO · 100"],
    ["duo", "DUO · 50 × 2"],
@@ -318,11 +314,14 @@ function renderHub() {
    .join(
      "",
    )}<button id="ranked" class="${loadout.ranked ? "active" : ""}">${loadout.ranked ? "XẾP HẠNG · MÔ PHỎNG" : "ĐẤU THƯỜNG"}</button></div><div class="version">${onlineAccount ? "V2.5 / ONLINE · VÍ VÀ KHO DO MÁY CHỦ QUẢN LÝ" : "V2.5 / NGOẠI TUYẾN VỚI BOT · LƯU TRÊN THIẾT BỊ"} · BẢN ${bootMetrics.sourceHash.slice(0,8)}</div><div class="footer-links"><button class="ghost" id="stash">KHO HỒN THÀNH (${profile.stash.length})</button><button class="ghost" id="help">HƯỚNG DẪN</button><button class="ghost" id="history">ĐÀI VINH DANH</button></div></div><div><button class="primary start-button" id="start">BẮT ĐẦU TRẬN ĐẤU ↗<small>${loadout.mode === "squad3" ? "96" : "100"} HỒN SƯ · ${loadout.ranked ? "CHUẨN HÓA SKIN" : "THƯƠNG MANG CỔ VỰC"}</small></button><div class="version" style="text-align:right">CHI PHÍ TRỢ PHẨM: ${supportCost()} NB + ${supportTbCost()}TB</div></div></footer></main><section class="offline-resume-actions" aria-label="Trận ngoại tuyến đang dở">${!onlineAccount&&pendingSnapshot?'<button class="ghost" id="resumeOffline">TIẾP TỤC TRẬN</button>':''}${!onlineAccount&&(pendingSnapshot||pendingRun)?'<button class="ghost" id="abandonOffline">XỬ LÝ TRẬN DỞ</button>':''}</section><div id="modalRoot"></div>`;
+  composeLobby(app, {loadout, profile, online:onlineAccount, money, action:showLobbyAction});
   $("#branchText").textContent = BRANCH_TEXT[loadout.hero][loadout.branch];
   $$("[data-hero]").forEach(
     (el) =>
       (el.onclick = () => {
-        if([0,1].includes(+el.dataset.hero)&&+el.dataset.hero===loadout.hero)world?.replayHeroEntrance();
+        if(+el.dataset.hero===loadout.hero)world?.replayHeroEntrance();
+        entranceReplayClock.reset();
+        world?.setShowcaseAnimationMode(true);
         loadout.hero = +el.dataset.hero;
         loadout.branch = 0;
         loadout.skin = 0;
@@ -470,6 +469,58 @@ function supportTbCost() {
     0,
   );
 }
+function updateLobbyEntranceReplay(now) {
+  const asset = world?.previewAsset ?? world?.preview?.getObjectByName(loadout.hero === 1 ? 'manualHero_H02_C0' : 'manualHero_H01_C0')?.userData.manualAsset;
+  const legacy=world?.lobbyPresentation;
+  const manualReady=asset?.id === (loadout.hero === 1 ? 'H02-C0' : 'H01-C0') && [0,1].includes(loadout.hero) && asset?.status === 'loaded' && !!world?.showcaseAnimationMode;
+  entranceReplayClock.tick({
+    now, hero: loadout.hero,
+    active: lifecycle.phase === PHASES.LOBBY && !match && !modal && !document.hidden && !app.inert && !matchMedia('(prefers-reduced-motion: reduce)').matches,
+    ready: manualReady || (legacy?.hero === loadout.hero && legacy.ready),
+    complete: manualReady ? !!asset?.entrance?.complete : !!legacy?.complete,
+  }, () => world?.replayHeroEntrance());
+}
+function showLobbyProfile(tab = 'CÁ NHÂN') {
+  showModal('Hồ sơ Hồn Sư', profilePanel(profile, loadout.hero, tab), () => {
+    $$('[data-profile-tab]').forEach(button => button.onclick = () => showLobbyProfile(button.dataset.profileTab));
+  });
+}
+function showLobbyFriends(tab = 'Bạn bè tổng') {
+  showModal('Bạn bè & Bang Hội', friendsPanel(tab), () => {
+    $$('[data-social-tab]').forEach(button => button.onclick = () => showLobbyFriends(button.dataset.socialTab));
+    $('#friendFilter').onclick = event => { const button=event.currentTarget;const online=button.getAttribute('aria-pressed')==='true';button.setAttribute('aria-pressed',String(!online));button.textContent=online?'Tất cả':'Online'; };
+    $('#friendReload').onclick = () => { $('#friendsStatus').textContent='Danh sách bạn bè đang trống.'; };
+    $('#openFriendSearch').onclick=()=>{const input=$('#friendSearch');input.hidden=!input.hidden;if(!input.hidden)input.focus();};
+    $('#friendSearch').oninput = event => { $('#friendsStatus').textContent=event.target.value?'Không tìm thấy Hồn Sư.':'Danh sách bạn bè đang trống.'; };
+    $('#teamCode').onclick = () => showModal('Mã tổ đội', '<p class="intro">Nhập mã đội do bạn bè chia sẻ. Máy chủ hiện tại chưa hỗ trợ tham gia bằng mã.</p><input aria-label="Mã tổ đội" placeholder="TEAMCODE" maxlength="20"><button disabled>CHƯA KHẢ DỤNG</button>');
+  });
+}
+function showLobbyQuests(period = 'daily', week = 1) {
+  showModal('Thử thách Hồn Thành', questPanel(period, week, profile), () => {
+    $$('[data-quest-period]').forEach(button => button.onclick = () => showLobbyQuests(button.dataset.questPeriod, week));
+    $$('[data-quest-week]').forEach(button => button.onclick = () => showLobbyQuests('weekly', +button.dataset.questWeek));
+  });
+}
+function showLobbyAction(action) {
+  if(action === 'render') { world?.setLobbyComposition?.(lobbyState.view);renderHub(); return; }
+  if(action === 'weapon-inventory'){lobbyState.view='inventory';renderHub();$('#skin').scrollIntoView({block:'center'});return;}
+  if(action === 'fortune')return showModal('Vòng quay may mắn','<p class="intro">Vòng quay may mắn sẽ mở trong sự kiện sắp tới.</p>');
+  if(action.startsWith('profile-'))return toast('Tính năng này sẽ mở trong bản cập nhật sau.');
+  if(action === 'profile') return showLobbyProfile();
+  if(action === 'friends') return showLobbyFriends();
+  if(action === 'clan') return showLobbyFriends('Bang Hội');
+  if(action === 'chat'||action === 'mail')return showModal(action==='chat'?'Trò chuyện':'Hòm thư','<p class="intro">Dịch vụ này chưa được mở trên máy chủ hiện tại.</p>');
+  if(action === 'pass') return showModal('Hồn Lệnh', passPanel(profile));
+  if(action === 'quests') return showLobbyQuests();
+  if(action === 'supports') return showSupports();
+  if(action === 'shop' || action === 'stash') return showStash();
+  if(action === 'online') return showOnline();
+  if(action === 'history') return showHistory();
+  if(action === 'premium') return showModal('Ngân Bảo', `<p class="intro">Số dư: ${money(profile.nb)} Ngân Bảo.</p><p>Chưa tích hợp cổng nạp tiền thật. Ngân Bảo trong bản ngoại tuyến là tài sản mô phỏng trên thiết bị.</p>`);
+  if(action === 'vip' || action === 'weekly') return showModal(action === 'vip' ? 'Tông Sư Đặc Quyền' : 'Chu Lệnh · Thẻ Tuần', '<p class="intro">Chưa có gói đặc quyền hoặc Thẻ Tuần được kích hoạt trên tài khoản. Dịch vụ đăng ký chưa được triển khai.</p>');
+  if(action === 'events') return showModal('Sự kiện Hồn Thành', `<p class="intro">Vé sự kiện đang có: ${profile.eventTickets ?? 0}.</p><p>Vé có thể đổi trang phục sự kiện tại Hành Trang. Chưa có lịch sự kiện mới.</p><button id="eventInventory">MỞ HÀNH TRANG</button>`, () => { $('#eventInventory').onclick=()=>{closeModal();lobbyState.view='inventory';renderHub();}; });
+  if(action === 'resources') return showModal('Tài nguyên Hồn Thành', '<p class="intro">Model, âm thanh và giao diện của 12 Hồn Sư được đóng gói trong APK để dùng ngoại tuyến. Trên bản web, tài nguyên được tải khi cần và lưu trong bộ nhớ đệm.</p><p>Không có gói tài nguyên bổ sung đang tải.</p>');
+}
 function supportCost() {
   return loadout.supports.reduce(
     (n, s) =>
@@ -514,15 +565,19 @@ function showModal(title, content, bind = () => {}) {
   input.x = input.z = 0;
   keys.clear();
   modal = title;
+  world?.setLobbyComposition?.(({"Hồ sơ Hồn Sư":'profile',"Hồn Lệnh":'pass',"Thử thách Hồn Thành":'quests'})[title]??lobbyState.view);
   pushInputEdge();
   $("#modalRoot").innerHTML =
     `<div class="modal-backdrop"><section class="modal" role="dialog" aria-modal="true" aria-label="${title}"><header class="modal-header"><h2>${title}</h2><button id="closeModal" class="ghost" aria-label="Đóng">✕</button></header>${content}</section></div>`;
+  cardPickers($("#modalRoot"));
   $("#closeModal").onclick = closeModal;
   bind();
+  $$('[data-lobby-action]',$("#modalRoot")).forEach(button=>{if(!button.onclick)button.onclick=()=>showLobbyAction(button.dataset.lobbyAction);});
 }
 function closeModal() {
   autoFarm.manualEnd("modal");
   modal = null;
+  world?.setLobbyComposition?.(lobbyState.view);
   clearTimeout(appraisalTimer);
   appraisalTimer = null;
   $("#modalRoot").innerHTML = "";
@@ -580,7 +635,7 @@ function showSupports() {
           conflict =
             (s.id === 1 && loadout.supports.some((c) => c.id === 4)) ||
             (s.id === 4 && loadout.supports.some((c) => c.id === 1));
-        return `<div class="item-card support-choice ${chosen ? "selected" : ""}">${itemIcon("support", s.id, { label: s.name })}<small>${s.code}</small><h3>${s.name}</h3><p>${s.text}</p><div class="row between"><select data-tier="${s.id}" aria-label="Cấp ${s.name}">${s.prices.map((p, i) => `<option value="${i + 1}" ${chosen?.tier === i + 1 ? "selected" : ""}>Cấp ${i + 1} · ${p} NB</option>`).join("")}</select>${s.tb ? `<select data-currency="${s.id}" aria-label="Loại tiền ${s.name}"><option value="nb">Ngân Bảo</option><option value="tb" ${chosen?.currency === "tb" ? "selected" : ""}>${s.tb}Thanh Bảo</option></select>` : ""}<button data-support="${s.id}" ${conflict ? "disabled" : ""}>${chosen ? "Bỏ chọn" : conflict ? "Xung đột" : "Chọn"}</button></div></div>`;
+        return `<div class="item-card support-choice ${chosen ? "selected" : ""}">${itemIcon("support", s.id, { label: s.name })}<small>${s.code}</small><h3>${s.name}</h3><p>${s.text}</p><div class="row between">${pickerMarkup("Cấp "+s.name,s.prices.map((price,i)=>({value:i+1,text:`Cấp ${i+1} · ${price} NB`})),chosen?.tier??1,`data-tier="${s.id}"`)}${s.tb ? `${pickerMarkup("Loại tiền "+s.name,[{value:"nb",text:"Ngân Bảo"},{value:"tb",text:s.tb+" Thanh Bảo"}],chosen?.currency??"nb",`data-currency="${s.id}"`)}` : ""}<button data-support="${s.id}" ${conflict ? "disabled" : ""}>${chosen ? "Bỏ chọn" : conflict ? "Xung đột" : "Chọn"}</button></div></div>`;
       },
     ).join("")}</div>`,
     () => {
@@ -669,7 +724,7 @@ function showStash() {
                 api("/shop", { kind: "gear", type: kind, id: +id })
                   .then(() => api("/me"))
                   .then((me) => {
-                    profile = me.profile;
+                    profile = {...me.profile, displayName:me.username};
                     renderHub();
                     showStash();
                   })
@@ -740,7 +795,7 @@ function showHelp() {
 }
 async function startMatch(event) {
   if(!onlineAccount&&(pendingSnapshot||pendingRun)){toast('Hãy tiếp tục hoặc xác nhận bỏ trận dở trước khi bắt đầu trận mới.');return false;}
-  const token=lifecycle.begin(event);if(token===null)return false;app.inert=true;
+  const token=lifecycle.begin(event);if(token===null)return false;entranceReplayClock.reset();app.inert=true;
   try {await worldReady;if(!lifecycle.valid(token))return false;return await launchMatch(token);}
   catch(error){world?.releaseBattlefield();lifecycle.cancel();const button=$('#start');if(button){button.disabled=false;button.textContent='BẮT ĐẦU TRẬN ĐẤU';}throw error;}
   finally{app.inert=false;}
@@ -785,6 +840,7 @@ async function launchMatch(token) {
   fullscreen();
 }
 function renderHUD() {
+  lobbyState.view = "home";
   skillshot.reset();
   autoFarm.reset();
   const a = match.player;
@@ -800,6 +856,7 @@ function renderHUD() {
     const modes = ["off", "pve", "full"];
     autoFarm.setMode(modes[(modes.indexOf(autoFarm.mode) + 1) % 3]);
     updateAssetLoadingIndicator();
+  updateLobbyEntranceReplay(now);
   updateAutoHUD();
   };
   $("#autoFarmToggle").oncontextmenu = (e) => {
@@ -1685,6 +1742,7 @@ function animate(now) {
   }
   if (world&&(!match || match.player)) world.render(match, dt, loadout.hero, loadout);
   updateAssetLoadingIndicator();
+  updateLobbyEntranceReplay(now);
   updateAutoHUD();
   audio.update(match, now / 1000);
   updateSkillCooldowns();
@@ -1705,7 +1763,7 @@ function animate(now) {
 }
 // Offline snapshots stay pending until an explicit trusted gesture.
 async function continueOfflineMatch(event){
- const token=lifecycle.begin(event);if(token===null)return false;app.inert=true;
+ const token=lifecycle.begin(event);if(token===null)return false;entranceReplayClock.reset();app.inert=true;
  try{
   if(onlineAccount||!pendingSnapshot)throw Error('Không có snapshot ngoại tuyến đầy đủ để tiếp tục.');
   const restored=Match.restore(pendingSnapshot,offlineMatchEvent);
@@ -1728,7 +1786,7 @@ function showInterruptedRunConfirmation(){
  });});
 }
 lifecycle.boot();renderHub();bootMetrics.marks.lobbyUI=performance.now();
-worldReady=initializeWorld().catch(error=>{bootMetrics.error=error.message;toast('Không khởi tạo được 3D. Giao diện và kho vẫn khả dụng.');throw error;});
+worldReady=initializeWorld().then(engine=>{engine.setShowcaseAnimationMode(true);return engine;}).catch(error=>{bootMetrics.error=error.message;toast('Không khởi tạo được 3D. Giao diện và kho vẫn khả dụng.');throw error;});
 // Attach rejection handling immediately even before the user presses Start.
 void worldReady.catch(()=>{});
 let recoveringRenderer=false;
@@ -1743,7 +1801,7 @@ window.addEventListener('hon-gioi-render-error',async()=>{
 });
 window.addEventListener('pagehide',save);
 let animationId=null,backgroundMatch=false;
-function suspend(){save();backgroundMatch=!!match;if(lifecycle.phase===PHASES.LOADING){lifecycle.cancel();world?.releaseBattlefield();renderHub();}if(animationId!==null)cancelAnimationFrame(animationId);animationId=null;releaseJoystick();skillshot.reset();keys.clear();input.x=input.z=0;input.attack=false;}
+function suspend(){entranceReplayClock.reset();save();backgroundMatch=!!match;if(lifecycle.phase===PHASES.LOADING){lifecycle.cancel();world?.releaseBattlefield();renderHub();}if(animationId!==null)cancelAnimationFrame(animationId);animationId=null;releaseJoystick();skillshot.reset();keys.clear();input.x=input.z=0;input.attack=false;}
 function resume(){
  if(backgroundMatch&&match){
   if(!match.online&&!match.result){
@@ -1761,6 +1819,7 @@ animationId=requestAnimationFrame(animate);
 // Read-only diagnostics for QA; game state remains available for local sandbox automation.
 window.__HON_GIOI__ = {
   get build(){return{sourceHash:bootMetrics.sourceHash,version:"2.5.0"};},
+  get lobby(){return {view:lobbyState.view,entranceReplays:entranceReplayClock.replays,replayDue:entranceReplayClock.due};},
   get lifecycle(){return {phase:lifecycle.phase,revision:lifecycle.revision,transitions:[...lifecycle.transitions]};},
   get boot(){return bootMetrics;},
   get match() {
@@ -1821,7 +1880,7 @@ async function showOnline() {
         try {
           await api("/auth/login", credentials());
           const me = await api("/me");
-          profile = me.profile;
+          profile = {...me.profile, displayName:me.username};
           onlineAccount = true;
           sanitizeLoadout();
           closeModal();

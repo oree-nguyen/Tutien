@@ -24,15 +24,19 @@ try {
       window.__HON_GIOI__ &&
       getComputedStyle(document.querySelector("#rotate")).display === "none",
   );
+  await page.locator('#quickCharacter').click();
+  await page.locator('#editHero').click();
   await page.locator('[data-hero="3"]').click();
   assert.equal(await page.locator(".hero-heading").textContent(), "Kỳ Vân");
   await page.locator('[data-hero="0"]').click();
-  await page.locator("#openSupports").click();
+  await page.locator('.quick-supports [data-lobby-action="supports"]').first().click();
   await page.locator('[data-support="5"]').click();
   await page.locator('[data-support="18"]').click();
   await page.locator('[data-support="1"]').click();
   assert.ok(await page.locator('[data-support="4"]').isDisabled());
   await page.locator("#closeModal").click();
+  await page.locator('.hero-confirm').click();
+  await page.locator('[aria-label="Đóng Nhân vật"]').click();
   await page.screenshot({ path: "test-results/hub-desktop.png" });
   await page.locator("#start").click();
   await page.waitForFunction(() => window.__HON_GIOI__.match?.time > 0);

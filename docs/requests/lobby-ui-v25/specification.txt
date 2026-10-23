@@ -1,0 +1,258 @@
+﻿BÁO CÁO ĐẶC TẢ KỸ THUẬT CẢI THIỆN GIAO DIỆN (UI/UX) SẢNH HỒN THÀNH — DỰ ÁN HỒN GIỚI: SINH TỒN (V2.5)
+Tài liệu Đặc tả Kiến trúc Giao diện, Hình ảnh Thiết kế Thực tế (In-Game UI Mockups) & Chỉ thị Triển khai dành cho Coding-Agent
+TÓM TẮT MỤC TIÊU DÀNH CHO CODING-AGENT (EXECUTIVE DIRECTIVE)
+1. Mục tiêu cốt lõi: Tái cấu trúc toàn diện giao diện Sảnh Hồn Thành của dự án 'Hồn Giới: Sinh Tồn - Thương Mang Cổ Vực (V2.5)' từ kiểu trang Web nhồi nhét (All-in-One Dashboard) sang kiến trúc Sảnh Game Mobile chuyên nghiệp lấy chuẩn bố cục từ Garena Free Fire nhưng giữ nguyên 100% phong cách Tiên Hiệp - Huyền Huyễn (Ngọc Bích & Vàng Kim Cổ Phong) của Hồn Giới.
+2. Thiết kế trực quan thực tế (Visual Mockups): Toàn bộ các màn hình mục tiêu trong tài liệu này (Sảnh chính H1, Khung Nhân vật H2, Bảng chọn Hồn Sư H3, Khung Bạn bè & Bang hội H4, Hồ sơ người chơi H5, Hồn Lệnh H6 và Nhiệm vụ H7) đã được kết xuất thành hình ảnh giao diện thực tế để Coding-Agent bám sát tỷ lệ, chất liệu khung viền và bố cục.
+3. Phạm vi kỹ thuật bắt buộc: Giải quyết triệt để lỗi đè chữ lên cảnh 3D, lỗi cắt khung (clipping) ở góc dưới phải, loại bỏ hoàn toàn thẻ <select> kiểu trình duyệt web, và cài đặt bộ đếm tự động lặp lại Hiệu ứng Xuất hiện nhân vật sau mỗi 7,2 giây (7200ms) theo quy tắc (*²).
+	
+
+1. CHẨN ĐOÁN HIỆN TRẠNG GIAO DIỆN HỒN GIỚI (ẢNH HIỆN TẠI 14544.jpg)
+Phân tích trực tiếp ảnh chụp màn hình hiện tại của game Hồn Giới (nhân vật H01 Lâm Dật - Võ hồn Thanh Mạch Đằng) cho thấy 5 lỗi nghiêm trọng về bố cục và khả năng đọc cần phải được Coding-Agent xử lý triệt để:
+  
+
+Hình 1: Giao diện Sảnh Hồn Thành hiện tại (14544.jpg) — Quá tải thông tin hai bên, chữ đè lên cột rồng & pháp trận, cắt khung dưới đáy.
+Mã Lỗi
+	Hạng Mục Giao Diện
+	Phân Tích Lỗi Trên Giao Diện Hiện Tại (Ảnh 14544.jpg)
+	Hướng Giải Quyết Triệt Để Cho Coding-Agent
+	UI-P0-01
+	Quá tải thông tin trên 1 màn hình
+(Information Overload)
+	Nhồi nhét toàn bộ 8 chỉ số cơ bản, 3 nhánh tiến hóa, lưới 12 ô chọn tướng, 5 nút chọn chế độ chơi, thanh công cụ hệ thống và bảng '01 / HÀNH TRANG XUẤT CHIẾN' (2 khe Hồn Hoàn, 7 ô Hồn Cốt, Hồn Khí, Trang Phục) lên cùng một màn hình duy nhất.
+	Áp dụng kiến trúc tách lớp màn hình [H1]: Sảnh chính mặc định ẩn hoàn toàn cột thông số trái và khung Hành trang phải để phô diễn cảnh 3D. Đưa Thiết lập Nhân vật vào Khung trượt [H2] và Bảng chọn [H3].
+	UI-P0-02
+	Lỗi đè chữ lên cảnh 3D & Tương phản thấp
+(Text Overlap)
+	Chữ trắng 'MỘC TINH TRƯỢNG / HUNYUAN · RIG...' và nút 'TOÀN THÂN / CẬN CẢNH' đè lên chân Lâm Dật và pháp trận sáng. Nhãn 'Giáp (43)', 'Tầm đánh (5m)', 'KHÓA KHI VÀO TRẬN' đè lên cột rồng vàng bên trái. Các nút chữ dưới đáy chìm vào bậc đá trắng.
+	Xóa bỏ toàn bộ dòng chữ kỹ thuật (Hunyuan Rig) dưới chân nhân vật. Bọc toàn bộ các khối UI trong khung nền ngọc bích tối (rgba(11, 22, 28, 0.90) + blur 10px) có viền vàng đồng cổ phong.
+	UI-P0-03
+	Lỗi cắt khung & Dùng Dropdown kiểu Web
+(Clipping & Web Select)
+	Khung '01 / HÀNH TRANG XUẤT CHIẾN' bên phải dùng thẻ <select> kiểu trang web cho Hồn Hoàn ('Khe 1 · Trống v') và bị nút 'BẮT ĐẦU TRẬN ĐẤU' cắt cụt mất nửa dưới của mục 'HỒN KHÍ & TRANG PHỤC'.
+	Cấm tuyệt đối thẻ <select> mặc định của trình duyệt. Thay thế bằng hệ thống Slot Card có ảnh tỉ lệ 1:1 và mở ngăn kéo chọn thẻ (Card Drawer). Đưa Hành Trang vào tab riêng dưới thanh điều hướng đáy.
+	UI-P1-04
+	Thiếu Thanh Hồ Sơ Góc Trái & Khung Bạn Bè
+(Missing Social & Profile)
+	Góc trên trái chỉ có chữ 'HỒN GIỚI' và tên tướng 'Lâm Dật', hoàn toàn thiếu khu vực Hồ sơ tài khoản người chơi, Cấp bậc xếp hạng (Tông Sư), trạng thái VIP và thiếu hẳn khung Danh sách Bạn bè / Bang hội.
+	Xây dựng Thanh Ngang Hồ Sơ & Tiền Tệ ở góc trên trái [H1 - Khu vực ¹⁴], Giao diện Hồ Sơ chi tiết [H5], và Khung Mở Rộng Bạn Bè / Bang Hội / Teamcode ở cạnh phải [H4].
+	UI-P1-05
+	Vi phạm quy tắc khoảng cách Fitts's Law
+(Split Match Controls)
+	Các nút chọn chế độ chơi (SOLO · 100, DUO · 50×2, SQUAD · 32×3) đặt ở góc dưới bên trái, cách xa nút 'BẮT ĐẦU TRẬN ĐẤU' ở góc dưới bên phải khiến mắt và ngón tay phải di chuyển chéo toàn màn hình.
+	Dời cụm Chọn Chế Độ Chơi sang góc dưới bên phải, đặt ngay sát phía trên nút 'BẮT ĐẦU TRẬN ĐẤU', đồng thời đặt Ô Hộp Mở Nhanh Nhân Vật [H2] ngay bên trái nút Bắt Đầu.
+	
+
+2. ĐẶC TẢ CHI TIẾT & HÌNH ẢNH THIẾT KẾ MỤC TIÊU TỪNG MODULE (H1 → H7)
+2.1. Module [H1]: Giao Diện Sảnh Chính Thu Gọn & Thanh Ngang Hồ Sơ Góc Trái
+Ở trạng thái mặc định khi vừa vào Sảnh Hồn Thành (chưa mở bất kỳ bảng phụ nào), giao diện phải giải phóng toàn bộ không gian trung tâm cho nhân vật Lâm Dật đứng trên Bệ Đài. Khu vực góc trên bên trái được thiết kế thành Thanh Ngang Hồ Sơ & Tiền Tệ theo đúng cấu trúc của Free Fire nhưng mang phong cách Ngọc Bích - Vàng Kim của Hồn Giới:
+  
+
+Hình 2: Giao diện Sảnh Chính thu gọn mục tiêu [H1] của Hồn Giới — Bệ đài trung tâm thoáng đãng, Thanh Hồ sơ & Tiền tệ góc trên trái, Menu sự kiện trái, Thanh điều hướng đáy và Ô Hộp mở nhanh [H2] cạnh nút Bắt Đầu.
+Thứ Tự (Trái -> Phải)
+	Thành Phần Tham Chiếu (Mẫu H1)
+	Quy Tắc Chuyển Đổi Trong Game 'Hồn Giới' (Bắt Buộc)
+	Hành Vi Tương Tác & Dữ Liệu Ràng Buộc
+	1. Khu vực Hồ sơ (¹⁴)
+	Icon Avatar nhân vật hiện tại, Cấp độ (Lv.31), Ảnh bìa nền sau tên, Tên người dùng, Huy hiệu Mức Rank.
+	Giữ nguyên cấu trúc khung; thay Mức Rank bằng Cấp Bậc Tông Sư (Hồn Sĩ -> Hồn Sư -> Đại Hồn Sư -> Hồn Tôn -> Hồn Vương -> Hồn Đế -> Phong Hào Đấu La).
+	Khi người chơi bấm vào bất kỳ điểm nào trong Khu vực Hồ sơ (¹⁴), mở ngay màn hình Giao diện Hồ sơ Người dùng [H5].
+	2. Tiền tệ 1 (Miễn phí)
+	Biểu tượng đồng Vàng + Số lượng (4.588).
+	Thay Vàng bằng Thanh Bảo (Icon đồng Thanh Bảo xanh ngọc + Số dư 4.311 + nút '+').
+	Hiển thị số dư HUB_THANH_BAO hiện có tại Hồn Thành. Bấm vào mở giải thích hoặc lối tắt tới Thương Thành.
+	3. Tiền tệ 2 (Cao cấp)
+	Biểu tượng Kim Cương + Số lượng + dấu '+'.
+	Thay Kim Cương bằng Ngân Bảo (Icon tinh thể Ngân Bảo trắng kim + Số dư 600 + nút '+').
+	Hiển thị số dư PREMIUM_NGAN_BAO của tài khoản. Bấm dấu '+' mở giao diện nạp/quy đổi Ngân Bảo.
+	4. Đặc quyền VIP
+	Huy hiệu Mức độ VIP + Thẻ VIP theo tuần.
+	Giữ nguyên 2 biểu tượng: Icon Cấp độ VIP (Tông Sư Đặc Quyền) + Icon Thẻ VIP Theo Tuần (Weekly Pass / Chu Lệnh).
+	Hiển thị trạng thái kích hoạt đặc quyền VIP và số ngày còn lại của Thẻ Tuần.
+	5. Tải Tài Nguyên
+	Nút Icon Đám mây có mũi tên tải xuống.
+	Giữ nguyên Nút Tải Tài Nguyên (Download Resource) ở cuối cụm bên trái.
+	Hiển thị tiến độ tải ngầm các gói model 3D (.glb), trang phục và âm thanh của 11 Hồn Sư còn lại.
+	
+
+2.2. Module [H2]: Khung Thiết Lập Nhanh 'NHÂN VẬT' (Mở Từ Ô Hộp Cạnh Nút Bắt Đầu)
+Khi người chơi bấm vào ô hình chiếc hộp vuông nằm ngay bên trái nút 'BẮT ĐẦU TRẬN ĐẤU' trên Sảnh Chính [H1], khung trượt 'NHÂN VẬT' [H2] sẽ mở ra ở bên phải màn hình. Coding-Agent phải thực thi chính xác 9 quy tắc biến đổi từ (⁰) đến (⁸) và nút (*¹) như hình thiết kế thực tế dưới đây:
+  
+
+Hình 3: Giao diện Khung Thiết lập nhanh 'NHÂN VẬT' [H2] khi mở ra ở cạnh phải — Đã bỏ cột số 1-5 (⁰), hiển thị Ảnh nhân vật (⁴), Tên Lâm Dật (²), Võ Hồn Thanh Mạch Đằng (³), Nút Cây viết (*¹) (⁵), Bảng 8 thông số (⁶), 3 ô vuông 1:1 Nhánh tiến hóa (⁷) và 3 ô vuông 1:1 Trợ phẩm (⁸).
+Ký Hiệu Ghi Chú
+	Thành Phần Tham Chiếu (Mẫu H2)
+	Đặc Tả Thực Thi Trong Game 'Hồn Giới' (Bắt Buộc)
+	Chi Tiết Kỹ Thuật UI / DOM Cho Coding-Agent
+	Mục (⁰)
+	Cột các số thứ tự 1, 2, 3, 4, 5 bên rìa trái của khung.
+	BỎ ĐI HOÀN TOÀN. Không hiển thị cột tab số 1, 2, 3, 4, 5 bên rìa trái của khung.
+	Xóa bỏ cột vertical tabs 1..5 để mở rộng chiều ngang khả dụng cho nội dung bên trong khung H2.
+	Mục (¹)
+	Dòng tiêu đề 'CHIẾN THUẬT' ở góc trên cùng của khung.
+	Thay bằng dòng chữ 'NHÂN VẬT' (kèm nút 'X' đóng khung ở góc phải).
+	Header bar dùng font chữ đậm 14pt, màu vàng kim (#FDE68A) trên nền tối (#11222B).
+	Mục (²)
+	Dòng chữ chính 'COMBO 3'.
+	Thay bằng 'TÊN NHÂN VẬT' đang được chọn (ví dụ: 'LÂM DẬT', 'HÀN TRẠCH', 'LY SA'...).
+	Bind động với trường hero.name của nhân vật đang chọn (chữ trắng in hoa đậm, 13pt).
+	Mục (³)
+	Dòng chữ phụ 'TỬ CHIẾN MẶC ĐỊNH' ngay dưới dòng Combo 3.
+	Thay bằng tên 'VÕ HỒN' gốc của nhân vật đó (ví dụ: 'Võ Hồn: Thanh Mạch Đằng').
+	Bind động với trường hero.martialSoul (chữ màu xanh ngọc bích #2DD4BF, 10.5pt).
+	Mục (⁴)
+	Ô icon nhân vật nằm bên trái hai dòng 'COMBO 3' và 'TỬ CHIẾN MẶC ĐỊNH'.
+	Thay bằng Hình ảnh nhân vật (Avatar chân dung 2D sắc nét tỉ lệ 1:1 của Hồn Sư đang chọn).
+	Khung vuông tỉ lệ 1:1 (56×56px), bo góc 6px, viền vàng đồng (#C8A25A), đặt bên trái cụm (²) và (³).
+	Mục (⁵) & (*¹)
+	Hai nút 'Sao chép' và 'Chi tiết' nằm bên phải hai dòng chữ trên.
+	Gộp thành 1 nút duy nhất có Icon 'Cây viết chỉnh sửa' (*¹). Bấm vào (*¹) sẽ mở ra bảng Danh sách & Chi tiết Nhân vật [H3].
+	Nút bấm kích thước 40×40px có icon cây bút (✎). Sự kiện onClick kích hoạt mở giao diện [H3].
+	Mục (⁶)
+	Hai ô nhân vật hàng đầu tiên trong lưới kỹ năng.
+	Thay bằng Bảng hiển thị Thông số Nhân vật: HP, Công VL, Hồn công, Giáp, Kháng, Tốc chạy, Hồn lực, Tầm đánh.
+	Gộp diện tích của 2 ô đầu thành 1 khối thống nhất (Stats Grid 2 cột × 4 hàng) hiển thị rõ 8 chỉ số nền V2.5.
+	Mục (⁷)
+	Hai ô nhân vật hàng tiếp theo trong lưới kỹ năng.
+	Thay bằng 3 Ô Vuông hiển thị 3 Nhánh Tiến Hóa của nhân vật: Bên trên là hình ảnh minh họa nhánh (tỉ lệ 1:1), bên dưới là Tên Nhánh.
+	Chia hàng này thành 3 cột đều nhau (Mộc Phược | Huyết Đằng | Linh Sinh). Bấm vào từng ô để đổi nhánh võ hồn trước trận.
+	Mục (⁸)
+	Hai ô dưới đáy: Trợ thủ con rồng và Vật phẩm robot xanh lá.
+	Thay bằng 3 Ô Vuông hiển thị 3 Trợ Phẩm của nhân vật: Bên trên là hình ảnh minh họa Trợ phẩm (tỉ lệ 1:1), bên dưới là Tên Trợ Phẩm.
+	Chia hàng dưới thành 3 ô vuông cân đối (Duy Linh Chú | Vệ Linh Chú | Hạ Gian Hồi). Kiểm tra luật cấm mang chung Duy Linh Chú & Bội Linh Chú.
+	
+
+2.3. Module [H3]: Bảng Danh Sách Nhân Vật & Quy Tắc Hoạt Ảnh Xuất Hiện 7,2 Giây (*²)
+Khi người chơi bấm vào nút Icon 'Cây viết chỉnh sửa' (*¹) ở khung [H2], hệ thống mở giao diện Chọn & Xem Chi Tiết Nhân Vật [H3] với bố cục 3 phần: Bảng Danh sách 12 Hồn Sư bên trái, Mô hình Nhân vật 3D đứng trên Bệ Đài ở chính giữa, và Bảng Chi tiết Kỹ năng / Thuộc tính / Nhánh / Trợ phẩm ở bên phải:
+  
+
+Hình 4: Giao diện Bảng Danh Sách & Chi Tiết Nhân Vật [H3] mở ra khi bấm Icon Cây Viết (*¹) — Bỏ hoàn toàn các bộ lọc thừa ở bảng trái, nhân vật 3D đứng giữa chạy hiệu ứng xuất hiện tự động lặp lại sau mỗi 7,2 giây (*²), và đồng bộ tức thì thông tin giữa 2 bảng.
+QUY TẮC BẮT BUỘC KHI TRIỂN KHAI MODULE [H3] & BỘ ĐẾM HOẠT ẢNH 7,2 GIÂY (*²)
+1. Loại bỏ toàn bộ các thanh lọc thừa: Tuyệt đối KHÔNG hiển thị các nút lọc 'Chủ động / Bị động' hay các tab 'Tất cả, Đồng đội, Sinh tồn, Tấn công, Thông tin' như Free Fire. Hiển thị trực tiếp lưới thẻ 2 cột của 12 Hồn Sư (Lâm Dật, Hàn Trạch, Ly Sa, Kỳ Vân, Tịch Dao, Đỗ Kình, Vân Chước, Sở Băng Nghi, Mặc Tinh, Thiên Lạc, Ninh Từ, Tạ Uyên).
+2. Cơ chế đồng bộ tức thì giữa 2 bảng: Khi người chơi bấm chọn một thẻ nhân vật ở bảng danh sách, toàn bộ thông tin của nhân vật đó (Tên, Võ hồn, Mô tả kỹ năng Q/W/E/R, 8 Thuộc tính, 3 Nhánh tiến hóa, 3 Trợ phẩm) sẽ tự động cập nhật ngay lập tức qua bảng chi tiết đối diện và lưu vào khung [H2].
+3. Quy tắc Hoạt ảnh Xuất hiện 7,2 giây (*²): Ở chính giữa 2 bảng vẫn là nhân vật 3D đứng trên Bệ Đài. Khi bấm chọn nhân vật sẽ chạy Hiệu ứng Xuất hiện (Entrance Animation). Sau mỗi 7,2 giây (7200ms) nếu người chơi không thay đổi nhân vật, hiệu ứng xuất hiện sẽ tự động chạy lại một lần!
+	
+
+2.4. Module [H4]: Danh Sách Bạn Bè, Bang Hội & Tổ Đội Khi Mở Rộng
+Khi mở rộng thanh Bạn bè ở cạnh phải màn hình Sảnh Chính, hệ thống hiển thị khung Danh sách Bạn bè & Bang hội [H4] ngay phía trên nút 'BẮT ĐẦU TRẬN ĐẤU' theo đúng các quy tắc (¹⁰), (¹¹), (¹²):
+  
+
+Hình 5: Giao diện Danh sách Bạn bè & Bang hội mở rộng [H4] — 3 Tab trên cùng (Bạn tổng | Bang Hội | Gần đây), thanh công cụ (Online, Reload, Tìm kiếm, TEAMCODE), và các thẻ bạn bè hiển thị ảnh Nhân vật họ đang chọn + Cấp Bậc Tông Sư + 3 icon hành động.
+Ký Hiệu Ghi Chú
+	Cấu Trúc Tham Chiếu (Mẫu H4)
+	Quy Tắc Thực Thi Trong Game 'Hồn Giới' (Bắt Buộc)
+	Hàng 1 — Mục (¹⁰)
+(3 Tab Phân Loại)
+	Gồm 3 tab: Bạn bè tổng | Bạn bè trong Quân đoàn | Bạn bè trận đấu trước (tính từ lúc gần nhất vào game).
+	Giữ nguyên 3 tab và chức năng, nhưng đổi tên gọi 'Quân đoàn' thành 'Bang Hội': 1. Bạn bè tổng | 2. Bạn bè Bang Hội | 3. Bạn bè trận đấu trước.
+	Hàng 2 — Mục (¹¹)
+(Thanh Công Cụ)
+	Gồm: Bộ lọc trạng thái + Nút Reload (tải lại danh sách bạn đang online từ Server) + Nút Tìm kiếm + Nút TEAMCODE.
+	Giữ nguyên 100% cả 4 công cụ: Dropdown lọc Online, Nút Reload (↻ cập nhật danh sách từ Server), Nút Tìm kiếm, và Nút 'TEAMCODE' (nhập mã đội nhóm).
+	Danh Sách — Mục (¹²)
+(Thẻ Bạn Bè & Hành Động)
+	Mỗi dòng gồm: Icon bạn bè, Tên, Trạng thái trong game, Mức Rank, và 3 icon: Lá cờ + dấu cộng (Gia nhập nhóm), Dấu cộng (Mời vào nhóm), Ô vuông + tay cầm (Hẹn trận sau).
+	Giữ nguyên bố cục và 3 icon hành động, nhưng áp dụng 2 thay đổi bắt buộc: (1) Thay icon avatar bằng Hình ảnh minh họa Nhân vật (Hồn Sư) mà họ đang chọn (ví dụ Hàn Trạch, Ly Sa, Kỳ Vân...); (2) Thay mức Rank bằng Huy hiệu Cấp Bậc Tông Sư.
+	
+
+2.5. Module [H5]: Giao Diện Hồ Sơ Người Dùng (Mở Từ Khu Vực ¹⁴ Góc Trên Trái)
+Khi người chơi bấm vào Khu vực Hồ sơ (¹⁴) ở góc trên bên trái Sảnh Chính [H1], màn hình chuyển sang Giao diện Hồ Sơ Người Dùng [H5] với đúng 5 mục ở cột trái (¹³) và Thẻ thông tin Hồn Sư ở khung phải (¹⁴):
+  
+
+Hình 6: Giao diện Hồ Sơ Người Dùng [H5] — Cột trái (¹³) giữ đúng 5 mục (Cá nhân, Tổng quan, Lịch sử, Điểm uy tín, Danh sách mong muốn); khung phải (¹⁴) hiển thị Thẻ thông tin, Cấp Bậc Tông Sư và huy hiệu các mùa Hồn Lệnh (VIP màu Vàng, Cày chay màu Xám).
+* Cột Menu Bên Trái (¹³) — Giữ lại đúng 5 mục: Loại bỏ 3 mục thừa (Vai trò, Vũ khí, Tập ảnh) và chỉ giữ lại 5 mục: CÁ NHÂN, TỔNG QUAN, LỊCH SỬ, ĐIỂM UY TÍN, DANH SÁCH MONG MUỐN.
+* Khung Bảng Hồ Sơ Bên Phải (¹⁴) — Tùy biến theo hệ thống Hồn Giới: Bên dưới Thẻ thông tin cá nhân là nút chuyển chế độ ('⇄ SINH TỒN - THƯƠNG MANG CỔ VỰC'), hiển thị 3 huy hiệu lớn: Cấp Bậc Tông Sư hiện tại (Phong Hào Đấu La), Dấu Ấn Tông Sư (Số lần đạt cấp bậc cao), và Phong Cách Chiến Đấu (Khống Chế Cổng).
+* Hàng Huy Hiệu Các Mùa Hồn Lệnh Đã Tham Gia: Thay cho Thẻ Booyah là dải huy hiệu các mùa 'HỒN LỆNH' kèm cấp độ đạt được (Lv.88, Lv.15, Lv.25...). Quy tắc bắt buộc: Mùa có mua VIP hiển thị MÀU VÀNG KIM rực rỡ, mùa cày chay hiển thị MÀU XÁM BẠC.
+2.6. Module Mở Rộng [H6 & H7]: Giao Diện 'HỒN LỆNH' & 'NHIỆM VỤ HÀNG NGÀY / HÀNG TUẦN'
+Dựa trên 3 ảnh tham chiếu còn lại trong bộ ảnh đính kèm (Thẻ Booyah 14908.jpg, Nhiệm vụ Hàng ngày 14910.jpg và Nhiệm vụ Hàng tuần 14911.jpg), dưới đây là thiết kế giao diện thực tế đã được chuyển đổi sang phong cách Tiên Hiệp của Hồn Giới:
+  
+
+Hình 7: Giao diện Thẻ Mùa Giải 'HỒN LỆNH - THANH MỘC LINH LỆNH' [H6] — Bảng thưởng cuộn ngang 2 tầng (Phàm Phẩm Free màu Xám & Thượng Phẩm VIP màu Vàng-Ngọc), mốc thưởng lớn Lv.90 và trình diễn Trang phục Lâm Dật bên phải.
+  
+
+Hình 8: Giao diện Hệ thống Nhiệm vụ 'THỬ THÁCH HÀNG NGÀY & HÀNG TUẦN' [H7] — Cột trái gồm Hàng Ngày (EXP) và Hàng Tuần (Tuần 1..4), giữa màn hình trưng bày Hồn Khí thưởng, bên phải là danh sách nhiệm vụ Thương Mang Cổ Vực.
+3. QUY CHUẨN DESIGN TOKENS, MÃ NGUỒN BỘ ĐẾM 7,2 GIÂY (*²) & CHECKLIST CHO CODING-AGENT
+Để Coding-Agent triển khai chính xác các thiết kế trên vào dự án Web/Three.js/Android APK hiện tại mà không làm phát sinh lỗi đè chữ hay lỗi tự động vào trận, dưới đây là bảng thông số CSS Design Tokens, đoạn mã mẫu xử lý bộ đếm 7,2 giây (*²) và danh sách nghiệm thu:
+Token Biến CSS
+	Giá Trị Mã Màu / Thuộc Tính
+	Mục Đích Sử Dụng & Giải Pháp Chống Đè Chữ Lên Cảnh 3D
+	--bg-panel-primary
+	rgba(11, 22, 28, 0.90)
+backdrop-filter: blur(10px)
+	Nền chuẩn cho mọi khung bảng (H1 Top Bar, H2 Nhân vật, H3 Danh sách, H4 Bạn bè, H5 Hồ sơ). Chặn hoàn toàn ánh sáng chói từ bệ đá 3D phía sau, đảm bảo chữ trắng/vàng nổi bật 100%.
+	--bg-card-slot
+	rgba(22, 36, 45, 0.95)
+border: 1px solid #C8A25A
+	Nền cho các ô vuông 1:1 (3 ô Nhánh tiến hóa, 3 ô Trợ phẩm, 7 ô Hồn cốt và thẻ Nhân vật).
+	--border-gold-accent
+	#C8A25A (Viền thường)
+#F59E0B (Viền đang chọn)
+	Viền kim loại cổ phong cho các khung bảng chính và hiệu ứng phát sáng (box-shadow) khi chọn Nhánh tiến hóa hoặc Nhân vật.
+	--cta-battle-gradient
+	linear-gradient(180deg, #FBBF24 0%, #D97706 100%)
+	Màu nút 'BẮT ĐẦU TRẬN ĐẤU' ở góc dưới phải (chữ #0F172A in đậm, viền sáng #FEF08A) tạo điểm nhấn Call-To-Action nổi bật.
+	
+
+MÃ NGUỒN MẪU CHUẨN CHO CODING-AGENT: BỘ ĐẾM 7,2 GIÂY (*²) & ĐỒNG BỘ DỮ LIỆU [H2 / H3]
+// 1. Quản lý bộ đếm 7.2 giây (*²) tự động chạy lại Hiệu ứng Xuất hiện nhân vật
+let entranceReplayTimer = null;
+const ENTRANCE_REPLAY_INTERVAL_MS = 7200; // Đúng 7.2 giây theo quy tắc (*²)
+
+
+function clearEntranceReplayTimer() {
+  if (entranceReplayTimer !== null) {
+    clearTimeout(entranceReplayTimer);
+    entranceReplayTimer = null;
+  }
+}
+
+
+function scheduleEntranceReplay(heroId) {
+  clearEntranceReplayTimer();
+  entranceReplayTimer = setTimeout(() => {
+    if (gameState.currentView === 'LOBBY_HON_THANH' && gameState.selectedHeroId === heroId) {
+      playHeroEntranceAnimation3D(heroId, { onComplete: () => scheduleEntranceReplay(heroId) });
+    }
+  }, ENTRANCE_REPLAY_INTERVAL_MS);
+}
+
+
+// 2. Hàm chọn nhân vật đồng bộ tức thì giữa Bảng Danh Sách [H3] và Khung Chi Tiết [H2/H3]
+function selectHeroInLobby(heroId) {
+  const heroData = HERO_DATABASE_V25[heroId]; // H01..H12 từ GDD V2.5
+  if (!heroData) return;
+  gameState.selectedHeroId = heroId;
+  renderHeroQuickPanelH2(heroData);
+  renderHeroDetailPanelH3(heroData);
+  updateTopLeftProfileAvatarH1(heroData.avatarUrl);
+  playHeroEntranceAnimation3D(heroId, { onComplete: () => scheduleEntranceReplay(heroId) });
+}
+	
+
+Bước
+	Hạng Mục Công Việc
+	Yêu Cầu Nghiệm Thu Kỹ Thuật (Definition of Done)
+	Ưu Tiên
+	Bước 1
+	Làm sạch Sảnh Chính [H1] & Xóa chữ Debug 3D
+	Xóa bỏ dòng chữ 'MỘC TINH TRƯỢNG / HUNYUAN · RIG...' dưới chân nhân vật; ẩn bảng thông số trái và khung Hành trang phải khỏi màn hình mặc định; gom cụm Chọn chế độ chơi về góc dưới phải ngay trên nút BẮT ĐẦU TRẬN ĐẤU (Hình 2).
+	P0 (Cao nhất)
+	Bước 2
+	Xây dựng Thanh Hồ Sơ Góc Trái [H1 - Khu vực ¹⁴]
+	Hiển thị đúng thứ tự: Avatar nhân vật hiện tại (1:1), Ảnh bìa, Tên người dùng, Cấp Bậc Tông Sư, Thanh Bảo (thay Vàng), Ngân Bảo (thay Kim cương), Cấp VIP, Thẻ VIP tuần và Nút tải tài nguyên (Hình 2).
+	P0 (Cao nhất)
+	Bước 3
+	Xây dựng Khung Nhân Vật [H2] mở từ ô cạnh nút Bắt Đầu
+	Bấm vào ô hình cái hộp bên trái nút Bắt đầu mở khung [H2]: Bỏ cột số 1..5 (⁰); đổi tiêu đề thành 'NHÂN VẬT' (¹); hiện 'TÊN NHÂN VẬT' (²), 'VÕ HỒN' (³), Ảnh nhân vật (⁴), Nút 'Cây viết chỉnh sửa' (*¹) (⁵), Bảng 8 thông số (⁶), 3 ô vuông 1:1 Nhánh tiến hóa (⁷) và 3 ô vuông 1:1 Trợ phẩm (⁸) (Hình 3).
+	P0 (Cao nhất)
+	Bước 4
+	Xây dựng Bảng Chọn Nhân Vật [H3] & Quy tắc 7,2 giây (*²)
+	Bấm vào icon Cây viết (*¹) mở bảng danh sách 12 nhân vật (bỏ hết các bộ lọc Chủ/Bị động, Tất cả/Đồng đội/Sinh tồn...). Chọn nhân vật tự động cập nhật mọi thông tin sang bảng đối diện và chạy Hiệu ứng Xuất hiện 3D ở giữa, tự động lặp lại sau mỗi 7,2 giây không đổi tướng (Hình 4).
+	P0 (Cao nhất)
+	Bước 5
+	Xây dựng Khung Bạn Bè [H4] & Giao Diện Hồ Sơ [H5]
+	Khung [H4] có đủ 3 tab (Bạn tổng, Bang hội, Trận trước), nút Reload, Tìm kiếm, TEAMCODE; danh sách dùng ảnh Hồn Sư họ đang chọn + Cấp Bậc Tông Sư + 3 icon mời/gia nhập/hẹn trận (Hình 5). Hồ sơ [H5] giữ đúng 5 tab trái và huy hiệu Hồn Lệnh (VIP vàng / Cày chay xám) (Hình 6).
+	P1 (Cao)
+	Bước 6
+	Hoàn thiện Hồn Lệnh [H6], Nhiệm Vụ [H7] & Hành Trang
+	Tích hợp giao diện Hồn Lệnh (Hình 7), Nhiệm vụ Ngày & Tuần (Hình 8); thay toàn bộ thẻ <select> dropdown trong Hành Trang bằng Slot Card 1:1 mở Drawer, sửa triệt để lỗi cắt khung dưới đáy.
+	P1 (Cao)

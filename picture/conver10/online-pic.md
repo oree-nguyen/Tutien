@@ -7178,7 +7178,7 @@ Nguồn: `eevee-preview.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 19:38:44 UTC+07:00**
 
-Nguồn: `pose-0-left-front.png`
+Nguồn: `pose-0-left-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v12-hand-review/pose-0-left-front.png`
 
 ## Ảnh 873
 
@@ -7186,7 +7186,7 @@ Nguồn: `pose-0-left-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 19:38:46 UTC+07:00**
 
-Nguồn: `pose-0-left-back.png`
+Nguồn: `pose-0-left-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v12-hand-review/pose-0-left-back.png`
 
 ## Ảnh 874
 
@@ -7194,7 +7194,7 @@ Nguồn: `pose-0-left-back.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 19:38:46 UTC+07:00**
 
-Nguồn: `pose-0-right-front.png`
+Nguồn: `pose-0-right-front.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v12-hand-review/pose-0-right-front.png`
 
 ## Ảnh 875
 
@@ -7202,4 +7202,4 @@ Nguồn: `pose-0-right-front.png`
 
 **Thời gian đăng ký ảnh: 2026-10-23 19:38:47 UTC+07:00**
 
-Nguồn: `pose-0-right-back.png`
+Nguồn: `pose-0-right-back.png`, `docs/anim-report/conver10-approved-repair-2026-10-21/hand-islands-v12-hand-review/pose-0-right-back.png`

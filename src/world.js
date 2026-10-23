@@ -41,6 +41,18 @@ import {
   disposeElementalEffect,
   prewarmElementalVfx,
 } from "./environment-vfx.js";
+function lobbyBackdrop(cosmic=false) {
+  const size=512,pixels=new Uint8Array(size*size*4);
+  for(let y=0;y<size;y++)for(let x=0;x<size;x++){
+    const nx=x/(size-1),ny=y/(size-1),glow=Math.exp(-((nx-.52)**2*8+(ny-.48)**2*5));
+    const edge=Math.abs(nx-.5)*2;
+    const rgb=cosmic?[6+glow*20,18+glow*47,30+glow*69]:[47+glow*49-edge*13,72+glow*54-edge*16,86+glow*54-edge*17];
+    const star=cosmic&&((x*73856093^y*19349663)>>>0)%4999<1?120:0;
+    const i=(y*size+x)*4;for(let c=0;c<3;c++)pixels[i+c]=Math.min(255,rgb[c]+star);pixels[i+3]=255;
+  }
+  const texture=new THREE.DataTexture(pixels,size,size);texture.colorSpace=THREE.SRGBColorSpace;texture.magFilter=THREE.LinearFilter;texture.minFilter=THREE.LinearFilter;texture.needsUpdate=true;return texture;
+}
+
 export class World {
   static async create(canvas){
     const renderer=new THREE.WebGLRenderer({canvas,antialias:false,powerPreference:'high-performance'});
@@ -219,6 +231,7 @@ export class World {
     });
   }
   replayHeroEntrance() {
+    this.lobbyEntranceStartedAt=performance.now();
     let asset;this.preview?.traverse(n=>{if(n.userData.manualHunyuan)asset=n.userData.manualAsset;});
     if(asset?.status==='failed'){
       const model=this.models.get('preview');this.releaseModelRings(model);this.dynamic.remove(model.group);this.models.delete('preview');this.preview=null;return;
@@ -258,6 +271,16 @@ export class World {
     this.showcaseView = value;
     if (this.preview)
       this.syncPortraitEquipment(this.preview, value === "face");
+  }
+  setLobbyComposition(value='home') {
+    const special=['profile','pass','quests'].includes(value);
+    if(special&&!['profile','pass','quests'].includes(this.lobbyComposition))this.savedLobbyView=this.showcaseView;
+    if(special)this.showcaseView='full';
+    else if(this.savedLobbyView){this.showcaseView=this.savedLobbyView;this.savedLobbyView=null;}
+    this.lobbyComposition=value;
+    const offset=({profile:.14,pass:-.24})[value]??0;
+    if(offset)this.camera.setViewOffset(innerWidth,innerHeight,innerWidth*offset,0,innerWidth,innerHeight);
+    else this.camera.clearViewOffset();
   }
   syncPortraitEquipment(group, faceView) {
     this.portraitEquipmentVisibility ??= new WeakMap();
@@ -415,6 +438,7 @@ export class World {
       h = innerHeight;
     this.renderer.setSize(w, h,false);
     this.camera.aspect = w / h;
+    if(this.lobbyComposition)this.setLobbyComposition(this.lobbyComposition);
     this.camera.updateProjectionMatrix();
     this.composer?.setPixelRatio(this.renderer.getPixelRatio());
     this.composer?.setSize(w, h);
@@ -441,7 +465,11 @@ export class World {
     this.renderer.toneMappingExposure=1;
     this.scenery.update(this.clock, match);
     this.sun.visible = this.mapRim.visible = this.mapAmbient.visible = !!match;
-    this.scene.background.setHex(match ? 0x142d36 : 0x6a8da1);
+    this.lobbyBackdrops??={home:lobbyBackdrop(),cosmic:lobbyBackdrop(true)};
+    this.matchBackdrop??=new THREE.Color(0x142d36);
+    const cosmic=!match&&['profile','pass','quests'].includes(this.lobbyComposition);
+    this.scene.background=match?this.matchBackdrop:cosmic?this.lobbyBackdrops.cosmic:this.lobbyBackdrops.home;
+    if(cosmic)this.scenery.sanctuary.visible=false;
     this.scene.fog.color.setHex(match ? 0x1f3b40 : 0x8baabb);
     this.scene.fog.density = match ? 0.011 : 0;
     const player = match?.player ?? { x: 0, z: 0 };this.localPlayerId=match?.player.id;
@@ -486,6 +514,7 @@ export class World {
           ...appearance,
         }).group;
         this.preview.scale.setScalar(2.4);
+        this.lobbyEntranceStartedAt=performance.now();
         this.models.get("preview").barBg.visible = false;
       }
       if (
@@ -505,6 +534,16 @@ export class World {
       this.preview.position.set(0, 0.74, 0);
       const previewModel = this.models.get("preview"),
         visual = previewModel.lod.levels[0]?.object;
+      // Legacy heroes have no authored Entrance clip. Present their existing model
+      // with a short rigid reveal; never deform or replace its geometry/rig.
+      const manual=usesManualHero({hero:hubHero,...appearance,kind:'hero'});
+      if(!manual){
+        const time=Math.max(0,(performance.now()-this.lobbyEntranceStartedAt)/1000);
+        const progress=Math.min(1,time/1.2),ease=1-Math.pow(1-progress,3);
+        this.preview.position.y+=.35*(1-ease);
+        this.preview.rotation.y-=.3*(1-ease);
+        this.lobbyPresentation={hero:hubHero,ready:true,complete:progress>=1,time};
+      }else this.lobbyPresentation=null;
       visual?.traverse(node=>{if(node.userData.manualHunyuan)node.userData.previewAnimation=!!this.showcaseAnimationMode;});
       const heroHeight =
         (visual?.userData.height ??
@@ -528,12 +567,19 @@ export class World {
         );
       const faceView = this.showcaseView === "face";
       const look=this._v1.set(0,.74+heroHeight*(faceView?.92:.53),0);
+      const sourceHead=visual?.getObjectByName('TencentSourceHead');
+      let sourceVisible=!!sourceHead;
+      for(let node=sourceHead;node;node=node.parent) if(!node.visible)sourceVisible=false;
       const head=visual?.getObjectByName('Head');
-      if(faceView&&head){head.getWorldPosition(look);look.y=Math.max(.74+heroHeight*.18,look.y+.24);}
+      if(faceView&&sourceVisible){
+        this.portraitSourceBounds??=new THREE.Box3();
+        this.portraitSourceBounds.setFromObject(sourceHead.parent).getCenter(look);
+        look.y=this.portraitSourceBounds.min.y+(this.portraitSourceBounds.max.y-this.portraitSourceBounds.min.y)*(visual?.userData.manualH02?.78:.88);
+      }else if(faceView&&head){head.getWorldPosition(look);look.y=Math.max(.74+heroHeight*.18,look.y+.24);}
       const entrance=visual?.userData.manualAsset?.entrance;
       const wideEntrance=!faceView&&entrance&&!entrance.complete&&entrance.time<(visual?.userData.manualH02?2.9:2.65);
       this.syncPortraitEquipment(this.preview, faceView);
-      const cameraTarget=this._v2.copy(look).add(this._v3.set(0,faceView?.03:wideEntrance?1.0:.7,faceView?2.6:wideEntrance?12.3:10.5));
+      const cameraTarget=this._v2.copy(look).add(this._v3.set(0,faceView?.03:wideEntrance?1.0:.7,faceView?2.6:this.lobbyComposition==='pass'?7.2:wideEntrance?12.3:10.5));
       if(!this.portraitCameraInitialized){this.camera.position.copy(cameraTarget);this.portraitLook=look.clone();this.portraitCameraInitialized=true;}
       else this.camera.position.lerp(cameraTarget,1-Math.exp(-12*dt));
       this.portraitLook.lerp(look,1-Math.exp(-12*dt));
