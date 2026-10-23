@@ -1,0 +1,25 @@
+✖ different motion payloads for the same hero cannot reuse stale cached curves (113.590766ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 294.574054
+
+✖ failing tests:
+
+test at tests/report-entrance.test.js:178:1
+✖ different motion payloads for the same hero cannot reuse stale cached curves (113.590766ms)
+  AssertionError [ERR_ASSERTION]: actual alternate motion must be sampled, not previous hero cache
+      at TestContext.<anonymous> (file:///workspace/Tutien/tests/report-entrance.test.js:182:9)
+      at async Test.run (node:internal/test_runner/test:1389:7)
+      at async startSubtestAfterBootstrap (node:internal/test_runner/harness:387:3) {
+    generatedMessage: false,
+    code: 'ERR_ASSERTION',
+    actual: false,
+    expected: true,
+    operator: '==',
+    diff: 'simple'
+  }

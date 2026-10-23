@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "/workspace/Tutien/tools/rig/cloth_grid_weights.py", line 143, in <module>
+    main()
+  File "/workspace/Tutien/tools/rig/cloth_grid_weights.py", line 115, in main
+    group_ids, group_weights = blend_root(ids[reps], weights[reps].astype(float), alpha, hip)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/Tutien/tools/rig/cloth_grid_weights.py", line 31, in blend_root
+    raise ValueError(f'Root bridge has no free support at source fan {v}')
+ValueError: Root bridge has no free support at source fan 48119
+node:internal/modules/run_main:107
+    triggerUncaughtException(
+    ^
+
+AssertionError [ERR_ASSERTION]: Secondary cloth support solve failed
+
+1 !== 0
+
+    at file:///workspace/Tutien/tools/rig/stage-secondary-cloth.mjs:50:319 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 1,
+  expected: 0,
+  operator: 'strictEqual',
+  diff: 'simple'
+}
+
+Node.js v24.19.0

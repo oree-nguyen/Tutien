@@ -55,7 +55,7 @@ Các manifest `hand-islands-v4-review`, `hand-islands-v6-review`, `hand-islands-
 
 Full-source oracle kiểm **1.499.726triangle / 4.499.178corner**, tất cả position/UV/normal/ảnh nguồn và fan. Exporter so payload trước/sau, IBM/core54 và mọi channel/keyframe của6clip legacy, cả các row không thuộc fan sửa. Giữ clip payload không có nghĩa đã retarget/author clip54bone đúng Gemini. Source H01 vẫn SHA `292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b`.
 
-Input cuff được kiểm lại từng position/index/fan và skin field so với GLB v4:886.671vertex,1.499.726triangle; [log audit](logs/approved-hand-cuff-input-audit.log). Không chép layout cũ rồi mặc định là còn đúng.
+Input cuff được kiểm lại từng position/index/fan và skin field so với GLB v4:886.671vertex,1.499.726triangle; [log audit](logs/hand-cuff-input-audit.log). Không chép layout cũ rồi mặc định là còn đúng.
 
 Các CLI mới trong `tools/rig/`: `source-hand-islands.py`, `export-source-hand-islands.mjs`, `prepare-hand-support-fit.mjs`, `assemble-hand-support-fit.mjs`, `prepare-hand-cuff-input.mjs`, `source-hand-cuff-continuation.py`, `capture-hand-support.mjs`. Tất cả chỉ xuất staging, giữ `accepted=false/activated=false`. Dùng thư mục mới khi chạy lại; không ghi đè một trial đã có receipt/GLB/archive. Parent đã archive phải restore theo `model-archive.json` trước.
 

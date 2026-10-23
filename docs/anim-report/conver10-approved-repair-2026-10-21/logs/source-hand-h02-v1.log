@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/workspace/Tutien/tools/rig/source-hand-heat.py", line 51, in <module>
+    if total.min()<1e-10:raise RuntimeError('Unweighted actual source hand vertices: '+str(int((total<1e-10).sum())))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Unweighted actual source hand vertices: 14175
+
+Error: script failed, file: 'tools/rig/source-hand-heat.py', exiting.
+Warning: Bone Heat Weighting: failed to find solution for one or more bones
+Blender 4.3.2
+
+Blender quit

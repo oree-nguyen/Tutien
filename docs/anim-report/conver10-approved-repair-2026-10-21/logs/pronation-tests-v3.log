@@ -1,0 +1,28 @@
+✔ offline two-link solver preserves source bone lengths and follows its pole (431.201345ms)
+✔ offline solver records unreachable ground target and never claims contact (63.822268ms)
+✔ unreachable contact exports bounded joints and retains the measured endpoint error (40.038824ms)
+✔ offline branch smoothing limits a measured jump while preserving the eventual endpoint (0.701911ms)
+✔ linked limb smoothing keeps knee and ankle at the same transition progress as the hip (0.538204ms)
+✔ bounded offline refinement recovers an attainable off-axis hinge contact without stretching bones (12.799668ms)
+✔ velocity-constrained offline fit reaches a nearby contact inside the per-frame angular budget (19.916726ms)
+✔ velocity-constrained fit keeps a distant target visibly unfulfilled instead of jumping to it (14.234459ms)
+✔ an exact feasible straight-foot source pose is not bent by the analytic reach seed margin (2.353211ms)
+✔ exact current FK cannot bypass the per-frame velocity constraint (30.261689ms)
+✔ the real H02 bind hierarchy retains its straight-foot contact after quaternion normalization (47.13541ms)
+✔ forearm pronation supplies missing anatomical DOF while elbow and wrist bounds stay strict (684.360306ms)
+✔ pronation helper cannot conceal a nonzero positional offset in a two-link solve (0.950055ms)
+✔ velocity constraint includes pronation and rejects incomplete history (65.956525ms)
+✔ calibrated nontrivial bind frames report bind zero and detect every flex overshoot (11.345635ms)
+✔ mirror-equivalent frames produce the same anatomical flex value (0.269516ms)
+✔ finger failure codes detect hyperextension, stretch and back-of-hand contact (0.304676ms)
+✔ physically mirrored limbs report identical abduction and internal rotation (0.556234ms)
+✔ a measured flexed rest hinge can straighten without weakening its physical limits (2.399505ms)
+✔ anatomical zero differs from A-pose and clamp retains that calibrated zero (3.01432ms)
+ℹ tests 20
+ℹ suites 0
+ℹ pass 20
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1307.122727

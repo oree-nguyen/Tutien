@@ -1,0 +1,9 @@
+file:///workspace/Tutien/tools/rig/source-bind-calibration.mjs:7
+  if(finger){const hand=handFrames[side],points=hand.fingers[finger[2]].points;target=new Vector3(...points[Number(finger[3])]);normal.fromArray(hand.n);type=['fingerMCP','fingerPIP','fingerDIP'][Number(finger[3])-1];if(finger[2]==='Thumb'&&finger[3]==='1'){const axis=target.clone().sub(position).normalize(),towardPalm=new Vector3(...hand.palmCenter).sub(position).projectOnPlane(axis).normalize();if(towardPalm.dot(normal)<.2)throw Error('Ambiguous source thumb flex plane');normal.copy(towardPalm);}}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                   ^
+
+Error: Ambiguous source thumb flex plane
+    at sourceBindCalibration (file:///workspace/Tutien/tools/rig/source-bind-calibration.mjs:7:436)
+    at file:///workspace/Tutien/tools/rig/fit-gemini-crouch.mjs:2:477
+
+Node.js v24.19.0

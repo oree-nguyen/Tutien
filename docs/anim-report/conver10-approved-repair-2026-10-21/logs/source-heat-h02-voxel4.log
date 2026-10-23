@@ -1,0 +1,11 @@
+Warning: Bone Heat Weighting: failed to find solution for one or more bones
+{"solver": "Blender ARMATURE_AUTO bone heat; optional source-derived voxel proxy, never legacy donor transfer", "voxelMetres": 0.004, "proxyVertices": 573670, "seconds": 14.130803101987112, "vertices": 895581, "triangles": 1499746, "joints": 52, "missingWeightVertices": 895581, "rankFiveSingularities": 0, "maximumDiscardedWeight": 0.0, "error": null, "weightsValid": false, "accepted": false, "activated": false, "scope": "Weight generation only; geometry/UV/images unchanged. Requires independent whole-animation, contact, provenance and appearance validation."}
+Blender 4.3.2
+file:///workspace/Tutien/tools/rig/source-heat-candidate.mjs:8
+const code=await new Promise((resolve,reject)=>{const c=spawn('blender',['-b','--python-exit-code','1','-t','4','--python','tools/rig/blender-source-heat.py','--',folder,'--voxel',String(voxel)],{stdio:'inherit'});c.on('error',reject);c.on('exit',resolve);});const receipt=JSON.parse(await fs.readFile(folder+'/heat-solve.json'));if(code!==0||!receipt.weightsValid)throw Error('Source bone heat rejected; no candidate exported');
+                                                                                                                                                                                                                                                                                                                                                                                   ^
+
+Error: Source bone heat rejected; no candidate exported
+    at file:///workspace/Tutien/tools/rig/source-heat-candidate.mjs:8:372
+
+Node.js v24.19.0

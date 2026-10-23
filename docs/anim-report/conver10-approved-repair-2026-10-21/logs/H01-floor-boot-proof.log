@@ -1,0 +1,107 @@
+{
+  "hero": "H01",
+  "input": ".local/rig-candidates/approved-source-cp-h01-floor-v1/H01-C0-rigged.glb",
+  "inputSha256": "36808d4db84a18d87eedbe6e6c82ae2bb3d039a3d78dd4d19e8eef451da39960",
+  "selection": ".local/rig-candidates/foot-source/H01/selection.json",
+  "selectionSha256": "e7e7b1c56dbcbe695446dc17a5a52b91841351729e2706b68cc1d6ff77d302fa",
+  "sourceSha256": "292c2631c63aa4f29dda978cd0441bea0a732034a570b5ce44d1ef462763f37b",
+  "accepted": false,
+  "activated": false,
+  "scope": "Exact graph-selected lower boot source vertices and underside patch skinned at frozen diagnostic FK poses; 5mm ground criteria and unchanged1.5/2.0 edge limits. Upstream failures retained; no complete animation or semantic acceptance inferred.",
+  "samples": [
+    {
+      "poseFile": "docs/anim-report/conver10-approved-repair-2026-10-21/H01-crouch-floor-v1.json",
+      "poseSha256": "e441302b0e610057543b4fd1dd7b6432076ab46c4523563be1f81929adee6caf",
+      "clip": null,
+      "time": null,
+      "upstreamPassed": true,
+      "sourcePoseRigSha256": "fcb7d05e7690ae8df5a6d6c4ec6df8d47bbf14f19dab736232b6982e1228a159",
+      "sides": {
+        "Left": {
+          "vertices": 19676,
+          "soleVertices": 661,
+          "minimumY": 5.801475942439863e-10,
+          "maximumY": 0.22823069749114697,
+          "soleMinimumY": 5.801475942439863e-10,
+          "soleMaximumY": 0.0029991751634294815,
+          "minimumSource": {
+            "nodeIndex": 0,
+            "primitiveIndex": 0,
+            "vertex": 50408,
+            "sourceVertexId": 50408,
+            "bind": [
+              0.18620696663856506,
+              0,
+              0.05197111889719963
+            ],
+            "posed": [
+              0.24620696514848883,
+              5.801475942439863e-10,
+              0.40197111832481036
+            ]
+          }
+        },
+        "Right": {
+          "vertices": 20638,
+          "soleVertices": 621,
+          "minimumY": -6.534207853611806e-13,
+          "maximumY": 0.28283935235219315,
+          "soleMinimumY": 0.02438903710099238,
+          "soleMaximumY": 0.09184205562468063,
+          "minimumSource": {
+            "nodeIndex": 0,
+            "primitiveIndex": 0,
+            "vertex": 24205,
+            "sourceVertexId": 24205,
+            "bind": [
+              -0.17712031304836273,
+              0.013525995425879955,
+              0.14002776145935059
+            ],
+            "posed": [
+              -0.12710560792733633,
+              -6.534207853611806e-13,
+              0.0103127420456273
+            ]
+          }
+        }
+      },
+      "edgeStrainPassed": true,
+      "strains": [
+        {
+          "node": "H01_Tencent_Original_Body",
+          "p999": 1.366785529198361,
+          "maximum": 1.4898903703005475,
+          "passed": true,
+          "issueCounts": {},
+          "worst": {
+            "a": 437778,
+            "b": 437727,
+            "bindLength": 0.0029932718808947803,
+            "posedLength": 0.004459646951036541,
+            "sourceA": [
+              -0.15978200733661652,
+              0.1934078484773636,
+              -0.09500260651111603
+            ],
+            "sourceB": [
+              -0.16103141009807587,
+              0.1961255669593811,
+              -0.09489002078771591
+            ],
+            "posedA": [
+              -0.13198127554194908,
+              0.2676691800174272,
+              0.01617886383797367
+            ],
+            "posedB": [
+              -0.1342190187313556,
+              0.26784410757948446,
+              0.02003247989230328
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

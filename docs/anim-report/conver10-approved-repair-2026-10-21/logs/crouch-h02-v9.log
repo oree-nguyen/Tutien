@@ -1,0 +1,30 @@
+H02 {
+  passed: false,
+  fits: [
+    {
+      chain: 'RightFoot',
+      passed: true,
+      positionError: 2.21987065799483e-13,
+      orientationError: 0
+    },
+    {
+      chain: 'LeftFoot',
+      passed: true,
+      positionError: 8.876700776608847e-13,
+      orientationError: 0
+    },
+    {
+      chain: 'RightHand',
+      passed: true,
+      positionError: 0.000012146549299885139,
+      orientationError: 0.006704630030676965
+    },
+    {
+      chain: 'LeftHand',
+      passed: false,
+      positionError: 0.01748318554011951,
+      orientationError: 20.766648996653696
+    }
+  ],
+  violations: 0
+}

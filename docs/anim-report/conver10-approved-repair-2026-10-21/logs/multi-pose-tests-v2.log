@@ -1,0 +1,21 @@
+.F...
+======================================================================
+FAIL: test_cli_cannot_drop_an_impossible_second_pose (test_pose_weight_fit.MultiPoseCoefficients.test_cli_cannot_drop_an_impossible_second_pose)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/Tutien/tools/rig/test_pose_weight_fit.py", line 61, in test_cli_cannot_drop_an_impossible_second_pose
+    self.assertEqual(result.returncode,0,result.stderr+result.stdout)
+AssertionError: 1 != 0 : Traceback (most recent call last):
+  File "/workspace/Tutien/tools/rig/pose_weight_fit.py", line 149, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/workspace/Tutien/tools/rig/pose_weight_fit.py", line 49, in main
+    assert re.fullmatch(r'\.local/rig-candidates/[a-z0-9-]+',str(args.output))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.191s
+
+FAILED (failures=1)

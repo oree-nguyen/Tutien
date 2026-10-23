@@ -1,0 +1,26 @@
+✔ offline two-link solver preserves source bone lengths and follows its pole (16.664547ms)
+✔ offline solver records unreachable ground target and never claims contact (6.559283ms)
+✔ unreachable contact exports bounded joints and retains the measured endpoint error (6.623301ms)
+✔ offline branch smoothing limits a measured jump while preserving the eventual endpoint (0.709838ms)
+✔ linked limb smoothing keeps knee and ankle at the same transition progress as the hip (0.358177ms)
+✔ bounded offline refinement recovers an attainable off-axis hinge contact without stretching bones (8.29344ms)
+✔ velocity-constrained offline fit reaches a nearby contact inside the per-frame angular budget (15.843894ms)
+✔ velocity-constrained fit keeps a distant target visibly unfulfilled instead of jumping to it (21.520712ms)
+✔ an exact feasible straight-foot source pose is not bent by the analytic reach seed margin (1.987771ms)
+✔ exact current FK cannot bypass the per-frame velocity constraint (8.117794ms)
+✔ the real H02 bind hierarchy retains its straight-foot contact after quaternion normalization (36.18817ms)
+✔ forearm pronation supplies missing anatomical DOF while elbow and wrist bounds stay strict (140.012711ms)
+✔ pronation helper cannot conceal a nonzero positional offset in a two-link solve (1.102756ms)
+✔ calibrated nontrivial bind frames report bind zero and detect every flex overshoot (2.678208ms)
+✔ mirror-equivalent frames produce the same anatomical flex value (0.191148ms)
+✔ finger failure codes detect hyperextension, stretch and back-of-hand contact (0.196937ms)
+✔ physically mirrored limbs report identical abduction and internal rotation (0.487285ms)
+✔ a measured flexed rest hinge can straighten without weakening its physical limits (0.826219ms)
+ℹ tests 18
+ℹ suites 0
+ℹ pass 18
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 287.365618
